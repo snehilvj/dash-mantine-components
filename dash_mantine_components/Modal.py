@@ -39,14 +39,17 @@ Keyword arguments:
     Inline style override.
 
 - title (string; optional):
-    Modal title, displayed in header before close button."""
+    Modal title, displayed in header before close button.
+
+- zIndex (number; optional):
+    Popper zIndex."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, opened=Component.UNDEFINED, overflow=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'opened', 'overflow', 'padding', 'size', 'style', 'title']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, opened=Component.UNDEFINED, overflow=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'opened', 'overflow', 'padding', 'size', 'style', 'title', 'zIndex']
         self._type = 'Modal'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'hideCloseButton', 'opened', 'overflow', 'padding', 'size', 'style', 'title']
+        self.available_properties = ['children', 'id', 'className', 'hideCloseButton', 'opened', 'overflow', 'padding', 'size', 'style', 'title', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

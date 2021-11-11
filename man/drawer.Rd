@@ -14,7 +14,7 @@ drawer(children=NULL, id=NULL, className=NULL,
 hideCloseButton=NULL, noCloseOnClickOutside=NULL,
 noCloseOnEscape=NULL, noFocusTrap=NULL, noOverlay=NULL,
 noScrollLock=NULL, opened=NULL, padding=NULL, position=NULL,
-size=NULL, title=NULL)
+size=NULL, title=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -45,6 +45,8 @@ size=NULL, title=NULL)
 \item{size}{Character | numeric. Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100\% for width}
 
 \item{title}{Character. Drawer title, displayed in header before close button}
+
+\item{zIndex}{Numeric. Popper zIndex}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

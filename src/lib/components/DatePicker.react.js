@@ -106,6 +106,9 @@ DatePicker.propTypes = {
         to: PropTypes.number,
     }),
 
+    /**	Popper zIndex */
+    zIndex: PropTypes.number,
+
     /** Selected date */
     date: PropTypes.string,
 };

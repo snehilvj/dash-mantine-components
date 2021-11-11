@@ -112,6 +112,9 @@ DateRangePicker.propTypes = {
         to: PropTypes.number,
     }),
 
+    /**	Popper zIndex */
+    zIndex: PropTypes.number,
+
     /** Selected date */
     dates: PropTypes.arrayOf(PropTypes.string),
 };

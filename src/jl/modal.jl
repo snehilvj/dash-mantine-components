@@ -21,9 +21,10 @@ Keyword arguments:
 - `size` (Real | String; optional): Modal body width
 - `style` (Dict; optional): Inline style override
 - `title` (String; optional): Modal title, displayed in header before close button
+- `zIndex` (Real; optional): Popper zIndex
 """
 function modal(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :hideCloseButton, :opened, :overflow, :padding, :size, :style, :title]
+        available_props = Symbol[:children, :id, :className, :hideCloseButton, :opened, :overflow, :padding, :size, :style, :title, :zIndex]
         wild_props = Symbol[]
         return Component("modal", "Modal", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

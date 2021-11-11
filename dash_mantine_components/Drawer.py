@@ -52,14 +52,17 @@ Keyword arguments:
     position), cannot exceed 100vh for height and 100% for width.
 
 - title (string; optional):
-    Drawer title, displayed in header before close button."""
+    Drawer title, displayed in header before close button.
+
+- zIndex (number; optional):
+    Popper zIndex."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'padding', 'position', 'size', 'title']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'padding', 'position', 'size', 'title', 'zIndex']
         self._type = 'Drawer'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'padding', 'position', 'size', 'title']
+        self.available_properties = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'padding', 'position', 'size', 'title', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -66,6 +66,9 @@ Modal.propTypes = {
     /** Modal title, displayed in header before close button */
     title: PropTypes.string,
 
+    /**	Popper zIndex */
+    zIndex: PropTypes.number,
+
     /** Inline style override */
     style: PropTypes.object,
 };
