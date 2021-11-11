@@ -1,0 +1,3845 @@
+{
+  "src/lib/components/Affix.react.js": {
+    "description": "Renders Affix at given element on mouse over or any other event. For more information, see: https://mantine.dev/core/affix/",
+    "displayName": "Affix",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Any react node that should trigger tooltip"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "position": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "top": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ],
+              "required": false
+            },
+            "left": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ],
+              "required": false
+            },
+            "bottom": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ],
+              "required": false
+            },
+            "right": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ],
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Fixed position in px"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Alert.react.js": {
+    "description": "Attract user attention with important static message. For more information, see: https://mantine.dev/core/alert/",
+    "displayName": "Alert",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Alert message"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Alert title and line colors from theme"
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Optional alert title"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Button.react.js": {
+    "description": "Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/",
+    "displayName": "Button",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times that this element has been clicked on",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "The component can show it is currently unable to be interacted with"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Button color from theme"
+      },
+      "compact": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Reduces vertical and horizontal spacing"
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Sets button width to 100% of parent element"
+      },
+      "gradient": {
+        "type": {
+          "name": "custom",
+          "raw": "GradientType"
+        },
+        "required": false,
+        "description": "Controls gradient settings in gradient variant only"
+      },
+      "loaderPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"right\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Loader position relative to button label"
+      },
+      "loading": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Indicate loading state"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Button border-radius from theme or number to set border-radius in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined button size"
+      },
+      "type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"submit\"",
+              "computed": false
+            },
+            {
+              "value": "\"button\"",
+              "computed": false
+            },
+            {
+              "value": "\"reset\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Button type attribute"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"link\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"outline\"",
+              "computed": false
+            },
+            {
+              "value": "\"light\"",
+              "computed": false
+            },
+            {
+              "value": "\"gradient\"",
+              "computed": false
+            },
+            {
+              "value": "\"white\"",
+              "computed": false
+            },
+            {
+              "value": "\"default\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Controls button appearance"
+      },
+      "uppercase": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set text-transform to uppercase"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Center.react.js": {
+    "description": "Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/center/",
+    "displayName": "Center",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content that should be centered vertically and horizontally"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "inline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to use inline-flex instead of flex"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Checkbox.react.js": {
+    "description": "Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/checkbox/",
+    "displayName": "Checkbox",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A checkbox can show it is currently unable to be interacted with"
+      },
+      "checked": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "State of check box",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Checkbox color"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Checkbox label"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined label font-size and checkbox width and height in px"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Chips.react.js": {
+    "description": "Alternative to Select and RadioGroup",
+    "displayName": "Chips",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "align": {
+        "type": {
+          "name": "custom",
+          "raw": "AlignContentProperty"
+        },
+        "required": false,
+        "description": "Defines align-items css property"
+      },
+      "options": {
+        "type": {
+          "name": "custom",
+          "raw": "OptionsType"
+        },
+        "required": false,
+        "description": "Chips"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Active chip color, defaults to theme.primaryColor"
+      },
+      "direction": {
+        "type": {
+          "name": "custom",
+          "raw": "Directions"
+        },
+        "required": false,
+        "description": "Defines flex-direction property, row for horizontal, column for vertical"
+      },
+      "grow": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
+      },
+      "noWrap": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Defined flex-wrap property"
+      },
+      "position": {
+        "type": {
+          "name": "custom",
+          "raw": "Positions"
+        },
+        "required": false,
+        "description": "Defines justify-content property"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Chip border-radius from theme or number to set value in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined chip size"
+      },
+      "spacing": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Spacing between chips from theme or number to set value in px"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Controlled component value"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"outline\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Controls chip appearance, defaults to filled with dark theme and to outline in light theme"
+      }
+    }
+  },
+  "src/lib/components/Col.react.js": {
+    "description": "Utility component to pass to Grid.For more information, see: https://mantine.dev/core/grid/",
+    "displayName": "Col",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Col content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "offset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Column left offset"
+      },
+      "span": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Default col span"
+      },
+      "xs": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Col span at (min-width: theme.breakpoints.xs)"
+      },
+      "sm": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Col span at (min-width: theme.breakpoints.sm)"
+      },
+      "md": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Col span at (min-width: theme.breakpoints.md)"
+      },
+      "lg": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Col span at (min-width: theme.breakpoints.lg)"
+      },
+      "xl": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Col span at (min-width: theme.breakpoints.xl)"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Container.react.js": {
+    "description": "Center content horizontally with predefined max-width. For more information, see: https://mantine.dev/core/container/",
+    "displayName": "Container",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content that should be centered vertically and horizontally"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "fluid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If fluid is set to true, size prop is ignored and Container always take 100% of width"
+      },
+      "padding": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Horizontal padding defined in theme.spacing, or number value for padding in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined container max-width or number for max-width in px"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/DatePicker.react.js": {
+    "description": "Capture date input from user",
+    "displayName": "DatePicker",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "clearable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow to clear value",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input description, displayed after label"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A Datepicker can show it is currently unable to be interacted with"
+      },
+      "dropdownType": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"modal\"",
+              "computed": false
+            },
+            {
+              "value": "\"popover\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where to show calendar in modal or popover"
+      },
+      "format": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "DatePicker display format"
+      },
+      "initialMonth": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial selected month"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input label, displayed before input"
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Maximum possible date"
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Minimum possible date"
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Placeholder, displayed when date is not selected",
+        "defaultValue": {
+          "value": "\"Select a date\"",
+          "computed": false
+        }
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Input border-radius from theme or number to set border-radius in px"
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds red asterisk on the right side of label"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Input size"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override",
+        "defaultValue": {
+          "value": "{ width: \"200px\" }",
+          "computed": false
+        }
+      },
+      "withSelect": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Replace calendar label with month and year selects"
+      },
+      "yearsRange": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "from": {
+              "name": "number",
+              "required": false
+            },
+            "to": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Years range for year select"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Selected date"
+      }
+    }
+  },
+  "src/lib/components/DateRangePicker.react.js": {
+    "description": "Capture date input from user. For more information, see: https://mantine.dev/dates/date-range-picker/",
+    "displayName": "DateRangePicker",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "clearable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow to clear value",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input description, displayed after label"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A DateRangePicker can show it is currently unable to be interacted with"
+      },
+      "dropdownType": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"modal\"",
+              "computed": false
+            },
+            {
+              "value": "\"popover\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where to show calendar in modal or popover"
+      },
+      "format": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "DateRangePicker display format"
+      },
+      "initialMonth": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial selected month"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input label, displayed before input"
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Maximum possible date"
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Minimum possible date"
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Placeholder, displayed when date is not selected",
+        "defaultValue": {
+          "value": "\"Select a date range\"",
+          "computed": false
+        }
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Input border-radius from theme or number to set border-radius in px"
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds red asterisk on the right side of label"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Input size"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override",
+        "defaultValue": {
+          "value": "{ width: \"350px\" }",
+          "computed": false
+        }
+      },
+      "withSelect": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Replace calendar label with month and year selects"
+      },
+      "yearsRange": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "from": {
+              "name": "number",
+              "required": false
+            },
+            "to": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Years range for year select"
+      },
+      "dates": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "Selected date"
+      }
+    }
+  },
+  "src/lib/components/Divider.react.js": {
+    "description": "Horizontal line with optional label or vertical divider. For more information, see: https://mantine.dev/core/divider/",
+    "displayName": "Divider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Adds text after line in horizontal orientation"
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Label position"
+      },
+      "orientation": {
+        "type": {
+          "name": "custom",
+          "raw": "Orientations"
+        },
+        "required": false,
+        "description": "Line orientation"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Sets height in horizontal orientation and width in vertical"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dashed\"",
+              "computed": false
+            },
+            {
+              "value": "\"dotted\"",
+              "computed": false
+            },
+            {
+              "value": "\"solid\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Divider borderStyle"
+      }
+    }
+  },
+  "src/lib/components/Drawer.react.js": {
+    "description": "Display overlay area at any side of the screen. For more information, see: https://mantine.dev/core/drawer/",
+    "displayName": "Drawer",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Drawer children components"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "hideCloseButton": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
+      },
+      "noCloseOnClickOutside": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Disable onClock trigger for outside events"
+      },
+      "noCloseOnEscape": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Disable onClock trigger for escape key press",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "noFocusTrap": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Disables focus trap",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "noOverlay": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Removes overlay entirely"
+      },
+      "noScrollLock": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Disables scroll lock"
+      },
+      "opened": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true drawer is mounted to the dom",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "padding": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Drawer body padding from theme or number for padding in px"
+      },
+      "position": {
+        "type": {
+          "name": "custom",
+          "raw": "Positions"
+        },
+        "required": false,
+        "description": "Drawer body position"
+      },
+      "size": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "custom",
+              "raw": "Sizes"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width"
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Drawer title, displayed in header before close button"
+      }
+    }
+  },
+  "src/lib/components/Grid.react.js": {
+    "description": "Flexbox grid system with variable amount of columns. For more information, see: https://mantine.dev/core/grid/",
+    "displayName": "Grid",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "align": {
+        "type": {
+          "name": "custom",
+          "raw": "AlignContentProperty"
+        },
+        "required": false,
+        "description": "Set grid align-content property"
+      },
+      "columns": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Amount of columns in each row"
+      },
+      "grow": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should columns in the last row take 100% of grid width"
+      },
+      "gutter": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Spacing between columns predefined value from theme.spacing or number for gutter in px"
+      },
+      "justify": {
+        "type": {
+          "name": "custom",
+          "raw": "JustifyContentProperty"
+        },
+        "required": false,
+        "description": "Set grid justify-content property"
+      }
+    }
+  },
+  "src/lib/components/Group.react.js": {
+    "description": "Compose elements and components in flex container. For more information, see: https://mantine.dev/core/group/",
+    "displayName": "Group",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Tab content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "align": {
+        "type": {
+          "name": "custom",
+          "raw": "AlignContentProperty"
+        },
+        "required": false,
+        "description": "Defines align-items css property"
+      },
+      "direction": {
+        "type": {
+          "name": "custom",
+          "raw": "Directions"
+        },
+        "required": false,
+        "description": "Defines flex-direction property, row for horizontal, column for vertical"
+      },
+      "grow": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
+      },
+      "noWrap": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Defined flex-wrap property"
+      },
+      "position": {
+        "type": {
+          "name": "custom",
+          "raw": "Positions"
+        },
+        "required": false,
+        "description": "Defines justify-content property"
+      },
+      "spacing": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Space between elements"
+      },
+      "withGutter": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Defines padding for the root component"
+      }
+    }
+  },
+  "src/lib/components/MediaQuery.react.js": {
+    "description": "Apply styles to children if media query matches. For more information, see: https://mantine.dev/core/media-query/",
+    "displayName": "MediaQuery",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content that should be centered vertically and horizontally"
+      },
+      "largerThan": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "inline": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Larger than given breakpoint or value in px, will be hidden on smaller viewport"
+      },
+      "query": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Any other media query"
+      },
+      "smallerThan": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Smaller than given breakpoint or value in px, will be hidden on larger viewport"
+      }
+    }
+  },
+  "src/lib/components/Modal.react.js": {
+    "description": "Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/",
+    "displayName": "Modal",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content that should be centered vertically and horizontally"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "hideCloseButton": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
+      },
+      "opened": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Mounts modal if true",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "overflow": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"inside\"",
+              "computed": false
+            },
+            {
+              "value": "\"outside\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Control vertical overflow behavior"
+      },
+      "padding": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Modal padding from theme or number value for padding in px"
+      },
+      "size": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "custom",
+              "raw": "Sizes"
+            },
+            {
+              "name": "number"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Modal body width"
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Modal title, displayed in header before close button"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/MultiSelect.react.js": {
+    "description": "Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/",
+    "displayName": "MultiSelect",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "clearable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow to clear value"
+      },
+      "options": {
+        "type": {
+          "name": "custom",
+          "raw": "OptionsType"
+        },
+        "required": false,
+        "description": "Select options used to renderer items in dropdown",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input description, displayed after label"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "The component can show it is currently unable to be interacted with"
+      },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input label, displayed before input"
+      },
+      "limit": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Limit amount of items displayed at a time for searchable select"
+      },
+      "maxDropdownHeight": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum dropdown height in px"
+      },
+      "nothingFound": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Nothing found label",
+        "defaultValue": {
+          "value": "\"No match found\"",
+          "computed": false
+        }
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Placeholder, displayed when date is not selected",
+        "defaultValue": {
+          "value": "\"Select items\"",
+          "computed": false
+        }
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Input border-radius from theme or number to set border-radius in px"
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds red asterisk on the right side of label"
+      },
+      "searchable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to enable search",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Input size"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "value": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "Selected value"
+      }
+    }
+  },
+  "src/lib/components/Notification.react.js": {
+    "description": "Show dynamic notifications and alerts to user, part of notifications system. For more information, see: https://mantine.dev/core/notification/",
+    "displayName": "Notification",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Notification body, place main text here"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Notification line or icon color"
+      },
+      "loading": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Replaces colored line or icon with Loader component"
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Notification title, displayed before body"
+      }
+    }
+  },
+  "src/lib/components/Prism.react.js": {
+    "description": "Code highlight with Mantine theme colors and styles. For more information, see: https://mantine.dev/others/prism/",
+    "displayName": "Prism",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "code": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "Code which will be highlighted"
+      },
+      "colorScheme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"light\"",
+              "computed": false
+            },
+            {
+              "value": "\"dark\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Force color scheme, defaults to theme.colorScheme"
+      },
+      "copiedLabel": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Copy button tooltip in copied state"
+      },
+      "copyLabel": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Copy button tooltip"
+      },
+      "highlightLines": {
+        "type": {
+          "name": "objectOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "color": {
+                "name": "custom",
+                "raw": "MantineColors",
+                "required": false
+              },
+              "label": {
+                "name": "string",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "Highlight line at given line number with color from theme.colors"
+      },
+      "language": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"markup\"",
+              "computed": false
+            },
+            {
+              "value": "\"bash\"",
+              "computed": false
+            },
+            {
+              "value": "\"clike\"",
+              "computed": false
+            },
+            {
+              "value": "\"c\"",
+              "computed": false
+            },
+            {
+              "value": "\"cpp\"",
+              "computed": false
+            },
+            {
+              "value": "\"css\"",
+              "computed": false
+            },
+            {
+              "value": "\"javascript\"",
+              "computed": false
+            },
+            {
+              "value": "\"jsx\"",
+              "computed": false
+            },
+            {
+              "value": "\"coffeescript\"",
+              "computed": false
+            },
+            {
+              "value": "\"actionscript\"",
+              "computed": false
+            },
+            {
+              "value": "\"css-extr\"",
+              "computed": false
+            },
+            {
+              "value": "\"diff\"",
+              "computed": false
+            },
+            {
+              "value": "\"git\"",
+              "computed": false
+            },
+            {
+              "value": "\"go\"",
+              "computed": false
+            },
+            {
+              "value": "\"graphql\"",
+              "computed": false
+            },
+            {
+              "value": "\"handlebars\"",
+              "computed": false
+            },
+            {
+              "value": "\"json\"",
+              "computed": false
+            },
+            {
+              "value": "\"less\"",
+              "computed": false
+            },
+            {
+              "value": "\"makefile\"",
+              "computed": false
+            },
+            {
+              "value": "\"markdown\"",
+              "computed": false
+            },
+            {
+              "value": "\"objectivec\"",
+              "computed": false
+            },
+            {
+              "value": "\"ocaml\"",
+              "computed": false
+            },
+            {
+              "value": "\"python\"",
+              "computed": false
+            },
+            {
+              "value": "\"reason\"",
+              "computed": false
+            },
+            {
+              "value": "\"sass\"",
+              "computed": false
+            },
+            {
+              "value": "\"scss\"",
+              "computed": false
+            },
+            {
+              "value": "\"sql\"",
+              "computed": false
+            },
+            {
+              "value": "\"stylus\"",
+              "computed": false
+            },
+            {
+              "value": "\"tsx\"",
+              "computed": false
+            },
+            {
+              "value": "\"typescript\"",
+              "computed": false
+            },
+            {
+              "value": "\"wasm\"",
+              "computed": false
+            },
+            {
+              "value": "\"yaml\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": true,
+        "description": "Programming language that should be highlighted"
+      },
+      "noCopy": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "True to remove copy to clipboard button"
+      },
+      "withLineNumbers": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Display line numbers"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/RadioGroup.react.js": {
+    "description": "Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/radio-group/",
+    "displayName": "RadioGroup",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "options": {
+        "type": {
+          "name": "custom",
+          "raw": "SimpleOptionsType"
+        },
+        "required": false,
+        "description": "RadioGroup options"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Active radio color from theme.colors"
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input description, displayed after label"
+      },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input label, displayed before input"
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds red asterisk on the right side of label"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined label fontSize, radio width, height and border-radius"
+      },
+      "spacing": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Spacing between radios in horizontal variant"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Value of currently selected radio (controlled)"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"horizontal\"",
+              "computed": false
+            },
+            {
+              "value": "\"vertical\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Radios position"
+      }
+    }
+  },
+  "src/lib/components/RangeSlider.react.js": {
+    "description": "Capture user feedback from a range of values",
+    "displayName": "RangeSlider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'dark'",
+              "computed": false
+            },
+            {
+              "value": "'gray'",
+              "computed": false
+            },
+            {
+              "value": "'red'",
+              "computed": false
+            },
+            {
+              "value": "'pink'",
+              "computed": false
+            },
+            {
+              "value": "'grape'",
+              "computed": false
+            },
+            {
+              "value": "'violet'",
+              "computed": false
+            },
+            {
+              "value": "'indigo'",
+              "computed": false
+            },
+            {
+              "value": "'blue'",
+              "computed": false
+            },
+            {
+              "value": "'cyan'",
+              "computed": false
+            },
+            {
+              "value": "'teal'",
+              "computed": false
+            },
+            {
+              "value": "'green'",
+              "computed": false
+            },
+            {
+              "value": "'lime'",
+              "computed": false
+            },
+            {
+              "value": "'yellow'",
+              "computed": false
+            },
+            {
+              "value": "'orange'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Slider color"
+      },
+      "labelAlwaysOn": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true label will be not be hidden when user stops dragging"
+      },
+      "marks": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "mark's label",
+                "required": true
+              },
+              "value": {
+                "name": "number",
+                "description": "mark's value",
+                "required": true
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "Marks which will be placed on the track"
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum possible value"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimal possible value"
+      },
+      "minRange": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimal range interval"
+      },
+      "radius": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'xs'",
+                  "computed": false
+                },
+                {
+                  "value": "'sm'",
+                  "computed": false
+                },
+                {
+                  "value": "'md'",
+                  "computed": false
+                },
+                {
+                  "value": "'lg'",
+                  "computed": false
+                },
+                {
+                  "value": "'xl'",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Track border-radius from theme or number to set border-radius in px"
+      },
+      "size": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'xs'",
+              "computed": false
+            },
+            {
+              "value": "'sm'",
+              "computed": false
+            },
+            {
+              "value": "'md'",
+              "computed": false
+            },
+            {
+              "value": "'lg'",
+              "computed": false
+            },
+            {
+              "value": "'xl'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Predefined track and thumb size, number to set sizes in px"
+      },
+      "step": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number by which value will be incremented/decremented with thumb drag and arrows"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "value": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "number"
+          }
+        },
+        "required": false,
+        "description": "Current value for controlled slider"
+      }
+    }
+  },
+  "src/lib/components/SegmentedControl.react.js": {
+    "description": "Horizontal control made of multiple segments, alternative to RadioGroup. For more information, see: https://mantine.dev/core/segmented-control/",
+    "displayName": "SegmentedControl",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark"
+      },
+      "data": {
+        "type": {
+          "name": "custom",
+          "raw": "SimpleOptionsType.isRequired"
+        },
+        "required": false,
+        "description": "Data based on which controls are rendered"
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "True if component should have 100% width"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Border-radius from theme or number to set border-radius in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Controls font-size, paddings and height"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Current selected value"
+      }
+    }
+  },
+  "src/lib/components/Select.react.js": {
+    "description": "Custom searchable select. For more information, see: https://mantine.dev/core/select/",
+    "displayName": "Select",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "clearable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow to clear value"
+      },
+      "options": {
+        "type": {
+          "name": "custom",
+          "raw": "OptionsType"
+        },
+        "required": false,
+        "description": "Select options used to renderer items in dropdown",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input description, displayed after label"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "The component can show it is currently unable to be interacted with"
+      },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input label, displayed before input"
+      },
+      "limit": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Limit amount of items displayed at a time for searchable select"
+      },
+      "maxDropdownHeight": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum dropdown height in px"
+      },
+      "nothingFound": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Nothing found label",
+        "defaultValue": {
+          "value": "\"No match found\"",
+          "computed": false
+        }
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Placeholder, displayed when date is not selected",
+        "defaultValue": {
+          "value": "\"Select item\"",
+          "computed": false
+        }
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Input border-radius from theme or number to set border-radius in px"
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds red asterisk on the right side of label"
+      },
+      "searchable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to enable search",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Input size"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Selected value"
+      }
+    }
+  },
+  "src/lib/components/SimpleGrid.react.js": {
+    "description": "Responsive grid where each item takes equal amount of space. For more information, see: https://mantine.dev/core/simple-grid/",
+    "displayName": "SimpleGrid",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "<Col /> components only"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "breakpoints": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "maxWidth": {
+              "name": "number",
+              "required": true
+            },
+            "cols": {
+              "name": "number",
+              "required": true
+            },
+            "spacing": {
+              "name": "custom",
+              "raw": "NumberSizes",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Breakpoints data to change items per row and spacing based on max-width"
+      },
+      "cols": {
+        "type": {
+          "name": "number"
+        },
+        "required": true,
+        "description": "Default amount of columns, used when none of breakpoints can be applied"
+      },
+      "spacing": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Default spacing between columns, used when none of breakpoints can be applied"
+      }
+    }
+  },
+  "src/lib/components/Slider.react.js": {
+    "description": "Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/",
+    "displayName": "Slider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Slider color"
+      },
+      "labelAlwaysOn": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true label will be not be hidden when user stops dragging"
+      },
+      "marks": {
+        "type": {
+          "name": "custom",
+          "raw": "SimpleOptionsType"
+        },
+        "required": false,
+        "description": "Marks which will be placed on the track"
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum possible value"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimal possible value"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Track border-radius from theme or number to set border-radius in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined track and thumb size, number to set sizes in px"
+      },
+      "step": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number by which value will be incremented/decremented with thumb drag and arrows"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Current value for controlled slider"
+      },
+      "drag_value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Current drag value for controlled slider"
+      }
+    }
+  },
+  "src/lib/components/Space.react.js": {
+    "description": "Add horizontal or vertical spacing from theme. For more information, see: https://mantine.dev/core/space/",
+    "displayName": "Space",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Tab content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "h": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Height, set to add vertical spacing"
+      },
+      "w": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Width, set to add horizontal spacing"
+      }
+    }
+  },
+  "src/lib/components/Switch.react.js": {
+    "description": "Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/switch/",
+    "displayName": "Switch",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Checkbox color"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A checkbox can show it is currently unable to be interacted with"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Checkbox label"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined label font-size and checkbox width and height in px"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "checked": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "State of check box",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/Tab.react.js": {
+    "description": "Utility component to pass to Tabs. For more information, see: https://mantine.dev/core/tabs/",
+    "displayName": "Tab",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Tab content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A tab can show it is currently unable to be interacted with"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Tab control label"
+      }
+    }
+  },
+  "src/lib/components/Table.react.js": {
+    "description": "A simple table component. For more information, see: https://mantine.dev/core/table/",
+    "displayName": "Table",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "caption": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Table description"
+      },
+      "captionSide": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"bottom\"",
+              "computed": false
+            },
+            {
+              "value": "\"top\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Table caption position",
+        "defaultValue": {
+          "value": "\"bottom\"",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "columns": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "Table columns",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "rows": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "arrayOf",
+            "value": {
+              "name": "custom",
+              "raw": "PropTypes.oneOfType[(PropTypes.string, PropTypes.number)]"
+            }
+          }
+        },
+        "required": false,
+        "description": "Table rows",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "highlightOnHover": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true row will have hover color"
+      },
+      "striped": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true every odd row of table will have gray background color"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Tabs.react.js": {
+    "description": "Switch between different views. For more information, see: https://mantine.dev/core/tabs/",
+    "displayName": "Tabs",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "<Tab /> components only"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Active tab color from theme.colors"
+      },
+      "grow": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "True if tabs should take all available space"
+      },
+      "orientation": {
+        "type": {
+          "name": "custom",
+          "raw": "Orientations"
+        },
+        "required": false,
+        "description": "Controls tab orientation"
+      },
+      "position": {
+        "type": {
+          "name": "custom",
+          "raw": "Positions"
+        },
+        "required": false,
+        "description": "Tab controls position"
+      },
+      "tabPadding": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Controls tab content padding-top"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"outline\"",
+              "computed": false
+            },
+            {
+              "value": "\"pills\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Controls appearance"
+      },
+      "active": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Index of active tab, overrides internal state"
+      }
+    }
+  },
+  "src/lib/components/Text.react.js": {
+    "description": "Render text and links with theme styles. For more information, see: https://mantine.dev/core/text/",
+    "displayName": "Text",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "align": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Sets text-align css property"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Text color from theme"
+      },
+      "gradient": {
+        "type": {
+          "name": "custom",
+          "raw": "GradientType"
+        },
+        "required": false,
+        "description": "Controls gradient settings in gradient variant only"
+      },
+      "inherit": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Inherit font properties from parent element"
+      },
+      "inline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Sets line-height to 1 for centering"
+      },
+      "lineClamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "CSS -webkit-line-clamp property"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Button border-radius from theme or number to set border-radius in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined font-size from theme.fontSizes"
+      },
+      "transform": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"capitalize\"",
+              "computed": false
+            },
+            {
+              "value": "\"uppercase\"",
+              "computed": false
+            },
+            {
+              "value": "\"lowercase\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Sets text-transform css property"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"link\"",
+              "computed": false
+            },
+            {
+              "value": "\"gradient\"",
+              "computed": false
+            },
+            {
+              "value": "\"text\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Link or text variant"
+      },
+      "weight": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"normal\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bold\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bolder\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lighter\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"initial\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"inherit\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Sets font-weight css property"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/TextInput.react.js": {
+    "description": "Custom input with label and description. For more information, see: https://mantine.dev/core/text-input/",
+    "displayName": "TextInput",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input description, displayed after label"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "The component can show it is currently unable to be interacted with"
+      },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input label, displayed before input"
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Will input have multiple lines?"
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Placeholder, displayed when date is not selected"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Input border-radius from theme or number to set border-radius in px"
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds red asterisk on the right side of label"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Input size"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The type of control to render."
+      },
+      "value": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Input value",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/Title.react.js": {
+    "description": "h1-h6 headings. For more information, see: https://mantine.dev/core/title/",
+    "displayName": "Title",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "align": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Sets text-align css property"
+      },
+      "order": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Defines component and styles which will be used"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
+  "src/lib/components/Tooltip.react.js": {
+    "description": "Renders tooltip at given element on mouse over or any other event. For more information, see: https://mantine.dev/core/tooltip/",
+    "displayName": "Tooltip",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "arrowSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Arrow size in px"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Any react node that should trigger tooltip"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme"
+      },
+      "delay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Close delay in ms, 0 to disable delay"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "True to disable tooltip"
+      },
+      "gutter": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Spacing between element and popper in px"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "Tooltip content"
+      },
+      "placement": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"end\"",
+              "computed": false
+            },
+            {
+              "value": "\"start\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Placement relative to reference element"
+      },
+      "position": {
+        "type": {
+          "name": "custom",
+          "raw": "Positions"
+        },
+        "required": false,
+        "description": "Position relative to reference element"
+      },
+      "width": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "number"
+            },
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"auto\"",
+                  "computed": false
+                }
+              ]
+            }
+          ]
+        },
+        "required": false,
+        "description": "Tooltip width in px or auto"
+      },
+      "withArrow": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Renders arrow if true"
+      },
+      "wrapLines": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow multiline tooltip content"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Popper z-index"
+      }
+    }
+  }
+}

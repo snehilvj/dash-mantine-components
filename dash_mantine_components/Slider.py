@@ -1,0 +1,69 @@
+# AUTO GENERATED FILE - DO NOT EDIT
+
+from dash.development.base_component import Component, _explicitize_args
+
+
+class Slider(Component):
+    """A Slider component.
+Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
+
+Keyword arguments:
+
+- id (string; optional):
+    The ID of this component, used to identify dash components in
+    callbacks.
+
+- className (string; optional):
+    Often used with CSS to style elements with common properties.
+
+- color (optional):
+    Slider color.
+
+- drag_value (number; optional):
+    Current drag value for controlled slider.
+
+- labelAlwaysOn (boolean; optional):
+    If True label will be not be hidden when user stops dragging.
+
+- marks (optional):
+    Marks which will be placed on the track.
+
+- max (number; optional):
+    Maximum possible value.
+
+- min (number; optional):
+    Minimal possible value.
+
+- radius (optional):
+    Track border-radius from theme or number to set border-radius in
+    px.
+
+- size (optional):
+    Predefined track and thumb size, number to set sizes in px.
+
+- step (number; optional):
+    Number by which value will be incremented/decremented with thumb
+    drag and arrows.
+
+- style (dict; optional):
+    Inline style override.
+
+- value (number; optional):
+    Current value for controlled slider."""
+    @_explicitize_args
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, labelAlwaysOn=Component.UNDEFINED, marks=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, step=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, drag_value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'drag_value', 'labelAlwaysOn', 'marks', 'max', 'min', 'radius', 'size', 'step', 'style', 'value']
+        self._type = 'Slider'
+        self._namespace = 'dash_mantine_components'
+        self._valid_wildcard_attributes =            []
+        self.available_properties = ['id', 'className', 'color', 'drag_value', 'labelAlwaysOn', 'marks', 'max', 'min', 'radius', 'size', 'step', 'style', 'value']
+        self.available_wildcard_properties =            []
+        _explicit_args = kwargs.pop('_explicit_args')
+        _locals = locals()
+        _locals.update(kwargs)  # For wildcard attrs
+        args = {k: _locals[k] for k in _explicit_args if k != 'children'}
+        for k in []:
+            if k not in args:
+                raise TypeError(
+                    'Required argument `' + k + '` was not specified.')
+        super(Slider, self).__init__(**args)
