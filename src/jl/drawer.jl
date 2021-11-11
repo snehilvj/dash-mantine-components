@@ -25,9 +25,10 @@ Keyword arguments:
 - `position` (optional): Drawer body position
 - `size` (String | Real; optional): Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
 - `title` (String; optional): Drawer title, displayed in header before close button
+- `zIndex` (Real; optional): Popper zIndex
 """
 function drawer(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :hideCloseButton, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :padding, :position, :size, :title]
+        available_props = Symbol[:children, :id, :className, :hideCloseButton, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :padding, :position, :size, :title, :zIndex]
         wild_props = Symbol[]
         return Component("drawer", "Drawer", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

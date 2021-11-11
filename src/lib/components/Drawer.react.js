@@ -82,6 +82,9 @@ Drawer.propTypes = {
 
     /** Drawer title, displayed in header before close button */
     title: PropTypes.string,
+
+    /**	Popper zIndex */
+    zIndex: PropTypes.number,
 };
 
 export default Drawer;

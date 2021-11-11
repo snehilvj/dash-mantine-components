@@ -30,9 +30,10 @@ Keyword arguments:
 Those elements have the following types:
   - `from` (Real; optional)
   - `to` (Real; optional)
+- `zIndex` (Real; optional): Popper zIndex
 """
 function datepicker(; kwargs...)
-        available_props = Symbol[:id, :className, :clearable, :date, :description, :disabled, :dropdownType, :format, :initialMonth, :label, :maxDate, :minDate, :placeholder, :radius, :required, :size, :style, :withSelect, :yearsRange]
+        available_props = Symbol[:id, :className, :clearable, :date, :description, :disabled, :dropdownType, :format, :initialMonth, :label, :maxDate, :minDate, :placeholder, :radius, :required, :size, :style, :withSelect, :yearsRange, :zIndex]
         wild_props = Symbol[]
         return Component("datepicker", "DatePicker", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

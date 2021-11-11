@@ -73,14 +73,17 @@ Keyword arguments:
 
     - from (number; optional)
 
-    - to (number; optional)"""
+    - to (number; optional)
+
+- zIndex (number; optional):
+    Popper zIndex."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, clearable=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, dropdownType=Component.UNDEFINED, format=Component.UNDEFINED, initialMonth=Component.UNDEFINED, label=Component.UNDEFINED, maxDate=Component.UNDEFINED, minDate=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, withSelect=Component.UNDEFINED, yearsRange=Component.UNDEFINED, date=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'clearable', 'date', 'description', 'disabled', 'dropdownType', 'format', 'initialMonth', 'label', 'maxDate', 'minDate', 'placeholder', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, clearable=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, dropdownType=Component.UNDEFINED, format=Component.UNDEFINED, initialMonth=Component.UNDEFINED, label=Component.UNDEFINED, maxDate=Component.UNDEFINED, minDate=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, withSelect=Component.UNDEFINED, yearsRange=Component.UNDEFINED, zIndex=Component.UNDEFINED, date=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'clearable', 'date', 'description', 'disabled', 'dropdownType', 'format', 'initialMonth', 'label', 'maxDate', 'minDate', 'placeholder', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
         self._type = 'DatePicker'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'clearable', 'date', 'description', 'disabled', 'dropdownType', 'format', 'initialMonth', 'label', 'maxDate', 'minDate', 'placeholder', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange']
+        self.available_properties = ['id', 'className', 'clearable', 'date', 'description', 'disabled', 'dropdownType', 'format', 'initialMonth', 'label', 'maxDate', 'minDate', 'placeholder', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

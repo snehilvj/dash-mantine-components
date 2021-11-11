@@ -14,7 +14,8 @@ dateRangePicker(id=NULL, className=NULL, clearable=NULL, dates=NULL,
 description=NULL, disabled=NULL, dropdownType=NULL,
 format=NULL, initialMonth=NULL, label=NULL, maxDate=NULL,
 minDate=NULL, placeholder=NULL, radius=NULL, required=NULL,
-size=NULL, style=NULL, withSelect=NULL, yearsRange=NULL)
+size=NULL, style=NULL, withSelect=NULL, yearsRange=NULL,
+zIndex=NULL)
 }
 
 \arguments{
@@ -58,6 +59,8 @@ size=NULL, style=NULL, withSelect=NULL, yearsRange=NULL)
 those elements have the following types:
   - from (numeric; optional)
   - to (numeric; optional). Years range for year select}
+
+\item{zIndex}{Numeric. Popper zIndex}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

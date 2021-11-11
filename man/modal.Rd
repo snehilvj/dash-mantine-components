@@ -12,7 +12,7 @@ Centers content vertically and horizontally. For more information, see: https://
 \usage{
 modal(children=NULL, id=NULL, className=NULL,
 hideCloseButton=NULL, opened=NULL, overflow=NULL,
-padding=NULL, size=NULL, style=NULL, title=NULL)
+padding=NULL, size=NULL, style=NULL, title=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -35,6 +35,8 @@ padding=NULL, size=NULL, style=NULL, title=NULL)
 \item{style}{Named list. Inline style override}
 
 \item{title}{Character. Modal title, displayed in header before close button}
+
+\item{zIndex}{Numeric. Popper zIndex}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

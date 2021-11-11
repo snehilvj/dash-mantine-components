@@ -933,6 +933,13 @@
         "required": false,
         "description": "Years range for year select"
       },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Popper zIndex"
+      },
       "date": {
         "type": {
           "name": "string"
@@ -1113,6 +1120,13 @@
         },
         "required": false,
         "description": "Years range for year select"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Popper zIndex"
       },
       "dates": {
         "type": {
@@ -1355,6 +1369,13 @@
         },
         "required": false,
         "description": "Drawer title, displayed in header before close button"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Popper zIndex"
       }
     }
   },
@@ -1678,6 +1699,13 @@
         },
         "required": false,
         "description": "Modal title, displayed in header before close button"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Popper zIndex"
       },
       "style": {
         "type": {
