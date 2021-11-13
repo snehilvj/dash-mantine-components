@@ -8,6 +8,42 @@ Dash Mantine Components is a Dash component library based on [Mantine](https://m
 pip install dash-mantine-components
 ```
 
+## Available Components
+
+[Slider](examples/slider.py)
+Group
+Notification
+RadioGroup
+Table
+Tooltip
+Container
+Col
+Text
+TextInput
+Drawer
+Center
+Alert
+Tabs
+Checkbox
+Select
+Affix
+Divider
+Chips
+Tab
+DatePicker
+Title
+Space
+Modal
+Grid
+RangeSlider
+DateRangePicker
+Button
+Switch
+MultiSelect
+SegmentedControl
+SimpleGrid
+Prism
+
 ## Quickstart
 
 ```python
