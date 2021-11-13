@@ -10,39 +10,37 @@ pip install dash-mantine-components
 
 ## Available Components
 
-[Slider](examples/slider.py)
-Group
-Notification
-RadioGroup
-Table
-Tooltip
-Container
-Col
-Text
-TextInput
-Drawer
-Center
-Alert
-Tabs
-Checkbox
-Select
-Affix
-Divider
-Chips
-Tab
-DatePicker
-Title
-Space
-Modal
-Grid
-RangeSlider
-DateRangePicker
-Button
-Switch
-MultiSelect
-SegmentedControl
-SimpleGrid
-Prism
+-   [Affix](examples/affix.py)
+-   [Alert](examples/alert.py)
+-   [Button](examples/button.py)
+-   [Center](examples/center.py)
+-   [Checkbox](examples/checkbox.py)
+-   [Chips](examples/ships.py)
+-   Col
+-   [Container](examples/container.py)
+-   [DatePicker](examples/datepicker.py)
+-   [DateRangePicker](examples/datepicker.py)
+-   [Divider](examples/divider.py)
+-   [Drawer](examples/drawer.py)
+-   [Grid](examples/grid.py)
+-   [Group](examples/group.py)
+-   [Modal](examples/modal.py)
+-   [MultiSelect](examples/multiselect.py)
+-   [Notification](examples/notification.py)
+-   [Prism](examples/prism.py)
+-   [RadioGroup](examples/radiogroup.py)
+-   [SegmentedControl](examples/segmentedcontrol.py)
+-   [Select](examples/select.py)
+-   [SimpleGrid](examples/simplegrid.py)
+-   [Slider](examples/slider.py)
+-   Space
+-   [Switch](examples/switch.py)
+-   Tab
+-   [Tabs](examples/tabs.py)
+-   Text
+-   [TextInput](examples/textinput.py)
+-   Title
+-   [Tooltip](examples/tooltip.py)
 
 ## Quickstart
 
