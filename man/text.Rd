@@ -17,7 +17,7 @@ transform=NULL, variant=NULL, weight=NULL)
 }
 
 \arguments{
-\item{children}{Character. Primary content}
+\item{children}{A list of or a singular dash component, string or number. Primary content}
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 

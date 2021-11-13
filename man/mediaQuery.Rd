@@ -10,18 +10,18 @@ Apply styles to children if media query matches. For more information, see: http
 }
 
 \usage{
-mediaQuery(children=NULL, id=NULL, inline=NULL, largerThan=NULL,
+mediaQuery(children=NULL, id=NULL, className=NULL, largerThan=NULL,
 query=NULL, smallerThan=NULL)
 }
 
 \arguments{
-\item{children}{A list of or a singular dash component, string or number. Content that should be centered vertically and horizontally}
+\item{children}{A list of or a singular dash component, string or number. Child that should be shown at given breakpoint, it must accept className prop}
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{inline}{Larger than given breakpoint or value in px, will be hidden on smaller viewport}
+\item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{largerThan}{Character. Often used with CSS to style elements with common properties}
+\item{largerThan}{Larger than given breakpoint or value in px, will be hidden on smaller viewport}
 
 \item{query}{Character. Any other media query}
 

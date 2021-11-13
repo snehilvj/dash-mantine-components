@@ -11,7 +11,7 @@ export text
 A Text component.
 Render text and links with theme styles. For more information, see: https://mantine.dev/core/text/
 Keyword arguments:
-- `children` (String; optional): Primary content
+- `children` (a list of or a singular dash component, string or number; optional): Primary content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `align` (a value equal to: "left", "right", "center"; optional): Sets text-align css property
 - `className` (String; optional): Often used with CSS to style elements with common properties

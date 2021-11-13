@@ -25,8 +25,16 @@ Keyword arguments:
 - labelAlwaysOn (boolean; optional):
     If True label will be not be hidden when user stops dragging.
 
-- marks (optional):
+- marks (list of dicts; optional):
     Marks which will be placed on the track.
+
+    `marks` is a list of dicts with keys:
+
+    - label (string; required):
+        The option's label.
+
+    - value (number; required):
+        option's value.
 
 - max (number; optional):
     Maximum possible value.

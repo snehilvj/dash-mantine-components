@@ -26,7 +26,10 @@ radius=NULL, size=NULL, step=NULL, style=NULL, value=NULL)
 
 \item{labelAlwaysOn}{Logical. If true label will be not be hidden when user stops dragging}
 
-\item{marks}{Marks which will be placed on the track}
+\item{marks}{List of lists containing elements 'label', 'value'.
+those elements have the following types:
+  - label (character; required): the option's label
+  - value (numeric; required): option's values. Marks which will be placed on the track}
 
 \item{max}{Numeric. Maximum possible value}
 
