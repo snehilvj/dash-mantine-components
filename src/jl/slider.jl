@@ -13,7 +13,10 @@ Keyword arguments:
 - `color` (optional): Slider color
 - `drag_value` (Real; optional): Current drag value for controlled slider
 - `labelAlwaysOn` (Bool; optional): If true label will be not be hidden when user stops dragging
-- `marks` (optional): Marks which will be placed on the track
+- `marks` (optional): Marks which will be placed on the track. marks has the following type: Array of lists containing elements 'label', 'value'.
+Those elements have the following types:
+  - `label` (String; required): The option's label
+  - `value` (Real; required): option's values
 - `max` (Real; optional): Maximum possible value
 - `min` (Real; optional): Minimal possible value
 - `radius` (optional): Track border-radius from theme or number to set border-radius in px

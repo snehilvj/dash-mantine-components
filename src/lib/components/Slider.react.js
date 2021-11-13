@@ -57,7 +57,14 @@ Slider.propTypes = {
     labelAlwaysOn: PropTypes.bool,
 
     /** Marks which will be placed on the track */
-    marks: SimpleOptionsType,
+    marks: PropTypes.arrayOf(
+        PropTypes.exact({
+            /** The option's label */
+            label: PropTypes.string.isRequired,
+            /** option's value */
+            value: PropTypes.number.isRequired,
+        })
+    ),
 
     /** Maximum possible value */
     max: PropTypes.number,

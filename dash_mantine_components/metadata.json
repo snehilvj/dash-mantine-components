@@ -1540,64 +1540,6 @@
       }
     }
   },
-  "src/lib/components/MediaQuery.react.js": {
-    "description": "Apply styles to children if media query matches. For more information, see: https://mantine.dev/core/media-query/",
-    "displayName": "MediaQuery",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Content that should be centered vertically and horizontally"
-      },
-      "largerThan": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
-      "inline": {
-        "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
-        },
-        "required": false,
-        "description": "Larger than given breakpoint or value in px, will be hidden on smaller viewport"
-      },
-      "query": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Any other media query"
-      },
-      "smallerThan": {
-        "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
-        },
-        "required": false,
-        "description": "Smaller than given breakpoint or value in px, will be hidden on larger viewport"
-      }
-    }
-  },
   "src/lib/components/Modal.react.js": {
     "description": "Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/",
     "displayName": "Modal",
@@ -2887,8 +2829,22 @@
       },
       "marks": {
         "type": {
-          "name": "custom",
-          "raw": "SimpleOptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "number",
+                "description": "option's value",
+                "required": true
+              }
+            }
+          }
         },
         "required": false,
         "description": "Marks which will be placed on the track"
@@ -3341,7 +3297,7 @@
       },
       "children": {
         "type": {
-          "name": "string"
+          "name": "node"
         },
         "required": false,
         "description": "Primary content"

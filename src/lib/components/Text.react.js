@@ -22,7 +22,7 @@ Text.propTypes = {
     id: PropTypes.string,
 
     /** Primary content */
-    children: PropTypes.string,
+    children: PropTypes.node,
 
     /** Tells dash if any prop has changed its value */
     setProps: PropTypes.func,

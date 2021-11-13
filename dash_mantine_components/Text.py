@@ -9,7 +9,7 @@ Render text and links with theme styles. For more information, see: https://mant
 
 Keyword arguments:
 
-- children (string; optional):
+- children (a list of or a singular dash component, string or number; optional):
     Primary content.
 
 - id (string; optional):
