@@ -7,6 +7,7 @@ const version = "0.2.0"
 
 include("jl/affix.jl")
 include("jl/alert.jl")
+include("jl/anchor.jl")
 include("jl/badge.jl")
 include("jl/button.jl")
 include("jl/center.jl")

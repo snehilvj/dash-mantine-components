@@ -155,6 +155,149 @@
       }
     }
   },
+  "src/lib/components/Anchor.react.js": {
+    "description": "Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/",
+    "displayName": "Anchor",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "align": {
+        "type": {
+          "name": "custom",
+          "raw": "TextAlignProperty"
+        },
+        "required": false,
+        "description": "Sets text-align css property"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Text color from theme"
+      },
+      "gradient": {
+        "type": {
+          "name": "custom",
+          "raw": "GradientType"
+        },
+        "required": false,
+        "description": "Controls gradient settings in gradient variant only"
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "href"
+      },
+      "inherit": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Inherit font properties from parent element"
+      },
+      "inline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Sets line-height to 1 for centering"
+      },
+      "lineClamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "CSS -webkit-line-clamp property"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined font-size from theme.fontSizes"
+      },
+      "target": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"_blank\"",
+              "computed": false
+            },
+            {
+              "value": "\"_self\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Target"
+      },
+      "transform": {
+        "type": {
+          "name": "custom",
+          "raw": "TransformTypes"
+        },
+        "required": false,
+        "description": "Sets text-transform css property"
+      },
+      "variant": {
+        "type": {
+          "name": "custom",
+          "raw": "TextVariants"
+        },
+        "required": false,
+        "description": "Link or text variant"
+      },
+      "weight": {
+        "type": {
+          "name": "custom",
+          "raw": "FontWeights"
+        },
+        "required": false,
+        "description": "Sets font-weight css property"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
   "src/lib/components/Badge.react.js": {
     "description": "Display badge, pill or tag. For more information, see: https://mantine.dev/core/badge/",
     "displayName": "Badge",
@@ -3424,21 +3567,8 @@
       },
       "align": {
         "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "\"left\"",
-              "computed": false
-            },
-            {
-              "value": "\"right\"",
-              "computed": false
-            },
-            {
-              "value": "\"center\"",
-              "computed": false
-            }
-          ]
+          "name": "custom",
+          "raw": "TextAlignProperty"
         },
         "required": false,
         "description": "Sets text-align css property"
@@ -3480,14 +3610,6 @@
         "required": false,
         "description": "CSS -webkit-line-clamp property"
       },
-      "radius": {
-        "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
-        },
-        "required": false,
-        "description": "Button border-radius from theme or number to set border-radius in px"
-      },
       "size": {
         "type": {
           "name": "custom",
@@ -3498,83 +3620,24 @@
       },
       "transform": {
         "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "\"capitalize\"",
-              "computed": false
-            },
-            {
-              "value": "\"uppercase\"",
-              "computed": false
-            },
-            {
-              "value": "\"lowercase\"",
-              "computed": false
-            }
-          ]
+          "name": "custom",
+          "raw": "TransformTypes"
         },
         "required": false,
         "description": "Sets text-transform css property"
       },
       "variant": {
         "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "\"link\"",
-              "computed": false
-            },
-            {
-              "value": "\"gradient\"",
-              "computed": false
-            },
-            {
-              "value": "\"text\"",
-              "computed": false
-            }
-          ]
+          "name": "custom",
+          "raw": "TextVariants"
         },
         "required": false,
         "description": "Link or text variant"
       },
       "weight": {
         "type": {
-          "name": "union",
-          "value": [
-            {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"normal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"bold\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"bolder\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lighter\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"initial\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"inherit\"",
-                  "computed": false
-                }
-              ]
-            },
-            {
-              "name": "number"
-            }
-          ]
+          "name": "custom",
+          "raw": "FontWeights"
         },
         "required": false,
         "description": "Sets font-weight css property"

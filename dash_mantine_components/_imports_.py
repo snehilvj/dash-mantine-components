@@ -1,5 +1,6 @@
 from .Affix import Affix
 from .Alert import Alert
+from .Anchor import Anchor
 from .Badge import Badge
 from .Button import Button
 from .Center import Center
@@ -36,6 +37,7 @@ from .Tooltip import Tooltip
 __all__ = [
     "Affix",
     "Alert",
+    "Anchor",
     "Badge",
     "Button",
     "Center",
