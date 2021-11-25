@@ -18,7 +18,7 @@ const Button = (props) => {
 
     return (
         <MantineButton
-            {...omit(["setProps", "n_clicks"], props)}
+            {...omit(["setProps", "n_clicks", "children"], props)}
             onClick={increment}
         >
             {children}

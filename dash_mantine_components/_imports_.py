@@ -1,5 +1,6 @@
 from .Affix import Affix
 from .Alert import Alert
+from .Badge import Badge
 from .Button import Button
 from .Center import Center
 from .Checkbox import Checkbox
@@ -35,6 +36,7 @@ from .Tooltip import Tooltip
 __all__ = [
     "Affix",
     "Alert",
+    "Badge",
     "Button",
     "Center",
     "Checkbox",
