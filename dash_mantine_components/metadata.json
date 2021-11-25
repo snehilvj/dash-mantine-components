@@ -408,6 +408,63 @@
       }
     }
   },
+  "src/lib/components/Blockquote.react.js": {
+    "description": "Blockquote with optional cite. For more information, see: https://mantine.dev/core/blockquote/",
+    "displayName": "Blockquote",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "cite": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Describe a reference to a cited quote"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Badge color from theme"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      }
+    }
+  },
   "src/lib/components/Button.react.js": {
     "description": "Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/",
     "displayName": "Button",

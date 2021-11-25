@@ -33,6 +33,7 @@ import Chips from "./components/Chips.react";
 import Badge from "./components/Badge.react";
 import Anchor from "./components/Anchor.react";
 import Image from "./components/Image.react";
+import Blockquote from "./components/Blockquote.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -71,5 +72,6 @@ export {
     Badge,
     Anchor,
     Image,
+    Blockquote,
     // RangeSlider,
 };
