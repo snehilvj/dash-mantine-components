@@ -3548,6 +3548,63 @@
       }
     }
   },
+  "src/lib/components/Spoiler.react.js": {
+    "description": "Hide long sections of content under spoiler. For more information, see: https://mantine.dev/core/spoiler/",
+    "displayName": "Spoiler",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "hideLabel": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for close spoiler action",
+        "defaultValue": {
+          "value": "\"Hide\"",
+          "computed": false
+        }
+      },
+      "initialState": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Initial spoiler state, true to wrap content in spoiler, false to show content without spoiler, opened state will be updated on mount"
+      },
+      "maxHeight": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Max height of visible content, when this point is reached spoiler appears"
+      },
+      "showLabel": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for open spoiler action",
+        "defaultValue": {
+          "value": "\"Show more\"",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/Switch.react.js": {
     "description": "Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/switch/",
     "displayName": "Switch",

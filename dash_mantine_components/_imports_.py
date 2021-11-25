@@ -30,6 +30,7 @@ from .SimpleGrid import SimpleGrid
 from .Skeleton import Skeleton
 from .Slider import Slider
 from .Space import Space
+from .Spoiler import Spoiler
 from .Switch import Switch
 from .Tab import Tab
 from .Table import Table
@@ -72,6 +73,7 @@ __all__ = [
     "Skeleton",
     "Slider",
     "Space",
+    "Spoiler",
     "Switch",
     "Tab",
     "Table",
