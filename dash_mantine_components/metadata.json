@@ -3254,11 +3254,7 @@
         "type": {
           "name": "arrayOf",
           "value": {
-            "name": "arrayOf",
-            "value": {
-              "name": "custom",
-              "raw": "PropTypes.oneOfType[(PropTypes.string, PropTypes.number)]"
-            }
+            "name": "array"
           }
         },
         "required": false,

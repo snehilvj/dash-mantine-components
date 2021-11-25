@@ -62,11 +62,7 @@ Table.propTypes = {
     columns: PropTypes.arrayOf(PropTypes.string),
 
     /** Table rows */
-    rows: PropTypes.arrayOf(
-        PropTypes.arrayOf(
-            PropTypes.oneOfType[(PropTypes.string, PropTypes.number)]
-        )
-    ),
+    rows: PropTypes.arrayOf(PropTypes.array),
 
     /**	If true row will have hover color */
     highlightOnHover: PropTypes.bool,
