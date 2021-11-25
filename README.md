@@ -10,9 +10,14 @@ pip install dash-mantine-components
 
 ## Available Components
 
+-   [Accordion](examples/accordion.py)
+-   [Anchor](examples/anchor.py)
 -   [Affix](examples/affix.py)
 -   [Alert](examples/alert.py)
+-   [Badge](examples/badge.py)
+-   [Blockquote](examples/blockquote.py)
 -   [Button](examples/button.py)
+-   [Card](examples/card.py)
 -   [Center](examples/center.py)
 -   [Checkbox](examples/checkbox.py)
 -   [Chips](examples/ships.py)
@@ -24,6 +29,7 @@ pip install dash-mantine-components
 -   [Drawer](examples/drawer.py)
 -   [Grid](examples/grid.py)
 -   [Group](examples/group.py)
+-   [Image](examples/image.py)
 -   [Modal](examples/modal.py)
 -   [MultiSelect](examples/multiselect.py)
 -   [Notification](examples/notification.py)
@@ -32,9 +38,12 @@ pip install dash-mantine-components
 -   [SegmentedControl](examples/segmentedcontrol.py)
 -   [Select](examples/select.py)
 -   [SimpleGrid](examples/simplegrid.py)
+-   [Skeleton](examples/skeleton.py)
 -   [Slider](examples/slider.py)
 -   Space
+-   [Spoiler](examples/spoiler.py)
 -   [Switch](examples/switch.py)
+-   [Table](examples/table.py)
 -   Tab
 -   [Tabs](examples/tabs.py)
 -   Text
