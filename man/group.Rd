@@ -12,7 +12,7 @@ Compose elements and components in flex container. For more information, see: ht
 \usage{
 group(children=NULL, id=NULL, align=NULL, className=NULL,
 direction=NULL, grow=NULL, noWrap=NULL, position=NULL,
-spacing=NULL, withGutter=NULL)
+spacing=NULL, style=NULL, withGutter=NULL)
 }
 
 \arguments{
@@ -33,6 +33,8 @@ spacing=NULL, withGutter=NULL)
 \item{position}{Defines justify-content property}
 
 \item{spacing}{Space between elements}
+
+\item{style}{Named list. Inline style override}
 
 \item{withGutter}{Logical. Defines padding for the root component}
 }

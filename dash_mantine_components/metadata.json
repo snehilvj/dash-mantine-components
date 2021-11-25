@@ -775,6 +775,93 @@
       }
     }
   },
+  "src/lib/components/Card.react.js": {
+    "description": "Card.Section is a special component that is used to remove Card padding from its children while other elements still have horizontal spacing. For more information, see: https://mantine.dev/core/card/",
+    "displayName": "Card",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Card content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "padding": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined padding value from theme.spacing or number for padding in px"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
+      },
+      "shadow": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property"
+      },
+      "withBorder": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme"
+      }
+    }
+  },
+  "src/lib/components/CardSection.react.js": {
+    "description": "Card.Section is a special component that is used to remove Card padding from its children while other elements still have horizontal spacing. For more information, see: https://mantine.dev/core/card/",
+    "displayName": "CardSection",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Section content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      }
+    }
+  },
   "src/lib/components/Center.react.js": {
     "description": "Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/center/",
     "displayName": "Center",
@@ -1955,6 +2042,13 @@
         },
         "required": false,
         "description": "Space between elements"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "withGutter": {
         "type": {

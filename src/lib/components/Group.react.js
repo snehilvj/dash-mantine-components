@@ -57,6 +57,9 @@ Group.propTypes = {
     /** Space between elements */
     spacing: Sizes,
 
+    /** Inline style override */
+    style: PropTypes.object,
+
     /** Defines padding for the root component */
     withGutter: PropTypes.bool,
 };

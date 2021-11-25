@@ -39,15 +39,18 @@ Keyword arguments:
 - spacing (optional):
     Space between elements.
 
+- style (dict; optional):
+    Inline style override.
+
 - withGutter (boolean; optional):
     Defines padding for the root component."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, spacing=Component.UNDEFINED, withGutter=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'withGutter']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, withGutter=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style', 'withGutter']
         self._type = 'Group'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'withGutter']
+        self.available_properties = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style', 'withGutter']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
