@@ -1,3 +1,5 @@
+from .Accordion import Accordion
+from .AccordionItem import AccordionItem
 from .Affix import Affix
 from .Alert import Alert
 from .Anchor import Anchor
@@ -37,6 +39,8 @@ from .Title import Title
 from .Tooltip import Tooltip
 
 __all__ = [
+    "Accordion",
+    "AccordionItem",
     "Affix",
     "Alert",
     "Anchor",

@@ -1,4 +1,119 @@
 {
+  "src/lib/components/Accordion.react.js": {
+    "description": "Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/",
+    "displayName": "Accordion",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "<AccordionItem /> components only"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "disableIconRotation": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should icon rotation be disabled"
+      },
+      "iconPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Change icon position: left or right"
+      },
+      "initialItem": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Index of item which is initially opened (uncontrolled component)"
+      },
+      "multiple": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow multiple items to be opened at the same time"
+      }
+    }
+  },
+  "src/lib/components/AccordionItem.react.js": {
+    "description": "Utility component to pass to Accordion. For more information, see: https://mantine.dev/core/accordion/",
+    "displayName": "AccordionItem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Col content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "Accordion label"
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Accordion description"
+      }
+    }
+  },
   "src/lib/components/Affix.react.js": {
     "description": "Renders Affix at given element on mouse over or any other event. For more information, see: https://mantine.dev/core/affix/",
     "displayName": "Affix",
@@ -923,7 +1038,7 @@
     }
   },
   "src/lib/components/Col.react.js": {
-    "description": "Utility component to pass to Grid.For more information, see: https://mantine.dev/core/grid/",
+    "description": "Utility component to pass to Grid. For more information, see: https://mantine.dev/core/grid/",
     "displayName": "Col",
     "methods": [],
     "props": {

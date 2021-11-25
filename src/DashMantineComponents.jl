@@ -5,6 +5,8 @@ using Dash
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.2.0"
 
+include("jl/accordion.jl")
+include("jl/accordionitem.jl")
 include("jl/affix.jl")
 include("jl/alert.jl")
 include("jl/anchor.jl")

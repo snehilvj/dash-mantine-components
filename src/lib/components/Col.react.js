@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-/** Utility component to pass to Grid.For more information, see: https://mantine.dev/core/grid/ */
+/** Utility component to pass to Grid. For more information, see: https://mantine.dev/core/grid/ */
 const Col = (props) => {
     return <div>{props.children}</div>;
 };

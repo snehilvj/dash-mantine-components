@@ -6,7 +6,7 @@
 \title{Col component}
 
 \description{
-Utility component to pass to Grid.For more information, see: https://mantine.dev/core/grid/
+Utility component to pass to Grid. For more information, see: https://mantine.dev/core/grid/
 }
 
 \usage{
