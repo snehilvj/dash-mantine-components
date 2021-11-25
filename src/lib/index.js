@@ -32,6 +32,7 @@ import Space from "./components/Space.react";
 import Chips from "./components/Chips.react";
 import Badge from "./components/Badge.react";
 import Anchor from "./components/Anchor.react";
+import Image from "./components/Image.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -69,5 +70,6 @@ export {
     Chips,
     Badge,
     Anchor,
+    Image,
     // RangeSlider,
 };

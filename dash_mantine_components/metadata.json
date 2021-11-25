@@ -1793,6 +1793,117 @@
       }
     }
   },
+  "src/lib/components/Image.react.js": {
+    "description": "Image with optional placeholder for loading and error state. For more information, see: https://mantine.dev/core/image/",
+    "displayName": "Image",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "alt": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Image alt text, used as title for placeholder if image was not loaded"
+      },
+      "caption": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Image figcaption, displayed bellow image"
+      },
+      "fit": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"cover\"",
+              "computed": false
+            },
+            {
+              "value": "\"contain\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Image object-fit property"
+      },
+      "height": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Image height, defaults to original image height adjusted to given width"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
+      },
+      "src": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Image src"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "width": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Image width, defaults to 100%, cannot exceed 100%"
+      },
+      "withPlaceholder": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Enable placeholder when image is loading and when image fails to load"
+      }
+    }
+  },
   "src/lib/components/Modal.react.js": {
     "description": "Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/",
     "displayName": "Modal",

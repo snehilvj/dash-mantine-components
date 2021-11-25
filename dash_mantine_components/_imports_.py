@@ -14,6 +14,7 @@ from .Divider import Divider
 from .Drawer import Drawer
 from .Grid import Grid
 from .Group import Group
+from .Image import Image
 from .Modal import Modal
 from .MultiSelect import MultiSelect
 from .Notification import Notification
@@ -51,6 +52,7 @@ __all__ = [
     "Drawer",
     "Grid",
     "Group",
+    "Image",
     "Modal",
     "MultiSelect",
     "Notification",
