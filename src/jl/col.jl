@@ -9,7 +9,7 @@ export col
 
 
 A Col component.
-Utility component to pass to Grid.For more information, see: https://mantine.dev/core/grid/
+Utility component to pass to Grid. For more information, see: https://mantine.dev/core/grid/
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Col content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks

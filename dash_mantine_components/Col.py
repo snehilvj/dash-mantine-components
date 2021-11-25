@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Col(Component):
     """A Col component.
-Utility component to pass to Grid.For more information, see: https://mantine.dev/core/grid/
+Utility component to pass to Grid. For more information, see: https://mantine.dev/core/grid/
 
 Keyword arguments:
 

@@ -34,6 +34,8 @@ import Badge from "./components/Badge.react";
 import Anchor from "./components/Anchor.react";
 import Image from "./components/Image.react";
 import Blockquote from "./components/Blockquote.react";
+import Accordion from "./components/Accordion.react";
+import AccordionItem from "./components/AccordionItem.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -73,5 +75,7 @@ export {
     Anchor,
     Image,
     Blockquote,
+    Accordion,
+    AccordionItem,
     // RangeSlider,
 };
