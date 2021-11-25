@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { Text as MantineText } from "@mantine/core";
+import { Anchor as MantineAnchor } from "@mantine/core";
 import {
     FontWeights,
     GradientType,
@@ -12,20 +12,20 @@ import {
     TransformTypes,
 } from "../propTypes";
 
-/** Render text and links with theme styles. For more information, see: https://mantine.dev/core/text/ */
-const Text = (props) => {
+/** Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/ */
+const Anchor = (props) => {
     return (
-        <MantineText {...omit(["setProps", "children"], props)}>
+        <MantineAnchor {...omit(["setProps", "children"], props)}>
             {props.children}
-        </MantineText>
+        </MantineAnchor>
     );
 };
 
-Text.displayName = "Text";
+Anchor.displayName = "Anchor";
 
-Text.defaultProps = {};
+Anchor.defaultProps = {};
 
-Text.propTypes = {
+Anchor.propTypes = {
     /** The ID of this component, used to identify dash components in callbacks */
     id: PropTypes.string,
 
@@ -47,6 +47,9 @@ Text.propTypes = {
     /** Controls gradient settings in gradient variant only */
     gradient: GradientType,
 
+    /** href */
+    href: PropTypes.string,
+
     /**	Inherit font properties from parent element */
     inherit: PropTypes.bool,
 
@@ -58,6 +61,9 @@ Text.propTypes = {
 
     /** Predefined font-size from theme.fontSizes */
     size: Sizes,
+
+    /** Target */
+    target: PropTypes.oneOf(["_blank", "_self"]),
 
     /** Sets text-transform css property */
     transform: TransformTypes,
@@ -72,4 +78,4 @@ Text.propTypes = {
     style: PropTypes.object,
 };
 
-export default Text;
+export default Anchor;

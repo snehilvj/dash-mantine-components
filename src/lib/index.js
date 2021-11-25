@@ -31,6 +31,7 @@ import Affix from "./components/Affix.react";
 import Space from "./components/Space.react";
 import Chips from "./components/Chips.react";
 import Badge from "./components/Badge.react";
+import Anchor from "./components/Anchor.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -67,5 +68,6 @@ export {
     Space,
     Chips,
     Badge,
+    Anchor,
     // RangeSlider,
 };

@@ -67,3 +67,25 @@ export const SimpleOptionsType = PropTypes.arrayOf(
         value: PropTypes.string.isRequired,
     })
 );
+
+export const TextVariants = PropTypes.oneOf(["link", "gradient", "text"]);
+
+export const TransformTypes = PropTypes.oneOf([
+    "capitalize",
+    "uppercase",
+    "lowercase",
+]);
+
+export const FontWeights = PropTypes.oneOfType([
+    PropTypes.oneOf([
+        "normal",
+        "bold",
+        "bolder",
+        "lighter",
+        "initial",
+        "inherit",
+    ]),
+    PropTypes.number,
+]);
+
+export const TextAlignProperty = PropTypes.oneOf(["left", "right", "center"]);

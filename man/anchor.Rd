@@ -1,19 +1,19 @@
 % Auto-generated: do not edit by hand
-\name{text}
+\name{anchor}
 
-\alias{text}
+\alias{anchor}
 
-\title{Text component}
+\title{Anchor component}
 
 \description{
-Render text and links with theme styles. For more information, see: https://mantine.dev/core/text/
+Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/
 }
 
 \usage{
-text(children=NULL, id=NULL, align=NULL, className=NULL,
-color=NULL, gradient=NULL, inherit=NULL, inline=NULL,
-lineClamp=NULL, size=NULL, style=NULL, transform=NULL,
-variant=NULL, weight=NULL)
+anchor(children=NULL, id=NULL, align=NULL, className=NULL,
+color=NULL, gradient=NULL, href=NULL, inherit=NULL,
+inline=NULL, lineClamp=NULL, size=NULL, style=NULL,
+target=NULL, transform=NULL, variant=NULL, weight=NULL)
 }
 
 \arguments{
@@ -29,6 +29,8 @@ variant=NULL, weight=NULL)
 
 \item{gradient}{Controls gradient settings in gradient variant only}
 
+\item{href}{Character. href}
+
 \item{inherit}{Logical. Inherit font properties from parent element}
 
 \item{inline}{Logical. Sets line-height to 1 for centering}
@@ -38,6 +40,8 @@ variant=NULL, weight=NULL)
 \item{size}{Predefined font-size from theme.fontSizes}
 
 \item{style}{Named list. Inline style override}
+
+\item{target}{A value equal to: "_blank", "_self". Target}
 
 \item{transform}{Sets text-transform css property}
 

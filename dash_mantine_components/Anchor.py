@@ -3,9 +3,9 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class Text(Component):
-    """A Text component.
-Render text and links with theme styles. For more information, see: https://mantine.dev/core/text/
+class Anchor(Component):
+    """An Anchor component.
+Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/
 
 Keyword arguments:
 
@@ -28,6 +28,9 @@ Keyword arguments:
 - gradient (optional):
     Controls gradient settings in gradient variant only.
 
+- href (string; optional):
+    href.
+
 - inherit (boolean; optional):
     Inherit font properties from parent element.
 
@@ -43,6 +46,9 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override.
 
+- target (a value equal to: "_blank", "_self"; optional):
+    Target.
+
 - transform (optional):
     Sets text-transform css property.
 
@@ -52,12 +58,12 @@ Keyword arguments:
 - weight (optional):
     Sets font-weight css property."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, color=Component.UNDEFINED, gradient=Component.UNDEFINED, inherit=Component.UNDEFINED, inline=Component.UNDEFINED, lineClamp=Component.UNDEFINED, size=Component.UNDEFINED, transform=Component.UNDEFINED, variant=Component.UNDEFINED, weight=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'align', 'className', 'color', 'gradient', 'inherit', 'inline', 'lineClamp', 'size', 'style', 'transform', 'variant', 'weight']
-        self._type = 'Text'
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, color=Component.UNDEFINED, gradient=Component.UNDEFINED, href=Component.UNDEFINED, inherit=Component.UNDEFINED, inline=Component.UNDEFINED, lineClamp=Component.UNDEFINED, size=Component.UNDEFINED, target=Component.UNDEFINED, transform=Component.UNDEFINED, variant=Component.UNDEFINED, weight=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'align', 'className', 'color', 'gradient', 'href', 'inherit', 'inline', 'lineClamp', 'size', 'style', 'target', 'transform', 'variant', 'weight']
+        self._type = 'Anchor'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'align', 'className', 'color', 'gradient', 'inherit', 'inline', 'lineClamp', 'size', 'style', 'transform', 'variant', 'weight']
+        self.available_properties = ['children', 'id', 'align', 'className', 'color', 'gradient', 'href', 'inherit', 'inline', 'lineClamp', 'size', 'style', 'target', 'transform', 'variant', 'weight']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
@@ -67,4 +73,4 @@ Keyword arguments:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
-        super(Text, self).__init__(children=children, **args)
+        super(Anchor, self).__init__(children=children, **args)
