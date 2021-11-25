@@ -36,6 +36,7 @@ import Image from "./components/Image.react";
 import Blockquote from "./components/Blockquote.react";
 import Accordion from "./components/Accordion.react";
 import AccordionItem from "./components/AccordionItem.react";
+import Skeleton from "./components/Skeleton.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -77,5 +78,6 @@ export {
     Blockquote,
     Accordion,
     AccordionItem,
+    Skeleton,
     // RangeSlider,
 };

@@ -3322,6 +3322,65 @@
       }
     }
   },
+  "src/lib/components/Skeleton.react.js": {
+    "description": "Indicate content loading state. For more information, see: https://mantine.dev/core/skeleton/",
+    "displayName": "Skeleton",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "circle": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If Skeleton is a circle, it's width and border-radius will be equal to height"
+      },
+      "height": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberString"
+        },
+        "required": false,
+        "description": "Skeleton height"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Radius from theme.radius or number to set border-radius in px"
+      },
+      "visible": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should skeleton overlay be displayed"
+      },
+      "width": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberString"
+        },
+        "required": false,
+        "description": "Skeleton width"
+      }
+    }
+  },
   "src/lib/components/Slider.react.js": {
     "description": "Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/",
     "displayName": "Slider",
