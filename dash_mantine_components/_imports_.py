@@ -2,6 +2,7 @@ from .Affix import Affix
 from .Alert import Alert
 from .Anchor import Anchor
 from .Badge import Badge
+from .Blockquote import Blockquote
 from .Button import Button
 from .Center import Center
 from .Checkbox import Checkbox
@@ -40,6 +41,7 @@ __all__ = [
     "Alert",
     "Anchor",
     "Badge",
+    "Blockquote",
     "Button",
     "Center",
     "Checkbox",
