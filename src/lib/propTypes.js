@@ -89,3 +89,8 @@ export const FontWeights = PropTypes.oneOfType([
 ]);
 
 export const TextAlignProperty = PropTypes.oneOf(["left", "right", "center"]);
+
+export const NumberString = PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+]);

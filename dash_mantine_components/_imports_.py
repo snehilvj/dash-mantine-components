@@ -27,6 +27,7 @@ from .RangeSlider import RangeSlider
 from .SegmentedControl import SegmentedControl
 from .Select import Select
 from .SimpleGrid import SimpleGrid
+from .Skeleton import Skeleton
 from .Slider import Slider
 from .Space import Space
 from .Switch import Switch
@@ -68,6 +69,7 @@ __all__ = [
     "SegmentedControl",
     "Select",
     "SimpleGrid",
+    "Skeleton",
     "Slider",
     "Space",
     "Switch",
