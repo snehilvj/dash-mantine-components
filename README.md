@@ -47,7 +47,6 @@ pip install dash-mantine-components
 ```python
 import dash_mantine_components as dmc
 from dash import Dash, Input, Output
-from datetime import datetime, timedelta
 
 app = Dash(__name__)
 
@@ -79,3 +78,4 @@ if __name__ == "__main__":
 3. Support dark theme.
 4. Create more examples.
 5. Add contributing guide.
+6. Add testing.

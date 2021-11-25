@@ -1,6 +1,6 @@
 Package: dashMantineComponents
 Title: Custom dash components based on Mantine React Components library
-Version: 0.0.1
+Version: 0.2.0
 Description: Custom dash components based on Mantine React Components library
 Depends: R (>= 3.0.2)
 Imports: 
