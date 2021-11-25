@@ -28,7 +28,7 @@ striped=NULL, style=NULL)
 
 \item{highlightOnHover}{Logical. If true row will have hover color}
 
-\item{rows}{List of lists. Table rows}
+\item{rows}{List of unnamed lists. Table rows}
 
 \item{striped}{Logical. If true every odd row of table will have gray background color}
 
