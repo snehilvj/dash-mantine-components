@@ -20,10 +20,11 @@ Keyword arguments:
 - `noWrap` (Bool; optional): Defined flex-wrap property
 - `position` (optional): Defines justify-content property
 - `spacing` (optional): Space between elements
+- `style` (Dict; optional): Inline style override
 - `withGutter` (Bool; optional): Defines padding for the root component
 """
 function group(; kwargs...)
-        available_props = Symbol[:children, :id, :align, :className, :direction, :grow, :noWrap, :position, :spacing, :withGutter]
+        available_props = Symbol[:children, :id, :align, :className, :direction, :grow, :noWrap, :position, :spacing, :style, :withGutter]
         wild_props = Symbol[]
         return Component("group", "Group", "dash_mantine_components", available_props, wild_props; kwargs...)
 end
