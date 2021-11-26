@@ -3,12 +3,7 @@ import { Slider as MantineSlider } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import {
-    MantineColors,
-    NumberSizes,
-    SimpleOptionsType,
-    Sizes,
-} from "../propTypes";
+import { MantineColors, NumberSizes, Sizes } from "../propTypes";
 
 /** Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/ */
 const Slider = (props) => {
