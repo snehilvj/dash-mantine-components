@@ -580,6 +580,47 @@
       }
     }
   },
+  "src/lib/components/Breadcrumbs.react.js": {
+    "description": "Separate list of react nodes with given separator. For more information, see: https://mantine.dev/core/breadcrumbs/",
+    "displayName": "Breadcrumbs",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "separator": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Separator between breadcrumbs"
+      },
+      "items": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "title": {
+                "name": "string",
+                "required": true
+              },
+              "href": {
+                "name": "string",
+                "required": true
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "Link items"
+      }
+    }
+  },
   "src/lib/components/Button.react.js": {
     "description": "Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/",
     "displayName": "Button",

@@ -5,6 +5,7 @@ from .Alert import Alert
 from .Anchor import Anchor
 from .Badge import Badge
 from .Blockquote import Blockquote
+from .Breadcrumbs import Breadcrumbs
 from .Button import Button
 from .Card import Card
 from .CardSection import CardSection
@@ -50,6 +51,7 @@ __all__ = [
     "Anchor",
     "Badge",
     "Blockquote",
+    "Breadcrumbs",
     "Button",
     "Card",
     "CardSection",
