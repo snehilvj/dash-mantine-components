@@ -25,6 +25,7 @@ from .Modal import Modal
 from .MultiSelect import MultiSelect
 from .Notification import Notification
 from .Prism import Prism
+from .Progress import Progress
 from .RadioGroup import RadioGroup
 from .RangeSlider import RangeSlider
 from .SegmentedControl import SegmentedControl
@@ -71,6 +72,7 @@ __all__ = [
     "MultiSelect",
     "Notification",
     "Prism",
+    "Progress",
     "RadioGroup",
     "RangeSlider",
     "SegmentedControl",

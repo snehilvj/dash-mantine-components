@@ -2793,6 +2793,93 @@
       }
     }
   },
+  "src/lib/components/Progress.react.js": {
+    "description": "Give user feedback for status of the task. For more information, see: https://mantine.dev/core/progress/",
+    "displayName": "Progress",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "MantineColors"
+        },
+        "required": false,
+        "description": "Progress color from theme"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined progress radius from theme.radius or number for height in px"
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined progress height or number for height in px"
+      },
+      "sections": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "value": {
+                "name": "number",
+                "required": false
+              },
+              "color": {
+                "name": "custom",
+                "raw": "MantineColors",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "Replaces value if present, renders multiple sections instead of single one"
+      },
+      "striped": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds stripes"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Current value for controlled slider"
+      }
+    }
+  },
   "src/lib/components/RadioGroup.react.js": {
     "description": "Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/radio-group/",
     "displayName": "RadioGroup",
