@@ -11,7 +11,7 @@ export group
 A Group component.
 Compose elements and components in flex container. For more information, see: https://mantine.dev/core/group/
 Keyword arguments:
-- `children` (a list of or a singular dash component, string or number; optional): Tab content
+- `children` (a list of or a singular dash component, string or number; optional): Content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `align` (optional): Defines align-items css property
 - `className` (String; optional): Often used with CSS to style elements with common properties

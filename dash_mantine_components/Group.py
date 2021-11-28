@@ -10,7 +10,7 @@ Compose elements and components in flex container. For more information, see: ht
 Keyword arguments:
 
 - children (a list of or a singular dash component, string or number; optional):
-    Tab content.
+    Content.
 
 - id (string; optional):
     The ID of this component, used to identify dash components in

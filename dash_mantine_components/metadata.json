@@ -2053,7 +2053,7 @@
           "name": "node"
         },
         "required": false,
-        "description": "Tab content"
+        "description": "Content"
       },
       "className": {
         "type": {
@@ -2558,9 +2558,102 @@
       }
     }
   },
-  "src/lib/components/Notification.react.js": {
-    "description": "Show dynamic notifications and alerts to user, part of notifications system. For more information, see: https://mantine.dev/core/notification/",
-    "displayName": "Notification",
+  "src/lib/components/NotificationHandler.react.js": {
+    "description": "Mantine notifications system. For more information, see: https://mantine.dev/others/notifications/",
+    "displayName": "NotificationHandler",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "task": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "command": {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"hide\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"show\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"update\"",
+                  "computed": false
+                }
+              ],
+              "required": true
+            },
+            "id": {
+              "name": "string",
+              "required": true
+            },
+            "props": {
+              "name": "exact",
+              "value": {
+                "color": {
+                  "name": "string",
+                  "required": false
+                },
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "title": {
+                  "name": "node",
+                  "required": false
+                },
+                "loading": {
+                  "name": "bool",
+                  "required": false
+                },
+                "message": {
+                  "name": "node",
+                  "required": false
+                },
+                "autoClose": {
+                  "name": "union",
+                  "value": [
+                    {
+                      "name": "number"
+                    },
+                    {
+                      "name": "enum",
+                      "value": [
+                        {
+                          "value": "false",
+                          "computed": false
+                        }
+                      ]
+                    }
+                  ],
+                  "required": false
+                },
+                "disallowClose": {
+                  "name": "bool",
+                  "required": false
+                }
+              },
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Task for notification handler along with notification props"
+      }
+    }
+  },
+  "src/lib/components/NotificationsProvider.react.js": {
+    "description": "Mantine notifications system. For more information, see: https://mantine.dev/others/notifications/",
+    "displayName": "NotificationsProvider",
     "methods": [],
     "props": {
       "id": {
@@ -2575,36 +2668,89 @@
           "name": "node"
         },
         "required": false,
-        "description": "Notification body, place main text here"
+        "description": "Content"
       },
-      "className": {
+      "autoClose": {
         "type": {
-          "name": "string"
+          "name": "union",
+          "value": [
+            {
+              "name": "number"
+            },
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "false",
+                  "computed": false
+                }
+              ]
+            }
+          ]
         },
         "required": false,
-        "description": "Often used with CSS to style elements with common properties"
+        "description": "Auto close timeout for all notifications, false to disable auto close, can be overwritten for individual notifications by showNotification function"
       },
-      "color": {
+      "containerWidth": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "number"
         },
         "required": false,
-        "description": "Notification line or icon color"
+        "description": "Notification width in px, cannot exceed 100%"
       },
-      "loading": {
+      "limit": {
         "type": {
-          "name": "bool"
+          "name": "number"
         },
         "required": false,
-        "description": "Replaces colored line or icon with Loader component"
+        "description": "Maximum amount of notifications displayed at a time, other new notifications will be added to queue"
       },
-      "title": {
+      "notificationMaxHeight": {
         "type": {
-          "name": "string"
+          "name": "number"
         },
         "required": false,
-        "description": "Notification title, displayed before body"
+        "description": "Notification max-height in px, used for transitions"
+      },
+      "position": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"top-left\"",
+              "computed": false
+            },
+            {
+              "value": "\"top-right\"",
+              "computed": false
+            },
+            {
+              "value": "\"top-center\"",
+              "computed": false
+            },
+            {
+              "value": "\"bottom-left\"",
+              "computed": false
+            },
+            {
+              "value": "\"bottom-right\"",
+              "computed": false
+            },
+            {
+              "value": "\"bottom-center\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Notifications position"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Notifications container z-index"
       }
     }
   },

@@ -16,7 +16,7 @@ spacing=NULL, style=NULL)
 }
 
 \arguments{
-\item{children}{A list of or a singular dash component, string or number. Tab content}
+\item{children}{A list of or a singular dash component, string or number. Content}
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
