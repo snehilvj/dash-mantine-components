@@ -21,6 +21,8 @@ Keyword arguments:
 - `noOverlay` (Bool; optional): Removes overlay entirely
 - `noScrollLock` (Bool; optional): Disables scroll lock
 - `opened` (Bool; optional): If true drawer is mounted to the dom
+- `overlayColor` (String; optional): Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme
+- `overlayOpacity` (Real; optional): Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme
 - `padding` (optional): Drawer body padding from theme or number for padding in px
 - `position` (optional): Drawer body position
 - `size` (String | Real; optional): Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
@@ -28,7 +30,7 @@ Keyword arguments:
 - `zIndex` (Real; optional): Popper zIndex
 """
 function drawer(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :hideCloseButton, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :padding, :position, :size, :title, :zIndex]
+        available_props = Symbol[:children, :id, :className, :hideCloseButton, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :overlayColor, :overlayOpacity, :padding, :position, :size, :title, :zIndex]
         wild_props = Symbol[]
         return Component("drawer", "Drawer", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

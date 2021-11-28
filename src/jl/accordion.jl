@@ -16,11 +16,11 @@ Keyword arguments:
 - `className` (String; optional): Often used with CSS to style elements with common properties
 - `disableIconRotation` (Bool; optional): Should icon rotation be disabled
 - `iconPosition` (a value equal to: "right", "left"; optional): Change icon position: left or right
-- `initialItem` (Real; optional): Index of item which is initially opened (uncontrolled component)
 - `multiple` (Bool; optional): Allow multiple items to be opened at the same time
+- `state` (Dict with Strings as keys and values of type Bool; optional): Controlled state (controls opened state of accordion items)
 """
 function accordion(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :disableIconRotation, :iconPosition, :initialItem, :multiple]
+        available_props = Symbol[:children, :id, :className, :disableIconRotation, :iconPosition, :multiple, :state]
         wild_props = Symbol[]
         return Component("accordion", "Accordion", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

@@ -1,6 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
-from datetime import datetime, timedelta
+from dash import Dash, html
 
 app = Dash(__name__)
 
@@ -11,7 +10,8 @@ app.layout = html.Div(
                 dmc.Button("Button 1"),
                 dmc.Button("Button 2"),
                 dmc.Button("Button 3"),
-            ]
+            ],
+            position="center",
         ),
         dmc.Space(h=50),
         dmc.Group(

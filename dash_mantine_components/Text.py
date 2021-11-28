@@ -22,7 +22,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dimmed"; optional):
     Text color from theme.
 
 - gradient (optional):

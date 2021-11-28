@@ -26,9 +26,6 @@ Blockquote.propTypes = {
     /** Primary content */
     children: PropTypes.string,
 
-    /** Tells dash if any prop has changed its value */
-    setProps: PropTypes.func,
-
     /** Often used with CSS to style elements with common properties */
     className: PropTypes.string,
 

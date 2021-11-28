@@ -6,12 +6,12 @@
 \title{Chips component}
 
 \description{
-Alternative to Select and RadioGroup
+Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/
 }
 
 \usage{
-chips(id=NULL, align=NULL, className=NULL, color=NULL,
-direction=NULL, grow=NULL, noWrap=NULL, options=NULL,
+chips(id=NULL, align=NULL, className=NULL, color=NULL, data=NULL,
+direction=NULL, grow=NULL, multiple=NULL, noWrap=NULL,
 position=NULL, radius=NULL, size=NULL, spacing=NULL,
 style=NULL, value=NULL, variant=NULL)
 }
@@ -25,13 +25,15 @@ style=NULL, value=NULL, variant=NULL)
 
 \item{color}{Active chip color, defaults to theme.primaryColor}
 
+\item{data}{Chips}
+
 \item{direction}{Defines flex-direction property, row for horizontal, column for vertical}
 
 \item{grow}{Logical. Defines flex-grow property for each element, true -> 1, false -> 0}
 
-\item{noWrap}{Logical. Defined flex-wrap property}
+\item{multiple}{Logical. Allow multiple values to be picked}
 
-\item{options}{Chips}
+\item{noWrap}{Logical. Defined flex-wrap property}
 
 \item{position}{Defines justify-content property}
 
@@ -43,7 +45,7 @@ style=NULL, value=NULL, variant=NULL)
 
 \item{style}{Named list. Inline style override}
 
-\item{value}{Character. Controlled component value}
+\item{value}{Character | list of characters. Controlled component value}
 
 \item{variant}{A value equal to: "outline", "filled". Controls chip appearance, defaults to filled with dark theme and to outline in light theme}
 }

@@ -20,13 +20,14 @@ Those elements have the following types:
 - `max` (Real; optional): Maximum possible value
 - `min` (Real; optional): Minimal possible value
 - `radius` (optional): Track border-radius from theme or number to set border-radius in px
+- `showLabelOnHover` (Bool; optional): If true slider label will appear on hover
 - `size` (optional): Predefined track and thumb size, number to set sizes in px
 - `step` (Real; optional): Number by which value will be incremented/decremented with thumb drag and arrows
 - `style` (Dict; optional): Inline style override
 - `value` (Real; optional): Current value for controlled slider
 """
 function slider(; kwargs...)
-        available_props = Symbol[:id, :className, :color, :drag_value, :labelAlwaysOn, :marks, :max, :min, :radius, :size, :step, :style, :value]
+        available_props = Symbol[:id, :className, :color, :drag_value, :labelAlwaysOn, :marks, :max, :min, :radius, :showLabelOnHover, :size, :step, :style, :value]
         wild_props = Symbol[]
         return Component("slider", "Slider", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

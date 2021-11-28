@@ -32,9 +32,6 @@ Text.propTypes = {
     /** Primary content */
     children: PropTypes.node,
 
-    /** Tells dash if any prop has changed its value */
-    setProps: PropTypes.func,
-
     /** Often used with CSS to style elements with common properties */
     className: PropTypes.string,
 
@@ -42,7 +39,7 @@ Text.propTypes = {
     align: TextAlignProperty,
 
     /** Text color from theme */
-    color: MantineColors,
+    color: PropTypes.oneOfType([MantineColors, PropTypes.oneOf(["dimmed"])]),
 
     /** Controls gradient settings in gradient variant only */
     gradient: GradientType,

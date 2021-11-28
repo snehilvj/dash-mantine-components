@@ -46,6 +46,9 @@ Keyword arguments:
     Track border-radius from theme or number to set border-radius in
     px.
 
+- showLabelOnHover (boolean; optional):
+    If True slider label will appear on hover.
+
 - size (optional):
     Predefined track and thumb size, number to set sizes in px.
 
@@ -59,12 +62,12 @@ Keyword arguments:
 - value (number; optional):
     Current value for controlled slider."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, labelAlwaysOn=Component.UNDEFINED, marks=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, step=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, drag_value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'drag_value', 'labelAlwaysOn', 'marks', 'max', 'min', 'radius', 'size', 'step', 'style', 'value']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, labelAlwaysOn=Component.UNDEFINED, marks=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, radius=Component.UNDEFINED, showLabelOnHover=Component.UNDEFINED, size=Component.UNDEFINED, step=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, drag_value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'drag_value', 'labelAlwaysOn', 'marks', 'max', 'min', 'radius', 'showLabelOnHover', 'size', 'step', 'style', 'value']
         self._type = 'Slider'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'drag_value', 'labelAlwaysOn', 'marks', 'max', 'min', 'radius', 'size', 'step', 'style', 'value']
+        self.available_properties = ['id', 'className', 'color', 'drag_value', 'labelAlwaysOn', 'marks', 'max', 'min', 'radius', 'showLabelOnHover', 'size', 'step', 'style', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

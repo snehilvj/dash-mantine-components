@@ -21,10 +21,9 @@ Keyword arguments:
 - `position` (optional): Defines justify-content property
 - `spacing` (optional): Space between elements
 - `style` (Dict; optional): Inline style override
-- `withGutter` (Bool; optional): Defines padding for the root component
 """
 function group(; kwargs...)
-        available_props = Symbol[:children, :id, :align, :className, :direction, :grow, :noWrap, :position, :spacing, :style, :withGutter]
+        available_props = Symbol[:children, :id, :align, :className, :direction, :grow, :noWrap, :position, :spacing, :style]
         wild_props = Symbol[]
         return Component("group", "Group", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

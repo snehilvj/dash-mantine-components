@@ -10,8 +10,8 @@ Capture user feedback limited to small set of options. For more information, see
 }
 
 \usage{
-radioGroup(id=NULL, className=NULL, color=NULL, description=NULL,
-error=NULL, label=NULL, options=NULL, required=NULL,
+radioGroup(id=NULL, className=NULL, color=NULL, data=NULL,
+description=NULL, error=NULL, label=NULL, required=NULL,
 size=NULL, spacing=NULL, style=NULL, value=NULL,
 variant=NULL)
 }
@@ -23,13 +23,13 @@ variant=NULL)
 
 \item{color}{Active radio color from theme.colors}
 
+\item{data}{RadioGroup options}
+
 \item{description}{Character. Input description, displayed after label}
 
 \item{error}{Character. Displays error message after input}
 
 \item{label}{Character. Input label, displayed before input}
-
-\item{options}{RadioGroup options}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 

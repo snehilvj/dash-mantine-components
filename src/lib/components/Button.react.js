@@ -37,7 +37,7 @@ Button.propTypes = {
     id: PropTypes.string,
 
     /** Primary content */
-    children: PropTypes.string,
+    children: PropTypes.node,
 
     /** An integer that represents the number of times that this element has been clicked on */
     n_clicks: PropTypes.number,
@@ -74,9 +74,6 @@ Button.propTypes = {
 
     /** Predefined button size */
     size: Sizes,
-
-    /** Button type attribute */
-    type: PropTypes.oneOf(["submit", "button", "reset"]),
 
     /** Controls button appearance */
     variant: PropTypes.oneOf([

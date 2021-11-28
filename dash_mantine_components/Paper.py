@@ -3,14 +3,14 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class Card(Component):
-    """A Card component.
-Card with context styles for Image and Divider components. For more information, see: https://mantine.dev/core/card/
+class Paper(Component):
+    """A Paper component.
+Renders white or dark background depending on color scheme. For more information, see: https://mantine.dev/core/paper/
 
 Keyword arguments:
 
 - children (a list of or a singular dash component, string or number; optional):
-    Card content.
+    Paper content.
 
 - id (string; optional):
     The ID of this component, used to identify dash components in
@@ -37,7 +37,7 @@ Keyword arguments:
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, shadow=Component.UNDEFINED, withBorder=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'padding', 'radius', 'shadow', 'withBorder']
-        self._type = 'Card'
+        self._type = 'Paper'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
         self.available_properties = ['children', 'id', 'className', 'padding', 'radius', 'shadow', 'withBorder']
@@ -50,4 +50,4 @@ Keyword arguments:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
-        super(Card, self).__init__(children=children, **args)
+        super(Paper, self).__init__(children=children, **args)

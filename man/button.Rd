@@ -13,12 +13,12 @@ Render button or link with button styles from mantine theme. For more informatio
 button(children=NULL, id=NULL, className=NULL, color=NULL,
 compact=NULL, disabled=NULL, fullWidth=NULL, gradient=NULL,
 loaderPosition=NULL, loading=NULL, n_clicks=NULL,
-radius=NULL, size=NULL, style=NULL, type=NULL,
-uppercase=NULL, variant=NULL)
+radius=NULL, size=NULL, style=NULL, uppercase=NULL,
+variant=NULL)
 }
 
 \arguments{
-\item{children}{Character. Primary content}
+\item{children}{A list of or a singular dash component, string or number. Primary content}
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
@@ -45,8 +45,6 @@ uppercase=NULL, variant=NULL)
 \item{size}{Predefined button size}
 
 \item{style}{Named list. Inline style override}
-
-\item{type}{A value equal to: "submit", "button", "reset". Button type attribute}
 
 \item{uppercase}{Logical. Set text-transform to uppercase}
 

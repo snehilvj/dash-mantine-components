@@ -15,11 +15,14 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `className` (String; optional): Often used with CSS to style elements with common properties
 - `color` (optional): Alert title and line colors from theme
+- `duration` (Real; optional): Duration in milliseconds after which the Alert dismisses itself.
+- `show` (Bool; optional): Whether to show the alert
 - `style` (Dict; optional): Inline style override
 - `title` (String; optional): Optional alert title
+- `withCloseButton` (Bool; optional): Display close button
 """
 function alert(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :color, :style, :title]
+        available_props = Symbol[:children, :id, :className, :color, :duration, :show, :style, :title, :withCloseButton]
         wild_props = Symbol[]
         return Component("alert", "Alert", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

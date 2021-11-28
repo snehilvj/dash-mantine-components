@@ -15,6 +15,7 @@ app.layout = html.Div(
                 {"value": 50, "label": "50%"},
                 {"value": 80, "label": "80%"},
             ],
+            size="md",
         ),
         dmc.Space(h=20),
         dmc.Text(id="output"),

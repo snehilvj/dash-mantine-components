@@ -6,7 +6,7 @@ import { NumberSizes, OptionsType, Sizes } from "../propTypes";
 
 /** Custom searchable select. For more information, see: https://mantine.dev/core/select/ */
 const Select = (props) => {
-    const { setProps, options } = props;
+    const { setProps, data } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -14,8 +14,8 @@ const Select = (props) => {
 
     return (
         <MatineSelect
-            {...omit(["setProps", "options"], props)}
-            data={options}
+            {...omit(["setProps", "data"], props)}
+            data={data}
             onChange={updateProps}
         />
     );
@@ -26,7 +26,7 @@ Select.displayName = "Select";
 Select.defaultProps = {
     searchable: true,
     placeholder: "Select item",
-    options: [],
+    data: [],
     nothingFound: "No match found",
 };
 
@@ -44,7 +44,7 @@ Select.propTypes = {
     clearable: PropTypes.bool,
 
     /** Select options used to renderer items in dropdown */
-    options: OptionsType,
+    data: OptionsType,
 
     /** Input description, displayed after label */
     description: PropTypes.string,
@@ -55,6 +55,9 @@ Select.propTypes = {
     /** Displays error message after input */
     error: PropTypes.string,
 
+    /** Initial dropdown opened state */
+    initiallyOpened: PropTypes.bool,
+
     /** Input label, displayed before input */
     label: PropTypes.string,
 
@@ -63,6 +66,9 @@ Select.propTypes = {
 
     /** Maximum dropdown height in px */
     maxDropdownHeight: PropTypes.number,
+
+    /** Will input have multiple lines? */
+    multiline: PropTypes.bool,
 
     /**	Nothing found label */
     nothingFound: PropTypes.string,
@@ -87,6 +93,9 @@ Select.propTypes = {
 
     /** Selected value */
     value: PropTypes.string,
+
+    /** Dropdown z-index */
+    zIndex: PropTypes.number,
 };
 
 export default Select;

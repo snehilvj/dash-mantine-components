@@ -41,6 +41,14 @@ Keyword arguments:
 - opened (boolean; default False):
     If True drawer is mounted to the dom.
 
+- overlayColor (string; optional):
+    Sets overlay color, defaults to theme.black in light theme and to
+    theme.colors.dark[9] in dark theme.
+
+- overlayOpacity (number; optional):
+    Sets overlay opacity, defaults to 0.75 in light theme and to 0.85
+    in dark theme.
+
 - padding (optional):
     Drawer body padding from theme or number for padding in px.
 
@@ -57,12 +65,12 @@ Keyword arguments:
 - zIndex (number; optional):
     Popper zIndex."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'padding', 'position', 'size', 'title', 'zIndex']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, overlayColor=Component.UNDEFINED, overlayOpacity=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex']
         self._type = 'Drawer'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'padding', 'position', 'size', 'title', 'zIndex']
+        self.available_properties = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

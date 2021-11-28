@@ -1,6 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
-from datetime import datetime, timedelta
+from dash import Dash, html
 
 app = Dash(__name__)
 
@@ -23,6 +22,14 @@ app.layout = html.Div(
                 dmc.Col(dmc.Center("1", style=bg_style), span=3, style=style),
                 dmc.Col(dmc.Center("2", style=bg_style), span=3, style=style),
                 dmc.Col(dmc.Center("3", style=bg_style), span=3, style=style),
+            ],
+        ),
+        dmc.Space(h=50),
+        dmc.Grid(
+            children=[
+                dmc.Col(dmc.Center("1", style=bg_style), span=3, style=style),
+                dmc.Col(dmc.Center("2", style=bg_style), span=3, style=style),
+                dmc.Col(dmc.Center("3", style=bg_style), span=3, offset=3, style=style),
             ],
         ),
     ]

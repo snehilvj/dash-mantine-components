@@ -30,6 +30,9 @@ Space.propTypes = {
     /**	Height, set to add vertical spacing */
     h: NumberSizes,
 
+    /** Inline style override */
+    style: PropTypes.object,
+
     /**	Width, set to add horizontal spacing */
     w: NumberSizes,
 };

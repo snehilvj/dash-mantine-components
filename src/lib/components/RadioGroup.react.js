@@ -6,7 +6,7 @@ import { MantineColors, SimpleOptionsType, Sizes } from "../propTypes";
 
 /** Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/radio-group/ */
 const RadioGroup = (props) => {
-    const { setProps, options } = props;
+    const { setProps, data } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -15,9 +15,9 @@ const RadioGroup = (props) => {
     return (
         <MantineRadioGroup
             onChange={updateProps}
-            {...omit(["setProps", "options"], props)}
+            {...omit(["setProps", "data"], props)}
         >
-            {options.map((radio, index) => {
+            {data.map((radio, index) => {
                 return (
                     <Radio value={radio.value} key={index}>
                         {radio.label}
@@ -37,7 +37,7 @@ RadioGroup.propTypes = {
     id: PropTypes.string,
 
     /** RadioGroup options */
-    options: SimpleOptionsType,
+    data: SimpleOptionsType,
 
     /** Tells dash if any prop has changed its value */
     setProps: PropTypes.func,

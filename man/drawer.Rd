@@ -13,8 +13,9 @@ Display overlay area at any side of the screen. For more information, see: https
 drawer(children=NULL, id=NULL, className=NULL,
 hideCloseButton=NULL, noCloseOnClickOutside=NULL,
 noCloseOnEscape=NULL, noFocusTrap=NULL, noOverlay=NULL,
-noScrollLock=NULL, opened=NULL, padding=NULL, position=NULL,
-size=NULL, title=NULL, zIndex=NULL)
+noScrollLock=NULL, opened=NULL, overlayColor=NULL,
+overlayOpacity=NULL, padding=NULL, position=NULL, size=NULL,
+title=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -37,6 +38,10 @@ size=NULL, title=NULL, zIndex=NULL)
 \item{noScrollLock}{Logical. Disables scroll lock}
 
 \item{opened}{Logical. If true drawer is mounted to the dom}
+
+\item{overlayColor}{Character. Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme}
+
+\item{overlayOpacity}{Numeric. Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme}
 
 \item{padding}{Drawer body padding from theme or number for padding in px}
 

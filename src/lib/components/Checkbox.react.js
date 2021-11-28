@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { omit } from "ramda";
 import { MantineColors, Sizes } from "../propTypes";
 
-/** Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/checkbox/ */
+/** Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/ */
 const Checkbox = (props) => {
     const { setProps } = props;
 

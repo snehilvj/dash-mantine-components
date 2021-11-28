@@ -5,10 +5,14 @@ import { omit } from "ramda";
 
 /** Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/ */
 const Accordion = (props) => {
-    const { children } = props;
+    const { children, setProps } = props;
+
+    const onChange = (state) => {
+        setProps({ state });
+    };
 
     return (
-        <MantineAccordion {...omit(["setProps"], props)}>
+        <MantineAccordion {...omit(["setProps"], props)} onChange={onChange}>
             {children.map((child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
@@ -55,11 +59,11 @@ Accordion.propTypes = {
     /**	Change icon position: left or right */
     iconPosition: PropTypes.oneOf(["right", "left"]),
 
-    /** Index of item which is initially opened (uncontrolled component) */
-    initialItem: PropTypes.number,
-
     /** Allow multiple items to be opened at the same time */
     multiple: PropTypes.bool,
+
+    /** Controlled state (controls opened state of accordion items) */
+    state: PropTypes.objectOf(PropTypes.bool),
 };
 
 export default Accordion;

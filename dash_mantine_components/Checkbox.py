@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Checkbox(Component):
     """A Checkbox component.
-Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/checkbox/
+Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/
 
 Keyword arguments:
 

@@ -19,6 +19,9 @@ Keyword arguments:
 - color (optional):
     Active radio color from theme.colors.
 
+- data (optional):
+    RadioGroup options.
+
 - description (string; optional):
     Input description, displayed after label.
 
@@ -27,9 +30,6 @@ Keyword arguments:
 
 - label (string; optional):
     Input label, displayed before input.
-
-- options (optional):
-    RadioGroup options.
 
 - required (boolean; optional):
     Adds red asterisk on the right side of label.
@@ -49,12 +49,12 @@ Keyword arguments:
 - variant (a value equal to: "horizontal", "vertical"; optional):
     Radios position."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, options=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, description=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'description', 'error', 'label', 'options', 'required', 'size', 'spacing', 'style', 'value', 'variant']
+    def __init__(self, id=Component.UNDEFINED, data=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, description=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'data', 'description', 'error', 'label', 'required', 'size', 'spacing', 'style', 'value', 'variant']
         self._type = 'RadioGroup'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'description', 'error', 'label', 'options', 'required', 'size', 'spacing', 'style', 'value', 'variant']
+        self.available_properties = ['id', 'className', 'color', 'data', 'description', 'error', 'label', 'required', 'size', 'spacing', 'style', 'value', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

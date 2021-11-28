@@ -21,9 +21,6 @@ Tooltip.propTypes = {
     /** The ID of this component, used to identify dash components in callbacks */
     id: PropTypes.string,
 
-    /** Tells dash if any prop has changed its value */
-    setProps: PropTypes.func,
-
     /**	Arrow size in px */
     arrowSize: PropTypes.number,
 

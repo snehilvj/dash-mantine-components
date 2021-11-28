@@ -1,27 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { NumberSizes, Sizes } from "../propTypes";
-import { Card as MantineCard } from "@mantine/core";
+import { Paper as MantinePaper } from "@mantine/core";
 import { omit } from "ramda";
 
-/** Card.Section is a special component that is used to remove Card padding from its children while other elements still have horizontal spacing. For more information, see: https://mantine.dev/core/card/ */
-const Card = (props) => {
+/** Renders white or dark background depending on color scheme. For more information, see: https://mantine.dev/core/paper/ */
+const Paper = (props) => {
     return (
-        <MantineCard {...omit(["setProps", "children"], props)}>
+        <MantinePaper {...omit(["setProps", "children"], props)}>
             {props.children}
-        </MantineCard>
+        </MantinePaper>
     );
 };
 
-Card.displayName = "Card";
+Paper.displayName = "Paper";
 
-Card.defaultProps = {};
+Paper.defaultProps = {};
 
-Card.propTypes = {
+Paper.propTypes = {
     /** The ID of this component, used to identify dash components in callbacks */
     id: PropTypes.string,
 
-    /** Card content */
+    /** Paper content */
     children: PropTypes.node,
 
     /** Often used with CSS to style elements with common properties */
@@ -40,4 +40,4 @@ Card.propTypes = {
     withBorder: PropTypes.bool,
 };
 
-export default Card;
+export default Paper;

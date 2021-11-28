@@ -1,6 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
-from datetime import datetime, timedelta
+from dash import Dash, Input, Output, html
 
 app = Dash(__name__)
 
@@ -9,7 +8,7 @@ app.layout = html.Div(
     [
         dmc.Select(
             id="select",
-            options=[
+            data=[
                 {"value": "react", "label": "React"},
                 {"value": "ng", "label": "Angular"},
                 {"value": "svelte", "label": "Svelte"},
@@ -18,6 +17,7 @@ app.layout = html.Div(
                 {"value": "next", "label": "Next.js"},
                 {"value": "blitz", "label": "Blitz.js"},
             ],
+            initiallyOpened=True,
         ),
         dmc.Space(h=20),
         dmc.Text(id="text"),

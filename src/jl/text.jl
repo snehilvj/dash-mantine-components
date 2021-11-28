@@ -15,7 +15,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `align` (optional): Sets text-align css property
 - `className` (String; optional): Often used with CSS to style elements with common properties
-- `color` (optional): Text color from theme
+- `color` (a value equal to: "dimmed"; optional): Text color from theme
 - `gradient` (optional): Controls gradient settings in gradient variant only
 - `inherit` (Bool; optional): Inherit font properties from parent element
 - `inline` (Bool; optional): Sets line-height to 1 for centering

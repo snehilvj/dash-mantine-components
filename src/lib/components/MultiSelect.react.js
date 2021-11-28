@@ -6,7 +6,7 @@ import { NumberSizes, OptionsType, Sizes } from "../propTypes";
 
 /** Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/ */
 const MultiSelect = (props) => {
-    const { setProps, options } = props;
+    const { setProps, data } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -14,8 +14,8 @@ const MultiSelect = (props) => {
 
     return (
         <MatineMultiSelect
-            {...omit(["setProps", "options"], props)}
-            data={options}
+            {...omit(["setProps", "data"], props)}
+            data={data}
             onChange={updateProps}
         />
     );
@@ -26,7 +26,7 @@ MultiSelect.displayName = "MultiSelect";
 MultiSelect.defaultProps = {
     searchable: true,
     placeholder: "Select items",
-    options: [],
+    data: [],
     nothingFound: "No match found",
 };
 
@@ -40,11 +40,17 @@ MultiSelect.propTypes = {
     /** Often used with CSS to style elements with common properties */
     className: PropTypes.string,
 
+    /** Clear search field value on blur */
+    clearSearchOnBlur: PropTypes.bool,
+
+    /** Clear search value when item is selected */
+    clearSearchOnChange: PropTypes.bool,
+
     /** Allow to clear value */
     clearable: PropTypes.bool,
 
     /** Select options used to renderer items in dropdown */
-    options: OptionsType,
+    data: OptionsType,
 
     /** Input description, displayed after label */
     description: PropTypes.string,
@@ -55,6 +61,9 @@ MultiSelect.propTypes = {
     /** Displays error message after input */
     error: PropTypes.string,
 
+    /** Initial dropdown opened state */
+    initiallyOpened: PropTypes.bool,
+
     /** Input label, displayed before input */
     label: PropTypes.string,
 
@@ -63,6 +72,12 @@ MultiSelect.propTypes = {
 
     /** Maximum dropdown height in px */
     maxDropdownHeight: PropTypes.number,
+
+    /** Limit amount of items selected */
+    maxSelectedValues: PropTypes.number,
+
+    /** Will input have multiple lines? */
+    multiline: PropTypes.bool,
 
     /**	Nothing found label */
     nothingFound: PropTypes.string,
@@ -79,6 +94,9 @@ MultiSelect.propTypes = {
     /** Set to true to enable search */
     searchable: PropTypes.bool,
 
+    /** Dropdown shadow from theme or any value to set box-shadow */
+    shadow: Sizes,
+
     /**	Input size */
     size: Sizes,
 
@@ -87,6 +105,9 @@ MultiSelect.propTypes = {
 
     /** Selected value */
     value: PropTypes.arrayOf(PropTypes.string),
+
+    /**	Dropdown z-index */
+    zIndex: PropTypes.number,
 };
 
 export default MultiSelect;
