@@ -12,7 +12,6 @@ import Drawer from "./components/Drawer.react";
 import Checkbox from "./components/Checkbox.react";
 import Slider from "./components/Slider.react";
 import Alert from "./components/Alert.react";
-import Notification from "./components/Notification.react";
 import TextInput from "./components/TextInput.react";
 import Center from "./components/Center.react";
 import Container from "./components/Container.react";
@@ -41,6 +40,8 @@ import Spoiler from "./components/Spoiler.react";
 import Paper from "./components/Paper.react";
 import Breadcrumbs from "./components/Breadcrumbs.react";
 import Progress from "./components/Progress.react";
+import NotificationsProvider from "./components/NotificationsProvider.react";
+import NotificationHandler from "./components/NotificationHandler.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -58,7 +59,6 @@ export {
     Checkbox,
     Slider,
     Alert,
-    Notification,
     TextInput,
     Center,
     Container,
@@ -87,5 +87,7 @@ export {
     Paper,
     Breadcrumbs,
     Progress,
+    NotificationsProvider,
+    NotificationHandler,
     // RangeSlider,
 };

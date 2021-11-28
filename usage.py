@@ -1,31 +1,65 @@
+import dash
+from dash import Dash, Input, Output, html
+
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
 
 app = Dash(__name__)
 
 
 app.layout = html.Div(
     [
-        dmc.Notification(
-            "This is default notification with title and body",
-            title="Default notification",
+        dmc.NotificationsProvider(
+            dmc.NotificationHandler(id="handler"), autoClose=False, position="top-right"
         ),
-        dmc.Space(h=20),
-        dmc.Notification(
-            "This is teal notification with icon",
-            color="teal",
-            title="Teal notification",
-        ),
-        dmc.Space(h=20),
-        dmc.Notification("Bummer! Notification without title", color="red"),
-        dmc.Space(h=20),
-        dmc.Notification(
-            "Please wait until data is uploaded, you cannot close this notification yet",
-            loading=True,
-            title="Uploading data to the server",
+        dmc.Group(
+            [
+                dmc.Button("Show notifications", id="show"),
+                dmc.Button("Update notifications", id="update"),
+                dmc.Button("Hide notifications", id="hide"),
+            ]
         ),
     ]
 )
+
+
+@app.callback(
+    Output("handler", "task"),
+    Input("show", "n_clicks"),
+    Input("update", "n_clicks"),
+    Input("hide", "n_clicks"),
+    prevent_initial_call=True,
+)
+def notifications(show_click, update_click, hide_click):
+    command = dash.callback_context.triggered[0]["prop_id"].split(".")[0]
+    task = {
+        "command": command,
+        "id": "notification",
+    }
+    if command == "show":
+        task = {
+            **task,
+            "props": {
+                "color": "red",
+                "title": "This is a notification",
+                "message": "Notifications in Dash Apps! Great!",
+                "loading": True,
+                "disallowClose": True,
+            },
+        }
+    elif command == "update":
+        task = {
+            **task,
+            "props": {
+                "color": "green",
+                "title": "All good",
+                "message": "Data has been loaded.",
+                "loading": False,
+                "disallowClose": False,
+                "autoClose": 3000,
+            },
+        }
+
+    return task
 
 
 if __name__ == "__main__":

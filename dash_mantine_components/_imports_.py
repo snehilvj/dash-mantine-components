@@ -21,7 +21,8 @@ from .Group import Group
 from .Image import Image
 from .Modal import Modal
 from .MultiSelect import MultiSelect
-from .Notification import Notification
+from .NotificationHandler import NotificationHandler
+from .NotificationsProvider import NotificationsProvider
 from .Paper import Paper
 from .Prism import Prism
 from .Progress import Progress
@@ -67,7 +68,8 @@ __all__ = [
     "Image",
     "Modal",
     "MultiSelect",
-    "Notification",
+    "NotificationHandler",
+    "NotificationsProvider",
     "Paper",
     "Prism",
     "Progress",

@@ -34,7 +34,7 @@ Group.propTypes = {
     /** The ID of this component, used to identify dash components in callbacks */
     id: PropTypes.string,
 
-    /** Tab content */
+    /** Content */
     children: PropTypes.node,
 
     /** Often used with CSS to style elements with common properties */
