@@ -40,7 +40,6 @@ const DatePicker = (props) => {
 DatePicker.displayName = "DatePicker";
 
 DatePicker.defaultProps = {
-    clearable: false,
     placeholder: "Select a date",
     style: { width: "200px" },
 };
@@ -55,11 +54,23 @@ DatePicker.propTypes = {
     /** Often used with CSS to style elements with common properties */
     className: PropTypes.string,
 
+    /** Allow free input */
+    allowFreeInput: PropTypes.bool,
+
+    /** Amount of displayed months */
+    amountOfMonths: PropTypes.number,
+
     /** Allow to clear value */
     clearable: PropTypes.bool,
 
     /** Input description, displayed after label */
     description: PropTypes.string,
+
+    // /** When true dates that are outside of given month are not styled */
+    // disableOutsideDayStyle: PropTypes.bool,
+
+    /** When true dates that are outside of given month cannot be clicked or focused */
+    disableOutsideEvents: PropTypes.bool,
 
     /** A Datepicker can show it is currently unable to be interacted with */
     disabled: PropTypes.bool,
@@ -67,11 +78,17 @@ DatePicker.propTypes = {
     /** Where to show calendar in modal or popover */
     dropdownType: PropTypes.oneOf(["modal", "popover"]),
 
+    /** Set first day of the week */
+    firstDayOfWeek: PropTypes.oneOf(["sunday", "monday"]),
+
     /** DatePicker display format */
     format: PropTypes.string,
 
     /** Initial selected month */
     initialMonth: PropTypes.string,
+
+    /** Control initial dropdown opened state */
+    initiallyOpened: PropTypes.bool,
 
     /** Input label, displayed before input */
     label: PropTypes.string,
@@ -82,8 +99,14 @@ DatePicker.propTypes = {
     /** Minimum possible date */
     minDate: PropTypes.string,
 
+    /** Will input have multiple lines? */
+    multiline: PropTypes.bool,
+
     /** Placeholder, displayed when date is not selected */
     placeholder: PropTypes.string,
+
+    /** Prevent focusing upon clicking */
+    preventFocus: PropTypes.bool,
 
     /**	Input border-radius from theme or number to set border-radius in px */
     radius: NumberSizes,

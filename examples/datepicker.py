@@ -1,21 +1,31 @@
-import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
 from datetime import datetime, timedelta
 
-app = Dash(__name__)
+from dash import Dash, Input, Output, dcc, html
+import dash_mantine_components as dmc
 
-style = {"border": "1px solid", "height": "100px", "marginBottom": "40px"}
+app = Dash(__name__)
 
 app.layout = html.Div(
     [
         dcc.Location(id="url"),
         dmc.DatePicker(
-            id="date", format="dddd, MMMM D, YYYY", style={"width": "250px"}
+            id="date",
+            format="dddd, MMMM D, YYYY",
+            disableOutsideEvents=True,
+            style={"width": "250px"},
         ),
         dmc.Space(h=20),
         dmc.Text(id="text"),
         dmc.Space(h=20),
         html.Div(id="date-container"),
+        dmc.Space(h=20),
+        dmc.DatePicker(
+            amountOfMonths=2,
+            required=True,
+            firstDayOfWeek="sunday",
+            label="Select Date",
+            initiallyOpened=True,
+        ),
     ]
 )
 
@@ -32,7 +42,8 @@ def datepicker(date):
             dates=[
                 str(datetime.now().date() - timedelta(days=4)),
                 str(datetime.now().date()),
-            ]
+            ],
+            amountOfMonths=2,
         )
     ]
 
