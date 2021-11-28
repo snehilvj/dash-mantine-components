@@ -1,21 +1,21 @@
 % Auto-generated: do not edit by hand
-\name{card}
+\name{paper}
 
-\alias{card}
+\alias{paper}
 
-\title{Card component}
+\title{Paper component}
 
 \description{
-Card with context styles for Image and Divider components. For more information, see: https://mantine.dev/core/card/
+Renders white or dark background depending on color scheme. For more information, see: https://mantine.dev/core/paper/
 }
 
 \usage{
-card(children=NULL, id=NULL, className=NULL, padding=NULL,
+paper(children=NULL, id=NULL, className=NULL, padding=NULL,
 radius=NULL, shadow=NULL, withBorder=NULL)
 }
 
 \arguments{
-\item{children}{A list of or a singular dash component, string or number. Card content}
+\item{children}{A list of or a singular dash component, string or number. Paper content}
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 

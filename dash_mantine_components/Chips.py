@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Chips(Component):
     """A Chips component.
-Alternative to Select and RadioGroup
+Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/
 
 Keyword arguments:
 
@@ -22,6 +22,9 @@ Keyword arguments:
 - color (optional):
     Active chip color, defaults to theme.primaryColor.
 
+- data (optional):
+    Chips.
+
 - direction (optional):
     Defines flex-direction property, row for horizontal, column for
     vertical.
@@ -30,11 +33,11 @@ Keyword arguments:
     Defines flex-grow property for each element, True -> 1, False ->
     0.
 
+- multiple (boolean; optional):
+    Allow multiple values to be picked.
+
 - noWrap (boolean; optional):
     Defined flex-wrap property.
-
-- options (optional):
-    Chips.
 
 - position (optional):
     Defines justify-content property.
@@ -51,19 +54,19 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override.
 
-- value (string; optional):
+- value (string | list of strings; optional):
     Controlled component value.
 
 - variant (a value equal to: "outline", "filled"; optional):
     Controls chip appearance, defaults to filled with dark theme and
     to outline in light theme."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, options=Component.UNDEFINED, color=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'align', 'className', 'color', 'direction', 'grow', 'noWrap', 'options', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, data=Component.UNDEFINED, color=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, multiple=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'align', 'className', 'color', 'data', 'direction', 'grow', 'multiple', 'noWrap', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
         self._type = 'Chips'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'align', 'className', 'color', 'direction', 'grow', 'noWrap', 'options', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
+        self.available_properties = ['id', 'align', 'className', 'color', 'data', 'direction', 'grow', 'multiple', 'noWrap', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

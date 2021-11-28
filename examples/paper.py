@@ -11,7 +11,7 @@ app.layout = html.Div(
                 html.Div(
                     style={"width": 340, "margin": "auto"},
                     children=[
-                        dmc.Card(
+                        dmc.Paper(
                             shadow="sm",
                             padding=20,
                             children=[

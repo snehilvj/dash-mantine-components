@@ -9,7 +9,7 @@ Render button or link with button styles from mantine theme. For more informatio
 
 Keyword arguments:
 
-- children (string; optional):
+- children (a list of or a singular dash component, string or number; optional):
     Primary content.
 
 - id (string; optional):
@@ -55,21 +55,18 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override.
 
-- type (a value equal to: "submit", "button", "reset"; optional):
-    Button type attribute.
-
 - uppercase (boolean; optional):
     Set text-transform to uppercase.
 
 - variant (a value equal to: "link", "filled", "outline", "light", "gradient", "white", "default"; optional):
     Controls button appearance."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, disabled=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, compact=Component.UNDEFINED, fullWidth=Component.UNDEFINED, gradient=Component.UNDEFINED, loaderPosition=Component.UNDEFINED, loading=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, type=Component.UNDEFINED, variant=Component.UNDEFINED, uppercase=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'color', 'compact', 'disabled', 'fullWidth', 'gradient', 'loaderPosition', 'loading', 'n_clicks', 'radius', 'size', 'style', 'type', 'uppercase', 'variant']
+    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, disabled=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, compact=Component.UNDEFINED, fullWidth=Component.UNDEFINED, gradient=Component.UNDEFINED, loaderPosition=Component.UNDEFINED, loading=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, variant=Component.UNDEFINED, uppercase=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'color', 'compact', 'disabled', 'fullWidth', 'gradient', 'loaderPosition', 'loading', 'n_clicks', 'radius', 'size', 'style', 'uppercase', 'variant']
         self._type = 'Button'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'color', 'compact', 'disabled', 'fullWidth', 'gradient', 'loaderPosition', 'loading', 'n_clicks', 'radius', 'size', 'style', 'type', 'uppercase', 'variant']
+        self.available_properties = ['children', 'id', 'className', 'color', 'compact', 'disabled', 'fullWidth', 'gradient', 'loaderPosition', 'loading', 'n_clicks', 'radius', 'size', 'style', 'uppercase', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

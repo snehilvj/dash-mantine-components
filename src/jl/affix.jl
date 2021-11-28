@@ -21,9 +21,10 @@ Those elements have the following types:
   - `bottom` (Real | String; optional)
   - `right` (Real | String; optional)
 - `style` (Dict; optional): Inline style override
+- `zIndex` (String; optional): Root element z-index property
 """
 function affix(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :position, :style]
+        available_props = Symbol[:children, :id, :className, :position, :style, :zIndex]
         wild_props = Symbol[]
         return Component("affix", "Affix", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

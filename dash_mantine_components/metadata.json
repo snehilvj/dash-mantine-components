@@ -56,19 +56,22 @@
         "required": false,
         "description": "Change icon position: left or right"
       },
-      "initialItem": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Index of item which is initially opened (uncontrolled component)"
-      },
       "multiple": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Allow multiple items to be opened at the same time"
+      },
+      "state": {
+        "type": {
+          "name": "objectOf",
+          "value": {
+            "name": "bool"
+          }
+        },
+        "required": false,
+        "description": "Controlled state (controls opened state of accordion items)"
       }
     }
   },
@@ -125,13 +128,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "children": {
         "type": {
@@ -210,6 +206,13 @@
         },
         "required": false,
         "description": "Inline style override"
+      },
+      "zIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Root element z-index property"
       }
     }
   },
@@ -254,6 +257,13 @@
         "required": false,
         "description": "Alert title and line colors from theme"
       },
+      "duration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Duration in milliseconds after which the Alert dismisses itself."
+      },
       "title": {
         "type": {
           "name": "string"
@@ -261,12 +271,30 @@
         "required": false,
         "description": "Optional alert title"
       },
+      "show": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to show the alert",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
       "style": {
         "type": {
           "name": "object"
         },
         "required": false,
         "description": "Inline style override"
+      },
+      "withCloseButton": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Display close button"
       }
     }
   },
@@ -288,13 +316,6 @@
         },
         "required": false,
         "description": "Primary content"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "className": {
         "type": {
@@ -432,13 +453,6 @@
         "required": false,
         "description": "Primary content"
       },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -542,13 +556,6 @@
         "required": false,
         "description": "Primary content"
       },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -635,7 +642,7 @@
       },
       "children": {
         "type": {
-          "name": "string"
+          "name": "node"
         },
         "required": false,
         "description": "Primary content"
@@ -742,27 +749,6 @@
         "required": false,
         "description": "Predefined button size"
       },
-      "type": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "\"submit\"",
-              "computed": false
-            },
-            {
-              "value": "\"button\"",
-              "computed": false
-            },
-            {
-              "value": "\"reset\"",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": "Button type attribute"
-      },
       "variant": {
         "type": {
           "name": "enum",
@@ -816,93 +802,6 @@
       }
     }
   },
-  "src/lib/components/Card.react.js": {
-    "description": "Card.Section is a special component that is used to remove Card padding from its children while other elements still have horizontal spacing. For more information, see: https://mantine.dev/core/card/",
-    "displayName": "Card",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Card content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
-      "padding": {
-        "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
-        },
-        "required": false,
-        "description": "Predefined padding value from theme.spacing or number for padding in px"
-      },
-      "radius": {
-        "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
-        },
-        "required": false,
-        "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
-      },
-      "shadow": {
-        "type": {
-          "name": "custom",
-          "raw": "Sizes"
-        },
-        "required": false,
-        "description": "Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property"
-      },
-      "withBorder": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme"
-      }
-    }
-  },
-  "src/lib/components/CardSection.react.js": {
-    "description": "Card.Section is a special component that is used to remove Card padding from its children while other elements still have horizontal spacing. For more information, see: https://mantine.dev/core/card/",
-    "displayName": "CardSection",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Section content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      }
-    }
-  },
   "src/lib/components/Center.react.js": {
     "description": "Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/center/",
     "displayName": "Center",
@@ -914,13 +813,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "children": {
         "type": {
@@ -953,7 +845,7 @@
     }
   },
   "src/lib/components/Checkbox.react.js": {
-    "description": "Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/checkbox/",
+    "description": "Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/",
     "displayName": "Checkbox",
     "methods": [],
     "props": {
@@ -1029,7 +921,7 @@
     }
   },
   "src/lib/components/Chips.react.js": {
-    "description": "Alternative to Select and RadioGroup",
+    "description": "Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/",
     "displayName": "Chips",
     "methods": [],
     "props": {
@@ -1062,7 +954,7 @@
         "required": false,
         "description": "Defines align-items css property"
       },
-      "options": {
+      "data": {
         "type": {
           "name": "custom",
           "raw": "OptionsType"
@@ -1092,6 +984,13 @@
         },
         "required": false,
         "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
+      },
+      "multiple": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow multiple values to be picked"
       },
       "noWrap": {
         "type": {
@@ -1141,7 +1040,18 @@
       },
       "value": {
         "type": {
-          "name": "string"
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "string"
+              }
+            }
+          ]
         },
         "required": false,
         "description": "Controlled component value"
@@ -1260,13 +1170,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "children": {
         "type": {
@@ -1881,6 +1784,20 @@
           "computed": false
         }
       },
+      "overlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme"
+      },
+      "overlayOpacity": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme"
+      },
       "padding": {
         "type": {
           "name": "custom",
@@ -1943,13 +1860,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "children": {
         "type": {
@@ -2017,13 +1927,6 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
       },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -2090,13 +1993,6 @@
         },
         "required": false,
         "description": "Inline style override"
-      },
-      "withGutter": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Defines padding for the root component"
       }
     }
   },
@@ -2355,6 +2251,20 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "clearSearchOnBlur": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Clear search field value on blur"
+      },
+      "clearSearchOnChange": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Clear search value when item is selected"
+      },
       "clearable": {
         "type": {
           "name": "bool"
@@ -2362,7 +2272,7 @@
         "required": false,
         "description": "Allow to clear value"
       },
-      "options": {
+      "data": {
         "type": {
           "name": "custom",
           "raw": "OptionsType"
@@ -2395,6 +2305,13 @@
         "required": false,
         "description": "Displays error message after input"
       },
+      "initiallyOpened": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Initial dropdown opened state"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -2415,6 +2332,20 @@
         },
         "required": false,
         "description": "Maximum dropdown height in px"
+      },
+      "maxSelectedValues": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Limit amount of items selected"
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Will input have multiple lines?"
       },
       "nothingFound": {
         "type": {
@@ -2464,6 +2395,14 @@
           "computed": false
         }
       },
+      "shadow": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Dropdown shadow from theme or any value to set box-shadow"
+      },
       "size": {
         "type": {
           "name": "custom",
@@ -2488,6 +2427,13 @@
         },
         "required": false,
         "description": "Selected value"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Dropdown z-index"
       }
     }
   },
@@ -2502,13 +2448,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "children": {
         "type": {
@@ -2548,6 +2487,65 @@
       }
     }
   },
+  "src/lib/components/Paper.react.js": {
+    "description": "Renders white or dark background depending on color scheme. For more information, see: https://mantine.dev/core/paper/",
+    "displayName": "Paper",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Paper content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "padding": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined padding value from theme.spacing or number for padding in px"
+      },
+      "radius": {
+        "type": {
+          "name": "custom",
+          "raw": "NumberSizes"
+        },
+        "required": false,
+        "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
+      },
+      "shadow": {
+        "type": {
+          "name": "custom",
+          "raw": "Sizes"
+        },
+        "required": false,
+        "description": "Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property"
+      },
+      "withBorder": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme"
+      }
+    }
+  },
   "src/lib/components/Prism.react.js": {
     "description": "Code highlight with Mantine theme colors and styles. For more information, see: https://mantine.dev/others/prism/",
     "displayName": "Prism",
@@ -2559,13 +2557,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "className": {
         "type": {
@@ -2892,7 +2883,7 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
       },
-      "options": {
+      "data": {
         "type": {
           "name": "custom",
           "raw": "SimpleOptionsType"
@@ -3346,7 +3337,7 @@
         "required": false,
         "description": "Allow to clear value"
       },
-      "options": {
+      "data": {
         "type": {
           "name": "custom",
           "raw": "OptionsType"
@@ -3379,6 +3370,13 @@
         "required": false,
         "description": "Displays error message after input"
       },
+      "initiallyOpened": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Initial dropdown opened state"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -3399,6 +3397,13 @@
         },
         "required": false,
         "description": "Maximum dropdown height in px"
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Will input have multiple lines?"
       },
       "nothingFound": {
         "type": {
@@ -3469,6 +3474,13 @@
         },
         "required": false,
         "description": "Selected value"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Dropdown z-index"
       }
     }
   },
@@ -3483,13 +3495,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "children": {
         "type": {
@@ -3688,6 +3693,13 @@
         "required": false,
         "description": "Track border-radius from theme or number to set border-radius in px"
       },
+      "showLabelOnHover": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true slider label will appear on hover"
+      },
       "size": {
         "type": {
           "name": "custom",
@@ -3759,6 +3771,13 @@
         },
         "required": false,
         "description": "Height, set to add vertical spacing"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "w": {
         "type": {
@@ -4172,13 +4191,6 @@
         "required": false,
         "description": "Primary content"
       },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -4196,8 +4208,22 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "union",
+          "value": [
+            {
+              "name": "custom",
+              "raw": "MantineColors"
+            },
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"dimmed\"",
+                  "computed": false
+                }
+              ]
+            }
+          ]
         },
         "required": false,
         "description": "Text color from theme"
@@ -4372,7 +4398,21 @@
       },
       "type": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"number\"",
+              "computed": false
+            },
+            {
+              "value": "\"text\"",
+              "computed": false
+            },
+            {
+              "value": "\"password\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "The type of control to render."
@@ -4408,13 +4448,6 @@
         },
         "required": false,
         "description": "Primary content"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "className": {
         "type": {
@@ -4471,13 +4504,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "arrowSize": {
         "type": {

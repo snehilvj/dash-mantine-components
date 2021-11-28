@@ -7,8 +7,6 @@ from .Badge import Badge
 from .Blockquote import Blockquote
 from .Breadcrumbs import Breadcrumbs
 from .Button import Button
-from .Card import Card
-from .CardSection import CardSection
 from .Center import Center
 from .Checkbox import Checkbox
 from .Chips import Chips
@@ -24,6 +22,7 @@ from .Image import Image
 from .Modal import Modal
 from .MultiSelect import MultiSelect
 from .Notification import Notification
+from .Paper import Paper
 from .Prism import Prism
 from .Progress import Progress
 from .RadioGroup import RadioGroup
@@ -54,8 +53,6 @@ __all__ = [
     "Blockquote",
     "Breadcrumbs",
     "Button",
-    "Card",
-    "CardSection",
     "Center",
     "Checkbox",
     "Chips",
@@ -71,6 +68,7 @@ __all__ = [
     "Modal",
     "MultiSelect",
     "Notification",
+    "Paper",
     "Prism",
     "Progress",
     "RadioGroup",

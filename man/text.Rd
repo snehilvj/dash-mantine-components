@@ -25,7 +25,7 @@ variant=NULL, weight=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Text color from theme}
+\item{color}{A value equal to: "dimmed". Text color from theme}
 
 \item{gradient}{Controls gradient settings in gradient variant only}
 

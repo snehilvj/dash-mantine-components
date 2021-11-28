@@ -11,8 +11,8 @@ Divide content into collapsible sections. For more information, see: https://man
 
 \usage{
 accordion(children=NULL, id=NULL, className=NULL,
-disableIconRotation=NULL, iconPosition=NULL,
-initialItem=NULL, multiple=NULL)
+disableIconRotation=NULL, iconPosition=NULL, multiple=NULL,
+state=NULL)
 }
 
 \arguments{
@@ -26,9 +26,9 @@ initialItem=NULL, multiple=NULL)
 
 \item{iconPosition}{A value equal to: "right", "left". Change icon position: left or right}
 
-\item{initialItem}{Numeric. Index of item which is initially opened (uncontrolled component)}
-
 \item{multiple}{Logical. Allow multiple items to be opened at the same time}
+
+\item{state}{List with named elements and values of type logical. Controlled state (controls opened state of accordion items)}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

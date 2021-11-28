@@ -20,9 +20,6 @@ Affix.propTypes = {
     /** The ID of this component, used to identify dash components in callbacks */
     id: PropTypes.string,
 
-    /** Tells dash if any prop has changed its value */
-    setProps: PropTypes.func,
-
     /** Any react node that should trigger tooltip */
     children: PropTypes.node,
 
@@ -39,6 +36,9 @@ Affix.propTypes = {
 
     /** Inline style override */
     style: PropTypes.object,
+
+    /** Root element z-index property */
+    zIndex: PropTypes.string,
 };
 
 export default Affix;

@@ -12,9 +12,9 @@ import {
     Sizes,
 } from "../propTypes";
 
-/** Alternative to Select and RadioGroup */
+/** Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/ */
 const Chips = (props) => {
-    const { setProps, options } = props;
+    const { setProps, data } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -23,9 +23,9 @@ const Chips = (props) => {
     return (
         <MantineChips
             onChange={updateProps}
-            {...omit(["setProps", "options"], props)}
+            {...omit(["setProps", "data"], props)}
         >
-            {options.map((chip, index) => {
+            {data.map((chip, index) => {
                 return (
                     <Chip value={chip.value} key={index}>
                         {chip.label}
@@ -54,7 +54,7 @@ Chips.propTypes = {
     align: AlignContentProperty,
 
     /** Chips */
-    options: OptionsType,
+    data: OptionsType,
 
     /**	Active chip color, defaults to theme.primaryColor */
     color: MantineColors,
@@ -65,8 +65,8 @@ Chips.propTypes = {
     /**	Defines flex-grow property for each element, true -> 1, false -> 0 */
     grow: PropTypes.bool,
 
-    // /**	Allow multiple values to be picked */
-    // multiple: PropTypes.bool,
+    /**	Allow multiple values to be picked */
+    multiple: PropTypes.bool,
 
     /**	Defined flex-wrap property */
     noWrap: PropTypes.bool,
@@ -87,7 +87,10 @@ Chips.propTypes = {
     style: PropTypes.object,
 
     /** Controlled component value */
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
 
     /**	Controls chip appearance, defaults to filled with dark theme and to outline in light theme */
     variant: PropTypes.oneOf(["outline", "filled"]),

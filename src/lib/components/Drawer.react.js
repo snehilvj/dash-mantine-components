@@ -71,6 +71,12 @@ Drawer.propTypes = {
     /**	If true drawer is mounted to the dom */
     opened: PropTypes.bool,
 
+    /** Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme */
+    overlayColor: PropTypes.string,
+
+    /** Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme */
+    overlayOpacity: PropTypes.number,
+
     /** Drawer body padding from theme or number for padding in px */
     padding: NumberSizes,
 

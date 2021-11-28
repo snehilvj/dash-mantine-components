@@ -11,7 +11,11 @@ import {
 
 /** Compose elements and components in flex container. For more information, see: https://mantine.dev/core/group/ */
 const Group = (props) => {
-    const { children } = props;
+    let { children } = props;
+
+    if (!Array.isArray(children)) {
+        children = [children];
+    }
 
     return (
         <MantineGroup {...omit(["children", "setProps"], props)}>
@@ -29,9 +33,6 @@ Group.defaultProps = {};
 Group.propTypes = {
     /** The ID of this component, used to identify dash components in callbacks */
     id: PropTypes.string,
-
-    /** Tells dash if any prop has changed its value */
-    setProps: PropTypes.func,
 
     /** Tab content */
     children: PropTypes.node,
@@ -59,9 +60,6 @@ Group.propTypes = {
 
     /** Inline style override */
     style: PropTypes.object,
-
-    /** Defines padding for the root component */
-    withGutter: PropTypes.bool,
 };
 
 export default Group;

@@ -5,7 +5,7 @@ app = Dash(__name__)
 
 app.layout = html.Div(
     [
-        dmc.Switch(id="switch", label="This is a switch."),
+        dmc.Switch(id="switch", label="This is a switch.", color="green"),
         dmc.Space(h=20),
         dmc.Text(id="output"),
     ]

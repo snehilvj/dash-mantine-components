@@ -9,7 +9,19 @@ app.layout = html.Div(
     [
         dmc.Button("Open Modal", id="button"),
         dmc.Modal(
-            [dmc.Text("I am in a modal component.")], title="New Modal", id="modal"
+            [
+                dmc.Text("I am in a modal component."),
+                dmc.Space(h=20),
+                dmc.Group(
+                    [
+                        dmc.Button("Submit"),
+                        dmc.Button("Close", color="red", variant="outline"),
+                    ],
+                    position="right",
+                ),
+            ],
+            title="New Modal",
+            id="modal",
         ),
     ]
 )

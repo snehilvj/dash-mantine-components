@@ -10,7 +10,8 @@ Add horizontal or vertical spacing from theme. For more information, see: https:
 }
 
 \usage{
-space(children=NULL, id=NULL, className=NULL, h=NULL, w=NULL)
+space(children=NULL, id=NULL, className=NULL, h=NULL, style=NULL,
+w=NULL)
 }
 
 \arguments{
@@ -21,6 +22,8 @@ space(children=NULL, id=NULL, className=NULL, h=NULL, w=NULL)
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{h}{Height, set to add vertical spacing}
+
+\item{style}{Named list. Inline style override}
 
 \item{w}{Width, set to add horizontal spacing}
 }

@@ -1,6 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
-from datetime import datetime, timedelta
+from dash import Dash, html
 
 app = Dash(__name__)
 
@@ -15,6 +14,8 @@ app.layout = html.Div(
                 html.Div(dmc.Center("1", style=bg_style), style=style),
                 html.Div(dmc.Center("2", style=bg_style), style=style),
                 html.Div(dmc.Center("3", style=bg_style), style=style),
+                html.Div(dmc.Center("4", style=bg_style), style=style),
+                html.Div(dmc.Center("5", style=bg_style), style=style),
             ],
         ),
     ]

@@ -12,7 +12,8 @@ Capture user feedback from a range of values. For more information, see: https:/
 \usage{
 slider(id=NULL, className=NULL, color=NULL, drag_value=NULL,
 labelAlwaysOn=NULL, marks=NULL, max=NULL, min=NULL,
-radius=NULL, size=NULL, step=NULL, style=NULL, value=NULL)
+radius=NULL, showLabelOnHover=NULL, size=NULL, step=NULL,
+style=NULL, value=NULL)
 }
 
 \arguments{
@@ -36,6 +37,8 @@ those elements have the following types:
 \item{min}{Numeric. Minimal possible value}
 
 \item{radius}{Track border-radius from theme or number to set border-radius in px}
+
+\item{showLabelOnHover}{Logical. If true slider label will appear on hover}
 
 \item{size}{Predefined track and thumb size, number to set sizes in px}
 

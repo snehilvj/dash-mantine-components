@@ -1,4 +1,5 @@
 from dash import Dash, html
+from dash.dependencies import Input, Output
 
 import dash_mantine_components as dmc
 
@@ -21,10 +22,19 @@ app.layout = html.Div(
             ],
             iconPosition="right",
             multiple=True,
-            initialItem=0,
-        )
+            id="acc",
+            state={"1": True},
+        ),
+        dmc.Space(h=20),
+        dmc.Text(id="output"),
     ]
 )
+
+
+@app.callback(Output("output", "children"), Input("acc", "state"))
+def accordion(state):
+    if state:
+        return f"{state}"
 
 
 if __name__ == "__main__":

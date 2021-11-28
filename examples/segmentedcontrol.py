@@ -1,6 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
-from datetime import datetime, timedelta
+from dash import Dash, Input, Output, html
 
 app = Dash(__name__)
 
@@ -8,7 +7,18 @@ app = Dash(__name__)
 app.layout = html.Div(
     [
         dmc.SegmentedControl(
-            id="radio",
+            id="segmentcontrol",
+            data=[
+                {"value": "react", "label": "React"},
+                {"value": "svelte", "label": "Svelte"},
+                {"value": "ng", "label": "Angular"},
+                {"value": "vue", "label": "Vue"},
+            ],
+        ),
+        dmc.Space(h=50),
+        dmc.SegmentedControl(
+            id="segmentcontrol2",
+            fullWidth=True,
             data=[
                 {"value": "react", "label": "React"},
                 {"value": "svelte", "label": "Svelte"},
@@ -22,8 +32,8 @@ app.layout = html.Div(
 )
 
 
-@app.callback(Output("text", "children"), Input("radio", "value"))
-def radio(value):
+@app.callback(Output("text", "children"), Input("segmentcontrol", "value"))
+def segmentcontrol(value):
     return value
 
 

@@ -11,7 +11,7 @@ Renders Affix at given element on mouse over or any other event. For more inform
 
 \usage{
 affix(children=NULL, id=NULL, className=NULL, position=NULL,
-style=NULL)
+style=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -29,6 +29,8 @@ those elements have the following types:
   - right (numeric | character; optional). Fixed position in px}
 
 \item{style}{Named list. Inline style override}
+
+\item{zIndex}{Character. Root element z-index property}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

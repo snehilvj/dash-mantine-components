@@ -20,7 +20,7 @@ Keyword arguments:
 - `required` (Bool; optional): Adds red asterisk on the right side of label
 - `size` (optional): Input size
 - `style` (Dict; optional): Inline style override
-- `type` (String; optional): The type of control to render.
+- `type` (a value equal to: "number", "text", "password"; optional): The type of control to render.
 - `value` (a list of or a singular dash component, string or number; optional): Input value
 """
 function textinput(; kwargs...)

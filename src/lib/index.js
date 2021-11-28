@@ -38,10 +38,9 @@ import Accordion from "./components/Accordion.react";
 import AccordionItem from "./components/AccordionItem.react";
 import Skeleton from "./components/Skeleton.react";
 import Spoiler from "./components/Spoiler.react";
-import Card from "./components/Card.react";
+import Paper from "./components/Paper.react";
 import Breadcrumbs from "./components/Breadcrumbs.react";
 import Progress from "./components/Progress.react";
-// import CardSection from "./components/CardSection.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -85,9 +84,8 @@ export {
     AccordionItem,
     Skeleton,
     Spoiler,
-    Card,
+    Paper,
     Breadcrumbs,
     Progress,
     // RangeSlider,
-    // CardSection,
 };

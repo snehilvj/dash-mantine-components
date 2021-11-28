@@ -48,7 +48,7 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override.
 
-- type (string; optional):
+- type (a value equal to: "number", "text", "password"; optional):
     The type of control to render.
 
 - value (a list of or a singular dash component, string or number; default ""):

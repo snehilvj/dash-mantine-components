@@ -33,14 +33,17 @@ Keyword arguments:
     - top (number | string; optional)
 
 - style (dict; optional):
-    Inline style override."""
+    Inline style override.
+
+- zIndex (string; optional):
+    Root element z-index property."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, position=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'position', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, position=Component.UNDEFINED, style=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'position', 'style', 'zIndex']
         self._type = 'Affix'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'position', 'style']
+        self.available_properties = ['children', 'id', 'className', 'position', 'style', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -11,7 +11,8 @@ Attract user attention with important static message. For more information, see:
 
 \usage{
 alert(children=NULL, id=NULL, className=NULL, color=NULL,
-style=NULL, title=NULL)
+duration=NULL, show=NULL, style=NULL, title=NULL,
+withCloseButton=NULL)
 }
 
 \arguments{
@@ -23,9 +24,15 @@ style=NULL, title=NULL)
 
 \item{color}{Alert title and line colors from theme}
 
+\item{duration}{Numeric. Duration in milliseconds after which the Alert dismisses itself.}
+
+\item{show}{Logical. Whether to show the alert}
+
 \item{style}{Named list. Inline style override}
 
 \item{title}{Character. Optional alert title}
+
+\item{withCloseButton}{Logical. Display close button}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

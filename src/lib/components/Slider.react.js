@@ -70,6 +70,9 @@ Slider.propTypes = {
     /** Track border-radius from theme or number to set border-radius in px */
     radius: NumberSizes,
 
+    /** If true slider label will appear on hover */
+    showLabelOnHover: PropTypes.bool,
+
     /** Predefined track and thumb size, number to set sizes in px */
     size: Sizes,
 

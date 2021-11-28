@@ -10,11 +10,13 @@ Custom searchable select. For more information, see: https://mantine.dev/core/se
 }
 
 \usage{
-select(id=NULL, className=NULL, clearable=NULL, description=NULL,
-disabled=NULL, error=NULL, label=NULL, limit=NULL,
-maxDropdownHeight=NULL, nothingFound=NULL, options=NULL,
+select(id=NULL, className=NULL, clearable=NULL, data=NULL,
+description=NULL, disabled=NULL, error=NULL,
+initiallyOpened=NULL, label=NULL, limit=NULL,
+maxDropdownHeight=NULL, multiline=NULL, nothingFound=NULL,
 placeholder=NULL, radius=NULL, required=NULL,
-searchable=NULL, size=NULL, style=NULL, value=NULL)
+searchable=NULL, size=NULL, style=NULL, value=NULL,
+zIndex=NULL)
 }
 
 \arguments{
@@ -24,11 +26,15 @@ searchable=NULL, size=NULL, style=NULL, value=NULL)
 
 \item{clearable}{Logical. Allow to clear value}
 
+\item{data}{Select options used to renderer items in dropdown}
+
 \item{description}{Character. Input description, displayed after label}
 
 \item{disabled}{Logical. The component can show it is currently unable to be interacted with}
 
 \item{error}{Character. Displays error message after input}
+
+\item{initiallyOpened}{Logical. Initial dropdown opened state}
 
 \item{label}{Character. Input label, displayed before input}
 
@@ -36,9 +42,9 @@ searchable=NULL, size=NULL, style=NULL, value=NULL)
 
 \item{maxDropdownHeight}{Numeric. Maximum dropdown height in px}
 
-\item{nothingFound}{Character. Nothing found label}
+\item{multiline}{Logical. Will input have multiple lines?}
 
-\item{options}{Select options used to renderer items in dropdown}
+\item{nothingFound}{Character. Nothing found label}
 
 \item{placeholder}{Character. Placeholder, displayed when date is not selected}
 
@@ -53,6 +59,8 @@ searchable=NULL, size=NULL, style=NULL, value=NULL)
 \item{style}{Named list. Inline style override}
 
 \item{value}{Character. Selected value}
+
+\item{zIndex}{Numeric. Dropdown z-index}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

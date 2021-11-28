@@ -6,7 +6,7 @@ export checkbox
     checkbox(;kwargs...)
 
 A Checkbox component.
-Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/checkbox/
+Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `checked` (Bool; optional): State of check box

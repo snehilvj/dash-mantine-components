@@ -12,7 +12,7 @@ Compose elements and components in flex container. For more information, see: ht
 \usage{
 group(children=NULL, id=NULL, align=NULL, className=NULL,
 direction=NULL, grow=NULL, noWrap=NULL, position=NULL,
-spacing=NULL, style=NULL, withGutter=NULL)
+spacing=NULL, style=NULL)
 }
 
 \arguments{
@@ -35,8 +35,6 @@ spacing=NULL, style=NULL, withGutter=NULL)
 \item{spacing}{Space between elements}
 
 \item{style}{Named list. Inline style override}
-
-\item{withGutter}{Logical. Defines padding for the root component}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

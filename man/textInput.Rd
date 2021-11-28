@@ -41,7 +41,7 @@ type=NULL, value=NULL)
 
 \item{style}{Named list. Inline style override}
 
-\item{type}{Character. The type of control to render.}
+\item{type}{A value equal to: "number", "text", "password". The type of control to render.}
 
 \item{value}{A list of or a singular dash component, string or number. Input value}
 }

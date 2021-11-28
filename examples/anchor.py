@@ -5,7 +5,9 @@ import dash_mantine_components as dmc
 
 app = Dash(__name__)
 
-app.layout = html.Div([dmc.Anchor("Click on me!", href="/haha", target="_self")])
+app.layout = html.Div(
+    [dmc.Anchor("Click on me!", color="red", href="/haha", target="_self")]
+)
 
 
 if __name__ == "__main__":

@@ -22,18 +22,27 @@ Keyword arguments:
 - color (optional):
     Alert title and line colors from theme.
 
+- duration (number; optional):
+    Duration in milliseconds after which the Alert dismisses itself.
+
+- show (boolean; default False):
+    Whether to show the alert.
+
 - style (dict; optional):
     Inline style override.
 
 - title (string; optional):
-    Optional alert title."""
+    Optional alert title.
+
+- withCloseButton (boolean; optional):
+    Display close button."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, title=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'color', 'style', 'title']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, duration=Component.UNDEFINED, title=Component.UNDEFINED, show=Component.UNDEFINED, style=Component.UNDEFINED, withCloseButton=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'color', 'duration', 'show', 'style', 'title', 'withCloseButton']
         self._type = 'Alert'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'color', 'style', 'title']
+        self.available_properties = ['children', 'id', 'className', 'color', 'duration', 'show', 'style', 'title', 'withCloseButton']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
