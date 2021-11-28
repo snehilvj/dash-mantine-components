@@ -1,6 +1,6 @@
+from dash import Dash, html
+
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, html, State, dcc
-from datetime import datetime, timedelta
 
 app = Dash(__name__)
 

@@ -1,52 +1,31 @@
-from datetime import datetime, timedelta
-
-from dash import Dash, Input, Output, dcc, html
 import dash_mantine_components as dmc
+from dash import Dash, Input, Output, html, State, dcc
 
 app = Dash(__name__)
 
+
 app.layout = html.Div(
     [
-        dcc.Location(id="url"),
-        dmc.DatePicker(
-            id="date",
-            format="dddd, MMMM D, YYYY",
-            disableOutsideEvents=True,
-            style={"width": "250px"},
+        dmc.Notification(
+            "This is default notification with title and body",
+            title="Default notification",
         ),
         dmc.Space(h=20),
-        dmc.Text(id="text"),
+        dmc.Notification(
+            "This is teal notification with icon",
+            color="teal",
+            title="Teal notification",
+        ),
         dmc.Space(h=20),
-        html.Div(id="date-container"),
+        dmc.Notification("Bummer! Notification without title", color="red"),
         dmc.Space(h=20),
-        dmc.DatePicker(
-            amountOfMonths=2,
-            required=True,
-            firstDayOfWeek="sunday",
-            label="Select Date",
-            initiallyOpened=True,
+        dmc.Notification(
+            "Please wait until data is uploaded, you cannot close this notification yet",
+            loading=True,
+            title="Uploading data to the server",
         ),
     ]
 )
-
-
-@app.callback(Output("text", "children"), Input("date", "date"))
-def datepicker(date):
-    return date
-
-
-@app.callback(Output("date-container", "children"), Input("url", "pathname"))
-def datepicker(date):
-    return [
-        dmc.DateRangePicker(
-            dates=[
-                str(datetime.now().date() - timedelta(days=4)),
-                str(datetime.now().date()),
-            ],
-            amountOfMonths=2,
-            closeCalendarOnChange=False,
-        )
-    ]
 
 
 if __name__ == "__main__":
