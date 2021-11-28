@@ -44,6 +44,7 @@ def datepicker(date):
                 str(datetime.now().date()),
             ],
             amountOfMonths=2,
+            closeCalendarOnChange=False,
         )
     ]
 
