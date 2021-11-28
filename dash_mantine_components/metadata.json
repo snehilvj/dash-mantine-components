@@ -1243,16 +1243,26 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "allowFreeInput": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow free input"
+      },
+      "amountOfMonths": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Amount of displayed months"
+      },
       "clearable": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Allow to clear value",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
+        "description": "Allow to clear value"
       },
       "description": {
         "type": {
@@ -1260,6 +1270,13 @@
         },
         "required": false,
         "description": "Input description, displayed after label"
+      },
+      "disableOutsideEvents": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "When true dates that are outside of given month cannot be clicked or focused"
       },
       "disabled": {
         "type": {
@@ -1285,6 +1302,23 @@
         "required": false,
         "description": "Where to show calendar in modal or popover"
       },
+      "firstDayOfWeek": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"sunday\"",
+              "computed": false
+            },
+            {
+              "value": "\"monday\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Set first day of the week"
+      },
       "format": {
         "type": {
           "name": "string"
@@ -1298,6 +1332,13 @@
         },
         "required": false,
         "description": "Initial selected month"
+      },
+      "initiallyOpened": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Control initial dropdown opened state"
       },
       "label": {
         "type": {
@@ -1320,6 +1361,13 @@
         "required": false,
         "description": "Minimum possible date"
       },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Will input have multiple lines?"
+      },
       "placeholder": {
         "type": {
           "name": "string"
@@ -1330,6 +1378,13 @@
           "value": "\"Select a date\"",
           "computed": false
         }
+      },
+      "preventFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Prevent focusing upon clicking"
       },
       "radius": {
         "type": {
@@ -1431,6 +1486,20 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "allowSingleDateInRange": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow one date to be selected as range"
+      },
+      "amountOfMonths": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Amount of displayed months"
+      },
       "clearable": {
         "type": {
           "name": "bool"
@@ -1442,12 +1511,33 @@
           "computed": false
         }
       },
+      "closeCalendarOnChange": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to false to force dropdown to stay open after date was selected"
+      },
+      "closeDropdownOnScroll": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to disable dropdown closing on scroll"
+      },
       "description": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Input description, displayed after label"
+      },
+      "disableOutsideEvents": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "When true dates that are outside of given month cannot be clicked or focused"
       },
       "disabled": {
         "type": {
@@ -1473,6 +1563,23 @@
         "required": false,
         "description": "Where to show calendar in modal or popover"
       },
+      "firstDayOfWeek": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"sunday\"",
+              "computed": false
+            },
+            {
+              "value": "\"monday\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Set first day of the week"
+      },
       "format": {
         "type": {
           "name": "string"
@@ -1486,6 +1593,13 @@
         },
         "required": false,
         "description": "Initial selected month"
+      },
+      "initiallyOpened": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Control initial dropdown opened state"
       },
       "label": {
         "type": {
@@ -1518,6 +1632,13 @@
           "value": "\"Select a date range\"",
           "computed": false
         }
+      },
+      "preventFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Prevent focusing upon clicking"
       },
       "radius": {
         "type": {
@@ -2795,13 +2916,6 @@
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
       },
       "className": {
         "type": {

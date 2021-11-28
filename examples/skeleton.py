@@ -7,6 +7,7 @@ app = Dash(__name__)
 app.layout = html.Div(
     [
         dmc.Skeleton(height=50, circle=True),
+        dmc.Space(h=20),
         dmc.Skeleton(
             id="overlay",
             children=[
@@ -20,6 +21,7 @@ app.layout = html.Div(
             ],
             visible=True,
         ),
+        dmc.Space(h=20),
         dmc.Button("Toggle Overlay", id="button"),
     ]
 )

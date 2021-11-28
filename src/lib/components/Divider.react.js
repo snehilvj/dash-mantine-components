@@ -2,10 +2,11 @@ import React from "react";
 import { Divider as MantineDivider } from "@mantine/core";
 import PropTypes from "prop-types";
 import { MantineColors, NumberSizes, Orientations } from "../propTypes";
+import { omit } from "ramda";
 
 /** Horizontal line with optional label or vertical divider. For more information, see: https://mantine.dev/core/divider/ */
 const Divider = (props) => {
-    return <MantineDivider {...props} />;
+    return <MantineDivider {...omit(["setProps"], props)} />;
 };
 
 Divider.displayName = "Divider";

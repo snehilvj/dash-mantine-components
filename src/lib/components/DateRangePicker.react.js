@@ -61,11 +61,26 @@ DateRangePicker.propTypes = {
     /** Often used with CSS to style elements with common properties */
     className: PropTypes.string,
 
+    /** Allow one date to be selected as range */
+    allowSingleDateInRange: PropTypes.bool,
+
+    /** Amount of displayed months */
+    amountOfMonths: PropTypes.number,
+
     /** Allow to clear value */
     clearable: PropTypes.bool,
 
+    /** Set to false to force dropdown to stay open after date was selected */
+    closeCalendarOnChange: PropTypes.bool,
+
+    /** Set to true to disable dropdown closing on scroll */
+    closeDropdownOnScroll: PropTypes.bool,
+
     /** Input description, displayed after label */
     description: PropTypes.string,
+
+    /** When true dates that are outside of given month cannot be clicked or focused */
+    disableOutsideEvents: PropTypes.bool,
 
     /** A DateRangePicker can show it is currently unable to be interacted with */
     disabled: PropTypes.bool,
@@ -73,11 +88,17 @@ DateRangePicker.propTypes = {
     /** Where to show calendar in modal or popover */
     dropdownType: PropTypes.oneOf(["modal", "popover"]),
 
+    /** Set first day of the week */
+    firstDayOfWeek: PropTypes.oneOf(["sunday", "monday"]),
+
     /** DateRangePicker display format */
     format: PropTypes.string,
 
     /** Initial selected month */
     initialMonth: PropTypes.string,
+
+    /** Control initial dropdown opened state */
+    initiallyOpened: PropTypes.bool,
 
     /** Input label, displayed before input */
     label: PropTypes.string,
@@ -90,6 +111,9 @@ DateRangePicker.propTypes = {
 
     /** Placeholder, displayed when date is not selected */
     placeholder: PropTypes.string,
+
+    /** Prevent focusing upon clicking */
+    preventFocus: PropTypes.bool,
 
     /**	Input border-radius from theme or number to set border-radius in px */
     radius: NumberSizes,
