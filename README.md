@@ -11,16 +11,17 @@ pip install dash-mantine-components
 ## Available Components
 
 -   [Accordion](examples/accordion.py)
--   [Anchor](examples/anchor.py)
+-   AccordionItem
 -   [Affix](examples/affix.py)
 -   [Alert](examples/alert.py)
+-   [Anchor](examples/anchor.py)
 -   [Badge](examples/badge.py)
 -   [Blockquote](examples/blockquote.py)
+-   [Breadcrumbs](examples/breadcrumbs.py)
 -   [Button](examples/button.py)
--   [Card](examples/card.py)
 -   [Center](examples/center.py)
 -   [Checkbox](examples/checkbox.py)
--   [Chips](examples/ships.py)
+-   [Chips](examples/chips.py)
 -   Col
 -   [Container](examples/container.py)
 -   [DatePicker](examples/datepicker.py)
@@ -32,8 +33,10 @@ pip install dash-mantine-components
 -   [Image](examples/image.py)
 -   [Modal](examples/modal.py)
 -   [MultiSelect](examples/multiselect.py)
--   [Notification](examples/notification.py)
+-   [NotificationProvider](examples/notifications.py)
+-   [Paper](examples/paper.py)
 -   [Prism](examples/prism.py)
+-   [Progress](examples/progress.py)
 -   [RadioGroup](examples/radiogroup.py)
 -   [SegmentedControl](examples/segmentedcontrol.py)
 -   [Select](examples/select.py)
@@ -46,9 +49,9 @@ pip install dash-mantine-components
 -   [Table](examples/table.py)
 -   Tab
 -   [Tabs](examples/tabs.py)
--   Text
+-   [Text](examples/text.py)
 -   [TextInput](examples/textinput.py)
--   Title
+-   [Title](examples/title.py)
 -   [Tooltip](examples/tooltip.py)
 
 ## Quickstart
