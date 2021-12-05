@@ -39,9 +39,9 @@ NotificationHandler.propTypes = {
         props: PropTypes.exact({
             color: PropTypes.string,
             style: PropTypes.object,
-            title: PropTypes.node,
+            title: PropTypes.string,
             loading: PropTypes.bool,
-            message: PropTypes.node,
+            message: PropTypes.string,
             autoClose: PropTypes.oneOfType([
                 PropTypes.number,
                 PropTypes.oneOf([false]),
