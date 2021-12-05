@@ -1,7 +1,9 @@
-# Dash Mantine Components
+<h1 align="center">dmc</h1>
+<h3 align="center">Dash Mantine Components</h3>
 
-Dash Mantine Components is a Dash component library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
+<br/>
 
+dash-mantine-components is an extensive (40+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 ## Installation
 
 ```
