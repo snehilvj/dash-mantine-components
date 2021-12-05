@@ -2608,7 +2608,7 @@
                   "required": false
                 },
                 "title": {
-                  "name": "node",
+                  "name": "string",
                   "required": false
                 },
                 "loading": {
@@ -2616,7 +2616,7 @@
                   "required": false
                 },
                 "message": {
-                  "name": "node",
+                  "name": "string",
                   "required": false
                 },
                 "autoClose": {

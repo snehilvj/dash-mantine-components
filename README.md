@@ -11,7 +11,6 @@ pip install dash-mantine-components
 ## Available Components
 
 -   [Accordion](examples/accordion.py)
--   AccordionItem
 -   [Affix](examples/affix.py)
 -   [Alert](examples/alert.py)
 -   [Anchor](examples/anchor.py)
@@ -33,7 +32,7 @@ pip install dash-mantine-components
 -   [Image](examples/image.py)
 -   [Modal](examples/modal.py)
 -   [MultiSelect](examples/multiselect.py)
--   [NotificationProvider](examples/notifications.py)
+-   [NotificationsProvider](examples/notifications.py)
 -   [Paper](examples/paper.py)
 -   [Prism](examples/prism.py)
 -   [Progress](examples/progress.py)
