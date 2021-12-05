@@ -17,9 +17,9 @@ Those elements have the following types:
 Those elements have the following types:
   - `color` (String; optional)
   - `style` (Dict; optional)
-  - `title` (a list of or a singular dash component, string or number; optional)
+  - `title` (String; optional)
   - `loading` (Bool; optional)
-  - `message` (a list of or a singular dash component, string or number; optional)
+  - `message` (String; optional)
   - `autoClose` (Real | a value equal to: false; optional)
   - `disallowClose` (Bool; optional)
 """

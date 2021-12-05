@@ -34,11 +34,11 @@ Keyword arguments:
 
         - loading (boolean; optional)
 
-        - message (a list of or a singular dash component, string or number; optional)
+        - message (string; optional)
 
         - style (dict; optional)
 
-        - title (a list of or a singular dash component, string or number; optional)"""
+        - title (string; optional)"""
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, task=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'task']

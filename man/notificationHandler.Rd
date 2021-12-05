@@ -24,9 +24,9 @@ those elements have the following types:
 those elements have the following types:
   - color (character; optional)
   - style (named list; optional)
-  - title (a list of or a singular dash component, string or number; optional)
+  - title (character; optional)
   - loading (logical; optional)
-  - message (a list of or a singular dash component, string or number; optional)
+  - message (character; optional)
   - autoclose (numeric | a value equal to: false; optional)
   - disallowclose (logical; optional). Task for notification handler along with notification props}
 }
