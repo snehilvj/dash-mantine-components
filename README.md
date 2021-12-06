@@ -7,7 +7,7 @@ dash-mantine-components is an extensive (40+) Dash components library based on [
 
 [Live Demo](https://dash-mantine-components.herokuapp.com)
 
-[![Youtube Video](https://img.youtube.com/vi/MoNADlJAt6A/0.jpg)](https://www.youtube.com/watch?v=MoNADlJAt6A)
+https://user-images.githubusercontent.com/91216500/144928311-a62db8df-9780-4fa5-95fe-d2593acd3707.mp4
 
 ## Installation
 
