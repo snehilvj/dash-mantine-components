@@ -4,6 +4,11 @@
 <br/>
 
 dash-mantine-components is an extensive (40+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
+
+[Live Demo](https://dash-mantine-components.herokuapp.com)
+
+[![Youtube Video](https://img.youtube.com/vi/MoNADlJAt6A/0.jpg)](https://www.youtube.com/watch?v=MoNADlJAt6A)
+
 ## Installation
 
 ```
@@ -92,3 +97,4 @@ if __name__ == "__main__":
 4. Create more examples.
 5. Add contributing guide.
 6. Add testing.
+7. Correct proptypes to support type hints.
