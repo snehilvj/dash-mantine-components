@@ -1,52 +1,37 @@
-from datetime import datetime, timedelta
-
-from dash import Dash, Input, Output, dcc, html
+from dash import Dash, html
+from dash.dependencies import Input, Output
 import dash_mantine_components as dmc
 
-app = Dash(__name__)
+app = Dash(
+    __name__,
+    external_scripts=[
+        "https://unpkg.com/dayjs@1.8.21/dayjs.min.js",
+        "https://unpkg.com/dayjs@1.8.21/locale/ru.js",
+    ],
+)
 
 app.layout = html.Div(
     [
-        dcc.Location(id="url"),
-        dmc.DatePicker(
-            id="date",
-            format="dddd, MMMM D, YYYY",
-            disableOutsideEvents=True,
-            style={"width": "250px"},
+        dmc.Group(
+            children=[
+                dmc.DatePicker(format="dddd, MMMM D, YYYY"),
+                dmc.DatePicker(
+                    amountOfMonths=2,
+                    locale="ru",
+                    id="datepicker",
+                ),
+            ]
         ),
-        dmc.Space(h=20),
-        dmc.Text(id="text"),
-        dmc.Space(h=20),
-        html.Div(id="date-container"),
-        dmc.Space(h=20),
-        dmc.DatePicker(
-            amountOfMonths=2,
-            required=True,
-            firstDayOfWeek="sunday",
-            label="Select Date",
-            initiallyOpened=True,
-        ),
+        dmc.Text(id="date"),
     ]
 )
 
 
-@app.callback(Output("text", "children"), Input("date", "date"))
-def datepicker(date):
+@app.callback(
+    Output("date", "children"), Input("datepicker", "date"), prevent_initial_call=True
+)
+def print_date(date):
     return date
-
-
-@app.callback(Output("date-container", "children"), Input("url", "pathname"))
-def datepicker(date):
-    return [
-        dmc.DateRangePicker(
-            dates=[
-                str(datetime.now().date() - timedelta(days=4)),
-                str(datetime.now().date()),
-            ],
-            amountOfMonths=2,
-            closeCalendarOnChange=False,
-        )
-    ]
 
 
 if __name__ == "__main__":

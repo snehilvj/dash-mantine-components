@@ -1347,6 +1347,13 @@
         "required": false,
         "description": "Input label, displayed before input"
       },
+      "locale": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Locale used for all labels formatting"
+      },
       "maxDate": {
         "type": {
           "name": "string"
@@ -1607,6 +1614,13 @@
         },
         "required": false,
         "description": "Input label, displayed before input"
+      },
+      "locale": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Locale used for all labels formatting"
       },
       "maxDate": {
         "type": {

@@ -57,6 +57,9 @@ Keyword arguments:
 - label (string; optional):
     Input label, displayed before input.
 
+- locale (string; optional):
+    Locale used for all labels formatting.
+
 - maxDate (string; optional):
     Maximum possible date.
 
@@ -100,12 +103,12 @@ Keyword arguments:
 - zIndex (number; optional):
     Popper zIndex."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, allowFreeInput=Component.UNDEFINED, amountOfMonths=Component.UNDEFINED, clearable=Component.UNDEFINED, description=Component.UNDEFINED, disableOutsideEvents=Component.UNDEFINED, disabled=Component.UNDEFINED, dropdownType=Component.UNDEFINED, firstDayOfWeek=Component.UNDEFINED, format=Component.UNDEFINED, initialMonth=Component.UNDEFINED, initiallyOpened=Component.UNDEFINED, label=Component.UNDEFINED, maxDate=Component.UNDEFINED, minDate=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, preventFocus=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, withSelect=Component.UNDEFINED, yearsRange=Component.UNDEFINED, zIndex=Component.UNDEFINED, date=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'allowFreeInput', 'amountOfMonths', 'className', 'clearable', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'firstDayOfWeek', 'format', 'initialMonth', 'initiallyOpened', 'label', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, allowFreeInput=Component.UNDEFINED, amountOfMonths=Component.UNDEFINED, clearable=Component.UNDEFINED, description=Component.UNDEFINED, disableOutsideEvents=Component.UNDEFINED, disabled=Component.UNDEFINED, dropdownType=Component.UNDEFINED, firstDayOfWeek=Component.UNDEFINED, format=Component.UNDEFINED, initialMonth=Component.UNDEFINED, initiallyOpened=Component.UNDEFINED, label=Component.UNDEFINED, locale=Component.UNDEFINED, maxDate=Component.UNDEFINED, minDate=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, preventFocus=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, withSelect=Component.UNDEFINED, yearsRange=Component.UNDEFINED, zIndex=Component.UNDEFINED, date=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'allowFreeInput', 'amountOfMonths', 'className', 'clearable', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'firstDayOfWeek', 'format', 'initialMonth', 'initiallyOpened', 'label', 'locale', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
         self._type = 'DatePicker'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'allowFreeInput', 'amountOfMonths', 'className', 'clearable', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'firstDayOfWeek', 'format', 'initialMonth', 'initiallyOpened', 'label', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
+        self.available_properties = ['id', 'allowFreeInput', 'amountOfMonths', 'className', 'clearable', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'firstDayOfWeek', 'format', 'initialMonth', 'initiallyOpened', 'label', 'locale', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
