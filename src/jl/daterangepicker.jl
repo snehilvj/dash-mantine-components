@@ -25,6 +25,7 @@ Keyword arguments:
 - `initialMonth` (String; optional): Initial selected month
 - `initiallyOpened` (Bool; optional): Control initial dropdown opened state
 - `label` (String; optional): Input label, displayed before input
+- `locale` (String; optional): Locale used for all labels formatting
 - `maxDate` (String; optional): Maximum possible date
 - `minDate` (String; optional): Minimum possible date
 - `placeholder` (String; optional): Placeholder, displayed when date is not selected
@@ -41,7 +42,7 @@ Those elements have the following types:
 - `zIndex` (Real; optional): Popper zIndex
 """
 function daterangepicker(; kwargs...)
-        available_props = Symbol[:id, :allowSingleDateInRange, :amountOfMonths, :className, :clearable, :closeCalendarOnChange, :closeDropdownOnScroll, :dates, :description, :disableOutsideEvents, :disabled, :dropdownType, :firstDayOfWeek, :format, :initialMonth, :initiallyOpened, :label, :maxDate, :minDate, :placeholder, :preventFocus, :radius, :required, :size, :style, :withSelect, :yearsRange, :zIndex]
+        available_props = Symbol[:id, :allowSingleDateInRange, :amountOfMonths, :className, :clearable, :closeCalendarOnChange, :closeDropdownOnScroll, :dates, :description, :disableOutsideEvents, :disabled, :dropdownType, :firstDayOfWeek, :format, :initialMonth, :initiallyOpened, :label, :locale, :maxDate, :minDate, :placeholder, :preventFocus, :radius, :required, :size, :style, :withSelect, :yearsRange, :zIndex]
         wild_props = Symbol[]
         return Component("daterangepicker", "DateRangePicker", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

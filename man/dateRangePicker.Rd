@@ -15,7 +15,7 @@ className=NULL, clearable=NULL, closeCalendarOnChange=NULL,
 closeDropdownOnScroll=NULL, dates=NULL, description=NULL,
 disableOutsideEvents=NULL, disabled=NULL, dropdownType=NULL,
 firstDayOfWeek=NULL, format=NULL, initialMonth=NULL,
-initiallyOpened=NULL, label=NULL, maxDate=NULL,
+initiallyOpened=NULL, label=NULL, locale=NULL, maxDate=NULL,
 minDate=NULL, placeholder=NULL, preventFocus=NULL,
 radius=NULL, required=NULL, size=NULL, style=NULL,
 withSelect=NULL, yearsRange=NULL, zIndex=NULL)
@@ -55,6 +55,8 @@ withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 \item{initiallyOpened}{Logical. Control initial dropdown opened state}
 
 \item{label}{Character. Input label, displayed before input}
+
+\item{locale}{Character. Locale used for all labels formatting}
 
 \item{maxDate}{Character. Maximum possible date}
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DateRangePicker as MantineDateRangePicker } from "@mantine/dates";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
@@ -7,7 +7,15 @@ import { NumberSizes, Sizes } from "../propTypes";
 
 /** Capture date input from user. For more information, see: https://mantine.dev/dates/date-range-picker/ */
 const DateRangePicker = (props) => {
-    const { setProps, dates, format, minDate, maxDate, initialMonth } = props;
+    const {
+        setProps,
+        dates,
+        format,
+        minDate,
+        maxDate,
+        initialMonth,
+        locale,
+    } = props;
 
     const updateProps = (d) => {
         if (d.some((ele) => ele !== null)) {
@@ -16,6 +24,12 @@ const DateRangePicker = (props) => {
             });
         }
     };
+
+    useEffect(() => {
+        if ("dayjs" in window) {
+            dayjs.Ls[locale] = window.dayjs.Ls[locale];
+        }
+    }, []);
 
     return (
         <MantineDateRangePicker
@@ -102,6 +116,9 @@ DateRangePicker.propTypes = {
 
     /** Input label, displayed before input */
     label: PropTypes.string,
+
+    /** Locale used for all labels formatting */
+    locale: PropTypes.string,
 
     /** Maximum possible date */
     maxDate: PropTypes.string,

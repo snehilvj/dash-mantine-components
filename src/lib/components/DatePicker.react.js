@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DatePicker as MantineDatePicker } from "@mantine/dates";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
@@ -7,11 +7,25 @@ import { NumberSizes, Sizes } from "../propTypes";
 
 /** Capture date input from user */
 const DatePicker = (props) => {
-    const { setProps, date, format, minDate, maxDate, initialMonth } = props;
+    const {
+        setProps,
+        date,
+        format,
+        minDate,
+        maxDate,
+        initialMonth,
+        locale,
+    } = props;
 
     const updateProps = (d) => {
         setProps({ date: d ? dayjs(d).format("YYYY-MM-DD") : null });
     };
+
+    useEffect(() => {
+        if ("dayjs" in window) {
+            dayjs.Ls[locale] = window.dayjs.Ls[locale];
+        }
+    }, []);
 
     return (
         <MantineDatePicker
@@ -92,6 +106,9 @@ DatePicker.propTypes = {
 
     /** Input label, displayed before input */
     label: PropTypes.string,
+
+    /** Locale used for all labels formatting */
+    locale: PropTypes.string,
 
     /** Maximum possible date */
     maxDate: PropTypes.string,
