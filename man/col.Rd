@@ -10,9 +10,9 @@ Utility component to pass to Grid. For more information, see: https://mantine.de
 }
 
 \usage{
-col(children=NULL, id=NULL, className=NULL, lg=NULL,
-loading_state=NULL, md=NULL, offset=NULL, sm=NULL,
-span=NULL, style=NULL, xl=NULL, xs=NULL)
+col(children=NULL, id=NULL, className=NULL, lg=NULL, md=NULL,
+offset=NULL, sm=NULL, span=NULL, style=NULL, xl=NULL,
+xs=NULL)
 }
 
 \arguments{
@@ -23,12 +23,6 @@ span=NULL, style=NULL, xl=NULL, xs=NULL)
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{lg}{Numeric. Col span at (min-width: theme.breakpoints.lg)}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{md}{Numeric. Col span at (min-width: theme.breakpoints.md)}
 

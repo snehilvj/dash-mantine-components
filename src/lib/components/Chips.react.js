@@ -35,24 +35,14 @@ Chips.defaultProps = {};
 
 Chips.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Defines align-items css property
      */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
+    align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
 
     /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
-
-    /**
-     * Defines align-items css property
-     */
-    align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
 
     /**
      * Chips
@@ -105,22 +95,9 @@ Chips.propTypes = {
     grow: PropTypes.bool,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Allow multiple values to be picked
@@ -144,6 +121,11 @@ Chips.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 
     /**
      * Predefined chip size

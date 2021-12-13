@@ -19,11 +19,6 @@ Those elements have the following types:
   - `disabled` (Bool; optional): If true, this option is disabled and cannot be selecteds
 - `direction` (a value equal to: "row", "column"; optional): Defines flex-direction property, row for horizontal, column for vertical
 - `grow` (Bool; optional): Defines flex-grow property for each element, true -> 1, false -> 0
-- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
-Those elements have the following types:
-  - `is_loading` (Bool; optional): Determines if the component is loading or not
-  - `prop_name` (String; optional): Holds which property is loading
-  - `component_name` (String; optional): Holds the name of the component that is loading
 - `multiple` (Bool; optional): Allow multiple values to be picked
 - `noWrap` (Bool; optional): Defined flex-wrap property
 - `position` (a value equal to: "right", "center", "left", "apart"; optional): Defines justify-content property
@@ -35,7 +30,7 @@ Those elements have the following types:
 - `variant` (a value equal to: "outline", "filled"; optional): Controls chip appearance, defaults to filled with dark theme and to outline in light theme
 """
 function chips(; kwargs...)
-        available_props = Symbol[:id, :align, :className, :color, :data, :direction, :grow, :loading_state, :multiple, :noWrap, :position, :radius, :size, :spacing, :style, :value, :variant]
+        available_props = Symbol[:id, :align, :className, :color, :data, :direction, :grow, :multiple, :noWrap, :position, :radius, :size, :spacing, :style, :value, :variant]
         wild_props = Symbol[]
         return Component("chips", "Chips", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

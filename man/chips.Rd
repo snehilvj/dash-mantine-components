@@ -11,10 +11,9 @@ Alternative to Select and RadioGroup. For more information, see: https://mantine
 
 \usage{
 chips(id=NULL, align=NULL, className=NULL, color=NULL, data=NULL,
-direction=NULL, grow=NULL, loading_state=NULL,
-multiple=NULL, noWrap=NULL, position=NULL, radius=NULL,
-size=NULL, spacing=NULL, style=NULL, value=NULL,
-variant=NULL)
+direction=NULL, grow=NULL, multiple=NULL, noWrap=NULL,
+position=NULL, radius=NULL, size=NULL, spacing=NULL,
+style=NULL, value=NULL, variant=NULL)
 }
 
 \arguments{
@@ -35,12 +34,6 @@ those elements have the following types:
 \item{direction}{A value equal to: "row", "column". Defines flex-direction property, row for horizontal, column for vertical}
 
 \item{grow}{Logical. Defines flex-grow property for each element, true -> 1, false -> 0}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{multiple}{Logical. Allow multiple values to be picked}
 

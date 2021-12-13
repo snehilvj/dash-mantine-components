@@ -29,21 +29,6 @@ Checkbox.defaultProps = {
 
 Checkbox.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
-     * A checkbox can show it is currently unable to be interacted with
-     */
-    disabled: PropTypes.bool,
-
-    /**
      * State of check box
      */
     checked: PropTypes.bool,
@@ -74,27 +59,19 @@ Checkbox.propTypes = {
     ]),
 
     /**
+     * A checkbox can show it is currently unable to be interacted with
+     */
+    disabled: PropTypes.bool,
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Checkbox label
      */
     label: PropTypes.string,
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
 
     /**
      * Predefined label font-size and checkbox width and height in px
@@ -102,9 +79,19 @@ Checkbox.propTypes = {
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Check/uncheck transition duration, set to 0 to disable all transitions
+     */
+    transitionDuration: PropTypes.number,
 };
 
 export default Checkbox;

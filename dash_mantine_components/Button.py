@@ -46,7 +46,7 @@ Keyword arguments:
 - loaderPosition (a value equal to: "left", "right"; optional):
     Loader position relative to button label.
 
-- loading (boolean; optional):
+- loading (boolean; default False):
     Indicate loading state.
 
 - loading_state (dict; optional):
@@ -84,7 +84,7 @@ Keyword arguments:
 - variant (a value equal to: "link", "filled", "outline", "light", "gradient", "white", "default"; optional):
     Controls button appearance."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, disabled=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, compact=Component.UNDEFINED, fullWidth=Component.UNDEFINED, gradient=Component.UNDEFINED, loaderPosition=Component.UNDEFINED, loading=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, variant=Component.UNDEFINED, uppercase=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, color=Component.UNDEFINED, className=Component.UNDEFINED, compact=Component.UNDEFINED, disabled=Component.UNDEFINED, fullWidth=Component.UNDEFINED, gradient=Component.UNDEFINED, id=Component.UNDEFINED, loaderPosition=Component.UNDEFINED, loading=Component.UNDEFINED, loading_state=Component.UNDEFINED, n_clicks=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, uppercase=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'color', 'compact', 'disabled', 'fullWidth', 'gradient', 'loaderPosition', 'loading', 'loading_state', 'n_clicks', 'radius', 'size', 'style', 'uppercase', 'variant']
         self._type = 'Button'
         self._namespace = 'dash_mantine_components'

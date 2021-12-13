@@ -49,30 +49,6 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
       },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
-      },
       "multiple": {
         "type": {
           "name": "bool"
@@ -331,30 +307,6 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
       },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
-      },
       "title": {
         "type": {
           "name": "string"
@@ -401,27 +353,6 @@
     "displayName": "Anchor",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Primary content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "align": {
         "type": {
           "name": "enum",
@@ -442,6 +373,20 @@
         },
         "required": false,
         "description": "Sets text-align css property"
+      },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "color": {
         "type": {
@@ -536,6 +481,13 @@
         "required": false,
         "description": "href"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "inherit": {
         "type": {
           "name": "bool"
@@ -556,30 +508,6 @@
         },
         "required": false,
         "description": "CSS -webkit-line-clamp property"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "size": {
         "type": {
@@ -609,6 +537,13 @@
         },
         "required": false,
         "description": "Predefined font-size from theme.fontSizes"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "target": {
         "type": {
@@ -709,13 +644,6 @@
         },
         "required": false,
         "description": "Sets font-weight css property"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -724,27 +652,6 @@
     "displayName": "Badge",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Primary content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "color": {
         "type": {
           "name": "enum",
@@ -810,6 +717,20 @@
         "required": false,
         "description": "Badge color from theme"
       },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
       "fullWidth": {
         "type": {
           "name": "bool"
@@ -838,29 +759,12 @@
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "radius": {
         "type": {
@@ -928,6 +832,13 @@
         "required": false,
         "description": "Predefined badge size"
       },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
       "variant": {
         "type": {
           "name": "enum",
@@ -956,13 +867,6 @@
         },
         "required": false,
         "description": "Controls badge background, color and border styles"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -971,13 +875,6 @@
     "displayName": "Blockquote",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "string"
@@ -1064,29 +961,12 @@
         "required": false,
         "description": "Badge color from theme"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "style": {
         "type": {
@@ -1109,13 +989,6 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
       },
-      "separator": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Separator between breadcrumbs"
-      },
       "items": {
         "type": {
           "name": "arrayOf",
@@ -1136,29 +1009,19 @@
         "required": false,
         "description": "Link items"
       },
-      "loading_state": {
+      "separator": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "Separator between breadcrumbs"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },
@@ -1167,52 +1030,6 @@
     "displayName": "Button",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Primary content"
-      },
-      "n_clicks": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times that this element has been clicked on",
-        "defaultValue": {
-          "value": "0",
-          "computed": false
-        }
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "The component can show it is currently unable to be interacted with"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "color": {
         "type": {
           "name": "enum",
@@ -1278,12 +1095,33 @@
         "required": false,
         "description": "Button color from theme"
       },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
       "compact": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Reduces vertical and horizontal spacing"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "The component can show it is currently unable to be interacted with"
       },
       "fullWidth": {
         "type": {
@@ -1313,6 +1151,13 @@
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "loaderPosition": {
         "type": {
           "name": "enum",
@@ -1335,7 +1180,11 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Indicate loading state"
+        "description": "Indicate loading state",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       },
       "loading_state": {
         "type": {
@@ -1360,6 +1209,17 @@
         },
         "required": false,
         "description": "Object that holds the loading state object coming from dash-renderer"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times that this element has been clicked on",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
       },
       "radius": {
         "type": {
@@ -1427,6 +1287,27 @@
         "required": false,
         "description": "Predefined button size"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "uppercase": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set text-transform to uppercase"
+      },
       "variant": {
         "type": {
           "name": "enum",
@@ -1463,20 +1344,6 @@
         },
         "required": false,
         "description": "Controls button appearance"
-      },
-      "uppercase": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Set text-transform to uppercase"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -1485,13 +1352,6 @@
     "displayName": "Center",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -1506,36 +1366,19 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "inline": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Set to true to use inline-flex instead of flex"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "style": {
         "type": {
@@ -1551,27 +1394,6 @@
     "displayName": "Checkbox",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "A checkbox can show it is currently unable to be interacted with"
-      },
       "checked": {
         "type": {
           "name": "bool"
@@ -1655,36 +1477,26 @@
         "required": false,
         "description": "Checkbox color"
       },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A checkbox can show it is currently unable to be interacted with"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Checkbox label"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "size": {
         "type": {
@@ -1715,12 +1527,26 @@
         "required": false,
         "description": "Predefined label font-size and checkbox width and height in px"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "style": {
         "type": {
           "name": "object"
         },
         "required": false,
         "description": "Inline style override"
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Check/uncheck transition duration, set to 0 to disable all transitions"
       }
     }
   },
@@ -1729,27 +1555,6 @@
     "displayName": "Chips",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "align": {
         "type": {
           "name": "enum",
@@ -1774,6 +1579,13 @@
         },
         "required": false,
         "description": "Defines align-items css property"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "data": {
         "type": {
@@ -1891,29 +1703,12 @@
         "required": false,
         "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "multiple": {
         "type": {
@@ -1990,6 +1785,13 @@
         },
         "required": false,
         "description": "Chip border-radius from theme or number to set value in px"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
@@ -2106,13 +1908,6 @@
     "displayName": "Col",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -2127,6 +1922,13 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "offset": {
         "type": {
           "name": "number"
@@ -2140,6 +1942,13 @@
         },
         "required": false,
         "description": "Default col span"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "xs": {
         "type": {
@@ -2175,37 +1984,6 @@
         },
         "required": false,
         "description": "Col span at (min-width: theme.breakpoints.xl)"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },

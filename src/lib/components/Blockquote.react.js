@@ -22,11 +22,6 @@ Blockquote.defaultProps = {};
 
 Blockquote.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
      * Primary content
      */
     children: PropTypes.string,
@@ -62,22 +57,9 @@ Blockquote.propTypes = {
     ]),
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Inline style override

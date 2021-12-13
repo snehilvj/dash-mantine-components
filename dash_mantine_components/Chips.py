@@ -44,21 +44,6 @@ Keyword arguments:
     Defines flex-grow property for each element, True -> 1, False ->
     0.
 
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
 - multiple (boolean; optional):
     Allow multiple values to be picked.
 
@@ -87,12 +72,12 @@ Keyword arguments:
     Controls chip appearance, defaults to filled with dark theme and
     to outline in light theme."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, data=Component.UNDEFINED, color=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, loading_state=Component.UNDEFINED, multiple=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'align', 'className', 'color', 'data', 'direction', 'grow', 'loading_state', 'multiple', 'noWrap', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
+    def __init__(self, align=Component.UNDEFINED, className=Component.UNDEFINED, data=Component.UNDEFINED, color=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, id=Component.UNDEFINED, multiple=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'align', 'className', 'color', 'data', 'direction', 'grow', 'multiple', 'noWrap', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
         self._type = 'Chips'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'align', 'className', 'color', 'data', 'direction', 'grow', 'loading_state', 'multiple', 'noWrap', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
+        self.available_properties = ['id', 'align', 'className', 'color', 'data', 'direction', 'grow', 'multiple', 'noWrap', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

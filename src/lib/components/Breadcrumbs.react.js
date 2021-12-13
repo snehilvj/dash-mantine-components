@@ -32,11 +32,6 @@ Breadcrumbs.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Separator between breadcrumbs
-     */
-    separator: PropTypes.string,
-
-    /**
      * Link items
      */
     items: PropTypes.arrayOf(
@@ -47,22 +42,14 @@ Breadcrumbs.propTypes = {
     ),
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * Separator between breadcrumbs
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    separator: PropTypes.string,
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 };
 
 export default Breadcrumbs;

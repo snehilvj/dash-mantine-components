@@ -10,7 +10,7 @@ Separate list of react nodes with given separator. For more information, see: ht
 }
 
 \usage{
-breadcrumbs(id=NULL, items=NULL, loading_state=NULL, separator=NULL)
+breadcrumbs(id=NULL, items=NULL, separator=NULL, style=NULL)
 }
 
 \arguments{
@@ -21,13 +21,9 @@ those elements have the following types:
   - title (character; required)
   - href (character; required)s. Link items}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
-
 \item{separator}{Character. Separator between breadcrumbs}
+
+\item{style}{Named list. Inline style override}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

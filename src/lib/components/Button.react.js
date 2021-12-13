@@ -7,7 +7,14 @@ import { Button as MantineButton } from "@mantine/core";
  * Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/
  */
 const Button = (props) => {
-    const { children, n_clicks, setProps, disabled } = props;
+    const {
+        children,
+        n_clicks,
+        setProps,
+        disabled,
+        loading,
+        loading_state,
+    } = props;
 
     const increment = () => {
         if (!disabled) {
@@ -19,8 +26,12 @@ const Button = (props) => {
 
     return (
         <MantineButton
-            {...omit(["setProps", "n_clicks", "children"], props)}
+            {...omit(
+                ["setProps", "n_clicks", "children", "loading_state"],
+                props
+            )}
             onClick={increment}
+            loading={loading || (loading_state && loading_state.is_loading)}
         >
             {children}
         </MantineButton>
@@ -31,39 +42,10 @@ Button.displayName = "Button";
 
 Button.defaultProps = {
     n_clicks: 0,
+    loading: false,
 };
 
 Button.propTypes = {
-    /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Primary content
-     */
-    children: PropTypes.node,
-
-    /**
-     * An integer that represents the number of times that this element has been clicked on
-     */
-    n_clicks: PropTypes.number,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
-     * The component can show it is currently unable to be interacted with
-     */
-    disabled: PropTypes.bool,
-
-    /**
-     * Often used with CSS to style elements with common properties
-     */
-    className: PropTypes.string,
-
     /**
      * Button color from theme
      */
@@ -85,9 +67,24 @@ Button.propTypes = {
     ]),
 
     /**
+     * Primary content
+     */
+    children: PropTypes.node,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    className: PropTypes.string,
+
+    /**
      * Reduces vertical and horizontal spacing
      */
     compact: PropTypes.bool,
+
+    /**
+     * The component can show it is currently unable to be interacted with
+     */
+    disabled: PropTypes.bool,
 
     /**
      * Sets button width to 100% of parent element
@@ -102,6 +99,11 @@ Button.propTypes = {
         to: PropTypes.string.isRequired,
         deg: PropTypes.number,
     }),
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
     /**
      * Loader position relative to button label
@@ -132,6 +134,11 @@ Button.propTypes = {
     }),
 
     /**
+     * An integer that represents the number of times that this element has been clicked on
+     */
+    n_clicks: PropTypes.number,
+
+    /**
      * Button border-radius from theme or number to set border-radius in px
      */
     radius: PropTypes.oneOfType([
@@ -145,6 +152,21 @@ Button.propTypes = {
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
+     * Set text-transform to uppercase
+     */
+    uppercase: PropTypes.bool,
+
+    /**
      * Controls button appearance
      */
     variant: PropTypes.oneOf([
@@ -156,16 +178,6 @@ Button.propTypes = {
         "white",
         "default",
     ]),
-
-    /**
-     * Set text-transform to uppercase
-     */
-    uppercase: PropTypes.bool,
-
-    /**
-     * Inline style override
-     */
-    style: PropTypes.object,
 };
 
 export default Button;

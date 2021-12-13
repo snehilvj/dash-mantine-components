@@ -14,16 +14,12 @@ Keyword arguments:
 - `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Checkbox color
 - `disabled` (Bool; optional): A checkbox can show it is currently unable to be interacted with
 - `label` (String; optional): Checkbox label
-- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
-Those elements have the following types:
-  - `is_loading` (Bool; optional): Determines if the component is loading or not
-  - `prop_name` (String; optional): Holds which property is loading
-  - `component_name` (String; optional): Holds the name of the component that is loading
 - `size` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Predefined label font-size and checkbox width and height in px
 - `style` (Dict; optional): Inline style override
+- `transitionDuration` (Real; optional): Check/uncheck transition duration, set to 0 to disable all transitions
 """
 function checkbox(; kwargs...)
-        available_props = Symbol[:id, :checked, :className, :color, :disabled, :label, :loading_state, :size, :style]
+        available_props = Symbol[:id, :checked, :className, :color, :disabled, :label, :size, :style, :transitionDuration]
         wild_props = Symbol[]
         return Component("checkbox", "Checkbox", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

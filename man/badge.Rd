@@ -11,8 +11,8 @@ Display badge, pill or tag. For more information, see: https://mantine.dev/core/
 
 \usage{
 badge(children=NULL, id=NULL, className=NULL, color=NULL,
-fullWidth=NULL, gradient=NULL, loading_state=NULL,
-radius=NULL, size=NULL, style=NULL, variant=NULL)
+fullWidth=NULL, gradient=NULL, radius=NULL, size=NULL,
+style=NULL, variant=NULL)
 }
 
 \arguments{
@@ -31,12 +31,6 @@ those elements have the following types:
   - from (character; required)
   - to (character; required)
   - deg (numeric; optional). Controls gradient settings in gradient variant only}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
 

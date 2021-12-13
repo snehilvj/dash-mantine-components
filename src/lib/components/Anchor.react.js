@@ -20,24 +20,20 @@ Anchor.defaultProps = {};
 
 Anchor.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Sets text-align css property
      */
-    id: PropTypes.string,
+    align: PropTypes.oneOf(["left", "right", "center"]),
 
     /**
      * Primary content
      */
-    children: PropTypes.node,
+    children: PropTypes.string,
 
     /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
 
-    /**
-     * Sets text-align css property
-     */
-    align: PropTypes.oneOf(["left", "right", "center"]),
     /**
      * Text color from theme
      */
@@ -73,6 +69,11 @@ Anchor.propTypes = {
     href: PropTypes.string,
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Inherit font properties from parent element
      */
     inherit: PropTypes.bool,
@@ -88,27 +89,14 @@ Anchor.propTypes = {
     lineClamp: PropTypes.number,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
-
-    /**
      * Predefined font-size from theme.fontSizes
      */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 
     /**
      * Target
@@ -139,11 +127,6 @@ Anchor.propTypes = {
         ]),
         PropTypes.number,
     ]),
-
-    /**
-     * Inline style override
-     */
-    style: PropTypes.object,
 };
 
 export default Anchor;

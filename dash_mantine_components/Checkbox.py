@@ -28,33 +28,22 @@ Keyword arguments:
 - label (string; optional):
     Checkbox label.
 
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
 - size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined label font-size and checkbox width and height in px.
 
 - style (dict; optional):
-    Inline style override."""
+    Inline style override.
+
+- transitionDuration (number; optional):
+    Check/uncheck transition duration, set to 0 to disable all
+    transitions."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, disabled=Component.UNDEFINED, checked=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, label=Component.UNDEFINED, loading_state=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'loading_state', 'size', 'style']
+    def __init__(self, checked=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
         self._type = 'Checkbox'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'loading_state', 'size', 'style']
+        self.available_properties = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

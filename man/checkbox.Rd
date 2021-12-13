@@ -11,8 +11,8 @@ Capture boolean input from user. For more information, see: https://mantine.dev/
 
 \usage{
 checkbox(id=NULL, checked=NULL, className=NULL, color=NULL,
-disabled=NULL, label=NULL, loading_state=NULL, size=NULL,
-style=NULL)
+disabled=NULL, label=NULL, size=NULL, style=NULL,
+transitionDuration=NULL)
 }
 
 \arguments{
@@ -28,15 +28,11 @@ style=NULL)
 
 \item{label}{Character. Checkbox label}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
-
 \item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined label font-size and checkbox width and height in px}
 
 \item{style}{Named list. Inline style override}
+
+\item{transitionDuration}{Numeric. Check/uncheck transition duration, set to 0 to disable all transitions}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}
