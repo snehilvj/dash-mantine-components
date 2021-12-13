@@ -13,7 +13,7 @@ Divide content into collapsible sections. For more information, see: https://man
 accordion(children=NULL, id=NULL, className=NULL,
 disableIconRotation=NULL, iconPosition=NULL,
 loading_state=NULL, multiple=NULL, offsetIcon=NULL,
-state=NULL, style=NULL)
+state=NULL)
 }
 
 \arguments{
@@ -38,8 +38,6 @@ those elements have the following types:
 \item{offsetIcon}{Logical. Should icon be offset with padding, applicable only when iconPosition is left}
 
 \item{state}{List with named elements and values of type logical. Controlled state (controls opened state of accordion items)}
-
-\item{style}{Named list. Defines CSS styles which will override styles previously set.}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

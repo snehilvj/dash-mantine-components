@@ -103,13 +103,6 @@
         },
         "required": false,
         "description": "Controlled state (controls opened state of accordion items)"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Defines CSS styles which will override styles previously set."
       }
     }
   },
@@ -146,13 +139,6 @@
     "displayName": "Affix",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -166,6 +152,13 @@
         },
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "position": {
         "type": {
@@ -245,20 +238,6 @@
     "displayName": "Alert",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -345,6 +324,13 @@
         "required": false,
         "description": "Duration in milliseconds after which the Alert dismisses itself."
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "loading_state": {
         "type": {
           "name": "shape",
@@ -375,6 +361,13 @@
         },
         "required": false,
         "description": "Optional alert title"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "show": {
         "type": {

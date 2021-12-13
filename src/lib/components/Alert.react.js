@@ -39,16 +39,6 @@ Alert.defaultProps = {
 
 Alert.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
@@ -84,6 +74,11 @@ Alert.propTypes = {
     duration: PropTypes.number,
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Object that holds the loading state object coming from dash-renderer
      */
     loading_state: PropTypes.shape({
@@ -105,6 +100,11 @@ Alert.propTypes = {
      * Optional alert title
      */
     title: PropTypes.string,
+
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 
     /**
      * Whether to show the alert

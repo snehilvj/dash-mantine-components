@@ -52,7 +52,7 @@ Keyword arguments:
 - withCloseButton (boolean; optional):
     Display close button."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, duration=Component.UNDEFINED, loading_state=Component.UNDEFINED, title=Component.UNDEFINED, show=Component.UNDEFINED, style=Component.UNDEFINED, withCloseButton=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, color=Component.UNDEFINED, duration=Component.UNDEFINED, id=Component.UNDEFINED, loading_state=Component.UNDEFINED, title=Component.UNDEFINED, show=Component.UNDEFINED, style=Component.UNDEFINED, withCloseButton=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'color', 'duration', 'loading_state', 'show', 'style', 'title', 'withCloseButton']
         self._type = 'Alert'
         self._namespace = 'dash_mantine_components'
