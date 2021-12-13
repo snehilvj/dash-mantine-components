@@ -20,11 +20,6 @@ Affix.defaultProps = {};
 
 Affix.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
      * Any react node that should trigger tooltip
      */
     children: PropTypes.node,
@@ -33,6 +28,11 @@ Affix.propTypes = {
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
     /**
      * Fixed position in px

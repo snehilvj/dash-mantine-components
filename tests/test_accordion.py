@@ -1,4 +1,3 @@
-from dash.testing.application_runners import import_app
 from dash import Dash, html, Output, Input
 import dash_mantine_components as dmc
 from time import sleep
