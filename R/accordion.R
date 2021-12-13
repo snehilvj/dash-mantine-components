@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-accordion <- function(children=NULL, id=NULL, className=NULL, disableIconRotation=NULL, iconPosition=NULL, multiple=NULL, offsetIcon=NULL, state=NULL) {
+accordion <- function(children=NULL, id=NULL, className=NULL, disableIconRotation=NULL, iconPosition=NULL, loading_state=NULL, multiple=NULL, offsetIcon=NULL, state=NULL, style=NULL) {
     
-    props <- list(children=children, id=id, className=className, disableIconRotation=disableIconRotation, iconPosition=iconPosition, multiple=multiple, offsetIcon=offsetIcon, state=state)
+    props <- list(children=children, id=id, className=className, disableIconRotation=disableIconRotation, iconPosition=iconPosition, loading_state=loading_state, multiple=multiple, offsetIcon=offsetIcon, state=state, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ accordion <- function(children=NULL, id=NULL, className=NULL, disableIconRotatio
         props = props,
         type = 'Accordion',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'className', 'disableIconRotation', 'iconPosition', 'multiple', 'offsetIcon', 'state'),
+        propNames = c('children', 'id', 'className', 'disableIconRotation', 'iconPosition', 'loading_state', 'multiple', 'offsetIcon', 'state', 'style'),
         package = 'dashMantineComponents'
         )
 

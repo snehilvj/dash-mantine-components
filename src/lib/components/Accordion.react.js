@@ -28,7 +28,6 @@ const Accordion = (props) => {
                             </div>
                         }
                         key={index}
-                        className={childProps.className}
                     >
                         {child}
                     </MantineAccordion.Item>
@@ -43,16 +42,6 @@ Accordion.displayName = "Accordion";
 Accordion.defaultProps = {};
 
 Accordion.propTypes = {
-    /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
     /**
      * <AccordionItem /> components only
      */
@@ -74,6 +63,29 @@ Accordion.propTypes = {
     iconPosition: PropTypes.oneOf(["right", "left"]),
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
+     * Object that holds the loading state object coming from dash-renderer
+     */
+    loading_state: PropTypes.shape({
+        /**
+         * Determines if the component is loading or not
+         */
+        is_loading: PropTypes.bool,
+        /**
+         * Holds which property is loading
+         */
+        prop_name: PropTypes.string,
+        /**
+         * Holds the name of the component that is loading
+         */
+        component_name: PropTypes.string,
+    }),
+
+    /**
      * Allow multiple items to be opened at the same time
      */
     multiple: PropTypes.bool,
@@ -82,6 +94,11 @@ Accordion.propTypes = {
      * Should icon be offset with padding, applicable only when iconPosition is left
      */
     offsetIcon: PropTypes.bool,
+
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 
     /**
      * Controlled state (controls opened state of accordion items)
