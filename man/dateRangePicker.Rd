@@ -13,12 +13,15 @@ Capture date input from user. For more information, see: https://mantine.dev/dat
 dateRangePicker(id=NULL, allowSingleDateInRange=NULL, amountOfMonths=NULL,
 className=NULL, clearable=NULL, closeCalendarOnChange=NULL,
 closeDropdownOnScroll=NULL, dates=NULL, description=NULL,
-disableOutsideEvents=NULL, disabled=NULL, dropdownType=NULL,
-firstDayOfWeek=NULL, format=NULL, initialMonth=NULL,
-initiallyOpened=NULL, label=NULL, locale=NULL, maxDate=NULL,
-minDate=NULL, placeholder=NULL, preventFocus=NULL,
-radius=NULL, required=NULL, size=NULL, style=NULL,
-withSelect=NULL, yearsRange=NULL, zIndex=NULL)
+disableOutsideDayStyle=NULL, disableOutsideEvents=NULL,
+disabled=NULL, dropdownType=NULL, error=NULL,
+firstDayOfWeek=NULL, format=NULL, fullWidth=NULL,
+hideWeekdays=NULL, initialMonth=NULL, initiallyOpened=NULL,
+label=NULL, loading_state=NULL, locale=NULL, maxDate=NULL,
+minDate=NULL, multiline=NULL, placeholder=NULL,
+preventFocus=NULL, radius=NULL, required=NULL, size=NULL,
+style=NULL, variant=NULL, withSelect=NULL, yearsRange=NULL,
+zIndex=NULL)
 }
 
 \arguments{
@@ -40,15 +43,23 @@ withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{description}{Character. Input description, displayed after label}
 
+\item{disableOutsideDayStyle}{Logical. When true dates that are outside of given month are not styled}
+
 \item{disableOutsideEvents}{Logical. When true dates that are outside of given month cannot be clicked or focused}
 
 \item{disabled}{Logical. A DateRangePicker can show it is currently unable to be interacted with}
 
 \item{dropdownType}{A value equal to: "modal", "popover". Where to show calendar in modal or popover}
 
+\item{error}{Character. Displays error message after input}
+
 \item{firstDayOfWeek}{A value equal to: "sunday", "monday". Set first day of the week}
 
 \item{format}{Character. DateRangePicker display format}
+
+\item{fullWidth}{Logical. Set to true to make calendar take 100\% of container width}
+
+\item{hideWeekdays}{Logical. Set to false to remove weekdays row}
 
 \item{initialMonth}{Character. Initial selected month}
 
@@ -56,23 +67,33 @@ withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{label}{Character. Input label, displayed before input}
 
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
+
 \item{locale}{Character. Locale used for all labels formatting}
 
 \item{maxDate}{Character. Maximum possible date}
 
 \item{minDate}{Character. Minimum possible date}
 
+\item{multiline}{Logical. Will input have multiple lines?}
+
 \item{placeholder}{Character. Placeholder, displayed when date is not selected}
 
 \item{preventFocus}{Logical. Prevent focusing upon clicking}
 
-\item{radius}{Input border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Input border-radius from theme or number to set border-radius in px}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
-\item{size}{Input size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
+
+\item{variant}{A value equal to: "default", "filled", "unstyled", "headless". Defines input appearance, defaults to default in light color scheme and filled in dark}
 
 \item{withSelect}{Logical. Replace calendar label with month and year selects}
 

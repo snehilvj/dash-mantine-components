@@ -14,16 +14,25 @@ Keyword arguments:
 - `children` (String; optional): Primary content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `className` (String; optional): Often used with CSS to style elements with common properties
-- `color` (optional): Badge color from theme
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Badge color from theme
 - `fullWidth` (Bool; optional): Sets badge width to 100% of parent element, hides overflow text with text-overflow: ellipsis
-- `gradient` (optional): Controls gradient settings in gradient variant only
-- `radius` (optional): Predefined border-radius value from theme.radius or number for border-radius in px
-- `size` (optional): Predefined badge size
+- `gradient` (optional): Controls gradient settings in gradient variant only. gradient has the following type: lists containing elements 'from', 'to', 'deg'.
+Those elements have the following types:
+  - `from` (String; required)
+  - `to` (String; required)
+  - `deg` (Real; optional)
+- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `radius` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined border-radius value from theme.radius or number for border-radius in px
+- `size` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Predefined badge size
 - `style` (Dict; optional): Inline style override
 - `variant` (a value equal to: "light", "filled", "outline", "dot", "gradient"; optional): Controls badge background, color and border styles
 """
 function badge(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :color, :fullWidth, :gradient, :radius, :size, :style, :variant]
+        available_props = Symbol[:children, :id, :className, :color, :fullWidth, :gradient, :loading_state, :radius, :size, :style, :variant]
         wild_props = Symbol[]
         return Component("badge", "Badge", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

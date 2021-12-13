@@ -14,14 +14,19 @@ Keyword arguments:
 - `className` (String; optional): Often used with CSS to style elements with common properties
 - `fit` (a value equal to: "cover", "contain"; optional): Image object-fit property
 - `height` (String | Real; optional): Image height, defaults to original image height adjusted to given width
-- `radius` (optional): Predefined border-radius value from theme.radius or number for border-radius in px
+- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `radius` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined border-radius value from theme.radius or number for border-radius in px
 - `src` (String; optional): Image src
 - `style` (Dict; optional): Inline style override
 - `width` (String | Real; optional): Image width, defaults to 100%, cannot exceed 100%
 - `withPlaceholder` (Bool; optional): Enable placeholder when image is loading and when image fails to load
 """
 function image(; kwargs...)
-        available_props = Symbol[:id, :alt, :caption, :className, :fit, :height, :radius, :src, :style, :width, :withPlaceholder]
+        available_props = Symbol[:id, :alt, :caption, :className, :fit, :height, :loading_state, :radius, :src, :style, :width, :withPlaceholder]
         wild_props = Symbol[]
         return Component("image", "Image", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

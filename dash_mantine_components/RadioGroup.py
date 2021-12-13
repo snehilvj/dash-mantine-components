@@ -16,11 +16,19 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Active radio color from theme.colors.
 
-- data (optional):
+- data (list of dicts; optional):
     RadioGroup options.
+
+    `data` is a list of dicts with keys:
+
+    - label (string; required):
+        The option's label.
+
+    - value (string; required):
+        option's value.
 
 - description (string; optional):
     Input description, displayed after label.
@@ -31,13 +39,28 @@ Keyword arguments:
 - label (string; optional):
     Input label, displayed before input.
 
+- loading_state (dict; optional):
+    Object that holds the loading state object coming from
+    dash-renderer.
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
 - required (boolean; optional):
     Adds red asterisk on the right side of label.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined label fontSize, radio width, height and border-radius.
 
-- spacing (optional):
+- spacing (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Spacing between radios in horizontal variant.
 
 - style (dict; optional):
@@ -49,12 +72,12 @@ Keyword arguments:
 - variant (a value equal to: "horizontal", "vertical"; optional):
     Radios position."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, data=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, description=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'data', 'description', 'error', 'label', 'required', 'size', 'spacing', 'style', 'value', 'variant']
+    def __init__(self, id=Component.UNDEFINED, data=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, description=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, loading_state=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'data', 'description', 'error', 'label', 'loading_state', 'required', 'size', 'spacing', 'style', 'value', 'variant']
         self._type = 'RadioGroup'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'data', 'description', 'error', 'label', 'required', 'size', 'spacing', 'style', 'value', 'variant']
+        self.available_properties = ['id', 'className', 'color', 'data', 'description', 'error', 'label', 'loading_state', 'required', 'size', 'spacing', 'style', 'value', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

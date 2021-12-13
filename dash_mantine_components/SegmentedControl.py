@@ -16,20 +16,43 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Active control color from theme.colors, defaults to white in light
     color scheme and theme.colors.dark[9] in dark.
 
-- data (optional):
+- data (list of dicts; required):
     Data based on which controls are rendered.
+
+    `data` is a list of dicts with keys:
+
+    - label (string; required):
+        The option's label.
+
+    - value (string; required):
+        option's value.
 
 - fullWidth (boolean; optional):
     True if component should have 100% width.
 
-- radius (optional):
+- loading_state (dict; optional):
+    Object that holds the loading state object coming from
+    dash-renderer.
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Border-radius from theme or number to set border-radius in px.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Controls font-size, paddings and height.
 
 - style (dict; optional):
@@ -38,18 +61,18 @@ Keyword arguments:
 - value (string; optional):
     Current selected value."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, data=Component.UNDEFINED, fullWidth=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'data', 'fullWidth', 'radius', 'size', 'style', 'value']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, data=Component.REQUIRED, fullWidth=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'data', 'fullWidth', 'loading_state', 'radius', 'size', 'style', 'value']
         self._type = 'SegmentedControl'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'data', 'fullWidth', 'radius', 'size', 'style', 'value']
+        self.available_properties = ['id', 'className', 'color', 'data', 'fullWidth', 'loading_state', 'radius', 'size', 'style', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
-        for k in []:
+        for k in ['data']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')

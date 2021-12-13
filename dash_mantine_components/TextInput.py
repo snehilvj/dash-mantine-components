@@ -29,20 +29,35 @@ Keyword arguments:
 - label (string; optional):
     Input label, displayed before input.
 
+- loading_state (dict; optional):
+    Object that holds the loading state object coming from
+    dash-renderer.
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
 - multiline (boolean; optional):
     Will input have multiple lines?.
 
 - placeholder (string; optional):
     Placeholder, displayed when date is not selected.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Input border-radius from theme or number to set border-radius in
     px.
 
 - required (boolean; optional):
     Adds red asterisk on the right side of label.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Input size.
 
 - style (dict; optional):
@@ -54,12 +69,12 @@ Keyword arguments:
 - value (a list of or a singular dash component, string or number; default ""):
     Input value."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'description', 'disabled', 'error', 'label', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, loading_state=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'description', 'disabled', 'error', 'label', 'loading_state', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value']
         self._type = 'TextInput'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'description', 'disabled', 'error', 'label', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value']
+        self.available_properties = ['id', 'className', 'description', 'disabled', 'error', 'label', 'loading_state', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

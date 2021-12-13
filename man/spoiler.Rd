@@ -11,7 +11,7 @@ Hide long sections of content under spoiler. For more information, see: https://
 
 \usage{
 spoiler(children=NULL, id=NULL, hideLabel=NULL, initialState=NULL,
-maxHeight=NULL, showLabel=NULL)
+loading_state=NULL, maxHeight=NULL, showLabel=NULL)
 }
 
 \arguments{
@@ -22,6 +22,12 @@ maxHeight=NULL, showLabel=NULL)
 \item{hideLabel}{Character. Label for close spoiler action}
 
 \item{initialState}{Logical. Initial spoiler state, true to wrap content in spoiler, false to show content without spoiler, opened state will be updated on mount}
+
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{maxHeight}{Numeric. Max height of visible content, when this point is reached spoiler appears}
 

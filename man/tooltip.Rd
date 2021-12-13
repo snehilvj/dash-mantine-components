@@ -12,8 +12,9 @@ Renders tooltip at given element on mouse over or any other event. For more info
 \usage{
 tooltip(children=NULL, id=NULL, arrowSize=NULL, className=NULL,
 color=NULL, delay=NULL, disabled=NULL, gutter=NULL,
-label=NULL, placement=NULL, position=NULL, style=NULL,
-width=NULL, withArrow=NULL, wrapLines=NULL, zIndex=NULL)
+label=NULL, loading_state=NULL, placement=NULL,
+position=NULL, style=NULL, width=NULL, withArrow=NULL,
+wrapLines=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -25,7 +26,7 @@ width=NULL, withArrow=NULL, wrapLines=NULL, zIndex=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme}
 
 \item{delay}{Numeric. Close delay in ms, 0 to disable delay}
 
@@ -35,9 +36,15 @@ width=NULL, withArrow=NULL, wrapLines=NULL, zIndex=NULL)
 
 \item{label}{Character. Tooltip content}
 
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
+
 \item{placement}{A value equal to: "center", "end", "start". Placement relative to reference element}
 
-\item{position}{Position relative to reference element}
+\item{position}{A value equal to: "right", "center", "left", "apart". Position relative to reference element}
 
 \item{style}{Named list. Inline style override}
 

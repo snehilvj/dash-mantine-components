@@ -11,7 +11,8 @@ Capture boolean input from user. For more information, see: https://mantine.dev/
 
 \usage{
 checkbox(id=NULL, checked=NULL, className=NULL, color=NULL,
-disabled=NULL, label=NULL, size=NULL, style=NULL)
+disabled=NULL, label=NULL, loading_state=NULL, size=NULL,
+style=NULL)
 }
 
 \arguments{
@@ -21,13 +22,19 @@ disabled=NULL, label=NULL, size=NULL, style=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Checkbox color}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Checkbox color}
 
 \item{disabled}{Logical. A checkbox can show it is currently unable to be interacted with}
 
 \item{label}{Character. Checkbox label}
 
-\item{size}{Predefined label font-size and checkbox width and height in px}
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
+
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined label font-size and checkbox width and height in px}
 
 \item{style}{Named list. Inline style override}
 }

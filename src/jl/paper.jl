@@ -14,13 +14,18 @@ Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Paper content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `className` (String; optional): Often used with CSS to style elements with common properties
-- `padding` (optional): Predefined padding value from theme.spacing or number for padding in px
-- `radius` (optional): Predefined border-radius value from theme.radius or number for border-radius in px
-- `shadow` (optional): Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property
+- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `padding` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined padding value from theme.spacing or number for padding in px
+- `radius` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined border-radius value from theme.radius or number for border-radius in px
+- `shadow` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property
 - `withBorder` (Bool; optional): Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme
 """
 function paper(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :padding, :radius, :shadow, :withBorder]
+        available_props = Symbol[:children, :id, :className, :loading_state, :padding, :radius, :shadow, :withBorder]
         wild_props = Symbol[]
         return Component("paper", "Paper", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-blockquote <- function(children=NULL, id=NULL, cite=NULL, className=NULL, color=NULL, style=NULL) {
+blockquote <- function(children=NULL, id=NULL, cite=NULL, className=NULL, color=NULL, loading_state=NULL, style=NULL) {
     
-    props <- list(children=children, id=id, cite=cite, className=className, color=color, style=style)
+    props <- list(children=children, id=id, cite=cite, className=className, color=color, loading_state=loading_state, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ blockquote <- function(children=NULL, id=NULL, cite=NULL, className=NULL, color=
         props = props,
         type = 'Blockquote',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'cite', 'className', 'color', 'style'),
+        propNames = c('children', 'id', 'cite', 'className', 'color', 'loading_state', 'style'),
         package = 'dashMantineComponents'
         )
 

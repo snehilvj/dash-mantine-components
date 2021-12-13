@@ -2,9 +2,10 @@ import React from "react";
 import { Switch as MantineSwitch } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { MantineColors, NumberSizes, Sizes } from "../propTypes";
 
-/** Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/switch/ */
+/**
+ * Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/switch/
+ */
 const Switch = (props) => {
     const { setProps } = props;
 
@@ -27,34 +28,90 @@ Switch.defaultProps = {
 };
 
 Switch.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** Tells dash if any prop has changed its value */
+    /**
+     * Tells dash if any prop has changed its value
+     */
     setProps: PropTypes.func,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /** Checkbox color */
-    color: MantineColors,
+    /**
+     * Checkbox color
+     */
+    color: PropTypes.oneOf([
+        "dark",
+        "gray",
+        "red",
+        "pink",
+        "grape",
+        "violet",
+        "indigo",
+        "blue",
+        "cyan",
+        "teal",
+        "green",
+        "lime",
+        "yellow",
+        "orange",
+    ]),
 
-    /** A checkbox can show it is currently unable to be interacted with */
+    /**
+     * A checkbox can show it is currently unable to be interacted with
+     */
     disabled: PropTypes.bool,
 
-    /**	Checkbox label */
+    /**
+     * Checkbox label
+     */
     label: PropTypes.string,
 
-    /** Predefined border-radius value from theme.radius or number for border-radius in px */
-    radius: NumberSizes,
+    /**
+     * Object that holds the loading state object coming from dash-renderer
+     */
+    loading_state: PropTypes.shape({
+        /**
+         * Determines if the component is loading or not
+         */
+        is_loading: PropTypes.bool,
+        /**
+         * Holds which property is loading
+         */
+        prop_name: PropTypes.string,
+        /**
+         * Holds the name of the component that is loading
+         */
+        component_name: PropTypes.string,
+    }),
 
-    /**	Predefined label font-size and checkbox width and height in px */
-    size: Sizes,
+    /**
+     * Predefined border-radius value from theme.radius or number for border-radius in px
+     */
+    radius: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 
-    /** Inline style override */
+    /**
+     * Predefined label font-size and checkbox width and height in px
+     */
+    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+
+    /**
+     * Inline style override
+     */
     style: PropTypes.object,
 
-    /** State of check box */
+    /**
+     * State of check box
+     */
     checked: PropTypes.bool,
 };
 

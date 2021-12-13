@@ -3,7 +3,9 @@ import { Table as MantineTable } from "@mantine/core";
 import PropTypes from "prop-types";
 import { pick } from "ramda";
 
-/** A simple table component. For more information, see: https://mantine.dev/core/table/ */
+/**
+ * A simple table component. For more information, see: https://mantine.dev/core/table/
+ */
 const Table = (props) => {
     const { rows, columns } = props;
 
@@ -46,31 +48,67 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** Table description */
+    /**
+     * Table description
+     */
     caption: PropTypes.string,
 
-    /** Table caption position */
+    /**
+     * Table caption position
+     */
     captionSide: PropTypes.oneOf(["bottom", "top"]),
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /** Table columns */
+    /**
+     * Table columns
+     */
     columns: PropTypes.arrayOf(PropTypes.string),
 
-    /** Table rows */
+    /**
+     * Table rows
+     */
     rows: PropTypes.arrayOf(PropTypes.array),
 
-    /**	If true row will have hover color */
+    /**
+     * If true row will have hover color
+     */
     highlightOnHover: PropTypes.bool,
 
-    /**	If true every odd row of table will have gray background color */
+    /**
+     * Object that holds the loading state object coming from dash-renderer
+     */
+    loading_state: PropTypes.shape({
+        /**
+         * Determines if the component is loading or not
+         */
+        is_loading: PropTypes.bool,
+        /**
+         * Holds which property is loading
+         */
+        prop_name: PropTypes.string,
+        /**
+         * Holds the name of the component that is loading
+         */
+        component_name: PropTypes.string,
+    }),
+
+    /**
+     * If true every odd row of table will have gray background color
+     */
     striped: PropTypes.bool,
 
-    /** Inline style override */
+    /**
+     * Inline style override
+     */
     style: PropTypes.object,
 };
 

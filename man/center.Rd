@@ -11,7 +11,7 @@ Centers content vertically and horizontally. For more information, see: https://
 
 \usage{
 center(children=NULL, id=NULL, className=NULL, inline=NULL,
-style=NULL)
+loading_state=NULL, style=NULL)
 }
 
 \arguments{
@@ -22,6 +22,12 @@ style=NULL)
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{inline}{Logical. Set to true to use inline-flex instead of flex}
+
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{style}{Named list. Inline style override}
 }

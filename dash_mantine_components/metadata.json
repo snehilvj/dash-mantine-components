@@ -63,6 +63,13 @@
         "required": false,
         "description": "Allow multiple items to be opened at the same time"
       },
+      "offsetIcon": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should icon be offset with padding, applicable only when iconPosition is left"
+      },
       "state": {
         "type": {
           "name": "objectOf",
@@ -92,7 +99,7 @@
           "name": "node"
         },
         "required": false,
-        "description": "Col content"
+        "description": "Accordion content"
       },
       "className": {
         "type": {
@@ -101,6 +108,13 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Accordion description"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -108,12 +122,36 @@
         "required": true,
         "description": "Accordion label"
       },
-      "description": {
+      "loading_state": {
         "type": {
-          "name": "string"
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
         },
         "required": false,
-        "description": "Accordion description"
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
       }
     }
   },
@@ -251,8 +289,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Alert title and line colors from theme"
@@ -263,6 +358,30 @@
         },
         "required": false,
         "description": "Duration in milliseconds after which the Alert dismisses itself."
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "title": {
         "type": {
@@ -326,24 +445,107 @@
       },
       "align": {
         "type": {
-          "name": "custom",
-          "raw": "TextAlignProperty"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Sets text-align css property"
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Text color from theme"
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
@@ -376,10 +578,55 @@
         "required": false,
         "description": "CSS -webkit-line-clamp property"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined font-size from theme.fontSizes"
@@ -403,24 +650,83 @@
       },
       "transform": {
         "type": {
-          "name": "custom",
-          "raw": "TransformTypes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"capitalize\"",
+              "computed": false
+            },
+            {
+              "value": "\"uppercase\"",
+              "computed": false
+            },
+            {
+              "value": "\"lowercase\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Sets text-transform css property"
       },
       "variant": {
         "type": {
-          "name": "custom",
-          "raw": "TextVariants"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"link\"",
+              "computed": false
+            },
+            {
+              "value": "\"gradient\"",
+              "computed": false
+            },
+            {
+              "value": "\"text\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Link or text variant"
       },
       "weight": {
         "type": {
-          "name": "custom",
-          "raw": "FontWeights"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"normal\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bold\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bolder\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lighter\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"initial\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"inherit\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Sets font-weight css property"
@@ -462,8 +768,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Badge color from theme"
@@ -477,24 +840,111 @@
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined badge size"
@@ -572,11 +1022,92 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Badge color from theme"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "style": {
         "type": {
@@ -625,6 +1156,30 @@
         },
         "required": false,
         "description": "Link items"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       }
     }
   },
@@ -681,8 +1236,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Button color from theme"
@@ -703,8 +1315,21 @@
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
@@ -733,18 +1358,92 @@
         "required": false,
         "description": "Indicate loading state"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Button border-radius from theme or number to set border-radius in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined button size"
@@ -835,6 +1534,30 @@
         "required": false,
         "description": "Set to true to use inline-flex instead of flex"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "style": {
         "type": {
           "name": "object"
@@ -890,8 +1613,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Checkbox color"
@@ -903,10 +1683,55 @@
         "required": false,
         "description": "Checkbox label"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined label font-size and checkbox width and height in px"
@@ -948,32 +1773,134 @@
       },
       "align": {
         "type": {
-          "name": "custom",
-          "raw": "AlignContentProperty"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"stretch\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines align-items css property"
       },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "OptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "Option's value",
+                "required": true
+              },
+              "disabled": {
+                "name": "bool",
+                "description": "If true, this option is disabled and cannot be selected",
+                "required": false
+              }
+            }
+          }
         },
         "required": false,
         "description": "Chips"
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Active chip color, defaults to theme.primaryColor"
       },
       "direction": {
         "type": {
-          "name": "custom",
-          "raw": "Directions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"row\"",
+              "computed": false
+            },
+            {
+              "value": "\"column\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines flex-direction property, row for horizontal, column for vertical"
@@ -984,6 +1911,30 @@
         },
         "required": false,
         "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "multiple": {
         "type": {
@@ -1001,32 +1952,128 @@
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines justify-content property"
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Chip border-radius from theme or number to set value in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined chip size"
       },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Spacing between chips from theme or number to set value in px"
@@ -1150,6 +2197,30 @@
         "required": false,
         "description": "Col span at (min-width: theme.breakpoints.xl)"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "style": {
         "type": {
           "name": "object"
@@ -1194,19 +2265,101 @@
       },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Horizontal padding defined in theme.spacing, or number value for padding in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined container max-width or number for max-width in px"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "style": {
         "type": {
@@ -1243,13 +2396,6 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "allowFreeInput": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Allow free input"
-      },
       "amountOfMonths": {
         "type": {
           "name": "number"
@@ -1263,6 +2409,27 @@
         },
         "required": false,
         "description": "Allow to clear value"
+      },
+      "closeCalendarOnChange": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to false to force dropdown to stay open after date was selected"
+      },
+      "closeDropdownOnScroll": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to disable dropdown closing on scroll"
+      },
+      "allowFreeInput": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow free input"
       },
       "description": {
         "type": {
@@ -1302,6 +2469,13 @@
         "required": false,
         "description": "Where to show calendar in modal or popover"
       },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
       "firstDayOfWeek": {
         "type": {
           "name": "enum",
@@ -1325,6 +2499,20 @@
         },
         "required": false,
         "description": "DatePicker display format"
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to make calendar take 100% of container width"
+      },
+      "hideWeekdays": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to false to remove weekdays row"
       },
       "initialMonth": {
         "type": {
@@ -1353,6 +2541,30 @@
         },
         "required": false,
         "description": "Locale used for all labels formatting"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "maxDate": {
         "type": {
@@ -1395,8 +2607,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -1410,8 +2651,29 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -1426,6 +2688,31 @@
           "value": "{ width: \"200px\" }",
           "computed": false
         }
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
       },
       "withSelect": {
         "type": {
@@ -1539,6 +2826,13 @@
         "required": false,
         "description": "Input description, displayed after label"
       },
+      "disableOutsideDayStyle": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "When true dates that are outside of given month are not styled"
+      },
       "disableOutsideEvents": {
         "type": {
           "name": "bool"
@@ -1570,6 +2864,13 @@
         "required": false,
         "description": "Where to show calendar in modal or popover"
       },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
       "firstDayOfWeek": {
         "type": {
           "name": "enum",
@@ -1586,6 +2887,20 @@
         },
         "required": false,
         "description": "Set first day of the week"
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to make calendar take 100% of container width"
+      },
+      "hideWeekdays": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to false to remove weekdays row"
       },
       "format": {
         "type": {
@@ -1622,6 +2937,30 @@
         "required": false,
         "description": "Locale used for all labels formatting"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "maxDate": {
         "type": {
           "name": "string"
@@ -1635,6 +2974,13 @@
         },
         "required": false,
         "description": "Minimum possible date"
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Will input have multiple lines?"
       },
       "placeholder": {
         "type": {
@@ -1656,8 +3002,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -1671,8 +3046,29 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -1687,6 +3083,31 @@
           "value": "{ width: \"350px\" }",
           "computed": false
         }
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
       },
       "withSelect": {
         "type": {
@@ -1752,8 +3173,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme"
@@ -1788,16 +3266,54 @@
       },
       "orientation": {
         "type": {
-          "name": "custom",
-          "raw": "Orientations"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"horizontal\"",
+              "computed": false
+            },
+            {
+              "value": "\"vertical\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Line orientation"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Sets height in horizontal orientation and width in vertical"
@@ -1864,6 +3380,30 @@
         },
         "required": false,
         "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "noCloseOnClickOutside": {
         "type": {
@@ -1935,16 +3475,62 @@
       },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Drawer body padding from theme or number for padding in px"
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Drawer body position"
@@ -1954,8 +3540,25 @@
           "name": "union",
           "value": [
             {
-              "name": "custom",
-              "raw": "Sizes"
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"right\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"center\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"left\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"apart\"",
+                  "computed": false
+                }
+              ]
             },
             {
               "name": "string"
@@ -2012,8 +3615,25 @@
       },
       "align": {
         "type": {
-          "name": "custom",
-          "raw": "AlignContentProperty"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"stretch\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Set grid align-content property"
@@ -2034,19 +3654,100 @@
       },
       "gutter": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Spacing between columns predefined value from theme.spacing or number for gutter in px"
       },
       "justify": {
         "type": {
-          "name": "custom",
-          "raw": "JustifyContentProperty"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"space-between\"",
+              "computed": false
+            },
+            {
+              "value": "\"space-around\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Set grid justify-content property"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },
@@ -2078,16 +3779,42 @@
       },
       "align": {
         "type": {
-          "name": "custom",
-          "raw": "AlignContentProperty"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"stretch\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines align-items css property"
       },
       "direction": {
         "type": {
-          "name": "custom",
-          "raw": "Directions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"row\"",
+              "computed": false
+            },
+            {
+              "value": "\"column\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines flex-direction property, row for horizontal, column for vertical"
@@ -2099,6 +3826,30 @@
         "required": false,
         "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "noWrap": {
         "type": {
           "name": "bool"
@@ -2108,16 +3859,54 @@
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines justify-content property"
       },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Space between elements"
@@ -2196,10 +3985,63 @@
         "required": false,
         "description": "Image height, defaults to original image height adjusted to given width"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
@@ -2275,12 +4117,50 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "centered": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Controls if modal should be centered"
+      },
+      "closeOnClickOutside": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should modal be closed when outside click was registered?"
+      },
       "hideCloseButton": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "opened": {
         "type": {
@@ -2312,8 +4192,37 @@
       },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Modal padding from theme or number value for padding in px"
@@ -2323,8 +4232,29 @@
           "name": "union",
           "value": [
             {
-              "name": "custom",
-              "raw": "Sizes"
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
             },
             {
               "name": "number"
@@ -2409,8 +4339,27 @@
       },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "OptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "option's value",
+                "required": true
+              },
+              "disabled": {
+                "name": "bool",
+                "description": "If true, this option is disabled and cannot be selected",
+                "required": false
+              }
+            }
+          }
         },
         "required": false,
         "description": "Select options used to renderer items in dropdown",
@@ -2461,6 +4410,30 @@
         "required": false,
         "description": "Limit amount of items displayed at a time for searchable select"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "maxDropdownHeight": {
         "type": {
           "name": "number"
@@ -2506,8 +4479,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -2532,16 +4534,58 @@
       },
       "shadow": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Dropdown shadow from theme or any value to set box-shadow"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -2562,6 +4606,31 @@
         },
         "required": false,
         "description": "Selected value"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
       },
       "zIndex": {
         "type": {
@@ -2794,26 +4863,129 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined padding value from theme.spacing or number for padding in px"
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
       },
       "shadow": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property"
@@ -2891,8 +5063,65 @@
             "name": "exact",
             "value": {
               "color": {
-                "name": "custom",
-                "raw": "MantineColors",
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"dark\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"gray\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"red\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"pink\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"grape\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"violet\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"indigo\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"blue\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"cyan\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"teal\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"green\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"lime\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"yellow\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"orange\"",
+                    "computed": false
+                  }
+                ],
                 "required": false
               },
               "label": {
@@ -3042,6 +5271,30 @@
         "required": true,
         "description": "Programming language that should be highlighted"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "noCopy": {
         "type": {
           "name": "bool"
@@ -3086,24 +5339,155 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Progress color from theme"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined progress radius from theme.radius or number for height in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined progress height or number for height in px"
@@ -3119,8 +5503,65 @@
                 "required": false
               },
               "color": {
-                "name": "custom",
-                "raw": "MantineColors",
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"dark\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"gray\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"red\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"pink\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"grape\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"violet\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"indigo\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"blue\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"cyan\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"teal\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"green\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"lime\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"yellow\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"orange\"",
+                    "computed": false
+                  }
+                ],
                 "required": false
               }
             }
@@ -3159,8 +5600,22 @@
       },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "SimpleOptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "option's value",
+                "required": true
+              }
+            }
+          }
         },
         "required": false,
         "description": "RadioGroup options"
@@ -3181,8 +5636,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Active radio color from theme.colors"
@@ -3208,6 +5720,30 @@
         "required": false,
         "description": "Input label, displayed before input"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "required": {
         "type": {
           "name": "bool"
@@ -3217,16 +5753,58 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined label fontSize, radio width, height and border-radius"
       },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Spacing between radios in horizontal variant"
@@ -3264,239 +5842,6 @@
       }
     }
   },
-  "src/lib/components/RangeSlider.react.js": {
-    "description": "Capture user feedback from a range of values",
-    "displayName": "RangeSlider",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
-      "color": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'dark'",
-              "computed": false
-            },
-            {
-              "value": "'gray'",
-              "computed": false
-            },
-            {
-              "value": "'red'",
-              "computed": false
-            },
-            {
-              "value": "'pink'",
-              "computed": false
-            },
-            {
-              "value": "'grape'",
-              "computed": false
-            },
-            {
-              "value": "'violet'",
-              "computed": false
-            },
-            {
-              "value": "'indigo'",
-              "computed": false
-            },
-            {
-              "value": "'blue'",
-              "computed": false
-            },
-            {
-              "value": "'cyan'",
-              "computed": false
-            },
-            {
-              "value": "'teal'",
-              "computed": false
-            },
-            {
-              "value": "'green'",
-              "computed": false
-            },
-            {
-              "value": "'lime'",
-              "computed": false
-            },
-            {
-              "value": "'yellow'",
-              "computed": false
-            },
-            {
-              "value": "'orange'",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": "Slider color"
-      },
-      "labelAlwaysOn": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If true label will be not be hidden when user stops dragging"
-      },
-      "marks": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "exact",
-            "value": {
-              "label": {
-                "name": "string",
-                "description": "mark's label",
-                "required": true
-              },
-              "value": {
-                "name": "number",
-                "description": "mark's value",
-                "required": true
-              }
-            }
-          }
-        },
-        "required": false,
-        "description": "Marks which will be placed on the track"
-      },
-      "max": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Maximum possible value"
-      },
-      "min": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Minimal possible value"
-      },
-      "minRange": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Minimal range interval"
-      },
-      "radius": {
-        "type": {
-          "name": "union",
-          "value": [
-            {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "'xs'",
-                  "computed": false
-                },
-                {
-                  "value": "'sm'",
-                  "computed": false
-                },
-                {
-                  "value": "'md'",
-                  "computed": false
-                },
-                {
-                  "value": "'lg'",
-                  "computed": false
-                },
-                {
-                  "value": "'xl'",
-                  "computed": false
-                }
-              ]
-            },
-            {
-              "name": "number"
-            }
-          ]
-        },
-        "required": false,
-        "description": "Track border-radius from theme or number to set border-radius in px"
-      },
-      "size": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'xs'",
-              "computed": false
-            },
-            {
-              "value": "'sm'",
-              "computed": false
-            },
-            {
-              "value": "'md'",
-              "computed": false
-            },
-            {
-              "value": "'lg'",
-              "computed": false
-            },
-            {
-              "value": "'xl'",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": "Predefined track and thumb size, number to set sizes in px"
-      },
-      "step": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Number by which value will be incremented/decremented with thumb drag and arrows"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
-      },
-      "value": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "number"
-          }
-        },
-        "required": false,
-        "description": "Current value for controlled slider"
-      }
-    }
-  },
   "src/lib/components/SegmentedControl.react.js": {
     "description": "Horizontal control made of multiple segments, alternative to RadioGroup. For more information, see: https://mantine.dev/core/segmented-control/",
     "displayName": "SegmentedControl",
@@ -3525,18 +5870,89 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark"
       },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "SimpleOptionsType.isRequired"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "option's value",
+                "required": true
+              }
+            }
+          }
         },
-        "required": false,
+        "required": true,
         "description": "Data based on which controls are rendered"
       },
       "fullWidth": {
@@ -3546,18 +5962,92 @@
         "required": false,
         "description": "True if component should have 100% width"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Border-radius from theme or number to set border-radius in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Controls font-size, paddings and height"
@@ -3613,8 +6103,27 @@
       },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "OptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "Option's value",
+                "required": true
+              },
+              "disabled": {
+                "name": "bool",
+                "description": "If true, this option is disabled and cannot be selected",
+                "required": false
+              }
+            }
+          }
         },
         "required": false,
         "description": "Select options used to renderer items in dropdown",
@@ -3665,6 +6174,30 @@
         "required": false,
         "description": "Limit amount of items displayed at a time for searchable select"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "maxDropdownHeight": {
         "type": {
           "name": "number"
@@ -3703,8 +6236,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -3729,8 +6291,29 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -3797,8 +6380,37 @@
               "required": true
             },
             "spacing": {
-              "name": "custom",
-              "raw": "NumberSizes",
+              "name": "union",
+              "value": [
+                {
+                  "name": "enum",
+                  "value": [
+                    {
+                      "value": "\"xs\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"sm\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"md\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"lg\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"xl\"",
+                      "computed": false
+                    }
+                  ]
+                },
+                {
+                  "name": "number"
+                }
+              ],
               "required": false
             }
           }
@@ -3813,10 +6425,63 @@
         "required": true,
         "description": "Default amount of columns, used when none of breakpoints can be applied"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Default spacing between columns, used when none of breakpoints can be applied"
@@ -3851,16 +6516,76 @@
       },
       "height": {
         "type": {
-          "name": "custom",
-          "raw": "NumberString"
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Skeleton height"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Radius from theme.radius or number to set border-radius in px"
@@ -3874,8 +6599,15 @@
       },
       "width": {
         "type": {
-          "name": "custom",
-          "raw": "NumberString"
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Skeleton width"
@@ -3910,8 +6642,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Slider color"
@@ -3961,8 +6750,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Track border-radius from theme or number to set border-radius in px"
@@ -3976,8 +6794,29 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined track and thumb size, number to set sizes in px"
@@ -4040,8 +6879,37 @@
       },
       "h": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Height, set to add vertical spacing"
@@ -4055,8 +6923,37 @@
       },
       "w": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Width, set to add horizontal spacing"
@@ -4107,6 +7004,30 @@
         "required": false,
         "description": "Max height of visible content, when this point is reached spoiler appears"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "showLabel": {
         "type": {
           "name": "string"
@@ -4148,8 +7069,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Checkbox color"
@@ -4168,18 +7146,92 @@
         "required": false,
         "description": "Checkbox label"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined label font-size and checkbox width and height in px"
@@ -4243,6 +7295,30 @@
         },
         "required": false,
         "description": "Tab control label"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       }
     }
   },
@@ -4328,6 +7404,30 @@
         "required": false,
         "description": "If true row will have hover color"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "striped": {
         "type": {
           "name": "bool"
@@ -4379,8 +7479,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Active tab color from theme.colors"
@@ -4392,26 +7549,97 @@
         "required": false,
         "description": "True if tabs should take all available space"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "orientation": {
         "type": {
-          "name": "custom",
-          "raw": "Orientations"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"horizontal\"",
+              "computed": false
+            },
+            {
+              "value": "\"vertical\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Controls tab orientation"
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Tab controls position"
       },
       "tabPadding": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Controls tab content padding-top"
@@ -4474,8 +7702,21 @@
       },
       "align": {
         "type": {
-          "name": "custom",
-          "raw": "TextAlignProperty"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Sets text-align css property"
@@ -4485,8 +7726,65 @@
           "name": "union",
           "value": [
             {
-              "name": "custom",
-              "raw": "MantineColors"
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"dark\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"gray\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"red\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"pink\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"grape\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"violet\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"indigo\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"blue\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"cyan\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"teal\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"green\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lime\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"yellow\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"orange\"",
+                  "computed": false
+                }
+              ]
             },
             {
               "name": "enum",
@@ -4504,8 +7802,21 @@
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
@@ -4531,34 +7842,138 @@
         "required": false,
         "description": "CSS -webkit-line-clamp property"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined font-size from theme.fontSizes"
       },
       "transform": {
         "type": {
-          "name": "custom",
-          "raw": "TransformTypes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"capitalize\"",
+              "computed": false
+            },
+            {
+              "value": "\"uppercase\"",
+              "computed": false
+            },
+            {
+              "value": "\"lowercase\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Sets text-transform css property"
       },
       "variant": {
         "type": {
-          "name": "custom",
-          "raw": "TextVariants"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"link\"",
+              "computed": false
+            },
+            {
+              "value": "\"gradient\"",
+              "computed": false
+            },
+            {
+              "value": "\"text\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Link or text variant"
       },
       "weight": {
         "type": {
-          "name": "custom",
-          "raw": "FontWeights"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"normal\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bold\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bolder\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lighter\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"initial\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"inherit\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Sets font-weight css property"
@@ -4626,6 +8041,30 @@
         "required": false,
         "description": "Input label, displayed before input"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "multiline": {
         "type": {
           "name": "bool"
@@ -4642,8 +8081,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -4657,8 +8125,29 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -4751,6 +8240,30 @@
         "required": false,
         "description": "Sets text-align css property"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "order": {
         "type": {
           "name": "number"
@@ -4802,8 +8315,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme"
@@ -4836,6 +8406,30 @@
         "required": true,
         "description": "Tooltip content"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "placement": {
         "type": {
           "name": "enum",
@@ -4859,8 +8453,25 @@
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Position relative to reference element"

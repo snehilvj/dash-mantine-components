@@ -3,7 +3,9 @@ import { useNotifications } from "@mantine/notifications";
 import PropTypes from "prop-types";
 import { useDidUpdate } from "@mantine/hooks";
 
-/** Mantine notifications system. For more information, see: https://mantine.dev/others/notifications/ */
+/**
+ * Mantine notifications system. For more information, see: https://mantine.dev/others/notifications/
+ */
 const NotificationHandler = (props) => {
     const notification = useNotifications();
     const { task } = props;
@@ -29,10 +31,14 @@ NotificationHandler.displayName = "NotificationHandler";
 NotificationHandler.defaultProps = {};
 
 NotificationHandler.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** Task for notification handler along with notification props */
+    /**
+     * Task for notification handler along with notification props
+     */
     task: PropTypes.exact({
         command: PropTypes.oneOf(["hide", "show", "update"]).isRequired,
         id: PropTypes.string.isRequired,

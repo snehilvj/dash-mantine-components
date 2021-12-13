@@ -21,7 +21,7 @@ style=NULL, value=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Slider color}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Slider color}
 
 \item{drag_value}{Numeric. Current drag value for controlled slider}
 
@@ -36,11 +36,11 @@ those elements have the following types:
 
 \item{min}{Numeric. Minimal possible value}
 
-\item{radius}{Track border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Track border-radius from theme or number to set border-radius in px}
 
 \item{showLabelOnHover}{Logical. If true slider label will appear on hover}
 
-\item{size}{Predefined track and thumb size, number to set sizes in px}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined track and thumb size, number to set sizes in px}
 
 \item{step}{Numeric. Number by which value will be incremented/decremented with thumb drag and arrows}
 

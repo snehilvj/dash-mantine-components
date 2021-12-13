@@ -16,13 +16,13 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
-- align (optional):
+- align (a value equal to: "stretch", "center", "flex-end", "flex-start"; optional):
     Defines align-items css property.
 
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- direction (optional):
+- direction (a value equal to: "row", "column"; optional):
     Defines flex-direction property, row for horizontal, column for
     vertical.
 
@@ -30,24 +30,39 @@ Keyword arguments:
     Defines flex-grow property for each element, True -> 1, False ->
     0.
 
+- loading_state (dict; optional):
+    Object that holds the loading state object coming from
+    dash-renderer.
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
 - noWrap (boolean; optional):
     Defined flex-wrap property.
 
-- position (optional):
+- position (a value equal to: "right", "center", "left", "apart"; optional):
     Defines justify-content property.
 
-- spacing (optional):
+- spacing (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Space between elements.
 
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, loading_state=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'align', 'className', 'direction', 'grow', 'loading_state', 'noWrap', 'position', 'spacing', 'style']
         self._type = 'Group'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style']
+        self.available_properties = ['children', 'id', 'align', 'className', 'direction', 'grow', 'loading_state', 'noWrap', 'position', 'spacing', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
