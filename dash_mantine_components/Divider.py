@@ -16,7 +16,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Line color from theme, defaults to gray in light color scheme and
     to dark in dark color scheme.
 
@@ -26,10 +26,10 @@ Keyword arguments:
 - labelPosition (a value equal to: "right", "left", "center"; optional):
     Label position.
 
-- orientation (optional):
+- orientation (a value equal to: "horizontal", "vertical"; optional):
     Line orientation.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Sets height in horizontal orientation and width in vertical.
 
 - variant (a value equal to: "dashed", "dotted", "solid"; optional):

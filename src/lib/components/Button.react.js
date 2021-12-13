@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import { Button as MantineButton } from "@mantine/core";
-import { GradientType, MantineColors, NumberSizes, Sizes } from "../propTypes";
 
-/** Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/ */
+/**
+ * Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/
+ */
 const Button = (props) => {
     const { children, n_clicks, setProps, disabled } = props;
 
@@ -33,49 +34,119 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** Primary content */
+    /**
+     * Primary content
+     */
     children: PropTypes.node,
 
-    /** An integer that represents the number of times that this element has been clicked on */
+    /**
+     * An integer that represents the number of times that this element has been clicked on
+     */
     n_clicks: PropTypes.number,
 
-    /** Tells dash if any prop has changed its value */
+    /**
+     * Tells dash if any prop has changed its value
+     */
     setProps: PropTypes.func,
 
-    /** The component can show it is currently unable to be interacted with */
+    /**
+     * The component can show it is currently unable to be interacted with
+     */
     disabled: PropTypes.bool,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /** Button color from theme */
-    color: MantineColors,
+    /**
+     * Button color from theme
+     */
+    color: PropTypes.oneOf([
+        "dark",
+        "gray",
+        "red",
+        "pink",
+        "grape",
+        "violet",
+        "indigo",
+        "blue",
+        "cyan",
+        "teal",
+        "green",
+        "lime",
+        "yellow",
+        "orange",
+    ]),
 
-    /** Reduces vertical and horizontal spacing */
+    /**
+     * Reduces vertical and horizontal spacing
+     */
     compact: PropTypes.bool,
 
-    /** Sets button width to 100% of parent element */
+    /**
+     * Sets button width to 100% of parent element
+     */
     fullWidth: PropTypes.bool,
 
-    /** Controls gradient settings in gradient variant only */
-    gradient: GradientType,
+    /**
+     * Controls gradient settings in gradient variant only
+     */
+    gradient: PropTypes.exact({
+        from: PropTypes.string.isRequired,
+        to: PropTypes.string.isRequired,
+        deg: PropTypes.number,
+    }),
 
-    /** Loader position relative to button label */
+    /**
+     * Loader position relative to button label
+     */
     loaderPosition: PropTypes.oneOf(["left", "right"]),
 
-    /** Indicate loading state */
+    /**
+     * Indicate loading state
+     */
     loading: PropTypes.bool,
 
-    /** Button border-radius from theme or number to set border-radius in px */
-    radius: NumberSizes,
+    /**
+     * Object that holds the loading state object coming from dash-renderer
+     */
+    loading_state: PropTypes.shape({
+        /**
+         * Determines if the component is loading or not
+         */
+        is_loading: PropTypes.bool,
+        /**
+         * Holds which property is loading
+         */
+        prop_name: PropTypes.string,
+        /**
+         * Holds the name of the component that is loading
+         */
+        component_name: PropTypes.string,
+    }),
 
-    /** Predefined button size */
-    size: Sizes,
+    /**
+     * Button border-radius from theme or number to set border-radius in px
+     */
+    radius: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 
-    /** Controls button appearance */
+    /**
+     * Predefined button size
+     */
+    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+
+    /**
+     * Controls button appearance
+     */
     variant: PropTypes.oneOf([
         "link",
         "filled",
@@ -86,10 +157,14 @@ Button.propTypes = {
         "default",
     ]),
 
-    /**	Set text-transform to uppercase */
+    /**
+     * Set text-transform to uppercase
+     */
     uppercase: PropTypes.bool,
 
-    /** Inline style override */
+    /**
+     * Inline style override
+     */
     style: PropTypes.object,
 };
 

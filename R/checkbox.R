@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-checkbox <- function(id=NULL, checked=NULL, className=NULL, color=NULL, disabled=NULL, label=NULL, size=NULL, style=NULL) {
+checkbox <- function(id=NULL, checked=NULL, className=NULL, color=NULL, disabled=NULL, label=NULL, loading_state=NULL, size=NULL, style=NULL) {
     
-    props <- list(id=id, checked=checked, className=className, color=color, disabled=disabled, label=label, size=size, style=style)
+    props <- list(id=id, checked=checked, className=className, color=color, disabled=disabled, label=label, loading_state=loading_state, size=size, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ checkbox <- function(id=NULL, checked=NULL, className=NULL, color=NULL, disabled
         props = props,
         type = 'Checkbox',
         namespace = 'dash_mantine_components',
-        propNames = c('id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style'),
+        propNames = c('id', 'checked', 'className', 'color', 'disabled', 'label', 'loading_state', 'size', 'style'),
         package = 'dashMantineComponents'
         )
 

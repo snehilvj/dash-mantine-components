@@ -1,37 +1,47 @@
 from dash import Dash, html
 from dash.dependencies import Input, Output
+
 import dash_mantine_components as dmc
+
 
 app = Dash(
     __name__,
-    external_scripts=[
-        "https://unpkg.com/dayjs@1.8.21/dayjs.min.js",
-        "https://unpkg.com/dayjs@1.8.21/locale/ru.js",
-    ],
+    external_stylesheets=["https://use.fontawesome.com/releases/v5.15.4/css/all.css"],
 )
 
 app.layout = html.Div(
     [
-        dmc.Group(
+        dmc.Accordion(
             children=[
-                dmc.DatePicker(format="dddd, MMMM D, YYYY"),
-                dmc.DatePicker(
-                    amountOfMonths=2,
-                    locale="ru",
-                    id="datepicker",
+                dmc.AccordionItem(
+                    dmc.Group(
+                        [dmc.Button("Click Me!"), dmc.Badge("adda I am an bdage")],
+                        direction="column",
+                    ),
+                    label="This is cool",
+                    description="I am a desciption",
                 ),
-            ]
+                dmc.AccordionItem(
+                    "haha I'm greattpp ",
+                    label="This is grrat",
+                    icon="fal fa-angle-down",
+                ),
+            ],
+            iconPosition="right",
+            multiple=True,
+            id="acc",
+            state={"1": True},
         ),
-        dmc.Text(id="date"),
+        dmc.Space(h=20),
+        dmc.Text(id="output"),
     ]
 )
 
 
-@app.callback(
-    Output("date", "children"), Input("datepicker", "date"), prevent_initial_call=True
-)
-def print_date(date):
-    return date
+@app.callback(Output("output", "children"), Input("acc", "state"))
+def accordion(state):
+    if state:
+        return f"{state}"
 
 
 if __name__ == "__main__":

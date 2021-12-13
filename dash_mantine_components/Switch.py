@@ -19,7 +19,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Checkbox color.
 
 - disabled (boolean; optional):
@@ -28,22 +28,37 @@ Keyword arguments:
 - label (string; optional):
     Checkbox label.
 
-- radius (optional):
+- loading_state (dict; optional):
+    Object that holds the loading state object coming from
+    dash-renderer.
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined border-radius value from theme.radius or number for
     border-radius in px.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined label font-size and checkbox width and height in px.
 
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, label=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'radius', 'size', 'style']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, label=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'loading_state', 'radius', 'size', 'style']
         self._type = 'Switch'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'radius', 'size', 'style']
+        self.available_properties = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'loading_state', 'radius', 'size', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

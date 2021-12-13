@@ -23,22 +23,37 @@ Keyword arguments:
     If fluid is set to True, size prop is ignored and Container always
     take 100% of width.
 
-- padding (optional):
+- loading_state (dict; optional):
+    Object that holds the loading state object coming from
+    dash-renderer.
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- padding (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Horizontal padding defined in theme.spacing, or number value for
     padding in px.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined container max-width or number for max-width in px.
 
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, fluid=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'fluid', 'padding', 'size', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, fluid=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, loading_state=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'fluid', 'loading_state', 'padding', 'size', 'style']
         self._type = 'Container'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'fluid', 'padding', 'size', 'style']
+        self.available_properties = ['children', 'id', 'className', 'fluid', 'loading_state', 'padding', 'size', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

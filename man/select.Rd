@@ -13,10 +13,10 @@ Custom searchable select. For more information, see: https://mantine.dev/core/se
 select(id=NULL, className=NULL, clearable=NULL, data=NULL,
 description=NULL, disabled=NULL, error=NULL,
 initiallyOpened=NULL, label=NULL, limit=NULL,
-maxDropdownHeight=NULL, multiline=NULL, nothingFound=NULL,
-placeholder=NULL, radius=NULL, required=NULL,
-searchable=NULL, size=NULL, style=NULL, value=NULL,
-zIndex=NULL)
+loading_state=NULL, maxDropdownHeight=NULL, multiline=NULL,
+nothingFound=NULL, placeholder=NULL, radius=NULL,
+required=NULL, searchable=NULL, size=NULL, style=NULL,
+value=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -26,7 +26,11 @@ zIndex=NULL)
 
 \item{clearable}{Logical. Allow to clear value}
 
-\item{data}{Select options used to renderer items in dropdown}
+\item{data}{List of lists containing elements 'label', 'value', 'disabled'.
+those elements have the following types:
+  - label (character; required): the option's label
+  - value (character; required): option's value
+  - disabled (logical; optional): if true, this option is disabled and cannot be selecteds. Select options used to renderer items in dropdown}
 
 \item{description}{Character. Input description, displayed after label}
 
@@ -40,6 +44,12 @@ zIndex=NULL)
 
 \item{limit}{Numeric. Limit amount of items displayed at a time for searchable select}
 
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
+
 \item{maxDropdownHeight}{Numeric. Maximum dropdown height in px}
 
 \item{multiline}{Logical. Will input have multiple lines?}
@@ -48,13 +58,13 @@ zIndex=NULL)
 
 \item{placeholder}{Character. Placeholder, displayed when date is not selected}
 
-\item{radius}{Input border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Input border-radius from theme or number to set border-radius in px}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
 \item{searchable}{Logical. Set to true to enable search}
 
-\item{size}{Input size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
 

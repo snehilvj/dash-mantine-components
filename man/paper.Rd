@@ -10,8 +10,8 @@ Renders white or dark background depending on color scheme. For more information
 }
 
 \usage{
-paper(children=NULL, id=NULL, className=NULL, padding=NULL,
-radius=NULL, shadow=NULL, withBorder=NULL)
+paper(children=NULL, id=NULL, className=NULL, loading_state=NULL,
+padding=NULL, radius=NULL, shadow=NULL, withBorder=NULL)
 }
 
 \arguments{
@@ -21,11 +21,17 @@ radius=NULL, shadow=NULL, withBorder=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{padding}{Predefined padding value from theme.spacing or number for padding in px}
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
-\item{radius}{Predefined border-radius value from theme.radius or number for border-radius in px}
+\item{padding}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined padding value from theme.spacing or number for padding in px}
 
-\item{shadow}{Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
+
+\item{shadow}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property}
 
 \item{withBorder}{Logical. Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme}
 }

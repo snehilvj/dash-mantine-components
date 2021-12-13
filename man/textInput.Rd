@@ -11,9 +11,9 @@ Custom input with label and description. For more information, see: https://mant
 
 \usage{
 textInput(id=NULL, className=NULL, description=NULL, disabled=NULL,
-error=NULL, label=NULL, multiline=NULL, placeholder=NULL,
-radius=NULL, required=NULL, size=NULL, style=NULL,
-type=NULL, value=NULL)
+error=NULL, label=NULL, loading_state=NULL, multiline=NULL,
+placeholder=NULL, radius=NULL, required=NULL, size=NULL,
+style=NULL, type=NULL, value=NULL)
 }
 
 \arguments{
@@ -29,15 +29,21 @@ type=NULL, value=NULL)
 
 \item{label}{Character. Input label, displayed before input}
 
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
+
 \item{multiline}{Logical. Will input have multiple lines?}
 
 \item{placeholder}{Character. Placeholder, displayed when date is not selected}
 
-\item{radius}{Input border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Input border-radius from theme or number to set border-radius in px}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
-\item{size}{Input size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
 

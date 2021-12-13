@@ -20,15 +20,15 @@ variant=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme}
 
 \item{label}{Character. Adds text after line in horizontal orientation}
 
 \item{labelPosition}{A value equal to: "right", "left", "center". Label position}
 
-\item{orientation}{Line orientation}
+\item{orientation}{A value equal to: "horizontal", "vertical". Line orientation}
 
-\item{size}{Sets height in horizontal orientation and width in vertical}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Sets height in horizontal orientation and width in vertical}
 
 \item{variant}{A value equal to: "dashed", "dotted", "solid". Divider borderStyle}
 }

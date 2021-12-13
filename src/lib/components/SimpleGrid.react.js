@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { SimpleGrid as MantineSimpleGrid } from "@mantine/core";
 import { omit } from "ramda";
-import { NumberSizes } from "../propTypes";
 
-/** Responsive grid where each item takes equal amount of space. For more information, see: https://mantine.dev/core/simple-grid/ */
+/**
+ * Responsive grid where each item takes equal amount of space. For more information, see: https://mantine.dev/core/simple-grid/
+ */
 const SimpleGrid = (props) => {
     return (
         <MantineSimpleGrid {...omit(["setProps", "children"], props)}>
@@ -18,27 +19,63 @@ SimpleGrid.displayName = "SimpleGrid";
 SimpleGrid.defaultProps = {};
 
 SimpleGrid.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** <Col /> components only */
+    /**
+     * <Col /> components only
+     */
     children: PropTypes.node,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /**	Breakpoints data to change items per row and spacing based on max-width */
+    /**
+     * Breakpoints data to change items per row and spacing based on max-width
+     */
     breakpoints: PropTypes.exact({
         maxWidth: PropTypes.number.isRequired,
         cols: PropTypes.number.isRequired,
-        spacing: NumberSizes,
+        spacing: PropTypes.oneOfType([
+            PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+            PropTypes.number,
+        ]),
     }),
 
-    /**	Default amount of columns, used when none of breakpoints can be applied */
+    /**
+     * Default amount of columns, used when none of breakpoints can be applied
+     */
     cols: PropTypes.number.isRequired,
 
-    /** Default spacing between columns, used when none of breakpoints can be applied */
-    spacing: NumberSizes,
+    /**
+     * Object that holds the loading state object coming from dash-renderer
+     */
+    loading_state: PropTypes.shape({
+        /**
+         * Determines if the component is loading or not
+         */
+        is_loading: PropTypes.bool,
+        /**
+         * Holds which property is loading
+         */
+        prop_name: PropTypes.string,
+        /**
+         * Holds the name of the component that is loading
+         */
+        component_name: PropTypes.string,
+    }),
+
+    /**
+     * Default spacing between columns, used when none of breakpoints can be applied
+     */
+    spacing: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 };
 
 export default SimpleGrid;

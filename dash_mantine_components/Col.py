@@ -22,6 +22,21 @@ Keyword arguments:
 - lg (number; optional):
     Col span at (min-width: theme.breakpoints.lg).
 
+- loading_state (dict; optional):
+    Object that holds the loading state object coming from
+    dash-renderer.
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
 - md (number; optional):
     Col span at (min-width: theme.breakpoints.md).
 
@@ -43,12 +58,12 @@ Keyword arguments:
 - xs (number; optional):
     Col span at (min-width: theme.breakpoints.xs)."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, offset=Component.UNDEFINED, span=Component.UNDEFINED, xs=Component.UNDEFINED, sm=Component.UNDEFINED, md=Component.UNDEFINED, lg=Component.UNDEFINED, xl=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'lg', 'md', 'offset', 'sm', 'span', 'style', 'xl', 'xs']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, offset=Component.UNDEFINED, span=Component.UNDEFINED, xs=Component.UNDEFINED, sm=Component.UNDEFINED, md=Component.UNDEFINED, lg=Component.UNDEFINED, xl=Component.UNDEFINED, loading_state=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'lg', 'loading_state', 'md', 'offset', 'sm', 'span', 'style', 'xl', 'xs']
         self._type = 'Col'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'lg', 'md', 'offset', 'sm', 'span', 'style', 'xl', 'xs']
+        self.available_properties = ['children', 'id', 'className', 'lg', 'loading_state', 'md', 'offset', 'sm', 'span', 'style', 'xl', 'xs']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -3,9 +3,10 @@ import { DatePicker as MantineDatePicker } from "@mantine/dates";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import dayjs from "dayjs";
-import { NumberSizes, Sizes } from "../propTypes";
 
-/** Capture date input from user */
+/**
+ * Capture date input from user
+ */
 const DatePicker = (props) => {
     const {
         setProps,
@@ -59,97 +60,203 @@ DatePicker.defaultProps = {
 };
 
 DatePicker.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** Tells dash if any prop has changed its value */
+    /**
+     * Tells dash if any prop has changed its value
+     */
     setProps: PropTypes.func,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /** Allow free input */
-    allowFreeInput: PropTypes.bool,
-
-    /** Amount of displayed months */
+    /**
+     * Amount of displayed months
+     */
     amountOfMonths: PropTypes.number,
 
-    /** Allow to clear value */
+    /**
+     * Allow to clear value
+     */
     clearable: PropTypes.bool,
 
-    /** Input description, displayed after label */
+    /**
+     * Set to false to force dropdown to stay open after date was selected
+     */
+    closeCalendarOnChange: PropTypes.bool,
+
+    /**
+     * Set to true to disable dropdown closing on scroll
+     */
+    closeDropdownOnScroll: PropTypes.bool,
+
+    /**
+     * Allow free input
+     */
+    allowFreeInput: PropTypes.bool,
+
+    /**
+     * Input description, displayed after label
+     */
     description: PropTypes.string,
 
-    // /** When true dates that are outside of given month are not styled */
-    // disableOutsideDayStyle: PropTypes.bool,
-
-    /** When true dates that are outside of given month cannot be clicked or focused */
+    /**
+     * When true dates that are outside of given month cannot be clicked or focused
+     */
     disableOutsideEvents: PropTypes.bool,
 
-    /** A Datepicker can show it is currently unable to be interacted with */
+    /**
+     * A Datepicker can show it is currently unable to be interacted with
+     */
     disabled: PropTypes.bool,
 
-    /** Where to show calendar in modal or popover */
+    /**
+     * Where to show calendar in modal or popover
+     */
     dropdownType: PropTypes.oneOf(["modal", "popover"]),
 
-    /** Set first day of the week */
+    /**
+     * Displays error message after input
+     */
+    error: PropTypes.string,
+
+    /**
+     * Set first day of the week
+     */
     firstDayOfWeek: PropTypes.oneOf(["sunday", "monday"]),
 
-    /** DatePicker display format */
+    /**
+     * DatePicker display format
+     */
     format: PropTypes.string,
 
-    /** Initial selected month */
+    /**
+     * Set to true to make calendar take 100% of container width
+     */
+    fullWidth: PropTypes.bool,
+
+    /**
+     * Set to false to remove weekdays row
+     */
+    hideWeekdays: PropTypes.bool,
+
+    /**
+     * Initial selected month
+     */
     initialMonth: PropTypes.string,
 
-    /** Control initial dropdown opened state */
+    /**
+     * Control initial dropdown opened state
+     */
     initiallyOpened: PropTypes.bool,
 
-    /** Input label, displayed before input */
+    /**
+     * Input label, displayed before input
+     */
     label: PropTypes.string,
 
-    /** Locale used for all labels formatting */
+    /**
+     * Locale used for all labels formatting
+     */
     locale: PropTypes.string,
 
-    /** Maximum possible date */
+    /**
+     * Object that holds the loading state object coming from dash-renderer
+     */
+    loading_state: PropTypes.shape({
+        /**
+         * Determines if the component is loading or not
+         */
+        is_loading: PropTypes.bool,
+        /**
+         * Holds which property is loading
+         */
+        prop_name: PropTypes.string,
+        /**
+         * Holds the name of the component that is loading
+         */
+        component_name: PropTypes.string,
+    }),
+
+    /**
+     * Maximum possible date
+     */
     maxDate: PropTypes.string,
 
-    /** Minimum possible date */
+    /**
+     * Minimum possible date
+     */
     minDate: PropTypes.string,
 
-    /** Will input have multiple lines? */
+    /**
+     * Will input have multiple lines?
+     */
     multiline: PropTypes.bool,
 
-    /** Placeholder, displayed when date is not selected */
+    /**
+     * Placeholder, displayed when date is not selected
+     */
     placeholder: PropTypes.string,
 
-    /** Prevent focusing upon clicking */
+    /**
+     * Prevent focusing upon clicking
+     */
     preventFocus: PropTypes.bool,
 
-    /**	Input border-radius from theme or number to set border-radius in px */
-    radius: NumberSizes,
+    /**
+     * Input border-radius from theme or number to set border-radius in px
+     */
+    radius: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 
-    /** Adds red asterisk on the right side of label */
+    /**
+     * Adds red asterisk on the right side of label
+     */
     required: PropTypes.bool,
 
-    /**	Input size */
-    size: Sizes,
+    /**
+     * Input size
+     */
+    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
-    /** Inline style override */
+    /**
+     * Inline style override
+     */
     style: PropTypes.object,
 
-    /** Replace calendar label with month and year selects */
+    /**
+     * Defines input appearance, defaults to default in light color scheme and filled in dark
+     */
+    variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
+
+    /**
+     * Replace calendar label with month and year selects
+     */
     withSelect: PropTypes.bool,
 
-    /** Years range for year select */
+    /**
+     * Years range for year select
+     */
     yearsRange: PropTypes.shape({
         from: PropTypes.number,
         to: PropTypes.number,
     }),
 
-    /**	Popper zIndex */
+    /**
+     * Popper zIndex
+     */
     zIndex: PropTypes.number,
 
-    /** Selected date */
+    /**
+     * Selected date
+     */
     date: PropTypes.string,
 };
 

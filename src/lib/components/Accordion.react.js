@@ -3,7 +3,9 @@ import { Accordion as MantineAccordion, Text } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 
-/** Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/ */
+/**
+ * Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/
+ */
 const Accordion = (props) => {
     const { children, setProps } = props;
 
@@ -41,28 +43,49 @@ Accordion.displayName = "Accordion";
 Accordion.defaultProps = {};
 
 Accordion.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** Tells dash if any prop has changed its value */
+    /**
+     * Tells dash if any prop has changed its value
+     */
     setProps: PropTypes.func,
 
-    /**	<AccordionItem /> components only */
+    /**
+     * <AccordionItem /> components only
+     */
     children: PropTypes.node,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /** Should icon rotation be disabled */
+    /**
+     * Should icon rotation be disabled
+     */
     disableIconRotation: PropTypes.bool,
 
-    /**	Change icon position: left or right */
+    /**
+     * Change icon position: left or right
+     */
     iconPosition: PropTypes.oneOf(["right", "left"]),
 
-    /** Allow multiple items to be opened at the same time */
+    /**
+     * Allow multiple items to be opened at the same time
+     */
     multiple: PropTypes.bool,
 
-    /** Controlled state (controls opened state of accordion items) */
+    /**
+     * Should icon be offset with padding, applicable only when iconPosition is left
+     */
+    offsetIcon: PropTypes.bool,
+
+    /**
+     * Controlled state (controls opened state of accordion items)
+     */
     state: PropTypes.objectOf(PropTypes.bool),
 };
 

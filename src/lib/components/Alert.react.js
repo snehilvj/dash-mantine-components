@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from "react";
 import { Alert as MantineAlert } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { MantineColors } from "../propTypes";
 
-/** Attract user attention with important static message. For more information, see: https://mantine.dev/core/alert/ */
+/**
+ * Attract user attention with important static message. For more information, see: https://mantine.dev/core/alert/
+ */
 const Alert = (props) => {
     const { duration, show, setProps } = props;
     const ref = useRef(null);
@@ -37,34 +38,87 @@ Alert.defaultProps = {
 };
 
 Alert.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
     id: PropTypes.string,
 
-    /** Tells dash if any prop has changed its value */
+    /**
+     * Tells dash if any prop has changed its value
+     */
     setProps: PropTypes.func,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /** Alert message */
+    /**
+     * Alert message
+     */
     children: PropTypes.node,
 
-    /**	Alert title and line colors from theme */
-    color: MantineColors,
+    /**
+     * Alert title and line colors from theme
+     */
+    color: PropTypes.oneOf([
+        "dark",
+        "gray",
+        "red",
+        "pink",
+        "grape",
+        "violet",
+        "indigo",
+        "blue",
+        "cyan",
+        "teal",
+        "green",
+        "lime",
+        "yellow",
+        "orange",
+    ]),
 
-    /** Duration in milliseconds after which the Alert dismisses itself. */
+    /**
+     * Duration in milliseconds after which the Alert dismisses itself.
+     */
     duration: PropTypes.number,
 
-    /**	Optional alert title */
+    /**
+     * Object that holds the loading state object coming from dash-renderer
+     */
+    loading_state: PropTypes.shape({
+        /**
+         * Determines if the component is loading or not
+         */
+        is_loading: PropTypes.bool,
+        /**
+         * Holds which property is loading
+         */
+        prop_name: PropTypes.string,
+        /**
+         * Holds the name of the component that is loading
+         */
+        component_name: PropTypes.string,
+    }),
+
+    /**
+     * Optional alert title
+     */
     title: PropTypes.string,
 
-    /** Whether to show the alert */
+    /**
+     * Whether to show the alert
+     */
     show: PropTypes.bool,
 
-    /** Inline style override */
+    /**
+     * Inline style override
+     */
     style: PropTypes.object,
 
-    /**	Display close button */
+    /**
+     * Display close button
+     */
     withCloseButton: PropTypes.bool,
 };
 

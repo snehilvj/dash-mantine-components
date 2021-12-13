@@ -11,13 +11,16 @@ Capture date input from user
 
 \usage{
 datePicker(id=NULL, allowFreeInput=NULL, amountOfMonths=NULL,
-className=NULL, clearable=NULL, date=NULL, description=NULL,
+className=NULL, clearable=NULL, closeCalendarOnChange=NULL,
+closeDropdownOnScroll=NULL, date=NULL, description=NULL,
 disableOutsideEvents=NULL, disabled=NULL, dropdownType=NULL,
-firstDayOfWeek=NULL, format=NULL, initialMonth=NULL,
-initiallyOpened=NULL, label=NULL, locale=NULL, maxDate=NULL,
-minDate=NULL, multiline=NULL, placeholder=NULL,
-preventFocus=NULL, radius=NULL, required=NULL, size=NULL,
-style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
+error=NULL, firstDayOfWeek=NULL, format=NULL,
+fullWidth=NULL, hideWeekdays=NULL, initialMonth=NULL,
+initiallyOpened=NULL, label=NULL, loading_state=NULL,
+locale=NULL, maxDate=NULL, minDate=NULL, multiline=NULL,
+placeholder=NULL, preventFocus=NULL, radius=NULL,
+required=NULL, size=NULL, style=NULL, variant=NULL,
+withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -31,6 +34,10 @@ style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{clearable}{Logical. Allow to clear value}
 
+\item{closeCalendarOnChange}{Logical. Set to false to force dropdown to stay open after date was selected}
+
+\item{closeDropdownOnScroll}{Logical. Set to true to disable dropdown closing on scroll}
+
 \item{date}{Character. Selected date}
 
 \item{description}{Character. Input description, displayed after label}
@@ -41,15 +48,27 @@ style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{dropdownType}{A value equal to: "modal", "popover". Where to show calendar in modal or popover}
 
+\item{error}{Character. Displays error message after input}
+
 \item{firstDayOfWeek}{A value equal to: "sunday", "monday". Set first day of the week}
 
 \item{format}{Character. DatePicker display format}
+
+\item{fullWidth}{Logical. Set to true to make calendar take 100\% of container width}
+
+\item{hideWeekdays}{Logical. Set to false to remove weekdays row}
 
 \item{initialMonth}{Character. Initial selected month}
 
 \item{initiallyOpened}{Logical. Control initial dropdown opened state}
 
 \item{label}{Character. Input label, displayed before input}
+
+\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
+those elements have the following types:
+  - is_loading (logical; optional): determines if the component is loading or not
+  - prop_name (character; optional): holds which property is loading
+  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{locale}{Character. Locale used for all labels formatting}
 
@@ -63,13 +82,15 @@ style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{preventFocus}{Logical. Prevent focusing upon clicking}
 
-\item{radius}{Input border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Input border-radius from theme or number to set border-radius in px}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
-\item{size}{Input size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
+
+\item{variant}{A value equal to: "default", "filled", "unstyled", "headless". Defines input appearance, defaults to default in light color scheme and filled in dark}
 
 \item{withSelect}{Logical. Replace calendar label with month and year selects}
 

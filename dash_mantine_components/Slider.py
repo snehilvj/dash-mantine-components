@@ -16,7 +16,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Slider color.
 
 - drag_value (number; optional):
@@ -42,14 +42,14 @@ Keyword arguments:
 - min (number; optional):
     Minimal possible value.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Track border-radius from theme or number to set border-radius in
     px.
 
 - showLabelOnHover (boolean; optional):
     If True slider label will appear on hover.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined track and thumb size, number to set sizes in px.
 
 - step (number; optional):
