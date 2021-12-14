@@ -11,14 +11,12 @@ export accordionitem
 An AccordionItem component.
 Utility component to pass to Accordion. For more information, see: https://mantine.dev/core/accordion/
 Keyword arguments:
-- `children` (a list of or a singular dash component, string or number; optional): Col content
-- `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `children` (a list of or a singular dash component, string or number; optional): Accordion content
 - `description` (String; optional): Accordion description
 - `label` (String; required): Accordion label
 """
 function accordionitem(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :description, :label]
+        available_props = Symbol[:children, :description, :label]
         wild_props = Symbol[]
         return Component("accordionitem", "AccordionItem", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

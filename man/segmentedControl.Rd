@@ -20,15 +20,18 @@ value=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark}
 
-\item{data}{Data based on which controls are rendered}
+\item{data}{List of lists containing elements 'label', 'value'.
+those elements have the following types:
+  - label (character; required): the option's label
+  - value (character; required): option's values. Data based on which controls are rendered}
 
 \item{fullWidth}{Logical. True if component should have 100\% width}
 
-\item{radius}{Border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Border-radius from theme or number to set border-radius in px}
 
-\item{size}{Controls font-size, paddings and height}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Controls font-size, paddings and height}
 
 \item{style}{Named list. Inline style override}
 

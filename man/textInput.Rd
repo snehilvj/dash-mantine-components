@@ -13,7 +13,7 @@ Custom input with label and description. For more information, see: https://mant
 textInput(id=NULL, className=NULL, description=NULL, disabled=NULL,
 error=NULL, label=NULL, multiline=NULL, placeholder=NULL,
 radius=NULL, required=NULL, size=NULL, style=NULL,
-type=NULL, value=NULL)
+type=NULL, value=NULL, variant=NULL)
 }
 
 \arguments{
@@ -33,17 +33,19 @@ type=NULL, value=NULL)
 
 \item{placeholder}{Character. Placeholder, displayed when date is not selected}
 
-\item{radius}{Input border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Input border-radius from theme or number to set border-radius in px}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
-\item{size}{Input size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
 
 \item{type}{A value equal to: "number", "text", "password". The type of control to render.}
 
 \item{value}{A list of or a singular dash component, string or number. Input value}
+
+\item{variant}{A value equal to: "default", "filled", "unstyled", "headless". Defines input appearance, defaults to default in light color scheme and filled in dark}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

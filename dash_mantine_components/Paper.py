@@ -19,15 +19,15 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- padding (optional):
+- padding (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined padding value from theme.spacing or number for padding
     in px.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined border-radius value from theme.radius or number for
     border-radius in px.
 
-- shadow (optional):
+- shadow (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or
     any valid css box-shadow property.
 
@@ -35,7 +35,7 @@ Keyword arguments:
     Adds 1px border with theme.colors.gray[2] color in light color
     scheme and theme.colors.dark[6] in dark color scheme."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, shadow=Component.UNDEFINED, withBorder=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, id=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, shadow=Component.UNDEFINED, withBorder=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'padding', 'radius', 'shadow', 'withBorder']
         self._type = 'Paper'
         self._namespace = 'dash_mantine_components'

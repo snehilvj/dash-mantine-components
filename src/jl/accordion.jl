@@ -17,10 +17,11 @@ Keyword arguments:
 - `disableIconRotation` (Bool; optional): Should icon rotation be disabled
 - `iconPosition` (a value equal to: "right", "left"; optional): Change icon position: left or right
 - `multiple` (Bool; optional): Allow multiple items to be opened at the same time
+- `offsetIcon` (Bool; optional): Should icon be offset with padding, applicable only when iconPosition is left
 - `state` (Dict with Strings as keys and values of type Bool; optional): Controlled state (controls opened state of accordion items)
 """
 function accordion(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :disableIconRotation, :iconPosition, :multiple, :state]
+        available_props = Symbol[:children, :id, :className, :disableIconRotation, :iconPosition, :multiple, :offsetIcon, :state]
         wild_props = Symbol[]
         return Component("accordion", "Accordion", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

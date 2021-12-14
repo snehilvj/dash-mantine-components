@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-spoiler <- function(children=NULL, id=NULL, hideLabel=NULL, initialState=NULL, maxHeight=NULL, showLabel=NULL) {
+spoiler <- function(children=NULL, id=NULL, hideLabel=NULL, initialState=NULL, loading_state=NULL, maxHeight=NULL, showLabel=NULL, style=NULL) {
     
-    props <- list(children=children, id=id, hideLabel=hideLabel, initialState=initialState, maxHeight=maxHeight, showLabel=showLabel)
+    props <- list(children=children, id=id, hideLabel=hideLabel, initialState=initialState, loading_state=loading_state, maxHeight=maxHeight, showLabel=showLabel, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ spoiler <- function(children=NULL, id=NULL, hideLabel=NULL, initialState=NULL, m
         props = props,
         type = 'Spoiler',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'hideLabel', 'initialState', 'maxHeight', 'showLabel'),
+        propNames = c('children', 'id', 'hideLabel', 'initialState', 'loading_state', 'maxHeight', 'showLabel', 'style'),
         package = 'dashMantineComponents'
         )
 

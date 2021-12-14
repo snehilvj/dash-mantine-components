@@ -2,9 +2,10 @@ import React from "react";
 import { Tabs as MantineTabs, Tab } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { MantineColors, Orientations, Positions, Sizes } from "../propTypes";
 
-/** Switch between different views. For more information, see: https://mantine.dev/core/tabs/ */
+/**
+ * Switch between different views. For more information, see: https://mantine.dev/core/tabs/
+ */
 const Tabs = (props) => {
     const { setProps, children } = props;
 
@@ -17,12 +18,7 @@ const Tabs = (props) => {
             {children.map((child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
-                    <Tab
-                        label={childProps.label}
-                        disabled={childProps.disabled}
-                        key={index}
-                        className={childProps.className}
-                    >
+                    <Tab {...omit(["children"], childProps)} key={index}>
                         {child}
                     </Tab>
                 );
@@ -36,38 +32,80 @@ Tabs.displayName = "Tabs";
 Tabs.defaultProps = {};
 
 Tabs.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
-    id: PropTypes.string,
+    /**
+     * Index of active tab, overrides internal state
+     */
+    active: PropTypes.number,
 
-    /** Tells dash if any prop has changed its value */
-    setProps: PropTypes.func,
-
-    /** <Tab /> components only */
+    /**
+     * <Tab /> components only
+     */
     children: PropTypes.node,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /**	Active tab color from theme.colors */
-    color: MantineColors,
+    /**
+     * Active tab color from theme.colors
+     */
+    color: PropTypes.oneOf([
+        "dark",
+        "gray",
+        "red",
+        "pink",
+        "grape",
+        "violet",
+        "indigo",
+        "blue",
+        "cyan",
+        "teal",
+        "green",
+        "lime",
+        "yellow",
+        "orange",
+    ]),
 
-    /** True if tabs should take all available space */
+    /**
+     * True if tabs should take all available space
+     */
     grow: PropTypes.bool,
 
-    /** Controls tab orientation */
-    orientation: Orientations,
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
-    /** Tab controls position */
-    position: Positions,
+    /**
+     * Controls tab orientation
+     */
+    orientation: PropTypes.oneOf(["horizontal", "vertical"]),
 
-    /** Controls tab content padding-top */
-    tabPadding: Sizes,
+    /**
+     * Tab controls position
+     */
+    position: PropTypes.oneOf(["right", "center", "left", "apart"]),
 
-    /**	Controls appearance */
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
+     * Controls tab content padding-top
+     */
+    tabPadding: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
+     * Controls appearance
+     */
     variant: PropTypes.oneOf(["default", "outline", "pills"]),
-
-    /**	Index of active tab, overrides internal state */
-    active: PropTypes.number,
 };
 
 export default Tabs;

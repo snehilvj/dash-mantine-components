@@ -15,7 +15,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `cite` (String; optional): Describe a reference to a cited quote
 - `className` (String; optional): Often used with CSS to style elements with common properties
-- `color` (optional): Badge color from theme
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Badge color from theme
 - `style` (Dict; optional): Inline style override
 """
 function blockquote(; kwargs...)

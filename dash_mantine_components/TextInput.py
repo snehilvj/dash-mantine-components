@@ -35,14 +35,14 @@ Keyword arguments:
 - placeholder (string; optional):
     Placeholder, displayed when date is not selected.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Input border-radius from theme or number to set border-radius in
     px.
 
 - required (boolean; optional):
     Adds red asterisk on the right side of label.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Input size.
 
 - style (dict; optional):
@@ -52,14 +52,18 @@ Keyword arguments:
     The type of control to render.
 
 - value (a list of or a singular dash component, string or number; default ""):
-    Input value."""
+    Input value.
+
+- variant (a value equal to: "default", "filled", "unstyled", "headless"; optional):
+    Defines input appearance, defaults to default in light color
+    scheme and filled in dark."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'description', 'disabled', 'error', 'label', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value']
+    def __init__(self, className=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, error=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'description', 'disabled', 'error', 'label', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value', 'variant']
         self._type = 'TextInput'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'description', 'disabled', 'error', 'label', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value']
+        self.available_properties = ['id', 'className', 'description', 'disabled', 'error', 'label', 'multiline', 'placeholder', 'radius', 'required', 'size', 'style', 'type', 'value', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

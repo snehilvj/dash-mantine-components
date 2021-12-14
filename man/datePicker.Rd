@@ -10,14 +10,18 @@ Capture date input from user
 }
 
 \usage{
-datePicker(id=NULL, allowFreeInput=NULL, amountOfMonths=NULL,
-className=NULL, clearable=NULL, date=NULL, description=NULL,
-disableOutsideEvents=NULL, disabled=NULL, dropdownType=NULL,
-firstDayOfWeek=NULL, format=NULL, initialMonth=NULL,
-initiallyOpened=NULL, label=NULL, maxDate=NULL,
-minDate=NULL, multiline=NULL, placeholder=NULL,
-preventFocus=NULL, radius=NULL, required=NULL, size=NULL,
-style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
+datePicker(id=NULL, allowFreeInput=NULL, allowLevelChange=NULL,
+amountOfMonths=NULL, className=NULL, clearable=NULL,
+closeCalendarOnChange=NULL, closeDropdownOnScroll=NULL,
+date=NULL, description=NULL, disableOutsideEvents=NULL,
+disabled=NULL, dropdownType=NULL, error=NULL,
+firstDayOfWeek=NULL, fixOnBlur=NULL, focusable=NULL,
+format=NULL, fullWidth=NULL, hideWeekdays=NULL,
+initialLevel=NULL, initialMonth=NULL, initiallyOpened=NULL,
+label=NULL, locale=NULL, maxDate=NULL, minDate=NULL,
+multiline=NULL, placeholder=NULL, preventFocus=NULL,
+radius=NULL, required=NULL, size=NULL, style=NULL,
+variant=NULL, withinPortal=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -25,11 +29,17 @@ style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{allowFreeInput}{Logical. Allow free input}
 
+\item{allowLevelChange}{Logical. Allow to change level (date – month – year)}
+
 \item{amountOfMonths}{Numeric. Amount of displayed months}
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{clearable}{Logical. Allow to clear value}
+
+\item{closeCalendarOnChange}{Logical. Set to false to force dropdown to stay open after date was selected}
+
+\item{closeDropdownOnScroll}{Logical. Set to true to disable dropdown closing on scroll}
 
 \item{date}{Character. Selected date}
 
@@ -41,15 +51,29 @@ style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{dropdownType}{A value equal to: "modal", "popover". Where to show calendar in modal or popover}
 
+\item{error}{Character. Displays error message after input}
+
 \item{firstDayOfWeek}{A value equal to: "sunday", "monday". Set first day of the week}
 
+\item{fixOnBlur}{Logical. call onChange with last valid value onBlur}
+
+\item{focusable}{Logical. Should focusable days have tabIndex={0}?}
+
 \item{format}{Character. DatePicker display format}
+
+\item{fullWidth}{Logical. Set to true to make calendar take 100\% of container width}
+
+\item{hideWeekdays}{Logical. Set to false to remove weekdays row}
+
+\item{initialLevel}{A value equal to: "date", "month", "year". Initial date selection level}
 
 \item{initialMonth}{Character. Initial selected month}
 
 \item{initiallyOpened}{Logical. Control initial dropdown opened state}
 
 \item{label}{Character. Input label, displayed before input}
+
+\item{locale}{Character. Locale used for all labels formatting}
 
 \item{maxDate}{Character. Maximum possible date}
 
@@ -61,20 +85,17 @@ style=NULL, withSelect=NULL, yearsRange=NULL, zIndex=NULL)
 
 \item{preventFocus}{Logical. Prevent focusing upon clicking}
 
-\item{radius}{Input border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Input border-radius from theme or number to set border-radius in px}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
-\item{size}{Input size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
 
-\item{withSelect}{Logical. Replace calendar label with month and year selects}
+\item{variant}{A value equal to: "default", "filled", "unstyled", "headless". Defines input appearance, defaults to default in light color scheme and filled in dark}
 
-\item{yearsRange}{Lists containing elements 'from', 'to'.
-those elements have the following types:
-  - from (numeric; optional)
-  - to (numeric; optional). Years range for year select}
+\item{withinPortal}{Logical. Whether to render the dropdown in a Portal}
 
 \item{zIndex}{Numeric. Popper zIndex}
 }

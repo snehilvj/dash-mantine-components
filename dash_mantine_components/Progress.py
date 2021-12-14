@@ -16,10 +16,10 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Progress color from theme.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined progress radius from theme.radius or number for height
     in px.
 
@@ -29,11 +29,11 @@ Keyword arguments:
 
     `sections` is a list of dicts with keys:
 
-    - color (optional)
+    - color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional)
 
     - value (number; optional)
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined progress height or number for height in px.
 
 - striped (boolean; optional):
@@ -42,7 +42,7 @@ Keyword arguments:
 - value (number; optional):
     Current value for controlled slider."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, sections=Component.UNDEFINED, striped=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, sections=Component.UNDEFINED, size=Component.UNDEFINED, striped=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'color', 'radius', 'sections', 'size', 'striped', 'value']
         self._type = 'Progress'
         self._namespace = 'dash_mantine_components'

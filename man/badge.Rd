@@ -22,15 +22,19 @@ style=NULL, variant=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Badge color from theme}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Badge color from theme}
 
 \item{fullWidth}{Logical. Sets badge width to 100\% of parent element, hides overflow text with text-overflow: ellipsis}
 
-\item{gradient}{Controls gradient settings in gradient variant only}
+\item{gradient}{Lists containing elements 'from', 'to', 'deg'.
+those elements have the following types:
+  - from (character; required)
+  - to (character; required)
+  - deg (numeric; optional). Controls gradient settings in gradient variant only}
 
-\item{radius}{Predefined border-radius value from theme.radius or number for border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
 
-\item{size}{Predefined badge size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined badge size}
 
 \item{style}{Named list. Inline style override}
 

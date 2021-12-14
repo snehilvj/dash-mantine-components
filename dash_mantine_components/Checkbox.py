@@ -19,7 +19,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Checkbox color.
 
 - disabled (boolean; optional):
@@ -28,18 +28,22 @@ Keyword arguments:
 - label (string; optional):
     Checkbox label.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined label font-size and checkbox width and height in px.
 
 - style (dict; optional):
-    Inline style override."""
+    Inline style override.
+
+- transitionDuration (number; optional):
+    Check/uncheck transition duration, set to 0 to disable all
+    transitions."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, disabled=Component.UNDEFINED, checked=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, label=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style']
+    def __init__(self, checked=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
         self._type = 'Checkbox'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style']
+        self.available_properties = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

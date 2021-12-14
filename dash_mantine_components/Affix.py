@@ -38,7 +38,7 @@ Keyword arguments:
 - zIndex (string; optional):
     Root element z-index property."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, position=Component.UNDEFINED, style=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, id=Component.UNDEFINED, position=Component.UNDEFINED, style=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'position', 'style', 'zIndex']
         self._type = 'Affix'
         self._namespace = 'dash_mantine_components'

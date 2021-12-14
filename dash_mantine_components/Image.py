@@ -30,7 +30,7 @@ Keyword arguments:
     Image height, defaults to original image height adjusted to given
     width.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined border-radius value from theme.radius or number for
     border-radius in px.
 
@@ -47,7 +47,7 @@ Keyword arguments:
     Enable placeholder when image is loading and when image fails to
     load."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, alt=Component.UNDEFINED, caption=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, radius=Component.UNDEFINED, src=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, withPlaceholder=Component.UNDEFINED, **kwargs):
+    def __init__(self, alt=Component.UNDEFINED, caption=Component.UNDEFINED, className=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, src=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, withPlaceholder=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'alt', 'caption', 'className', 'fit', 'height', 'radius', 'src', 'style', 'width', 'withPlaceholder']
         self._type = 'Image'
         self._namespace = 'dash_mantine_components'

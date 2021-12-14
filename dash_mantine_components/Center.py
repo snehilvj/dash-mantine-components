@@ -25,7 +25,7 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, inline=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, id=Component.UNDEFINED, inline=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'inline', 'style']
         self._type = 'Center'
         self._namespace = 'dash_mantine_components'

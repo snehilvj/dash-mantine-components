@@ -16,11 +16,19 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Active radio color from theme.colors.
 
-- data (optional):
+- data (list of dicts; optional):
     RadioGroup options.
+
+    `data` is a list of dicts with keys:
+
+    - label (string; required):
+        The option's label.
+
+    - value (string; required):
+        Option's value.
 
 - description (string; optional):
     Input description, displayed after label.
@@ -34,10 +42,10 @@ Keyword arguments:
 - required (boolean; optional):
     Adds red asterisk on the right side of label.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined label fontSize, radio width, height and border-radius.
 
-- spacing (optional):
+- spacing (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Spacing between radios in horizontal variant.
 
 - style (dict; optional):
@@ -49,7 +57,7 @@ Keyword arguments:
 - variant (a value equal to: "horizontal", "vertical"; optional):
     Radios position."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, data=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, description=Component.UNDEFINED, error=Component.UNDEFINED, label=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, data=Component.UNDEFINED, description=Component.UNDEFINED, error=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'color', 'data', 'description', 'error', 'label', 'required', 'size', 'spacing', 'style', 'value', 'variant']
         self._type = 'RadioGroup'
         self._namespace = 'dash_mantine_components'

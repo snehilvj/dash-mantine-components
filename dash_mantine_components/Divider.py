@@ -16,7 +16,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Line color from theme, defaults to gray in light color scheme and
     to dark in dark color scheme.
 
@@ -26,21 +26,24 @@ Keyword arguments:
 - labelPosition (a value equal to: "right", "left", "center"; optional):
     Label position.
 
-- orientation (optional):
+- orientation (a value equal to: "horizontal", "vertical"; optional):
     Line orientation.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Sets height in horizontal orientation and width in vertical.
+
+- style (dict; optional):
+    Inline style override.
 
 - variant (a value equal to: "dashed", "dotted", "solid"; optional):
     Divider borderStyle."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, orientation=Component.UNDEFINED, size=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'variant']
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, orientation=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'style', 'variant']
         self._type = 'Divider'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'variant']
+        self.available_properties = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'style', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

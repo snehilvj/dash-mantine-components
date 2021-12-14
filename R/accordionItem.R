@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-accordionItem <- function(children=NULL, id=NULL, className=NULL, description=NULL, label=NULL) {
+accordionItem <- function(children=NULL, description=NULL, label=NULL) {
     
-    props <- list(children=children, id=id, className=className, description=description, label=label)
+    props <- list(children=children, description=description, label=label)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ accordionItem <- function(children=NULL, id=NULL, className=NULL, description=NU
         props = props,
         type = 'AccordionItem',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'className', 'description', 'label'),
+        propNames = c('children', 'description', 'label'),
         package = 'dashMantineComponents'
         )
 

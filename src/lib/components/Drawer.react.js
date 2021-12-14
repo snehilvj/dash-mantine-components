@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Drawer as MantineDrawer } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { NumberSizes, Positions, Sizes } from "../propTypes";
 
-/** Display overlay area at any side of the screen. For more information, see: https://mantine.dev/core/drawer/ */
+/**
+ * Display overlay area at any side of the screen. For more information, see: https://mantine.dev/core/drawer/
+ */
 const Drawer = (props) => {
     const { opened, children, setProps } = props;
     const [open, setOpen] = useState(opened);
@@ -38,58 +39,101 @@ Drawer.defaultProps = {
 };
 
 Drawer.propTypes = {
-    /** The ID of this component, used to identify dash components in callbacks */
-    id: PropTypes.string,
-
-    /** Tells dash if any prop has changed its value */
-    setProps: PropTypes.func,
-
-    /** Drawer children components */
+    /**
+     * Drawer children components
+     */
     children: PropTypes.node,
 
-    /** Often used with CSS to style elements with common properties */
+    /**
+     * Often used with CSS to style elements with common properties
+     */
     className: PropTypes.string,
 
-    /** Hides close button, modal still can be closed with escape key and by clicking outside */
+    /**
+     * Hides close button, modal still can be closed with escape key and by clicking outside
+     */
     hideCloseButton: PropTypes.bool,
 
-    /** Disable onClock trigger for outside events */
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
+     * Disable onClock trigger for outside events
+     */
     noCloseOnClickOutside: PropTypes.bool,
 
-    /** Disable onClock trigger for escape key press */
+    /**
+     * Disable onClock trigger for escape key press
+     */
     noCloseOnEscape: PropTypes.bool,
 
-    /** Disables focus trap */
+    /**
+     * Disables focus trap
+     */
     noFocusTrap: PropTypes.bool,
 
-    /** Removes overlay entirely */
+    /**
+     * Removes overlay entirely
+     */
     noOverlay: PropTypes.bool,
 
-    /**	Disables scroll lock */
+    /**
+     * Disables scroll lock
+     */
     noScrollLock: PropTypes.bool,
 
-    /**	If true drawer is mounted to the dom */
+    /**
+     * If true drawer is mounted to the dom
+     */
     opened: PropTypes.bool,
 
-    /** Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme */
+    /**
+     * Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme
+     */
     overlayColor: PropTypes.string,
 
-    /** Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme */
+    /**
+     * Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme
+     */
     overlayOpacity: PropTypes.number,
 
-    /** Drawer body padding from theme or number for padding in px */
-    padding: NumberSizes,
+    /**
+     * Drawer body padding from theme or number for padding in px
+     */
+    padding: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 
-    /** Drawer body position */
-    position: Positions,
+    /**
+     * Drawer body position
+     */
+    position: PropTypes.oneOf(["right", "center", "left", "apart"]),
 
-    /**	Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width */
-    size: PropTypes.oneOfType([Sizes, PropTypes.string, PropTypes.number]),
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 
-    /** Drawer title, displayed in header before close button */
+    /**
+     * Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
+     */
+    size: PropTypes.oneOfType([
+        PropTypes.oneOf(["right", "center", "left", "apart"]),
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+
+    /**
+     * Drawer title, displayed in header before close button
+     */
     title: PropTypes.string,
 
-    /**	Popper zIndex */
+    /**
+     * Popper zIndex
+     */
     zIndex: PropTypes.number,
 };
 

@@ -43,11 +43,11 @@ title=NULL, zIndex=NULL)
 
 \item{overlayOpacity}{Numeric. Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme}
 
-\item{padding}{Drawer body padding from theme or number for padding in px}
+\item{padding}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Drawer body padding from theme or number for padding in px}
 
-\item{position}{Drawer body position}
+\item{position}{A value equal to: "right", "center", "left", "apart". Drawer body position}
 
-\item{size}{Character | numeric. Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100\% for width}
+\item{size}{A value equal to: "right", "center", "left", "apart" | character | numeric. Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100\% for width}
 
 \item{title}{Character. Drawer title, displayed in header before close button}
 

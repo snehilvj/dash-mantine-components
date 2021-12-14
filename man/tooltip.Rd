@@ -13,7 +13,8 @@ Renders tooltip at given element on mouse over or any other event. For more info
 tooltip(children=NULL, id=NULL, arrowSize=NULL, className=NULL,
 color=NULL, delay=NULL, disabled=NULL, gutter=NULL,
 label=NULL, placement=NULL, position=NULL, style=NULL,
-width=NULL, withArrow=NULL, wrapLines=NULL, zIndex=NULL)
+width=NULL, withArrow=NULL, withinPortal=NULL,
+wrapLines=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -25,7 +26,7 @@ width=NULL, withArrow=NULL, wrapLines=NULL, zIndex=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme}
 
 \item{delay}{Numeric. Close delay in ms, 0 to disable delay}
 
@@ -37,13 +38,15 @@ width=NULL, withArrow=NULL, wrapLines=NULL, zIndex=NULL)
 
 \item{placement}{A value equal to: "center", "end", "start". Placement relative to reference element}
 
-\item{position}{Position relative to reference element}
+\item{position}{A value equal to: "right", "center", "left", "apart". Position relative to reference element}
 
 \item{style}{Named list. Inline style override}
 
 \item{width}{Numeric | a value equal to: "auto". Tooltip width in px or auto}
 
 \item{withArrow}{Logical. Renders arrow if true}
+
+\item{withinPortal}{Logical. Whether to render the target element in a Portal}
 
 \item{wrapLines}{Logical. Allow multiline tooltip content}
 

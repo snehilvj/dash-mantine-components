@@ -19,16 +19,16 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- h (optional):
+- h (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Height, set to add vertical spacing.
 
 - style (dict; optional):
     Inline style override.
 
-- w (optional):
+- w (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Width, set to add horizontal spacing."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, h=Component.UNDEFINED, style=Component.UNDEFINED, w=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, h=Component.UNDEFINED, id=Component.UNDEFINED, style=Component.UNDEFINED, w=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'h', 'style', 'w']
         self._type = 'Space'
         self._namespace = 'dash_mantine_components'

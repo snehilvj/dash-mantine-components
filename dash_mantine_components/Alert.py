@@ -19,7 +19,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Alert title and line colors from theme.
 
 - duration (number; optional):
@@ -37,7 +37,7 @@ Keyword arguments:
 - withCloseButton (boolean; optional):
     Display close button."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, duration=Component.UNDEFINED, title=Component.UNDEFINED, show=Component.UNDEFINED, style=Component.UNDEFINED, withCloseButton=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, color=Component.UNDEFINED, duration=Component.UNDEFINED, id=Component.UNDEFINED, title=Component.UNDEFINED, show=Component.UNDEFINED, style=Component.UNDEFINED, withCloseButton=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'color', 'duration', 'show', 'style', 'title', 'withCloseButton']
         self._type = 'Alert'
         self._namespace = 'dash_mantine_components'

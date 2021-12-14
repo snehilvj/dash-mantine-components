@@ -23,9 +23,9 @@ Keyword arguments:
 - `opened` (Bool; optional): If true drawer is mounted to the dom
 - `overlayColor` (String; optional): Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme
 - `overlayOpacity` (Real; optional): Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme
-- `padding` (optional): Drawer body padding from theme or number for padding in px
-- `position` (optional): Drawer body position
-- `size` (String | Real; optional): Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
+- `padding` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Drawer body padding from theme or number for padding in px
+- `position` (a value equal to: "right", "center", "left", "apart"; optional): Drawer body position
+- `size` (a value equal to: "right", "center", "left", "apart" | String | Real; optional): Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
 - `title` (String; optional): Drawer title, displayed in header before close button
 - `zIndex` (Real; optional): Popper zIndex
 """

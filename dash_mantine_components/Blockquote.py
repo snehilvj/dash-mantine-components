@@ -22,13 +22,13 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Badge color from theme.
 
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, cite=Component.UNDEFINED, color=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, cite=Component.UNDEFINED, color=Component.UNDEFINED, id=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'cite', 'className', 'color', 'style']
         self._type = 'Blockquote'
         self._namespace = 'dash_mantine_components'

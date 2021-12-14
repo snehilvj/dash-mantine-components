@@ -37,7 +37,7 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, caption=Component.UNDEFINED, captionSide=Component.UNDEFINED, className=Component.UNDEFINED, columns=Component.UNDEFINED, rows=Component.UNDEFINED, highlightOnHover=Component.UNDEFINED, striped=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(self, caption=Component.UNDEFINED, captionSide=Component.UNDEFINED, className=Component.UNDEFINED, columns=Component.UNDEFINED, id=Component.UNDEFINED, highlightOnHover=Component.UNDEFINED, rows=Component.UNDEFINED, striped=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'caption', 'captionSide', 'className', 'columns', 'highlightOnHover', 'rows', 'striped', 'style']
         self._type = 'Table'
         self._namespace = 'dash_mantine_components'

@@ -23,9 +23,9 @@ padding=NULL, size=NULL, style=NULL)
 
 \item{fluid}{Logical. If fluid is set to true, size prop is ignored and Container always take 100\% of width}
 
-\item{padding}{Horizontal padding defined in theme.spacing, or number value for padding in px}
+\item{padding}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Horizontal padding defined in theme.spacing, or number value for padding in px}
 
-\item{size}{Predefined container max-width or number for max-width in px}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined container max-width or number for max-width in px}
 
 \item{style}{Named list. Inline style override}
 }

@@ -21,9 +21,12 @@ variant=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Active radio color from theme.colors}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active radio color from theme.colors}
 
-\item{data}{RadioGroup options}
+\item{data}{List of lists containing elements 'label', 'value'.
+those elements have the following types:
+  - label (character; required): the option's label
+  - value (character; required): option's values. RadioGroup options}
 
 \item{description}{Character. Input description, displayed after label}
 
@@ -33,9 +36,9 @@ variant=NULL)
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
-\item{size}{Predefined label fontSize, radio width, height and border-radius}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined label fontSize, radio width, height and border-radius}
 
-\item{spacing}{Spacing between radios in horizontal variant}
+\item{spacing}{A value equal to: "xs", "sm", "md", "lg", "xl". Spacing between radios in horizontal variant}
 
 \item{style}{Named list. Inline style override}
 

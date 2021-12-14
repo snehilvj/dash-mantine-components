@@ -23,17 +23,17 @@ Keyword arguments:
     If fluid is set to True, size prop is ignored and Container always
     take 100% of width.
 
-- padding (optional):
+- padding (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Horizontal padding defined in theme.spacing, or number value for
     padding in px.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined container max-width or number for max-width in px.
 
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, fluid=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, fluid=Component.UNDEFINED, id=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'fluid', 'padding', 'size', 'style']
         self._type = 'Container'
         self._namespace = 'dash_mantine_components'

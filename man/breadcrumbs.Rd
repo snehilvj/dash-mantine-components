@@ -10,7 +10,7 @@ Separate list of react nodes with given separator. For more information, see: ht
 }
 
 \usage{
-breadcrumbs(id=NULL, items=NULL, separator=NULL)
+breadcrumbs(id=NULL, items=NULL, separator=NULL, style=NULL)
 }
 
 \arguments{
@@ -22,6 +22,8 @@ those elements have the following types:
   - href (character; required)s. Link items}
 
 \item{separator}{Character. Separator between breadcrumbs}
+
+\item{style}{Named list. Inline style override}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

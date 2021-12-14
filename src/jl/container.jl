@@ -15,8 +15,8 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `className` (String; optional): Often used with CSS to style elements with common properties
 - `fluid` (Bool; optional): If fluid is set to true, size prop is ignored and Container always take 100% of width
-- `padding` (optional): Horizontal padding defined in theme.spacing, or number value for padding in px
-- `size` (optional): Predefined container max-width or number for max-width in px
+- `padding` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Horizontal padding defined in theme.spacing, or number value for padding in px
+- `size` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined container max-width or number for max-width in px
 - `style` (Dict; optional): Inline style override
 """
 function container(; kwargs...)

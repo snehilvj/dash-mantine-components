@@ -11,22 +11,26 @@ export anchor
 An Anchor component.
 Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/
 Keyword arguments:
-- `children` (a list of or a singular dash component, string or number; optional): Primary content
+- `children` (String; optional): Primary content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `align` (optional): Sets text-align css property
+- `align` (a value equal to: "left", "right", "center"; optional): Sets text-align css property
 - `className` (String; optional): Often used with CSS to style elements with common properties
-- `color` (optional): Text color from theme
-- `gradient` (optional): Controls gradient settings in gradient variant only
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Text color from theme
+- `gradient` (optional): Controls gradient settings in gradient variant only. gradient has the following type: lists containing elements 'from', 'to', 'deg'.
+Those elements have the following types:
+  - `from` (String; required)
+  - `to` (String; required)
+  - `deg` (Real; optional)
 - `href` (String; optional): href
 - `inherit` (Bool; optional): Inherit font properties from parent element
 - `inline` (Bool; optional): Sets line-height to 1 for centering
 - `lineClamp` (Real; optional): CSS -webkit-line-clamp property
-- `size` (optional): Predefined font-size from theme.fontSizes
+- `size` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Predefined font-size from theme.fontSizes
 - `style` (Dict; optional): Inline style override
 - `target` (a value equal to: "_blank", "_self"; optional): Target
-- `transform` (optional): Sets text-transform css property
-- `variant` (optional): Link or text variant
-- `weight` (optional): Sets font-weight css property
+- `transform` (a value equal to: "capitalize", "uppercase", "lowercase"; optional): Sets text-transform css property
+- `variant` (a value equal to: "link", "gradient", "text"; optional): Link or text variant
+- `weight` (a value equal to: "normal", "bold", "bolder", "lighter", "initial", "inherit" | Real; optional): Sets font-weight css property
 """
 function anchor(; kwargs...)
         available_props = Symbol[:children, :id, :align, :className, :color, :gradient, :href, :inherit, :inline, :lineClamp, :size, :style, :target, :transform, :variant, :weight]

@@ -23,14 +23,17 @@ Keyword arguments:
     - title (string; required)
 
 - separator (string; optional):
-    Separator between breadcrumbs."""
+    Separator between breadcrumbs.
+
+- style (dict; optional):
+    Inline style override."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, separator=Component.UNDEFINED, items=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'items', 'separator']
+    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, separator=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'items', 'separator', 'style']
         self._type = 'Breadcrumbs'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'items', 'separator']
+        self.available_properties = ['id', 'items', 'separator', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

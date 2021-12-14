@@ -11,12 +11,12 @@ Custom searchable select. For more information, see: https://mantine.dev/core/se
 
 \usage{
 select(id=NULL, className=NULL, clearable=NULL, data=NULL,
-description=NULL, disabled=NULL, error=NULL,
-initiallyOpened=NULL, label=NULL, limit=NULL,
+description=NULL, disabled=NULL, dropdownPosition=NULL,
+error=NULL, initiallyOpened=NULL, label=NULL, limit=NULL,
 maxDropdownHeight=NULL, multiline=NULL, nothingFound=NULL,
 placeholder=NULL, radius=NULL, required=NULL,
 searchable=NULL, size=NULL, style=NULL, value=NULL,
-zIndex=NULL)
+withinPortal=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -26,11 +26,17 @@ zIndex=NULL)
 
 \item{clearable}{Logical. Allow to clear value}
 
-\item{data}{Select options used to renderer items in dropdown}
+\item{data}{List of lists containing elements 'label', 'value', 'disabled'.
+those elements have the following types:
+  - label (character; required): the option's label
+  - value (character; required): option's value
+  - disabled (logical; optional): if true, this option is disabled and cannot be selecteds. Select options used to renderer items in dropdown}
 
 \item{description}{Character. Input description, displayed after label}
 
 \item{disabled}{Logical. The component can show it is currently unable to be interacted with}
+
+\item{dropdownPosition}{A value equal to: "bottom", "top", "flip". Dropdown positioning behavior}
 
 \item{error}{Character. Displays error message after input}
 
@@ -48,17 +54,19 @@ zIndex=NULL)
 
 \item{placeholder}{Character. Placeholder, displayed when date is not selected}
 
-\item{radius}{Input border-radius from theme or number to set border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Input border-radius from theme or number to set border-radius in px}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 
 \item{searchable}{Logical. Set to true to enable search}
 
-\item{size}{Input size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
 
 \item{value}{Character. Selected value}
+
+\item{withinPortal}{Logical. Whether to render the dropdown in a Portal}
 
 \item{zIndex}{Numeric. Dropdown z-index}
 }

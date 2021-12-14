@@ -43,7 +43,7 @@ Keyword arguments:
 - xs (number; optional):
     Col span at (min-width: theme.breakpoints.xs)."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, offset=Component.UNDEFINED, span=Component.UNDEFINED, xs=Component.UNDEFINED, sm=Component.UNDEFINED, md=Component.UNDEFINED, lg=Component.UNDEFINED, xl=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, id=Component.UNDEFINED, offset=Component.UNDEFINED, span=Component.UNDEFINED, style=Component.UNDEFINED, xs=Component.UNDEFINED, sm=Component.UNDEFINED, md=Component.UNDEFINED, lg=Component.UNDEFINED, xl=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'lg', 'md', 'offset', 'sm', 'span', 'style', 'xl', 'xs']
         self._type = 'Col'
         self._namespace = 'dash_mantine_components'

@@ -28,7 +28,7 @@ withPlaceholder=NULL)
 
 \item{height}{Character | numeric. Image height, defaults to original image height adjusted to given width}
 
-\item{radius}{Predefined border-radius value from theme.radius or number for border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
 
 \item{src}{Character. Image src}
 

@@ -19,8 +19,19 @@ Keyword arguments:
 - clearable (boolean; optional):
     Allow to clear value.
 
-- data (optional):
+- data (list of dicts; optional):
     Select options used to renderer items in dropdown.
+
+    `data` is a list of dicts with keys:
+
+    - disabled (boolean; optional):
+        If True, this option is disabled and cannot be selected.
+
+    - label (string; required):
+        The option's label.
+
+    - value (string; required):
+        Option's value.
 
 - description (string; optional):
     Input description, displayed after label.
@@ -28,6 +39,9 @@ Keyword arguments:
 - disabled (boolean; optional):
     The component can show it is currently unable to be interacted
     with.
+
+- dropdownPosition (a value equal to: "bottom", "top", "flip"; optional):
+    Dropdown positioning behavior.
 
 - error (string; optional):
     Displays error message after input.
@@ -53,7 +67,7 @@ Keyword arguments:
 - placeholder (string; default "Select item"):
     Placeholder, displayed when date is not selected.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Input border-radius from theme or number to set border-radius in
     px.
 
@@ -63,7 +77,7 @@ Keyword arguments:
 - searchable (boolean; default True):
     Set to True to enable search.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Input size.
 
 - style (dict; optional):
@@ -72,15 +86,18 @@ Keyword arguments:
 - value (string; optional):
     Selected value.
 
+- withinPortal (boolean; optional):
+    Whether to render the dropdown in a Portal.
+
 - zIndex (number; optional):
     Dropdown z-index."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, clearable=Component.UNDEFINED, data=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, error=Component.UNDEFINED, initiallyOpened=Component.UNDEFINED, label=Component.UNDEFINED, limit=Component.UNDEFINED, maxDropdownHeight=Component.UNDEFINED, multiline=Component.UNDEFINED, nothingFound=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, searchable=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'clearable', 'data', 'description', 'disabled', 'error', 'initiallyOpened', 'label', 'limit', 'maxDropdownHeight', 'multiline', 'nothingFound', 'placeholder', 'radius', 'required', 'searchable', 'size', 'style', 'value', 'zIndex']
+    def __init__(self, className=Component.UNDEFINED, clearable=Component.UNDEFINED, data=Component.UNDEFINED, description=Component.UNDEFINED, disabled=Component.UNDEFINED, dropdownPosition=Component.UNDEFINED, error=Component.UNDEFINED, id=Component.UNDEFINED, initiallyOpened=Component.UNDEFINED, label=Component.UNDEFINED, limit=Component.UNDEFINED, maxDropdownHeight=Component.UNDEFINED, multiline=Component.UNDEFINED, nothingFound=Component.UNDEFINED, placeholder=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, searchable=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, withinPortal=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'clearable', 'data', 'description', 'disabled', 'dropdownPosition', 'error', 'initiallyOpened', 'label', 'limit', 'maxDropdownHeight', 'multiline', 'nothingFound', 'placeholder', 'radius', 'required', 'searchable', 'size', 'style', 'value', 'withinPortal', 'zIndex']
         self._type = 'Select'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'clearable', 'data', 'description', 'disabled', 'error', 'initiallyOpened', 'label', 'limit', 'maxDropdownHeight', 'multiline', 'nothingFound', 'placeholder', 'radius', 'required', 'searchable', 'size', 'style', 'value', 'zIndex']
+        self.available_properties = ['id', 'className', 'clearable', 'data', 'description', 'disabled', 'dropdownPosition', 'error', 'initiallyOpened', 'label', 'limit', 'maxDropdownHeight', 'multiline', 'nothingFound', 'placeholder', 'radius', 'required', 'searchable', 'size', 'style', 'value', 'withinPortal', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -37,7 +37,7 @@ Keyword arguments:
 - zIndex (number; optional):
     Notifications container z-index."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, autoClose=Component.UNDEFINED, containerWidth=Component.UNDEFINED, limit=Component.UNDEFINED, notificationMaxHeight=Component.UNDEFINED, position=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, autoClose=Component.UNDEFINED, containerWidth=Component.UNDEFINED, id=Component.UNDEFINED, limit=Component.UNDEFINED, notificationMaxHeight=Component.UNDEFINED, position=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'autoClose', 'containerWidth', 'limit', 'notificationMaxHeight', 'position', 'zIndex']
         self._type = 'NotificationsProvider'
         self._namespace = 'dash_mantine_components'

@@ -12,7 +12,7 @@ Divide content into collapsible sections. For more information, see: https://man
 \usage{
 accordion(children=NULL, id=NULL, className=NULL,
 disableIconRotation=NULL, iconPosition=NULL, multiple=NULL,
-state=NULL)
+offsetIcon=NULL, state=NULL)
 }
 
 \arguments{
@@ -27,6 +27,8 @@ state=NULL)
 \item{iconPosition}{A value equal to: "right", "left". Change icon position: left or right}
 
 \item{multiple}{Logical. Allow multiple items to be opened at the same time}
+
+\item{offsetIcon}{Logical. Should icon be offset with padding, applicable only when iconPosition is left}
 
 \item{state}{List with named elements and values of type logical. Controlled state (controls opened state of accordion items)}
 }

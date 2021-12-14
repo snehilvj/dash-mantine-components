@@ -14,7 +14,7 @@ Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Alert message
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `className` (String; optional): Often used with CSS to style elements with common properties
-- `color` (optional): Alert title and line colors from theme
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Alert title and line colors from theme
 - `duration` (Real; optional): Duration in milliseconds after which the Alert dismisses itself.
 - `show` (Bool; optional): Whether to show the alert
 - `style` (Dict; optional): Inline style override

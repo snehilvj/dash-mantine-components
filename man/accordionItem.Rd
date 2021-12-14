@@ -10,16 +10,11 @@ Utility component to pass to Accordion. For more information, see: https://manti
 }
 
 \usage{
-accordionItem(children=NULL, id=NULL, className=NULL, description=NULL,
-label=NULL)
+accordionItem(children=NULL, description=NULL, label=NULL)
 }
 
 \arguments{
-\item{children}{A list of or a singular dash component, string or number. Col content}
-
-\item{id}{Character. The ID of this component, used to identify dash components in callbacks}
-
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{children}{A list of or a singular dash component, string or number. Accordion content}
 
 \item{description}{Character. Accordion description}
 

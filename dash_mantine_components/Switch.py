@@ -19,7 +19,7 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Checkbox color.
 
 - disabled (boolean; optional):
@@ -28,17 +28,17 @@ Keyword arguments:
 - label (string; optional):
     Checkbox label.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined border-radius value from theme.radius or number for
     border-radius in px.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined label font-size and checkbox width and height in px.
 
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, label=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'radius', 'size', 'style']
         self._type = 'Switch'
         self._namespace = 'dash_mantine_components'

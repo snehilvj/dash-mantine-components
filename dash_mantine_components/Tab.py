@@ -25,7 +25,7 @@ Keyword arguments:
 - label (string; optional):
     Tab control label."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'disabled', 'label']
         self._type = 'Tab'
         self._namespace = 'dash_mantine_components'

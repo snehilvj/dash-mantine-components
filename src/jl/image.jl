@@ -14,7 +14,7 @@ Keyword arguments:
 - `className` (String; optional): Often used with CSS to style elements with common properties
 - `fit` (a value equal to: "cover", "contain"; optional): Image object-fit property
 - `height` (String | Real; optional): Image height, defaults to original image height adjusted to given width
-- `radius` (optional): Predefined border-radius value from theme.radius or number for border-radius in px
+- `radius` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined border-radius value from theme.radius or number for border-radius in px
 - `src` (String; optional): Image src
 - `style` (Dict; optional): Inline style override
 - `width` (String | Real; optional): Image width, defaults to 100%, cannot exceed 100%

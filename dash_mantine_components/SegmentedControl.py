@@ -16,20 +16,28 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Active control color from theme.colors, defaults to white in light
     color scheme and theme.colors.dark[9] in dark.
 
-- data (optional):
+- data (list of dicts; required):
     Data based on which controls are rendered.
+
+    `data` is a list of dicts with keys:
+
+    - label (string; required):
+        The option's label.
+
+    - value (string; required):
+        Option's value.
 
 - fullWidth (boolean; optional):
     True if component should have 100% width.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Border-radius from theme or number to set border-radius in px.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Controls font-size, paddings and height.
 
 - style (dict; optional):
@@ -38,7 +46,7 @@ Keyword arguments:
 - value (string; optional):
     Current selected value."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, data=Component.UNDEFINED, fullWidth=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, data=Component.REQUIRED, fullWidth=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'color', 'data', 'fullWidth', 'radius', 'size', 'style', 'value']
         self._type = 'SegmentedControl'
         self._namespace = 'dash_mantine_components'
@@ -49,7 +57,7 @@ Keyword arguments:
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
-        for k in []:
+        for k in ['data']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')

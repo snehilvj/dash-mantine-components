@@ -13,19 +13,30 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
-- align (optional):
+- align (a value equal to: "stretch", "center", "flex-end", "flex-start"; optional):
     Defines align-items css property.
 
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Active chip color, defaults to theme.primaryColor.
 
-- data (optional):
+- data (list of dicts; optional):
     Chips.
 
-- direction (optional):
+    `data` is a list of dicts with keys:
+
+    - disabled (boolean; optional):
+        If True, this option is disabled and cannot be selected.
+
+    - label (string; required):
+        The option's label.
+
+    - value (string; required):
+        Option's value.
+
+- direction (a value equal to: "row", "column"; optional):
     Defines flex-direction property, row for horizontal, column for
     vertical.
 
@@ -39,16 +50,16 @@ Keyword arguments:
 - noWrap (boolean; optional):
     Defined flex-wrap property.
 
-- position (optional):
+- position (a value equal to: "right", "center", "left", "apart"; optional):
     Defines justify-content property.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Chip border-radius from theme or number to set value in px.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined chip size.
 
-- spacing (optional):
+- spacing (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Spacing between chips from theme or number to set value in px.
 
 - style (dict; optional):
@@ -61,7 +72,7 @@ Keyword arguments:
     Controls chip appearance, defaults to filled with dark theme and
     to outline in light theme."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, data=Component.UNDEFINED, color=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, multiple=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+    def __init__(self, align=Component.UNDEFINED, className=Component.UNDEFINED, data=Component.UNDEFINED, color=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, id=Component.UNDEFINED, multiple=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'align', 'className', 'color', 'data', 'direction', 'grow', 'multiple', 'noWrap', 'position', 'radius', 'size', 'spacing', 'style', 'value', 'variant']
         self._type = 'Chips'
         self._namespace = 'dash_mantine_components'

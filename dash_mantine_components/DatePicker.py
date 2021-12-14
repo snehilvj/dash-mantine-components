@@ -16,6 +16,9 @@ Keyword arguments:
 - allowFreeInput (boolean; optional):
     Allow free input.
 
+- allowLevelChange (boolean; optional):
+    Allow to change level (date – month – year).
+
 - amountOfMonths (number; optional):
     Amount of displayed months.
 
@@ -24,6 +27,13 @@ Keyword arguments:
 
 - clearable (boolean; optional):
     Allow to clear value.
+
+- closeCalendarOnChange (boolean; optional):
+    Set to False to force dropdown to stay open after date was
+    selected.
+
+- closeDropdownOnScroll (boolean; optional):
+    Set to True to disable dropdown closing on scroll.
 
 - date (string; optional):
     Selected date.
@@ -42,11 +52,29 @@ Keyword arguments:
 - dropdownType (a value equal to: "modal", "popover"; optional):
     Where to show calendar in modal or popover.
 
+- error (string; optional):
+    Displays error message after input.
+
 - firstDayOfWeek (a value equal to: "sunday", "monday"; optional):
     Set first day of the week.
 
+- fixOnBlur (boolean; optional):
+    call onChange with last valid value onBlur.
+
+- focusable (boolean; optional):
+    Should focusable days have tabIndex={0}?.
+
 - format (string; optional):
     DatePicker display format.
+
+- fullWidth (boolean; optional):
+    Set to True to make calendar take 100% of container width.
+
+- hideWeekdays (boolean; optional):
+    Set to False to remove weekdays row.
+
+- initialLevel (a value equal to: "date", "month", "year"; optional):
+    Initial date selection level.
 
 - initialMonth (string; optional):
     Initial selected month.
@@ -56,6 +84,9 @@ Keyword arguments:
 
 - label (string; optional):
     Input label, displayed before input.
+
+- locale (string; optional):
+    Locale used for all labels formatting.
 
 - maxDate (string; optional):
     Maximum possible date.
@@ -72,40 +103,35 @@ Keyword arguments:
 - preventFocus (boolean; optional):
     Prevent focusing upon clicking.
 
-- radius (optional):
+- radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Input border-radius from theme or number to set border-radius in
     px.
 
 - required (boolean; optional):
     Adds red asterisk on the right side of label.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Input size.
 
 - style (dict; default { width: "200px" }):
     Inline style override.
 
-- withSelect (boolean; optional):
-    Replace calendar label with month and year selects.
+- variant (a value equal to: "default", "filled", "unstyled", "headless"; optional):
+    Defines input appearance, defaults to default in light color
+    scheme and filled in dark.
 
-- yearsRange (dict; optional):
-    Years range for year select.
-
-    `yearsRange` is a dict with keys:
-
-    - from (number; optional)
-
-    - to (number; optional)
+- withinPortal (boolean; optional):
+    Whether to render the dropdown in a Portal.
 
 - zIndex (number; optional):
     Popper zIndex."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, allowFreeInput=Component.UNDEFINED, amountOfMonths=Component.UNDEFINED, clearable=Component.UNDEFINED, description=Component.UNDEFINED, disableOutsideEvents=Component.UNDEFINED, disabled=Component.UNDEFINED, dropdownType=Component.UNDEFINED, firstDayOfWeek=Component.UNDEFINED, format=Component.UNDEFINED, initialMonth=Component.UNDEFINED, initiallyOpened=Component.UNDEFINED, label=Component.UNDEFINED, maxDate=Component.UNDEFINED, minDate=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, preventFocus=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, withSelect=Component.UNDEFINED, yearsRange=Component.UNDEFINED, zIndex=Component.UNDEFINED, date=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'allowFreeInput', 'amountOfMonths', 'className', 'clearable', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'firstDayOfWeek', 'format', 'initialMonth', 'initiallyOpened', 'label', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
+    def __init__(self, allowFreeInput=Component.UNDEFINED, allowLevelChange=Component.UNDEFINED, amountOfMonths=Component.UNDEFINED, className=Component.UNDEFINED, clearable=Component.UNDEFINED, closeCalendarOnChange=Component.UNDEFINED, closeDropdownOnScroll=Component.UNDEFINED, date=Component.UNDEFINED, description=Component.UNDEFINED, disableOutsideEvents=Component.UNDEFINED, disabled=Component.UNDEFINED, dropdownType=Component.UNDEFINED, error=Component.UNDEFINED, firstDayOfWeek=Component.UNDEFINED, fixOnBlur=Component.UNDEFINED, focusable=Component.UNDEFINED, format=Component.UNDEFINED, fullWidth=Component.UNDEFINED, hideWeekdays=Component.UNDEFINED, id=Component.UNDEFINED, initialLevel=Component.UNDEFINED, initialMonth=Component.UNDEFINED, initiallyOpened=Component.UNDEFINED, label=Component.UNDEFINED, locale=Component.UNDEFINED, maxDate=Component.UNDEFINED, minDate=Component.UNDEFINED, multiline=Component.UNDEFINED, placeholder=Component.UNDEFINED, preventFocus=Component.UNDEFINED, radius=Component.UNDEFINED, required=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, variant=Component.UNDEFINED, withinPortal=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'allowFreeInput', 'allowLevelChange', 'amountOfMonths', 'className', 'clearable', 'closeCalendarOnChange', 'closeDropdownOnScroll', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'error', 'firstDayOfWeek', 'fixOnBlur', 'focusable', 'format', 'fullWidth', 'hideWeekdays', 'initialLevel', 'initialMonth', 'initiallyOpened', 'label', 'locale', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'variant', 'withinPortal', 'zIndex']
         self._type = 'DatePicker'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'allowFreeInput', 'amountOfMonths', 'className', 'clearable', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'firstDayOfWeek', 'format', 'initialMonth', 'initiallyOpened', 'label', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'withSelect', 'yearsRange', 'zIndex']
+        self.available_properties = ['id', 'allowFreeInput', 'allowLevelChange', 'amountOfMonths', 'className', 'clearable', 'closeCalendarOnChange', 'closeDropdownOnScroll', 'date', 'description', 'disableOutsideEvents', 'disabled', 'dropdownType', 'error', 'firstDayOfWeek', 'fixOnBlur', 'focusable', 'format', 'fullWidth', 'hideWeekdays', 'initialLevel', 'initialMonth', 'initiallyOpened', 'label', 'locale', 'maxDate', 'minDate', 'multiline', 'placeholder', 'preventFocus', 'radius', 'required', 'size', 'style', 'variant', 'withinPortal', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

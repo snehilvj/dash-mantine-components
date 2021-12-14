@@ -21,11 +21,11 @@ w=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{h}{Height, set to add vertical spacing}
+\item{h}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Height, set to add vertical spacing}
 
 \item{style}{Named list. Inline style override}
 
-\item{w}{Width, set to add horizontal spacing}
+\item{w}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Width, set to add horizontal spacing}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

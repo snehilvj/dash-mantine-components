@@ -19,15 +19,19 @@ style=NULL, value=NULL, variant=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{align}{Defines align-items css property}
+\item{align}{A value equal to: "stretch", "center", "flex-end", "flex-start". Defines align-items css property}
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Active chip color, defaults to theme.primaryColor}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active chip color, defaults to theme.primaryColor}
 
-\item{data}{Chips}
+\item{data}{List of lists containing elements 'label', 'value', 'disabled'.
+those elements have the following types:
+  - label (character; required): the option's label
+  - value (character; required): option's value
+  - disabled (logical; optional): if true, this option is disabled and cannot be selecteds. Chips}
 
-\item{direction}{Defines flex-direction property, row for horizontal, column for vertical}
+\item{direction}{A value equal to: "row", "column". Defines flex-direction property, row for horizontal, column for vertical}
 
 \item{grow}{Logical. Defines flex-grow property for each element, true -> 1, false -> 0}
 
@@ -35,13 +39,13 @@ style=NULL, value=NULL, variant=NULL)
 
 \item{noWrap}{Logical. Defined flex-wrap property}
 
-\item{position}{Defines justify-content property}
+\item{position}{A value equal to: "right", "center", "left", "apart". Defines justify-content property}
 
-\item{radius}{Chip border-radius from theme or number to set value in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Chip border-radius from theme or number to set value in px}
 
-\item{size}{Predefined chip size}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined chip size}
 
-\item{spacing}{Spacing between chips from theme or number to set value in px}
+\item{spacing}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Spacing between chips from theme or number to set value in px}
 
 \item{style}{Named list. Inline style override}
 

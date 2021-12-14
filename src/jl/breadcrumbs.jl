@@ -14,9 +14,10 @@ Those elements have the following types:
   - `title` (String; required)
   - `href` (String; required)s
 - `separator` (String; optional): Separator between breadcrumbs
+- `style` (Dict; optional): Inline style override
 """
 function breadcrumbs(; kwargs...)
-        available_props = Symbol[:id, :items, :separator]
+        available_props = Symbol[:id, :items, :separator, :style]
         wild_props = Symbol[]
         return Component("breadcrumbs", "Breadcrumbs", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

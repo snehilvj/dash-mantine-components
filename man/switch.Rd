@@ -22,15 +22,15 @@ style=NULL)
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Checkbox color}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Checkbox color}
 
 \item{disabled}{Logical. A checkbox can show it is currently unable to be interacted with}
 
 \item{label}{Character. Checkbox label}
 
-\item{radius}{Predefined border-radius value from theme.radius or number for border-radius in px}
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
 
-\item{size}{Predefined label font-size and checkbox width and height in px}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined label font-size and checkbox width and height in px}
 
 \item{style}{Named list. Inline style override}
 }

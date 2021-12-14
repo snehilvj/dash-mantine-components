@@ -4,20 +4,6 @@
     "displayName": "Accordion",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -56,12 +42,33 @@
         "required": false,
         "description": "Change icon position: left or right"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "multiple": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Allow multiple items to be opened at the same time"
+      },
+      "offsetIcon": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should icon be offset with padding, applicable only when iconPosition is left"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "state": {
         "type": {
@@ -80,33 +87,12 @@
     "displayName": "AccordionItem",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
         },
         "required": false,
-        "description": "Col content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
-      "label": {
-        "type": {
-          "name": "string"
-        },
-        "required": true,
-        "description": "Accordion label"
+        "description": "Accordion content"
       },
       "description": {
         "type": {
@@ -114,6 +100,13 @@
         },
         "required": false,
         "description": "Accordion description"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "Accordion label"
       }
     }
   },
@@ -122,13 +115,6 @@
     "displayName": "Affix",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -142,6 +128,13 @@
         },
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "position": {
         "type": {
@@ -221,20 +214,6 @@
     "displayName": "Alert",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -251,8 +230,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Alert title and line colors from theme"
@@ -264,12 +300,26 @@
         "required": false,
         "description": "Duration in milliseconds after which the Alert dismisses itself."
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "title": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Optional alert title"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "show": {
         "type": {
@@ -303,16 +353,30 @@
     "displayName": "Anchor",
     "methods": [],
     "props": {
-      "id": {
+      "align": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Sets text-align css property"
       },
       "children": {
         "type": {
-          "name": "node"
+          "name": "string"
         },
         "required": false,
         "description": "Primary content"
@@ -324,26 +388,88 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "align": {
-        "type": {
-          "name": "custom",
-          "raw": "TextAlignProperty"
-        },
-        "required": false,
-        "description": "Sets text-align css property"
-      },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Text color from theme"
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
@@ -354,6 +480,13 @@
         },
         "required": false,
         "description": "href"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "inherit": {
         "type": {
@@ -378,11 +511,39 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined font-size from theme.fontSizes"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "target": {
         "type": {
@@ -403,34 +564,86 @@
       },
       "transform": {
         "type": {
-          "name": "custom",
-          "raw": "TransformTypes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"capitalize\"",
+              "computed": false
+            },
+            {
+              "value": "\"uppercase\"",
+              "computed": false
+            },
+            {
+              "value": "\"lowercase\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Sets text-transform css property"
       },
       "variant": {
         "type": {
-          "name": "custom",
-          "raw": "TextVariants"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"link\"",
+              "computed": false
+            },
+            {
+              "value": "\"gradient\"",
+              "computed": false
+            },
+            {
+              "value": "\"text\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Link or text variant"
       },
       "weight": {
         "type": {
-          "name": "custom",
-          "raw": "FontWeights"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"normal\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bold\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bolder\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lighter\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"initial\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"inherit\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Sets font-weight css property"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -439,12 +652,70 @@
     "displayName": "Badge",
     "methods": [],
     "props": {
-      "id": {
+      "color": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Badge color from theme"
       },
       "children": {
         "type": {
@@ -460,14 +731,6 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "color": {
-        "type": {
-          "name": "custom",
-          "raw": "MantineColors"
-        },
-        "required": false,
-        "description": "Badge color from theme"
-      },
       "fullWidth": {
         "type": {
           "name": "bool"
@@ -477,27 +740,104 @@
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined badge size"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "variant": {
         "type": {
@@ -527,13 +867,6 @@
         },
         "required": false,
         "description": "Controls badge background, color and border styles"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -542,13 +875,6 @@
     "displayName": "Blockquote",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "string"
@@ -572,11 +898,75 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Badge color from theme"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "style": {
         "type": {
@@ -599,13 +989,6 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
       },
-      "separator": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Separator between breadcrumbs"
-      },
       "items": {
         "type": {
           "name": "arrayOf",
@@ -625,6 +1008,20 @@
         },
         "required": false,
         "description": "Link items"
+      },
+      "separator": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Separator between breadcrumbs"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },
@@ -633,12 +1030,70 @@
     "displayName": "Button",
     "methods": [],
     "props": {
-      "id": {
+      "color": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Button color from theme"
       },
       "children": {
         "type": {
@@ -647,31 +1102,6 @@
         "required": false,
         "description": "Primary content"
       },
-      "n_clicks": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times that this element has been clicked on",
-        "defaultValue": {
-          "value": "0",
-          "computed": false
-        }
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "The component can show it is currently unable to be interacted with"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -679,20 +1109,19 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "color": {
-        "type": {
-          "name": "custom",
-          "raw": "MantineColors"
-        },
-        "required": false,
-        "description": "Button color from theme"
-      },
       "compact": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Reduces vertical and horizontal spacing"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "The component can show it is currently unable to be interacted with"
       },
       "fullWidth": {
         "type": {
@@ -703,11 +1132,31 @@
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "loaderPosition": {
         "type": {
@@ -731,23 +1180,133 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Indicate loading state"
+        "description": "Indicate loading state",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times that this element has been clicked on",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Button border-radius from theme or number to set border-radius in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined button size"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "uppercase": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set text-transform to uppercase"
       },
       "variant": {
         "type": {
@@ -785,20 +1344,6 @@
         },
         "required": false,
         "description": "Controls button appearance"
-      },
-      "uppercase": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Set text-transform to uppercase"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -807,13 +1352,6 @@
     "displayName": "Center",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -827,6 +1365,13 @@
         },
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "inline": {
         "type": {
@@ -849,27 +1394,6 @@
     "displayName": "Checkbox",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "A checkbox can show it is currently unable to be interacted with"
-      },
       "checked": {
         "type": {
           "name": "bool"
@@ -890,11 +1414,82 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Checkbox color"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "A checkbox can show it is currently unable to be interacted with"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "label": {
         "type": {
@@ -905,32 +1500,32 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined label font-size and checkbox width and height in px"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
-      }
-    }
-  },
-  "src/lib/components/Chips.react.js": {
-    "description": "Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/",
-    "displayName": "Chips",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "setProps": {
         "type": {
@@ -939,6 +1534,52 @@
         "required": false,
         "description": "Tells dash if any prop has changed its value"
       },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Check/uncheck transition duration, set to 0 to disable all transitions"
+      }
+    }
+  },
+  "src/lib/components/Chips.react.js": {
+    "description": "Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/",
+    "displayName": "Chips",
+    "methods": [],
+    "props": {
+      "align": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"stretch\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines align-items css property"
+      },
       "className": {
         "type": {
           "name": "string"
@@ -946,34 +1587,111 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "align": {
-        "type": {
-          "name": "custom",
-          "raw": "AlignContentProperty"
-        },
-        "required": false,
-        "description": "Defines align-items css property"
-      },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "OptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "Option's value",
+                "required": true
+              },
+              "disabled": {
+                "name": "bool",
+                "description": "If true, this option is disabled and cannot be selected",
+                "required": false
+              }
+            }
+          }
         },
         "required": false,
         "description": "Chips"
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Active chip color, defaults to theme.primaryColor"
       },
       "direction": {
         "type": {
-          "name": "custom",
-          "raw": "Directions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"row\"",
+              "computed": false
+            },
+            {
+              "value": "\"column\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines flex-direction property, row for horizontal, column for vertical"
@@ -984,6 +1702,13 @@
         },
         "required": false,
         "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "multiple": {
         "type": {
@@ -1001,32 +1726,135 @@
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines justify-content property"
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Chip border-radius from theme or number to set value in px"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined chip size"
       },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Spacing between chips from theme or number to set value in px"
@@ -1080,13 +1908,6 @@
     "displayName": "Col",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -1101,6 +1922,13 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "offset": {
         "type": {
           "name": "number"
@@ -1114,6 +1942,13 @@
         },
         "required": false,
         "description": "Default col span"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "xs": {
         "type": {
@@ -1149,13 +1984,6 @@
         },
         "required": false,
         "description": "Col span at (min-width: theme.breakpoints.xl)"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -1164,13 +1992,6 @@
     "displayName": "Container",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -1192,18 +2013,83 @@
         "required": false,
         "description": "If fluid is set to true, size prop is ignored and Container always take 100% of width"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Horizontal padding defined in theme.spacing, or number value for padding in px"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined container max-width or number for max-width in px"
@@ -1222,33 +2108,19 @@
     "displayName": "DatePicker",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "allowFreeInput": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Allow free input"
+      },
+      "allowLevelChange": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allow to change level (date \u2013 month \u2013 year)"
       },
       "amountOfMonths": {
         "type": {
@@ -1257,12 +2129,40 @@
         "required": false,
         "description": "Amount of displayed months"
       },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
       "clearable": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Allow to clear value"
+      },
+      "closeCalendarOnChange": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to false to force dropdown to stay open after date was selected"
+      },
+      "closeDropdownOnScroll": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to disable dropdown closing on scroll"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Selected date"
       },
       "description": {
         "type": {
@@ -1302,6 +2202,13 @@
         "required": false,
         "description": "Where to show calendar in modal or popover"
       },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
       "firstDayOfWeek": {
         "type": {
           "name": "enum",
@@ -1319,12 +2226,68 @@
         "required": false,
         "description": "Set first day of the week"
       },
+      "fixOnBlur": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "call onChange with last valid value onBlur"
+      },
+      "focusable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should focusable days have tabIndex={0}?"
+      },
       "format": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "DatePicker display format"
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to make calendar take 100% of container width"
+      },
+      "hideWeekdays": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to false to remove weekdays row"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "initialLevel": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"date\"",
+              "computed": false
+            },
+            {
+              "value": "\"month\"",
+              "computed": false
+            },
+            {
+              "value": "\"year\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Initial date selection level"
       },
       "initialMonth": {
         "type": {
@@ -1346,6 +2309,13 @@
         },
         "required": false,
         "description": "Input label, displayed before input"
+      },
+      "locale": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Locale used for all labels formatting"
       },
       "maxDate": {
         "type": {
@@ -1388,8 +2358,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -1401,10 +2400,38 @@
         "required": false,
         "description": "Adds red asterisk on the right side of label"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -1420,29 +2447,37 @@
           "computed": false
         }
       },
-      "withSelect": {
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
+      },
+      "withinPortal": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Replace calendar label with month and year selects"
-      },
-      "yearsRange": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "from": {
-              "name": "number",
-              "required": false
-            },
-            "to": {
-              "name": "number",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Years range for year select"
+        "description": "Whether to render the dropdown in a Portal"
       },
       "zIndex": {
         "type": {
@@ -1450,13 +2485,6 @@
         },
         "required": false,
         "description": "Popper zIndex"
-      },
-      "date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Selected date"
       }
     }
   },
@@ -1465,26 +2493,12 @@
     "displayName": "DateRangePicker",
     "methods": [],
     "props": {
-      "id": {
+      "allowLevelChange": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
+        "description": "Allow to change level (date \u2013 month \u2013 year)"
       },
       "allowSingleDateInRange": {
         "type": {
@@ -1499,6 +2513,13 @@
         },
         "required": false,
         "description": "Amount of displayed months"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "clearable": {
         "type": {
@@ -1525,6 +2546,16 @@
         "required": false,
         "description": "Set to true to disable dropdown closing on scroll"
       },
+      "dates": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "Selected date"
+      },
       "description": {
         "type": {
           "name": "string"
@@ -1544,7 +2575,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "A DateRangePicker can show it is currently unable to be interacted with"
+        "description": "A Datepicker can show it is currently unable to be interacted with"
       },
       "dropdownType": {
         "type": {
@@ -1563,6 +2594,13 @@
         "required": false,
         "description": "Where to show calendar in modal or popover"
       },
+      "error": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Displays error message after input"
+      },
       "firstDayOfWeek": {
         "type": {
           "name": "enum",
@@ -1580,12 +2618,75 @@
         "required": false,
         "description": "Set first day of the week"
       },
+      "fixOnBlur": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "call onChange with last valid value onBlur"
+      },
+      "focusable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should focusable days have tabIndex={0}?"
+      },
       "format": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "DateRangePicker display format"
+        "description": "DatePicker display format"
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to make calendar take 100% of container width"
+      },
+      "hideOutsideDates": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Remove outside dates"
+      },
+      "hideWeekdays": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to false to remove weekdays row"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "initialLevel": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"date\"",
+              "computed": false
+            },
+            {
+              "value": "\"month\"",
+              "computed": false
+            },
+            {
+              "value": "\"year\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Initial date selection level"
       },
       "initialMonth": {
         "type": {
@@ -1608,6 +2709,20 @@
         "required": false,
         "description": "Input label, displayed before input"
       },
+      "labelSeparator": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Separator between dates"
+      },
+      "locale": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Locale used for all labels formatting"
+      },
       "maxDate": {
         "type": {
           "name": "string"
@@ -1621,6 +2736,13 @@
         },
         "required": false,
         "description": "Minimum possible date"
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Will input have multiple lines?"
       },
       "placeholder": {
         "type": {
@@ -1642,8 +2764,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -1655,10 +2806,38 @@
         "required": false,
         "description": "Adds red asterisk on the right side of label"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -1674,29 +2853,37 @@
           "computed": false
         }
       },
-      "withSelect": {
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
+      },
+      "withinPortal": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Replace calendar label with month and year selects"
-      },
-      "yearsRange": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "from": {
-              "name": "number",
-              "required": false
-            },
-            "to": {
-              "name": "number",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Years range for year select"
+        "description": "Whether to render the dropdown in a Portal"
       },
       "zIndex": {
         "type": {
@@ -1704,16 +2891,6 @@
         },
         "required": false,
         "description": "Popper zIndex"
-      },
-      "dates": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "string"
-          }
-        },
-        "required": false,
-        "description": "Selected date"
       }
     }
   },
@@ -1722,13 +2899,6 @@
     "displayName": "Divider",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -1738,11 +2908,75 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "label": {
         "type": {
@@ -1774,19 +3008,64 @@
       },
       "orientation": {
         "type": {
-          "name": "custom",
-          "raw": "Orientations"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"horizontal\"",
+              "computed": false
+            },
+            {
+              "value": "\"vertical\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Line orientation"
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Sets height in horizontal orientation and width in vertical"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "variant": {
         "type": {
@@ -1816,20 +3095,6 @@
     "displayName": "Drawer",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -1850,6 +3115,13 @@
         },
         "required": false,
         "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "noCloseOnClickOutside": {
         "type": {
@@ -1921,27 +3193,97 @@
       },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Drawer body padding from theme or number for padding in px"
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Drawer body position"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
           "name": "union",
           "value": [
             {
-              "name": "custom",
-              "raw": "Sizes"
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"right\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"center\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"left\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"apart\"",
+                  "computed": false
+                }
+              ]
             },
             {
               "name": "string"
@@ -1975,12 +3317,30 @@
     "displayName": "Grid",
     "methods": [],
     "props": {
-      "id": {
+      "align": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"stretch\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Set grid align-content property"
       },
       "children": {
         "type": {
@@ -1995,14 +3355,6 @@
         },
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
-      },
-      "align": {
-        "type": {
-          "name": "custom",
-          "raw": "AlignContentProperty"
-        },
-        "required": false,
-        "description": "Set grid align-content property"
       },
       "columns": {
         "type": {
@@ -2020,19 +3372,83 @@
       },
       "gutter": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Spacing between columns predefined value from theme.spacing or number for gutter in px"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "justify": {
         "type": {
-          "name": "custom",
-          "raw": "JustifyContentProperty"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"space-between\"",
+              "computed": false
+            },
+            {
+              "value": "\"space-around\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Set grid justify-content property"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },
@@ -2041,12 +3457,30 @@
     "displayName": "Group",
     "methods": [],
     "props": {
-      "id": {
+      "align": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"stretch\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-end\"",
+              "computed": false
+            },
+            {
+              "value": "\"flex-start\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Defines align-items css property"
       },
       "children": {
         "type": {
@@ -2062,18 +3496,19 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "align": {
-        "type": {
-          "name": "custom",
-          "raw": "AlignContentProperty"
-        },
-        "required": false,
-        "description": "Defines align-items css property"
-      },
       "direction": {
         "type": {
-          "name": "custom",
-          "raw": "Directions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"row\"",
+              "computed": false
+            },
+            {
+              "value": "\"column\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines flex-direction property, row for horizontal, column for vertical"
@@ -2085,6 +3520,13 @@
         "required": false,
         "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "noWrap": {
         "type": {
           "name": "bool"
@@ -2094,16 +3536,54 @@
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Defines justify-content property"
       },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Space between elements"
@@ -2122,20 +3602,6 @@
     "displayName": "Image",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "alt": {
         "type": {
           "name": "string"
@@ -2149,6 +3615,13 @@
         },
         "required": false,
         "description": "Image figcaption, displayed bellow image"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "fit": {
         "type": {
@@ -2182,10 +3655,46 @@
         "required": false,
         "description": "Image height, defaults to original image height adjusted to given width"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
@@ -2233,19 +3742,12 @@
     "displayName": "Modal",
     "methods": [],
     "props": {
-      "id": {
+      "centered": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
+        "description": "Controls if modal should be centered"
       },
       "children": {
         "type": {
@@ -2261,12 +3763,26 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "closeOnClickOutside": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should modal be closed when outside click was registered?"
+      },
       "hideCloseButton": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "opened": {
         "type": {
@@ -2296,21 +3812,129 @@
         "required": false,
         "description": "Control vertical overflow behavior"
       },
+      "overlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overlay below modal color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme"
+      },
+      "overlayOpacity": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Overlay below modal opacity, defaults to 0.75 in light theme and to 0.85 in dark theme"
+      },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Modal padding from theme or number value for padding in px"
+      },
+      "radius": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Modal padding from theme or number value for padding in px"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
           "name": "union",
           "value": [
             {
-              "name": "custom",
-              "raw": "Sizes"
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
             },
             {
               "name": "number"
@@ -2351,20 +3975,6 @@
     "displayName": "MultiSelect",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -2395,8 +4005,27 @@
       },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "OptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "option's value",
+                "required": true
+              },
+              "disabled": {
+                "name": "bool",
+                "description": "If true, this option is disabled and cannot be selected",
+                "required": false
+              }
+            }
+          }
         },
         "required": false,
         "description": "Select options used to renderer items in dropdown",
@@ -2425,6 +4054,13 @@
         },
         "required": false,
         "description": "Displays error message after input"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "initiallyOpened": {
         "type": {
@@ -2492,8 +4128,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -2504,6 +4169,13 @@
         },
         "required": false,
         "description": "Adds red asterisk on the right side of label"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "searchable": {
         "type": {
@@ -2516,18 +4188,31 @@
           "computed": false
         }
       },
-      "shadow": {
-        "type": {
-          "name": "custom",
-          "raw": "Sizes"
-        },
-        "required": false,
-        "description": "Dropdown shadow from theme or any value to set box-shadow"
-      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -2539,6 +4224,13 @@
         "required": false,
         "description": "Inline style override"
       },
+      "switchDirectionOnFlip": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to switch item order and keyboard navigation on dropdown position flip"
+      },
       "value": {
         "type": {
           "name": "arrayOf",
@@ -2548,6 +4240,38 @@
         },
         "required": false,
         "description": "Selected value"
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
+      },
+      "withinPortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the dropdown in a Portal"
       },
       "zIndex": {
         "type": {
@@ -2656,20 +4380,6 @@
     "displayName": "NotificationsProvider",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Content"
-      },
       "autoClose": {
         "type": {
           "name": "union",
@@ -2691,12 +4401,26 @@
         "required": false,
         "description": "Auto close timeout for all notifications, false to disable auto close, can be overwritten for individual notifications by showNotification function"
       },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content"
+      },
       "containerWidth": {
         "type": {
           "name": "number"
         },
         "required": false,
         "description": "Notification width in px, cannot exceed 100%"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "limit": {
         "type": {
@@ -2759,13 +4483,6 @@
     "displayName": "Paper",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -2780,26 +4497,112 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "padding": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined padding value from theme.spacing or number for padding in px"
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
       },
       "shadow": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property"
@@ -2818,13 +4621,6 @@
     "displayName": "Prism",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -2877,8 +4673,65 @@
             "name": "exact",
             "value": {
               "color": {
-                "name": "custom",
-                "raw": "MantineColors",
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"dark\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"gray\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"red\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"pink\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"grape\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"violet\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"indigo\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"blue\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"cyan\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"teal\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"green\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"lime\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"yellow\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"orange\"",
+                    "computed": false
+                  }
+                ],
                 "required": false
               },
               "label": {
@@ -2890,6 +4743,13 @@
         },
         "required": false,
         "description": "Highlight line at given line number with color from theme.colors"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "language": {
         "type": {
@@ -3035,19 +4895,19 @@
         "required": false,
         "description": "True to remove copy to clipboard button"
       },
-      "withLineNumbers": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Display line numbers"
-      },
       "style": {
         "type": {
           "name": "object"
         },
         "required": false,
         "description": "Inline style override"
+      },
+      "withLineNumbers": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Display line numbers"
       }
     }
   },
@@ -3056,13 +4916,6 @@
     "displayName": "Progress",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -3072,27 +4925,112 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Progress color from theme"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined progress radius from theme.radius or number for height in px"
-      },
-      "size": {
-        "type": {
-          "name": "custom",
-          "raw": "Sizes"
-        },
-        "required": false,
-        "description": "Predefined progress height or number for height in px"
       },
       "sections": {
         "type": {
@@ -3105,8 +5043,65 @@
                 "required": false
               },
               "color": {
-                "name": "custom",
-                "raw": "MantineColors",
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"dark\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"gray\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"red\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"pink\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"grape\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"violet\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"indigo\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"blue\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"cyan\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"teal\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"green\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"lime\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"yellow\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"orange\"",
+                    "computed": false
+                  }
+                ],
                 "required": false
               }
             }
@@ -3114,6 +5109,35 @@
         },
         "required": false,
         "description": "Replaces value if present, renders multiple sections instead of single one"
+      },
+      "size": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Predefined progress height or number for height in px"
       },
       "striped": {
         "type": {
@@ -3136,28 +5160,6 @@
     "displayName": "RadioGroup",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "data": {
-        "type": {
-          "name": "custom",
-          "raw": "SimpleOptionsType"
-        },
-        "required": false,
-        "description": "RadioGroup options"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -3167,11 +5169,90 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Active radio color from theme.colors"
+      },
+      "data": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "Option's value",
+                "required": true
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "RadioGroup options"
       },
       "description": {
         "type": {
@@ -3187,6 +5268,13 @@
         "required": false,
         "description": "Displays error message after input"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -3201,18 +5289,67 @@
         "required": false,
         "description": "Adds red asterisk on the right side of label"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined label fontSize, radio width, height and border-radius"
       },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Spacing between radios in horizontal variant"
@@ -3250,25 +5387,11 @@
       }
     }
   },
-  "src/lib/components/RangeSlider.react.js": {
-    "description": "Capture user feedback from a range of values",
-    "displayName": "RangeSlider",
+  "src/lib/components/SegmentedControl.react.js": {
+    "description": "Horizontal control made of multiple segments, alternative to RadioGroup. For more information, see: https://mantine.dev/core/segmented-control/",
+    "displayName": "SegmentedControl",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -3281,74 +5404,67 @@
           "name": "enum",
           "value": [
             {
-              "value": "'dark'",
+              "value": "\"dark\"",
               "computed": false
             },
             {
-              "value": "'gray'",
+              "value": "\"gray\"",
               "computed": false
             },
             {
-              "value": "'red'",
+              "value": "\"red\"",
               "computed": false
             },
             {
-              "value": "'pink'",
+              "value": "\"pink\"",
               "computed": false
             },
             {
-              "value": "'grape'",
+              "value": "\"grape\"",
               "computed": false
             },
             {
-              "value": "'violet'",
+              "value": "\"violet\"",
               "computed": false
             },
             {
-              "value": "'indigo'",
+              "value": "\"indigo\"",
               "computed": false
             },
             {
-              "value": "'blue'",
+              "value": "\"blue\"",
               "computed": false
             },
             {
-              "value": "'cyan'",
+              "value": "\"cyan\"",
               "computed": false
             },
             {
-              "value": "'teal'",
+              "value": "\"teal\"",
               "computed": false
             },
             {
-              "value": "'green'",
+              "value": "\"green\"",
               "computed": false
             },
             {
-              "value": "'lime'",
+              "value": "\"lime\"",
               "computed": false
             },
             {
-              "value": "'yellow'",
+              "value": "\"yellow\"",
               "computed": false
             },
             {
-              "value": "'orange'",
+              "value": "\"orange\"",
               "computed": false
             }
           ]
         },
         "required": false,
-        "description": "Slider color"
+        "description": "Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark"
       },
-      "labelAlwaysOn": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If true label will be not be hidden when user stops dragging"
-      },
-      "marks": {
+      "data": {
         "type": {
           "name": "arrayOf",
           "value": {
@@ -3356,40 +5472,33 @@
             "value": {
               "label": {
                 "name": "string",
-                "description": "mark's label",
+                "description": "The option's label",
                 "required": true
               },
               "value": {
-                "name": "number",
-                "description": "mark's value",
+                "name": "string",
+                "description": "Option's value",
                 "required": true
               }
             }
           }
         },
-        "required": false,
-        "description": "Marks which will be placed on the track"
+        "required": true,
+        "description": "Data based on which controls are rendered"
       },
-      "max": {
+      "fullWidth": {
         "type": {
-          "name": "number"
+          "name": "bool"
         },
         "required": false,
-        "description": "Maximum possible value"
+        "description": "True if component should have 100% width"
       },
-      "min": {
+      "id": {
         "type": {
-          "name": "number"
+          "name": "string"
         },
         "required": false,
-        "description": "Minimal possible value"
-      },
-      "minRange": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Minimal range interval"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "radius": {
         "type": {
@@ -3399,23 +5508,23 @@
               "name": "enum",
               "value": [
                 {
-                  "value": "'xs'",
+                  "value": "\"xs\"",
                   "computed": false
                 },
                 {
-                  "value": "'sm'",
+                  "value": "\"sm\"",
                   "computed": false
                 },
                 {
-                  "value": "'md'",
+                  "value": "\"md\"",
                   "computed": false
                 },
                 {
-                  "value": "'lg'",
+                  "value": "\"lg\"",
                   "computed": false
                 },
                 {
-                  "value": "'xl'",
+                  "value": "\"xl\"",
                   "computed": false
                 }
               ]
@@ -3426,74 +5535,7 @@
           ]
         },
         "required": false,
-        "description": "Track border-radius from theme or number to set border-radius in px"
-      },
-      "size": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'xs'",
-              "computed": false
-            },
-            {
-              "value": "'sm'",
-              "computed": false
-            },
-            {
-              "value": "'md'",
-              "computed": false
-            },
-            {
-              "value": "'lg'",
-              "computed": false
-            },
-            {
-              "value": "'xl'",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": "Predefined track and thumb size, number to set sizes in px"
-      },
-      "step": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Number by which value will be incremented/decremented with thumb drag and arrows"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
-      },
-      "value": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "number"
-          }
-        },
-        "required": false,
-        "description": "Current value for controlled slider"
-      }
-    }
-  },
-  "src/lib/components/SegmentedControl.react.js": {
-    "description": "Horizontal control made of multiple segments, alternative to RadioGroup. For more information, see: https://mantine.dev/core/segmented-control/",
-    "displayName": "SegmentedControl",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Border-radius from theme or number to set border-radius in px"
       },
       "setProps": {
         "type": {
@@ -3502,48 +5544,31 @@
         "required": false,
         "description": "Tells dash if any prop has changed its value"
       },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
-      "color": {
-        "type": {
-          "name": "custom",
-          "raw": "MantineColors"
-        },
-        "required": false,
-        "description": "Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark"
-      },
-      "data": {
-        "type": {
-          "name": "custom",
-          "raw": "SimpleOptionsType.isRequired"
-        },
-        "required": false,
-        "description": "Data based on which controls are rendered"
-      },
-      "fullWidth": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "True if component should have 100% width"
-      },
-      "radius": {
-        "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
-        },
-        "required": false,
-        "description": "Border-radius from theme or number to set border-radius in px"
-      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Controls font-size, paddings and height"
@@ -3569,20 +5594,6 @@
     "displayName": "Select",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -3599,8 +5610,27 @@
       },
       "data": {
         "type": {
-          "name": "custom",
-          "raw": "OptionsType"
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "Option's value",
+                "required": true
+              },
+              "disabled": {
+                "name": "bool",
+                "description": "If true, this option is disabled and cannot be selected",
+                "required": false
+              }
+            }
+          }
         },
         "required": false,
         "description": "Select options used to renderer items in dropdown",
@@ -3623,12 +5653,40 @@
         "required": false,
         "description": "The component can show it is currently unable to be interacted with"
       },
+      "dropdownPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"bottom\"",
+              "computed": false
+            },
+            {
+              "value": "\"top\"",
+              "computed": false
+            },
+            {
+              "value": "\"flip\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Dropdown positioning behavior"
+      },
       "error": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Displays error message after input"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "initiallyOpened": {
         "type": {
@@ -3689,8 +5747,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -3713,10 +5800,38 @@
           "computed": false
         }
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -3735,6 +5850,13 @@
         "required": false,
         "description": "Selected value"
       },
+      "withinPortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the dropdown in a Portal"
+      },
       "zIndex": {
         "type": {
           "name": "number"
@@ -3749,12 +5871,56 @@
     "displayName": "SimpleGrid",
     "methods": [],
     "props": {
-      "id": {
+      "breakpoints": {
         "type": {
-          "name": "string"
+          "name": "exact",
+          "value": {
+            "maxWidth": {
+              "name": "number",
+              "required": true
+            },
+            "cols": {
+              "name": "number",
+              "required": true
+            },
+            "spacing": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "enum",
+                  "value": [
+                    {
+                      "value": "\"xs\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"sm\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"md\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"lg\"",
+                      "computed": false
+                    },
+                    {
+                      "value": "\"xl\"",
+                      "computed": false
+                    }
+                  ]
+                },
+                {
+                  "name": "number"
+                }
+              ],
+              "required": false
+            }
+          }
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Breakpoints data to change items per row and spacing based on max-width"
       },
       "children": {
         "type": {
@@ -3770,28 +5936,6 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "breakpoints": {
-        "type": {
-          "name": "exact",
-          "value": {
-            "maxWidth": {
-              "name": "number",
-              "required": true
-            },
-            "cols": {
-              "name": "number",
-              "required": true
-            },
-            "spacing": {
-              "name": "custom",
-              "raw": "NumberSizes",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Breakpoints data to change items per row and spacing based on max-width"
-      },
       "cols": {
         "type": {
           "name": "number"
@@ -3799,13 +5943,56 @@
         "required": true,
         "description": "Default amount of columns, used when none of breakpoints can be applied"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "spacing": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Default spacing between columns, used when none of breakpoints can be applied"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },
@@ -3814,13 +6001,6 @@
     "displayName": "Skeleton",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -3837,19 +6017,93 @@
       },
       "height": {
         "type": {
-          "name": "custom",
-          "raw": "NumberString"
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Skeleton height"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Radius from theme.radius or number to set border-radius in px"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "visible": {
         "type": {
@@ -3860,8 +6114,15 @@
       },
       "width": {
         "type": {
-          "name": "custom",
-          "raw": "NumberString"
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Skeleton width"
@@ -3873,20 +6134,6 @@
     "displayName": "Slider",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -3896,11 +6143,82 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Slider color"
+      },
+      "drag_value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Current drag value for controlled slider"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "labelAlwaysOn": {
         "type": {
@@ -3947,11 +6265,47 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Track border-radius from theme or number to set border-radius in px"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "showLabelOnHover": {
         "type": {
@@ -3962,8 +6316,29 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined track and thumb size, number to set sizes in px"
@@ -3988,13 +6363,6 @@
         },
         "required": false,
         "description": "Current value for controlled slider"
-      },
-      "drag_value": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Current drag value for controlled slider"
       }
     }
   },
@@ -4003,13 +6371,6 @@
     "displayName": "Space",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -4026,11 +6387,47 @@
       },
       "h": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Height, set to add vertical spacing"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "style": {
         "type": {
@@ -4041,8 +6438,37 @@
       },
       "w": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Width, set to add horizontal spacing"
@@ -4054,13 +6480,6 @@
     "displayName": "Spoiler",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "string"
@@ -4079,6 +6498,13 @@
           "computed": false
         }
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "initialState": {
         "type": {
           "name": "bool"
@@ -4093,6 +6519,30 @@
         "required": false,
         "description": "Max height of visible content, when this point is reached spoiler appears"
       },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
       "showLabel": {
         "type": {
           "name": "string"
@@ -4103,6 +6553,13 @@
           "value": "\"Show more\"",
           "computed": false
         }
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },
@@ -4111,20 +6568,6 @@
     "displayName": "Switch",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -4134,8 +6577,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Checkbox color"
@@ -4147,6 +6647,13 @@
         "required": false,
         "description": "A checkbox can show it is currently unable to be interacted with"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -4156,16 +6663,73 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined label font-size and checkbox width and height in px"
@@ -4195,13 +6759,6 @@
     "displayName": "Tab",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -4223,6 +6780,13 @@
         "required": false,
         "description": "A tab can show it is currently unable to be interacted with"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -4237,13 +6801,6 @@
     "displayName": "Table",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "caption": {
         "type": {
           "name": "string"
@@ -4293,6 +6850,20 @@
           "computed": false
         }
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "highlightOnHover": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true row will have hover color"
+      },
       "rows": {
         "type": {
           "name": "arrayOf",
@@ -4306,13 +6877,6 @@
           "value": "[]",
           "computed": false
         }
-      },
-      "highlightOnHover": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If true row will have hover color"
       },
       "striped": {
         "type": {
@@ -4335,19 +6899,12 @@
     "displayName": "Tabs",
     "methods": [],
     "props": {
-      "id": {
+      "active": {
         "type": {
-          "name": "string"
+          "name": "number"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
+        "description": "Index of active tab, overrides internal state"
       },
       "children": {
         "type": {
@@ -4365,8 +6922,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Active tab color from theme.colors"
@@ -4378,29 +6992,97 @@
         "required": false,
         "description": "True if tabs should take all available space"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "orientation": {
         "type": {
-          "name": "custom",
-          "raw": "Orientations"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"horizontal\"",
+              "computed": false
+            },
+            {
+              "value": "\"vertical\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Controls tab orientation"
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Tab controls position"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "tabPadding": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Controls tab content padding-top"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "variant": {
         "type": {
@@ -4422,13 +7104,6 @@
         },
         "required": false,
         "description": "Controls appearance"
-      },
-      "active": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Index of active tab, overrides internal state"
       }
     }
   },
@@ -4437,12 +7112,26 @@
     "displayName": "Text",
     "methods": [],
     "props": {
-      "id": {
+      "align": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Sets text-align css property"
       },
       "children": {
         "type": {
@@ -4458,21 +7147,70 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "align": {
-        "type": {
-          "name": "custom",
-          "raw": "TextAlignProperty"
-        },
-        "required": false,
-        "description": "Sets text-align css property"
-      },
       "color": {
         "type": {
           "name": "union",
           "value": [
             {
-              "name": "custom",
-              "raw": "MantineColors"
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"dark\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"gray\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"red\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"pink\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"grape\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"violet\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"indigo\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"blue\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"cyan\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"teal\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"green\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lime\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"yellow\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"orange\"",
+                  "computed": false
+                }
+              ]
             },
             {
               "name": "enum",
@@ -4490,11 +7228,31 @@
       },
       "gradient": {
         "type": {
-          "name": "custom",
-          "raw": "GradientType"
+          "name": "exact",
+          "value": {
+            "from": {
+              "name": "string",
+              "required": true
+            },
+            "to": {
+              "name": "string",
+              "required": true
+            },
+            "deg": {
+              "name": "number",
+              "required": false
+            }
+          }
         },
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "inherit": {
         "type": {
@@ -4519,32 +7277,112 @@
       },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Predefined font-size from theme.fontSizes"
       },
       "transform": {
         "type": {
-          "name": "custom",
-          "raw": "TransformTypes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"capitalize\"",
+              "computed": false
+            },
+            {
+              "value": "\"uppercase\"",
+              "computed": false
+            },
+            {
+              "value": "\"lowercase\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Sets text-transform css property"
       },
       "variant": {
         "type": {
-          "name": "custom",
-          "raw": "TextVariants"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"link\"",
+              "computed": false
+            },
+            {
+              "value": "\"gradient\"",
+              "computed": false
+            },
+            {
+              "value": "\"text\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Link or text variant"
       },
       "weight": {
         "type": {
-          "name": "custom",
-          "raw": "FontWeights"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"normal\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bold\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"bolder\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lighter\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"initial\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"inherit\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Sets font-weight css property"
@@ -4563,20 +7401,6 @@
     "displayName": "TextInput",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -4605,6 +7429,13 @@
         "required": false,
         "description": "Displays error message after input"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -4628,8 +7459,37 @@
       },
       "radius": {
         "type": {
-          "name": "custom",
-          "raw": "NumberSizes"
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
         },
         "required": false,
         "description": "Input border-radius from theme or number to set border-radius in px"
@@ -4641,10 +7501,38 @@
         "required": false,
         "description": "Adds red asterisk on the right side of label"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
-          "name": "custom",
-          "raw": "Sizes"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Input size"
@@ -4687,6 +7575,31 @@
           "value": "\"\"",
           "computed": false
         }
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
       }
     }
   },
@@ -4695,27 +7608,6 @@
     "displayName": "Title",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Primary content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "align": {
         "type": {
           "name": "enum",
@@ -4736,6 +7628,27 @@
         },
         "required": false,
         "description": "Sets text-align css property"
+      },
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "order": {
         "type": {
@@ -4758,13 +7671,6 @@
     "displayName": "Tooltip",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "arrowSize": {
         "type": {
           "name": "number"
@@ -4788,8 +7694,65 @@
       },
       "color": {
         "type": {
-          "name": "custom",
-          "raw": "MantineColors"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"dark\"",
+              "computed": false
+            },
+            {
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme"
@@ -4814,6 +7777,13 @@
         },
         "required": false,
         "description": "Spacing between element and popper in px"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "label": {
         "type": {
@@ -4845,11 +7815,35 @@
       },
       "position": {
         "type": {
-          "name": "custom",
-          "raw": "Positions"
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"center\"",
+              "computed": false
+            },
+            {
+              "value": "\"left\"",
+              "computed": false
+            },
+            {
+              "value": "\"apart\"",
+              "computed": false
+            }
+          ]
         },
         "required": false,
         "description": "Position relative to reference element"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "width": {
         "type": {
@@ -4879,19 +7873,19 @@
         "required": false,
         "description": "Renders arrow if true"
       },
+      "withinPortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the target element in a Portal"
+      },
       "wrapLines": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Allow multiline tooltip content"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       },
       "zIndex": {
         "type": {

@@ -49,13 +49,13 @@ Keyword arguments:
     Sets overlay opacity, defaults to 0.75 in light theme and to 0.85
     in dark theme.
 
-- padding (optional):
+- padding (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Drawer body padding from theme or number for padding in px.
 
-- position (optional):
+- position (a value equal to: "right", "center", "left", "apart"; optional):
     Drawer body position.
 
-- size (string | number; optional):
+- size (a value equal to: "right", "center", "left", "apart" | string | number; optional):
     Drawer body width (right | left position) or height (top | bottom
     position), cannot exceed 100vh for height and 100% for width.
 
@@ -65,7 +65,7 @@ Keyword arguments:
 - zIndex (number; optional):
     Popper zIndex."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, overlayColor=Component.UNDEFINED, overlayOpacity=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, id=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, overlayColor=Component.UNDEFINED, overlayOpacity=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex']
         self._type = 'Drawer'
         self._namespace = 'dash_mantine_components'

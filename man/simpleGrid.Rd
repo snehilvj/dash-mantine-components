@@ -11,7 +11,7 @@ Responsive grid where each item takes equal amount of space. For more informatio
 
 \usage{
 simpleGrid(children=NULL, id=NULL, breakpoints=NULL, className=NULL,
-cols=NULL, spacing=NULL)
+cols=NULL, spacing=NULL, style=NULL)
 }
 
 \arguments{
@@ -23,13 +23,15 @@ cols=NULL, spacing=NULL)
 those elements have the following types:
   - maxwidth (numeric; required)
   - cols (numeric; required)
-  - spacing (optional). Breakpoints data to change items per row and spacing based on max-width}
+  - spacing (a value equal to: "xs", "sm", "md", "lg", "xl" | numeric; optional). Breakpoints data to change items per row and spacing based on max-width}
 
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{cols}{Numeric. Default amount of columns, used when none of breakpoints can be applied}
 
-\item{spacing}{Default spacing between columns, used when none of breakpoints can be applied}
+\item{spacing}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Default spacing between columns, used when none of breakpoints can be applied}
+
+\item{style}{Named list. Inline style override}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

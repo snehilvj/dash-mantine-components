@@ -9,24 +9,32 @@ Display links with theme styles. For more information, see: https://mantine.dev/
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional):
+- children (string; optional):
     Primary content.
 
 - id (string; optional):
     The ID of this component, used to identify dash components in
     callbacks.
 
-- align (optional):
+- align (a value equal to: "left", "right", "center"; optional):
     Sets text-align css property.
 
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Text color from theme.
 
-- gradient (optional):
+- gradient (dict; optional):
     Controls gradient settings in gradient variant only.
+
+    `gradient` is a dict with keys:
+
+    - deg (number; optional)
+
+    - from (string; required)
+
+    - to (string; required)
 
 - href (string; optional):
     href.
@@ -40,7 +48,7 @@ Keyword arguments:
 - lineClamp (number; optional):
     CSS -webkit-line-clamp property.
 
-- size (optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined font-size from theme.fontSizes.
 
 - style (dict; optional):
@@ -49,16 +57,16 @@ Keyword arguments:
 - target (a value equal to: "_blank", "_self"; optional):
     Target.
 
-- transform (optional):
+- transform (a value equal to: "capitalize", "uppercase", "lowercase"; optional):
     Sets text-transform css property.
 
-- variant (optional):
+- variant (a value equal to: "link", "gradient", "text"; optional):
     Link or text variant.
 
-- weight (optional):
+- weight (a value equal to: "normal", "bold", "bolder", "lighter", "initial", "inherit" | number; optional):
     Sets font-weight css property."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, color=Component.UNDEFINED, gradient=Component.UNDEFINED, href=Component.UNDEFINED, inherit=Component.UNDEFINED, inline=Component.UNDEFINED, lineClamp=Component.UNDEFINED, size=Component.UNDEFINED, target=Component.UNDEFINED, transform=Component.UNDEFINED, variant=Component.UNDEFINED, weight=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, align=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, gradient=Component.UNDEFINED, href=Component.UNDEFINED, id=Component.UNDEFINED, inherit=Component.UNDEFINED, inline=Component.UNDEFINED, lineClamp=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, target=Component.UNDEFINED, transform=Component.UNDEFINED, variant=Component.UNDEFINED, weight=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'align', 'className', 'color', 'gradient', 'href', 'inherit', 'inline', 'lineClamp', 'size', 'style', 'target', 'transform', 'variant', 'weight']
         self._type = 'Anchor'
         self._namespace = 'dash_mantine_components'
