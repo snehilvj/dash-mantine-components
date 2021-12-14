@@ -11,7 +11,7 @@ Utility component to pass to Tabs. For more information, see: https://mantine.de
 
 \usage{
 tab(children=NULL, id=NULL, className=NULL, disabled=NULL,
-label=NULL, loading_state=NULL)
+label=NULL)
 }
 
 \arguments{
@@ -24,12 +24,6 @@ label=NULL, loading_state=NULL)
 \item{disabled}{Logical. A tab can show it is currently unable to be interacted with}
 
 \item{label}{Character. Tab control label}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

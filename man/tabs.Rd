@@ -11,8 +11,8 @@ Switch between different views. For more information, see: https://mantine.dev/c
 
 \usage{
 tabs(children=NULL, id=NULL, active=NULL, className=NULL,
-color=NULL, grow=NULL, loading_state=NULL, orientation=NULL,
-position=NULL, tabPadding=NULL, variant=NULL)
+color=NULL, grow=NULL, orientation=NULL, position=NULL,
+style=NULL, tabPadding=NULL, variant=NULL)
 }
 
 \arguments{
@@ -28,15 +28,11 @@ position=NULL, tabPadding=NULL, variant=NULL)
 
 \item{grow}{Logical. True if tabs should take all available space}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
-
 \item{orientation}{A value equal to: "horizontal", "vertical". Controls tab orientation}
 
 \item{position}{A value equal to: "right", "center", "left", "apart". Tab controls position}
+
+\item{style}{Named list. Inline style override}
 
 \item{tabPadding}{A value equal to: "xs", "sm", "md", "lg", "xl". Controls tab content padding-top}
 

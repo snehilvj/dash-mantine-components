@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-title <- function(children=NULL, id=NULL, align=NULL, className=NULL, loading_state=NULL, order=NULL, style=NULL) {
+title <- function(children=NULL, id=NULL, align=NULL, className=NULL, order=NULL, style=NULL) {
     
-    props <- list(children=children, id=id, align=align, className=className, loading_state=loading_state, order=order, style=style)
+    props <- list(children=children, id=id, align=align, className=className, order=order, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ title <- function(children=NULL, id=NULL, align=NULL, className=NULL, loading_st
         props = props,
         type = 'Title',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'align', 'className', 'loading_state', 'order', 'style'),
+        propNames = c('children', 'id', 'align', 'className', 'order', 'style'),
         package = 'dashMantineComponents'
         )
 

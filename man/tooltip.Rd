@@ -12,8 +12,8 @@ Renders tooltip at given element on mouse over or any other event. For more info
 \usage{
 tooltip(children=NULL, id=NULL, arrowSize=NULL, className=NULL,
 color=NULL, delay=NULL, disabled=NULL, gutter=NULL,
-label=NULL, loading_state=NULL, placement=NULL,
-position=NULL, style=NULL, width=NULL, withArrow=NULL,
+label=NULL, placement=NULL, position=NULL, style=NULL,
+width=NULL, withArrow=NULL, withinPortal=NULL,
 wrapLines=NULL, zIndex=NULL)
 }
 
@@ -36,12 +36,6 @@ wrapLines=NULL, zIndex=NULL)
 
 \item{label}{Character. Tooltip content}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
-
 \item{placement}{A value equal to: "center", "end", "start". Placement relative to reference element}
 
 \item{position}{A value equal to: "right", "center", "left", "apart". Position relative to reference element}
@@ -51,6 +45,8 @@ those elements have the following types:
 \item{width}{Numeric | a value equal to: "auto". Tooltip width in px or auto}
 
 \item{withArrow}{Logical. Renders arrow if true}
+
+\item{withinPortal}{Logical. Whether to render the target element in a Portal}
 
 \item{wrapLines}{Logical. Allow multiline tooltip content}
 

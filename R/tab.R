@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-tab <- function(children=NULL, id=NULL, className=NULL, disabled=NULL, label=NULL, loading_state=NULL) {
+tab <- function(children=NULL, id=NULL, className=NULL, disabled=NULL, label=NULL) {
     
-    props <- list(children=children, id=id, className=className, disabled=disabled, label=label, loading_state=loading_state)
+    props <- list(children=children, id=id, className=className, disabled=disabled, label=label)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ tab <- function(children=NULL, id=NULL, className=NULL, disabled=NULL, label=NUL
         props = props,
         type = 'Tab',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'className', 'disabled', 'label', 'loading_state'),
+        propNames = c('children', 'id', 'className', 'disabled', 'label'),
         package = 'dashMantineComponents'
         )
 

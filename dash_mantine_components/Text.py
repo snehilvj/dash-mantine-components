@@ -45,21 +45,6 @@ Keyword arguments:
 - lineClamp (number; optional):
     CSS -webkit-line-clamp property.
 
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
 - size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Predefined font-size from theme.fontSizes.
 
@@ -75,12 +60,12 @@ Keyword arguments:
 - weight (a value equal to: "normal", "bold", "bolder", "lighter", "initial", "inherit" | number; optional):
     Sets font-weight css property."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, color=Component.UNDEFINED, gradient=Component.UNDEFINED, inherit=Component.UNDEFINED, inline=Component.UNDEFINED, lineClamp=Component.UNDEFINED, loading_state=Component.UNDEFINED, size=Component.UNDEFINED, transform=Component.UNDEFINED, variant=Component.UNDEFINED, weight=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'align', 'className', 'color', 'gradient', 'inherit', 'inline', 'lineClamp', 'loading_state', 'size', 'style', 'transform', 'variant', 'weight']
+    def __init__(self, children=None, align=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, gradient=Component.UNDEFINED, id=Component.UNDEFINED, inherit=Component.UNDEFINED, inline=Component.UNDEFINED, lineClamp=Component.UNDEFINED, size=Component.UNDEFINED, transform=Component.UNDEFINED, variant=Component.UNDEFINED, weight=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'align', 'className', 'color', 'gradient', 'inherit', 'inline', 'lineClamp', 'size', 'style', 'transform', 'variant', 'weight']
         self._type = 'Text'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'align', 'className', 'color', 'gradient', 'inherit', 'inline', 'lineClamp', 'loading_state', 'size', 'style', 'transform', 'variant', 'weight']
+        self.available_properties = ['children', 'id', 'align', 'className', 'color', 'gradient', 'inherit', 'inline', 'lineClamp', 'size', 'style', 'transform', 'variant', 'weight']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

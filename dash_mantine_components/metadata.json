@@ -6568,20 +6568,6 @@
     "displayName": "Switch",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -6661,36 +6647,19 @@
         "required": false,
         "description": "A checkbox can show it is currently unable to be interacted with"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Checkbox label"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "radius": {
         "type": {
@@ -6728,6 +6697,13 @@
         },
         "required": false,
         "description": "Predefined border-radius value from theme.radius or number for border-radius in px"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
@@ -6783,13 +6759,6 @@
     "displayName": "Tab",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -6811,36 +6780,19 @@
         "required": false,
         "description": "A tab can show it is currently unable to be interacted with"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Tab control label"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       }
     }
   },
@@ -6849,13 +6801,6 @@
     "displayName": "Table",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "caption": {
         "type": {
           "name": "string"
@@ -6905,6 +6850,20 @@
           "computed": false
         }
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "highlightOnHover": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true row will have hover color"
+      },
       "rows": {
         "type": {
           "name": "arrayOf",
@@ -6918,37 +6877,6 @@
           "value": "[]",
           "computed": false
         }
-      },
-      "highlightOnHover": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If true row will have hover color"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "striped": {
         "type": {
@@ -6971,19 +6899,12 @@
     "displayName": "Tabs",
     "methods": [],
     "props": {
-      "id": {
+      "active": {
         "type": {
-          "name": "string"
+          "name": "number"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
+        "description": "Index of active tab, overrides internal state"
       },
       "children": {
         "type": {
@@ -7071,29 +6992,12 @@
         "required": false,
         "description": "True if tabs should take all available space"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "orientation": {
         "type": {
@@ -7137,6 +7041,13 @@
         "required": false,
         "description": "Tab controls position"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "tabPadding": {
         "type": {
           "name": "enum",
@@ -7166,6 +7077,13 @@
         "required": false,
         "description": "Controls tab content padding-top"
       },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
       "variant": {
         "type": {
           "name": "enum",
@@ -7186,13 +7104,6 @@
         },
         "required": false,
         "description": "Controls appearance"
-      },
-      "active": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Index of active tab, overrides internal state"
       }
     }
   },
@@ -7201,27 +7112,6 @@
     "displayName": "Text",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Primary content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "align": {
         "type": {
           "name": "enum",
@@ -7242,6 +7132,20 @@
         },
         "required": false,
         "description": "Sets text-align css property"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Primary content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "color": {
         "type": {
@@ -7343,6 +7247,13 @@
         "required": false,
         "description": "Controls gradient settings in gradient variant only"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "inherit": {
         "type": {
           "name": "bool"
@@ -7363,30 +7274,6 @@
         },
         "required": false,
         "description": "CSS -webkit-line-clamp property"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "size": {
         "type": {
@@ -7514,20 +7401,6 @@
     "displayName": "TextInput",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -7556,36 +7429,19 @@
         "required": false,
         "description": "Displays error message after input"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Input label, displayed before input"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "multiline": {
         "type": {
@@ -7644,6 +7500,13 @@
         },
         "required": false,
         "description": "Adds red asterisk on the right side of label"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
@@ -7712,6 +7575,31 @@
           "value": "\"\"",
           "computed": false
         }
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"default\"",
+              "computed": false
+            },
+            {
+              "value": "\"filled\"",
+              "computed": false
+            },
+            {
+              "value": "\"unstyled\"",
+              "computed": false
+            },
+            {
+              "value": "\"headless\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
       }
     }
   },
@@ -7720,27 +7608,6 @@
     "displayName": "Title",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Primary content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "align": {
         "type": {
           "name": "enum",
@@ -7762,29 +7629,26 @@
         "required": false,
         "description": "Sets text-align css property"
       },
-      "loading_state": {
+      "children": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "Primary content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "order": {
         "type": {
@@ -7807,13 +7671,6 @@
     "displayName": "Tooltip",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "arrowSize": {
         "type": {
           "name": "number"
@@ -7921,36 +7778,19 @@
         "required": false,
         "description": "Spacing between element and popper in px"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
         },
         "required": true,
         "description": "Tooltip content"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "placement": {
         "type": {
@@ -7998,6 +7838,13 @@
         "required": false,
         "description": "Position relative to reference element"
       },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
       "width": {
         "type": {
           "name": "union",
@@ -8026,19 +7873,19 @@
         "required": false,
         "description": "Renders arrow if true"
       },
+      "withinPortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the target element in a Portal"
+      },
       "wrapLines": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Allow multiline tooltip content"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       },
       "zIndex": {
         "type": {

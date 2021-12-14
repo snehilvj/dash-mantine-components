@@ -18,12 +18,7 @@ const Tabs = (props) => {
             {children.map((child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
-                    <Tab
-                        label={childProps.label}
-                        disabled={childProps.disabled}
-                        key={index}
-                        className={childProps.className}
-                    >
+                    <Tab {...omit(["children"], childProps)} key={index}>
                         {child}
                     </Tab>
                 );
@@ -38,14 +33,9 @@ Tabs.defaultProps = {};
 
 Tabs.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Index of active tab, overrides internal state
      */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
+    active: PropTypes.number,
 
     /**
      * <Tab /> components only
@@ -83,22 +73,9 @@ Tabs.propTypes = {
     grow: PropTypes.bool,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Controls tab orientation
@@ -111,19 +88,24 @@ Tabs.propTypes = {
     position: PropTypes.oneOf(["right", "center", "left", "apart"]),
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
      * Controls tab content padding-top
      */
     tabPadding: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
      * Controls appearance
      */
     variant: PropTypes.oneOf(["default", "outline", "pills"]),
-
-    /**
-     * Index of active tab, overrides internal state
-     */
-    active: PropTypes.number,
 };
 
 export default Tabs;

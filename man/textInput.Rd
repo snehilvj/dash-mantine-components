@@ -11,9 +11,9 @@ Custom input with label and description. For more information, see: https://mant
 
 \usage{
 textInput(id=NULL, className=NULL, description=NULL, disabled=NULL,
-error=NULL, label=NULL, loading_state=NULL, multiline=NULL,
-placeholder=NULL, radius=NULL, required=NULL, size=NULL,
-style=NULL, type=NULL, value=NULL)
+error=NULL, label=NULL, multiline=NULL, placeholder=NULL,
+radius=NULL, required=NULL, size=NULL, style=NULL,
+type=NULL, value=NULL, variant=NULL)
 }
 
 \arguments{
@@ -28,12 +28,6 @@ style=NULL, type=NULL, value=NULL)
 \item{error}{Character. Displays error message after input}
 
 \item{label}{Character. Input label, displayed before input}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{multiline}{Logical. Will input have multiple lines?}
 
@@ -50,6 +44,8 @@ those elements have the following types:
 \item{type}{A value equal to: "number", "text", "password". The type of control to render.}
 
 \item{value}{A list of or a singular dash component, string or number. Input value}
+
+\item{variant}{A value equal to: "default", "filled", "unstyled", "headless". Defines input appearance, defaults to default in light color scheme and filled in dark}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

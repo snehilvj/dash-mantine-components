@@ -20,11 +20,6 @@ Tooltip.defaultProps = {};
 
 Tooltip.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
      * Arrow size in px
      */
     arrowSize: PropTypes.number,
@@ -75,27 +70,14 @@ Tooltip.propTypes = {
     gutter: PropTypes.number,
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Tooltip content
      */
     label: PropTypes.string.isRequired,
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
 
     /**
      * Placement relative to reference element
@@ -108,6 +90,11 @@ Tooltip.propTypes = {
     position: PropTypes.oneOf(["right", "center", "left", "apart"]),
 
     /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
      * Tooltip width in px or auto
      */
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(["auto"])]),
@@ -118,14 +105,14 @@ Tooltip.propTypes = {
     withArrow: PropTypes.bool,
 
     /**
+     * Whether to render the target element in a Portal
+     */
+    withinPortal: PropTypes.bool,
+
+    /**
      * Allow multiline tooltip content
      */
     wrapLines: PropTypes.bool,
-
-    /**
-     * Inline style override
-     */
-    style: PropTypes.object,
 
     /**
      * Popper z-index

@@ -29,16 +29,6 @@ TextInput.defaultProps = {
 
 TextInput.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
@@ -59,27 +49,14 @@ TextInput.propTypes = {
     error: PropTypes.string,
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Input label, displayed before input
      */
     label: PropTypes.string,
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
 
     /**
      * Will input have multiple lines?
@@ -105,6 +82,11 @@ TextInput.propTypes = {
     required: PropTypes.bool,
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
      * Input size
      */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
@@ -123,6 +105,11 @@ TextInput.propTypes = {
      * Input value
      */
     value: PropTypes.node,
+
+    /**
+     * Defines input appearance, defaults to default in light color scheme and filled in dark
+     */
+    variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
 };
 
 export default TextInput;

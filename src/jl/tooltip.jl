@@ -20,21 +20,17 @@ Keyword arguments:
 - `disabled` (Bool; optional): True to disable tooltip
 - `gutter` (Real; optional): Spacing between element and popper in px
 - `label` (String; required): Tooltip content
-- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
-Those elements have the following types:
-  - `is_loading` (Bool; optional): Determines if the component is loading or not
-  - `prop_name` (String; optional): Holds which property is loading
-  - `component_name` (String; optional): Holds the name of the component that is loading
 - `placement` (a value equal to: "center", "end", "start"; optional): Placement relative to reference element
 - `position` (a value equal to: "right", "center", "left", "apart"; optional): Position relative to reference element
 - `style` (Dict; optional): Inline style override
 - `width` (Real | a value equal to: "auto"; optional): Tooltip width in px or auto
 - `withArrow` (Bool; optional): Renders arrow if true
+- `withinPortal` (Bool; optional): Whether to render the target element in a Portal
 - `wrapLines` (Bool; optional): Allow multiline tooltip content
 - `zIndex` (Real; optional): Popper z-index
 """
 function tooltip(; kwargs...)
-        available_props = Symbol[:children, :id, :arrowSize, :className, :color, :delay, :disabled, :gutter, :label, :loading_state, :placement, :position, :style, :width, :withArrow, :wrapLines, :zIndex]
+        available_props = Symbol[:children, :id, :arrowSize, :className, :color, :delay, :disabled, :gutter, :label, :placement, :position, :style, :width, :withArrow, :withinPortal, :wrapLines, :zIndex]
         wild_props = Symbol[]
         return Component("tooltip", "Tooltip", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

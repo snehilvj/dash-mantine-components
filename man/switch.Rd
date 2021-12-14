@@ -11,8 +11,8 @@ Capture user feedback limited to small set of options. For more information, see
 
 \usage{
 switch(id=NULL, checked=NULL, className=NULL, color=NULL,
-disabled=NULL, label=NULL, loading_state=NULL, radius=NULL,
-size=NULL, style=NULL)
+disabled=NULL, label=NULL, radius=NULL, size=NULL,
+style=NULL)
 }
 
 \arguments{
@@ -27,12 +27,6 @@ size=NULL, style=NULL)
 \item{disabled}{Logical. A checkbox can show it is currently unable to be interacted with}
 
 \item{label}{Character. Checkbox label}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
 

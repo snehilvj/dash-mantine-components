@@ -12,8 +12,8 @@ Render text and links with theme styles. For more information, see: https://mant
 \usage{
 text(children=NULL, id=NULL, align=NULL, className=NULL,
 color=NULL, gradient=NULL, inherit=NULL, inline=NULL,
-lineClamp=NULL, loading_state=NULL, size=NULL, style=NULL,
-transform=NULL, variant=NULL, weight=NULL)
+lineClamp=NULL, size=NULL, style=NULL, transform=NULL,
+variant=NULL, weight=NULL)
 }
 
 \arguments{
@@ -38,12 +38,6 @@ those elements have the following types:
 \item{inline}{Logical. Sets line-height to 1 for centering}
 
 \item{lineClamp}{Numeric. CSS -webkit-line-clamp property}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined font-size from theme.fontSizes}
 

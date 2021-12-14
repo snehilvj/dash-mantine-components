@@ -24,11 +24,6 @@ Those elements have the following types:
 - `inherit` (Bool; optional): Inherit font properties from parent element
 - `inline` (Bool; optional): Sets line-height to 1 for centering
 - `lineClamp` (Real; optional): CSS -webkit-line-clamp property
-- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
-Those elements have the following types:
-  - `is_loading` (Bool; optional): Determines if the component is loading or not
-  - `prop_name` (String; optional): Holds which property is loading
-  - `component_name` (String; optional): Holds the name of the component that is loading
 - `size` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Predefined font-size from theme.fontSizes
 - `style` (Dict; optional): Inline style override
 - `transform` (a value equal to: "capitalize", "uppercase", "lowercase"; optional): Sets text-transform css property
@@ -36,7 +31,7 @@ Those elements have the following types:
 - `weight` (a value equal to: "normal", "bold", "bolder", "lighter", "initial", "inherit" | Real; optional): Sets font-weight css property
 """
 function text(; kwargs...)
-        available_props = Symbol[:children, :id, :align, :className, :color, :gradient, :inherit, :inline, :lineClamp, :loading_state, :size, :style, :transform, :variant, :weight]
+        available_props = Symbol[:children, :id, :align, :className, :color, :gradient, :inherit, :inline, :lineClamp, :size, :style, :transform, :variant, :weight]
         wild_props = Symbol[]
         return Component("text", "Text", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

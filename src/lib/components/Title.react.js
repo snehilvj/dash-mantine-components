@@ -20,9 +20,9 @@ Title.defaultProps = {};
 
 Title.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Sets text-align css property
      */
-    id: PropTypes.string,
+    align: PropTypes.oneOf(["left", "right", "center"]),
 
     /**
      * Primary content
@@ -35,27 +35,9 @@ Title.propTypes = {
     className: PropTypes.string,
 
     /**
-     * Sets text-align css property
+     * The ID of this component, used to identify dash components in callbacks
      */
-    align: PropTypes.oneOf(["left", "right", "center"]),
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Defines component and styles which will be used
