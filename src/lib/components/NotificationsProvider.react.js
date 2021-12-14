@@ -22,16 +22,6 @@ NotificationsProvider.defaultProps = {};
 
 NotificationsProvider.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Content
-     */
-    children: PropTypes.node,
-
-    /**
      * Auto close timeout for all notifications, false to disable auto close, can be overwritten for individual notifications by showNotification function
      */
     autoClose: PropTypes.oneOfType([
@@ -40,9 +30,19 @@ NotificationsProvider.propTypes = {
     ]),
 
     /**
+     * Content
+     */
+    children: PropTypes.node,
+
+    /**
      * Notification width in px, cannot exceed 100%
      */
     containerWidth: PropTypes.number,
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
     /**
      * Maximum amount of notifications displayed at a time, other new notifications will be added to queue

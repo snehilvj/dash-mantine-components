@@ -29,25 +29,10 @@ Keyword arguments:
         The option's label.
 
     - value (string; required):
-        option's value.
+        Option's value.
 
 - fullWidth (boolean; optional):
     True if component should have 100% width.
-
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
 
 - radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Border-radius from theme or number to set border-radius in px.
@@ -61,12 +46,12 @@ Keyword arguments:
 - value (string; optional):
     Current selected value."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, data=Component.REQUIRED, fullWidth=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'data', 'fullWidth', 'loading_state', 'radius', 'size', 'style', 'value']
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, data=Component.REQUIRED, fullWidth=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'data', 'fullWidth', 'radius', 'size', 'style', 'value']
         self._type = 'SegmentedControl'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'data', 'fullWidth', 'loading_state', 'radius', 'size', 'style', 'value']
+        self.available_properties = ['id', 'className', 'color', 'data', 'fullWidth', 'radius', 'size', 'style', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

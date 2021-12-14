@@ -11,9 +11,9 @@ Capture user feedback limited to small set of options. For more information, see
 
 \usage{
 radioGroup(id=NULL, className=NULL, color=NULL, data=NULL,
-description=NULL, error=NULL, label=NULL,
-loading_state=NULL, required=NULL, size=NULL, spacing=NULL,
-style=NULL, value=NULL, variant=NULL)
+description=NULL, error=NULL, label=NULL, required=NULL,
+size=NULL, spacing=NULL, style=NULL, value=NULL,
+variant=NULL)
 }
 
 \arguments{
@@ -33,12 +33,6 @@ those elements have the following types:
 \item{error}{Character. Displays error message after input}
 
 \item{label}{Character. Input label, displayed before input}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{required}{Logical. Adds red asterisk on the right side of label}
 

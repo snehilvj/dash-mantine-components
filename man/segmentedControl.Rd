@@ -11,8 +11,8 @@ Horizontal control made of multiple segments, alternative to RadioGroup. For mor
 
 \usage{
 segmentedControl(id=NULL, className=NULL, color=NULL, data=NULL,
-fullWidth=NULL, loading_state=NULL, radius=NULL, size=NULL,
-style=NULL, value=NULL)
+fullWidth=NULL, radius=NULL, size=NULL, style=NULL,
+value=NULL)
 }
 
 \arguments{
@@ -28,12 +28,6 @@ those elements have the following types:
   - value (character; required): option's values. Data based on which controls are rendered}
 
 \item{fullWidth}{Logical. True if component should have 100\% width}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Border-radius from theme or number to set border-radius in px}
 

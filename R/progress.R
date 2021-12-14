@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-progress <- function(id=NULL, className=NULL, color=NULL, loading_state=NULL, radius=NULL, sections=NULL, size=NULL, striped=NULL, value=NULL) {
+progress <- function(id=NULL, className=NULL, color=NULL, radius=NULL, sections=NULL, size=NULL, striped=NULL, value=NULL) {
     
-    props <- list(id=id, className=className, color=color, loading_state=loading_state, radius=radius, sections=sections, size=size, striped=striped, value=value)
+    props <- list(id=id, className=className, color=color, radius=radius, sections=sections, size=size, striped=striped, value=value)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ progress <- function(id=NULL, className=NULL, color=NULL, loading_state=NULL, ra
         props = props,
         type = 'Progress',
         namespace = 'dash_mantine_components',
-        propNames = c('id', 'className', 'color', 'loading_state', 'radius', 'sections', 'size', 'striped', 'value'),
+        propNames = c('id', 'className', 'color', 'radius', 'sections', 'size', 'striped', 'value'),
         package = 'dashMantineComponents'
         )
 

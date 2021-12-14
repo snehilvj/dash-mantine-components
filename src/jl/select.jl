@@ -18,15 +18,11 @@ Those elements have the following types:
   - `disabled` (Bool; optional): If true, this option is disabled and cannot be selecteds
 - `description` (String; optional): Input description, displayed after label
 - `disabled` (Bool; optional): The component can show it is currently unable to be interacted with
+- `dropdownPosition` (a value equal to: "bottom", "top", "flip"; optional): Dropdown positioning behavior
 - `error` (String; optional): Displays error message after input
 - `initiallyOpened` (Bool; optional): Initial dropdown opened state
 - `label` (String; optional): Input label, displayed before input
 - `limit` (Real; optional): Limit amount of items displayed at a time for searchable select
-- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
-Those elements have the following types:
-  - `is_loading` (Bool; optional): Determines if the component is loading or not
-  - `prop_name` (String; optional): Holds which property is loading
-  - `component_name` (String; optional): Holds the name of the component that is loading
 - `maxDropdownHeight` (Real; optional): Maximum dropdown height in px
 - `multiline` (Bool; optional): Will input have multiple lines?
 - `nothingFound` (String; optional): Nothing found label
@@ -37,10 +33,11 @@ Those elements have the following types:
 - `size` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Input size
 - `style` (Dict; optional): Inline style override
 - `value` (String; optional): Selected value
+- `withinPortal` (Bool; optional): Whether to render the dropdown in a Portal
 - `zIndex` (Real; optional): Dropdown z-index
 """
 function select(; kwargs...)
-        available_props = Symbol[:id, :className, :clearable, :data, :description, :disabled, :error, :initiallyOpened, :label, :limit, :loading_state, :maxDropdownHeight, :multiline, :nothingFound, :placeholder, :radius, :required, :searchable, :size, :style, :value, :zIndex]
+        available_props = Symbol[:id, :className, :clearable, :data, :description, :disabled, :dropdownPosition, :error, :initiallyOpened, :label, :limit, :maxDropdownHeight, :multiline, :nothingFound, :placeholder, :radius, :required, :searchable, :size, :style, :value, :withinPortal, :zIndex]
         wild_props = Symbol[]
         return Component("select", "Select", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

@@ -41,21 +41,6 @@ Keyword arguments:
 - language (a value equal to: "markup", "bash", "clike", "c", "cpp", "css", "javascript", "jsx", "coffeescript", "actionscript", "css-extr", "diff", "git", "go", "graphql", "handlebars", "json", "less", "makefile", "markdown", "objectivec", "ocaml", "python", "reason", "sass", "scss", "sql", "stylus", "tsx", "typescript", "wasm", "yaml"; required):
     Programming language that should be highlighted.
 
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
 - noCopy (boolean; optional):
     True to remove copy to clipboard button.
 
@@ -65,12 +50,12 @@ Keyword arguments:
 - withLineNumbers (boolean; optional):
     Display line numbers."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, code=Component.REQUIRED, colorScheme=Component.UNDEFINED, copiedLabel=Component.UNDEFINED, copyLabel=Component.UNDEFINED, highlightLines=Component.UNDEFINED, language=Component.REQUIRED, loading_state=Component.UNDEFINED, noCopy=Component.UNDEFINED, withLineNumbers=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'code', 'colorScheme', 'copiedLabel', 'copyLabel', 'highlightLines', 'language', 'loading_state', 'noCopy', 'style', 'withLineNumbers']
+    def __init__(self, className=Component.UNDEFINED, code=Component.REQUIRED, colorScheme=Component.UNDEFINED, copiedLabel=Component.UNDEFINED, copyLabel=Component.UNDEFINED, highlightLines=Component.UNDEFINED, id=Component.UNDEFINED, language=Component.REQUIRED, noCopy=Component.UNDEFINED, style=Component.UNDEFINED, withLineNumbers=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'code', 'colorScheme', 'copiedLabel', 'copyLabel', 'highlightLines', 'language', 'noCopy', 'style', 'withLineNumbers']
         self._type = 'Prism'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'code', 'colorScheme', 'copiedLabel', 'copyLabel', 'highlightLines', 'language', 'loading_state', 'noCopy', 'style', 'withLineNumbers']
+        self.available_properties = ['id', 'className', 'code', 'colorScheme', 'copiedLabel', 'copyLabel', 'highlightLines', 'language', 'noCopy', 'style', 'withLineNumbers']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

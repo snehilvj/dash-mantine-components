@@ -19,21 +19,6 @@ Keyword arguments:
 - className (string; optional):
     Often used with CSS to style elements with common properties.
 
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
 - padding (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined padding value from theme.spacing or number for padding
     in px.
@@ -50,12 +35,12 @@ Keyword arguments:
     Adds 1px border with theme.colors.gray[2] color in light color
     scheme and theme.colors.dark[6] in dark color scheme."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, loading_state=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, shadow=Component.UNDEFINED, withBorder=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'loading_state', 'padding', 'radius', 'shadow', 'withBorder']
+    def __init__(self, children=None, className=Component.UNDEFINED, id=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, shadow=Component.UNDEFINED, withBorder=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'padding', 'radius', 'shadow', 'withBorder']
         self._type = 'Paper'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'loading_state', 'padding', 'radius', 'shadow', 'withBorder']
+        self.available_properties = ['children', 'id', 'className', 'padding', 'radius', 'shadow', 'withBorder']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

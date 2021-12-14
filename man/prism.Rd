@@ -12,8 +12,7 @@ Code highlight with Mantine theme colors and styles. For more information, see: 
 \usage{
 prism(id=NULL, className=NULL, code=NULL, colorScheme=NULL,
 copiedLabel=NULL, copyLabel=NULL, highlightLines=NULL,
-language=NULL, loading_state=NULL, noCopy=NULL, style=NULL,
-withLineNumbers=NULL)
+language=NULL, noCopy=NULL, style=NULL, withLineNumbers=NULL)
 }
 
 \arguments{
@@ -35,12 +34,6 @@ those elements have the following types:
   - label (character; optional). Highlight line at given line number with color from theme.colors}
 
 \item{language}{A value equal to: "markup", "bash", "clike", "c", "cpp", "css", "javascript", "jsx", "coffeescript", "actionscript", "css-extr", "diff", "git", "go", "graphql", "handlebars", "json", "less", "makefile", "markdown", "objectivec", "ocaml", "python", "reason", "sass", "scss", "sql", "stylus", "tsx", "typescript", "wasm", "yaml". Programming language that should be highlighted}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{noCopy}{Logical. True to remove copy to clipboard button}
 

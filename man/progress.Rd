@@ -10,9 +10,8 @@ Give user feedback for status of the task. For more information, see: https://ma
 }
 
 \usage{
-progress(id=NULL, className=NULL, color=NULL, loading_state=NULL,
-radius=NULL, sections=NULL, size=NULL, striped=NULL,
-value=NULL)
+progress(id=NULL, className=NULL, color=NULL, radius=NULL,
+sections=NULL, size=NULL, striped=NULL, value=NULL)
 }
 
 \arguments{
@@ -21,12 +20,6 @@ value=NULL)
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Progress color from theme}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined progress radius from theme.radius or number for height in px}
 

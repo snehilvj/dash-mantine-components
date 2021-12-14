@@ -20,11 +20,6 @@ Prism.defaultProps = {};
 
 Prism.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
@@ -75,6 +70,11 @@ Prism.propTypes = {
     ),
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Programming language that should be highlighted
      */
     language: PropTypes.oneOf([
@@ -113,37 +113,19 @@ Prism.propTypes = {
     ]).isRequired,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
-
-    /**
      * True to remove copy to clipboard button
      */
     noCopy: PropTypes.bool,
 
     /**
-     * Display line numbers
-     */
-    withLineNumbers: PropTypes.bool,
-
-    /**
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Display line numbers
+     */
+    withLineNumbers: PropTypes.bool,
 };
 
 export default Prism;

@@ -27,16 +27,6 @@ SegmentedControl.defaultProps = {};
 
 SegmentedControl.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
@@ -66,9 +56,13 @@ SegmentedControl.propTypes = {
      */
     data: PropTypes.arrayOf(
         PropTypes.exact({
-            /** The option's label */
+            /**
+             * The option's label
+             */
             label: PropTypes.string.isRequired,
-            /** option's value */
+            /**
+             * Option's value
+             */
             value: PropTypes.string.isRequired,
         })
     ).isRequired,
@@ -79,22 +73,9 @@ SegmentedControl.propTypes = {
     fullWidth: PropTypes.bool,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Border-radius from theme or number to set border-radius in px
@@ -103,6 +84,11 @@ SegmentedControl.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 
     /**
      * Controls font-size, paddings and height

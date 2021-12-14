@@ -11,12 +11,12 @@ Custom searchable select. For more information, see: https://mantine.dev/core/se
 
 \usage{
 select(id=NULL, className=NULL, clearable=NULL, data=NULL,
-description=NULL, disabled=NULL, error=NULL,
-initiallyOpened=NULL, label=NULL, limit=NULL,
-loading_state=NULL, maxDropdownHeight=NULL, multiline=NULL,
-nothingFound=NULL, placeholder=NULL, radius=NULL,
-required=NULL, searchable=NULL, size=NULL, style=NULL,
-value=NULL, zIndex=NULL)
+description=NULL, disabled=NULL, dropdownPosition=NULL,
+error=NULL, initiallyOpened=NULL, label=NULL, limit=NULL,
+maxDropdownHeight=NULL, multiline=NULL, nothingFound=NULL,
+placeholder=NULL, radius=NULL, required=NULL,
+searchable=NULL, size=NULL, style=NULL, value=NULL,
+withinPortal=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -36,6 +36,8 @@ those elements have the following types:
 
 \item{disabled}{Logical. The component can show it is currently unable to be interacted with}
 
+\item{dropdownPosition}{A value equal to: "bottom", "top", "flip". Dropdown positioning behavior}
+
 \item{error}{Character. Displays error message after input}
 
 \item{initiallyOpened}{Logical. Initial dropdown opened state}
@@ -43,12 +45,6 @@ those elements have the following types:
 \item{label}{Character. Input label, displayed before input}
 
 \item{limit}{Numeric. Limit amount of items displayed at a time for searchable select}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{maxDropdownHeight}{Numeric. Maximum dropdown height in px}
 
@@ -69,6 +65,8 @@ those elements have the following types:
 \item{style}{Named list. Inline style override}
 
 \item{value}{Character. Selected value}
+
+\item{withinPortal}{Logical. Whether to render the dropdown in a Portal}
 
 \item{zIndex}{Numeric. Dropdown z-index}
 }

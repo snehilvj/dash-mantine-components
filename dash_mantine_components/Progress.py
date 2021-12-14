@@ -19,21 +19,6 @@ Keyword arguments:
 - color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Progress color from theme.
 
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
 - radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined progress radius from theme.radius or number for height
     in px.
@@ -57,12 +42,12 @@ Keyword arguments:
 - value (number; optional):
     Current value for controlled slider."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, sections=Component.UNDEFINED, striped=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'loading_state', 'radius', 'sections', 'size', 'striped', 'value']
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, sections=Component.UNDEFINED, size=Component.UNDEFINED, striped=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'radius', 'sections', 'size', 'striped', 'value']
         self._type = 'Progress'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'loading_state', 'radius', 'sections', 'size', 'striped', 'value']
+        self.available_properties = ['id', 'className', 'color', 'radius', 'sections', 'size', 'striped', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

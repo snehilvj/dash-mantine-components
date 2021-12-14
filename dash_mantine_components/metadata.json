@@ -4380,20 +4380,6 @@
     "displayName": "NotificationsProvider",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Content"
-      },
       "autoClose": {
         "type": {
           "name": "union",
@@ -4415,12 +4401,26 @@
         "required": false,
         "description": "Auto close timeout for all notifications, false to disable auto close, can be overwritten for individual notifications by showNotification function"
       },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content"
+      },
       "containerWidth": {
         "type": {
           "name": "number"
         },
         "required": false,
         "description": "Notification width in px, cannot exceed 100%"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "limit": {
         "type": {
@@ -4483,13 +4483,6 @@
     "displayName": "Paper",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -4504,29 +4497,12 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "padding": {
         "type": {
@@ -4645,13 +4621,6 @@
     "displayName": "Prism",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -4774,6 +4743,13 @@
         },
         "required": false,
         "description": "Highlight line at given line number with color from theme.colors"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "language": {
         "type": {
@@ -4912,30 +4888,6 @@
         "required": true,
         "description": "Programming language that should be highlighted"
       },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
-      },
       "noCopy": {
         "type": {
           "name": "bool"
@@ -4943,19 +4895,19 @@
         "required": false,
         "description": "True to remove copy to clipboard button"
       },
-      "withLineNumbers": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Display line numbers"
-      },
       "style": {
         "type": {
           "name": "object"
         },
         "required": false,
         "description": "Inline style override"
+      },
+      "withLineNumbers": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Display line numbers"
       }
     }
   },
@@ -4964,13 +4916,6 @@
     "displayName": "Progress",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -5043,29 +4988,12 @@
         "required": false,
         "description": "Progress color from theme"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "radius": {
         "type": {
@@ -5103,35 +5031,6 @@
         },
         "required": false,
         "description": "Predefined progress radius from theme.radius or number for height in px"
-      },
-      "size": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "\"xs\"",
-              "computed": false
-            },
-            {
-              "value": "\"sm\"",
-              "computed": false
-            },
-            {
-              "value": "\"md\"",
-              "computed": false
-            },
-            {
-              "value": "\"lg\"",
-              "computed": false
-            },
-            {
-              "value": "\"xl\"",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": "Predefined progress height or number for height in px"
       },
       "sections": {
         "type": {
@@ -5211,6 +5110,35 @@
         "required": false,
         "description": "Replaces value if present, renders multiple sections instead of single one"
       },
+      "size": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"xs\"",
+              "computed": false
+            },
+            {
+              "value": "\"sm\"",
+              "computed": false
+            },
+            {
+              "value": "\"md\"",
+              "computed": false
+            },
+            {
+              "value": "\"lg\"",
+              "computed": false
+            },
+            {
+              "value": "\"xl\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Predefined progress height or number for height in px"
+      },
       "striped": {
         "type": {
           "name": "bool"
@@ -5232,42 +5160,6 @@
     "displayName": "RadioGroup",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "data": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "exact",
-            "value": {
-              "label": {
-                "name": "string",
-                "description": "The option's label",
-                "required": true
-              },
-              "value": {
-                "name": "string",
-                "description": "option's value",
-                "required": true
-              }
-            }
-          }
-        },
-        "required": false,
-        "description": "RadioGroup options"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -5340,6 +5232,28 @@
         "required": false,
         "description": "Active radio color from theme.colors"
       },
+      "data": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The option's label",
+                "required": true
+              },
+              "value": {
+                "name": "string",
+                "description": "Option's value",
+                "required": true
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "RadioGroup options"
+      },
       "description": {
         "type": {
           "name": "string"
@@ -5354,6 +5268,13 @@
         "required": false,
         "description": "Displays error message after input"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "label": {
         "type": {
           "name": "string"
@@ -5361,36 +5282,19 @@
         "required": false,
         "description": "Input label, displayed before input"
       },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
-      },
       "required": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Adds red asterisk on the right side of label"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
@@ -5488,20 +5392,6 @@
     "displayName": "SegmentedControl",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -5587,7 +5477,7 @@
               },
               "value": {
                 "name": "string",
-                "description": "option's value",
+                "description": "Option's value",
                 "required": true
               }
             }
@@ -5603,29 +5493,12 @@
         "required": false,
         "description": "True if component should have 100% width"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "radius": {
         "type": {
@@ -5663,6 +5536,13 @@
         },
         "required": false,
         "description": "Border-radius from theme or number to set border-radius in px"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
@@ -5714,20 +5594,6 @@
     "displayName": "Select",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -5787,12 +5653,40 @@
         "required": false,
         "description": "The component can show it is currently unable to be interacted with"
       },
+      "dropdownPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"bottom\"",
+              "computed": false
+            },
+            {
+              "value": "\"top\"",
+              "computed": false
+            },
+            {
+              "value": "\"flip\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Dropdown positioning behavior"
+      },
       "error": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Displays error message after input"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "initiallyOpened": {
         "type": {
@@ -5814,30 +5708,6 @@
         },
         "required": false,
         "description": "Limit amount of items displayed at a time for searchable select"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "maxDropdownHeight": {
         "type": {
@@ -5930,6 +5800,13 @@
           "computed": false
         }
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
           "name": "enum",
@@ -5972,6 +5849,13 @@
         },
         "required": false,
         "description": "Selected value"
+      },
+      "withinPortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the dropdown in a Portal"
       },
       "zIndex": {
         "type": {
