@@ -20,11 +20,6 @@ Space.defaultProps = {};
 
 Space.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
      * Tab content
      */
     children: PropTypes.node,
@@ -41,6 +36,11 @@ Space.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
     /**
      * Inline style override

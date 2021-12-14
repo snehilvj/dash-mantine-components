@@ -11,7 +11,8 @@ Indicate content loading state. For more information, see: https://mantine.dev/c
 
 \usage{
 skeleton(children=NULL, id=NULL, circle=NULL, height=NULL,
-loading_state=NULL, radius=NULL, visible=NULL, width=NULL)
+loading_state=NULL, radius=NULL, style=NULL, visible=NULL,
+width=NULL)
 }
 
 \arguments{
@@ -30,6 +31,8 @@ those elements have the following types:
   - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Radius from theme.radius or number to set border-radius in px}
+
+\item{style}{Named list. Inline style override}
 
 \item{visible}{Logical. Should skeleton overlay be displayed}
 

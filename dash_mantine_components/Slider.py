@@ -62,7 +62,7 @@ Keyword arguments:
 - value (number; optional):
     Current value for controlled slider."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, labelAlwaysOn=Component.UNDEFINED, marks=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, radius=Component.UNDEFINED, showLabelOnHover=Component.UNDEFINED, size=Component.UNDEFINED, step=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, drag_value=Component.UNDEFINED, **kwargs):
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, drag_value=Component.UNDEFINED, id=Component.UNDEFINED, labelAlwaysOn=Component.UNDEFINED, marks=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, radius=Component.UNDEFINED, showLabelOnHover=Component.UNDEFINED, size=Component.UNDEFINED, step=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'color', 'drag_value', 'labelAlwaysOn', 'marks', 'max', 'min', 'radius', 'showLabelOnHover', 'size', 'step', 'style', 'value']
         self._type = 'Slider'
         self._namespace = 'dash_mantine_components'

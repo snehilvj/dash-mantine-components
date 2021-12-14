@@ -11,7 +11,7 @@ Responsive grid where each item takes equal amount of space. For more informatio
 
 \usage{
 simpleGrid(children=NULL, id=NULL, breakpoints=NULL, className=NULL,
-cols=NULL, loading_state=NULL, spacing=NULL)
+cols=NULL, spacing=NULL, style=NULL)
 }
 
 \arguments{
@@ -29,13 +29,9 @@ those elements have the following types:
 
 \item{cols}{Numeric. Default amount of columns, used when none of breakpoints can be applied}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
-
 \item{spacing}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Default spacing between columns, used when none of breakpoints can be applied}
+
+\item{style}{Named list. Inline style override}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

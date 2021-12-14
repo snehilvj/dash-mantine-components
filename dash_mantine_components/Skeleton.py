@@ -41,18 +41,21 @@ Keyword arguments:
 - radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Radius from theme.radius or number to set border-radius in px.
 
+- style (dict; optional):
+    Inline style override.
+
 - visible (boolean; optional):
     Should skeleton overlay be displayed.
 
 - width (string | number; optional):
     Skeleton width."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, circle=Component.UNDEFINED, height=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, visible=Component.UNDEFINED, width=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'circle', 'height', 'loading_state', 'radius', 'visible', 'width']
+    def __init__(self, children=None, circle=Component.UNDEFINED, height=Component.UNDEFINED, id=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, style=Component.UNDEFINED, visible=Component.UNDEFINED, width=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'circle', 'height', 'loading_state', 'radius', 'style', 'visible', 'width']
         self._type = 'Skeleton'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'circle', 'height', 'loading_state', 'radius', 'visible', 'width']
+        self.available_properties = ['children', 'id', 'circle', 'height', 'loading_state', 'radius', 'style', 'visible', 'width']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

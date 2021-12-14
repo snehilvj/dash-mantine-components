@@ -5871,27 +5871,6 @@
     "displayName": "SimpleGrid",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "<Col /> components only"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "breakpoints": {
         "type": {
           "name": "exact",
@@ -5943,6 +5922,20 @@
         "required": false,
         "description": "Breakpoints data to change items per row and spacing based on max-width"
       },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "<Col /> components only"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
       "cols": {
         "type": {
           "name": "number"
@@ -5950,29 +5943,12 @@
         "required": true,
         "description": "Default amount of columns, used when none of breakpoints can be applied"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "spacing": {
         "type": {
@@ -6010,6 +5986,13 @@
         },
         "required": false,
         "description": "Default spacing between columns, used when none of breakpoints can be applied"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },
@@ -6018,13 +6001,6 @@
     "displayName": "Skeleton",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -6053,6 +6029,13 @@
         },
         "required": false,
         "description": "Skeleton height"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "loading_state": {
         "type": {
@@ -6115,6 +6098,13 @@
         "required": false,
         "description": "Radius from theme.radius or number to set border-radius in px"
       },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
       "visible": {
         "type": {
           "name": "bool"
@@ -6144,20 +6134,6 @@
     "displayName": "Slider",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -6229,6 +6205,20 @@
         },
         "required": false,
         "description": "Slider color"
+      },
+      "drag_value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Current drag value for controlled slider"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "labelAlwaysOn": {
         "type": {
@@ -6310,6 +6300,13 @@
         "required": false,
         "description": "Track border-radius from theme or number to set border-radius in px"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "showLabelOnHover": {
         "type": {
           "name": "bool"
@@ -6366,13 +6363,6 @@
         },
         "required": false,
         "description": "Current value for controlled slider"
-      },
-      "drag_value": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Current drag value for controlled slider"
       }
     }
   },
@@ -6381,13 +6371,6 @@
     "displayName": "Space",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -6438,6 +6421,13 @@
         },
         "required": false,
         "description": "Height, set to add vertical spacing"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "style": {
         "type": {
@@ -6490,13 +6480,6 @@
     "displayName": "Spoiler",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "string"
@@ -6514,6 +6497,13 @@
           "value": "\"Hide\"",
           "computed": false
         }
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "initialState": {
         "type": {
@@ -6563,6 +6553,13 @@
           "value": "\"Show more\"",
           "computed": false
         }
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       }
     }
   },

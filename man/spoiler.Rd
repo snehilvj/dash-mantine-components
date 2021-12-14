@@ -11,7 +11,8 @@ Hide long sections of content under spoiler. For more information, see: https://
 
 \usage{
 spoiler(children=NULL, id=NULL, hideLabel=NULL, initialState=NULL,
-loading_state=NULL, maxHeight=NULL, showLabel=NULL)
+loading_state=NULL, maxHeight=NULL, showLabel=NULL,
+style=NULL)
 }
 
 \arguments{
@@ -32,6 +33,8 @@ those elements have the following types:
 \item{maxHeight}{Numeric. Max height of visible content, when this point is reached spoiler appears}
 
 \item{showLabel}{Character. Label for open spoiler action}
+
+\item{style}{Named list. Inline style override}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

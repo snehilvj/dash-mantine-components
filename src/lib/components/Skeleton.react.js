@@ -7,9 +7,12 @@ import React from "react";
  * Indicate content loading state. For more information, see: https://mantine.dev/core/skeleton/
  */
 const Skeleton = (props) => {
-    const { children } = props;
+    const { children, visible, loading_state } = props;
     return (
-        <MantineSkeleton {...omit(["setProps", "children"], props)}>
+        <MantineSkeleton
+            {...omit(["setProps", "children", "visible"], props)}
+            visible={visible || (loading_state && loading_state.is_loading)}
+        >
             {children}
         </MantineSkeleton>
     );
@@ -20,11 +23,6 @@ Skeleton.displayName = "Skeleton";
 Skeleton.defaultProps = {};
 
 Skeleton.propTypes = {
-    /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
     /**
      * Primary content
      */
@@ -39,6 +37,11 @@ Skeleton.propTypes = {
      * Skeleton height
      */
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
     /**
      * Object that holds the loading state object coming from dash-renderer
@@ -65,6 +68,11 @@ Skeleton.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 
     /**
      * Should skeleton overlay be displayed

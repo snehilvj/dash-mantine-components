@@ -25,11 +25,6 @@ Spoiler.defaultProps = {
 
 Spoiler.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
      * Primary content
      */
     children: PropTypes.string,
@@ -38,6 +33,11 @@ Spoiler.propTypes = {
      * Label for close spoiler action
      */
     hideLabel: PropTypes.string,
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
     /**
      * Initial spoiler state, true to wrap content in spoiler, false to show content without spoiler, opened state will be updated on mount
@@ -71,6 +71,11 @@ Spoiler.propTypes = {
      * Label for open spoiler action
      */
     showLabel: PropTypes.string,
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 };
 
 export default Spoiler;

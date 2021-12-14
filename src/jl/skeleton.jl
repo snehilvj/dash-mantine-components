@@ -21,11 +21,12 @@ Those elements have the following types:
   - `prop_name` (String; optional): Holds which property is loading
   - `component_name` (String; optional): Holds the name of the component that is loading
 - `radius` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Radius from theme.radius or number to set border-radius in px
+- `style` (Dict; optional): Inline style override
 - `visible` (Bool; optional): Should skeleton overlay be displayed
 - `width` (String | Real; optional): Skeleton width
 """
 function skeleton(; kwargs...)
-        available_props = Symbol[:children, :id, :circle, :height, :loading_state, :radius, :visible, :width]
+        available_props = Symbol[:children, :id, :circle, :height, :loading_state, :radius, :style, :visible, :width]
         wild_props = Symbol[]
         return Component("skeleton", "Skeleton", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

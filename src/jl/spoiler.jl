@@ -22,9 +22,10 @@ Those elements have the following types:
   - `component_name` (String; optional): Holds the name of the component that is loading
 - `maxHeight` (Real; optional): Max height of visible content, when this point is reached spoiler appears
 - `showLabel` (String; optional): Label for open spoiler action
+- `style` (Dict; optional): Inline style override
 """
 function spoiler(; kwargs...)
-        available_props = Symbol[:children, :id, :hideLabel, :initialState, :loading_state, :maxHeight, :showLabel]
+        available_props = Symbol[:children, :id, :hideLabel, :initialState, :loading_state, :maxHeight, :showLabel, :style]
         wild_props = Symbol[]
         return Component("spoiler", "Spoiler", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

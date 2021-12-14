@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-simpleGrid <- function(children=NULL, id=NULL, breakpoints=NULL, className=NULL, cols=NULL, loading_state=NULL, spacing=NULL) {
+simpleGrid <- function(children=NULL, id=NULL, breakpoints=NULL, className=NULL, cols=NULL, spacing=NULL, style=NULL) {
     
-    props <- list(children=children, id=id, breakpoints=breakpoints, className=className, cols=cols, loading_state=loading_state, spacing=spacing)
+    props <- list(children=children, id=id, breakpoints=breakpoints, className=className, cols=cols, spacing=spacing, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ simpleGrid <- function(children=NULL, id=NULL, breakpoints=NULL, className=NULL,
         props = props,
         type = 'SimpleGrid',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'breakpoints', 'className', 'cols', 'loading_state', 'spacing'),
+        propNames = c('children', 'id', 'breakpoints', 'className', 'cols', 'spacing', 'style'),
         package = 'dashMantineComponents'
         )
 
