@@ -28,9 +28,9 @@ Group.defaultProps = {};
 
 Group.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Defines align-items css property
      */
-    id: PropTypes.string,
+    align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
 
     /**
      * Content
@@ -43,11 +43,6 @@ Group.propTypes = {
     className: PropTypes.string,
 
     /**
-     * Defines align-items css property
-     */
-    align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
-
-    /**
      * Defines flex-direction property, row for horizontal, column for vertical
      */
     direction: PropTypes.oneOf(["row", "column"]),
@@ -58,22 +53,9 @@ Group.propTypes = {
     grow: PropTypes.bool,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Defined flex-wrap property

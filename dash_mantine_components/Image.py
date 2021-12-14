@@ -30,21 +30,6 @@ Keyword arguments:
     Image height, defaults to original image height adjusted to given
     width.
 
-- loading_state (dict; optional):
-    Object that holds the loading state object coming from
-    dash-renderer.
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
 - radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined border-radius value from theme.radius or number for
     border-radius in px.
@@ -62,12 +47,12 @@ Keyword arguments:
     Enable placeholder when image is loading and when image fails to
     load."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, alt=Component.UNDEFINED, caption=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, loading_state=Component.UNDEFINED, radius=Component.UNDEFINED, src=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, withPlaceholder=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'alt', 'caption', 'className', 'fit', 'height', 'loading_state', 'radius', 'src', 'style', 'width', 'withPlaceholder']
+    def __init__(self, alt=Component.UNDEFINED, caption=Component.UNDEFINED, className=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, src=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, withPlaceholder=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'alt', 'caption', 'className', 'fit', 'height', 'radius', 'src', 'style', 'width', 'withPlaceholder']
         self._type = 'Image'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'alt', 'caption', 'className', 'fit', 'height', 'loading_state', 'radius', 'src', 'style', 'width', 'withPlaceholder']
+        self.available_properties = ['id', 'alt', 'caption', 'className', 'fit', 'height', 'radius', 'src', 'style', 'width', 'withPlaceholder']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

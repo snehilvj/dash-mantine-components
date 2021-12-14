@@ -33,16 +33,6 @@ MultiSelect.defaultProps = {
 
 MultiSelect.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
@@ -92,6 +82,11 @@ MultiSelect.propTypes = {
     error: PropTypes.string,
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Initial dropdown opened state
      */
     initiallyOpened: PropTypes.bool,
@@ -105,24 +100,6 @@ MultiSelect.propTypes = {
      * Limit amount of items displayed at a time for searchable select
      */
     limit: PropTypes.number,
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
 
     /**
      * Maximum dropdown height in px
@@ -163,14 +140,14 @@ MultiSelect.propTypes = {
     required: PropTypes.bool,
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
      * Set to true to enable search
      */
     searchable: PropTypes.bool,
-
-    /**
-     * Dropdown shadow from theme or any value to set box-shadow
-     */
-    shadow: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
      * Input size
@@ -183,6 +160,11 @@ MultiSelect.propTypes = {
     style: PropTypes.object,
 
     /**
+     * Whether to switch item order and keyboard navigation on dropdown position flip
+     */
+    switchDirectionOnFlip: PropTypes.bool,
+
+    /**
      * Selected value
      */
     value: PropTypes.arrayOf(PropTypes.string),
@@ -191,6 +173,11 @@ MultiSelect.propTypes = {
      * Defines input appearance, defaults to default in light color scheme and filled in dark
      */
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
+
+    /**
+     * Whether to render the dropdown in a Portal
+     */
+    withinPortal: PropTypes.bool,
 
     /**
      * Dropdown z-index

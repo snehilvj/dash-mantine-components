@@ -15,10 +15,11 @@ Keyword arguments:
 - `labelPosition` (a value equal to: "right", "left", "center"; optional): Label position
 - `orientation` (a value equal to: "horizontal", "vertical"; optional): Line orientation
 - `size` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Sets height in horizontal orientation and width in vertical
+- `style` (Dict; optional): Inline style override
 - `variant` (a value equal to: "dashed", "dotted", "solid"; optional): Divider borderStyle
 """
 function divider(; kwargs...)
-        available_props = Symbol[:id, :className, :color, :label, :labelPosition, :orientation, :size, :variant]
+        available_props = Symbol[:id, :className, :color, :label, :labelPosition, :orientation, :size, :style, :variant]
         wild_props = Symbol[]
         return Component("divider", "Divider", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

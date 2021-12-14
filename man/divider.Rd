@@ -11,7 +11,7 @@ Horizontal line with optional label or vertical divider. For more information, s
 
 \usage{
 divider(id=NULL, className=NULL, color=NULL, label=NULL,
-labelPosition=NULL, orientation=NULL, size=NULL,
+labelPosition=NULL, orientation=NULL, size=NULL, style=NULL,
 variant=NULL)
 }
 
@@ -29,6 +29,8 @@ variant=NULL)
 \item{orientation}{A value equal to: "horizontal", "vertical". Line orientation}
 
 \item{size}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Sets height in horizontal orientation and width in vertical}
+
+\item{style}{Named list. Inline style override}
 
 \item{variant}{A value equal to: "dashed", "dotted", "solid". Divider borderStyle}
 }

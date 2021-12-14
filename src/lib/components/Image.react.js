@@ -16,16 +16,6 @@ Image.defaultProps = {};
 
 Image.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Often used with CSS to style elements with common properties
-     */
-    className: PropTypes.string,
-
-    /**
      * Image alt text, used as title for placeholder if image was not loaded
      */
     alt: PropTypes.string,
@@ -34,6 +24,11 @@ Image.propTypes = {
      * Image figcaption, displayed bellow image
      */
     caption: PropTypes.string,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    className: PropTypes.string,
 
     /**
      * Image object-fit property
@@ -46,22 +41,9 @@ Image.propTypes = {
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Predefined border-radius value from theme.radius or number for border-radius in px

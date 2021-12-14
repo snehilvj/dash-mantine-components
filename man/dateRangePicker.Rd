@@ -10,22 +10,25 @@ Capture date input from user. For more information, see: https://mantine.dev/dat
 }
 
 \usage{
-dateRangePicker(id=NULL, allowSingleDateInRange=NULL, amountOfMonths=NULL,
-className=NULL, clearable=NULL, closeCalendarOnChange=NULL,
-closeDropdownOnScroll=NULL, dates=NULL, description=NULL,
-disableOutsideDayStyle=NULL, disableOutsideEvents=NULL,
+dateRangePicker(id=NULL, allowLevelChange=NULL, allowSingleDateInRange=NULL,
+amountOfMonths=NULL, className=NULL, clearable=NULL,
+closeCalendarOnChange=NULL, closeDropdownOnScroll=NULL,
+dates=NULL, description=NULL, disableOutsideEvents=NULL,
 disabled=NULL, dropdownType=NULL, error=NULL,
-firstDayOfWeek=NULL, format=NULL, fullWidth=NULL,
-hideWeekdays=NULL, initialMonth=NULL, initiallyOpened=NULL,
-label=NULL, loading_state=NULL, locale=NULL, maxDate=NULL,
-minDate=NULL, multiline=NULL, placeholder=NULL,
-preventFocus=NULL, radius=NULL, required=NULL, size=NULL,
-style=NULL, variant=NULL, withSelect=NULL, yearsRange=NULL,
-zIndex=NULL)
+firstDayOfWeek=NULL, fixOnBlur=NULL, focusable=NULL,
+format=NULL, fullWidth=NULL, hideOutsideDates=NULL,
+hideWeekdays=NULL, initialLevel=NULL, initialMonth=NULL,
+initiallyOpened=NULL, label=NULL, labelSeparator=NULL,
+locale=NULL, maxDate=NULL, minDate=NULL, multiline=NULL,
+placeholder=NULL, preventFocus=NULL, radius=NULL,
+required=NULL, size=NULL, style=NULL, variant=NULL,
+withinPortal=NULL, zIndex=NULL)
 }
 
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
+
+\item{allowLevelChange}{Logical. Allow to change level (date – month – year)}
 
 \item{allowSingleDateInRange}{Logical. Allow one date to be selected as range}
 
@@ -43,11 +46,9 @@ zIndex=NULL)
 
 \item{description}{Character. Input description, displayed after label}
 
-\item{disableOutsideDayStyle}{Logical. When true dates that are outside of given month are not styled}
-
 \item{disableOutsideEvents}{Logical. When true dates that are outside of given month cannot be clicked or focused}
 
-\item{disabled}{Logical. A DateRangePicker can show it is currently unable to be interacted with}
+\item{disabled}{Logical. A Datepicker can show it is currently unable to be interacted with}
 
 \item{dropdownType}{A value equal to: "modal", "popover". Where to show calendar in modal or popover}
 
@@ -55,11 +56,19 @@ zIndex=NULL)
 
 \item{firstDayOfWeek}{A value equal to: "sunday", "monday". Set first day of the week}
 
-\item{format}{Character. DateRangePicker display format}
+\item{fixOnBlur}{Logical. call onChange with last valid value onBlur}
+
+\item{focusable}{Logical. Should focusable days have tabIndex={0}?}
+
+\item{format}{Character. DatePicker display format}
 
 \item{fullWidth}{Logical. Set to true to make calendar take 100\% of container width}
 
+\item{hideOutsideDates}{Logical. Remove outside dates}
+
 \item{hideWeekdays}{Logical. Set to false to remove weekdays row}
+
+\item{initialLevel}{A value equal to: "date", "month", "year". Initial date selection level}
 
 \item{initialMonth}{Character. Initial selected month}
 
@@ -67,11 +76,7 @@ zIndex=NULL)
 
 \item{label}{Character. Input label, displayed before input}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
+\item{labelSeparator}{Character. Separator between dates}
 
 \item{locale}{Character. Locale used for all labels formatting}
 
@@ -95,12 +100,7 @@ those elements have the following types:
 
 \item{variant}{A value equal to: "default", "filled", "unstyled", "headless". Defines input appearance, defaults to default in light color scheme and filled in dark}
 
-\item{withSelect}{Logical. Replace calendar label with month and year selects}
-
-\item{yearsRange}{Lists containing elements 'from', 'to'.
-those elements have the following types:
-  - from (numeric; optional)
-  - to (numeric; optional). Years range for year select}
+\item{withinPortal}{Logical. Whether to render the dropdown in a Portal}
 
 \item{zIndex}{Numeric. Popper zIndex}
 }

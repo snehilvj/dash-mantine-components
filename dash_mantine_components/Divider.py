@@ -32,15 +32,18 @@ Keyword arguments:
 - size (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Sets height in horizontal orientation and width in vertical.
 
+- style (dict; optional):
+    Inline style override.
+
 - variant (a value equal to: "dashed", "dotted", "solid"; optional):
     Divider borderStyle."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, orientation=Component.UNDEFINED, size=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'variant']
+    def __init__(self, className=Component.UNDEFINED, color=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, orientation=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'style', 'variant']
         self._type = 'Divider'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'variant']
+        self.available_properties = ['id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'style', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

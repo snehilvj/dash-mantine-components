@@ -19,15 +19,10 @@ Keyword arguments:
 - `grow` (Bool; optional): Should columns in the last row take 100% of grid width
 - `gutter` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Spacing between columns predefined value from theme.spacing or number for gutter in px
 - `justify` (a value equal to: "space-between", "space-around", "center", "flex-end", "flex-start"; optional): Set grid justify-content property
-- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
-Those elements have the following types:
-  - `is_loading` (Bool; optional): Determines if the component is loading or not
-  - `prop_name` (String; optional): Holds which property is loading
-  - `component_name` (String; optional): Holds the name of the component that is loading
 - `style` (Dict; optional): Inline style override
 """
 function grid(; kwargs...)
-        available_props = Symbol[:children, :id, :align, :className, :columns, :grow, :gutter, :justify, :loading_state, :style]
+        available_props = Symbol[:children, :id, :align, :className, :columns, :grow, :gutter, :justify, :style]
         wild_props = Symbol[]
         return Component("grid", "Grid", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

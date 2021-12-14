@@ -16,11 +16,6 @@ Divider.defaultProps = {};
 
 Divider.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
@@ -46,6 +41,11 @@ Divider.propTypes = {
     ]),
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Adds text after line in horizontal orientation
      */
     label: PropTypes.string,
@@ -67,6 +67,11 @@ Divider.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 
     /**
      * Divider borderStyle

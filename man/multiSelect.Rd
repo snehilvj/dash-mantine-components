@@ -14,11 +14,11 @@ multiSelect(id=NULL, className=NULL, clearSearchOnBlur=NULL,
 clearSearchOnChange=NULL, clearable=NULL, data=NULL,
 description=NULL, disabled=NULL, error=NULL,
 initiallyOpened=NULL, label=NULL, limit=NULL,
-loading_state=NULL, maxDropdownHeight=NULL,
-maxSelectedValues=NULL, multiline=NULL, nothingFound=NULL,
-placeholder=NULL, radius=NULL, required=NULL,
-searchable=NULL, shadow=NULL, size=NULL, style=NULL,
-value=NULL, variant=NULL, zIndex=NULL)
+maxDropdownHeight=NULL, maxSelectedValues=NULL,
+multiline=NULL, nothingFound=NULL, placeholder=NULL,
+radius=NULL, required=NULL, searchable=NULL, size=NULL,
+style=NULL, switchDirectionOnFlip=NULL, value=NULL,
+variant=NULL, withinPortal=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -50,12 +50,6 @@ those elements have the following types:
 
 \item{limit}{Numeric. Limit amount of items displayed at a time for searchable select}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
-
 \item{maxDropdownHeight}{Numeric. Maximum dropdown height in px}
 
 \item{maxSelectedValues}{Numeric. Limit amount of items selected}
@@ -72,15 +66,17 @@ those elements have the following types:
 
 \item{searchable}{Logical. Set to true to enable search}
 
-\item{shadow}{A value equal to: "xs", "sm", "md", "lg", "xl". Dropdown shadow from theme or any value to set box-shadow}
-
 \item{size}{A value equal to: "xs", "sm", "md", "lg", "xl". Input size}
 
 \item{style}{Named list. Inline style override}
 
+\item{switchDirectionOnFlip}{Logical. Whether to switch item order and keyboard navigation on dropdown position flip}
+
 \item{value}{List of characters. Selected value}
 
 \item{variant}{A value equal to: "default", "filled", "unstyled", "headless". Defines input appearance, defaults to default in light color scheme and filled in dark}
+
+\item{withinPortal}{Logical. Whether to render the dropdown in a Portal}
 
 \item{zIndex}{Numeric. Dropdown z-index}
 }

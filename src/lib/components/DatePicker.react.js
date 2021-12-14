@@ -61,24 +61,24 @@ DatePicker.defaultProps = {
 
 DatePicker.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Allow free input
      */
-    id: PropTypes.string,
+    allowFreeInput: PropTypes.bool,
 
     /**
-     * Tells dash if any prop has changed its value
+     * Allow to change level (date – month – year)
      */
-    setProps: PropTypes.func,
-
-    /**
-     * Often used with CSS to style elements with common properties
-     */
-    className: PropTypes.string,
+    allowLevelChange: PropTypes.bool,
 
     /**
      * Amount of displayed months
      */
     amountOfMonths: PropTypes.number,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    className: PropTypes.string,
 
     /**
      * Allow to clear value
@@ -96,9 +96,9 @@ DatePicker.propTypes = {
     closeDropdownOnScroll: PropTypes.bool,
 
     /**
-     * Allow free input
+     * Selected date
      */
-    allowFreeInput: PropTypes.bool,
+    date: PropTypes.string,
 
     /**
      * Input description, displayed after label
@@ -131,6 +131,16 @@ DatePicker.propTypes = {
     firstDayOfWeek: PropTypes.oneOf(["sunday", "monday"]),
 
     /**
+     * call onChange with last valid value onBlur
+     */
+    fixOnBlur: PropTypes.bool,
+
+    /**
+     * Should focusable days have tabIndex={0}?
+     */
+    focusable: PropTypes.bool,
+
+    /**
      * DatePicker display format
      */
     format: PropTypes.string,
@@ -144,6 +154,16 @@ DatePicker.propTypes = {
      * Set to false to remove weekdays row
      */
     hideWeekdays: PropTypes.bool,
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
+     * Initial date selection level
+     */
+    initialLevel: PropTypes.oneOf(["date", "month", "year"]),
 
     /**
      * Initial selected month
@@ -164,24 +184,6 @@ DatePicker.propTypes = {
      * Locale used for all labels formatting
      */
     locale: PropTypes.string,
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
 
     /**
      * Maximum possible date
@@ -222,6 +224,11 @@ DatePicker.propTypes = {
     required: PropTypes.bool,
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
      * Input size
      */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
@@ -237,27 +244,14 @@ DatePicker.propTypes = {
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
 
     /**
-     * Replace calendar label with month and year selects
+     * Whether to render the dropdown in a Portal
      */
-    withSelect: PropTypes.bool,
-
-    /**
-     * Years range for year select
-     */
-    yearsRange: PropTypes.shape({
-        from: PropTypes.number,
-        to: PropTypes.number,
-    }),
+    withinPortal: PropTypes.bool,
 
     /**
      * Popper zIndex
      */
     zIndex: PropTypes.number,
-
-    /**
-     * Selected date
-     */
-    date: PropTypes.string,
 };
 
 export default DatePicker;

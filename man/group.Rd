@@ -11,8 +11,8 @@ Compose elements and components in flex container. For more information, see: ht
 
 \usage{
 group(children=NULL, id=NULL, align=NULL, className=NULL,
-direction=NULL, grow=NULL, loading_state=NULL, noWrap=NULL,
-position=NULL, spacing=NULL, style=NULL)
+direction=NULL, grow=NULL, noWrap=NULL, position=NULL,
+spacing=NULL, style=NULL)
 }
 
 \arguments{
@@ -27,12 +27,6 @@ position=NULL, spacing=NULL, style=NULL)
 \item{direction}{A value equal to: "row", "column". Defines flex-direction property, row for horizontal, column for vertical}
 
 \item{grow}{Logical. Defines flex-grow property for each element, true -> 1, false -> 0}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{noWrap}{Logical. Defined flex-wrap property}
 

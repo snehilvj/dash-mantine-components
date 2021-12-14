@@ -29,9 +29,9 @@ Grid.defaultProps = {};
 
 Grid.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Set grid align-content property
      */
-    id: PropTypes.string,
+    align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
 
     /**
      * Content
@@ -42,11 +42,6 @@ Grid.propTypes = {
      * Often used with CSS to style elements with common properties
      */
     className: PropTypes.string,
-
-    /**
-     * Set grid align-content property
-     */
-    align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
 
     /**
      * Amount of columns in each row
@@ -67,6 +62,11 @@ Grid.propTypes = {
     ]),
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Set grid justify-content property
      */
     justify: PropTypes.oneOf([
@@ -76,24 +76,6 @@ Grid.propTypes = {
         "flex-end",
         "flex-start",
     ]),
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
 
     /**
      * Inline style override

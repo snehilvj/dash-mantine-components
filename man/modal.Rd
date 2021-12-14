@@ -11,9 +11,10 @@ Centers content vertically and horizontally. For more information, see: https://
 
 \usage{
 modal(children=NULL, id=NULL, centered=NULL, className=NULL,
-closeOnClickOutside=NULL, hideCloseButton=NULL,
-loading_state=NULL, opened=NULL, overflow=NULL,
-padding=NULL, size=NULL, style=NULL, title=NULL, zIndex=NULL)
+closeOnClickOutside=NULL, hideCloseButton=NULL, opened=NULL,
+overflow=NULL, overlayColor=NULL, overlayOpacity=NULL,
+padding=NULL, radius=NULL, size=NULL, style=NULL,
+title=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -29,17 +30,17 @@ padding=NULL, size=NULL, style=NULL, title=NULL, zIndex=NULL)
 
 \item{hideCloseButton}{Logical. Hides close button, modal still can be closed with escape key and by clicking outside}
 
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
-
 \item{opened}{Logical. Mounts modal if true}
 
 \item{overflow}{A value equal to: "inside", "outside". Control vertical overflow behavior}
 
+\item{overlayColor}{Character. Overlay below modal color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme}
+
+\item{overlayOpacity}{Numeric. Overlay below modal opacity, defaults to 0.75 in light theme and to 0.85 in dark theme}
+
 \item{padding}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Modal padding from theme or number value for padding in px}
+
+\item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Modal padding from theme or number value for padding in px}
 
 \item{size}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric | character. Modal body width}
 

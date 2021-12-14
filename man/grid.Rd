@@ -12,7 +12,7 @@ Flexbox grid system with variable amount of columns. For more information, see: 
 \usage{
 grid(children=NULL, id=NULL, align=NULL, className=NULL,
 columns=NULL, grow=NULL, gutter=NULL, justify=NULL,
-loading_state=NULL, style=NULL)
+style=NULL)
 }
 
 \arguments{
@@ -31,12 +31,6 @@ loading_state=NULL, style=NULL)
 \item{gutter}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Spacing between columns predefined value from theme.spacing or number for gutter in px}
 
 \item{justify}{A value equal to: "space-between", "space-around", "center", "flex-end", "flex-start". Set grid justify-content property}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{style}{Named list. Inline style override}
 }

@@ -1992,13 +1992,6 @@
     "displayName": "Container",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -2019,6 +2012,13 @@
         },
         "required": false,
         "description": "If fluid is set to true, size prop is ignored and Container always take 100% of width"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "padding": {
         "type": {
@@ -2094,30 +2094,6 @@
         "required": false,
         "description": "Predefined container max-width or number for max-width in px"
       },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
-      },
       "style": {
         "type": {
           "name": "object"
@@ -2132,26 +2108,19 @@
     "displayName": "DatePicker",
     "methods": [],
     "props": {
-      "id": {
+      "allowFreeInput": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
+        "description": "Allow free input"
       },
-      "setProps": {
+      "allowLevelChange": {
         "type": {
-          "name": "func"
+          "name": "bool"
         },
         "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
+        "description": "Allow to change level (date \u2013 month \u2013 year)"
       },
       "amountOfMonths": {
         "type": {
@@ -2159,6 +2128,13 @@
         },
         "required": false,
         "description": "Amount of displayed months"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "clearable": {
         "type": {
@@ -2181,12 +2157,12 @@
         "required": false,
         "description": "Set to true to disable dropdown closing on scroll"
       },
-      "allowFreeInput": {
+      "date": {
         "type": {
-          "name": "bool"
+          "name": "string"
         },
         "required": false,
-        "description": "Allow free input"
+        "description": "Selected date"
       },
       "description": {
         "type": {
@@ -2250,6 +2226,20 @@
         "required": false,
         "description": "Set first day of the week"
       },
+      "fixOnBlur": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "call onChange with last valid value onBlur"
+      },
+      "focusable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should focusable days have tabIndex={0}?"
+      },
       "format": {
         "type": {
           "name": "string"
@@ -2270,6 +2260,34 @@
         },
         "required": false,
         "description": "Set to false to remove weekdays row"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "initialLevel": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"date\"",
+              "computed": false
+            },
+            {
+              "value": "\"month\"",
+              "computed": false
+            },
+            {
+              "value": "\"year\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Initial date selection level"
       },
       "initialMonth": {
         "type": {
@@ -2298,30 +2316,6 @@
         },
         "required": false,
         "description": "Locale used for all labels formatting"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "maxDate": {
         "type": {
@@ -2406,6 +2400,13 @@
         "required": false,
         "description": "Adds red asterisk on the right side of label"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
           "name": "enum",
@@ -2471,29 +2472,12 @@
         "required": false,
         "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
       },
-      "withSelect": {
+      "withinPortal": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Replace calendar label with month and year selects"
-      },
-      "yearsRange": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "from": {
-              "name": "number",
-              "required": false
-            },
-            "to": {
-              "name": "number",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Years range for year select"
+        "description": "Whether to render the dropdown in a Portal"
       },
       "zIndex": {
         "type": {
@@ -2501,13 +2485,6 @@
         },
         "required": false,
         "description": "Popper zIndex"
-      },
-      "date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Selected date"
       }
     }
   },
@@ -2516,26 +2493,12 @@
     "displayName": "DateRangePicker",
     "methods": [],
     "props": {
-      "id": {
+      "allowLevelChange": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
+        "description": "Allow to change level (date \u2013 month \u2013 year)"
       },
       "allowSingleDateInRange": {
         "type": {
@@ -2550,6 +2513,13 @@
         },
         "required": false,
         "description": "Amount of displayed months"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "clearable": {
         "type": {
@@ -2576,19 +2546,22 @@
         "required": false,
         "description": "Set to true to disable dropdown closing on scroll"
       },
+      "dates": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "Selected date"
+      },
       "description": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Input description, displayed after label"
-      },
-      "disableOutsideDayStyle": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "When true dates that are outside of given month are not styled"
       },
       "disableOutsideEvents": {
         "type": {
@@ -2602,7 +2575,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "A DateRangePicker can show it is currently unable to be interacted with"
+        "description": "A Datepicker can show it is currently unable to be interacted with"
       },
       "dropdownType": {
         "type": {
@@ -2645,12 +2618,40 @@
         "required": false,
         "description": "Set first day of the week"
       },
+      "fixOnBlur": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "call onChange with last valid value onBlur"
+      },
+      "focusable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should focusable days have tabIndex={0}?"
+      },
+      "format": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "DatePicker display format"
+      },
       "fullWidth": {
         "type": {
           "name": "bool"
         },
         "required": false,
         "description": "Set to true to make calendar take 100% of container width"
+      },
+      "hideOutsideDates": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Remove outside dates"
       },
       "hideWeekdays": {
         "type": {
@@ -2659,12 +2660,33 @@
         "required": false,
         "description": "Set to false to remove weekdays row"
       },
-      "format": {
+      "id": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "DateRangePicker display format"
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "initialLevel": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"date\"",
+              "computed": false
+            },
+            {
+              "value": "\"month\"",
+              "computed": false
+            },
+            {
+              "value": "\"year\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Initial date selection level"
       },
       "initialMonth": {
         "type": {
@@ -2687,36 +2709,19 @@
         "required": false,
         "description": "Input label, displayed before input"
       },
+      "labelSeparator": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Separator between dates"
+      },
       "locale": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "Locale used for all labels formatting"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "maxDate": {
         "type": {
@@ -2801,6 +2806,13 @@
         "required": false,
         "description": "Adds red asterisk on the right side of label"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
           "name": "enum",
@@ -2866,29 +2878,12 @@
         "required": false,
         "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
       },
-      "withSelect": {
+      "withinPortal": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Replace calendar label with month and year selects"
-      },
-      "yearsRange": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "from": {
-              "name": "number",
-              "required": false
-            },
-            "to": {
-              "name": "number",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Years range for year select"
+        "description": "Whether to render the dropdown in a Portal"
       },
       "zIndex": {
         "type": {
@@ -2896,16 +2891,6 @@
         },
         "required": false,
         "description": "Popper zIndex"
-      },
-      "dates": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "string"
-          }
-        },
-        "required": false,
-        "description": "Selected date"
       }
     }
   },
@@ -2914,13 +2899,6 @@
     "displayName": "Divider",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -2992,6 +2970,13 @@
         },
         "required": false,
         "description": "Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "label": {
         "type": {
@@ -3075,6 +3060,13 @@
         "required": false,
         "description": "Sets height in horizontal orientation and width in vertical"
       },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
       "variant": {
         "type": {
           "name": "enum",
@@ -3103,20 +3095,6 @@
     "displayName": "Drawer",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "children": {
         "type": {
           "name": "node"
@@ -3138,29 +3116,12 @@
         "required": false,
         "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "noCloseOnClickOutside": {
         "type": {
@@ -3292,6 +3253,13 @@
         "required": false,
         "description": "Drawer body position"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "size": {
         "type": {
           "name": "union",
@@ -3349,27 +3317,6 @@
     "displayName": "Grid",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "align": {
         "type": {
           "name": "enum",
@@ -3394,6 +3341,20 @@
         },
         "required": false,
         "description": "Set grid align-content property"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "columns": {
         "type": {
@@ -3446,6 +3407,13 @@
         "required": false,
         "description": "Spacing between columns predefined value from theme.spacing or number for gutter in px"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "justify": {
         "type": {
           "name": "enum",
@@ -3475,30 +3443,6 @@
         "required": false,
         "description": "Set grid justify-content property"
       },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
-      },
       "style": {
         "type": {
           "name": "object"
@@ -3513,27 +3457,6 @@
     "displayName": "Group",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Content"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "align": {
         "type": {
           "name": "enum",
@@ -3559,6 +3482,20 @@
         "required": false,
         "description": "Defines align-items css property"
       },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Content"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
       "direction": {
         "type": {
           "name": "enum",
@@ -3583,29 +3520,12 @@
         "required": false,
         "description": "Defines flex-grow property for each element, true -> 1, false -> 0"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "noWrap": {
         "type": {
@@ -3682,20 +3602,6 @@
     "displayName": "Image",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties"
-      },
       "alt": {
         "type": {
           "name": "string"
@@ -3709,6 +3615,13 @@
         },
         "required": false,
         "description": "Image figcaption, displayed bellow image"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
       },
       "fit": {
         "type": {
@@ -3742,29 +3655,12 @@
         "required": false,
         "description": "Image height, defaults to original image height adjusted to given width"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "radius": {
         "type": {
@@ -3846,19 +3742,12 @@
     "displayName": "Modal",
     "methods": [],
     "props": {
-      "id": {
+      "centered": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
+        "description": "Controls if modal should be centered"
       },
       "children": {
         "type": {
@@ -3874,13 +3763,6 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "centered": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Controls if modal should be centered"
-      },
       "closeOnClickOutside": {
         "type": {
           "name": "bool"
@@ -3895,29 +3777,12 @@
         "required": false,
         "description": "Hides close button, modal still can be closed with escape key and by clicking outside"
       },
-      "loading_state": {
+      "id": {
         "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
+          "name": "string"
         },
         "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
+        "description": "The ID of this component, used to identify dash components in callbacks"
       },
       "opened": {
         "type": {
@@ -3946,6 +3811,20 @@
         },
         "required": false,
         "description": "Control vertical overflow behavior"
+      },
+      "overlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overlay below modal color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme"
+      },
+      "overlayOpacity": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Overlay below modal opacity, defaults to 0.75 in light theme and to 0.85 in dark theme"
       },
       "padding": {
         "type": {
@@ -3983,6 +3862,50 @@
         },
         "required": false,
         "description": "Modal padding from theme or number value for padding in px"
+      },
+      "radius": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Modal padding from theme or number value for padding in px"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
       },
       "size": {
         "type": {
@@ -4052,20 +3975,6 @@
     "displayName": "MultiSelect",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components in callbacks"
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Tells dash if any prop has changed its value"
-      },
       "className": {
         "type": {
           "name": "string"
@@ -4146,6 +4055,13 @@
         "required": false,
         "description": "Displays error message after input"
       },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
       "initiallyOpened": {
         "type": {
           "name": "bool"
@@ -4166,30 +4082,6 @@
         },
         "required": false,
         "description": "Limit amount of items displayed at a time for searchable select"
-      },
-      "loading_state": {
-        "type": {
-          "name": "shape",
-          "value": {
-            "is_loading": {
-              "name": "bool",
-              "description": "Determines if the component is loading or not",
-              "required": false
-            },
-            "prop_name": {
-              "name": "string",
-              "description": "Holds which property is loading",
-              "required": false
-            },
-            "component_name": {
-              "name": "string",
-              "description": "Holds the name of the component that is loading",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": "Object that holds the loading state object coming from dash-renderer"
       },
       "maxDropdownHeight": {
         "type": {
@@ -4278,6 +4170,13 @@
         "required": false,
         "description": "Adds red asterisk on the right side of label"
       },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
       "searchable": {
         "type": {
           "name": "bool"
@@ -4288,35 +4187,6 @@
           "value": "true",
           "computed": false
         }
-      },
-      "shadow": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "\"xs\"",
-              "computed": false
-            },
-            {
-              "value": "\"sm\"",
-              "computed": false
-            },
-            {
-              "value": "\"md\"",
-              "computed": false
-            },
-            {
-              "value": "\"lg\"",
-              "computed": false
-            },
-            {
-              "value": "\"xl\"",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": "Dropdown shadow from theme or any value to set box-shadow"
       },
       "size": {
         "type": {
@@ -4354,6 +4224,13 @@
         "required": false,
         "description": "Inline style override"
       },
+      "switchDirectionOnFlip": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to switch item order and keyboard navigation on dropdown position flip"
+      },
       "value": {
         "type": {
           "name": "arrayOf",
@@ -4388,6 +4265,13 @@
         },
         "required": false,
         "description": "Defines input appearance, defaults to default in light color scheme and filled in dark"
+      },
+      "withinPortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the dropdown in a Portal"
       },
       "zIndex": {
         "type": {

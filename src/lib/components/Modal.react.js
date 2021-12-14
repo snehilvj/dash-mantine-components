@@ -38,14 +38,9 @@ Modal.defaultProps = {
 
 Modal.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Controls if modal should be centered
      */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
+    centered: PropTypes.bool,
 
     /**
      * Content that should be centered vertically and horizontally
@@ -58,11 +53,6 @@ Modal.propTypes = {
     className: PropTypes.string,
 
     /**
-     * Controls if modal should be centered
-     */
-    centered: PropTypes.bool,
-
-    /**
      * Should modal be closed when outside click was registered?
      */
     closeOnClickOutside: PropTypes.bool,
@@ -73,22 +63,9 @@ Modal.propTypes = {
     hideCloseButton: PropTypes.bool,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Mounts modal if true
@@ -101,12 +78,35 @@ Modal.propTypes = {
     overflow: PropTypes.oneOf(["inside", "outside"]),
 
     /**
+     * Overlay below modal color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme
+     */
+    overlayColor: PropTypes.string,
+
+    /**
+     * Overlay below modal opacity, defaults to 0.75 in light theme and to 0.85 in dark theme
+     */
+    overlayOpacity: PropTypes.number,
+
+    /**
      * Modal padding from theme or number value for padding in px
      */
     padding: PropTypes.oneOfType([
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * Modal padding from theme or number value for padding in px
+     */
+    radius: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 
     /**
      * Modal body width

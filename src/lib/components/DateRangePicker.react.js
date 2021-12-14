@@ -68,19 +68,9 @@ DateRangePicker.defaultProps = {
 
 DateRangePicker.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
+     * Allow to change level (date – month – year)
      */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
-     * Often used with CSS to style elements with common properties
-     */
-    className: PropTypes.string,
+    allowLevelChange: PropTypes.bool,
 
     /**
      * Allow one date to be selected as range
@@ -91,6 +81,11 @@ DateRangePicker.propTypes = {
      * Amount of displayed months
      */
     amountOfMonths: PropTypes.number,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    className: PropTypes.string,
 
     /**
      * Allow to clear value
@@ -108,14 +103,13 @@ DateRangePicker.propTypes = {
     closeDropdownOnScroll: PropTypes.bool,
 
     /**
+     * Selected date
+     */
+    dates: PropTypes.arrayOf(PropTypes.string),
+    /**
      * Input description, displayed after label
      */
     description: PropTypes.string,
-
-    /**
-     * When true dates that are outside of given month are not styled
-     */
-    disableOutsideDayStyle: PropTypes.bool,
 
     /**
      * When true dates that are outside of given month cannot be clicked or focused
@@ -123,7 +117,7 @@ DateRangePicker.propTypes = {
     disableOutsideEvents: PropTypes.bool,
 
     /**
-     * A DateRangePicker can show it is currently unable to be interacted with
+     * A Datepicker can show it is currently unable to be interacted with
      */
     disabled: PropTypes.bool,
 
@@ -143,9 +137,29 @@ DateRangePicker.propTypes = {
     firstDayOfWeek: PropTypes.oneOf(["sunday", "monday"]),
 
     /**
+     * call onChange with last valid value onBlur
+     */
+    fixOnBlur: PropTypes.bool,
+
+    /**
+     * Should focusable days have tabIndex={0}?
+     */
+    focusable: PropTypes.bool,
+
+    /**
+     * DatePicker display format
+     */
+    format: PropTypes.string,
+
+    /**
      * Set to true to make calendar take 100% of container width
      */
     fullWidth: PropTypes.bool,
+
+    /**
+     * Remove outside dates
+     */
+    hideOutsideDates: PropTypes.bool,
 
     /**
      * Set to false to remove weekdays row
@@ -153,9 +167,14 @@ DateRangePicker.propTypes = {
     hideWeekdays: PropTypes.bool,
 
     /**
-     * DateRangePicker display format
+     * The ID of this component, used to identify dash components in callbacks
      */
-    format: PropTypes.string,
+    id: PropTypes.string,
+
+    /**
+     * Initial date selection level
+     */
+    initialLevel: PropTypes.oneOf(["date", "month", "year"]),
 
     /**
      * Initial selected month
@@ -173,27 +192,14 @@ DateRangePicker.propTypes = {
     label: PropTypes.string,
 
     /**
+     * Separator between dates
+     */
+    labelSeparator: PropTypes.string,
+
+    /**
      * Locale used for all labels formatting
      */
     locale: PropTypes.string,
-
-    /**
-     * Object that holds the loading state object coming from dash-renderer
-     */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
 
     /**
      * Maximum possible date
@@ -234,6 +240,11 @@ DateRangePicker.propTypes = {
     required: PropTypes.bool,
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
      * Input size
      */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
@@ -249,27 +260,14 @@ DateRangePicker.propTypes = {
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
 
     /**
-     * Replace calendar label with month and year selects
+     * Whether to render the dropdown in a Portal
      */
-    withSelect: PropTypes.bool,
-
-    /**
-     * Years range for year select
-     */
-    yearsRange: PropTypes.shape({
-        from: PropTypes.number,
-        to: PropTypes.number,
-    }),
+    withinPortal: PropTypes.bool,
 
     /**
      * Popper zIndex
      */
     zIndex: PropTypes.number,
-
-    /**
-     * Selected date
-     */
-    dates: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default DateRangePicker;

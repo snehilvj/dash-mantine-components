@@ -11,7 +11,7 @@ Center content horizontally with predefined max-width. For more information, see
 
 \usage{
 container(children=NULL, id=NULL, className=NULL, fluid=NULL,
-loading_state=NULL, padding=NULL, size=NULL, style=NULL)
+padding=NULL, size=NULL, style=NULL)
 }
 
 \arguments{
@@ -22,12 +22,6 @@ loading_state=NULL, padding=NULL, size=NULL, style=NULL)
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{fluid}{Logical. If fluid is set to true, size prop is ignored and Container always take 100\% of width}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{padding}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Horizontal padding defined in theme.spacing, or number value for padding in px}
 

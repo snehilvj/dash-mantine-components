@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-drawer <- function(children=NULL, id=NULL, className=NULL, hideCloseButton=NULL, loading_state=NULL, noCloseOnClickOutside=NULL, noCloseOnEscape=NULL, noFocusTrap=NULL, noOverlay=NULL, noScrollLock=NULL, opened=NULL, overlayColor=NULL, overlayOpacity=NULL, padding=NULL, position=NULL, size=NULL, title=NULL, zIndex=NULL) {
+drawer <- function(children=NULL, id=NULL, className=NULL, hideCloseButton=NULL, noCloseOnClickOutside=NULL, noCloseOnEscape=NULL, noFocusTrap=NULL, noOverlay=NULL, noScrollLock=NULL, opened=NULL, overlayColor=NULL, overlayOpacity=NULL, padding=NULL, position=NULL, size=NULL, title=NULL, zIndex=NULL) {
     
-    props <- list(children=children, id=id, className=className, hideCloseButton=hideCloseButton, loading_state=loading_state, noCloseOnClickOutside=noCloseOnClickOutside, noCloseOnEscape=noCloseOnEscape, noFocusTrap=noFocusTrap, noOverlay=noOverlay, noScrollLock=noScrollLock, opened=opened, overlayColor=overlayColor, overlayOpacity=overlayOpacity, padding=padding, position=position, size=size, title=title, zIndex=zIndex)
+    props <- list(children=children, id=id, className=className, hideCloseButton=hideCloseButton, noCloseOnClickOutside=noCloseOnClickOutside, noCloseOnEscape=noCloseOnEscape, noFocusTrap=noFocusTrap, noOverlay=noOverlay, noScrollLock=noScrollLock, opened=opened, overlayColor=overlayColor, overlayOpacity=overlayOpacity, padding=padding, position=position, size=size, title=title, zIndex=zIndex)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ drawer <- function(children=NULL, id=NULL, className=NULL, hideCloseButton=NULL,
         props = props,
         type = 'Drawer',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'className', 'hideCloseButton', 'loading_state', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex'),
+        propNames = c('children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex'),
         package = 'dashMantineComponents'
         )
 

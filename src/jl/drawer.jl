@@ -15,11 +15,6 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `className` (String; optional): Often used with CSS to style elements with common properties
 - `hideCloseButton` (Bool; optional): Hides close button, modal still can be closed with escape key and by clicking outside
-- `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
-Those elements have the following types:
-  - `is_loading` (Bool; optional): Determines if the component is loading or not
-  - `prop_name` (String; optional): Holds which property is loading
-  - `component_name` (String; optional): Holds the name of the component that is loading
 - `noCloseOnClickOutside` (Bool; optional): Disable onClock trigger for outside events
 - `noCloseOnEscape` (Bool; optional): Disable onClock trigger for escape key press
 - `noFocusTrap` (Bool; optional): Disables focus trap
@@ -35,7 +30,7 @@ Those elements have the following types:
 - `zIndex` (Real; optional): Popper zIndex
 """
 function drawer(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :hideCloseButton, :loading_state, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :overlayColor, :overlayOpacity, :padding, :position, :size, :title, :zIndex]
+        available_props = Symbol[:children, :id, :className, :hideCloseButton, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :overlayColor, :overlayOpacity, :padding, :position, :size, :title, :zIndex]
         wild_props = Symbol[]
         return Component("drawer", "Drawer", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

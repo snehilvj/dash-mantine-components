@@ -40,16 +40,6 @@ Drawer.defaultProps = {
 
 Drawer.propTypes = {
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
-    id: PropTypes.string,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
      * Drawer children components
      */
     children: PropTypes.node,
@@ -65,22 +55,9 @@ Drawer.propTypes = {
     hideCloseButton: PropTypes.bool,
 
     /**
-     * Object that holds the loading state object coming from dash-renderer
+     * The ID of this component, used to identify dash components in callbacks
      */
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string,
-    }),
+    id: PropTypes.string,
 
     /**
      * Disable onClock trigger for outside events
@@ -134,6 +111,11 @@ Drawer.propTypes = {
      * Drawer body position
      */
     position: PropTypes.oneOf(["right", "center", "left", "apart"]),
+
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 
     /**
      * Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width

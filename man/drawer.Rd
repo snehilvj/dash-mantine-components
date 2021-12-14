@@ -11,12 +11,11 @@ Display overlay area at any side of the screen. For more information, see: https
 
 \usage{
 drawer(children=NULL, id=NULL, className=NULL,
-hideCloseButton=NULL, loading_state=NULL,
-noCloseOnClickOutside=NULL, noCloseOnEscape=NULL,
-noFocusTrap=NULL, noOverlay=NULL, noScrollLock=NULL,
-opened=NULL, overlayColor=NULL, overlayOpacity=NULL,
-padding=NULL, position=NULL, size=NULL, title=NULL,
-zIndex=NULL)
+hideCloseButton=NULL, noCloseOnClickOutside=NULL,
+noCloseOnEscape=NULL, noFocusTrap=NULL, noOverlay=NULL,
+noScrollLock=NULL, opened=NULL, overlayColor=NULL,
+overlayOpacity=NULL, padding=NULL, position=NULL, size=NULL,
+title=NULL, zIndex=NULL)
 }
 
 \arguments{
@@ -27,12 +26,6 @@ zIndex=NULL)
 \item{className}{Character. Often used with CSS to style elements with common properties}
 
 \item{hideCloseButton}{Logical. Hides close button, modal still can be closed with escape key and by clicking outside}
-
-\item{loading_state}{Lists containing elements 'is_loading', 'prop_name', 'component_name'.
-those elements have the following types:
-  - is_loading (logical; optional): determines if the component is loading or not
-  - prop_name (character; optional): holds which property is loading
-  - component_name (character; optional): holds the name of the component that is loading. Object that holds the loading state object coming from dash-renderer}
 
 \item{noCloseOnClickOutside}{Logical. Disable onClock trigger for outside events}
 
