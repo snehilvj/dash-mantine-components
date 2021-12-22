@@ -15,7 +15,7 @@ const Group = (props) => {
 
     return (
         <MantineGroup {...omit(["children", "setProps"], props)}>
-            {children.map((child, index) => {
+            {React.Children.map(children, (child, index) => {
                 return <div key={index}>{child}</div>;
             })}
         </MantineGroup>

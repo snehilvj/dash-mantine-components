@@ -15,7 +15,7 @@ const Tabs = (props) => {
 
     return (
         <MantineTabs {...omit(["setProps"], props)} onTabChange={onTabChange}>
-            {children.map((child, index) => {
+            {React.Children.map(children, (child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
                     <Tab {...omit(["children"], childProps)} key={index}>
