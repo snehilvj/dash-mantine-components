@@ -15,7 +15,7 @@ const Accordion = (props) => {
 
     return (
         <MantineAccordion {...omit(["setProps"], props)} onChange={onChange}>
-            {children.map((child, index) => {
+            {React.Children.map(children, (child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
                     <MantineAccordion.Item
