@@ -53,7 +53,7 @@ ScrollArea.propTypes = {
      type: PropTypes.oneOf(["auto", "scroll", "always", "hover"]),
 
     // /**
-    //  * If true row will have hover color
+    //  * Get viewport ref
     //  */
     //  viewportRef: ForwardedRef<HTMLDivElement>,
 
