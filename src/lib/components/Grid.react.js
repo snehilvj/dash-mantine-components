@@ -11,7 +11,7 @@ const Grid = (props) => {
 
     return (
         <MantineGrid {...omit(["setProps", "children"], props)}>
-            {children.map((child, index) => {
+            {React.Children.map(children, (child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
                     <MantineCol {...omit(["children"], childProps)} key={index}>
