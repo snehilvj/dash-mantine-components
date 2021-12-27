@@ -10,9 +10,14 @@ package_name = package["name"].replace(" ", "_").replace("-", "_")
 
 setup(
     name=package_name,
-    url="https://github.com/snehilvj/dash-mantine-components",
+    url=package["homepage"],
+    project_urls={
+        "Bug Reports": package["bugs"]["url"],
+        "Source": package["repository"]["url"],
+    },
     version=package["version"],
     author=package["author"],
+    author_email="snehilvj@outlook.com",
     packages=[package_name],
     include_package_data=True,
     license=package["license"],
