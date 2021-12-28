@@ -45,9 +45,9 @@ title=NULL, zIndex=NULL)
 
 \item{padding}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Drawer body padding from theme or number for padding in px}
 
-\item{position}{A value equal to: "right", "center", "left", "apart". Drawer body position}
+\item{position}{A value equal to: "left", "right", "top", "bottom". Drawer body position}
 
-\item{size}{A value equal to: "right", "center", "left", "apart" | character | numeric. Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100\% for width}
+\item{size}{A value equal to: "xs", "sm", "md", "lg", "xl" | character | numeric. Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100\% for width}
 
 \item{title}{Character. Drawer title, displayed in header before close button}
 

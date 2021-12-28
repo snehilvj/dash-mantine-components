@@ -52,10 +52,10 @@ Keyword arguments:
 - padding (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Drawer body padding from theme or number for padding in px.
 
-- position (a value equal to: "right", "center", "left", "apart"; optional):
+- position (a value equal to: "left", "right", "top", "bottom"; optional):
     Drawer body position.
 
-- size (a value equal to: "right", "center", "left", "apart" | string | number; optional):
+- size (a value equal to: "xs", "sm", "md", "lg", "xl" | string | number; optional):
     Drawer body width (right | left position) or height (top | bottom
     position), cannot exceed 100vh for height and 100% for width.
 

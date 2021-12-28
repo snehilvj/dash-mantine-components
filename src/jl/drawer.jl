@@ -24,8 +24,8 @@ Keyword arguments:
 - `overlayColor` (String; optional): Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme
 - `overlayOpacity` (Real; optional): Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme
 - `padding` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Drawer body padding from theme or number for padding in px
-- `position` (a value equal to: "right", "center", "left", "apart"; optional): Drawer body position
-- `size` (a value equal to: "right", "center", "left", "apart" | String | Real; optional): Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
+- `position` (a value equal to: "left", "right", "top", "bottom"; optional): Drawer body position
+- `size` (a value equal to: "xs", "sm", "md", "lg", "xl" | String | Real; optional): Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
 - `title` (String; optional): Drawer title, displayed in header before close button
 - `zIndex` (Real; optional): Popper zIndex
 """
