@@ -10,7 +10,7 @@ Responsive grid where each item takes equal amount of space. For more informatio
 Keyword arguments:
 
 - children (a list of or a singular dash component, string or number; optional):
-    <Col /> components only.
+    Children.
 
 - id (string; optional):
     The ID of this component, used to identify dash components in

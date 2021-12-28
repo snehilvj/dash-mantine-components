@@ -27,6 +27,7 @@ from .Paper import Paper
 from .Prism import Prism
 from .Progress import Progress
 from .RadioGroup import RadioGroup
+from .ScrollArea import ScrollArea
 from .SegmentedControl import SegmentedControl
 from .Select import Select
 from .SimpleGrid import SimpleGrid
@@ -73,6 +74,7 @@ __all__ = [
     "Prism",
     "Progress",
     "RadioGroup",
+    "ScrollArea",
     "SegmentedControl",
     "Select",
     "SimpleGrid",

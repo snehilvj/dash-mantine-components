@@ -11,7 +11,7 @@ export simplegrid
 A SimpleGrid component.
 Responsive grid where each item takes equal amount of space. For more information, see: https://mantine.dev/core/simple-grid/
 Keyword arguments:
-- `children` (a list of or a singular dash component, string or number; optional): <Col /> components only
+- `children` (a list of or a singular dash component, string or number; optional): Children
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `breakpoints` (optional): Breakpoints data to change items per row and spacing based on max-width. breakpoints has the following type: lists containing elements 'maxWidth', 'cols', 'spacing'.
 Those elements have the following types:

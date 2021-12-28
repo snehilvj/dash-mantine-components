@@ -5,7 +5,7 @@ import { omit } from "ramda";
 import dayjs from "dayjs";
 
 /**
- * Capture date input from user
+ * Capture date input from user. For more information, see: https://mantine.dev/dates/date-picker/
  */
 const DatePicker = (props) => {
     const {

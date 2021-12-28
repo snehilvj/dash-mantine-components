@@ -32,7 +32,7 @@ SimpleGrid.propTypes = {
     }),
 
     /**
-     * <Col /> components only
+     * Children
      */
     children: PropTypes.node,
 

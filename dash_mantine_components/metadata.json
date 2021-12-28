@@ -2104,7 +2104,7 @@
     }
   },
   "src/lib/components/DatePicker.react.js": {
-    "description": "Capture date input from user",
+    "description": "Capture date input from user. For more information, see: https://mantine.dev/dates/date-picker/",
     "displayName": "DatePicker",
     "methods": [],
     "props": {
@@ -5391,6 +5391,131 @@
       }
     }
   },
+  "src/lib/components/ScrollArea.react.js": {
+    "description": "A port of the ScrollArea component. For more information, see: https://mantine.dev/core/table/",
+    "displayName": "ScrollArea",
+    "methods": [],
+    "props": {
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "ScrollArea children"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "dir": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"ltr\"",
+              "computed": false
+            },
+            {
+              "value": "\"rtl\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Reading direction of the scroll area",
+        "defaultValue": {
+          "value": "\"ltr\"",
+          "computed": false
+        }
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "offsetScrollbars": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Should scrollbars be offset with padding",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "scrollHideDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Scroll hide delay in ms, for scroll and hover types only",
+        "defaultValue": {
+          "value": "1000",
+          "computed": false
+        }
+      },
+      "scrollbarSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Scrollbar size in px",
+        "defaultValue": {
+          "value": "12",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Tells dash if any prop has changed its value"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"auto\"",
+              "computed": false
+            },
+            {
+              "value": "\"scroll\"",
+              "computed": false
+            },
+            {
+              "value": "\"always\"",
+              "computed": false
+            },
+            {
+              "value": "\"hover\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Scrollbars type",
+        "defaultValue": {
+          "value": "\"hover\"",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/SegmentedControl.react.js": {
     "description": "Horizontal control made of multiple segments, alternative to RadioGroup. For more information, see: https://mantine.dev/core/segmented-control/",
     "displayName": "SegmentedControl",
@@ -5931,7 +6056,7 @@
           "name": "node"
         },
         "required": false,
-        "description": "<Col /> components only"
+        "description": "Children"
       },
       "className": {
         "type": {

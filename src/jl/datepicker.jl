@@ -6,7 +6,7 @@ export datepicker
     datepicker(;kwargs...)
 
 A DatePicker component.
-Capture date input from user
+Capture date input from user. For more information, see: https://mantine.dev/dates/date-picker/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `allowFreeInput` (Bool; optional): Allow free input

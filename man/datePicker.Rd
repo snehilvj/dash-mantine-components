@@ -6,7 +6,7 @@
 \title{DatePicker component}
 
 \description{
-Capture date input from user
+Capture date input from user. For more information, see: https://mantine.dev/dates/date-picker/
 }
 
 \usage{
