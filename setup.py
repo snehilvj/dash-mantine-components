@@ -11,10 +11,6 @@ package_name = package["name"].replace(" ", "_").replace("-", "_")
 setup(
     name=package_name,
     url=package["homepage"],
-    project_urls={
-        "Bug Reports": package["bugs"]["url"],
-        "Source": package["repository"]["url"],
-    },
     version=package["version"],
     author=package["author"],
     author_email="snehilvj@outlook.com",
