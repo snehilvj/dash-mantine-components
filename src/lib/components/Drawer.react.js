@@ -110,7 +110,7 @@ Drawer.propTypes = {
     /**
      * Drawer body position
      */
-    position: PropTypes.oneOf(["right", "center", "left", "apart"]),
+    position: PropTypes.oneOf(["left", "right", "top", "bottom"]),
 
     /**
      * Tells dash if any prop has changed its value
@@ -121,7 +121,7 @@ Drawer.propTypes = {
      * Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
      */
     size: PropTypes.oneOfType([
-        PropTypes.oneOf(["right", "center", "left", "apart"]),
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.string,
         PropTypes.number,
     ]),

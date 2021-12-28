@@ -3233,19 +3233,19 @@
           "name": "enum",
           "value": [
             {
-              "value": "\"right\"",
-              "computed": false
-            },
-            {
-              "value": "\"center\"",
-              "computed": false
-            },
-            {
               "value": "\"left\"",
               "computed": false
             },
             {
-              "value": "\"apart\"",
+              "value": "\"right\"",
+              "computed": false
+            },
+            {
+              "value": "\"top\"",
+              "computed": false
+            },
+            {
+              "value": "\"bottom\"",
               "computed": false
             }
           ]
@@ -3268,19 +3268,23 @@
               "name": "enum",
               "value": [
                 {
-                  "value": "\"right\"",
+                  "value": "\"xs\"",
                   "computed": false
                 },
                 {
-                  "value": "\"center\"",
+                  "value": "\"sm\"",
                   "computed": false
                 },
                 {
-                  "value": "\"left\"",
+                  "value": "\"md\"",
                   "computed": false
                 },
                 {
-                  "value": "\"apart\"",
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
                   "computed": false
                 }
               ]
