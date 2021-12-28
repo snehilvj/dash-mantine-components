@@ -15,51 +15,6 @@ https://user-images.githubusercontent.com/91216500/144928311-a62db8df-9780-4fa5-
 pip install dash-mantine-components
 ```
 
-## Available Components
-
--   [Accordion](examples/accordion.py)
--   [Affix](examples/affix.py)
--   [Alert](examples/alert.py)
--   [Anchor](examples/anchor.py)
--   [Badge](examples/badge.py)
--   [Blockquote](examples/blockquote.py)
--   [Breadcrumbs](examples/breadcrumbs.py)
--   [Button](examples/button.py)
--   [Center](examples/center.py)
--   [Checkbox](examples/checkbox.py)
--   [Chips](examples/chips.py)
--   Col
--   [Container](examples/container.py)
--   [DatePicker](examples/datepicker.py)
--   [DateRangePicker](examples/datepicker.py)
--   [Divider](examples/divider.py)
--   [Drawer](examples/drawer.py)
--   [Grid](examples/grid.py)
--   [Group](examples/group.py)
--   [Image](examples/image.py)
--   [Modal](examples/modal.py)
--   [MultiSelect](examples/multiselect.py)
--   [NotificationsProvider](examples/notifications.py)
--   [Paper](examples/paper.py)
--   [Prism](examples/prism.py)
--   [Progress](examples/progress.py)
--   [RadioGroup](examples/radiogroup.py)
--   [SegmentedControl](examples/segmentedcontrol.py)
--   [Select](examples/select.py)
--   [SimpleGrid](examples/simplegrid.py)
--   [Skeleton](examples/skeleton.py)
--   [Slider](examples/slider.py)
--   Space
--   [Spoiler](examples/spoiler.py)
--   [Switch](examples/switch.py)
--   [Table](examples/table.py)
--   Tab
--   [Tabs](examples/tabs.py)
--   [Text](examples/text.py)
--   [TextInput](examples/textinput.py)
--   [Title](examples/title.py)
--   [Tooltip](examples/tooltip.py)
-
 ## Quickstart
 
 ```python
@@ -97,4 +52,3 @@ if __name__ == "__main__":
 4. Create more examples.
 5. Add contributing guide.
 6. Add testing.
-7. Correct proptypes to support type hints.
