@@ -9,7 +9,7 @@ import { pick } from "ramda";
 const ScrollArea = (props) => {
     return (
         <MantineScrollArea
-            {...pick(["dir", "offsetScrollbars", "scrollHideDelay", "scrollbarSize", "type"], props)}
+            {...omit(["setProps", "children"], props)}
         >
             {props.children}
         </MantineScrollArea>
@@ -73,9 +73,14 @@ ScrollArea.propTypes = {
     style: PropTypes.object,
 
     /**
-     * Table children
+     * ScrollArea children
      */
-    children: PropTypes.node
+    children: PropTypes.node,
+
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 };
 
 export default ScrollArea;
