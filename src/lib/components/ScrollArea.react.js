@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollArea as MantineScrollArea } from "@mantine/core";
 import PropTypes from "prop-types";
-import { pick } from "ramda";
+import { omit } from "ramda";
 
 /**
  * A port of the ScrollArea component. For more information, see: https://mantine.dev/core/table/
