@@ -15,7 +15,7 @@ cols=NULL, spacing=NULL, style=NULL)
 }
 
 \arguments{
-\item{children}{A list of or a singular dash component, string or number. <Col /> components only}
+\item{children}{A list of or a singular dash component, string or number. Children}
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
