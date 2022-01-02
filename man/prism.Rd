@@ -10,7 +10,7 @@ Code highlight with Mantine theme colors and styles. For more information, see: 
 }
 
 \usage{
-prism(id=NULL, className=NULL, code=NULL, colorScheme=NULL,
+prism(id=NULL, class_name=NULL, code=NULL, colorScheme=NULL,
 copiedLabel=NULL, copyLabel=NULL, highlightLines=NULL,
 language=NULL, noCopy=NULL, style=NULL, withLineNumbers=NULL)
 }
@@ -18,7 +18,7 @@ language=NULL, noCopy=NULL, style=NULL, withLineNumbers=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{code}{Character. Code which will be highlighted}
 

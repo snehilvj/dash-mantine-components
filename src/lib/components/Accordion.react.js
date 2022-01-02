@@ -7,14 +7,18 @@ import { omit } from "ramda";
  * Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/
  */
 const Accordion = (props) => {
-    const { children, setProps } = props;
+    const { children, setProps, class_name } = props;
 
     const onChange = (state) => {
         setProps({ state });
     };
 
     return (
-        <MantineAccordion {...omit(["setProps"], props)} onChange={onChange}>
+        <MantineAccordion
+            {...omit(["setProps", "class_name"], props)}
+            onChange={onChange}
+            className={class_name}
+        >
             {React.Children.map(children, (child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
@@ -50,7 +54,7 @@ Accordion.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Should icon rotation be disabled

@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/
  */
 const Modal = (props) => {
-    const { opened, children, setProps } = props;
+    const { opened, children, setProps, class_name } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -22,6 +22,7 @@ const Modal = (props) => {
     return (
         <MantineModal
             {...omit(["opened", "setProps", "children"], props)}
+            className={class_name}
             opened={open}
             onClose={onClose}
         >
@@ -50,7 +51,7 @@ Modal.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Should modal be closed when outside click was registered?

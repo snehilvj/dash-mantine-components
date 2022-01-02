@@ -16,7 +16,7 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - h (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
@@ -28,12 +28,12 @@ Keyword arguments:
 - w (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Width, set to add horizontal spacing."""
     @_explicitize_args
-    def __init__(self, children=None, className=Component.UNDEFINED, h=Component.UNDEFINED, id=Component.UNDEFINED, style=Component.UNDEFINED, w=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'h', 'style', 'w']
+    def __init__(self, children=None, class_name=Component.UNDEFINED, h=Component.UNDEFINED, id=Component.UNDEFINED, style=Component.UNDEFINED, w=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'class_name', 'h', 'style', 'w']
         self._type = 'Space'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'h', 'style', 'w']
+        self.available_properties = ['children', 'id', 'class_name', 'h', 'style', 'w']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

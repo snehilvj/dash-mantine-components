@@ -7,10 +7,13 @@ import React from "react";
  * Display badge, pill or tag. For more information, see: https://mantine.dev/core/badge/
  */
 const Badge = (props) => {
-    const { children } = props;
+    const { children, class_name } = props;
 
     return (
-        <MantineBadge {...omit(["setProps", "children"], props)}>
+        <MantineBadge
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {children}
         </MantineBadge>
     );
@@ -49,7 +52,7 @@ Badge.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Sets badge width to 100% of parent element, hides overflow text with text-overflow: ellipsis

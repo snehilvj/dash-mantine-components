@@ -10,7 +10,7 @@ Display badge, pill or tag. For more information, see: https://mantine.dev/core/
 }
 
 \usage{
-badge(children=NULL, id=NULL, className=NULL, color=NULL,
+badge(children=NULL, id=NULL, class_name=NULL, color=NULL,
 fullWidth=NULL, gradient=NULL, radius=NULL, size=NULL,
 style=NULL, variant=NULL)
 }
@@ -20,7 +20,7 @@ style=NULL, variant=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Badge color from theme}
 

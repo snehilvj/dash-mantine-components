@@ -7,8 +7,13 @@ import { omit } from "ramda";
  * Code highlight with Mantine theme colors and styles. For more information, see: https://mantine.dev/others/prism/
  */
 const Prism = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantinePrism {...omit(["code", "setProps"], props)}>
+        <MantinePrism
+            {...omit(["code", "setProps", "class_name"], props)}
+            className={class_name}
+        >
             {props.code}
         </MantinePrism>
     );
@@ -22,7 +27,7 @@ Prism.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Code which will be highlighted

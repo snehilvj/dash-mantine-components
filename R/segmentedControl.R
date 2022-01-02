@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-segmentedControl <- function(id=NULL, className=NULL, color=NULL, data=NULL, fullWidth=NULL, radius=NULL, size=NULL, style=NULL, value=NULL) {
+segmentedControl <- function(id=NULL, class_name=NULL, color=NULL, data=NULL, fullWidth=NULL, radius=NULL, size=NULL, style=NULL, value=NULL) {
     
-    props <- list(id=id, className=className, color=color, data=data, fullWidth=fullWidth, radius=radius, size=size, style=style, value=value)
+    props <- list(id=id, class_name=class_name, color=color, data=data, fullWidth=fullWidth, radius=radius, size=size, style=style, value=value)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ segmentedControl <- function(id=NULL, className=NULL, color=NULL, data=NULL, ful
         props = props,
         type = 'SegmentedControl',
         namespace = 'dash_mantine_components',
-        propNames = c('id', 'className', 'color', 'data', 'fullWidth', 'radius', 'size', 'style', 'value'),
+        propNames = c('id', 'class_name', 'color', 'data', 'fullWidth', 'radius', 'size', 'style', 'value'),
         package = 'dashMantineComponents'
         )
 

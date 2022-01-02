@@ -7,10 +7,13 @@ import React from "react";
  * Blockquote with optional cite. For more information, see: https://mantine.dev/core/blockquote/
  */
 const Blockquote = (props) => {
-    const { children } = props;
+    const { children, class_name } = props;
 
     return (
-        <MantineBlockquote {...omit(["setProps", "children"], props)}>
+        <MantineBlockquote
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {children}
         </MantineBlockquote>
     );
@@ -29,7 +32,7 @@ Blockquote.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Describe a reference to a cited quote

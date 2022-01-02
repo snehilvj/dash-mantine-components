@@ -10,7 +10,7 @@ Render button or link with button styles from mantine theme. For more informatio
 }
 
 \usage{
-button(children=NULL, id=NULL, className=NULL, color=NULL,
+button(children=NULL, id=NULL, class_name=NULL, color=NULL,
 compact=NULL, disabled=NULL, fullWidth=NULL, gradient=NULL,
 loaderPosition=NULL, loading=NULL, loading_state=NULL,
 n_clicks=NULL, radius=NULL, size=NULL, style=NULL,
@@ -22,7 +22,7 @@ uppercase=NULL, variant=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Button color from theme}
 

@@ -10,7 +10,7 @@ Horizontal line with optional label or vertical divider. For more information, s
 }
 
 \usage{
-divider(id=NULL, className=NULL, color=NULL, label=NULL,
+divider(id=NULL, class_name=NULL, color=NULL, label=NULL,
 labelPosition=NULL, orientation=NULL, size=NULL, style=NULL,
 variant=NULL)
 }
@@ -18,7 +18,7 @@ variant=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme}
 

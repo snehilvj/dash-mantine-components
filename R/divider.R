@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-divider <- function(id=NULL, className=NULL, color=NULL, label=NULL, labelPosition=NULL, orientation=NULL, size=NULL, style=NULL, variant=NULL) {
+divider <- function(id=NULL, class_name=NULL, color=NULL, label=NULL, labelPosition=NULL, orientation=NULL, size=NULL, style=NULL, variant=NULL) {
     
-    props <- list(id=id, className=className, color=color, label=label, labelPosition=labelPosition, orientation=orientation, size=size, style=style, variant=variant)
+    props <- list(id=id, class_name=class_name, color=color, label=label, labelPosition=labelPosition, orientation=orientation, size=size, style=style, variant=variant)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ divider <- function(id=NULL, className=NULL, color=NULL, label=NULL, labelPositi
         props = props,
         type = 'Divider',
         namespace = 'dash_mantine_components',
-        propNames = c('id', 'className', 'color', 'label', 'labelPosition', 'orientation', 'size', 'style', 'variant'),
+        propNames = c('id', 'class_name', 'color', 'label', 'labelPosition', 'orientation', 'size', 'style', 'variant'),
         package = 'dashMantineComponents'
         )
 

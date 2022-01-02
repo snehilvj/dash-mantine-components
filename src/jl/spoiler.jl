@@ -13,6 +13,7 @@ Hide long sections of content under spoiler. For more information, see: https://
 Keyword arguments:
 - `children` (String; optional): Primary content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `hideLabel` (String; optional): Label for close spoiler action
 - `initialState` (Bool; optional): Initial spoiler state, true to wrap content in spoiler, false to show content without spoiler, opened state will be updated on mount
 - `loading_state` (optional): Object that holds the loading state object coming from dash-renderer. loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
@@ -25,7 +26,7 @@ Those elements have the following types:
 - `style` (Dict; optional): Inline style override
 """
 function spoiler(; kwargs...)
-        available_props = Symbol[:children, :id, :hideLabel, :initialState, :loading_state, :maxHeight, :showLabel, :style]
+        available_props = Symbol[:children, :id, :class_name, :hideLabel, :initialState, :loading_state, :maxHeight, :showLabel, :style]
         wild_props = Symbol[]
         return Component("spoiler", "Spoiler", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

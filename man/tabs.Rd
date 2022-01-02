@@ -10,7 +10,7 @@ Switch between different views. For more information, see: https://mantine.dev/c
 }
 
 \usage{
-tabs(children=NULL, id=NULL, active=NULL, className=NULL,
+tabs(children=NULL, id=NULL, active=NULL, class_name=NULL,
 color=NULL, grow=NULL, orientation=NULL, position=NULL,
 style=NULL, tabPadding=NULL, variant=NULL)
 }
@@ -22,7 +22,7 @@ style=NULL, tabPadding=NULL, variant=NULL)
 
 \item{active}{Numeric. Index of active tab, overrides internal state}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active tab color from theme.colors}
 

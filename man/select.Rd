@@ -10,7 +10,7 @@ Custom searchable select. For more information, see: https://mantine.dev/core/se
 }
 
 \usage{
-select(id=NULL, className=NULL, clearable=NULL, data=NULL,
+select(id=NULL, class_name=NULL, clearable=NULL, data=NULL,
 description=NULL, disabled=NULL, dropdownPosition=NULL,
 error=NULL, initiallyOpened=NULL, label=NULL, limit=NULL,
 maxDropdownHeight=NULL, multiline=NULL, nothingFound=NULL,
@@ -22,7 +22,7 @@ withinPortal=NULL, zIndex=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{clearable}{Logical. Allow to clear value}
 

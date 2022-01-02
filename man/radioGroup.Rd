@@ -10,7 +10,7 @@ Capture user feedback limited to small set of options. For more information, see
 }
 
 \usage{
-radioGroup(id=NULL, className=NULL, color=NULL, data=NULL,
+radioGroup(id=NULL, class_name=NULL, color=NULL, data=NULL,
 description=NULL, error=NULL, label=NULL, required=NULL,
 size=NULL, spacing=NULL, style=NULL, value=NULL,
 variant=NULL)
@@ -19,7 +19,7 @@ variant=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active radio color from theme.colors}
 

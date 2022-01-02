@@ -10,7 +10,7 @@ Blockquote with optional cite. For more information, see: https://mantine.dev/co
 }
 
 \usage{
-blockquote(children=NULL, id=NULL, cite=NULL, className=NULL,
+blockquote(children=NULL, id=NULL, cite=NULL, class_name=NULL,
 color=NULL, style=NULL)
 }
 
@@ -21,7 +21,7 @@ color=NULL, style=NULL)
 
 \item{cite}{Character. Describe a reference to a cited quote}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Badge color from theme}
 

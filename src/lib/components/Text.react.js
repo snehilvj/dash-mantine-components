@@ -7,8 +7,13 @@ import { Text as MantineText } from "@mantine/core";
  * Render text and links with theme styles. For more information, see: https://mantine.dev/core/text/
  */
 const Text = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineText {...omit(["setProps", "children"], props)}>
+        <MantineText
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineText>
     );
@@ -32,7 +37,7 @@ Text.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Text color from theme

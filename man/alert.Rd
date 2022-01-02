@@ -10,8 +10,8 @@ Attract user attention with important static message. For more information, see:
 }
 
 \usage{
-alert(children=NULL, id=NULL, className=NULL, color=NULL,
-duration=NULL, show=NULL, style=NULL, title=NULL,
+alert(children=NULL, id=NULL, class_name=NULL, color=NULL,
+duration=NULL, hide=NULL, style=NULL, title=NULL,
 withCloseButton=NULL)
 }
 
@@ -20,13 +20,13 @@ withCloseButton=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Alert title and line colors from theme}
 
 \item{duration}{Numeric. Duration in milliseconds after which the Alert dismisses itself.}
 
-\item{show}{Logical. Whether to show the alert}
+\item{hide}{Logical. Whether to hide the alert}
 
 \item{style}{Named list. Inline style override}
 

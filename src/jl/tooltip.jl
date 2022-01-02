@@ -14,7 +14,7 @@ Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Any react node that should trigger tooltip
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `arrowSize` (Real; optional): Arrow size in px
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme
 - `delay` (Real; optional): Close delay in ms, 0 to disable delay
 - `disabled` (Bool; optional): True to disable tooltip
@@ -30,7 +30,7 @@ Keyword arguments:
 - `zIndex` (Real; optional): Popper z-index
 """
 function tooltip(; kwargs...)
-        available_props = Symbol[:children, :id, :arrowSize, :className, :color, :delay, :disabled, :gutter, :label, :placement, :position, :style, :width, :withArrow, :withinPortal, :wrapLines, :zIndex]
+        available_props = Symbol[:children, :id, :arrowSize, :class_name, :color, :delay, :disabled, :gutter, :label, :placement, :position, :style, :width, :withArrow, :withinPortal, :wrapLines, :zIndex]
         wild_props = Symbol[]
         return Component("tooltip", "Tooltip", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

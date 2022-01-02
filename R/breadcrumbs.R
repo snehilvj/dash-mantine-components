@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-breadcrumbs <- function(id=NULL, items=NULL, separator=NULL, style=NULL) {
+breadcrumbs <- function(id=NULL, class_name=NULL, items=NULL, separator=NULL, style=NULL) {
     
-    props <- list(id=id, items=items, separator=separator, style=style)
+    props <- list(id=id, class_name=class_name, items=items, separator=separator, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ breadcrumbs <- function(id=NULL, items=NULL, separator=NULL, style=NULL) {
         props = props,
         type = 'Breadcrumbs',
         namespace = 'dash_mantine_components',
-        propNames = c('id', 'items', 'separator', 'style'),
+        propNames = c('id', 'class_name', 'items', 'separator', 'style'),
         package = 'dashMantineComponents'
         )
 

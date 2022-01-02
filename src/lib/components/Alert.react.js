@@ -7,41 +7,42 @@ import { omit } from "ramda";
  * Attract user attention with important static message. For more information, see: https://mantine.dev/core/alert/
  */
 const Alert = (props) => {
-    const { duration, show, setProps } = props;
+    const { duration, hide, setProps, class_name } = props;
     const ref = useRef(null);
 
     useEffect(() => {
         if (duration) {
-            ref.current = setTimeout(() => setProps({ show: false }), duration);
+            ref.current = setTimeout(() => setProps({ hide: true }), duration);
         }
         return () => {
             if (ref.current) {
                 clearTimeout(ref.current);
             }
         };
-    }, [show]);
+    }, [hide]);
 
-    return show ? (
+    return hide ? null : (
         <MantineAlert
-            {...omit(["setProps", "show"], props)}
-            onClose={() => setProps({ show: false })}
+            {...omit(["setProps", "hide", "class_name"], props)}
+            className={class_name}
+            onClose={() => setProps({ hide: true })}
         >
             {props.children}
         </MantineAlert>
-    ) : null;
+    );
 };
 
 Alert.displayName = "Alert";
 
 Alert.defaultProps = {
-    show: false,
+    hide: false,
 };
 
 Alert.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Alert message
@@ -74,6 +75,11 @@ Alert.propTypes = {
     duration: PropTypes.number,
 
     /**
+     * Whether to hide the alert
+     */
+    hide: PropTypes.bool,
+
+    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
@@ -87,11 +93,6 @@ Alert.propTypes = {
      * Tells dash if any prop has changed its value
      */
     setProps: PropTypes.func,
-
-    /**
-     * Whether to show the alert
-     */
-    show: PropTypes.bool,
 
     /**
      * Inline style override

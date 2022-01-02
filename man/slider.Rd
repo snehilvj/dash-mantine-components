@@ -10,7 +10,7 @@ Capture user feedback from a range of values. For more information, see: https:/
 }
 
 \usage{
-slider(id=NULL, className=NULL, color=NULL, drag_value=NULL,
+slider(id=NULL, class_name=NULL, color=NULL, drag_value=NULL,
 labelAlwaysOn=NULL, marks=NULL, max=NULL, min=NULL,
 radius=NULL, showLabelOnHover=NULL, size=NULL, step=NULL,
 style=NULL, value=NULL)
@@ -19,7 +19,7 @@ style=NULL, value=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Slider color}
 

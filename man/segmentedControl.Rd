@@ -10,7 +10,7 @@ Horizontal control made of multiple segments, alternative to RadioGroup. For mor
 }
 
 \usage{
-segmentedControl(id=NULL, className=NULL, color=NULL, data=NULL,
+segmentedControl(id=NULL, class_name=NULL, color=NULL, data=NULL,
 fullWidth=NULL, radius=NULL, size=NULL, style=NULL,
 value=NULL)
 }
@@ -18,7 +18,7 @@ value=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark}
 

@@ -10,7 +10,7 @@ Display overlay area at any side of the screen. For more information, see: https
 }
 
 \usage{
-drawer(children=NULL, id=NULL, className=NULL,
+drawer(children=NULL, id=NULL, class_name=NULL,
 hideCloseButton=NULL, noCloseOnClickOutside=NULL,
 noCloseOnEscape=NULL, noFocusTrap=NULL, noOverlay=NULL,
 noScrollLock=NULL, opened=NULL, overlayColor=NULL,
@@ -23,7 +23,7 @@ title=NULL, zIndex=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{hideCloseButton}{Logical. Hides close button, modal still can be closed with escape key and by clicking outside}
 

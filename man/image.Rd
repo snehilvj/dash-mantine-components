@@ -10,7 +10,7 @@ Image with optional placeholder for loading and error state. For more informatio
 }
 
 \usage{
-image(id=NULL, alt=NULL, caption=NULL, className=NULL, fit=NULL,
+image(id=NULL, alt=NULL, caption=NULL, class_name=NULL, fit=NULL,
 height=NULL, radius=NULL, src=NULL, style=NULL, width=NULL,
 withPlaceholder=NULL)
 }
@@ -22,7 +22,7 @@ withPlaceholder=NULL)
 
 \item{caption}{Character. Image figcaption, displayed bellow image}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{fit}{A value equal to: "cover", "contain". Image object-fit property}
 

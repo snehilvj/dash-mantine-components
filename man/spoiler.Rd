@@ -10,15 +10,17 @@ Hide long sections of content under spoiler. For more information, see: https://
 }
 
 \usage{
-spoiler(children=NULL, id=NULL, hideLabel=NULL, initialState=NULL,
-loading_state=NULL, maxHeight=NULL, showLabel=NULL,
-style=NULL)
+spoiler(children=NULL, id=NULL, class_name=NULL, hideLabel=NULL,
+initialState=NULL, loading_state=NULL, maxHeight=NULL,
+showLabel=NULL, style=NULL)
 }
 
 \arguments{
 \item{children}{Character. Primary content}
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
+
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{hideLabel}{Character. Label for close spoiler action}
 

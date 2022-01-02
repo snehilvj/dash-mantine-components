@@ -10,7 +10,7 @@ Compose elements and components in flex container. For more information, see: ht
 }
 
 \usage{
-group(children=NULL, id=NULL, align=NULL, className=NULL,
+group(children=NULL, id=NULL, align=NULL, class_name=NULL,
 direction=NULL, grow=NULL, noWrap=NULL, position=NULL,
 spacing=NULL, style=NULL)
 }
@@ -22,7 +22,7 @@ spacing=NULL, style=NULL)
 
 \item{align}{A value equal to: "stretch", "center", "flex-end", "flex-start". Defines align-items css property}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{direction}{A value equal to: "row", "column". Defines flex-direction property, row for horizontal, column for vertical}
 

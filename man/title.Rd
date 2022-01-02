@@ -10,7 +10,7 @@ h1-h6 headings. For more information, see: https://mantine.dev/core/title/
 }
 
 \usage{
-title(children=NULL, id=NULL, align=NULL, className=NULL,
+title(children=NULL, id=NULL, align=NULL, class_name=NULL,
 order=NULL, style=NULL)
 }
 
@@ -21,7 +21,7 @@ order=NULL, style=NULL)
 
 \item{align}{A value equal to: "left", "right", "center". Sets text-align css property}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{order}{Numeric. Defines component and styles which will be used}
 

@@ -10,7 +10,7 @@ Flexbox grid system with variable amount of columns. For more information, see: 
 }
 
 \usage{
-grid(children=NULL, id=NULL, align=NULL, className=NULL,
+grid(children=NULL, id=NULL, align=NULL, class_name=NULL,
 columns=NULL, grow=NULL, gutter=NULL, justify=NULL,
 style=NULL)
 }
@@ -22,7 +22,7 @@ style=NULL)
 
 \item{align}{A value equal to: "stretch", "center", "flex-end", "flex-start". Set grid align-content property}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{columns}{Numeric. Amount of columns in each row}
 

@@ -11,7 +11,7 @@
         "required": false,
         "description": "<AccordionItem /> components only"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -111,7 +111,7 @@
     }
   },
   "src/lib/components/Affix.react.js": {
-    "description": "Renders Affix at given element on mouse over or any other event. For more information, see: https://mantine.dev/core/affix/",
+    "description": "Render react node inside portal at fixed position. For more information, see: https://mantine.dev/core/affix/",
     "displayName": "Affix",
     "methods": [],
     "props": {
@@ -122,7 +122,7 @@
         "required": false,
         "description": "Any react node that should trigger tooltip"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -214,7 +214,7 @@
     "displayName": "Alert",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -300,6 +300,17 @@
         "required": false,
         "description": "Duration in milliseconds after which the Alert dismisses itself."
       },
+      "hide": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to hide the alert",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
       "id": {
         "type": {
           "name": "string"
@@ -320,17 +331,6 @@
         },
         "required": false,
         "description": "Tells dash if any prop has changed its value"
-      },
-      "show": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether to show the alert",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
       },
       "style": {
         "type": {
@@ -381,7 +381,7 @@
         "required": false,
         "description": "Primary content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -724,7 +724,7 @@
         "required": false,
         "description": "Primary content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -882,7 +882,7 @@
         "required": false,
         "description": "Primary content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -982,6 +982,13 @@
     "displayName": "Breadcrumbs",
     "methods": [],
     "props": {
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
       "id": {
         "type": {
           "name": "string"
@@ -1102,7 +1109,7 @@
         "required": false,
         "description": "Primary content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -1359,7 +1366,7 @@
         "required": false,
         "description": "Content that should be centered vertically and horizontally"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -1405,7 +1412,7 @@
           "computed": false
         }
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -1580,7 +1587,7 @@
         "required": false,
         "description": "Defines align-items css property"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -1915,7 +1922,7 @@
         "required": false,
         "description": "Col content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -1999,7 +2006,7 @@
         "required": false,
         "description": "Content that should be centered vertically and horizontally"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -2129,7 +2136,7 @@
         "required": false,
         "description": "Amount of displayed months"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -2514,7 +2521,7 @@
         "required": false,
         "description": "Amount of displayed months"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -2899,7 +2906,7 @@
     "displayName": "Divider",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -3102,7 +3109,7 @@
         "required": false,
         "description": "Drawer children components"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -3353,7 +3360,7 @@
         "required": false,
         "description": "Content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -3493,7 +3500,7 @@
         "required": false,
         "description": "Content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -3620,7 +3627,7 @@
         "required": false,
         "description": "Image figcaption, displayed bellow image"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -3760,7 +3767,7 @@
         "required": false,
         "description": "Content that should be centered vertically and horizontally"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -3979,7 +3986,7 @@
     "displayName": "MultiSelect",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -4494,7 +4501,7 @@
         "required": false,
         "description": "Paper content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -4625,7 +4632,7 @@
     "displayName": "Prism",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -4920,7 +4927,7 @@
     "displayName": "Progress",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -5164,7 +5171,7 @@
     "displayName": "RadioGroup",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -5403,7 +5410,7 @@
         "required": false,
         "description": "ScrollArea children"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -5521,7 +5528,7 @@
     "displayName": "SegmentedControl",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -5723,7 +5730,7 @@
     "displayName": "Select",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -6058,7 +6065,7 @@
         "required": false,
         "description": "Children"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -6263,7 +6270,7 @@
     "displayName": "Slider",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -6507,7 +6514,7 @@
         "required": false,
         "description": "Tab content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -6609,6 +6616,13 @@
     "displayName": "Spoiler",
     "methods": [],
     "props": {
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
       "children": {
         "type": {
           "name": "string"
@@ -6697,7 +6711,7 @@
     "displayName": "Switch",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -6895,7 +6909,7 @@
         "required": false,
         "description": "Tab content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -6958,7 +6972,7 @@
           "computed": false
         }
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -7042,7 +7056,7 @@
         "required": false,
         "description": "<Tab /> components only"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -7269,7 +7283,7 @@
         "required": false,
         "description": "Primary content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -7530,7 +7544,7 @@
     "displayName": "TextInput",
     "methods": [],
     "props": {
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -7765,7 +7779,7 @@
         "required": false,
         "description": "Primary content"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },
@@ -7814,7 +7828,7 @@
         "required": false,
         "description": "Any react node that should trigger tooltip"
       },
-      "className": {
+      "class_name": {
         "type": {
           "name": "string"
         },

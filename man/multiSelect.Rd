@@ -10,7 +10,7 @@ Custom searchable MultiSelect. For more information, see: https://mantine.dev/co
 }
 
 \usage{
-multiSelect(id=NULL, className=NULL, clearSearchOnBlur=NULL,
+multiSelect(id=NULL, class_name=NULL, clearSearchOnBlur=NULL,
 clearSearchOnChange=NULL, clearable=NULL, data=NULL,
 description=NULL, disabled=NULL, error=NULL,
 initiallyOpened=NULL, label=NULL, limit=NULL,
@@ -24,7 +24,7 @@ variant=NULL, withinPortal=NULL, zIndex=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{clearSearchOnBlur}{Logical. Clear search field value on blur}
 

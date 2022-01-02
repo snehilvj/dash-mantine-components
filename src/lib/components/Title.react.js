@@ -7,8 +7,13 @@ import { Title as MantineTitle } from "@mantine/core";
  * h1-h6 headings. For more information, see: https://mantine.dev/core/title/
  */
 const Title = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineTitle {...omit(["setProps", "children"], props)}>
+        <MantineTitle
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineTitle>
     );
@@ -32,7 +37,7 @@ Title.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * The ID of this component, used to identify dash components in callbacks

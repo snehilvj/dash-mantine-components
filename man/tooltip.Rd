@@ -10,7 +10,7 @@ Renders tooltip at given element on mouse over or any other event. For more info
 }
 
 \usage{
-tooltip(children=NULL, id=NULL, arrowSize=NULL, className=NULL,
+tooltip(children=NULL, id=NULL, arrowSize=NULL, class_name=NULL,
 color=NULL, delay=NULL, disabled=NULL, gutter=NULL,
 label=NULL, placement=NULL, position=NULL, style=NULL,
 width=NULL, withArrow=NULL, withinPortal=NULL,
@@ -24,7 +24,7 @@ wrapLines=NULL, zIndex=NULL)
 
 \item{arrowSize}{Numeric. Arrow size in px}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme}
 

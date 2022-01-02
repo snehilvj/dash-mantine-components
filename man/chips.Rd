@@ -10,7 +10,7 @@ Alternative to Select and RadioGroup. For more information, see: https://mantine
 }
 
 \usage{
-chips(id=NULL, align=NULL, className=NULL, color=NULL, data=NULL,
+chips(id=NULL, align=NULL, class_name=NULL, color=NULL, data=NULL,
 direction=NULL, grow=NULL, multiple=NULL, noWrap=NULL,
 position=NULL, radius=NULL, size=NULL, spacing=NULL,
 style=NULL, value=NULL, variant=NULL)
@@ -21,7 +21,7 @@ style=NULL, value=NULL, variant=NULL)
 
 \item{align}{A value equal to: "stretch", "center", "flex-end", "flex-start". Defines align-items css property}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active chip color, defaults to theme.primaryColor}
 

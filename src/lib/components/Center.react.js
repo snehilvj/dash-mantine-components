@@ -7,8 +7,13 @@ import { omit } from "ramda";
  * Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/center/
  */
 const Center = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineCenter {...omit(["children", "setProps"], props)}>
+        <MantineCenter
+            {...omit(["children", "setProps", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineCenter>
     );
@@ -27,7 +32,7 @@ Center.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * The ID of this component, used to identify dash components in callbacks

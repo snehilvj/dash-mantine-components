@@ -21,7 +21,7 @@ Tab.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * A tab can show it is currently unable to be interacted with

@@ -9,7 +9,7 @@ A RadioGroup component.
 Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/radio-group/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Active radio color from theme.colors
 - `data` (optional): RadioGroup options. data has the following type: Array of lists containing elements 'label', 'value'.
 Those elements have the following types:
@@ -26,7 +26,7 @@ Those elements have the following types:
 - `variant` (a value equal to: "horizontal", "vertical"; optional): Radios position
 """
 function radiogroup(; kwargs...)
-        available_props = Symbol[:id, :className, :color, :data, :description, :error, :label, :required, :size, :spacing, :style, :value, :variant]
+        available_props = Symbol[:id, :class_name, :color, :data, :description, :error, :label, :required, :size, :spacing, :style, :value, :variant]
         wild_props = Symbol[]
         return Component("radiogroup", "RadioGroup", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

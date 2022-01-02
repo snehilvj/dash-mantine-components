@@ -10,7 +10,7 @@ Render text and links with theme styles. For more information, see: https://mant
 }
 
 \usage{
-text(children=NULL, id=NULL, align=NULL, className=NULL,
+text(children=NULL, id=NULL, align=NULL, class_name=NULL,
 color=NULL, gradient=NULL, inherit=NULL, inline=NULL,
 lineClamp=NULL, size=NULL, style=NULL, transform=NULL,
 variant=NULL, weight=NULL)
@@ -23,7 +23,7 @@ variant=NULL, weight=NULL)
 
 \item{align}{A value equal to: "left", "right", "center". Sets text-align css property}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange" | a value equal to: "dimmed". Text color from theme}
 

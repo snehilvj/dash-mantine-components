@@ -16,6 +16,9 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
+- class_name (string; optional):
+    Often used with CSS to style elements with common properties.
+
 - hideLabel (string; default "Hide"):
     Label for close spoiler action.
 
@@ -49,12 +52,12 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, hideLabel=Component.UNDEFINED, id=Component.UNDEFINED, initialState=Component.UNDEFINED, maxHeight=Component.UNDEFINED, loading_state=Component.UNDEFINED, showLabel=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'hideLabel', 'initialState', 'loading_state', 'maxHeight', 'showLabel', 'style']
+    def __init__(self, children=None, class_name=Component.UNDEFINED, hideLabel=Component.UNDEFINED, id=Component.UNDEFINED, initialState=Component.UNDEFINED, maxHeight=Component.UNDEFINED, loading_state=Component.UNDEFINED, showLabel=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'class_name', 'hideLabel', 'initialState', 'loading_state', 'maxHeight', 'showLabel', 'style']
         self._type = 'Spoiler'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'hideLabel', 'initialState', 'loading_state', 'maxHeight', 'showLabel', 'style']
+        self.available_properties = ['children', 'id', 'class_name', 'hideLabel', 'initialState', 'loading_state', 'maxHeight', 'showLabel', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -10,14 +10,14 @@ Give user feedback for status of the task. For more information, see: https://ma
 }
 
 \usage{
-progress(id=NULL, className=NULL, color=NULL, radius=NULL,
+progress(id=NULL, class_name=NULL, color=NULL, radius=NULL,
 sections=NULL, size=NULL, striped=NULL, value=NULL)
 }
 
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Progress color from theme}
 

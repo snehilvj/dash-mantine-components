@@ -10,7 +10,7 @@ Alternative to Select and RadioGroup. For more information, see: https://mantine
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `align` (a value equal to: "stretch", "center", "flex-end", "flex-start"; optional): Defines align-items css property
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Active chip color, defaults to theme.primaryColor
 - `data` (optional): Chips. data has the following type: Array of lists containing elements 'label', 'value', 'disabled'.
 Those elements have the following types:
@@ -30,7 +30,7 @@ Those elements have the following types:
 - `variant` (a value equal to: "outline", "filled"; optional): Controls chip appearance, defaults to filled with dark theme and to outline in light theme
 """
 function chips(; kwargs...)
-        available_props = Symbol[:id, :align, :className, :color, :data, :direction, :grow, :multiple, :noWrap, :position, :radius, :size, :spacing, :style, :value, :variant]
+        available_props = Symbol[:id, :align, :class_name, :color, :data, :direction, :grow, :multiple, :noWrap, :position, :radius, :size, :spacing, :style, :value, :variant]
         wild_props = Symbol[]
         return Component("chips", "Chips", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

@@ -7,8 +7,13 @@ import { Tooltip as MantineTooltip } from "@mantine/core";
  * Renders tooltip at given element on mouse over or any other event. For more information, see: https://mantine.dev/core/tooltip/
  */
 const Tooltip = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineTooltip {...omit(["setProps"], props)}>
+        <MantineTooltip
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineTooltip>
     );
@@ -32,7 +37,7 @@ Tooltip.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme

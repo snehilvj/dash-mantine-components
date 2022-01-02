@@ -4,11 +4,16 @@ import { omit } from "ramda";
 import { Affix as MantineAffix } from "@mantine/core";
 
 /**
- * Renders Affix at given element on mouse over or any other event. For more information, see: https://mantine.dev/core/affix/
+ * Render react node inside portal at fixed position. For more information, see: https://mantine.dev/core/affix/
  */
 const Affix = (props) => {
+    const class_name = { props };
+
     return (
-        <MantineAffix {...omit(["setProps", "children"], props)}>
+        <MantineAffix
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineAffix>
     );
@@ -27,7 +32,7 @@ Affix.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * The ID of this component, used to identify dash components in callbacks

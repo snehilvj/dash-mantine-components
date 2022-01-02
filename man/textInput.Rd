@@ -10,7 +10,7 @@ Custom input with label and description. For more information, see: https://mant
 }
 
 \usage{
-textInput(id=NULL, className=NULL, description=NULL, disabled=NULL,
+textInput(id=NULL, class_name=NULL, description=NULL, disabled=NULL,
 error=NULL, label=NULL, multiline=NULL, placeholder=NULL,
 radius=NULL, required=NULL, size=NULL, style=NULL,
 type=NULL, value=NULL, variant=NULL)
@@ -19,7 +19,7 @@ type=NULL, value=NULL, variant=NULL)
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{description}{Character. Input description, displayed after label}
 

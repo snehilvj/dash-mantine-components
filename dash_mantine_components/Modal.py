@@ -19,7 +19,7 @@ Keyword arguments:
 - centered (boolean; optional):
     Controls if modal should be centered.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - closeOnClickOutside (boolean; optional):
@@ -61,12 +61,12 @@ Keyword arguments:
 - zIndex (number; optional):
     Popper zIndex."""
     @_explicitize_args
-    def __init__(self, children=None, centered=Component.UNDEFINED, className=Component.UNDEFINED, closeOnClickOutside=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, id=Component.UNDEFINED, opened=Component.UNDEFINED, overflow=Component.UNDEFINED, overlayColor=Component.UNDEFINED, overlayOpacity=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'centered', 'className', 'closeOnClickOutside', 'hideCloseButton', 'opened', 'overflow', 'overlayColor', 'overlayOpacity', 'padding', 'radius', 'size', 'style', 'title', 'zIndex']
+    def __init__(self, children=None, centered=Component.UNDEFINED, class_name=Component.UNDEFINED, closeOnClickOutside=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, id=Component.UNDEFINED, opened=Component.UNDEFINED, overflow=Component.UNDEFINED, overlayColor=Component.UNDEFINED, overlayOpacity=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'centered', 'class_name', 'closeOnClickOutside', 'hideCloseButton', 'opened', 'overflow', 'overlayColor', 'overlayOpacity', 'padding', 'radius', 'size', 'style', 'title', 'zIndex']
         self._type = 'Modal'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'centered', 'className', 'closeOnClickOutside', 'hideCloseButton', 'opened', 'overflow', 'overlayColor', 'overlayOpacity', 'padding', 'radius', 'size', 'style', 'title', 'zIndex']
+        self.available_properties = ['children', 'id', 'centered', 'class_name', 'closeOnClickOutside', 'hideCloseButton', 'opened', 'overflow', 'overlayColor', 'overlayOpacity', 'padding', 'radius', 'size', 'style', 'title', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

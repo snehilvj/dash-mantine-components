@@ -8,7 +8,7 @@ import { omit } from "ramda";
  * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const Slider = (props) => {
-    const { setProps, value } = props;
+    const { setProps, value, class_name } = props;
     const [state, setState] = useState(value);
 
     const updateProps = () => {
@@ -26,7 +26,8 @@ const Slider = (props) => {
         <MantineSlider
             onMouseUp={updateProps}
             onChange={onChange}
-            {...omit(["setProps", "value"], props)}
+            className={class_name}
+            {...omit(["setProps", "value", "class_name"], props)}
             value={state}
         />
     );
@@ -40,7 +41,7 @@ Slider.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Slider color

@@ -10,7 +10,7 @@ Capture boolean input from user. For more information, see: https://mantine.dev/
 }
 
 \usage{
-checkbox(id=NULL, checked=NULL, className=NULL, color=NULL,
+checkbox(id=NULL, checked=NULL, class_name=NULL, color=NULL,
 disabled=NULL, label=NULL, size=NULL, style=NULL,
 transitionDuration=NULL)
 }
@@ -20,7 +20,7 @@ transitionDuration=NULL)
 
 \item{checked}{Logical. State of check box}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Checkbox color}
 

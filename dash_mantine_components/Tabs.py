@@ -19,7 +19,7 @@ Keyword arguments:
 - active (number; optional):
     Index of active tab, overrides internal state.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
@@ -43,12 +43,12 @@ Keyword arguments:
 - variant (a value equal to: "default", "outline", "pills"; optional):
     Controls appearance."""
     @_explicitize_args
-    def __init__(self, children=None, active=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, grow=Component.UNDEFINED, id=Component.UNDEFINED, orientation=Component.UNDEFINED, position=Component.UNDEFINED, tabPadding=Component.UNDEFINED, style=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'active', 'className', 'color', 'grow', 'orientation', 'position', 'style', 'tabPadding', 'variant']
+    def __init__(self, children=None, active=Component.UNDEFINED, class_name=Component.UNDEFINED, color=Component.UNDEFINED, grow=Component.UNDEFINED, id=Component.UNDEFINED, orientation=Component.UNDEFINED, position=Component.UNDEFINED, tabPadding=Component.UNDEFINED, style=Component.UNDEFINED, variant=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'active', 'class_name', 'color', 'grow', 'orientation', 'position', 'style', 'tabPadding', 'variant']
         self._type = 'Tabs'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'active', 'className', 'color', 'grow', 'orientation', 'position', 'style', 'tabPadding', 'variant']
+        self.available_properties = ['children', 'id', 'active', 'class_name', 'color', 'grow', 'orientation', 'position', 'style', 'tabPadding', 'variant']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

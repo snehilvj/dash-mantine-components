@@ -9,7 +9,7 @@ A TextInput component.
 Custom input with label and description. For more information, see: https://mantine.dev/core/text-input/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `description` (String; optional): Input description, displayed after label
 - `disabled` (Bool; optional): The component can show it is currently unable to be interacted with
 - `error` (String; optional): Displays error message after input
@@ -25,7 +25,7 @@ Keyword arguments:
 - `variant` (a value equal to: "default", "filled", "unstyled", "headless"; optional): Defines input appearance, defaults to default in light color scheme and filled in dark
 """
 function textinput(; kwargs...)
-        available_props = Symbol[:id, :className, :description, :disabled, :error, :label, :multiline, :placeholder, :radius, :required, :size, :style, :type, :value, :variant]
+        available_props = Symbol[:id, :class_name, :description, :disabled, :error, :label, :multiline, :placeholder, :radius, :required, :size, :style, :type, :value, :variant]
         wild_props = Symbol[]
         return Component("textinput", "TextInput", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

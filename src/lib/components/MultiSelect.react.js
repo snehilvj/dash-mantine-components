@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/
  */
 const MultiSelect = (props) => {
-    const { setProps, data } = props;
+    const { setProps, data, class_name } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -15,9 +15,10 @@ const MultiSelect = (props) => {
 
     return (
         <MatineMultiSelect
-            {...omit(["setProps", "data"], props)}
+            {...omit(["setProps", "data", "class_name"], props)}
             data={data}
             onChange={updateProps}
+            className={class_name}
         />
     );
 };
@@ -35,7 +36,7 @@ MultiSelect.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Clear search field value on blur

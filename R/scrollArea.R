@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-scrollArea <- function(children=NULL, id=NULL, className=NULL, dir=NULL, offsetScrollbars=NULL, scrollHideDelay=NULL, scrollbarSize=NULL, style=NULL, type=NULL) {
+scrollArea <- function(children=NULL, id=NULL, class_name=NULL, dir=NULL, offsetScrollbars=NULL, scrollHideDelay=NULL, scrollbarSize=NULL, style=NULL, type=NULL) {
     
-    props <- list(children=children, id=id, className=className, dir=dir, offsetScrollbars=offsetScrollbars, scrollHideDelay=scrollHideDelay, scrollbarSize=scrollbarSize, style=style, type=type)
+    props <- list(children=children, id=id, class_name=class_name, dir=dir, offsetScrollbars=offsetScrollbars, scrollHideDelay=scrollHideDelay, scrollbarSize=scrollbarSize, style=style, type=type)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ scrollArea <- function(children=NULL, id=NULL, className=NULL, dir=NULL, offsetS
         props = props,
         type = 'ScrollArea',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'className', 'dir', 'offsetScrollbars', 'scrollHideDelay', 'scrollbarSize', 'style', 'type'),
+        propNames = c('children', 'id', 'class_name', 'dir', 'offsetScrollbars', 'scrollHideDelay', 'scrollbarSize', 'style', 'type'),
         package = 'dashMantineComponents'
         )
 

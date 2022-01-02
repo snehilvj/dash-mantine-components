@@ -19,7 +19,7 @@ Keyword arguments:
 - align (a value equal to: "stretch", "center", "flex-end", "flex-start"; optional):
     Defines align-items css property.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - direction (a value equal to: "row", "column"; optional):
@@ -42,12 +42,12 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, align=Component.UNDEFINED, className=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, id=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style']
+    def __init__(self, children=None, align=Component.UNDEFINED, class_name=Component.UNDEFINED, direction=Component.UNDEFINED, grow=Component.UNDEFINED, id=Component.UNDEFINED, noWrap=Component.UNDEFINED, position=Component.UNDEFINED, spacing=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'align', 'class_name', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style']
         self._type = 'Group'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'align', 'className', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style']
+        self.available_properties = ['children', 'id', 'align', 'class_name', 'direction', 'grow', 'noWrap', 'position', 'spacing', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

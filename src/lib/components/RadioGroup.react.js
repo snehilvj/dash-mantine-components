@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/radio-group/
  */
 const RadioGroup = (props) => {
-    const { setProps, data } = props;
+    const { setProps, data, class_name } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -16,7 +16,8 @@ const RadioGroup = (props) => {
     return (
         <MantineRadioGroup
             onChange={updateProps}
-            {...omit(["setProps", "data"], props)}
+            {...omit(["setProps", "data", "class_name"], props)}
+            className={class_name}
         >
             {data.map((radio, index) => {
                 return (
@@ -37,7 +38,7 @@ RadioGroup.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Active radio color from theme.colors

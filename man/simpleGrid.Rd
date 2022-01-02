@@ -10,7 +10,7 @@ Responsive grid where each item takes equal amount of space. For more informatio
 }
 
 \usage{
-simpleGrid(children=NULL, id=NULL, breakpoints=NULL, className=NULL,
+simpleGrid(children=NULL, id=NULL, breakpoints=NULL, class_name=NULL,
 cols=NULL, spacing=NULL, style=NULL)
 }
 
@@ -25,7 +25,7 @@ those elements have the following types:
   - cols (numeric; required)
   - spacing (a value equal to: "xs", "sm", "md", "lg", "xl" | numeric; optional). Breakpoints data to change items per row and spacing based on max-width}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{cols}{Numeric. Default amount of columns, used when none of breakpoints can be applied}
 

@@ -10,7 +10,7 @@ Capture user feedback limited to small set of options. For more information, see
 }
 
 \usage{
-switch(id=NULL, checked=NULL, className=NULL, color=NULL,
+switch(id=NULL, checked=NULL, class_name=NULL, color=NULL,
 disabled=NULL, label=NULL, radius=NULL, size=NULL,
 style=NULL)
 }
@@ -20,7 +20,7 @@ style=NULL)
 
 \item{checked}{Logical. State of check box}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Checkbox color}
 
