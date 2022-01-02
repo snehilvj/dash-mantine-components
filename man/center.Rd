@@ -10,7 +10,7 @@ Centers content vertically and horizontally. For more information, see: https://
 }
 
 \usage{
-center(children=NULL, id=NULL, className=NULL, inline=NULL,
+center(children=NULL, id=NULL, class_name=NULL, inline=NULL,
 style=NULL)
 }
 
@@ -19,7 +19,7 @@ style=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{inline}{Logical. Set to true to use inline-flex instead of flex}
 

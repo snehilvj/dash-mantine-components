@@ -3,7 +3,7 @@ module DashMantineComponents
 using Dash
 
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
-const version = "0.2.1"
+const version = "0.2.2"
 
 include("jl/accordion.jl")
 include("jl/accordionitem.jl")
@@ -60,14 +60,14 @@ function __init__()
             [
                 DashBase.Resource(
     relative_package_path = "dash_mantine_components.min.js",
-    external_url = "https://unpkg.com/dash_mantine_components@0.2.1/dash_mantine_components/dash_mantine_components.min.js",
+    external_url = "https://unpkg.com/dash_mantine_components@0.2.2/dash_mantine_components/dash_mantine_components.min.js",
     dynamic = nothing,
     async = nothing,
     type = :js
 ),
 DashBase.Resource(
     relative_package_path = "dash_mantine_components.min.js.map",
-    external_url = "https://unpkg.com/dash_mantine_components@0.2.1/dash_mantine_components/dash_mantine_components.min.js.map",
+    external_url = "https://unpkg.com/dash_mantine_components@0.2.2/dash_mantine_components/dash_mantine_components.min.js.map",
     dynamic = true,
     async = nothing,
     type = :js

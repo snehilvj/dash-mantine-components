@@ -16,7 +16,7 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - dir (a value equal to: "ltr", "rtl"; default "ltr"):
@@ -37,12 +37,12 @@ Keyword arguments:
 - type (a value equal to: "auto", "scroll", "always", "hover"; default "hover"):
     Scrollbars type."""
     @_explicitize_args
-    def __init__(self, children=None, className=Component.UNDEFINED, dir=Component.UNDEFINED, id=Component.UNDEFINED, offsetScrollbars=Component.UNDEFINED, scrollHideDelay=Component.UNDEFINED, scrollbarSize=Component.UNDEFINED, style=Component.UNDEFINED, type=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'dir', 'offsetScrollbars', 'scrollHideDelay', 'scrollbarSize', 'style', 'type']
+    def __init__(self, children=None, class_name=Component.UNDEFINED, dir=Component.UNDEFINED, id=Component.UNDEFINED, offsetScrollbars=Component.UNDEFINED, scrollHideDelay=Component.UNDEFINED, scrollbarSize=Component.UNDEFINED, style=Component.UNDEFINED, type=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'class_name', 'dir', 'offsetScrollbars', 'scrollHideDelay', 'scrollbarSize', 'style', 'type']
         self._type = 'ScrollArea'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'dir', 'offsetScrollbars', 'scrollHideDelay', 'scrollbarSize', 'style', 'type']
+        self.available_properties = ['children', 'id', 'class_name', 'dir', 'offsetScrollbars', 'scrollHideDelay', 'scrollbarSize', 'style', 'type']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

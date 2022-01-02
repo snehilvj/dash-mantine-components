@@ -7,18 +7,26 @@ import { omit } from "ramda";
  * Switch between different views. For more information, see: https://mantine.dev/core/tabs/
  */
 const Tabs = (props) => {
-    const { setProps, children } = props;
+    const { setProps, children, class_name } = props;
 
     const onTabChange = (active) => {
         setProps({ active });
     };
 
     return (
-        <MantineTabs {...omit(["setProps"], props)} onTabChange={onTabChange}>
+        <MantineTabs
+            {...omit(["setProps", "class_name"], props)}
+            onTabChange={onTabChange}
+            className={class_name}
+        >
             {React.Children.map(children, (child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
-                    <Tab {...omit(["children"], childProps)} key={index}>
+                    <Tab
+                        {...omit(["children", "class_name"], childProps)}
+                        key={index}
+                        className={class_name}
+                    >
                         {child}
                     </Tab>
                 );
@@ -45,7 +53,7 @@ Tabs.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Active tab color from theme.colors

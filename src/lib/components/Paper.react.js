@@ -7,8 +7,13 @@ import { omit } from "ramda";
  * Renders white or dark background depending on color scheme. For more information, see: https://mantine.dev/core/paper/
  */
 const Paper = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantinePaper {...omit(["setProps", "children"], props)}>
+        <MantinePaper
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantinePaper>
     );
@@ -27,7 +32,7 @@ Paper.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * The ID of this component, used to identify dash components in callbacks

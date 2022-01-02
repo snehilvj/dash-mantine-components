@@ -10,7 +10,7 @@ Utility component to pass to Tabs. For more information, see: https://mantine.de
 }
 
 \usage{
-tab(children=NULL, id=NULL, className=NULL, disabled=NULL,
+tab(children=NULL, id=NULL, class_name=NULL, disabled=NULL,
 label=NULL)
 }
 
@@ -19,7 +19,7 @@ label=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{disabled}{Logical. A tab can show it is currently unable to be interacted with}
 

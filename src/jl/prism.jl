@@ -9,7 +9,7 @@ A Prism component.
 Code highlight with Mantine theme colors and styles. For more information, see: https://mantine.dev/others/prism/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `code` (String; required): Code which will be highlighted
 - `colorScheme` (a value equal to: "light", "dark"; optional): Force color scheme, defaults to theme.colorScheme
 - `copiedLabel` (String; optional): Copy button tooltip in copied state
@@ -24,7 +24,7 @@ Those elements have the following types:
 - `withLineNumbers` (Bool; optional): Display line numbers
 """
 function prism(; kwargs...)
-        available_props = Symbol[:id, :className, :code, :colorScheme, :copiedLabel, :copyLabel, :highlightLines, :language, :noCopy, :style, :withLineNumbers]
+        available_props = Symbol[:id, :class_name, :code, :colorScheme, :copiedLabel, :copyLabel, :highlightLines, :language, :noCopy, :style, :withLineNumbers]
         wild_props = Symbol[]
         return Component("prism", "Prism", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

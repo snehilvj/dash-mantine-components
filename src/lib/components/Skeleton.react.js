@@ -8,6 +8,7 @@ import React from "react";
  */
 const Skeleton = (props) => {
     const { children, visible, loading_state } = props;
+
     return (
         <MantineSkeleton
             {...omit(["setProps", "children", "visible"], props)}

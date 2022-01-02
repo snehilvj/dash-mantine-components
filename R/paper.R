@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-paper <- function(children=NULL, id=NULL, className=NULL, padding=NULL, radius=NULL, shadow=NULL, withBorder=NULL) {
+paper <- function(children=NULL, id=NULL, class_name=NULL, padding=NULL, radius=NULL, shadow=NULL, withBorder=NULL) {
     
-    props <- list(children=children, id=id, className=className, padding=padding, radius=radius, shadow=shadow, withBorder=withBorder)
+    props <- list(children=children, id=id, class_name=class_name, padding=padding, radius=radius, shadow=shadow, withBorder=withBorder)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ paper <- function(children=NULL, id=NULL, className=NULL, padding=NULL, radius=N
         props = props,
         type = 'Paper',
         namespace = 'dash_mantine_components',
-        propNames = c('children', 'id', 'className', 'padding', 'radius', 'shadow', 'withBorder'),
+        propNames = c('children', 'id', 'class_name', 'padding', 'radius', 'shadow', 'withBorder'),
         package = 'dashMantineComponents'
         )
 

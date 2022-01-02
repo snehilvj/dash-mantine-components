@@ -13,6 +13,9 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
+- class_name (string; optional):
+    Often used with CSS to style elements with common properties.
+
 - items (list of dicts; optional):
     Link items.
 
@@ -28,12 +31,12 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, separator=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'items', 'separator', 'style']
+    def __init__(self, class_name=Component.UNDEFINED, id=Component.UNDEFINED, items=Component.UNDEFINED, separator=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'class_name', 'items', 'separator', 'style']
         self._type = 'Breadcrumbs'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'items', 'separator', 'style']
+        self.available_properties = ['id', 'class_name', 'items', 'separator', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

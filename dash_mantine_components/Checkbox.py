@@ -16,7 +16,7 @@ Keyword arguments:
 - checked (boolean; default False):
     State of check box.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
@@ -38,12 +38,12 @@ Keyword arguments:
     Check/uncheck transition duration, set to 0 to disable all
     transitions."""
     @_explicitize_args
-    def __init__(self, checked=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
+    def __init__(self, checked=Component.UNDEFINED, class_name=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'checked', 'class_name', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
         self._type = 'Checkbox'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'checked', 'className', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
+        self.available_properties = ['id', 'checked', 'class_name', 'color', 'disabled', 'label', 'size', 'style', 'transitionDuration']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

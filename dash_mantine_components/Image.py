@@ -20,7 +20,7 @@ Keyword arguments:
 - caption (string; optional):
     Image figcaption, displayed bellow image.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - fit (a value equal to: "cover", "contain"; optional):
@@ -47,12 +47,12 @@ Keyword arguments:
     Enable placeholder when image is loading and when image fails to
     load."""
     @_explicitize_args
-    def __init__(self, alt=Component.UNDEFINED, caption=Component.UNDEFINED, className=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, src=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, withPlaceholder=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'alt', 'caption', 'className', 'fit', 'height', 'radius', 'src', 'style', 'width', 'withPlaceholder']
+    def __init__(self, alt=Component.UNDEFINED, caption=Component.UNDEFINED, class_name=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, id=Component.UNDEFINED, radius=Component.UNDEFINED, src=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, withPlaceholder=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'alt', 'caption', 'class_name', 'fit', 'height', 'radius', 'src', 'style', 'width', 'withPlaceholder']
         self._type = 'Image'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'alt', 'caption', 'className', 'fit', 'height', 'radius', 'src', 'style', 'width', 'withPlaceholder']
+        self.available_properties = ['id', 'alt', 'caption', 'class_name', 'fit', 'height', 'radius', 'src', 'style', 'width', 'withPlaceholder']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

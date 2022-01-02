@@ -12,7 +12,7 @@ Keyword arguments:
 - `allowLevelChange` (Bool; optional): Allow to change level (date – month – year)
 - `allowSingleDateInRange` (Bool; optional): Allow one date to be selected as range
 - `amountOfMonths` (Real; optional): Amount of displayed months
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `clearable` (Bool; optional): Allow to clear value
 - `closeCalendarOnChange` (Bool; optional): Set to false to force dropdown to stay open after date was selected
 - `closeDropdownOnScroll` (Bool; optional): Set to true to disable dropdown closing on scroll
@@ -49,7 +49,7 @@ Keyword arguments:
 - `zIndex` (Real; optional): Popper zIndex
 """
 function daterangepicker(; kwargs...)
-        available_props = Symbol[:id, :allowLevelChange, :allowSingleDateInRange, :amountOfMonths, :className, :clearable, :closeCalendarOnChange, :closeDropdownOnScroll, :dates, :description, :disableOutsideEvents, :disabled, :dropdownType, :error, :firstDayOfWeek, :fixOnBlur, :focusable, :format, :fullWidth, :hideOutsideDates, :hideWeekdays, :initialLevel, :initialMonth, :initiallyOpened, :label, :labelSeparator, :locale, :maxDate, :minDate, :multiline, :placeholder, :preventFocus, :radius, :required, :size, :style, :variant, :withinPortal, :zIndex]
+        available_props = Symbol[:id, :allowLevelChange, :allowSingleDateInRange, :amountOfMonths, :class_name, :clearable, :closeCalendarOnChange, :closeDropdownOnScroll, :dates, :description, :disableOutsideEvents, :disabled, :dropdownType, :error, :firstDayOfWeek, :fixOnBlur, :focusable, :format, :fullWidth, :hideOutsideDates, :hideWeekdays, :initialLevel, :initialMonth, :initiallyOpened, :label, :labelSeparator, :locale, :maxDate, :minDate, :multiline, :placeholder, :preventFocus, :radius, :required, :size, :style, :variant, :withinPortal, :zIndex]
         wild_props = Symbol[]
         return Component("daterangepicker", "DateRangePicker", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

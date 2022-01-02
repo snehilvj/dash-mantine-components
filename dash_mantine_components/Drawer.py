@@ -16,7 +16,7 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - hideCloseButton (boolean; optional):
@@ -65,12 +65,12 @@ Keyword arguments:
 - zIndex (number; optional):
     Popper zIndex."""
     @_explicitize_args
-    def __init__(self, children=None, className=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, id=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, overlayColor=Component.UNDEFINED, overlayOpacity=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex']
+    def __init__(self, children=None, class_name=Component.UNDEFINED, hideCloseButton=Component.UNDEFINED, id=Component.UNDEFINED, noCloseOnClickOutside=Component.UNDEFINED, noCloseOnEscape=Component.UNDEFINED, noFocusTrap=Component.UNDEFINED, noOverlay=Component.UNDEFINED, noScrollLock=Component.UNDEFINED, opened=Component.UNDEFINED, overlayColor=Component.UNDEFINED, overlayOpacity=Component.UNDEFINED, padding=Component.UNDEFINED, position=Component.UNDEFINED, size=Component.UNDEFINED, title=Component.UNDEFINED, zIndex=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'class_name', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex']
         self._type = 'Drawer'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex']
+        self.available_properties = ['children', 'id', 'class_name', 'hideCloseButton', 'noCloseOnClickOutside', 'noCloseOnEscape', 'noFocusTrap', 'noOverlay', 'noScrollLock', 'opened', 'overlayColor', 'overlayOpacity', 'padding', 'position', 'size', 'title', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

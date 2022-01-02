@@ -7,10 +7,13 @@ import React from "react";
  * Hide long sections of content under spoiler. For more information, see: https://mantine.dev/core/spoiler/
  */
 const Spoiler = (props) => {
-    const { children } = props;
+    const { children, class_name } = props;
 
     return (
-        <MantineSpoiler {...omit(["setProps", "children"], props)}>
+        <MantineSpoiler
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {children}
         </MantineSpoiler>
     );
@@ -24,6 +27,11 @@ Spoiler.defaultProps = {
 };
 
 Spoiler.propTypes = {
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    class_name: PropTypes.string,
+
     /**
      * Primary content
      */

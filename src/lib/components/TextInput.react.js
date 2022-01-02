@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Custom input with label and description. For more information, see: https://mantine.dev/core/text-input/
  */
 const TextInput = (props) => {
-    const { setProps } = props;
+    const { setProps, class_name } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -15,7 +15,8 @@ const TextInput = (props) => {
 
     return (
         <MantineTextInput
-            {...omit(["setProps"], props)}
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
             onChange={(ev) => updateProps(ev.currentTarget.value)}
         />
     );
@@ -31,7 +32,7 @@ TextInput.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Input description, displayed after label

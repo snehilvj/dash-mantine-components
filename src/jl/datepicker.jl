@@ -12,7 +12,7 @@ Keyword arguments:
 - `allowFreeInput` (Bool; optional): Allow free input
 - `allowLevelChange` (Bool; optional): Allow to change level (date – month – year)
 - `amountOfMonths` (Real; optional): Amount of displayed months
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `clearable` (Bool; optional): Allow to clear value
 - `closeCalendarOnChange` (Bool; optional): Set to false to force dropdown to stay open after date was selected
 - `closeDropdownOnScroll` (Bool; optional): Set to true to disable dropdown closing on scroll
@@ -47,7 +47,7 @@ Keyword arguments:
 - `zIndex` (Real; optional): Popper zIndex
 """
 function datepicker(; kwargs...)
-        available_props = Symbol[:id, :allowFreeInput, :allowLevelChange, :amountOfMonths, :className, :clearable, :closeCalendarOnChange, :closeDropdownOnScroll, :date, :description, :disableOutsideEvents, :disabled, :dropdownType, :error, :firstDayOfWeek, :fixOnBlur, :focusable, :format, :fullWidth, :hideWeekdays, :initialLevel, :initialMonth, :initiallyOpened, :label, :locale, :maxDate, :minDate, :multiline, :placeholder, :preventFocus, :radius, :required, :size, :style, :variant, :withinPortal, :zIndex]
+        available_props = Symbol[:id, :allowFreeInput, :allowLevelChange, :amountOfMonths, :class_name, :clearable, :closeCalendarOnChange, :closeDropdownOnScroll, :date, :description, :disableOutsideEvents, :disabled, :dropdownType, :error, :firstDayOfWeek, :fixOnBlur, :focusable, :format, :fullWidth, :hideWeekdays, :initialLevel, :initialMonth, :initiallyOpened, :label, :locale, :maxDate, :minDate, :multiline, :placeholder, :preventFocus, :radius, :required, :size, :style, :variant, :withinPortal, :zIndex]
         wild_props = Symbol[]
         return Component("datepicker", "DatePicker", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

@@ -13,7 +13,7 @@ Display overlay area at any side of the screen. For more information, see: https
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Drawer children components
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `hideCloseButton` (Bool; optional): Hides close button, modal still can be closed with escape key and by clicking outside
 - `noCloseOnClickOutside` (Bool; optional): Disable onClock trigger for outside events
 - `noCloseOnEscape` (Bool; optional): Disable onClock trigger for escape key press
@@ -30,7 +30,7 @@ Keyword arguments:
 - `zIndex` (Real; optional): Popper zIndex
 """
 function drawer(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :hideCloseButton, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :overlayColor, :overlayOpacity, :padding, :position, :size, :title, :zIndex]
+        available_props = Symbol[:children, :id, :class_name, :hideCloseButton, :noCloseOnClickOutside, :noCloseOnEscape, :noFocusTrap, :noOverlay, :noScrollLock, :opened, :overlayColor, :overlayOpacity, :padding, :position, :size, :title, :zIndex]
         wild_props = Symbol[]
         return Component("drawer", "Drawer", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

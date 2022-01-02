@@ -19,7 +19,7 @@ Keyword arguments:
 - align (a value equal to: "stretch", "center", "flex-end", "flex-start"; optional):
     Set grid align-content property.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - columns (number; optional):
@@ -38,12 +38,12 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, align=Component.UNDEFINED, className=Component.UNDEFINED, columns=Component.UNDEFINED, grow=Component.UNDEFINED, gutter=Component.UNDEFINED, id=Component.UNDEFINED, justify=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'align', 'className', 'columns', 'grow', 'gutter', 'justify', 'style']
+    def __init__(self, children=None, align=Component.UNDEFINED, class_name=Component.UNDEFINED, columns=Component.UNDEFINED, grow=Component.UNDEFINED, gutter=Component.UNDEFINED, id=Component.UNDEFINED, justify=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'align', 'class_name', 'columns', 'grow', 'gutter', 'justify', 'style']
         self._type = 'Grid'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'align', 'className', 'columns', 'grow', 'gutter', 'justify', 'style']
+        self.available_properties = ['children', 'id', 'align', 'class_name', 'columns', 'grow', 'gutter', 'justify', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

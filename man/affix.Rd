@@ -6,11 +6,11 @@
 \title{Affix component}
 
 \description{
-Renders Affix at given element on mouse over or any other event. For more information, see: https://mantine.dev/core/affix/
+Render react node inside portal at fixed position. For more information, see: https://mantine.dev/core/affix/
 }
 
 \usage{
-affix(children=NULL, id=NULL, className=NULL, position=NULL,
+affix(children=NULL, id=NULL, class_name=NULL, position=NULL,
 style=NULL, zIndex=NULL)
 }
 
@@ -19,7 +19,7 @@ style=NULL, zIndex=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{position}{Lists containing elements 'top', 'left', 'bottom', 'right'.
 those elements have the following types:

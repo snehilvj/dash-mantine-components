@@ -19,7 +19,7 @@ Keyword arguments:
 - captionSide (a value equal to: "bottom", "top"; default "bottom"):
     Table caption position.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - columns (list of strings; optional):
@@ -37,12 +37,12 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, caption=Component.UNDEFINED, captionSide=Component.UNDEFINED, className=Component.UNDEFINED, columns=Component.UNDEFINED, id=Component.UNDEFINED, highlightOnHover=Component.UNDEFINED, rows=Component.UNDEFINED, striped=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'caption', 'captionSide', 'className', 'columns', 'highlightOnHover', 'rows', 'striped', 'style']
+    def __init__(self, caption=Component.UNDEFINED, captionSide=Component.UNDEFINED, class_name=Component.UNDEFINED, columns=Component.UNDEFINED, id=Component.UNDEFINED, highlightOnHover=Component.UNDEFINED, rows=Component.UNDEFINED, striped=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'caption', 'captionSide', 'class_name', 'columns', 'highlightOnHover', 'rows', 'striped', 'style']
         self._type = 'Table'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'caption', 'captionSide', 'className', 'columns', 'highlightOnHover', 'rows', 'striped', 'style']
+        self.available_properties = ['id', 'caption', 'captionSide', 'class_name', 'columns', 'highlightOnHover', 'rows', 'striped', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

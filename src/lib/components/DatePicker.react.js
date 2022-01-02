@@ -16,6 +16,7 @@ const DatePicker = (props) => {
         maxDate,
         initialMonth,
         locale,
+        class_name,
     } = props;
 
     const updateProps = (d) => {
@@ -39,10 +40,12 @@ const DatePicker = (props) => {
                     "minDate",
                     "maxDate",
                     "initialMonth",
+                    "class_name",
                 ],
                 props
             )}
             onChange={updateProps}
+            className={class_name}
             {...(date ? { defaultValue: new Date(date) } : {})}
             {...(minDate ? { minDate: new Date(minDate) } : {})}
             {...(maxDate ? { maxDate: new Date(maxDate) } : {})}
@@ -78,7 +81,7 @@ DatePicker.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Allow to clear value

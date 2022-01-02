@@ -13,7 +13,7 @@ Utility component to pass to Grid. For more information, see: https://mantine.de
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Col content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `lg` (Real; optional): Col span at (min-width: theme.breakpoints.lg)
 - `md` (Real; optional): Col span at (min-width: theme.breakpoints.md)
 - `offset` (Real; optional): Column left offset
@@ -24,7 +24,7 @@ Keyword arguments:
 - `xs` (Real; optional): Col span at (min-width: theme.breakpoints.xs)
 """
 function col(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :lg, :md, :offset, :sm, :span, :style, :xl, :xs]
+        available_props = Symbol[:children, :id, :class_name, :lg, :md, :offset, :sm, :span, :style, :xl, :xs]
         wild_props = Symbol[]
         return Component("col", "Col", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

@@ -10,7 +10,7 @@ A port of the ScrollArea component. For more information, see: https://mantine.d
 }
 
 \usage{
-scrollArea(children=NULL, id=NULL, className=NULL, dir=NULL,
+scrollArea(children=NULL, id=NULL, class_name=NULL, dir=NULL,
 offsetScrollbars=NULL, scrollHideDelay=NULL,
 scrollbarSize=NULL, style=NULL, type=NULL)
 }
@@ -20,7 +20,7 @@ scrollbarSize=NULL, style=NULL, type=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{dir}{A value equal to: "ltr", "rtl". Reading direction of the scroll area}
 

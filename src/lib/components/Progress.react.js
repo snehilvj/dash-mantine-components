@@ -7,7 +7,14 @@ import { omit } from "ramda";
  * Give user feedback for status of the task. For more information, see: https://mantine.dev/core/progress/
  */
 const Progress = (props) => {
-    return <MantineProgress {...omit(["setProps"], props)} />;
+    const { class_name } = props;
+
+    return (
+        <MantineProgress
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
+        />
+    );
 };
 
 Progress.displayName = "Progress";
@@ -18,7 +25,7 @@ Progress.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Progress color from theme

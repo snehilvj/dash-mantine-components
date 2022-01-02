@@ -10,11 +10,14 @@ Separate list of react nodes with given separator. For more information, see: ht
 }
 
 \usage{
-breadcrumbs(id=NULL, items=NULL, separator=NULL, style=NULL)
+breadcrumbs(id=NULL, class_name=NULL, items=NULL, separator=NULL,
+style=NULL)
 }
 
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
+
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{items}{List of lists containing elements 'title', 'href'.
 those elements have the following types:

@@ -10,7 +10,7 @@ A simple table component. For more information, see: https://mantine.dev/core/ta
 }
 
 \usage{
-table(id=NULL, caption=NULL, captionSide=NULL, className=NULL,
+table(id=NULL, caption=NULL, captionSide=NULL, class_name=NULL,
 columns=NULL, highlightOnHover=NULL, rows=NULL,
 striped=NULL, style=NULL)
 }
@@ -22,7 +22,7 @@ striped=NULL, style=NULL)
 
 \item{captionSide}{A value equal to: "bottom", "top". Table caption position}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{columns}{List of characters. Table columns}
 

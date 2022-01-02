@@ -7,8 +7,13 @@ import { Anchor as MantineAnchor } from "@mantine/core";
  * Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/
  */
 const Anchor = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineAnchor {...omit(["setProps", "children"], props)}>
+        <MantineAnchor
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineAnchor>
     );
@@ -32,7 +37,7 @@ Anchor.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Text color from theme

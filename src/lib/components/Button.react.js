@@ -14,6 +14,7 @@ const Button = (props) => {
         disabled,
         loading,
         loading_state,
+        class_name,
     } = props;
 
     const increment = () => {
@@ -27,11 +28,18 @@ const Button = (props) => {
     return (
         <MantineButton
             {...omit(
-                ["setProps", "n_clicks", "children", "loading_state"],
+                [
+                    "setProps",
+                    "n_clicks",
+                    "children",
+                    "loading_state",
+                    "class_name",
+                ],
                 props
             )}
             onClick={increment}
             loading={loading || (loading_state && loading_state.is_loading)}
+            className={class_name}
         >
             {children}
         </MantineButton>
@@ -74,7 +82,7 @@ Button.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Reduces vertical and horizontal spacing

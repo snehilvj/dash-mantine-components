@@ -7,8 +7,13 @@ import { omit } from "ramda";
  * Responsive grid where each item takes equal amount of space. For more information, see: https://mantine.dev/core/simple-grid/
  */
 const SimpleGrid = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineSimpleGrid {...omit(["setProps", "children"], props)}>
+        <MantineSimpleGrid
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineSimpleGrid>
     );
@@ -39,7 +44,7 @@ SimpleGrid.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Default amount of columns, used when none of breakpoints can be applied

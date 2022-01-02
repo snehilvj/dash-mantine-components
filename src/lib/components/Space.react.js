@@ -7,8 +7,13 @@ import { omit } from "ramda";
  * Add horizontal or vertical spacing from theme. For more information, see: https://mantine.dev/core/space/
  */
 const Space = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineSpace {...omit(["setProps", "children"], props)}>
+        <MantineSpace
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineSpace>
     );
@@ -27,7 +32,7 @@ Space.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Height, set to add vertical spacing

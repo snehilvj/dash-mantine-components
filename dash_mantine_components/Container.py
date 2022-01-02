@@ -16,7 +16,7 @@ Keyword arguments:
     The ID of this component, used to identify dash components in
     callbacks.
 
-- className (string; optional):
+- class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
 - fluid (boolean; optional):
@@ -33,12 +33,12 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, children=None, className=Component.UNDEFINED, fluid=Component.UNDEFINED, id=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'fluid', 'padding', 'size', 'style']
+    def __init__(self, children=None, class_name=Component.UNDEFINED, fluid=Component.UNDEFINED, id=Component.UNDEFINED, padding=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'class_name', 'fluid', 'padding', 'size', 'style']
         self._type = 'Container'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'fluid', 'padding', 'size', 'style']
+        self.available_properties = ['children', 'id', 'class_name', 'fluid', 'padding', 'size', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

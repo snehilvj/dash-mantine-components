@@ -9,7 +9,7 @@ A Select component.
 Custom searchable select. For more information, see: https://mantine.dev/core/select/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `clearable` (Bool; optional): Allow to clear value
 - `data` (optional): Select options used to renderer items in dropdown. data has the following type: Array of lists containing elements 'label', 'value', 'disabled'.
 Those elements have the following types:
@@ -37,7 +37,7 @@ Those elements have the following types:
 - `zIndex` (Real; optional): Dropdown z-index
 """
 function select(; kwargs...)
-        available_props = Symbol[:id, :className, :clearable, :data, :description, :disabled, :dropdownPosition, :error, :initiallyOpened, :label, :limit, :maxDropdownHeight, :multiline, :nothingFound, :placeholder, :radius, :required, :searchable, :size, :style, :value, :withinPortal, :zIndex]
+        available_props = Symbol[:id, :class_name, :clearable, :data, :description, :disabled, :dropdownPosition, :error, :initiallyOpened, :label, :limit, :maxDropdownHeight, :multiline, :nothingFound, :placeholder, :radius, :required, :searchable, :size, :style, :value, :withinPortal, :zIndex]
         wild_props = Symbol[]
         return Component("select", "Select", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

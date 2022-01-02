@@ -7,8 +7,13 @@ import { omit } from "ramda";
  * A port of the ScrollArea component. For more information, see: https://mantine.dev/core/table/
  */
 const ScrollArea = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineScrollArea {...omit(["setProps", "children"], props)}>
+        <MantineScrollArea
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineScrollArea>
     );
@@ -33,7 +38,7 @@ ScrollArea.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Reading direction of the scroll area

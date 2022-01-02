@@ -16,6 +16,7 @@ const DateRangePicker = (props) => {
         maxDate,
         initialMonth,
         locale,
+        class_name,
     } = props;
 
     const updateProps = (d) => {
@@ -43,10 +44,12 @@ const DateRangePicker = (props) => {
                     "minDate",
                     "maxDate",
                     "initialMonth",
+                    "class_name",
                 ],
                 props
             )}
             onChange={updateProps}
+            className={class_name}
             {...(dates
                 ? { defaultValue: Array.from(dates, (d) => new Date(d)) }
                 : {})}
@@ -85,7 +88,7 @@ DateRangePicker.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Allow to clear value

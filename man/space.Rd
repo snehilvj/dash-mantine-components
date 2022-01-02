@@ -10,7 +10,7 @@ Add horizontal or vertical spacing from theme. For more information, see: https:
 }
 
 \usage{
-space(children=NULL, id=NULL, className=NULL, h=NULL, style=NULL,
+space(children=NULL, id=NULL, class_name=NULL, h=NULL, style=NULL,
 w=NULL)
 }
 
@@ -19,7 +19,7 @@ w=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{h}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Height, set to add vertical spacing}
 

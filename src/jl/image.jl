@@ -11,7 +11,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `alt` (String; optional): Image alt text, used as title for placeholder if image was not loaded
 - `caption` (String; optional): Image figcaption, displayed bellow image
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `fit` (a value equal to: "cover", "contain"; optional): Image object-fit property
 - `height` (String | Real; optional): Image height, defaults to original image height adjusted to given width
 - `radius` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined border-radius value from theme.radius or number for border-radius in px
@@ -21,7 +21,7 @@ Keyword arguments:
 - `withPlaceholder` (Bool; optional): Enable placeholder when image is loading and when image fails to load
 """
 function image(; kwargs...)
-        available_props = Symbol[:id, :alt, :caption, :className, :fit, :height, :radius, :src, :style, :width, :withPlaceholder]
+        available_props = Symbol[:id, :alt, :caption, :class_name, :fit, :height, :radius, :src, :style, :width, :withPlaceholder]
         wild_props = Symbol[]
         return Component("image", "Image", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

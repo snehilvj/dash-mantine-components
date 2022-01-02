@@ -9,7 +9,7 @@ A Slider component.
 Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Slider color
 - `drag_value` (Real; optional): Current drag value for controlled slider
 - `labelAlwaysOn` (Bool; optional): If true label will be not be hidden when user stops dragging
@@ -27,7 +27,7 @@ Those elements have the following types:
 - `value` (Real; optional): Current value for controlled slider
 """
 function slider(; kwargs...)
-        available_props = Symbol[:id, :className, :color, :drag_value, :labelAlwaysOn, :marks, :max, :min, :radius, :showLabelOnHover, :size, :step, :style, :value]
+        available_props = Symbol[:id, :class_name, :color, :drag_value, :labelAlwaysOn, :marks, :max, :min, :radius, :showLabelOnHover, :size, :step, :style, :value]
         wild_props = Symbol[]
         return Component("slider", "Slider", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

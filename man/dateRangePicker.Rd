@@ -11,7 +11,7 @@ Capture date input from user. For more information, see: https://mantine.dev/dat
 
 \usage{
 dateRangePicker(id=NULL, allowLevelChange=NULL, allowSingleDateInRange=NULL,
-amountOfMonths=NULL, className=NULL, clearable=NULL,
+amountOfMonths=NULL, class_name=NULL, clearable=NULL,
 closeCalendarOnChange=NULL, closeDropdownOnScroll=NULL,
 dates=NULL, description=NULL, disableOutsideEvents=NULL,
 disabled=NULL, dropdownType=NULL, error=NULL,
@@ -34,7 +34,7 @@ withinPortal=NULL, zIndex=NULL)
 
 \item{amountOfMonths}{Numeric. Amount of displayed months}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{clearable}{Logical. Allow to clear value}
 

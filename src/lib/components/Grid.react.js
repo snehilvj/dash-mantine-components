@@ -7,14 +7,21 @@ import { omit } from "ramda";
  * Flexbox grid system with variable amount of columns. For more information, see: https://mantine.dev/core/grid/
  */
 const Grid = (props) => {
-    const { children } = props;
+    const { children, class_name } = props;
 
     return (
-        <MantineGrid {...omit(["setProps", "children"], props)}>
+        <MantineGrid
+            {...omit(["setProps", "children", "class_name"], props)}
+            className={class_name}
+        >
             {React.Children.map(children, (child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
-                    <MantineCol {...omit(["children"], childProps)} key={index}>
+                    <MantineCol
+                        {...omit(["children", "class_name"], childProps)}
+                        key={index}
+                        className={childProps.class_name}
+                    >
                         {child}
                     </MantineCol>
                 );
@@ -41,7 +48,7 @@ Grid.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Amount of columns in each row

@@ -9,7 +9,7 @@ A MultiSelect component.
 Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `clearSearchOnBlur` (Bool; optional): Clear search field value on blur
 - `clearSearchOnChange` (Bool; optional): Clear search value when item is selected
 - `clearable` (Bool; optional): Allow to clear value
@@ -41,7 +41,7 @@ Those elements have the following types:
 - `zIndex` (Real; optional): Dropdown z-index
 """
 function multiselect(; kwargs...)
-        available_props = Symbol[:id, :className, :clearSearchOnBlur, :clearSearchOnChange, :clearable, :data, :description, :disabled, :error, :initiallyOpened, :label, :limit, :maxDropdownHeight, :maxSelectedValues, :multiline, :nothingFound, :placeholder, :radius, :required, :searchable, :size, :style, :switchDirectionOnFlip, :value, :variant, :withinPortal, :zIndex]
+        available_props = Symbol[:id, :class_name, :clearSearchOnBlur, :clearSearchOnChange, :clearable, :data, :description, :disabled, :error, :initiallyOpened, :label, :limit, :maxDropdownHeight, :maxSelectedValues, :multiline, :nothingFound, :placeholder, :radius, :required, :searchable, :size, :style, :switchDirectionOnFlip, :value, :variant, :withinPortal, :zIndex]
         wild_props = Symbol[]
         return Component("multiselect", "MultiSelect", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

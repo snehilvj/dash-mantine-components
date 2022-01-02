@@ -7,14 +7,13 @@ import { omit } from "ramda";
  * Compose elements and components in flex container. For more information, see: https://mantine.dev/core/group/
  */
 const Group = (props) => {
-    let { children } = props;
-
-    if (!Array.isArray(children)) {
-        children = [children];
-    }
+    const { children, class_name } = props;
 
     return (
-        <MantineGroup {...omit(["children", "setProps"], props)}>
+        <MantineGroup
+            {...omit(["children", "setProps", "class_name"], props)}
+            className={class_name}
+        >
             {React.Children.map(children, (child, index) => {
                 return <div key={index}>{child}</div>;
             })}
@@ -40,7 +39,7 @@ Group.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Defines flex-direction property, row for horizontal, column for vertical

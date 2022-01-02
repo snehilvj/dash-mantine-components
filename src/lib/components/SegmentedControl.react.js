@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Horizontal control made of multiple segments, alternative to RadioGroup. For more information, see: https://mantine.dev/core/segmented-control/
  */
 const SegmentedControl = (props) => {
-    const { setProps } = props;
+    const { setProps, class_name } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -16,7 +16,8 @@ const SegmentedControl = (props) => {
     return (
         <MantineSegmentedControl
             onChange={updateProps}
-            {...omit(["setProps"], props)}
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
         />
     );
 };
@@ -29,7 +30,7 @@ SegmentedControl.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark

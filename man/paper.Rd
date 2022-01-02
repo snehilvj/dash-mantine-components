@@ -10,7 +10,7 @@ Renders white or dark background depending on color scheme. For more information
 }
 
 \usage{
-paper(children=NULL, id=NULL, className=NULL, padding=NULL,
+paper(children=NULL, id=NULL, class_name=NULL, padding=NULL,
 radius=NULL, shadow=NULL, withBorder=NULL)
 }
 
@@ -19,7 +19,7 @@ radius=NULL, shadow=NULL, withBorder=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{padding}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined padding value from theme.spacing or number for padding in px}
 

@@ -14,7 +14,7 @@ Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Content that should be centered vertically and horizontally
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `centered` (Bool; optional): Controls if modal should be centered
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `closeOnClickOutside` (Bool; optional): Should modal be closed when outside click was registered?
 - `hideCloseButton` (Bool; optional): Hides close button, modal still can be closed with escape key and by clicking outside
 - `opened` (Bool; optional): Mounts modal if true
@@ -29,7 +29,7 @@ Keyword arguments:
 - `zIndex` (Real; optional): Popper zIndex
 """
 function modal(; kwargs...)
-        available_props = Symbol[:children, :id, :centered, :className, :closeOnClickOutside, :hideCloseButton, :opened, :overflow, :overlayColor, :overlayOpacity, :padding, :radius, :size, :style, :title, :zIndex]
+        available_props = Symbol[:children, :id, :centered, :class_name, :closeOnClickOutside, :hideCloseButton, :opened, :overflow, :overlayColor, :overlayOpacity, :padding, :radius, :size, :style, :title, :zIndex]
         wild_props = Symbol[]
         return Component("modal", "Modal", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

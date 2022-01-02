@@ -7,7 +7,7 @@ import { pick } from "ramda";
  * A simple table component. For more information, see: https://mantine.dev/core/table/
  */
 const Table = (props) => {
-    const { rows, columns } = props;
+    const { rows, columns, class_name } = props;
 
     const ths = (
         <tr>
@@ -28,9 +28,16 @@ const Table = (props) => {
     return (
         <MantineTable
             {...pick(
-                ["striped", "highlightOnHover", "style", "captionSide"],
+                [
+                    "striped",
+                    "highlightOnHover",
+                    "style",
+                    "captionSide",
+                    "class_name",
+                ],
                 props
             )}
+            className={class_name}
         >
             <caption>{props.caption}</caption>
             <thead>{ths}</thead>
@@ -61,7 +68,7 @@ Table.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Table columns

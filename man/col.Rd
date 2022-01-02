@@ -10,7 +10,7 @@ Utility component to pass to Grid. For more information, see: https://mantine.de
 }
 
 \usage{
-col(children=NULL, id=NULL, className=NULL, lg=NULL, md=NULL,
+col(children=NULL, id=NULL, class_name=NULL, lg=NULL, md=NULL,
 offset=NULL, sm=NULL, span=NULL, style=NULL, xl=NULL,
 xs=NULL)
 }
@@ -20,7 +20,7 @@ xs=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{lg}{Numeric. Col span at (min-width: theme.breakpoints.lg)}
 

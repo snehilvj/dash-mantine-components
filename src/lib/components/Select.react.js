@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Custom searchable select. For more information, see: https://mantine.dev/core/select/
  */
 const Select = (props) => {
-    const { setProps, data } = props;
+    const { setProps, data, class_name } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -15,7 +15,8 @@ const Select = (props) => {
 
     return (
         <MatineSelect
-            {...omit(["setProps", "data"], props)}
+            {...omit(["setProps", "data", "class_name"], props)}
+            className={class_name}
             data={data}
             onChange={updateProps}
         />
@@ -35,7 +36,7 @@ Select.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Allow to clear value

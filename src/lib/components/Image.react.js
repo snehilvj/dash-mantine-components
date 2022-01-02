@@ -7,7 +7,13 @@ import { omit } from "ramda";
  * Image with optional placeholder for loading and error state. For more information, see: https://mantine.dev/core/image/
  */
 const Image = (props) => {
-    return <MantineImage {...omit(["setProps"], props)} />;
+    const { class_name } = props;
+    return (
+        <MantineImage
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
+        />
+    );
 };
 
 Image.displayName = "Image";
@@ -28,7 +34,7 @@ Image.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Image object-fit property

@@ -7,8 +7,13 @@ import { omit } from "ramda";
  * Center content horizontally with predefined max-width. For more information, see: https://mantine.dev/core/container/
  */
 const Container = (props) => {
+    const { class_name } = props;
+
     return (
-        <MantineContainer {...omit(["children", "setProps"], props)}>
+        <MantineContainer
+            {...omit(["children", "setProps", "class_name"], props)}
+            className={class_name}
+        >
             {props.children}
         </MantineContainer>
     );
@@ -27,7 +32,7 @@ Container.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * If fluid is set to true, size prop is ignored and Container always take 100% of width

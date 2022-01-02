@@ -21,7 +21,7 @@ Col.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * The ID of this component, used to identify dash components in callbacks

@@ -11,7 +11,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `caption` (String; optional): Table description
 - `captionSide` (a value equal to: "bottom", "top"; optional): Table caption position
-- `className` (String; optional): Often used with CSS to style elements with common properties
+- `class_name` (String; optional): Often used with CSS to style elements with common properties
 - `columns` (Array of Strings; optional): Table columns
 - `highlightOnHover` (Bool; optional): If true row will have hover color
 - `rows` (Array of Arrays; optional): Table rows
@@ -19,7 +19,7 @@ Keyword arguments:
 - `style` (Dict; optional): Inline style override
 """
 function table(; kwargs...)
-        available_props = Symbol[:id, :caption, :captionSide, :className, :columns, :highlightOnHover, :rows, :striped, :style]
+        available_props = Symbol[:id, :caption, :captionSide, :class_name, :columns, :highlightOnHover, :rows, :striped, :style]
         wild_props = Symbol[]
         return Component("table", "Table", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

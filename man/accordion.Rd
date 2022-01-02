@@ -10,7 +10,7 @@ Divide content into collapsible sections. For more information, see: https://man
 }
 
 \usage{
-accordion(children=NULL, id=NULL, className=NULL,
+accordion(children=NULL, id=NULL, class_name=NULL,
 disableIconRotation=NULL, iconPosition=NULL, multiple=NULL,
 offsetIcon=NULL, state=NULL)
 }
@@ -20,7 +20,7 @@ offsetIcon=NULL, state=NULL)
 
 \item{id}{Character. The ID of this component, used to identify dash components in callbacks}
 
-\item{className}{Character. Often used with CSS to style elements with common properties}
+\item{class_name}{Character. Often used with CSS to style elements with common properties}
 
 \item{disableIconRotation}{Logical. Should icon rotation be disabled}
 

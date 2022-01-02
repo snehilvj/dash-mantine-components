@@ -7,7 +7,13 @@ import { omit } from "ramda";
  * Horizontal line with optional label or vertical divider. For more information, see: https://mantine.dev/core/divider/
  */
 const Divider = (props) => {
-    return <MantineDivider {...omit(["setProps"], props)} />;
+    const { class_name } = props;
+    return (
+        <MantineDivider
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
+        />
+    );
 };
 
 Divider.displayName = "Divider";
@@ -18,7 +24,7 @@ Divider.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme

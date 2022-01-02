@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Display overlay area at any side of the screen. For more information, see: https://mantine.dev/core/drawer/
  */
 const Drawer = (props) => {
-    const { opened, children, setProps } = props;
+    const { opened, children, setProps, class_name } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -21,9 +21,10 @@ const Drawer = (props) => {
 
     return (
         <MantineDrawer
-            {...omit(["opened", "setProps", "children"], props)}
+            {...omit(["opened", "setProps", "children", "class_name"], props)}
             opened={open}
             onClose={onClose}
+            className={class_name}
         >
             {children}
         </MantineDrawer>
@@ -47,7 +48,7 @@ Drawer.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Hides close button, modal still can be closed with escape key and by clicking outside

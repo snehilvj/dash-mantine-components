@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/
  */
 const Checkbox = (props) => {
-    const { setProps } = props;
+    const { setProps, class_name } = props;
 
     const updateProps = (checked) => {
         setProps({ checked });
@@ -16,7 +16,8 @@ const Checkbox = (props) => {
     return (
         <MantineCheckbox
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
-            {...omit(["setProps"], props)}
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
         />
     );
 };
@@ -36,7 +37,7 @@ Checkbox.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Checkbox color

@@ -7,7 +7,7 @@ import { omit } from "ramda";
  * Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/
  */
 const Chips = (props) => {
-    const { setProps, data } = props;
+    const { setProps, data, class_name } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -16,7 +16,8 @@ const Chips = (props) => {
     return (
         <MantineChips
             onChange={updateProps}
-            {...omit(["setProps", "data"], props)}
+            {...omit(["setProps", "data", "class_name"], props)}
+            className={class_name}
         >
             {data.map((chip, index) => {
                 return (
@@ -42,7 +43,7 @@ Chips.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Chips
