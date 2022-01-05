@@ -61,6 +61,11 @@ Paper.propTypes = {
     shadow: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
      * Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme
      */
     withBorder: PropTypes.bool,

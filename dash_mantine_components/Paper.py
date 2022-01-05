@@ -31,16 +31,19 @@ Keyword arguments:
     Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or
     any valid css box-shadow property.
 
+- style (dict; optional):
+    Inline style override.
+
 - withBorder (boolean; optional):
     Adds 1px border with theme.colors.gray[2] color in light color
     scheme and theme.colors.dark[6] in dark color scheme."""
     @_explicitize_args
-    def __init__(self, children=None, class_name=Component.UNDEFINED, id=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, shadow=Component.UNDEFINED, withBorder=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'class_name', 'padding', 'radius', 'shadow', 'withBorder']
+    def __init__(self, children=None, class_name=Component.UNDEFINED, id=Component.UNDEFINED, padding=Component.UNDEFINED, radius=Component.UNDEFINED, shadow=Component.UNDEFINED, style=Component.UNDEFINED, withBorder=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'class_name', 'padding', 'radius', 'shadow', 'style', 'withBorder']
         self._type = 'Paper'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'class_name', 'padding', 'radius', 'shadow', 'withBorder']
+        self.available_properties = ['children', 'id', 'class_name', 'padding', 'radius', 'shadow', 'style', 'withBorder']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

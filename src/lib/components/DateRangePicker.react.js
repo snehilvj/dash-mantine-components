@@ -5,7 +5,7 @@ import { omit } from "ramda";
 import dayjs from "dayjs";
 
 /**
- * Capture date input from user. For more information, see: https://mantine.dev/dates/date-range-picker/
+ * Capture dates range from user. For more information, see: https://mantine.dev/dates/date-range-picker/
  */
 const DateRangePicker = (props) => {
     const {
@@ -64,9 +64,8 @@ const DateRangePicker = (props) => {
 DateRangePicker.displayName = "DateRangePicker";
 
 DateRangePicker.defaultProps = {
-    clearable: false,
     placeholder: "Select a date range",
-    style: { width: "350px" },
+    style: { width: "330px" },
 };
 
 DateRangePicker.propTypes = {

@@ -25,7 +25,7 @@ Keyword arguments:
 - class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
-- clearable (boolean; default False):
+- clearable (boolean; optional):
     Allow to clear value.
 
 - closeCalendarOnChange (boolean; optional):
@@ -119,7 +119,7 @@ Keyword arguments:
 - size (a value equal to: "xs", "sm", "md", "lg", "xl"; optional):
     Input size.
 
-- style (dict; default { width: "350px" }):
+- style (dict; default { width: "330px" }):
     Inline style override.
 
 - variant (a value equal to: "default", "filled", "unstyled", "headless"; optional):

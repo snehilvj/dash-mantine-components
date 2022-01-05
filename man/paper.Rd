@@ -11,7 +11,7 @@ Renders white or dark background depending on color scheme. For more information
 
 \usage{
 paper(children=NULL, id=NULL, class_name=NULL, padding=NULL,
-radius=NULL, shadow=NULL, withBorder=NULL)
+radius=NULL, shadow=NULL, style=NULL, withBorder=NULL)
 }
 
 \arguments{
@@ -26,6 +26,8 @@ radius=NULL, shadow=NULL, withBorder=NULL)
 \item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
 
 \item{shadow}{A value equal to: "xs", "sm", "md", "lg", "xl". Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property}
+
+\item{style}{Named list. Inline style override}
 
 \item{withBorder}{Logical. Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme}
 }
