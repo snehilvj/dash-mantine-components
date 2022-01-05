@@ -7,7 +7,11 @@ import { omit } from "ramda";
  * Alternative to Select and RadioGroup. For more information, see: https://mantine.dev/core/chips/
  */
 const Chips = (props) => {
-    const { setProps, data } = props;
+    const {
+        setProps,
+        options,
+        multi,
+    } = props;
 
     const updateProps = (value) => {
         setProps({ value });
@@ -16,9 +20,10 @@ const Chips = (props) => {
     return (
         <MantineChips
             onChange={updateProps}
-            {...omit(["setProps", "data"], props)}
+            multiple={multi}
+            {...omit(["setProps", "options", "multi"], props)}
         >
-            {data.map((chip, index) => {
+            {options.map((chip, index) => {
                 return (
                     <Chip value={chip.value} key={index}>
                         {chip.label}
@@ -47,7 +52,7 @@ Chips.propTypes = {
     /**
      * Chips
      */
-    data: PropTypes.arrayOf(
+    options: PropTypes.arrayOf(
         PropTypes.exact({
             /**
              * The option's label
@@ -102,7 +107,7 @@ Chips.propTypes = {
     /**
      * Allow multiple values to be picked
      */
-    multiple: PropTypes.bool,
+    multi: PropTypes.bool,
 
     /**
      * Defined flex-wrap property

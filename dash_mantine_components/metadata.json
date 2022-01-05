@@ -1587,7 +1587,7 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties"
       },
-      "data": {
+      "options": {
         "type": {
           "name": "arrayOf",
           "value": {
@@ -1710,7 +1710,7 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components in callbacks"
       },
-      "multiple": {
+      "multi": {
         "type": {
           "name": "bool"
         },

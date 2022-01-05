@@ -10,10 +10,10 @@ Alternative to Select and RadioGroup. For more information, see: https://mantine
 }
 
 \usage{
-chips(id=NULL, align=NULL, className=NULL, color=NULL, data=NULL,
-direction=NULL, grow=NULL, multiple=NULL, noWrap=NULL,
-position=NULL, radius=NULL, size=NULL, spacing=NULL,
-style=NULL, value=NULL, variant=NULL)
+chips(id=NULL, align=NULL, className=NULL, color=NULL,
+direction=NULL, grow=NULL, multi=NULL, noWrap=NULL,
+options=NULL, position=NULL, radius=NULL, size=NULL,
+spacing=NULL, style=NULL, value=NULL, variant=NULL)
 }
 
 \arguments{
@@ -25,19 +25,19 @@ style=NULL, value=NULL, variant=NULL)
 
 \item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active chip color, defaults to theme.primaryColor}
 
-\item{data}{List of lists containing elements 'label', 'value', 'disabled'.
-those elements have the following types:
-  - label (character; required): the option's label
-  - value (character; required): option's value
-  - disabled (logical; optional): if true, this option is disabled and cannot be selecteds. Chips}
-
 \item{direction}{A value equal to: "row", "column". Defines flex-direction property, row for horizontal, column for vertical}
 
 \item{grow}{Logical. Defines flex-grow property for each element, true -> 1, false -> 0}
 
-\item{multiple}{Logical. Allow multiple values to be picked}
+\item{multi}{Logical. Allow multiple values to be picked}
 
 \item{noWrap}{Logical. Defined flex-wrap property}
+
+\item{options}{List of lists containing elements 'label', 'value', 'disabled'.
+those elements have the following types:
+  - label (character; required): the option's label
+  - value (character; required): option's value
+  - disabled (logical; optional): if true, this option is disabled and cannot be selecteds. Chips}
 
 \item{position}{A value equal to: "right", "center", "left", "apart". Defines justify-content property}
 
