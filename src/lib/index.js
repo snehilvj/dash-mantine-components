@@ -43,8 +43,9 @@ import Progress from "./components/Progress.react";
 import NotificationsProvider from "./components/NotificationsProvider.react";
 import NotificationHandler from "./components/NotificationHandler.react";
 import ScrollArea from "./components/ScrollArea.react";
+import Header from "./components/Header.react";
+import Navbar from "./components/Navbar.react";
 // import RangeSlider from './components/RangeSlider.react';
-
 
 export {
     Button,
@@ -92,5 +93,7 @@ export {
     NotificationsProvider,
     NotificationHandler,
     ScrollArea,
+    Header,
+    Navbar,
     // RangeSlider,
 };

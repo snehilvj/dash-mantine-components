@@ -35,8 +35,6 @@ Drawer.displayName = "Drawer";
 
 Drawer.defaultProps = {
     opened: false,
-    noFocusTrap: true,
-    noCloseOnEscape: true,
 };
 
 Drawer.propTypes = {

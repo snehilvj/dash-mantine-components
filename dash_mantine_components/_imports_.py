@@ -18,9 +18,11 @@ from .Divider import Divider
 from .Drawer import Drawer
 from .Grid import Grid
 from .Group import Group
+from .Header import Header
 from .Image import Image
 from .Modal import Modal
 from .MultiSelect import MultiSelect
+from .Navbar import Navbar
 from .NotificationHandler import NotificationHandler
 from .NotificationsProvider import NotificationsProvider
 from .Paper import Paper
@@ -65,9 +67,11 @@ __all__ = [
     "Drawer",
     "Grid",
     "Group",
+    "Header",
     "Image",
     "Modal",
     "MultiSelect",
+    "Navbar",
     "NotificationHandler",
     "NotificationsProvider",
     "Paper",

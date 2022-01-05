@@ -2533,11 +2533,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Allow to clear value",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
+        "description": "Allow to clear value"
       },
       "closeCalendarOnChange": {
         "type": {
@@ -2856,7 +2852,7 @@
         "required": false,
         "description": "Inline style override",
         "defaultValue": {
-          "value": "{ width: \"350px\" }",
+          "value": "{ width: \"330px\" }",
           "computed": false
         }
       },
@@ -3142,22 +3138,14 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Disable onClock trigger for escape key press",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
+        "description": "Disable onClock trigger for escape key press"
       },
       "noFocusTrap": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Disables focus trap",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
+        "description": "Disables focus trap"
       },
       "noOverlay": {
         "type": {
@@ -3608,6 +3596,132 @@
       }
     }
   },
+  "src/lib/components/Header.react.js": {
+    "description": "Header. For more information, see: https://mantine.dev/core/app-shell/",
+    "displayName": "Header",
+    "methods": [],
+    "props": {
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Header content"
+      },
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "height": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Header height"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "padding": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Header padding from theme.spacing or number to set padding in px"
+      },
+      "fixed": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Changes position to fixed, controlled by AppShell component if rendered inside"
+      },
+      "position": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "top": {
+              "name": "number",
+              "required": false
+            },
+            "left": {
+              "name": "number",
+              "required": false
+            },
+            "bottom": {
+              "name": "number",
+              "required": false
+            },
+            "right": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Control top, left, right or bottom position values, controlled by AppShell component if rendered inside"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "z-index"
+      }
+    }
+  },
   "src/lib/components/Image.react.js": {
     "description": "Image with optional placeholder for loading and error state. For more information, see: https://mantine.dev/core/image/",
     "displayName": "Image",
@@ -3958,6 +4072,13 @@
         "required": false,
         "description": "Modal body width"
       },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
       "title": {
         "type": {
           "name": "string"
@@ -3971,13 +4092,6 @@
         },
         "required": false,
         "description": "Popper zIndex"
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Inline style override"
       }
     }
   },
@@ -4290,6 +4404,183 @@
         },
         "required": false,
         "description": "Dropdown z-index"
+      }
+    }
+  },
+  "src/lib/components/Navbar.react.js": {
+    "description": "Navbar. For more information, see: https://mantine.dev/core/app-shell/",
+    "displayName": "Navbar",
+    "methods": [],
+    "props": {
+      "children": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Navbar content"
+      },
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties"
+      },
+      "height": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Navbar height"
+      },
+      "hiddenBreakpoint": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Breakpoint at which navbar will be hidden if hidden prop is true"
+      },
+      "hidden": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Set to true to hide breakpoint at hiddenBreakpoint"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components in callbacks"
+      },
+      "padding": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "\"xs\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"sm\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"md\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"lg\"",
+                  "computed": false
+                },
+                {
+                  "value": "\"xl\"",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Navbar padding from theme.spacing or number to set padding in px"
+      },
+      "fixed": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Changes position to fixed, controlled by AppShell component if rendered inside"
+      },
+      "position": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "top": {
+              "name": "number",
+              "required": false
+            },
+            "left": {
+              "name": "number",
+              "required": false
+            },
+            "bottom": {
+              "name": "number",
+              "required": false
+            },
+            "right": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Control top, left, right or bottom position values, controlled by AppShell component if rendered inside"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
+      },
+      "width": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Navbar width with breakpoints"
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "z-index"
       }
     }
   },
@@ -4617,6 +4908,13 @@
         },
         "required": false,
         "description": "Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Inline style override"
       },
       "withBorder": {
         "type": {
@@ -6803,6 +7101,20 @@
         },
         "required": false,
         "description": "Checkbox label"
+      },
+      "onLabel": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The inner label to be set when Switch is in the checked state"
+      },
+      "offLabel": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The inner label to be set when Switch is in an unchecked state"
       },
       "radius": {
         "type": {

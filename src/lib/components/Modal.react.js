@@ -4,7 +4,7 @@ import { Modal as MantineModal } from "@mantine/core";
 import { omit } from "ramda";
 
 /**
- * Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/
+ * Modal with optional header. For more information, see: https://mantine.dev/core/modal/
  */
 const Modal = (props) => {
     const { opened, children, setProps, class_name } = props;
@@ -119,6 +119,11 @@ Modal.propTypes = {
     ]),
 
     /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
      * Modal title, displayed in header before close button
      */
     title: PropTypes.string,
@@ -127,11 +132,6 @@ Modal.propTypes = {
      * Popper zIndex
      */
     zIndex: PropTypes.number,
-
-    /**
-     * Inline style override
-     */
-    style: PropTypes.object,
 };
 
 export default Modal;

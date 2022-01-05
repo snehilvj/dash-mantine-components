@@ -28,6 +28,12 @@ Keyword arguments:
 - label (string; optional):
     Checkbox label.
 
+- offLabel (string; optional):
+    The inner label to be set when Switch is in an unchecked state.
+
+- onLabel (string; optional):
+    The inner label to be set when Switch is in the checked state.
+
 - radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
     Predefined border-radius value from theme.radius or number for
     border-radius in px.
@@ -38,12 +44,12 @@ Keyword arguments:
 - style (dict; optional):
     Inline style override."""
     @_explicitize_args
-    def __init__(self, class_name=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'checked', 'class_name', 'color', 'disabled', 'label', 'radius', 'size', 'style']
+    def __init__(self, class_name=Component.UNDEFINED, color=Component.UNDEFINED, disabled=Component.UNDEFINED, id=Component.UNDEFINED, label=Component.UNDEFINED, onLabel=Component.UNDEFINED, offLabel=Component.UNDEFINED, radius=Component.UNDEFINED, size=Component.UNDEFINED, style=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'checked', 'class_name', 'color', 'disabled', 'label', 'offLabel', 'onLabel', 'radius', 'size', 'style']
         self._type = 'Switch'
         self._namespace = 'dash_mantine_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'checked', 'class_name', 'color', 'disabled', 'label', 'radius', 'size', 'style']
+        self.available_properties = ['id', 'checked', 'class_name', 'color', 'disabled', 'label', 'offLabel', 'onLabel', 'radius', 'size', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

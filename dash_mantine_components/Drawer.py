@@ -26,10 +26,10 @@ Keyword arguments:
 - noCloseOnClickOutside (boolean; optional):
     Disable onClock trigger for outside events.
 
-- noCloseOnEscape (boolean; default True):
+- noCloseOnEscape (boolean; optional):
     Disable onClock trigger for escape key press.
 
-- noFocusTrap (boolean; default True):
+- noFocusTrap (boolean; optional):
     Disables focus trap.
 
 - noOverlay (boolean; optional):

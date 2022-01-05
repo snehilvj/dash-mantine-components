@@ -11,8 +11,8 @@ Capture user feedback limited to small set of options. For more information, see
 
 \usage{
 switch(id=NULL, checked=NULL, class_name=NULL, color=NULL,
-disabled=NULL, label=NULL, radius=NULL, size=NULL,
-style=NULL)
+disabled=NULL, label=NULL, offLabel=NULL, onLabel=NULL,
+radius=NULL, size=NULL, style=NULL)
 }
 
 \arguments{
@@ -27,6 +27,10 @@ style=NULL)
 \item{disabled}{Logical. A checkbox can show it is currently unable to be interacted with}
 
 \item{label}{Character. Checkbox label}
+
+\item{offLabel}{Character. The inner label to be set when Switch is in an unchecked state}
+
+\item{onLabel}{Character. The inner label to be set when Switch is in the checked state}
 
 \item{radius}{A value equal to: "xs", "sm", "md", "lg", "xl" | numeric. Predefined border-radius value from theme.radius or number for border-radius in px}
 

@@ -17,10 +17,11 @@ Keyword arguments:
 - `padding` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined padding value from theme.spacing or number for padding in px
 - `radius` (a value equal to: "xs", "sm", "md", "lg", "xl" | Real; optional): Predefined border-radius value from theme.radius or number for border-radius in px
 - `shadow` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property
+- `style` (Dict; optional): Inline style override
 - `withBorder` (Bool; optional): Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme
 """
 function paper(; kwargs...)
-        available_props = Symbol[:children, :id, :class_name, :padding, :radius, :shadow, :withBorder]
+        available_props = Symbol[:children, :id, :class_name, :padding, :radius, :shadow, :style, :withBorder]
         wild_props = Symbol[]
         return Component("paper", "Paper", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

@@ -70,6 +70,16 @@ Switch.propTypes = {
     label: PropTypes.string,
 
     /**
+     * The inner label to be set when Switch is in the checked state
+     */
+    onLabel: PropTypes.string,
+
+    /**
+     * The inner label to be set when Switch is in an unchecked state
+     */
+    offLabel: PropTypes.string,
+
+    /**
      * Predefined border-radius value from theme.radius or number for border-radius in px
      */
     radius: PropTypes.oneOfType([
