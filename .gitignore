@@ -274,3 +274,19 @@ bh_unicode_properties.cache
 # Sublime-github package stores a github token in this file
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
+
+# R build artifacts
+inst
+man
+R/*
+DESCRIPTION
+NAMESPACE
+
+# Julia build artifacts
+deps/
+src/*.jl
+src/jl
+Project.toml
+
+# dash-mantine-components artifacts
+dash_mantine_components/
