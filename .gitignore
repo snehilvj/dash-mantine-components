@@ -290,3 +290,4 @@ Project.toml
 
 # dash-mantine-components artifacts
 dash_mantine_components/
+!dash_mantine_components/__init__py
