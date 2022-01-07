@@ -280,3 +280,19 @@ GitHub.sublime-settings
 
 # vscode
 .vscode
+
+# R build artifacts
+inst
+man
+R/*
+DESCRIPTION
+NAMESPACE
+
+# Julia build artifacts
+deps/
+src/*.jl
+src/jl
+Project.toml
+
+# dash-mantine-components artifacts
+dash_mantine_components/

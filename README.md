@@ -5,9 +5,15 @@
 
 dash-mantine-components is an extensive (40+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 
-[Live Demo](https://dash-mantine-components.herokuapp.com)
+[Documentation](https://dash-mantine-components.herokuapp.com)
 
 https://user-images.githubusercontent.com/91216500/144928311-a62db8df-9780-4fa5-95fe-d2593acd3707.mp4
+
+## Table of contents
+- [Installation](#installation)
+- [Quickstart](#quickstart)
+- [Contributing](#contributing)
+- [TODO](#todo)
 
 ## Installation
 
@@ -25,10 +31,7 @@ app = Dash(__name__)
 
 app.layout = html.Div(
     [
-        dmc.DatePicker(
-            id="datepicker", format="dddd, MMMM D, YYYY", style={"width": "250px"}
-        ),
-        dmc.Space(h=20),
+        dmc.DatePicker(id="datepicker", format="dddd, MMMM D, YYYY"),
         dmc.Text(id="text"),
         dmc.Button("Click Me!")
     ]
@@ -44,11 +47,23 @@ if __name__ == "__main__":
     app.run_server(debug=True)
 ```
 
-## TODO:
+## Contributing
+1. Install virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+2. Install npm dependencies
+```bash
+npm install
+```
+
+
+## TODO
 
 1. Add more components from Mantine library and enhance already added ones.
-2. Create documentation.
-3. Support dark theme.
-4. Create more examples.
-5. Add contributing guide.
-6. Add testing.
+2. Support dark theme.
+3. Add contributing guide.
+4. Add testing.
