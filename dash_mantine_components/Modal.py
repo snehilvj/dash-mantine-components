@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Modal(Component):
     """A Modal component.
-Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/
+Modal with optional header. For more information, see: https://mantine.dev/core/modal/
 
 Keyword arguments:
 

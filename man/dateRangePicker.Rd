@@ -6,7 +6,7 @@
 \title{DateRangePicker component}
 
 \description{
-Capture date input from user. For more information, see: https://mantine.dev/dates/date-range-picker/
+Capture dates range from user. For more information, see: https://mantine.dev/dates/date-range-picker/
 }
 
 \usage{

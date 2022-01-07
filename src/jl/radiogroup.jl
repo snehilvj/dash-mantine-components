@@ -10,7 +10,7 @@ Capture user feedback limited to small set of options. For more information, see
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Active radio color from theme.colors
+- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Active radio color from theme.colors
 - `data` (optional): RadioGroup options. data has the following type: Array of lists containing elements 'label', 'value'.
 Those elements have the following types:
   - `label` (String; required): The option's label

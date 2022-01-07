@@ -23,7 +23,7 @@ color=NULL, style=NULL)
 
 \item{class_name}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Badge color from theme}
+\item{color}{Character | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Badge color from theme}
 
 \item{style}{Named list. Inline style override}
 }

@@ -45,6 +45,8 @@ import NotificationHandler from "./components/NotificationHandler.react";
 import ScrollArea from "./components/ScrollArea.react";
 import Header from "./components/Header.react";
 import Navbar from "./components/Navbar.react";
+import InputWrapper from "./components/InputWrapper.react";
+import ColorPicker from "./components/ColorPicker.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -95,5 +97,7 @@ export {
     ScrollArea,
     Header,
     Navbar,
+    InputWrapper,
+    ColorPicker,
     // RangeSlider,
 };

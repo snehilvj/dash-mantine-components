@@ -9,7 +9,7 @@ export modal
 
 
 A Modal component.
-Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/
+Modal with optional header. For more information, see: https://mantine.dev/core/modal/
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Content that should be centered vertically and horizontally
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks

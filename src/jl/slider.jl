@@ -10,12 +10,13 @@ Capture user feedback from a range of values. For more information, see: https:/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Slider color
+- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Slider color
 - `drag_value` (Real; optional): Current drag value for controlled slider
+- `label` (String; optional): Function to generate label or any react node to render instead, set to null to disable label
 - `labelAlwaysOn` (Bool; optional): If true label will be not be hidden when user stops dragging
 - `marks` (optional): Marks which will be placed on the track. marks has the following type: Array of lists containing elements 'label', 'value'.
 Those elements have the following types:
-  - `label` (String; required): The option's label
+  - `label` (String; optional): The option's label
   - `value` (Real; required): option's values
 - `max` (Real; optional): Maximum possible value
 - `min` (Real; optional): Minimal possible value
@@ -27,7 +28,7 @@ Those elements have the following types:
 - `value` (Real; optional): Current value for controlled slider
 """
 function slider(; kwargs...)
-        available_props = Symbol[:id, :class_name, :color, :drag_value, :labelAlwaysOn, :marks, :max, :min, :radius, :showLabelOnHover, :size, :step, :style, :value]
+        available_props = Symbol[:id, :class_name, :color, :drag_value, :label, :labelAlwaysOn, :marks, :max, :min, :radius, :showLabelOnHover, :size, :step, :style, :value]
         wild_props = Symbol[]
         return Component("slider", "Slider", "dash_mantine_components", available_props, wild_props; kwargs...)
 end

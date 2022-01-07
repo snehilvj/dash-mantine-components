@@ -20,7 +20,7 @@ variant=NULL)
 
 \item{class_name}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme}
+\item{color}{Character | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme}
 
 \item{label}{Character. Adds text after line in horizontal orientation}
 

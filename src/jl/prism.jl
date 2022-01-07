@@ -16,7 +16,7 @@ Keyword arguments:
 - `copyLabel` (String; optional): Copy button tooltip
 - `highlightLines` (optional): Highlight line at given line number with color from theme.colors. highlightLines has the following type: Dict with Strings as keys and values of type lists containing elements 'color', 'label'.
 Those elements have the following types:
-  - `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional)
+  - `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional)
   - `label` (String; optional)
 - `language` (a value equal to: "markup", "bash", "clike", "c", "cpp", "css", "javascript", "jsx", "coffeescript", "actionscript", "css-extr", "diff", "git", "go", "graphql", "handlebars", "json", "less", "makefile", "markdown", "objectivec", "ocaml", "python", "reason", "sass", "scss", "sql", "stylus", "tsx", "typescript", "wasm", "yaml"; required): Programming language that should be highlighted
 - `noCopy` (Bool; optional): True to remove copy to clipboard button

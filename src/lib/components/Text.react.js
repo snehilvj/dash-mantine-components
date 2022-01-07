@@ -42,24 +42,22 @@ Text.propTypes = {
     /**
      * Text color from theme
      */
-    color: PropTypes.oneOfType([
-        PropTypes.oneOf([
-            "dark",
-            "gray",
-            "red",
-            "pink",
-            "grape",
-            "violet",
-            "indigo",
-            "blue",
-            "cyan",
-            "teal",
-            "green",
-            "lime",
-            "yellow",
-            "orange",
-        ]),
-        PropTypes.oneOf(["dimmed"]),
+    color: PropTypes.oneOf([
+        "dark",
+        "gray",
+        "red",
+        "pink",
+        "grape",
+        "violet",
+        "indigo",
+        "blue",
+        "cyan",
+        "teal",
+        "green",
+        "lime",
+        "yellow",
+        "orange",
+        "dimmed",
     ]),
 
     /**

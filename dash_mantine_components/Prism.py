@@ -34,7 +34,7 @@ Keyword arguments:
     `highlightLines` is a dict with strings as keys and values of type
     dict with keys:
 
-    - color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional)
+    - color (string | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional)
 
     - label (string; optional)
 
