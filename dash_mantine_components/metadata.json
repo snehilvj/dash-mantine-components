@@ -230,71 +230,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -398,71 +390,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -670,71 +654,63 @@
     "props": {
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -922,71 +898,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -1071,71 +1039,63 @@
     "props": {
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -1461,71 +1421,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -1671,71 +1623,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -3126,71 +3070,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -5304,71 +5240,63 @@
             "name": "exact",
             "value": {
               "color": {
-                "name": "union",
+                "name": "enum",
                 "value": [
                   {
-                    "name": "string"
+                    "value": "\"dark\"",
+                    "computed": false
                   },
                   {
-                    "name": "enum",
-                    "value": [
-                      {
-                        "value": "\"dark\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"gray\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"red\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"pink\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"grape\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"violet\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"indigo\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"blue\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"cyan\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"teal\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"green\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"lime\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"yellow\"",
-                        "computed": false
-                      },
-                      {
-                        "value": "\"orange\"",
-                        "computed": false
-                      }
-                    ]
+                    "value": "\"gray\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"red\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"pink\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"grape\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"violet\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"indigo\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"blue\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"cyan\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"teal\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"green\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"lime\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"yellow\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"orange\"",
+                    "computed": false
                   }
                 ],
                 "required": false
@@ -5564,71 +5492,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -5816,71 +5736,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -6181,71 +6093,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -6931,71 +6835,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -7387,71 +7283,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },
@@ -7981,75 +7869,67 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"dimmed\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
+            },
+            {
+              "value": "\"dimmed\"",
+              "computed": false
             }
           ]
         },
@@ -8524,71 +8404,63 @@
       },
       "color": {
         "type": {
-          "name": "union",
+          "name": "enum",
           "value": [
             {
-              "name": "string"
+              "value": "\"dark\"",
+              "computed": false
             },
             {
-              "name": "enum",
-              "value": [
-                {
-                  "value": "\"dark\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"gray\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"red\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"pink\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"grape\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"violet\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"indigo\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"blue\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"cyan\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"teal\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"green\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"lime\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"yellow\"",
-                  "computed": false
-                },
-                {
-                  "value": "\"orange\"",
-                  "computed": false
-                }
-              ]
+              "value": "\"gray\"",
+              "computed": false
+            },
+            {
+              "value": "\"red\"",
+              "computed": false
+            },
+            {
+              "value": "\"pink\"",
+              "computed": false
+            },
+            {
+              "value": "\"grape\"",
+              "computed": false
+            },
+            {
+              "value": "\"violet\"",
+              "computed": false
+            },
+            {
+              "value": "\"indigo\"",
+              "computed": false
+            },
+            {
+              "value": "\"blue\"",
+              "computed": false
+            },
+            {
+              "value": "\"cyan\"",
+              "computed": false
+            },
+            {
+              "value": "\"teal\"",
+              "computed": false
+            },
+            {
+              "value": "\"green\"",
+              "computed": false
+            },
+            {
+              "value": "\"lime\"",
+              "computed": false
+            },
+            {
+              "value": "\"yellow\"",
+              "computed": false
+            },
+            {
+              "value": "\"orange\"",
+              "computed": false
             }
           ]
         },

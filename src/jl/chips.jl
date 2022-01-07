@@ -11,7 +11,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `align` (a value equal to: "stretch", "center", "flex-end", "flex-start"; optional): Defines align-items css property
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Active chip color, defaults to theme.primaryColor
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Active chip color, defaults to theme.primaryColor
 - `data` (optional): Chips. data has the following type: Array of lists containing elements 'label', 'value', 'disabled'.
 Those elements have the following types:
   - `label` (String; required): The option's label

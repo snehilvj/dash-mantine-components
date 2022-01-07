@@ -10,7 +10,7 @@ Capture user feedback from a range of values. For more information, see: https:/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Slider color
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Slider color
 - `drag_value` (Real; optional): Current drag value for controlled slider
 - `label` (String; optional): Function to generate label or any react node to render instead, set to null to disable label
 - `labelAlwaysOn` (Bool; optional): If true label will be not be hidden when user stops dragging

@@ -11,7 +11,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `checked` (Bool; optional): State of check box
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Checkbox color
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Checkbox color
 - `disabled` (Bool; optional): A checkbox can show it is currently unable to be interacted with
 - `label` (String; optional): Checkbox label
 - `size` (a value equal to: "xs", "sm", "md", "lg", "xl"; optional): Predefined label font-size and checkbox width and height in px

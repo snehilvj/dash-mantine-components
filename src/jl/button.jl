@@ -14,7 +14,7 @@ Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Primary content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Button color from theme
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Button color from theme
 - `compact` (Bool; optional): Reduces vertical and horizontal spacing
 - `disabled` (Bool; optional): The component can show it is currently unable to be interacted with
 - `fullWidth` (Bool; optional): Sets button width to 100% of parent element

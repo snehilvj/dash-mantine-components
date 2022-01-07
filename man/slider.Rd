@@ -21,7 +21,7 @@ step=NULL, style=NULL, value=NULL)
 
 \item{class_name}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{Character | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Slider color}
+\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Slider color}
 
 \item{drag_value}{Numeric. Current drag value for controlled slider}
 
