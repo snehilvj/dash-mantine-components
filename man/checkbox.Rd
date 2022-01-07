@@ -22,7 +22,7 @@ transitionDuration=NULL)
 
 \item{class_name}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Checkbox color}
+\item{color}{Character | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Checkbox color}
 
 \item{disabled}{Logical. A checkbox can show it is currently unable to be interacted with}
 

@@ -21,7 +21,7 @@ variant=NULL)
 
 \item{class_name}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active radio color from theme.colors}
+\item{color}{Character | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Active radio color from theme.colors}
 
 \item{data}{List of lists containing elements 'label', 'value'.
 those elements have the following types:

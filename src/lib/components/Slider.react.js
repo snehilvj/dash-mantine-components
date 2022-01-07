@@ -8,7 +8,7 @@ import { omit } from "ramda";
  * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const Slider = (props) => {
-    const { setProps, value, class_name } = props;
+    const { setProps, value, class_name, label } = props;
     const [state, setState] = useState(value);
 
     const updateProps = () => {
@@ -27,8 +27,10 @@ const Slider = (props) => {
             onMouseUp={updateProps}
             onChange={onChange}
             className={class_name}
-            {...omit(["setProps", "value", "class_name"], props)}
+            {...omit(["setProps", "value", "class_name", "label"], props)}
             value={state}
+            // eslint-disable-next-line no-eval
+            label={eval(label)}
         />
     );
 };
@@ -74,6 +76,11 @@ Slider.propTypes = {
     id: PropTypes.string,
 
     /**
+     * Function to generate label or any react node to render instead, set to null to disable label
+     */
+    label: PropTypes.string,
+
+    /**
      * If true label will be not be hidden when user stops dragging
      */
     labelAlwaysOn: PropTypes.bool,
@@ -86,7 +93,7 @@ Slider.propTypes = {
             /**
              * The option's label
              */
-            label: PropTypes.string.isRequired,
+            label: PropTypes.string,
             /**
              * option's value
              */

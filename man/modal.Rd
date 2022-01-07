@@ -6,7 +6,7 @@
 \title{Modal component}
 
 \description{
-Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/modal/
+Modal with optional header. For more information, see: https://mantine.dev/core/modal/
 }
 
 \usage{

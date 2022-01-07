@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class DateRangePicker(Component):
     """A DateRangePicker component.
-Capture date input from user. For more information, see: https://mantine.dev/dates/date-range-picker/
+Capture dates range from user. For more information, see: https://mantine.dev/dates/date-range-picker/
 
 Keyword arguments:
 

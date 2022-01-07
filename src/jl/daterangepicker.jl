@@ -6,7 +6,7 @@ export daterangepicker
     daterangepicker(;kwargs...)
 
 A DateRangePicker component.
-Capture date input from user. For more information, see: https://mantine.dev/dates/date-range-picker/
+Capture dates range from user. For more information, see: https://mantine.dev/dates/date-range-picker/
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `allowLevelChange` (Bool; optional): Allow to change level (date – month – year)

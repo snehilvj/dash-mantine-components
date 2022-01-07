@@ -14,7 +14,7 @@ Keyword arguments:
 - `children` (String; optional): Primary content
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Badge color from theme
+- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional): Badge color from theme
 - `fullWidth` (Bool; optional): Sets badge width to 100% of parent element, hides overflow text with text-overflow: ellipsis
 - `gradient` (optional): Controls gradient settings in gradient variant only. gradient has the following type: lists containing elements 'from', 'to', 'deg'.
 Those elements have the following types:

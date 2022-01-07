@@ -11,6 +11,7 @@ from .Center import Center
 from .Checkbox import Checkbox
 from .Chips import Chips
 from .Col import Col
+from .ColorPicker import ColorPicker
 from .Container import Container
 from .DatePicker import DatePicker
 from .DateRangePicker import DateRangePicker
@@ -20,6 +21,7 @@ from .Grid import Grid
 from .Group import Group
 from .Header import Header
 from .Image import Image
+from .InputWrapper import InputWrapper
 from .Modal import Modal
 from .MultiSelect import MultiSelect
 from .Navbar import Navbar
@@ -60,6 +62,7 @@ __all__ = [
     "Checkbox",
     "Chips",
     "Col",
+    "ColorPicker",
     "Container",
     "DatePicker",
     "DateRangePicker",
@@ -69,6 +72,7 @@ __all__ = [
     "Group",
     "Header",
     "Image",
+    "InputWrapper",
     "Modal",
     "MultiSelect",
     "Navbar",

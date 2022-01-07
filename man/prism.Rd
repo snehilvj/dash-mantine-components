@@ -30,7 +30,7 @@ language=NULL, noCopy=NULL, style=NULL, withLineNumbers=NULL)
 
 \item{highlightLines}{List with named elements and values of type lists containing elements 'color', 'label'.
 those elements have the following types:
-  - color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional)
+  - color (character | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional)
   - label (character; optional). Highlight line at given line number with color from theme.colors}
 
 \item{language}{A value equal to: "markup", "bash", "clike", "c", "cpp", "css", "javascript", "jsx", "coffeescript", "actionscript", "css-extr", "diff", "git", "go", "graphql", "handlebars", "json", "less", "makefile", "markdown", "objectivec", "ocaml", "python", "reason", "sass", "scss", "sql", "stylus", "tsx", "typescript", "wasm", "yaml". Programming language that should be highlighted}

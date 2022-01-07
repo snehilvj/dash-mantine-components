@@ -11,9 +11,9 @@ Capture user feedback from a range of values. For more information, see: https:/
 
 \usage{
 slider(id=NULL, class_name=NULL, color=NULL, drag_value=NULL,
-labelAlwaysOn=NULL, marks=NULL, max=NULL, min=NULL,
-radius=NULL, showLabelOnHover=NULL, size=NULL, step=NULL,
-style=NULL, value=NULL)
+label=NULL, labelAlwaysOn=NULL, marks=NULL, max=NULL,
+min=NULL, radius=NULL, showLabelOnHover=NULL, size=NULL,
+step=NULL, style=NULL, value=NULL)
 }
 
 \arguments{
@@ -21,15 +21,17 @@ style=NULL, value=NULL)
 
 \item{class_name}{Character. Often used with CSS to style elements with common properties}
 
-\item{color}{A value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Slider color}
+\item{color}{Character | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange". Slider color}
 
 \item{drag_value}{Numeric. Current drag value for controlled slider}
+
+\item{label}{Character. Function to generate label or any react node to render instead, set to null to disable label}
 
 \item{labelAlwaysOn}{Logical. If true label will be not be hidden when user stops dragging}
 
 \item{marks}{List of lists containing elements 'label', 'value'.
 those elements have the following types:
-  - label (character; required): the option's label
+  - label (character; optional): the option's label
   - value (numeric; required): option's values. Marks which will be placed on the track}
 
 \item{max}{Numeric. Maximum possible value}
