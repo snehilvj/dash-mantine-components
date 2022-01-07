@@ -15,7 +15,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components in callbacks
 - `align` (a value equal to: "left", "right", "center"; optional): Sets text-align css property
 - `class_name` (String; optional): Often used with CSS to style elements with common properties
-- `color` (String | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange", "dimmed"; optional): Text color from theme
+- `color` (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange", "dimmed"; optional): Text color from theme
 - `gradient` (optional): Controls gradient settings in gradient variant only. gradient has the following type: lists containing elements 'from', 'to', 'deg'.
 Those elements have the following types:
   - `from` (String; required)

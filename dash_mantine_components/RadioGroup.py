@@ -16,7 +16,7 @@ Keyword arguments:
 - class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (string | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Active radio color from theme.colors.
 
 - data (list of dicts; optional):

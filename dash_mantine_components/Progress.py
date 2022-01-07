@@ -16,7 +16,7 @@ Keyword arguments:
 - class_name (string; optional):
     Often used with CSS to style elements with common properties.
 
-- color (string | a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
+- color (a value equal to: "dark", "gray", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"; optional):
     Progress color from theme.
 
 - radius (a value equal to: "xs", "sm", "md", "lg", "xl" | number; optional):
