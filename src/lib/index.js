@@ -47,6 +47,7 @@ import Header from "./components/Header.react";
 import Navbar from "./components/Navbar.react";
 import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
+import RingProgress from "./components/RingProgress.react";
 // import RangeSlider from './components/RangeSlider.react';
 
 export {
@@ -99,5 +100,6 @@ export {
     Navbar,
     InputWrapper,
     ColorPicker,
+    RingProgress
     // RangeSlider,
 };
