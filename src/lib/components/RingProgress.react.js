@@ -32,7 +32,7 @@ RingProgress.propTypes = {
     /**
      * Sets whether the edges of the progress circle are rounded
      */
-     roundCaps: PropTypes.boolean,
+     roundCaps: PropTypes.bool,
 
     /**
      * Ring sections
