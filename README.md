@@ -62,8 +62,10 @@ if __name__ == "__main__":
     ```
 
 3. Add your new component in `src/lib/components`. Make sure to include it in the `src/lib/index.js` as well.
+   
+4. Add a line in the CHANGELOG.md under one of these: Added, Changed, Deprecated, Removed, Fixed.
 
-4. Raise a PR to `dev` branch, including an example to reproduce the changes contributed by the PR.
+5. Raise a PR, including an example to reproduce the changes contributed by the PR.
 
 
 ## TODO
