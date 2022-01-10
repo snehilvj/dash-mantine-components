@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { DateRangePicker as MantineDateRangePicker } from "@mantine/dates";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import dayjs from "dayjs";
+import { useDidUpdate } from "@mantine/hooks";
 
 /**
  * Capture dates range from user. For more information, see: https://mantine.dev/dates/date-range-picker/
@@ -19,6 +20,15 @@ const DateRangePicker = (props) => {
         class_name,
     } = props;
 
+    const convert = (dates) => {
+        return dates.map((item) => {
+            return new Date(item);
+        });
+    };
+
+    // eslint-disable-next-line no-undefined
+    const [value, setValue] = useState(dates ? convert(dates) : undefined);
+
     const updateProps = (d) => {
         if (d.some((ele) => ele !== null)) {
             setProps({
@@ -32,6 +42,10 @@ const DateRangePicker = (props) => {
             dayjs.Ls[locale] = window.dayjs.Ls[locale];
         }
     }, []);
+
+    useDidUpdate(() => {
+        setValue(convert(dates));
+    }, [dates]);
 
     return (
         <MantineDateRangePicker
@@ -50,12 +64,10 @@ const DateRangePicker = (props) => {
             )}
             onChange={updateProps}
             className={class_name}
-            {...(dates
-                ? { defaultValue: Array.from(dates, (d) => new Date(d)) }
-                : {})}
-            {...(minDate ? { minDate: new Date(minDate) } : {})}
-            {...(maxDate ? { maxDate: new Date(maxDate) } : {})}
-            {...(initialMonth ? { initialMonth: new Date(initialMonth) } : {})}
+            value={value}
+            minDate={minDate && new Date(minDate)}
+            maxDate={maxDate && new Date(maxDate)}
+            initialMonth={initialMonth && new Date(initialMonth)}
             inputFormat={format}
         />
     );
