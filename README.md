@@ -10,6 +10,7 @@ dash-mantine-components is an extensive (40+) Dash components library based on [
 https://user-images.githubusercontent.com/91216500/144928311-a62db8df-9780-4fa5-95fe-d2593acd3707.mp4
 
 ## Table of contents
+- [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Quickstart](#quickstart)
 - [Contributing](#contributing)
@@ -49,16 +50,20 @@ if __name__ == "__main__":
 
 ## Contributing
 1. Install virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
 
 2. Install npm dependencies
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
+
+3. Add your new component in `src/lib/components`. Make sure to include it in the `src/lib/index.js` as well.
+
+4. Raise a PR to `dev` branch, including an example to reproduce the changes contributed by the PR.
 
 
 ## TODO
