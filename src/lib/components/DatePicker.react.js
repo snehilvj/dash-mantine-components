@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { DatePicker as MantineDatePicker } from "@mantine/dates";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import dayjs from "dayjs";
+import { useDidUpdate } from "@mantine/hooks";
 
 /**
  * Capture date input from user. For more information, see: https://mantine.dev/dates/date-picker/
@@ -19,6 +20,9 @@ const DatePicker = (props) => {
         class_name,
     } = props;
 
+    // eslint-disable-next-line no-undefined
+    const [value, setValue] = useState(date ? new Date(date) : undefined);
+
     const updateProps = (d) => {
         setProps({ date: d ? dayjs(d).format("YYYY-MM-DD") : null });
     };
@@ -28,6 +32,10 @@ const DatePicker = (props) => {
             dayjs.Ls[locale] = window.dayjs.Ls[locale];
         }
     }, []);
+
+    useDidUpdate(() => {
+        setValue(new Date(date));
+    }, [date]);
 
     return (
         <MantineDatePicker
@@ -46,10 +54,10 @@ const DatePicker = (props) => {
             )}
             onChange={updateProps}
             className={class_name}
-            {...(date ? { defaultValue: new Date(date) } : {})}
-            {...(minDate ? { minDate: new Date(minDate) } : {})}
-            {...(maxDate ? { maxDate: new Date(maxDate) } : {})}
-            {...(initialMonth ? { initialMonth: new Date(initialMonth) } : {})}
+            value={value}
+            minDate={minDate && new Date(minDate)}
+            maxDate={maxDate && new Date(maxDate)}
+            initialMonth={initialMonth && new Date(initialMonth)}
             inputFormat={format}
         />
     );
