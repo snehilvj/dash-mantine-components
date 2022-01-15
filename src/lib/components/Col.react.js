@@ -19,9 +19,27 @@ Col.propTypes = {
     children: PropTypes.node,
 
     /**
+     * Total amount of columns, controlled by Grid component
+     * */
+    columns: PropTypes.number,
+
+    /**
      * Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
+
+    /**
+     * Space between columns from theme, or number to set value in px, controlled by Grid component
+     */
+    gutter: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
+     * sets flex-grow to 1 if true, controlled by Grid component
+     */
+    grow: PropTypes.bool,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -32,6 +50,31 @@ Col.propTypes = {
      * Column left offset
      */
     offset: PropTypes.number,
+
+    /**
+     * Column left offset at (min-width: theme.breakpoints.xs)
+     */
+    offsetXs: PropTypes.number,
+
+    /**
+     * Column left offset at (min-width: theme.breakpoints.sm)
+     */
+    offsetSm: PropTypes.number,
+
+    /**
+     * Column left offset at (min-width: theme.breakpoints.md)
+     */
+    offsetMd: PropTypes.number,
+
+    /**
+     * Column left offset at (min-width: theme.breakpoints.lg)
+     */
+    offsetLg: PropTypes.number,
+
+    /**
+     * Column left offset at (min-width: theme.breakpoints.xl)
+     */
+    offsetXl: PropTypes.number,
 
     /**
      * Default col span

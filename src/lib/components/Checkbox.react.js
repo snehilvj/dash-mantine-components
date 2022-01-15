@@ -75,6 +75,14 @@ Checkbox.propTypes = {
     label: PropTypes.string,
 
     /**
+     * Radius from theme.radius, or number to set border-radius in px
+     */
+    radius: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
      * Predefined label font-size and checkbox width and height in px
      */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),

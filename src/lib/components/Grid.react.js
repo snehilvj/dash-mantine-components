@@ -41,7 +41,7 @@ Grid.propTypes = {
     align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
 
     /**
-     * Content
+     * Content <Col/> only
      */
     children: PropTypes.node,
 
