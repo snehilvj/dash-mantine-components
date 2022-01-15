@@ -9,8 +9,7 @@ dash-mantine-components is an extensive (40+) Dash components library based on [
 
 https://user-images.githubusercontent.com/91216500/144928311-a62db8df-9780-4fa5-95fe-d2593acd3707.mp4
 
-## Table of contents
-- [Table of contents](#table-of-contents)
+### Table of contents
 - [Installation](#installation)
 - [Quickstart](#quickstart)
 - [Contributing](#contributing)
