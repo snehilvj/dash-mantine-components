@@ -69,7 +69,10 @@ Group.propTypes = {
     /**
      * Space between elements
      */
-    spacing: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+    spacing: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 
     /**
      * Inline style override

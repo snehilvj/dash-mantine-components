@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Drawer as MantineDrawer } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponent } from "dash-extensions-js";
 
 /**
  * Display overlay area at any side of the screen. For more information, see: https://mantine.dev/core/drawer/
  */
 const Drawer = (props) => {
-    const { opened, children, setProps, class_name } = props;
+    const { opened, children, setProps, class_name, title } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -21,10 +22,14 @@ const Drawer = (props) => {
 
     return (
         <MantineDrawer
-            {...omit(["opened", "setProps", "children", "class_name"], props)}
+            {...omit(
+                ["opened", "setProps", "children", "class_name", "title"],
+                props
+            )}
             opened={open}
             onClose={onClose}
             className={class_name}
+            title={renderDashComponent(title)}
         >
             {children}
         </MantineDrawer>
@@ -117,6 +122,14 @@ Drawer.propTypes = {
     setProps: PropTypes.func,
 
     /**
+     * Drawer body shadow from theme or any css shadow value
+     */
+    shadow: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
      * Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width
      */
     size: PropTypes.oneOfType([
@@ -128,7 +141,35 @@ Drawer.propTypes = {
     /**
      * Drawer title, displayed in header before close button
      */
-    title: PropTypes.string,
+    title: PropTypes.any,
+
+    /**
+     * Drawer appear and disappear transition, see Transition component for full documentation
+     */
+    transition: PropTypes.oneOf([
+        "fade",
+        "skew-up",
+        "skew-down",
+        "rotate-right",
+        "rotate-left",
+        "slide-down",
+        "slide-up",
+        "slide-right",
+        "slide-left",
+        "scale-y",
+        "scale-x",
+        "scale",
+        "pop",
+        "pop-top-left",
+        "pop-top-right",
+        "pop-bottom-left",
+        "pop-bottom-right",
+    ]),
+
+    /**
+     * Transition duration in ms
+     */
+    transitionDuration: PropTypes.number,
 
     /**
      * Popper zIndex
