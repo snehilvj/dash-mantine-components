@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Alert as MantineAlert } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Attract user attention with important static message. For more information, see: https://mantine.dev/core/alert/
@@ -9,6 +10,8 @@ import { omit } from "ramda";
 const Alert = (props) => {
     const { duration, hide, setProps, class_name } = props;
     const ref = useRef(null);
+    let nProps = omit(["setProps", "hide", "class_name"], props);
+    nProps = renderDashComponents(nProps, ["title", "icon"]);
 
     useEffect(() => {
         if (duration) {
@@ -23,7 +26,7 @@ const Alert = (props) => {
 
     return hide ? null : (
         <MantineAlert
-            {...omit(["setProps", "hide", "class_name"], props)}
+            {...nProps}
             className={class_name}
             onClose={() => setProps({ hide: true })}
         >
@@ -80,14 +83,27 @@ Alert.propTypes = {
     hide: PropTypes.bool,
 
     /**
+     * Icon displayed next to title
+     */
+    icon: PropTypes.any,
+
+    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
 
     /**
+     * Radius from theme.radius, or number to set border-radius in px
+     */
+    radius: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
      * Optional alert title
      */
-    title: PropTypes.string,
+    title: PropTypes.any,
 
     /**
      * Tells dash if any prop has changed its value
@@ -98,6 +114,11 @@ Alert.propTypes = {
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Controls Alert background, color and border styles
+     */
+    variant: PropTypes.oneOf(["filled", "outline", "light"]),
 
     /**
      * Display close button
