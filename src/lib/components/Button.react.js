@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import { Button as MantineButton } from "@mantine/core";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/
@@ -17,6 +18,12 @@ const Button = (props) => {
         class_name,
     } = props;
 
+    let nProps = omit(
+        ["setProps", "n_clicks", "children", "loading_state", "class_name"],
+        props
+    );
+    nProps = renderDashComponents(nProps, ["leftIcon", "rightIcon"]);
+
     const increment = () => {
         if (!disabled) {
             setProps({
@@ -27,16 +34,7 @@ const Button = (props) => {
 
     return (
         <MantineButton
-            {...omit(
-                [
-                    "setProps",
-                    "n_clicks",
-                    "children",
-                    "loading_state",
-                    "class_name",
-                ],
-                props
-            )}
+            {...nProps}
             onClick={increment}
             loading={loading || (loading_state && loading_state.is_loading)}
             className={class_name}
@@ -114,9 +112,41 @@ Button.propTypes = {
     id: PropTypes.string,
 
     /**
+     * Adds icon before button label
+     */
+    leftIcon: PropTypes.any,
+
+    /**
      * Loader position relative to button label
      */
     loaderPosition: PropTypes.oneOf(["left", "right"]),
+
+    /**
+     * Props spread to Loader component
+     */
+    loaderProps: PropTypes.exact({
+        size: PropTypes.oneOfType([
+            PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+            PropTypes.number,
+        ]),
+        color: PropTypes.oneOf([
+            "dark",
+            "gray",
+            "red",
+            "pink",
+            "grape",
+            "violet",
+            "indigo",
+            "blue",
+            "cyan",
+            "teal",
+            "green",
+            "lime",
+            "yellow",
+            "orange",
+        ]),
+        variant: PropTypes.oneOf(["bars", "oval", "dots"]),
+    }),
 
     /**
      * Indicate loading state
@@ -155,6 +185,11 @@ Button.propTypes = {
     ]),
 
     /**
+     * Adds icon after button label
+     */
+    rightIcon: PropTypes.any,
+
+    /**
      * Predefined button size
      */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
@@ -184,6 +219,7 @@ Button.propTypes = {
         "light",
         "gradient",
         "white",
+        "subtle",
         "default",
     ]),
 };

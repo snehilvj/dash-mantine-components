@@ -2,18 +2,18 @@ import { Badge as MantineBadge } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from "react";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Display badge, pill or tag. For more information, see: https://mantine.dev/core/badge/
  */
 const Badge = (props) => {
     const { children, class_name } = props;
+    let nProps = omit(["setProps", "children", "class_name"], props);
+    nProps = renderDashComponents(nProps, ["leftSection", "rightSection"]);
 
     return (
-        <MantineBadge
-            {...omit(["setProps", "children", "class_name"], props)}
-            className={class_name}
-        >
+        <MantineBadge {...nProps} className={class_name}>
             {children}
         </MantineBadge>
     );
@@ -69,6 +69,11 @@ Badge.propTypes = {
     }),
 
     /**
+     * Section rendered on the left side of label
+     */
+    leftSection: PropTypes.any,
+
+    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
@@ -80,6 +85,11 @@ Badge.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * Section rendered on the right side of label
+     */
+    rightSection: PropTypes.any,
 
     /**
      * Predefined badge size
