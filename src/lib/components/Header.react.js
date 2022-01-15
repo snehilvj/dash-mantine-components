@@ -35,6 +35,11 @@ Header.propTypes = {
     class_name: PropTypes.string,
 
     /**
+     *  Changes position to fixed, controlled by AppShell component if rendered inside
+     */
+    fixed: PropTypes.bool,
+
+    /**
      *  Header height
      */
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -51,11 +56,6 @@ Header.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
-
-    /**
-     *  Changes position to fixed, controlled by AppShell component if rendered inside
-     */
-    fixed: PropTypes.bool,
 
     /**
      *  Control top, left, right or bottom position values, controlled by AppShell component if rendered inside
