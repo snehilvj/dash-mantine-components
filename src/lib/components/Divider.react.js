@@ -2,16 +2,18 @@ import React from "react";
 import { Divider as MantineDivider } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponent } from "dash-extensions-js";
 
 /**
  * Horizontal line with optional label or vertical divider. For more information, see: https://mantine.dev/core/divider/
  */
 const Divider = (props) => {
-    const { class_name } = props;
+    const { class_name, label } = props;
     return (
         <MantineDivider
-            {...omit(["setProps", "class_name"], props)}
+            {...omit(["setProps", "class_name", "label"], props)}
             className={class_name}
+            label={renderDashComponent(label)}
         />
     );
 };
@@ -54,7 +56,7 @@ Divider.propTypes = {
     /**
      * Adds text after line in horizontal orientation
      */
-    label: PropTypes.string,
+    label: PropTypes.any,
 
     /**
      * Label position
