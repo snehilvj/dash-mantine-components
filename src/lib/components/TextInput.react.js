@@ -2,12 +2,21 @@ import React from "react";
 import { TextInput as MantineTextInput } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Custom input with label and description. For more information, see: https://mantine.dev/core/text-input/
  */
 const TextInput = (props) => {
     const { setProps, class_name } = props;
+    let nProps = omit(["setProps", "class_name"], props);
+    nProps = renderDashComponents(nProps, [
+        "label",
+        "description",
+        "rightSection",
+        "icon",
+        "error",
+    ]);
 
     const updateProps = (value) => {
         setProps({ value });
@@ -15,7 +24,7 @@ const TextInput = (props) => {
 
     return (
         <MantineTextInput
-            {...omit(["setProps", "class_name"], props)}
+            {...nProps}
             className={class_name}
             onChange={(ev) => updateProps(ev.currentTarget.value)}
         />
@@ -37,7 +46,7 @@ TextInput.propTypes = {
     /**
      * Input description, displayed after label
      */
-    description: PropTypes.string,
+    description: PropTypes.any,
 
     /**
      * The component can show it is currently unable to be interacted with
@@ -47,7 +56,17 @@ TextInput.propTypes = {
     /**
      * Displays error message after input
      */
-    error: PropTypes.string,
+    error: PropTypes.any,
+
+    /**
+     * Adds icon on the left side of input
+     */
+    icon: PropTypes.any,
+
+    /**
+     * Width of icon section in px
+     */
+    iconWidth: PropTypes.number,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -55,9 +74,14 @@ TextInput.propTypes = {
     id: PropTypes.string,
 
     /**
+     * Sets border color to red and aria-invalid=true on input element
+     */
+    invalid: PropTypes.bool,
+
+    /**
      * Input label, displayed before input
      */
-    label: PropTypes.string,
+    label: PropTypes.any,
 
     /**
      * Will input have multiple lines?
@@ -81,6 +105,16 @@ TextInput.propTypes = {
      * Adds red asterisk on the right side of label
      */
     required: PropTypes.bool,
+
+    /**
+     * Right section of input, similar to icon but on the right
+     */
+    rightSection: PropTypes.any,
+
+    /**
+     * Width of right section, is used to calculate input padding-right
+     */
+    rightSectionWidth: PropTypes.number,
 
     /**
      * Tells dash if any prop has changed its value

@@ -238,7 +238,7 @@ Select.propTypes = {
     transitionDuration: PropTypes.number,
 
     /**
-     * Dropdown body transition timing function, defaults to theme.transitionTimingF
+     * Dropdown body transition timing function, defaults to theme.transitionTimingFunction
      */
     transitionTimingFunction: PropTypes.string,
 
