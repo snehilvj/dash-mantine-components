@@ -21,10 +21,7 @@ const Spoiler = (props) => {
 
 Spoiler.displayName = "Spoiler";
 
-Spoiler.defaultProps = {
-    showLabel: "Show more",
-    hideLabel: "Hide",
-};
+Spoiler.defaultProps = {};
 
 Spoiler.propTypes = {
     /**
@@ -40,7 +37,7 @@ Spoiler.propTypes = {
     /**
      * Label for close spoiler action
      */
-    hideLabel: PropTypes.string,
+    hideLabel: PropTypes.string.isRequired,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -78,12 +75,17 @@ Spoiler.propTypes = {
     /**
      * Label for open spoiler action
      */
-    showLabel: PropTypes.string,
+    showLabel: PropTypes.string.isRequired,
 
     /**
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Spoiler reveal transition duration in ms, 0 or null to turn off animation
+     */
+    transitionDuration: PropTypes.number,
 };
 
 export default Spoiler;
