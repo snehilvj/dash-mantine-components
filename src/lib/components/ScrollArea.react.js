@@ -21,13 +21,7 @@ const ScrollArea = (props) => {
 
 ScrollArea.displayName = "ScrollArea";
 
-ScrollArea.defaultProps = {
-    dir: "ltr",
-    offsetScrollbars: false,
-    scrollHideDelay: 1000,
-    scrollbarSize: 12,
-    type: "hover",
-};
+ScrollArea.defaultProps = {};
 
 ScrollArea.propTypes = {
     /**
