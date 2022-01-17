@@ -67,6 +67,11 @@ NotificationsProvider.propTypes = {
     ]),
 
     /**
+     * Notification transitions duration, 0 to turn transitions off
+     */
+    transitionDuration: PropTypes.number,
+
+    /**
      * Notifications container z-index
      */
     zIndex: PropTypes.number,
