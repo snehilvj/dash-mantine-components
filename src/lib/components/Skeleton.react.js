@@ -25,6 +25,11 @@ Skeleton.defaultProps = {};
 
 Skeleton.propTypes = {
     /**
+     * Whether to show the animation effect
+     */
+    animate: PropTypes.bool,
+
+    /**
      * Primary content
      */
     children: PropTypes.node,

@@ -77,7 +77,7 @@ Select.propTypes = {
     /**
      * Input description, displayed after label
      */
-    description: PropTypes.string,
+    description: PropTypes.any,
 
     /**
      * The component can show it is currently unable to be interacted with
@@ -92,7 +92,7 @@ Select.propTypes = {
     /**
      * Displays error message after input
      */
-    error: PropTypes.string,
+    error: PropTypes.any,
 
     /**
      * Adds icon on the left side of input
@@ -122,7 +122,7 @@ Select.propTypes = {
     /**
      * Input label, displayed before input
      */
-    label: PropTypes.string,
+    label: PropTypes.any,
 
     /**
      * Limit amount of items displayed at a time for searchable select

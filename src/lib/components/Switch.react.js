@@ -2,12 +2,13 @@ import React from "react";
 import { Switch as MantineSwitch } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponent } from "dash-extensions-js";
 
 /**
  * Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/switch/
  */
 const Switch = (props) => {
-    const { setProps, class_name } = props;
+    const { setProps, class_name, label } = props;
 
     const updateProps = (checked) => {
         setProps({ checked });
@@ -16,8 +17,9 @@ const Switch = (props) => {
     return (
         <MantineSwitch
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
-            {...omit(["setProps", "class_name"], props)}
+            {...omit(["setProps", "class_name", "label"], props)}
             className={class_name}
+            label={renderDashComponent(label)}
         />
     );
 };
@@ -67,7 +69,7 @@ Switch.propTypes = {
     /**
      * Checkbox label
      */
-    label: PropTypes.string,
+    label: PropTypes.any,
 
     /**
      * The inner label to be set when Switch is in the checked state
