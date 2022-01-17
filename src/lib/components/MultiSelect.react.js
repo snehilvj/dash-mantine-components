@@ -35,10 +35,7 @@ const MultiSelect = (props) => {
 MultiSelect.displayName = "MultiSelect";
 
 MultiSelect.defaultProps = {
-    searchable: true,
-    placeholder: "Select items",
     data: [],
-    nothingFound: "No match found",
 };
 
 MultiSelect.propTypes = {

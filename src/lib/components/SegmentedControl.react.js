@@ -102,6 +102,16 @@ SegmentedControl.propTypes = {
     style: PropTypes.object,
 
     /**
+     * Transition duration in ms, set to 0 to turn off transitions
+     */
+    transitionDuration: PropTypes.number,
+
+    /**
+     * Transition timing function for all transitions, defaults to theme.transitionTimingFunction
+     */
+    transitionTimingFunction: PropTypes.string,
+
+    /**
      * Current selected value
      */
     value: PropTypes.string,

@@ -11,10 +11,10 @@ const Prism = (props) => {
 
     return (
         <MantinePrism
-            {...omit(["code", "setProps", "class_name"], props)}
+            {...omit(["children", "setProps", "class_name"], props)}
             className={class_name}
         >
-            {props.code}
+            {props.children}
         </MantinePrism>
     );
 };
@@ -32,7 +32,7 @@ Prism.propTypes = {
     /**
      * Code which will be highlighted
      */
-    code: PropTypes.string.isRequired,
+    children: PropTypes.string,
 
     /**
      * Force color scheme, defaults to theme.colorScheme
