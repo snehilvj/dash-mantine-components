@@ -27,13 +27,15 @@ const DateRangePicker = (props) => {
     };
 
     // eslint-disable-next-line no-undefined
-    const [dates, setDates] = useState(value ? convert(value) : undefined);
+    const [dates, setDates] = useState(value && convert(value));
 
     const updateProps = (d) => {
         if (d.some((ele) => ele !== null)) {
             setProps({
                 value: Array.from(d, (d) => dayjs(d).format("YYYY-MM-DD")),
             });
+        } else {
+            setProps({ value: null });
         }
     };
 
@@ -44,7 +46,7 @@ const DateRangePicker = (props) => {
     }, []);
 
     useDidUpdate(() => {
-        setDates(convert(value));
+        setDates(value && convert(value));
     }, [value]);
 
     let nProps = omit(

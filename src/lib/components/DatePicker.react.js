@@ -20,11 +20,10 @@ const DatePicker = (props) => {
         class_name,
     } = props;
 
-    // eslint-disable-next-line no-undefined
-    const [date, setDate] = useState(value ? new Date(value) : undefined);
+    const [date, setDate] = useState(value && new Date(value));
 
     const updateProps = (d) => {
-        setProps({ value: d ? dayjs(d).format("YYYY-MM-DD") : null });
+        setProps({ value: d && dayjs(d).format("YYYY-MM-DD") });
     };
 
     useEffect(() => {
@@ -34,7 +33,7 @@ const DatePicker = (props) => {
     }, []);
 
     useDidUpdate(() => {
-        setDate(new Date(value));
+        setDate(value && new Date(value));
     }, [value]);
 
     let nProps = omit(
