@@ -1,14 +1,23 @@
 <p align="center">
-    <img src="logo.png" alt="logo" width=300 >
+    <img src="assets/logo.png" alt="logo" width=300 >
+</p>
+<p align="center">
+    <img src="https://badgen.net/pypi/license/dash-mantine-components">
+    <a href="https://discord.gg/KuJkh4Pyq5">
+    <img src="https://img.shields.io/badge/Chat%20on-Discord-%235865f2">
+    </a>
 </p>
 
-Dash Mantine Components is an extensive (40+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
+Dash Mantine Components is an extensive (50+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 
 [Documentation](https://dash-mantine-components.herokuapp.com)
 
-https://user-images.githubusercontent.com/91216500/144928311-a62db8df-9780-4fa5-95fe-d2593acd3707.mp4
+<p align="center">
+    <img src="assets/datepicker.gif">
+</p>
 
 ### Table of contents
+
 - [Installation](#installation)
 - [Quickstart](#quickstart)
 - [Contributing](#contributing)
@@ -16,7 +25,7 @@ https://user-images.githubusercontent.com/91216500/144928311-a62db8df-9780-4fa5-
 
 ## Installation
 
-```
+```bash
 pip install dash-mantine-components
 ```
 
@@ -47,7 +56,9 @@ if __name__ == "__main__":
 ```
 
 ## Contributing
+
 1. Install virtual environment:
+
     ```bash
     python -m venv venv
     source venv/bin/activate
@@ -55,16 +66,16 @@ if __name__ == "__main__":
     ```
 
 2. Install npm dependencies
+
     ```bash
     npm install
     ```
 
 3. Add your new component in `src/lib/components`. Make sure to include it in the `src/lib/index.js` as well.
-   
+
 4. Add a line in the CHANGELOG.md under one of these: Added, Changed, Deprecated, Removed, Fixed.
 
 5. Raise a PR, including an example to reproduce the changes contributed by the PR.
-
 
 ## TODO
 

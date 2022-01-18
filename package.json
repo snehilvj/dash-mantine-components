@@ -1,6 +1,6 @@
 {
     "name": "dash_mantine_components",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "description": "Custom dash components based on Mantine React Components library",
     "repository": {
         "type": "git",
