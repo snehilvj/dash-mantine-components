@@ -1,9 +1,8 @@
-<h1 align="center">dmc</h1>
-<h3 align="center">Dash Mantine Components</h3>
+<p align="center">
+    <img src="logo.png" alt="logo" width=300 >
+</p>
 
-<br/>
-
-dash-mantine-components is an extensive (40+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
+Dash Mantine Components is an extensive (40+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 
 [Documentation](https://dash-mantine-components.herokuapp.com)
 
