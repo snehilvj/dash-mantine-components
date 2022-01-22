@@ -2,7 +2,7 @@ import React from "react";
 import { InputWrapper as MantineInputWrapper } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { renderDashComponent } from "dash-extensions-js";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Enhance custom inputs with label, error and description. For more information, see: https://mantine.dev/core/input-wrapper/
@@ -10,7 +10,7 @@ import { renderDashComponent } from "dash-extensions-js";
 const InputWrapper = (props) => {
     const { class_name } = props;
     let nProps = omit(["setProps", "class_name"], props);
-    nProps = renderDashComponent(nProps, ["label", "description", "error"]);
+    nProps = renderDashComponents(nProps, ["label", "description", "error"]);
 
     return (
         <MantineInputWrapper {...nProps} className={class_name}>

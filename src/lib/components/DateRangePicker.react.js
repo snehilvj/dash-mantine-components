@@ -85,9 +85,7 @@ const DateRangePicker = (props) => {
 
 DateRangePicker.displayName = "DateRangePicker";
 
-DateRangePicker.defaultProps = {
-    style: { width: "330px" },
-};
+DateRangePicker.defaultProps = {};
 
 DateRangePicker.propTypes = {
     /**

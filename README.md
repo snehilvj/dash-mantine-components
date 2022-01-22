@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/logo.png" alt="logo" width=300 >
+    <img src="https://raw.githubusercontent.com/snehilvj/dash-mantine-components/master/assets/logo.png" alt="logo" width=300 >
 </p>
 <p align="center">
     <img src="https://badgen.net/pypi/license/dash-mantine-components">
@@ -13,7 +13,7 @@ Dash Mantine Components is an extensive (50+) Dash components library based on [
 [Documentation](https://dash-mantine-components.herokuapp.com)
 
 <p align="center">
-    <img src="assets/datepicker.gif">
+    <img src="https://raw.githubusercontent.com/snehilvj/dash-mantine-components/master/assets/datepicker.gif">
 </p>
 
 ### Table of contents

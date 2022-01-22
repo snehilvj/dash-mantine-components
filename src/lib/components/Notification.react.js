@@ -11,6 +11,7 @@ const Notification = (props) => {
     const notification = useNotifications();
     const {
         action,
+        autoClose,
         color,
         disallowClose,
         icon,
@@ -45,6 +46,7 @@ const Notification = (props) => {
         }
     }, [
         action,
+        autoClose,
         color,
         disallowClose,
         icon,
@@ -67,6 +69,11 @@ Notification.propTypes = {
      * Action
      */
     action: PropTypes.oneOf(["show", "update", "hide"]),
+
+    /**
+     * Whether autoclose and if true then duration
+     */
+    autoClose: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
 
     /**
      * Notification line or icon color
