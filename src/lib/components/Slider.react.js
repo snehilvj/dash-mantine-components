@@ -8,8 +8,8 @@ import { renderDashComponents } from "dash-extensions-js";
  * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const Slider = (props) => {
-    const { setProps, class_name, label } = props;
-    let nProps = omit(["setProps", "class_name", "label"], props);
+    const { setProps, class_name } = props;
+    let nProps = omit(["setProps", "class_name"], props);
     nProps = renderDashComponents(nProps, ["thumbChildren"]);
 
     const onChange = (value) => {
@@ -17,13 +17,7 @@ const Slider = (props) => {
     };
 
     return (
-        <MantineSlider
-            onChange={onChange}
-            className={class_name}
-            {...nProps}
-            // eslint-disable-next-line no-eval
-            label={eval(label)}
-        />
+        <MantineSlider onChange={onChange} className={class_name} {...nProps} />
     );
 };
 
@@ -61,11 +55,6 @@ Slider.propTypes = {
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
-
-    /**
-     * Function to generate label or any react node to render instead, set to null to disable label
-     */
-    label: PropTypes.string,
 
     /**
      * If true label will be not be hidden when user stops dragging

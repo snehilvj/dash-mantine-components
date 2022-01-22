@@ -1,5 +1,12 @@
 # Change Log
 
+# 0.3.1
+
+### Fixed
+
+- Corrected props for Datepickers, Notification, and slider.
+- Props were not rendered correctly in InputWrapper.
+
 ## 0.3.0
 
 ### Fixed

@@ -71,9 +71,7 @@ const DatePicker = (props) => {
 
 DatePicker.displayName = "DatePicker";
 
-DatePicker.defaultProps = {
-    style: { width: "200px" },
-};
+DatePicker.defaultProps = {};
 
 DatePicker.propTypes = {
     /**
