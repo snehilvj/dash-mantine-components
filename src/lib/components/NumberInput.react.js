@@ -26,7 +26,7 @@ const NumberInput = (props) => {
         <MantineNumberInput
             {...nProps}
             className={class_name}
-            onChange={(ev) => updateProps(ev.currentTarget.value)}
+            onChange={(value) => updateProps(value)}
         />
     );
 };
