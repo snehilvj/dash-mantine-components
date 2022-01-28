@@ -68,7 +68,7 @@ Notification.propTypes = {
     /**
      * Action
      */
-    action: PropTypes.oneOf(["show", "update", "hide"]),
+    action: PropTypes.oneOf(["show", "update", "hide"]).isRequired,
 
     /**
      * Whether autoclose and if true then duration

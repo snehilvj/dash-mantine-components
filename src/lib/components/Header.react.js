@@ -27,7 +27,7 @@ Header.propTypes = {
     /**
      *  Header content
      */
-    children: PropTypes.string,
+    children: PropTypes.node,
 
     /**
      *  Often used with CSS to style elements with common properties
