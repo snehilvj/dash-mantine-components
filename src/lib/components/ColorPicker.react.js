@@ -28,11 +28,6 @@ ColorPicker.defaultProps = {};
 
 ColorPicker.propTypes = {
     /**
-     * Alpha slider aria-label
-     */
-    alphaLabel: PropTypes.string,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
@@ -53,19 +48,9 @@ ColorPicker.propTypes = {
     fullWidth: PropTypes.bool,
 
     /**
-     * Hue slider aria-label
-     */
-    hueLabel: PropTypes.string,
-
-    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
-
-    /**
-     * Saturation slider aria-label
-     */
-    saturationLabel: PropTypes.string,
 
     /**
      * Predefined component size
