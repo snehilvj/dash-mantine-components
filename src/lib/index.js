@@ -47,7 +47,6 @@ import Header from "./components/Header.react";
 import Navbar from "./components/Navbar.react";
 import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
-import ThemeIcon from "./components/ThemeIcon.react";
 import MantineProvider from "./components/MantineProvider.react";
 
 export {
@@ -100,6 +99,5 @@ export {
     Navbar,
     InputWrapper,
     ColorPicker,
-    ThemeIcon,
-    MantineProvider
+    MantineProvider,
 };
