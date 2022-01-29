@@ -13,12 +13,13 @@ const JsonInput = (props) => {
     // Render react nodes.
     nProps = renderDashComponents(nProps, ["icon", "rightSection", "validationError", "description", "error", "label"]);
     // Bind OnChange event.
-    nProps.onChange = value => setProps({ value });
+    const onChange = value => setProps({ value });
     // Render component
     return (
         <MantineJsonInput
             {...nProps}
             className={class_name}
+            onChange={onChange}
         >
         </MantineJsonInput>
     );
