@@ -1,37 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Slider as MantineSlider } from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const Slider = (props) => {
-    const { setProps, value, class_name, label } = props;
-    const [state, setState] = useState(value);
+    const { setProps, class_name } = props;
+    let nProps = omit(["setProps", "class_name"], props);
+    nProps = renderDashComponents(nProps, ["thumbChildren"]);
 
-    const updateProps = () => {
-        setProps({ value: state });
-    };
-
-    useDidUpdate(() => setState(value), [value]);
-
-    const onChange = (val) => {
-        setState(val);
-        setProps({ drag_value: val });
+    const onChange = (value) => {
+        setProps({ value });
     };
 
     return (
-        <MantineSlider
-            onMouseUp={updateProps}
-            onChange={onChange}
-            className={class_name}
-            {...omit(["setProps", "value", "class_name", "label"], props)}
-            value={state}
-            // eslint-disable-next-line no-eval
-            label={eval(label)}
-        />
+        <MantineSlider onChange={onChange} className={class_name} {...nProps} />
     );
 };
 
@@ -66,24 +52,47 @@ Slider.propTypes = {
     ]),
 
     /**
-     * Current drag value for controlled slider
-     */
-    drag_value: PropTypes.number,
-
-    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
 
     /**
-     * Function to generate label or any react node to render instead, set to null to disable label
-     */
-    label: PropTypes.string,
-
-    /**
      * If true label will be not be hidden when user stops dragging
      */
     labelAlwaysOn: PropTypes.bool,
+
+    /**
+     * Label appear/disappear transition
+     */
+    labelTransition: PropTypes.oneOf([
+        "fade",
+        "skew-up",
+        "skew-down",
+        "rotate-right",
+        "rotate-left",
+        "slide-down",
+        "slide-up",
+        "slide-right",
+        "slide-left",
+        "scale-y",
+        "scale-x",
+        "scale",
+        "pop",
+        "pop-top-left",
+        "pop-top-right",
+        "pop-bottom-left",
+        "pop-bottom-right",
+    ]),
+
+    /**
+     * Label appear/disappear transition duration in ms
+     */
+    labelTransitionDuration: PropTypes.number,
+
+    /**
+     * Label appear/disappear transition timing function, defaults to theme.transitionRimingFunction
+     */
+    labelTransitionTimingFunction: PropTypes.string,
 
     /**
      * Marks which will be placed on the track
@@ -110,6 +119,11 @@ Slider.propTypes = {
      * Minimal possible value
      */
     min: PropTypes.number,
+
+    /**
+     * Hidden input name, use with uncontrolled variant
+     */
+    name: PropTypes.string,
 
     /**
      * Track border-radius from theme or number to set border-radius in px
@@ -143,6 +157,11 @@ Slider.propTypes = {
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Thumb children, can be used to add icon
+     */
+    thumbChildren: PropTypes.any,
 
     /**
      * Current value for controlled slider

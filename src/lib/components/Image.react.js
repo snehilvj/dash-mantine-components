@@ -2,16 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Image as MantineImage } from "@mantine/core";
 import { omit } from "ramda";
+import { renderDashComponent } from "dash-extensions-js";
 
 /**
  * Image with optional placeholder for loading and error state. For more information, see: https://mantine.dev/core/image/
  */
 const Image = (props) => {
-    const { class_name } = props;
+    const { class_name, placeholder } = props;
     return (
         <MantineImage
-            {...omit(["setProps", "class_name"], props)}
+            {...omit(["setProps", "class_name", "placeholder"], props)}
             className={class_name}
+            placeholder={renderDashComponent(placeholder)}
         />
     );
 };
@@ -50,6 +52,11 @@ Image.propTypes = {
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
+
+    /**
+     * Customize placeholder content
+     */
+    placeholder: PropTypes.any,
 
     /**
      * Predefined border-radius value from theme.radius or number for border-radius in px
