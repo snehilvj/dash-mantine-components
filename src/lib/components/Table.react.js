@@ -7,24 +7,7 @@ import { pick } from "ramda";
  * A simple table component. For more information, see: https://mantine.dev/core/table/
  */
 const Table = (props) => {
-    const { rows, columns, class_name } = props;
-
-    const ths = (
-        <tr>
-            {columns.map((col, index) => {
-                return <th key={index}>{col}</th>;
-            })}
-        </tr>
-    );
-
-    const trs = rows.map((row, idx1) => (
-        <tr key={idx1}>
-            {row.map((ele, idx2) => {
-                return <td key={idx2 + idx1}>{ele}</td>;
-            })}
-        </tr>
-    ));
-
+    const { class_name, caption, children } = props;
     return (
         <MantineTable
             {...pick(
@@ -33,15 +16,12 @@ const Table = (props) => {
                     "highlightOnHover",
                     "style",
                     "captionSide",
-                    "class_name",
                 ],
                 props
             )}
             className={class_name}
         >
-            <caption>{props.caption}</caption>
-            <thead>{ths}</thead>
-            <tbody>{trs}</tbody>
+            {children}
         </MantineTable>
     );
 };
@@ -50,16 +30,9 @@ Table.displayName = "Table";
 
 Table.defaultProps = {
     captionSide: "bottom",
-    rows: [],
-    columns: [],
 };
 
 Table.propTypes = {
-    /**
-     * Table description
-     */
-    caption: PropTypes.string,
-
     /**
      * Table caption position
      */
@@ -69,11 +42,6 @@ Table.propTypes = {
      * Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
-
-    /**
-     * Table columns
-     */
-    columns: PropTypes.arrayOf(PropTypes.string),
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -86,11 +54,6 @@ Table.propTypes = {
     highlightOnHover: PropTypes.bool,
 
     /**
-     * Table rows
-     */
-    rows: PropTypes.arrayOf(PropTypes.array),
-
-    /**
      * If true every odd row of table will have gray background color
      */
     striped: PropTypes.bool,
@@ -99,6 +62,11 @@ Table.propTypes = {
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Component children, specifically an HTML representation of the table
+     */
+    children: PropTypes.node,
 };
 
 export default Table;
