@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Modal as MantineModal } from "@mantine/core";
 import { omit } from "ramda";
+import { renderDashComponent } from "dash-extensions-js";
 
 /**
  * Modal with optional header. For more information, see: https://mantine.dev/core/modal/
  */
 const Modal = (props) => {
-    const { opened, children, setProps, class_name } = props;
+    const { opened, children, setProps, class_name, title } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -21,10 +22,11 @@ const Modal = (props) => {
 
     return (
         <MantineModal
-            {...omit(["opened", "setProps", "children"], props)}
+            {...omit(["opened", "setProps", "children", "title"], props)}
             className={class_name}
             opened={open}
             onClose={onClose}
+            title={renderDashComponent(title)}
         >
             {children}
         </MantineModal>
@@ -59,6 +61,11 @@ Modal.propTypes = {
     closeOnClickOutside: PropTypes.bool,
 
     /**
+     * Should modal be closed when escape is pressed?
+     */
+    closeOnEscape: PropTypes.bool,
+
+    /**
      * Hides close button, modal still can be closed with escape key and by clicking outside
      */
     hideCloseButton: PropTypes.bool,
@@ -67,6 +74,11 @@ Modal.propTypes = {
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
+
+    /**
+     * Disables focus trap
+     */
+    noFocusTrap: PropTypes.bool,
 
     /**
      * Mounts modal if true
@@ -110,6 +122,14 @@ Modal.propTypes = {
     setProps: PropTypes.func,
 
     /**
+     * Modal shadow from theme or css value
+     */
+    shadow: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
      * Modal body width
      */
     size: PropTypes.oneOfType([
@@ -126,7 +146,40 @@ Modal.propTypes = {
     /**
      * Modal title, displayed in header before close button
      */
-    title: PropTypes.string,
+    title: PropTypes.any,
+
+    /**
+     * Modal body transition
+     */
+    transition: PropTypes.oneOf([
+        "fade",
+        "skew-up",
+        "skew-down",
+        "rotate-right",
+        "rotate-left",
+        "slide-down",
+        "slide-up",
+        "slide-right",
+        "slide-left",
+        "scale-y",
+        "scale-x",
+        "scale",
+        "pop",
+        "pop-top-left",
+        "pop-top-right",
+        "pop-bottom-left",
+        "pop-bottom-right",
+    ]),
+
+    /**
+     * Duration in ms of modal transitions, set to 0 to disable all animations
+     */
+    transitionDuration: PropTypes.number,
+
+    /**
+     * Modal body transitionTimingFunction, defaults to theme.transitionTimingFunction
+     */
+    transitionTimingFunction: PropTypes.string,
 
     /**
      * Popper zIndex

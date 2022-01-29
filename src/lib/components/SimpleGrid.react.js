@@ -27,14 +27,16 @@ SimpleGrid.propTypes = {
     /**
      * Breakpoints data to change items per row and spacing based on max-width
      */
-    breakpoints: PropTypes.exact({
-        maxWidth: PropTypes.number.isRequired,
-        cols: PropTypes.number.isRequired,
-        spacing: PropTypes.oneOfType([
-            PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-            PropTypes.number,
-        ]),
-    }),
+    breakpoints: PropTypes.arrayOf(
+        PropTypes.exact({
+            maxWidth: PropTypes.number.isRequired,
+            cols: PropTypes.number.isRequired,
+            spacing: PropTypes.oneOfType([
+                PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+                PropTypes.number,
+            ]),
+        })
+    ),
 
     /**
      * Children

@@ -1,13 +1,14 @@
 import React from "react";
-import { Accordion as MantineAccordion, Text } from "@mantine/core";
+import { Accordion as MantineAccordion } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponents, renderDashComponent } from "dash-extensions-js";
 
 /**
  * Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/
  */
 const Accordion = (props) => {
-    const { children, setProps, class_name } = props;
+    const { children, setProps, class_name, icon } = props;
 
     const onChange = (state) => {
         setProps({ state });
@@ -15,24 +16,19 @@ const Accordion = (props) => {
 
     return (
         <MantineAccordion
-            {...omit(["setProps", "class_name"], props)}
+            {...omit(["setProps", "class_name", "icon"], props)}
             onChange={onChange}
+            icon={renderDashComponent(icon)}
             className={class_name}
         >
             {React.Children.map(children, (child, index) => {
                 const childProps = child.props._dashprivate_layout.props;
+                const renderedProps = renderDashComponents(
+                    omit(["children"], childProps),
+                    ["label", "icon"]
+                );
                 return (
-                    <MantineAccordion.Item
-                        label={
-                            <div>
-                                <Text>{childProps.label}</Text>
-                                <Text size="sm" color="dimmed" weight={400}>
-                                    {childProps.description}
-                                </Text>
-                            </div>
-                        }
-                        key={index}
-                    >
+                    <MantineAccordion.Item {...renderedProps} key={index}>
                         {child}
                     </MantineAccordion.Item>
                 );
@@ -62,9 +58,19 @@ Accordion.propTypes = {
     disableIconRotation: PropTypes.bool,
 
     /**
+     * Replace icon on all items
+     */
+    icon: PropTypes.any,
+
+    /**
      * Change icon position: left or right
      */
     iconPosition: PropTypes.oneOf(["right", "left"]),
+
+    /**
+     *Icon width in px
+     */
+    iconSize: PropTypes.number,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -82,6 +88,12 @@ Accordion.propTypes = {
     offsetIcon: PropTypes.bool,
 
     /**
+     * Heading level used for items
+     */
+    // eslint-disable-next-line no-magic-numbers
+    order: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+
+    /**
      * Tells dash if any prop has changed its value
      */
     setProps: PropTypes.func,
@@ -90,6 +102,16 @@ Accordion.propTypes = {
      * Controlled state (controls opened state of accordion items)
      */
     state: PropTypes.objectOf(PropTypes.bool),
+
+    /**
+     * Inline style
+     */
+    style: PropTypes.object,
+
+    /**
+     * Open/close item transition duration in ms
+     */
+    transitionDuration: PropTypes.number,
 };
 
 export default Accordion;

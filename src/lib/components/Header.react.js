@@ -27,12 +27,17 @@ Header.propTypes = {
     /**
      *  Header content
      */
-    children: PropTypes.string,
+    children: PropTypes.node,
 
     /**
      *  Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
+
+    /**
+     *  Changes position to fixed, controlled by AppShell component if rendered inside
+     */
+    fixed: PropTypes.bool,
 
     /**
      *  Header height
@@ -51,11 +56,6 @@ Header.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
-
-    /**
-     *  Changes position to fixed, controlled by AppShell component if rendered inside
-     */
-    fixed: PropTypes.bool,
 
     /**
      *  Control top, left, right or bottom position values, controlled by AppShell component if rendered inside

@@ -54,6 +54,9 @@ Affix.propTypes = {
      */
     style: PropTypes.object,
 
+    /** Element where portal should be rendered, by default new div element is created and appended to document.body */
+    target: PropTypes.string,
+
     /**
      * Root element z-index property
      */

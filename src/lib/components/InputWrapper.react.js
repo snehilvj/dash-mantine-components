@@ -2,18 +2,18 @@ import React from "react";
 import { InputWrapper as MantineInputWrapper } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Enhance custom inputs with label, error and description. For more information, see: https://mantine.dev/core/input-wrapper/
  */
 const InputWrapper = (props) => {
     const { class_name } = props;
+    let nProps = omit(["setProps", "class_name"], props);
+    nProps = renderDashComponents(nProps, ["label", "description", "error"]);
 
     return (
-        <MantineInputWrapper
-            {...omit(["setProps", "class_name"], props)}
-            className={class_name}
-        >
+        <MantineInputWrapper {...nProps} className={class_name}>
             {props.children}
         </MantineInputWrapper>
     );
@@ -37,12 +37,12 @@ InputWrapper.propTypes = {
     /**
      * Input description, displayed after label
      */
-    description: PropTypes.string,
+    description: PropTypes.any,
 
     /**
      * Displays error message after input
      */
-    error: PropTypes.string,
+    error: PropTypes.any,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -52,7 +52,7 @@ InputWrapper.propTypes = {
     /**
      * Input label, displayed before input
      */
-    label: PropTypes.string,
+    label: PropTypes.any,
 
     /**
      * Adds red asterisk on the right side of label

@@ -23,6 +23,11 @@ Progress.defaultProps = {};
 
 Progress.propTypes = {
     /**
+     * Whether to animate striped progress bars
+     */
+    animate: PropTypes.bool,
+
+    /**
      * Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
@@ -46,6 +51,11 @@ Progress.propTypes = {
         "yellow",
         "orange",
     ]),
+
+    /**
+     * Text to be placed inside the progress bar
+     */
+    label: PropTypes.string,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -82,6 +92,7 @@ Progress.propTypes = {
                 "yellow",
                 "orange",
             ]),
+            label: PropTypes.string,
         })
     ),
 
