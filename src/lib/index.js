@@ -49,7 +49,9 @@ import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
 import MantineProvider from "./components/MantineProvider.react";
 import NumberInput from "./components/NumberInput.react";
-import TimeInput from "./components/TimeInput.react";
+import JsonInput from "./components/JsonInput.react";
+import ThemeIcon from "./components/ThemeIcon.react";
+import RingProgress from "./components/RingProgress.react";
 
 export {
     Button,
@@ -103,5 +105,7 @@ export {
     ColorPicker,
     MantineProvider,
     NumberInput,
-    TimeInput
+    JsonInput,
+    ThemeIcon,
+    RingProgress,
 };
