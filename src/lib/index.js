@@ -51,6 +51,7 @@ import MantineProvider from "./components/MantineProvider.react";
 import NumberInput from "./components/NumberInput.react";
 import JsonInput from "./components/JsonInput.react";
 import ThemeIcon from "./components/ThemeIcon.react";
+import RingProgress from "./components/RingProgress.react";
 
 export {
     Button,
@@ -106,4 +107,5 @@ export {
     NumberInput,
     JsonInput,
     ThemeIcon,
+    RingProgress,
 };

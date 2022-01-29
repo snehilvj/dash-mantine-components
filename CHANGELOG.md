@@ -4,7 +4,12 @@
 
 ### Added
 
-- New components: NumberInput, JsonInput, ThemeIcon, Table.
+- New components:
+  - NumberInput
+  - JsonInput
+  - ThemeIcon
+  - Table
+  - RingProgress
 
 ### Fixed
 
