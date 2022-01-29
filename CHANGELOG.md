@@ -4,7 +4,7 @@
 
 ### Added
 
-- New components: NumberInput.
+- New components: NumberInput, JsonInput, ThemeIcon.
 
 ### Fixed
 

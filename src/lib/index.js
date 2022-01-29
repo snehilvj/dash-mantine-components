@@ -49,6 +49,8 @@ import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
 import MantineProvider from "./components/MantineProvider.react";
 import NumberInput from "./components/NumberInput.react";
+import JsonInput from "./components/JsonInput.react";
+import ThemeIcon from "./components/ThemeIcon.react";
 
 export {
     Button,
@@ -101,5 +103,7 @@ export {
     InputWrapper,
     ColorPicker,
     MantineProvider,
-    NumberInput
+    NumberInput,
+    JsonInput,
+    ThemeIcon,
 };
