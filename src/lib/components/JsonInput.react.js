@@ -8,8 +8,8 @@ import {renderDashComponents} from "dash-extensions-js"
  * JsonInput. For more information, see: https://mantine.dev/core/json-input/
  */
 const JsonInput = (props) => {
-    const { class_name, children, setProps } = props;
-    let nProps = omit(["setProps", "children", "class_name"], props);
+    const { class_name, setProps } = props;
+    let nProps = omit(["setProps", "class_name"], props);
     // Render react nodes.
     nProps = renderDashComponents(nProps, ["icon", "rightSection", "validationError", "description", "error", "label"]);
     // Bind OnChange event.
@@ -20,7 +20,6 @@ const JsonInput = (props) => {
             {...nProps}
             className={class_name}
         >
-            {children}
         </MantineJsonInput>
     );
 };
@@ -148,11 +147,6 @@ JsonInput.propTypes = {
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     // Dash props
-
-    /**
-    * Input that should be wrapped
-    */
-    children: PropTypes.node,
 
     /**
      * Often used with CSS to style elements with common properties
