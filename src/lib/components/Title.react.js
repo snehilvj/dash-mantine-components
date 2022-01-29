@@ -27,7 +27,7 @@ Title.propTypes = {
     /**
      * Sets text-align css property
      */
-    align: PropTypes.oneOf(["left", "right", "center"]),
+    align: PropTypes.oneOf(["left", "right", "center", "justify"]),
 
     /**
      * Primary content

@@ -1,5 +1,15 @@
 # Change Log
 
+# 0.3.2
+
+### Fixed
+
+- Props in SimpleGrid, Navbar, Header, Spoiler, and Title.
+
+### Removed
+
+- `inline` prop from Center, as it doesn't work right now.
+
 # 0.3.1
 
 ### Fixed

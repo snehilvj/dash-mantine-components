@@ -48,6 +48,7 @@ import Navbar from "./components/Navbar.react";
 import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
 import MantineProvider from "./components/MantineProvider.react";
+import NumberInput from "./components/NumberInput.react";
 import TimeInput from "./components/TimeInput.react";
 
 export {
@@ -101,5 +102,6 @@ export {
     InputWrapper,
     ColorPicker,
     MantineProvider,
+    NumberInput,
     TimeInput
 };
