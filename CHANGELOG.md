@@ -1,11 +1,14 @@
 # Change Log
 
-# 0.3.2
+# 0.4.0
+
+### Added
+
+- New components: NumberInput.
 
 ### Fixed
 
-- `breakpoint` prop in SimpleGrid.
-- `children` prop in Navbar and Header.
+- Props in SimpleGrid, Navbar, Header, Spoiler, and Title.
 
 ### Removed
 

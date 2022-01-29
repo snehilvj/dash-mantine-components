@@ -47,8 +47,8 @@ import Header from "./components/Header.react";
 import Navbar from "./components/Navbar.react";
 import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
-import JsonInput from "./components/JsonInput.react";
 import MantineProvider from "./components/MantineProvider.react";
+import NumberInput from "./components/NumberInput.react";
 
 export {
     Button,
@@ -100,6 +100,6 @@ export {
     Navbar,
     InputWrapper,
     ColorPicker,
-    JsonInput,
-    MantineProvider
+    MantineProvider,
+    NumberInput
 };
