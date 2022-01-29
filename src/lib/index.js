@@ -41,14 +41,14 @@ import Paper from "./components/Paper.react";
 import Breadcrumbs from "./components/Breadcrumbs.react";
 import Progress from "./components/Progress.react";
 import NotificationsProvider from "./components/NotificationsProvider.react";
-import NotificationHandler from "./components/NotificationHandler.react";
+import Notification from "./components/Notification.react";
 import ScrollArea from "./components/ScrollArea.react";
 import Header from "./components/Header.react";
 import Navbar from "./components/Navbar.react";
 import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
 import RingProgress from "./components/RingProgress.react";
-// import RangeSlider from './components/RangeSlider.react';
+import MantineProvider from "./components/MantineProvider.react";
 
 export {
     Button,
@@ -94,12 +94,12 @@ export {
     Breadcrumbs,
     Progress,
     NotificationsProvider,
-    NotificationHandler,
+    Notification,
     ScrollArea,
     Header,
     Navbar,
     InputWrapper,
     ColorPicker,
     RingProgress
-    // RangeSlider,
+    MantineProvider
 };

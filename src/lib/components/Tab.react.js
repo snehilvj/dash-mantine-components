@@ -29,6 +29,11 @@ Tab.propTypes = {
     disabled: PropTypes.bool,
 
     /**
+     * Icon
+     */
+    icon: PropTypes.any,
+
+    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
@@ -36,7 +41,7 @@ Tab.propTypes = {
     /**
      * Tab control label
      */
-    label: PropTypes.string,
+    label: PropTypes.any,
 };
 
 export default Tab;

@@ -2,6 +2,7 @@ import React from "react";
 import { Tabs as MantineTabs, Tab } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { renderDashComponent } from "dash-extensions-js";
 
 /**
  * Switch between different views. For more information, see: https://mantine.dev/core/tabs/
@@ -23,9 +24,12 @@ const Tabs = (props) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return (
                     <Tab
-                        {...omit(["children", "class_name"], childProps)}
                         key={index}
                         className={class_name}
+                        icon={renderDashComponent(childProps.icon)}
+                        disabled={childProps.disabled}
+                        label={renderDashComponent(childProps.label)}
+                        id={childProps.id}
                     >
                         {child}
                     </Tab>

@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { DateRangePicker as MantineDateRangePicker } from "@mantine/dates";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import dayjs from "dayjs";
+import { useDidUpdate } from "@mantine/hooks";
+import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Capture dates range from user. For more information, see: https://mantine.dev/dates/date-range-picker/
@@ -10,8 +12,7 @@ import dayjs from "dayjs";
 const DateRangePicker = (props) => {
     const {
         setProps,
-        dates,
-        format,
+        value,
         minDate,
         maxDate,
         initialMonth,
@@ -19,11 +20,22 @@ const DateRangePicker = (props) => {
         class_name,
     } = props;
 
+    const convert = (value) => {
+        return value.map((item) => {
+            return new Date(item);
+        });
+    };
+
+    // eslint-disable-next-line no-undefined
+    const [dates, setDates] = useState(value && convert(value));
+
     const updateProps = (d) => {
         if (d.some((ele) => ele !== null)) {
             setProps({
-                dates: Array.from(d, (d) => dayjs(d).format("YYYY-MM-DD")),
+                value: Array.from(d, (d) => dayjs(d).format("YYYY-MM-DD")),
             });
+        } else {
+            setProps({ value: null });
         }
     };
 
@@ -33,40 +45,47 @@ const DateRangePicker = (props) => {
         }
     }, []);
 
+    useDidUpdate(() => {
+        setDates(value && convert(value));
+    }, [value]);
+
+    let nProps = omit(
+        [
+            "setProps",
+            "defaultValue",
+            "value",
+            "minDate",
+            "maxDate",
+            "initialMonth",
+            "class_name",
+        ],
+        props
+    );
+
+    nProps = renderDashComponents(nProps, [
+        "description",
+        "icon",
+        "rightSection",
+        "error",
+        "label",
+    ]);
+
     return (
         <MantineDateRangePicker
-            {...omit(
-                [
-                    "setProps",
-                    "defaultValue",
-                    "date",
-                    "format",
-                    "minDate",
-                    "maxDate",
-                    "initialMonth",
-                    "class_name",
-                ],
-                props
-            )}
+            {...nProps}
             onChange={updateProps}
             className={class_name}
-            {...(dates
-                ? { defaultValue: Array.from(dates, (d) => new Date(d)) }
-                : {})}
-            {...(minDate ? { minDate: new Date(minDate) } : {})}
-            {...(maxDate ? { maxDate: new Date(maxDate) } : {})}
-            {...(initialMonth ? { initialMonth: new Date(initialMonth) } : {})}
-            inputFormat={format}
+            value={dates}
+            minDate={minDate && new Date(minDate)}
+            maxDate={maxDate && new Date(maxDate)}
+            initialMonth={initialMonth && new Date(initialMonth)}
         />
     );
 };
 
 DateRangePicker.displayName = "DateRangePicker";
 
-DateRangePicker.defaultProps = {
-    placeholder: "Select a date range",
-    style: { width: "330px" },
-};
+DateRangePicker.defaultProps = {};
 
 DateRangePicker.propTypes = {
     /**
@@ -105,13 +124,9 @@ DateRangePicker.propTypes = {
     closeDropdownOnScroll: PropTypes.bool,
 
     /**
-     * Selected date
-     */
-    dates: PropTypes.arrayOf(PropTypes.string),
-    /**
      * Input description, displayed after label
      */
-    description: PropTypes.string,
+    description: PropTypes.any,
 
     /**
      * When true dates that are outside of given month cannot be clicked or focused
@@ -131,7 +146,7 @@ DateRangePicker.propTypes = {
     /**
      * Displays error message after input
      */
-    error: PropTypes.string,
+    error: PropTypes.any,
 
     /**
      * Set first day of the week
@@ -149,11 +164,6 @@ DateRangePicker.propTypes = {
     focusable: PropTypes.bool,
 
     /**
-     * DatePicker display format
-     */
-    format: PropTypes.string,
-
-    /**
      * Set to true to make calendar take 100% of container width
      */
     fullWidth: PropTypes.bool,
@@ -167,6 +177,16 @@ DateRangePicker.propTypes = {
      * Set to false to remove weekdays row
      */
     hideWeekdays: PropTypes.bool,
+
+    /**
+     * Adds icon on the left side of input
+     */
+    icon: PropTypes.any,
+
+    /**
+     * Width of icon section in px
+     */
+    iconWidth: PropTypes.number,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -189,9 +209,14 @@ DateRangePicker.propTypes = {
     initiallyOpened: PropTypes.bool,
 
     /**
+     * dayjs input format
+     */
+    inputFormat: PropTypes.string,
+
+    /**
      * Input label, displayed before input
      */
-    label: PropTypes.string,
+    label: PropTypes.any,
 
     /**
      * Separator between dates
@@ -242,9 +267,27 @@ DateRangePicker.propTypes = {
     required: PropTypes.bool,
 
     /**
+     * Right section of input, similar to icon but on the right
+     */
+    rightSection: PropTypes.any,
+
+    /**
+     * Width of right section, is used to calculate input padding-right
+     */
+    rightSectionWidth: PropTypes.number,
+
+    /**
      * Tells dash if any prop has changed its value
      */
     setProps: PropTypes.func,
+
+    /**
+     * Dropdown shadow from theme or css value for custom box-shadow
+     */
+    shadow: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 
     /**
      * Input size
@@ -255,6 +298,39 @@ DateRangePicker.propTypes = {
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Dropdown appear/disappear transition
+     */
+    transition: PropTypes.oneOf([
+        "fade",
+        "skew-up",
+        "skew-down",
+        "rotate-right",
+        "rotate-left",
+        "slide-down",
+        "slide-up",
+        "slide-right",
+        "slide-left",
+        "scale-y",
+        "scale-x",
+        "scale",
+        "pop",
+        "pop-top-left",
+        "pop-top-right",
+        "pop-bottom-left",
+        "pop-bottom-right",
+    ]),
+
+    /**
+     * Dropdown appear/disappear transition duration
+     */
+    transitionDuration: PropTypes.number,
+
+    /**
+     * Selected dates
+     */
+    value: PropTypes.arrayOf(PropTypes.string),
 
     /**
      * Defines input appearance, defaults to default in light color scheme and filled in dark

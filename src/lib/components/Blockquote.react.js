@@ -2,17 +2,19 @@ import { Blockquote as MantineBlockquote } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from "react";
+import { renderDashComponent } from "dash-extensions-js";
 
 /**
  * Blockquote with optional cite. For more information, see: https://mantine.dev/core/blockquote/
  */
 const Blockquote = (props) => {
-    const { children, class_name } = props;
+    const { children, class_name, icon } = props;
 
     return (
         <MantineBlockquote
-            {...omit(["setProps", "children", "class_name"], props)}
+            {...omit(["setProps", "children", "class_name", "icon"], props)}
             className={class_name}
+            icon={renderDashComponent(icon)}
         >
             {children}
         </MantineBlockquote>
@@ -58,6 +60,11 @@ Blockquote.propTypes = {
         "yellow",
         "orange",
     ]),
+
+    /**
+     * Icon, defaults to quote icon
+     */
+    icon: PropTypes.any,
 
     /**
      * The ID of this component, used to identify dash components in callbacks

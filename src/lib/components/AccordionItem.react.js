@@ -19,14 +19,14 @@ AccordionItem.propTypes = {
     children: PropTypes.node,
 
     /**
-     * Accordion description
+     * Icon
      */
-    description: PropTypes.string,
+    icon: PropTypes.any,
 
     /**
      * Accordion label
      */
-    label: PropTypes.string.isRequired,
+    label: PropTypes.any.isRequired,
 };
 
 export default AccordionItem;

@@ -42,7 +42,7 @@ Center.propTypes = {
     /**
      * Set to true to use inline-flex instead of flex
      */
-    inline: PropTypes.bool,
+    // inline: PropTypes.bool,
 
     /**
      * Inline style override
