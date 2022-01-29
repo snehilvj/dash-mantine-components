@@ -17,12 +17,13 @@ const TimeInput = (props) => {
     nProps.value = new Date(value);
     nProps.defaultValue = new Date(defaultValue);
     // Bind OnChange event.
-    nProps.onChange = d => setProps({ value: d && dayjs(d).format("YYYY-MM-DDTHH:mm:ss") });
+    const onChange = d => setProps({ value: d && dayjs(d).format("YYYY-MM-DDTHH:mm:ss") });
     // Render component
     return (
         <MantineTimeInput
             {...nProps}
             className={class_name}
+            onChange={onChange}
         >
         </MantineTimeInput>
     );
