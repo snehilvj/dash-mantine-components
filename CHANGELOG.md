@@ -4,8 +4,7 @@
 
 ### Fixed
 
-- `breakpoint` prop in SimpleGrid.
-- `children` prop in Navbar and Header.
+- Props in SimpleGrid, Navbar, Header, Spoiler, and Title.
 
 ### Removed
 
