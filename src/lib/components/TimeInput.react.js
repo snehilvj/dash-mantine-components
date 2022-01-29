@@ -1,27 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { TimeInput as MantineTimenInput } from "@mantine/core";
+import { TimeInput as MantineTimeInput } from "@mantine/dates";
 import {renderDashComponents} from "dash-extensions-js"
+import dayjs from "dayjs";
 
 /**
- * JsonInput. For more information, see: https://mantine.dev/core/json-input/
+ * TimeInput. For more information, see: https://mantine.dev/dates/time-input/
  */
 const TimeInput = (props) => {
-    const { class_name, children, setProps } = props;
+    const { class_name, value, defaultValue, setProps } = props;
     let nProps = omit(["setProps", "children", "class_name"], props);
     // Render react nodes.
     nProps = renderDashComponents(nProps, ["icon", "rightSection", "description", "error", "label"]);
+    // Parse dates.
+    nProps.value = new Date(value);
+    nProps.defaultValue = new Date(defaultValue);
     // Bind OnChange event.
-    nProps.onChange = value => setProps({ value });
+    nProps.onChange = d => setProps({ value: d && dayjs(d).format("YYYY-MM-DDTHH:mm:ss") });
     // Render component
     return (
-        <MantineTimenInput
+        <MantineTimeInput
             {...nProps}
             className={class_name}
         >
-            {children}
-        </MantineTimenInput>
+        </MantineTimeInput>
     );
 };
 
@@ -89,7 +92,7 @@ TimeInput.propTypes = {
     /**
     * Value for controlled input
     */
-    value: PropTypes.string,  // TODO: Parse data?
+    value: PropTypes.string,
 
     /**
     * Display seconds input
@@ -99,7 +102,7 @@ TimeInput.propTypes = {
     /**
     * Default value for uncontrolled input
     */
-    defaultValue: PropTypes.string,  // TODO: Parse date?  //X
+    defaultValue: PropTypes.string,
 
     // Input props
 
@@ -179,11 +182,6 @@ TimeInput.propTypes = {
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     // Dash props
-
-    /**
-    * Input that should be wrapped
-    */
-    children: PropTypes.node,
 
     /**
      * Often used with CSS to style elements with common properties
