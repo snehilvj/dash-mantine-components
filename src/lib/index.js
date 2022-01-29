@@ -100,6 +100,6 @@ export {
     Navbar,
     InputWrapper,
     ColorPicker,
-    RingProgress
+    RingProgress,
     MantineProvider
 };
