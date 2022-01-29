@@ -7,7 +7,7 @@ import { pick } from "ramda";
  * A simple table component. For more information, see: https://mantine.dev/core/table/
  */
 const Table = (props) => {
-    const { class_name, caption, children } = props;
+    const { class_name, children } = props;
     return (
         <MantineTable
             {...pick(
