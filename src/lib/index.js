@@ -100,6 +100,6 @@ export {
     Navbar,
     InputWrapper,
     ColorPicker,
-    JsonInput
-    MantineProvider,
+    JsonInput,
+    MantineProvider
 };

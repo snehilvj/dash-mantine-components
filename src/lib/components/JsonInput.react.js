@@ -101,11 +101,6 @@ JsonInput.propTypes = {
     ]),
 
     /**
-    * Sets aria-required=true on input element
-    */
-    required: PropTypes.bool,
-
-    /**
     * Right section of input, similar to icon but on the right [PropTypes.node]
     */
     rightSection: PropTypes.any,
@@ -114,11 +109,6 @@ JsonInput.propTypes = {
     * 	Width of right section, is used to calculate input padding-right
     */
     rightSectionWidth: PropTypes.number,
-
-    /**
-    * Input size
-    */
-    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
     * Defines input appearance, defaults to default in light color scheme and filled in dark
