@@ -1,7 +1,7 @@
 import React from "react";
 import { Table as MantineTable } from "@mantine/core";
 import PropTypes from "prop-types";
-import { pick } from "ramda";
+import { omit } from "ramda";
 
 /**
  * A simple table component. For more information, see: https://mantine.dev/core/table/
@@ -10,15 +10,7 @@ const Table = (props) => {
     const { class_name, children } = props;
     return (
         <MantineTable
-            {...pick(
-                [
-                    "striped",
-                    "highlightOnHover",
-                    "style",
-                    "captionSide",
-                ],
-                props
-            )}
+            {...omit(["setProps", "children", "class_name"], props)}
             className={class_name}
         >
             {children}
@@ -28,15 +20,18 @@ const Table = (props) => {
 
 Table.displayName = "Table";
 
-Table.defaultProps = {
-    captionSide: "bottom",
-};
+Table.defaultProps = {};
 
 Table.propTypes = {
     /**
      * Table caption position
      */
     captionSide: PropTypes.oneOf(["bottom", "top"]),
+
+    /**
+     * Component children, specifically an HTML representation of the table
+     */
+    children: PropTypes.node,
 
     /**
      * Often used with CSS to style elements with common properties
@@ -54,6 +49,14 @@ Table.propTypes = {
     highlightOnHover: PropTypes.bool,
 
     /**
+     * Horizontal cells spacing from theme.spacing or number to set value in px
+     */
+    horizontalSpacing: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
      * If true every odd row of table will have gray background color
      */
     striped: PropTypes.bool,
@@ -64,9 +67,13 @@ Table.propTypes = {
     style: PropTypes.object,
 
     /**
-     * Component children, specifically an HTML representation of the table
+     * Vertical cells spacing from theme.spacing or number to set value in px
      */
-    children: PropTypes.node,
+
+    verticalSpacing: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 };
 
 export default Table;
