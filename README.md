@@ -8,7 +8,7 @@
     </a>
 </p>
 
-Dash Mantine Components is an extensive (50+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
+Dash Mantine Components is an extensive (55+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 
 [Documentation](https://dash-mantine-components.herokuapp.com)
 
@@ -87,4 +87,4 @@ if __name__ == "__main__":
 2. Add contributing guide.
 3. Add testing.
 4. Enhance docs.
-5. Add lazy loading.
+5. Add lazy loading to the components.

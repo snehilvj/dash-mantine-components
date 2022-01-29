@@ -10,6 +10,7 @@
   - ThemeIcon
   - Table
   - RingProgress
+  - TimeInput
 
 ### Fixed
 
