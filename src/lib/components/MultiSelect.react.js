@@ -62,16 +62,29 @@ MultiSelect.propTypes = {
     /**
      * Select options used to renderer items in dropdown
      */
-    data: PropTypes.arrayOf(
-        PropTypes.exact({
-            /** The option's label */
-            label: PropTypes.string.isRequired,
-            /** option's value */
-            value: PropTypes.string.isRequired,
-            /** If true, this option is disabled and cannot be selected */
-            disabled: PropTypes.bool,
-        })
-    ),
+    data: PropTypes.oneOfType([
+        PropTypes.arrayOf(
+            PropTypes.exact({
+                /**
+                 * The option's label
+                 */
+                label: PropTypes.string,
+                /**
+                 * Option's value
+                 */
+                value: PropTypes.string.isRequired,
+                /**
+                 * If true, this option is disabled and cannot be selected
+                 */
+                disabled: PropTypes.bool,
+                /**
+                 * Item Groups
+                 */
+                group: PropTypes.string,
+            })
+        ),
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
 
     /**
      * Input description, displayed after label
