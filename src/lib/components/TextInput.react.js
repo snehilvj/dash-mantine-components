@@ -132,11 +132,6 @@ TextInput.propTypes = {
     style: PropTypes.object,
 
     /**
-     * The type of control to render.
-     */
-    type: PropTypes.oneOf(["number", "text", "password"]),
-
-    /**
      * Input value
      */
     value: PropTypes.node,
