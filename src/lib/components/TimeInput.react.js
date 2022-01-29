@@ -10,7 +10,7 @@ import dayjs from "dayjs";
  */
 const TimeInput = (props) => {
     const { class_name, value, defaultValue, setProps } = props;
-    let nProps = omit(["setProps", "children", "class_name"], props);
+    let nProps = omit(["setProps", "class_name"], props);
     // Render react nodes.
     nProps = renderDashComponents(nProps, ["icon", "rightSection", "description", "error", "label"]);
     // Parse dates.
