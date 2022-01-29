@@ -1,13 +1,13 @@
 import React from "react";
-import { TextInput as MantineTextInput } from "@mantine/core";
+import { NumberInput as MantineNumberInput } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import { renderDashComponents } from "dash-extensions-js";
 
 /**
- * Custom input with label and description. For more information, see: https://mantine.dev/core/text-input/
+ * Capture number input from user. For more information, see: https://mantine.dev/core/number-input/
  */
-const TextInput = (props) => {
+const NumberInput = (props) => {
     const { setProps, class_name } = props;
     let nProps = omit(["setProps", "class_name"], props);
     nProps = renderDashComponents(nProps, [
@@ -23,25 +23,28 @@ const TextInput = (props) => {
     };
 
     return (
-        <MantineTextInput
+        <MantineNumberInput
             {...nProps}
             className={class_name}
-            onChange={(ev) => updateProps(ev.currentTarget.value)}
+            onChange={(value) => updateProps(value)}
         />
     );
 };
 
-TextInput.displayName = "TextInput";
+NumberInput.displayName = "NumberInput";
 
-TextInput.defaultProps = {
-    value: "",
-};
+NumberInput.defaultProps = {};
 
-TextInput.propTypes = {
+NumberInput.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
+
+    /**
+     * The decimal separator
+     */
+    decimalSeparator: PropTypes.string,
 
     /**
      * Input description, displayed after label
@@ -57,6 +60,11 @@ TextInput.propTypes = {
      * Displays error message after input
      */
     error: PropTypes.any,
+
+    /**
+     * Removes increment/decrement controls
+     */
+    hideControls: PropTypes.bool,
 
     /**
      * Adds icon on the left side of input
@@ -84,14 +92,29 @@ TextInput.propTypes = {
     label: PropTypes.any,
 
     /**
+     * Maximum possible value
+     */
+    max: PropTypes.number,
+
+    /**
+     * Minimal possible value
+     */
+    min: PropTypes.number,
+
+    /**
      * Will input have multiple lines?
      */
     multiline: PropTypes.bool,
 
     /**
-     * Placeholder, displayed when date is not selected
+     * Prevent value clamp on blur
      */
-    placeholder: PropTypes.string,
+    noClampOnBlur: PropTypes.bool,
+
+    /**
+     * Amount of digits after the decimal point
+     */
+    precision: PropTypes.number,
 
     /**
      * Input border-radius from theme or number to set border-radius in px
@@ -117,19 +140,29 @@ TextInput.propTypes = {
     rightSectionWidth: PropTypes.number,
 
     /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
-
-    /**
      * Input size
      */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
+     * Number by which value will be incremented/decremented with controls and up/down arrows
+     */
+    step: PropTypes.number,
+
+    /**
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Initial delay in milliseconds before stepping the value
+     */
+    stepHoldDelay: PropTypes.number,
 
     /**
      * Input value
@@ -142,4 +175,4 @@ TextInput.propTypes = {
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
 };
 
-export default TextInput;
+export default NumberInput;

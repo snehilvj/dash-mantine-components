@@ -1,65 +1,72 @@
 import React from "react";
-import { TextInput as MantineTextInput } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
+import { JsonInput as MantineJsonInput } from "@mantine/core";
 import { renderDashComponents } from "dash-extensions-js";
 
 /**
- * Custom input with label and description. For more information, see: https://mantine.dev/core/text-input/
+ * Capture json data from user. For more information, see: https://mantine.dev/core/json-input/
  */
-const TextInput = (props) => {
-    const { setProps, class_name } = props;
+const JsonInput = (props) => {
+    const { class_name, setProps } = props;
     let nProps = omit(["setProps", "class_name"], props);
     nProps = renderDashComponents(nProps, [
-        "label",
-        "description",
-        "rightSection",
         "icon",
+        "rightSection",
+        "validationError",
+        "description",
         "error",
+        "label",
     ]);
 
-    const updateProps = (value) => {
-        setProps({ value });
-    };
+    const onChange = (value) => setProps({ value });
 
     return (
-        <MantineTextInput
+        <MantineJsonInput
             {...nProps}
             className={class_name}
-            onChange={(ev) => updateProps(ev.currentTarget.value)}
+            onChange={onChange}
         />
     );
 };
 
-TextInput.displayName = "TextInput";
+JsonInput.displayName = "JsonInput";
 
-TextInput.defaultProps = {
-    value: "",
-};
+JsonInput.defaultProps = {};
 
-TextInput.propTypes = {
+JsonInput.propTypes = {
+    /**
+     * If true textarea will grow with content until maxRows are reached
+     */
+    autosize: PropTypes.bool,
+
     /**
      * Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
 
     /**
-     * Input description, displayed after label
+     * Input description, displayed after label [PropTypes.node]
      */
     description: PropTypes.any,
 
     /**
-     * The component can show it is currently unable to be interacted with
+     * Disabled input state
      */
     disabled: PropTypes.bool,
 
     /**
-     * Displays error message after input
+     * Displays error message after input [PropTypes.node]
      */
     error: PropTypes.any,
 
     /**
-     * Adds icon on the left side of input
+     * Format json on blur
+     */
+    formatOnBlur: PropTypes.bool,
+
+    /**
+     * Adds icon on the left side of input [PropTypes.node]
      */
     icon: PropTypes.any,
 
@@ -79,19 +86,24 @@ TextInput.propTypes = {
     invalid: PropTypes.bool,
 
     /**
-     * Input label, displayed before input
+     * Input label, displayed before input [PropTypes.node]
      */
     label: PropTypes.any,
+
+    /**
+     * Defines maxRows in autosize variant, not applicable to regular variant
+     */
+    maxRows: PropTypes.number,
+
+    /**
+     * Defines minRows in autosize variant, not applicable to regular variant
+     */
+    minRows: PropTypes.number,
 
     /**
      * Will input have multiple lines?
      */
     multiline: PropTypes.bool,
-
-    /**
-     * Placeholder, displayed when date is not selected
-     */
-    placeholder: PropTypes.string,
 
     /**
      * Input border-radius from theme or number to set border-radius in px
@@ -107,12 +119,12 @@ TextInput.propTypes = {
     required: PropTypes.bool,
 
     /**
-     * Right section of input, similar to icon but on the right
+     * Right section of input, similar to icon but on the right [PropTypes.node]
      */
     rightSection: PropTypes.any,
 
     /**
-     * Width of right section, is used to calculate input padding-right
+     * 	Width of right section, is used to calculate input padding-right
      */
     rightSectionWidth: PropTypes.number,
 
@@ -132,9 +144,14 @@ TextInput.propTypes = {
     style: PropTypes.object,
 
     /**
-     * Input value
+     * Error message shown when json is not valid [PropTypes.node]
      */
-    value: PropTypes.node,
+    validationError: PropTypes.any,
+
+    /**
+     * Value for controlled input
+     */
+    value: PropTypes.string,
 
     /**
      * Defines input appearance, defaults to default in light color scheme and filled in dark
@@ -142,4 +159,4 @@ TextInput.propTypes = {
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
 };
 
-export default TextInput;
+export default JsonInput;

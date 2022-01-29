@@ -47,8 +47,10 @@ import Header from "./components/Header.react";
 import Navbar from "./components/Navbar.react";
 import InputWrapper from "./components/InputWrapper.react";
 import ColorPicker from "./components/ColorPicker.react";
-import RingProgress from "./components/RingProgress.react";
 import MantineProvider from "./components/MantineProvider.react";
+import NumberInput from "./components/NumberInput.react";
+import JsonInput from "./components/JsonInput.react";
+import ThemeIcon from "./components/ThemeIcon.react";
 
 export {
     Button,
@@ -100,6 +102,8 @@ export {
     Navbar,
     InputWrapper,
     ColorPicker,
-    RingProgress,
-    MantineProvider
+    MantineProvider,
+    NumberInput,
+    JsonInput,
+    ThemeIcon,
 };

@@ -57,7 +57,9 @@ if __name__ == "__main__":
 
 ## Contributing
 
-1. Install virtual environment:
+1. Join our [Discord](https://discord.gg/KuJkh4Pyq5) community.
+
+2. Install virtual environment:
 
     ```bash
     python -m venv venv
@@ -65,21 +67,24 @@ if __name__ == "__main__":
     pip install -r requirements.txt
     ```
 
-2. Install npm dependencies
+3. Install npm dependencies
 
     ```bash
     npm install
     ```
 
-3. Add your new component in `src/lib/components`. Make sure to include it in the `src/lib/index.js` as well.
+4. Add your new component in `src/lib/components`. Make sure to include it in the `src/lib/index.js` as well.
 
-4. Add a line in the CHANGELOG.md under one of these: Added, Changed, Deprecated, Removed, Fixed.
+5. Ensure that component props are sorted in ascending order. Refer to existing components.
 
-5. Raise a PR, including an example to reproduce the changes contributed by the PR.
+6. Add a line in the CHANGELOG.md under one of these: Added, Changed, Deprecated, Removed, Fixed.
+
+7. Raise a PR, including an example to reproduce the changes contributed by the PR.
 
 ## TODO
 
 1. Add more components from Mantine library and enhance already added ones.
-2. Support dark theme.
-3. Add contributing guide.
-4. Add testing.
+2. Add contributing guide.
+3. Add testing.
+4. Enhance docs.
+5. Add lazy loading.
