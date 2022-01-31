@@ -22,7 +22,7 @@ const DateRangePicker = (props) => {
 
     const convert = (value) => {
         return value.map((item) => {
-            return new Date(item);
+            return item ? new Date(item) : null;
         });
     };
 
@@ -30,10 +30,12 @@ const DateRangePicker = (props) => {
     const [dates, setDates] = useState(value && convert(value));
 
     const updateProps = (d) => {
-        if (d.some((ele) => ele !== null)) {
+        if (d.every((ele) => ele !== null)) {
             setProps({
                 value: Array.from(d, (d) => dayjs(d).format("YYYY-MM-DD")),
             });
+        } else if (d.some((ele) => ele !== null)) {
+            setDates(d);
         } else {
             setProps({ value: null });
         }
