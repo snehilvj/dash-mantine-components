@@ -6,6 +6,7 @@ include dash_mantine_components/*-shared.js
 include dash_mantine_components/*-shared.js.map
 include dash_mantine_components/metadata.json
 include dash_mantine_components/package-info.json
+include dash_mantine_components/theme/*
 include README.md
 include LICENSE
 include package.json

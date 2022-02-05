@@ -21,6 +21,7 @@ setup(
     install_requires=[],
     classifiers=[
         "Framework :: Dash",
+        "Framework :: Flask",
     ],
     long_description=io.open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",

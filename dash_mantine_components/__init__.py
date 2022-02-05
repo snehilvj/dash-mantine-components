@@ -6,6 +6,8 @@ import json
 
 import dash as _dash
 
+from dash_mantine_components import theme
+
 # noinspection PyUnresolvedReferences
 from ._imports_ import *
 from ._imports_ import __all__
@@ -87,3 +89,5 @@ _css_dist = []
 for _component in __all__:
     setattr(locals()[_component], '_js_dist', _js_dist)
     setattr(locals()[_component], '_css_dist', _css_dist)
+
+__all__ += [theme]
