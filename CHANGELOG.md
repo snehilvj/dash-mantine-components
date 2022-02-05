@@ -3,7 +3,12 @@
 # 0.4.1
 
 ### Fixed
- - Props in Tooltip
+
+- Props in Tooltip
+
+### Added
+
+- Underline prop in Text
 
 # 0.4.0
 

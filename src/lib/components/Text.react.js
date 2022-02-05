@@ -95,9 +95,19 @@ Text.propTypes = {
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
      * Sets text-transform css property
      */
     transform: PropTypes.oneOf(["capitalize", "uppercase", "lowercase"]),
+
+    /**
+     * Underline the text
+     */
+    underline: PropTypes.bool,
 
     /**
      * Link or text variant
@@ -118,11 +128,6 @@ Text.propTypes = {
         ]),
         PropTypes.number,
     ]),
-
-    /**
-     * Inline style override
-     */
-    style: PropTypes.object,
 };
 
 export default Text;
