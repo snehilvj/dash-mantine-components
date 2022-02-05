@@ -109,7 +109,7 @@ Tooltip.propTypes = {
     /**
      * Position relative to reference element
      */
-    position: PropTypes.oneOf(["right", "center", "left", "apart"]),
+    position: PropTypes.oneOf(["bottom", "left", "right", "top"]),
 
     /**
      * Radius from theme.radius, or number to set border-radius in px

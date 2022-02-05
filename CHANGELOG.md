@@ -1,5 +1,10 @@
 # Change Log
 
+# 0.4.1
+
+### Fixed
+ - Props in Tooltip
+
 # 0.4.0
 
 ### Added
@@ -15,6 +20,7 @@
 ### Fixed
 
 - Props in SimpleGrid, Navbar, Header, Spoiler, and Title.
+- Issues in Notifications system.
 
 ### Removed
 
