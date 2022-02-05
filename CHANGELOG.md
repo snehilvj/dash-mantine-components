@@ -9,6 +9,7 @@
 ### Added
 
 - Underline prop in Text
+- Mantine default theme colors. `dmc.theme.DEFAULT_COLORS`
 
 # 0.4.0
 

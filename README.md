@@ -3,6 +3,9 @@
 </p>
 <p align="center">
     <img src="https://badgen.net/pypi/license/dash-mantine-components">
+    <a href="https://pypi.org/project/dash-mantine-components/">
+    <img src="https://badgen.net/pypi/v/dash-mantine-components">
+    </a>
     <a href="https://discord.gg/KuJkh4Pyq5">
     <img src="https://img.shields.io/badge/Chat%20on-Discord-%235865f2">
     </a>
