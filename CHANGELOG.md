@@ -1,5 +1,11 @@
 # Change Log
 
+# Unreleased
+
+### Fixed
+
+- Skeleton component was not using loading_states.
+
 # 0.4.1
 
 ### Fixed

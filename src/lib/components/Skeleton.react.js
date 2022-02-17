@@ -21,7 +21,11 @@ const Skeleton = (props) => {
 
 Skeleton.displayName = "Skeleton";
 
-Skeleton.defaultProps = {};
+Skeleton._dashprivate_isLoadingComponent = true;
+
+Skeleton.defaultProps = {
+    visible: true,
+};
 
 Skeleton.propTypes = {
     /**

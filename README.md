@@ -9,7 +9,7 @@
     <a href="https://discord.gg/KuJkh4Pyq5">
     <img src="https://img.shields.io/badge/Chat%20on-Discord-%235865f2">
     </a>
-    <img src="https://static.pepy.tech/personalized-badge/dash-mantine-components?period=total&units=international_system&left_color=lightgrey&right_color=brightgreen&left_text=Downloads">
+    <img src="https://static.pepy.tech/personalized-badge/dash-mantine-components?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads">
 </p>
 
 Dash Mantine Components is an extensive (55+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
