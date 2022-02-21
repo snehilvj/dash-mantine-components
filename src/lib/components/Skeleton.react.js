@@ -11,7 +11,10 @@ const Skeleton = (props) => {
 
     return (
         <MantineSkeleton
-            {...omit(["setProps", "children", "visible"], props)}
+            {...omit(
+                ["setProps", "children", "visible", "loading_state"],
+                props
+            )}
             visible={visible || (loading_state && loading_state.is_loading)}
         >
             {children}

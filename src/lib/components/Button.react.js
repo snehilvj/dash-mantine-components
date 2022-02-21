@@ -125,10 +125,9 @@ Button.propTypes = {
      * Props spread to Loader component
      */
     loaderProps: PropTypes.exact({
-        size: PropTypes.oneOfType([
-            PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-            PropTypes.number,
-        ]),
+        /**
+         * Loader color from theme
+         */
         color: PropTypes.oneOf([
             "dark",
             "gray",
@@ -145,6 +144,18 @@ Button.propTypes = {
             "yellow",
             "orange",
         ]),
+
+        /**
+         * Defines width of loader
+         */
+        size: PropTypes.oneOfType([
+            PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+            PropTypes.number,
+        ]),
+
+        /**
+         * 	Loader appearance
+         */
         variant: PropTypes.oneOf(["bars", "oval", "dots"]),
     }),
 
