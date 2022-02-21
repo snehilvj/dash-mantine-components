@@ -36,7 +36,7 @@ MultiSelect.displayName = "MultiSelect";
 
 MultiSelect.defaultProps = {
     data: [],
-    persisted_props: ['value', 'data'],
+    persisted_props: ['value'],
     persistence_type: 'local',
 };
 
@@ -176,7 +176,7 @@ MultiSelect.propTypes = {
      * Properties whose user interactions will persist after refreshing the
      * component or the page. 
      */
-    persisted_props: PropTypes.arrayOf(PropTypes.oneOf(['value', 'data',])),
+    persisted_props: PropTypes.arrayOf(PropTypes.oneOf(['value'])),
     
     /**
      * Where persisted user changes will be stored:
