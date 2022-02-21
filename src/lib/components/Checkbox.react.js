@@ -16,7 +16,16 @@ const Checkbox = (props) => {
     return (
         <MantineCheckbox
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
-            {...omit(["setProps", "class_name"], props)}
+            {...omit(
+                [
+                    "setProps",
+                    "class_name",
+                    "persistence",
+                    "persisted_props",
+                    "persistence_type",
+                ],
+                props
+            )}
             className={class_name}
         />
     );
@@ -26,8 +35,8 @@ Checkbox.displayName = "Checkbox";
 
 Checkbox.defaultProps = {
     checked: false,
-    persisted_props: ['checked'],
-    persistence_type: 'local',
+    persisted_props: ["checked"],
+    persistence_type: "local",
 };
 
 Checkbox.propTypes = {
@@ -84,25 +93,25 @@ Checkbox.propTypes = {
      * the new `value` also matches what was given originally.
      * Used in conjunction with `persistence_type`.
      */
-     persistence: PropTypes.oneOfType([
+    persistence: PropTypes.oneOfType([
         PropTypes.bool,
         PropTypes.string,
         PropTypes.number,
     ]),
-        
+
     /**
      * Properties whose user interactions will persist after refreshing the
-     * component or the page. 
+     * component or the page.
      */
-    persisted_props: PropTypes.arrayOf(PropTypes.oneOf(['checked'])),
-        
+    persisted_props: PropTypes.arrayOf(PropTypes.oneOf(["checked"])),
+
     /**
      * Where persisted user changes will be stored:
      * memory: only kept in memory, reset on page refresh.
      * local: window.localStorage, data is kept after the browser quit.
      * session: window.sessionStorage, data is cleared once the browser quit.
      */
-    persistence_type: PropTypes.oneOf(['local', 'session', 'memory']),    
+    persistence_type: PropTypes.oneOf(["local", "session", "memory"]),
 
     /**
      * Radius from theme.radius, or number to set border-radius in px

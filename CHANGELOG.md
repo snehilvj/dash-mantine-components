@@ -1,6 +1,11 @@
 # Change Log
 
-# Unreleased
+# 0.5.0
+
+### Added
+
+- LoadingOverlay component similar to dcc.Loading
+- Persistence in DatePicker, DateRangePicker, MultiSelect, RadioGroup, Select, TimeInput
 
 ### Fixed
 
