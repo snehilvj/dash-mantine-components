@@ -8,6 +8,7 @@ const Popover = (props) => {
     const { setProps, children, opened } = props
     const [isOpen, setIsOpened] = useState(opened);
 
+
     useEffect(() => {
         setProps({ opened: isOpen });
     }, [isOpen]);
@@ -24,6 +25,8 @@ const Popover = (props) => {
         <MantinePopOver
             {...omit(["children", "setProps"], props)}
             onClose={closeClick}
+            target={props.target ? props.target : (<Button id='button-click' style={{ background: 'green' }}
+                onClick={clickResponse}>Button</Button>)}
         >
             {children}
         </MantinePopOver>

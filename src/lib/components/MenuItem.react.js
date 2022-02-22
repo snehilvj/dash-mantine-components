@@ -37,7 +37,6 @@ MenuItem.propTypes = {
     */
     rightSection: PropTypes.node,
 
-
     /**
      * disables item
     */
@@ -53,6 +52,7 @@ MenuItem.propTypes = {
      */
     style: PropTypes.object,
 
+    setProps: PropTypes.func,
 }
 
 export default MenuItem;

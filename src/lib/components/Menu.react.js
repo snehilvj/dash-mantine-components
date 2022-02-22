@@ -8,7 +8,7 @@ import { renderDashComponents } from "dash-extensions-js";
 const Menu = (props) => {
 
     const { children } = props
-    // console.log(children)
+
     return (
         <MantineMenu
             {...omit(["children", "setProps"], props)}
@@ -21,7 +21,6 @@ const Menu = (props) => {
                     omit(["children"], childProps),
                     ["icon"]
                 );
-                console.log("child props", childProps)
                 if (childType === "MenuItem") {
                     return (
                         <MantineMenu.Item {...renderedProps} key={index}>
@@ -34,21 +33,16 @@ const Menu = (props) => {
                             {childProps.children}
                         </MantineMenu.Label>
                     );
-
                 } else if (childType === "Divider") {
-                    console.log("divider", child)
                     return (
                         <Divider />
                     );
-
                 };
-
                 return (
-                    <MantineMenu.Item key={index}>
+                    <MantineMenu.Item  {...renderedProps} key={index}>
                         {childProps.children}
                     </MantineMenu.Item>
                 );
-
             })}
         </MantineMenu>
     );
@@ -133,7 +127,10 @@ Menu.propTypes = {
     /**
      * Predefined shadow from theme or box-shadow value
     */
-    shadow: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+    shadow: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.string
+    ]),
     /**
      * Predefined menu width or number for width in px
     */
