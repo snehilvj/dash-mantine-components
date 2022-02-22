@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 
 const MenuLabel = (props) => {
     return (
-        <MantineMenu.Label
-        >
+        <MantineMenu.Label>
             {props.children}
         </MantineMenu.Label>
     );
@@ -16,7 +15,7 @@ MenuLabel.defaultProps = {};
 
 MenuLabel.propTypes = {
     /**
-    * item label
+    * children refers to the Menu label
     */
     children: PropTypes.string,
 

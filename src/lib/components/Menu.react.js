@@ -1,4 +1,5 @@
 import { Menu as MantineMenu } from '@mantine/core';
+import { Divider } from '@mantine/core';
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from 'react';
@@ -10,36 +11,41 @@ const Menu = (props) => {
     // console.log(children)
     return (
         <MantineMenu
-            {...omit(["children"], props)}
+            {...omit(["children", "setProps"], props)}
         >
             {React.Children.map(children, (child, index) => {
+
                 const childType = child.props._dashprivate_layout.type;
                 const childProps = child.props._dashprivate_layout.props;
-                console.log(childProps, childType)
                 const renderedProps = renderDashComponents(
                     omit(["children"], childProps),
-                    ["label", "icon"]
+                    ["icon"]
                 );
+                console.log("child props", childProps)
                 if (childType === "MenuItem") {
-
                     return (
                         <MantineMenu.Item {...renderedProps} key={index}>
-                            {child}
+                            {childProps.children}
                         </MantineMenu.Item>
                     );
                 } else if (childType === "MenuLabel") {
-
                     return (
                         <MantineMenu.Label key={index}>
-                            {child}
+                            {childProps.children}
                         </MantineMenu.Label>
+                    );
+
+                } else if (childType === "Divider") {
+                    console.log("divider", child)
+                    return (
+                        <Divider />
                     );
 
                 };
 
                 return (
                     <MantineMenu.Item key={index}>
-                        {child}
+                        {childProps.children}
                     </MantineMenu.Item>
                 );
 
@@ -164,6 +170,10 @@ Menu.propTypes = {
      * 	Menu body z-index
     */
     zIndex: PropTypes.number,
+    /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
 }
 
 export default Menu;

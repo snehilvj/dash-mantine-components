@@ -4,11 +4,12 @@ import { omit } from "ramda";
 
 const MenuItem = (props) => {
 
-    const { children } = props
+    const { children, class_name } = props
 
     return (
         <MantineMenu.Item
-            {...omit(["children"], props)}
+            {...omit(["children", "class_name"], props)}
+            className={class_name}
         >
             {children}
         </MantineMenu.Item>
@@ -45,7 +46,7 @@ MenuItem.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
-    className: PropTypes.string,
+    class_name: PropTypes.string,
 
     /**
      * Inline style override
