@@ -56,6 +56,9 @@ import TimeInput from "./components/TimeInput.react";
 import Loader from "./components/Loader.react";
 import LoadingOverlay from "./components/LoadingOverlay.react";
 import Popover from "./components/Popover.react";
+import Menu from "./components/Menu.react";
+import MenuLabel from "./components/MenuLabel.react";
+import MenuItem from "./components/MenuItem.react";
 
 export {
     Button,
@@ -116,4 +119,7 @@ export {
     Loader,
     LoadingOverlay,
     Popover,
+    Menu,
+    MenuItem,
+    MenuLabel
 };

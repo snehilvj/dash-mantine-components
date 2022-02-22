@@ -1,5 +1,18 @@
 # Change Log
 
+# 0.5.1
+
+### Added
+
+- Popover component
+- Menu Component with the submenus
+-- MenuItem
+-- MenuLabel
+
+### Fixed
+
+- Skeleton component was not using loading_states.
+
 # 0.5.0
 
 ### Added

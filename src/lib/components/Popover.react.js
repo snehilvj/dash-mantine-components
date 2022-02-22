@@ -8,7 +8,6 @@ const Popover = (props) => {
     const { setProps, children, opened } = props
     const [isOpen, setIsOpened] = useState(opened);
 
-
     useEffect(() => {
         setProps({ opened: isOpen });
     }, [isOpen]);
@@ -25,8 +24,6 @@ const Popover = (props) => {
         <MantinePopOver
             {...omit(["children", "setProps"], props)}
             onClose={closeClick}
-            target={<Button id='button-click' style={{ background: 'green' }}
-                onClick={clickResponse}>Button</Button>}
         >
             {children}
         </MantinePopOver>
@@ -156,24 +153,18 @@ Popover.propTypes = {
     /**
      * Spacing from theme.radius, or number to set border-radius in px
      */
-    placement: PropTypes.oneOfType([
-        PropTypes.oneOf(["center", "end", "start"])
-    ]),
+    placement: PropTypes.oneOf(["center", "end", "start"]),
 
     /**
      * Position relative to reference element
      */
-    position: PropTypes.oneOfType([
-        PropTypes.oneOf(["bottom", "left", "right", "top"]),
-    ]),
+    position: PropTypes.oneOf(["bottom", "left", "right", "top"]),
 
     /**
      * Popover shadow, value from theme.shadows 
      * or string to set box-shadow to any value
      */
-    shadow: PropTypes.oneOfType([
-        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-    ]),
+    shadow: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
 
     /**
      * Element which is used to position popover
