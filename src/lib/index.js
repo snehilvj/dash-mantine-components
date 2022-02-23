@@ -55,6 +55,7 @@ import RingProgress from "./components/RingProgress.react";
 import TimeInput from "./components/TimeInput.react";
 import Loader from "./components/Loader.react";
 import LoadingOverlay from "./components/LoadingOverlay.react";
+import Popover from "./components/Popover.react";
 
 export {
     Button,
@@ -114,4 +115,5 @@ export {
     TimeInput,
     Loader,
     LoadingOverlay,
+    Popover,
 };
