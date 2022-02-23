@@ -5,12 +5,10 @@ import { omit } from "ramda";
 
 const Popover = (props) => {
 
-    const { setProps, children, opened } = props
+    const { setProps, children, opened, class_name, target } = props
     const [isOpen, setIsOpened] = useState(opened);
 
-
     useEffect(() => {
-        console.log("use effect ran")
         setProps({ opened: isOpen });
     }, [isOpen]);
 
@@ -24,11 +22,12 @@ const Popover = (props) => {
 
     return (
         <MantinePopOver
-            {...omit(["children", "setProps"], props)}
+            {...omit(["children", "setProps", "class_name", "target"], props)}
             onClose={closeClick}
-            target={<Button id='button-click'
+            className={class_name}
+            target={target ? target : (<Button id='button-click'
                 style={{ background: 'green' }}
-                onClick={clickResponse}>Button</Button>}
+                onClick={clickResponse}>Test Button</Button>)}
         >
             {children}
         </MantinePopOver>
@@ -55,6 +54,11 @@ Popover.propTypes = {
      * Content inside popover
      */
     children: PropTypes.node,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    class_name: PropTypes.string,
 
     /**
      * 	Events that should trigger outside clicks
@@ -144,10 +148,16 @@ Popover.propTypes = {
         PropTypes.number,
     ]),
 
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
     /**
      * Element which is used to position popover
      */
-    target: PropTypes.any,
+    target: PropTypes.node,
 
     /**
      * Optional popover title
