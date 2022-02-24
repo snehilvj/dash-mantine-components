@@ -2,7 +2,7 @@ import { Menu as MantineMenu, Divider } from '@mantine/core';
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from 'react';
-import { renderDashComponents } from "dash-extensions-js";
+
 
 const Menu = (props) => {
 
@@ -16,10 +16,7 @@ const Menu = (props) => {
 
                 const childType = child.props._dashprivate_layout.type;
                 const childProps = child.props._dashprivate_layout.props;
-                // const renderedProps = renderDashComponents(
-                //     omit(["children"], childProps),
-                //     ["icon"]
-                // );
+
                 if (childType === "MenuItem") {
                     return (
                         <MantineMenu.Item {...omit(["children"], childProps)} key={index}>
@@ -138,6 +135,12 @@ Menu.propTypes = {
         PropTypes.oneOf(["auto", "xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+    * Customize mount/unmount transition
+    */
+    transition: PropTypes.any,
+
     /**
      * Mount transition duration in ms
     */
