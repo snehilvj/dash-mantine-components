@@ -56,6 +56,8 @@ import TimeInput from "./components/TimeInput.react";
 import Loader from "./components/Loader.react";
 import LoadingOverlay from "./components/LoadingOverlay.react";
 import Kbd from "./components/Kbd.react";
+import Stepper from "./components/Stepper.react";
+import StepperStep from "./components/StepperStep.react";
 
 export {
     Button,
@@ -115,5 +117,7 @@ export {
     TimeInput,
     Loader,
     LoadingOverlay,
-    Kbd
+    Kbd,
+    Stepper,
+    StepperStep
 };
