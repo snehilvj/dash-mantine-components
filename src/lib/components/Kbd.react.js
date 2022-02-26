@@ -3,10 +3,15 @@ import PropTypes from "prop-types";
 
 
 const Kbd = (props) => {
+    
+    const {children} = props;
 
     return (
-        <MantineKbd>
-            {props.children}
+        <MantineKbd
+        {...omit(["setProps", "children", "class_name"], props)}
+        className={class_name}
+        >
+            {children}
         </MantineKbd>
     )
 
@@ -21,7 +26,17 @@ Kbd.propTypes = {
     /**
     * Keyboard key
     */
-    children: PropTypes.node
+    children: PropTypes.node,
+    
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    class_name: PropTypes.string,
+    
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 };
 
 export default Kbd;
