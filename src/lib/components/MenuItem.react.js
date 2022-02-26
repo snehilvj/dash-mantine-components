@@ -1,13 +1,13 @@
 import { Menu as MantineMenu } from '@mantine/core';
 import PropTypes from "prop-types";
 import { omit } from "ramda";
-import { renderDashComponents } from "dash-extensions-js";
+import { renderDashComponent } from "dash-extensions-js";
 
 const MenuItem = (props) => {
 
     const { children, class_name, icon } = props
 
-    const RendIcon = renderDashComponents(icon);
+    const RendIcon = renderDashComponent(icon);
 
     return (
         <MantineMenu.Item
