@@ -57,6 +57,7 @@ import Loader from "./components/Loader.react";
 import LoadingOverlay from "./components/LoadingOverlay.react";
 import Timeline from "./components/Timeline.react";
 import TimelineItem from "./components/TimelineItem.react";
+import Kbd from "./components/Kbd.react";
 
 export {
     Button,
@@ -117,5 +118,6 @@ export {
     Loader,
     LoadingOverlay,
     Timeline,
-    TimelineItem
+    TimelineItem,
+    Kbd
 };
