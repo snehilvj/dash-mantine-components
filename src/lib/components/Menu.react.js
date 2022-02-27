@@ -6,11 +6,13 @@ import React from 'react';
 
 const Menu = (props) => {
 
-    const { children } = props
+    const { children, class_name, id } = props
 
     return (
         <MantineMenu
-            {...omit(["children", "setProps"], props)}
+            {...omit(["children", "setProps", "class_name", "id"], props)}
+            menuId={id ? id : null}
+            className={class_name ? class_name : ''}
         >
             {React.Children.map(children, (child, index) => {
 
@@ -63,6 +65,11 @@ Menu.propTypes = {
     */
     children: PropTypes.node,
     /**
+     * Often used with CSS to style elements with common properties
+     */
+    class_name: PropTypes.string,
+
+    /**
      * Should menu close on item click
     */
     closeOnItemClick: PropTypes.bool,
@@ -86,14 +93,17 @@ Menu.propTypes = {
      * Spacing between element and popper in px
     */
     gutter: PropTypes.number,
+
+    /**
+    * The ID of this component, used to identify dash components in callbacks
+    */
+    id: PropTypes.string,
+
     /**
      * 	Menu button aria-label and title props
     */
     menuButtonLabel: PropTypes.string,
-    /**
-     * Id attribute of menu
-    */
-    menuId: PropTypes.string,
+
     /**
      * Called every time menu is closed
     */
@@ -135,6 +145,11 @@ Menu.propTypes = {
         PropTypes.oneOf(["auto", "xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    /**
+     * Inline style override
+    */
+    style: PropTypes.object,
 
     /**
     * Customize mount/unmount transition

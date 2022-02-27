@@ -32,31 +32,40 @@ MenuItem.propTypes = {
     children: PropTypes.string,
 
     /**
+     * Often used with CSS to style elements with common properties
+    */
+    class_name: PropTypes.string,
+
+    /**
+     * disables item
+    */
+    disabled: PropTypes.bool,
+    /**
     * icon on the left
     */
     icon: PropTypes.any,
+
+    /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
 
     /**
      * react node, rendered on the right, for example, Badge or keyboard shortcut
     */
     rightSection: PropTypes.node,
 
-    /**
-     * disables item
-    */
-    disabled: PropTypes.bool,
 
     /**
-     * Often used with CSS to style elements with common properties
-     */
-    class_name: PropTypes.string,
+    * Tells dash if any prop has changed its value
+    */
+    setProps: PropTypes.func,
 
     /**
      * Inline style override
-     */
+    */
     style: PropTypes.object,
 
-    setProps: PropTypes.func,
 }
 
 export default MenuItem;
