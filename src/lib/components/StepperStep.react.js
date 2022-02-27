@@ -25,9 +25,15 @@ StepperStep.defaultProps = {
 
 StepperStep.propTypes = {
     /**
+    * Static selector base
+    */
+    // __staticSelector: PropTypes.string,
+    /**
     * Set to false to disable clicks on step
     */
     allowStepClick: PropTypes.bool,
+
+    children: PropTypes.node,
     /**
     * Should step selection be allowed
     */
@@ -54,19 +60,21 @@ StepperStep.propTypes = {
     /**
     * Step icon displayed when step is completed
     */
-    completedIcon: PropTypes.number,
+    completedIcon: PropTypes.node,
     /**
-    * Step description
+    * 	Step description
     */
-    description: PropTypes.number,
+    description: PropTypes.node,
     /**
     * Step icon, defaults to step index + 1 when rendered within Stepper
     */
-    icon: PropTypes.number,
+    icon: PropTypes.node,
     /**
-    * Icon position relative to step body
+    * 	Icon position relative to step body
     */
-    iconPosition: PropTypes.number,
+    iconPosition: PropTypes.oneOf([
+        "left", "right"
+    ]),
     /**
     * Icon wrapper size in px
     */
@@ -74,15 +82,15 @@ StepperStep.propTypes = {
     /**
     * Step label, render after icon
     */
-    label: PropTypes.number,
+    label: PropTypes.node,
     /**
     * Indicates loading state on step
     */
-    loading: PropTypes.number,
+    loading: PropTypes.bool,
     /**
     * Step icon displayed when step is in progress
     */
-    progressIcon: PropTypes.number,
+    progressIcon: PropTypes.node,
     /**
     * Radius from theme.radius, or number to set border-radius in px
     */

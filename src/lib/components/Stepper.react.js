@@ -7,27 +7,43 @@ import { omit } from "ramda";
 
 const Stepper = (props) => {
 
-    const { children } = props;
-
+    const { children, class_name } = props;
+    console.log("log child", children)
     return (
         <MantineStepper
-            {...omit(["children"], props)}
+            {...omit(["children", "class_name", "setProps"], props)}
+            className={class_name}
         >
             {React.Children.map(children, (child, index) => {
+
                 const childProps = child.props._dashprivate_layout.props;
+                const childType = child.props._dashprivate_layout.type;
+
                 const renderedProps = renderDashComponents(
                     omit(["children"], childProps),
-                    ["title", "bullet"]
+                    ["completedIcon", "description", "icon", "label", "progressIcon",]
                 );
-                return (
-                    <MantineStepper.Step
-                        {...renderedProps}
-                        key={index}
-                    // onClick={() => changeActive(index)}
-                    >
-                        {child}
-                    </MantineStepper.Step>
-                );
+
+                console.log(renderedProps, index)
+                if (childType === "StepperStep") {
+                    return (
+                        <MantineStepper.Step
+                            {...omit(["children", "completedIcon",
+                                "description", "icon", "label",
+                                "progressIcon"], childProps)}
+                            {...renderedProps}
+                            key={index}
+                        >
+                            {childProps.children}
+                        </MantineStepper.Step>
+                    );
+                } else if (childType === "StepperCompleted") {
+                    return (
+                        <MantineStepper.Completed>
+                            {child}
+                        </MantineStepper.Completed>
+                    );
+                }
             })}
         </MantineStepper>
     )
@@ -36,8 +52,7 @@ const Stepper = (props) => {
 
 Stepper.displayName = "Stepper";
 
-Stepper.defaultProps = {
-};
+Stepper.defaultProps = {};
 
 Stepper.propTypes = {
     /**
@@ -55,6 +70,11 @@ Stepper.propTypes = {
     * <Stepper.Step /> components only
     */
     children: PropTypes.node,
+    /**
+    * Often used with CSS to style elements with common properties
+    */
+    class_name: PropTypes.string,
+
     /**
     * Active and progress Step colors from theme.colors
     */
@@ -99,6 +119,10 @@ Stepper.propTypes = {
     // onStepClick: 
 
     /**
+    * The ID of this component, used to identify dash components in callbacks
+    */
+    id: PropTypes.string,
+    /**
     * Component orientation
     */
     orientation: PropTypes.oneOf(["horizontal", "vertifical"]),
@@ -114,10 +138,16 @@ Stepper.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
+    setProps: PropTypes.func,
     /**
     * Component size
     */
-    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"])
+    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+    /**
+    * Inline style override
+    */
+    style: PropTypes.object
 };
 
 export default Stepper;
