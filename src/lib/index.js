@@ -118,6 +118,6 @@ export {
     Loader,
     LoadingOverlay,
     Avatar,
-    AvatarGroup
+    AvatarGroup,
     Kbd,
 };

@@ -1,21 +1,25 @@
-import { Avatar as MantineAvatar } from '@mantine/core';
+import { Avatar as MantineAvatar } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 // import { renderDashComponent } from "dash-extensions-js";
 
 const Avatar = (props) => {
+    const { class_name } = props;
 
     return (
-        <MantineAvatar {...omit(["setProps"], props)} />
-    )
-}
+        <MantineAvatar
+            {...omit(["setProps", "class_name"], props)}
+            className={class_name}
+        />
+    );
+};
 
 Avatar.displayName = "Avatar";
 
 Avatar.defaultProps = {
     color: "gray",
     radius: "sm",
-    size: "md"
+    size: "md",
 };
 
 Avatar.propTypes = {
@@ -23,6 +27,11 @@ Avatar.propTypes = {
      * Image alt text or title for placeholder variant
      */
     alt: PropTypes.string,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    class_name: PropTypes.string,
 
     /**
      * Color from theme.colors used for letter and icon placeholders
@@ -43,15 +52,11 @@ Avatar.propTypes = {
         "yellow",
         "orange",
     ]),
+
     /**
-     * Tag or component that should be used as root element
-     * 
-     * "symbol" | "object" | "clipPath" | "filter" | "mask" | "marker" | 
-     * "label" | "big" | "link" | "small" | "sub" | "sup" | "button" | 
-     * "meter" | "textarea" | "style" | "progress" | "text" | 
-     * ... 158 more ... | FunctionComponent<...>
+     * The ID of this component, used to identify dash components in callbacks
      */
-    component: PropTypes.any,
+    id: PropTypes.string,
 
     /**
      * Value from theme.radius or number to set border-radius in px
@@ -60,6 +65,7 @@ Avatar.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
     /**
      * Avatar width and height
      */
@@ -67,13 +73,16 @@ Avatar.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
     /**
      * 	Image url
      */
     src: PropTypes.string,
 
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 };
 
 export default Avatar;
-
-
