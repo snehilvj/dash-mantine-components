@@ -115,5 +115,5 @@ export {
     TimeInput,
     Loader,
     LoadingOverlay,
-    Kbd
+    Kbd,
 };
