@@ -1,5 +1,13 @@
 # Change Log
 
+# 0.6.0
+
+### Added
+
+- New components:
+  - Kbd
+  - Avatar, AvatarGroup
+
 # 0.5.0
 
 ### Added
