@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from "react";
 
+/**
+ * Display user profile image, initials or fallback icon. For more information, see: https://mantine.dev/core/avatar/
+ */
 const AvatarGroup = (props) => {
     const { children, class_name } = props;
 
