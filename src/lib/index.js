@@ -59,6 +59,8 @@ import Avatar from "./components/Avatar.react";
 import AvatarGroup from "./components/AvatarGroup.react";
 import Kbd from "./components/Kbd.react";
 import Highlight from "./components/Highlight.react";
+import Timeline from "./components/Timeline.react";
+import TimelineItem from "./components/TimelineItem.react";
 
 export {
     Button,
@@ -121,5 +123,7 @@ export {
     Avatar,
     AvatarGroup,
     Kbd,
-    Highlight
+    Highlight,
+    Timeline,
+    TimelineItem,
 };
