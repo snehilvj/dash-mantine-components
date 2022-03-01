@@ -55,9 +55,10 @@ import RingProgress from "./components/RingProgress.react";
 import TimeInput from "./components/TimeInput.react";
 import Loader from "./components/Loader.react";
 import LoadingOverlay from "./components/LoadingOverlay.react";
-import Timeline from "./components/Timeline.react";
-import TimelineItem from "./components/TimelineItem.react";
+import Avatar from "./components/Avatar.react";
+import AvatarGroup from "./components/AvatarGroup.react";
 import Kbd from "./components/Kbd.react";
+import Highlight from "./components/Highlight.react";
 
 export {
     Button,
@@ -117,7 +118,8 @@ export {
     TimeInput,
     Loader,
     LoadingOverlay,
-    Timeline,
-    TimelineItem,
-    Kbd
+    Avatar,
+    AvatarGroup,
+    Kbd,
+    Highlight
 };
