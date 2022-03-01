@@ -1,5 +1,5 @@
 import React from "react";
-import { Highlight as MantineHighlight } from '@mantine/core';
+import { Highlight as MantineHighlight } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 
@@ -7,23 +7,22 @@ import { omit } from "ramda";
  * Highlight given part of a string with mark tag. For more information, see: https://mantine.dev/core/highlight/
  */
 const Highlight = (props) => {
-    const { children, highlight, class_name } = props;
+    const { children, class_name } = props;
 
     return (
         <MantineHighlight
-            highlight={highlight}
-            className={class_name ? class_name : ''}
-            {...omit(["children", "highlight", 'class_name'], props)}
+            className={class_name}
+            {...omit(["children", "class_name", "setProps"], props)}
         >
             {children}
         </MantineHighlight>
-    )
+    );
 };
 
 Highlight.displayName = "Highlight";
 
 Highlight.defaultProps = {
-    highlightColor: "yellow"
+    highlightColor: "yellow",
 };
 
 Highlight.propTypes = {
@@ -34,12 +33,12 @@ Highlight.propTypes = {
 
     /**
      * Full string part of which will be highlighted
-    */
+     */
     children: PropTypes.string,
 
     /**
-    * Often used with CSS to style elements with common properties
-    */
+     * Often used with CSS to style elements with common properties
+     */
     class_name: PropTypes.string,
 
     /**
@@ -62,22 +61,23 @@ Highlight.propTypes = {
         "orange",
     ]),
 
-    // /**
-    //  * Tag or component that should be used as root element
-    //  */
-    // component: PropTypes.bool,
-
     /**
      * Controls gradient settings in gradient variant only
      */
-    gradient: PropTypes.any,
+    gradient: PropTypes.exact({
+        from: PropTypes.string.isRequired,
+        to: PropTypes.string.isRequired,
+        deg: PropTypes.number,
+    }),
+
     /**
      * Substring or an array of substrings to highlight in children
      */
     highlight: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.arrayOf(PropTypes.string)
+        PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
+
     /**
      * Color from theme that is used for highlighting
      */
@@ -97,26 +97,32 @@ Highlight.propTypes = {
         "yellow",
         "orange",
     ]),
+
     /**
      * Styles applied to highlighted part
      */
     highlightStyles: PropTypes.object,
+
     /**
      * The ID of this component, used to identify dash components in callbacks
-    */
+     */
     id: PropTypes.string,
+
     /**
      * Inherit font properties from parent element
      */
     inherit: PropTypes.bool,
+
     /**
      * Sets line-height to 1 for centering
      */
     inline: PropTypes.bool,
+
     /**
      * CSS -webkit-line-clamp property
      */
     lineClamp: PropTypes.number,
+
     /**
      * 	Predefined font-size from theme.fontSizes
      */
@@ -124,25 +130,43 @@ Highlight.propTypes = {
 
     /**
      * Inline style override
-    */
+     */
     style: PropTypes.object,
 
     /**
      * Sets text-transform css property
      */
-    transform: PropTypes.oneOf(["none", "capitalize", "lowercase", "uppercase"]),
+    transform: PropTypes.oneOf([
+        "none",
+        "capitalize",
+        "lowercase",
+        "uppercase",
+    ]),
+
     /**
      * Underline the text
      */
     underline: PropTypes.bool,
+
     /**
      * Link or text variant
      */
     variant: PropTypes.oneOf(["link", "text", "gradient"]),
+
     /**
      * Sets font-weight css property
      */
-    weight: PropTypes.string,
+    weight: PropTypes.oneOfType([
+        PropTypes.oneOf([
+            "normal",
+            "bold",
+            "bolder",
+            "lighter",
+            "initial",
+            "inherit",
+        ]),
+        PropTypes.number,
+    ]),
 };
 
 export default Highlight;
