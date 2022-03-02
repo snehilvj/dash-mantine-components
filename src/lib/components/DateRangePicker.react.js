@@ -26,7 +26,6 @@ const DateRangePicker = (props) => {
         });
     };
 
-    // eslint-disable-next-line no-undefined
     const [dates, setDates] = useState(value && convert(value));
 
     const updateProps = (d) => {
@@ -50,6 +49,12 @@ const DateRangePicker = (props) => {
     useDidUpdate(() => {
         setDates(value && convert(value));
     }, [value]);
+
+    const cleanUp = () => {
+        if (dates.some((ele) => ele === null)) {
+            setDates(null);
+        }
+    };
 
     let nProps = omit(
         [
@@ -79,6 +84,7 @@ const DateRangePicker = (props) => {
         <MantineDateRangePicker
             {...nProps}
             onChange={updateProps}
+            onDropdownClose={cleanUp}
             className={class_name}
             value={dates}
             minDate={minDate && new Date(minDate)}

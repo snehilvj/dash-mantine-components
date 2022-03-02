@@ -58,10 +58,12 @@ import LoadingOverlay from "./components/LoadingOverlay.react";
 import Avatar from "./components/Avatar.react";
 import AvatarGroup from "./components/AvatarGroup.react";
 import Kbd from "./components/Kbd.react";
+import Highlight from "./components/Highlight.react";
+import Timeline from "./components/Timeline.react";
+import TimelineItem from "./components/TimelineItem.react";
 import Stepper from "./components/Stepper.react";
 import StepperStep from "./components/StepperStep.react";
 import StepperCompleted from "./components/StepperCompleted.react";
-
 
 export {
     Button,
@@ -124,6 +126,9 @@ export {
     Avatar,
     AvatarGroup,
     Kbd,
+    Highlight,
+    Timeline,
+    TimelineItem,
     Stepper,
     StepperStep,
     StepperCompleted
