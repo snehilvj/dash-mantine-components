@@ -2,6 +2,9 @@ import { Kbd as MantineKbd } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 
+/**
+ * Display keyboard button or keys combination. For more information, see: https://mantine.dev/core/kbd/
+ */
 const Kbd = (props) => {
     const { children, class_name } = props;
 

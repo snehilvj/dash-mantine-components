@@ -5,15 +5,12 @@ import { renderDashComponent } from "dash-extensions-js";
 
 const MenuItem = (props) => {
 
-    const { children, class_name, icon } = props
-
-    const RendIcon = renderDashComponent(icon);
+    const { children, class_name } = props
 
     return (
         <MantineMenu.Item
             {...omit(["children", "class_name", "icon"], props)}
             className={class_name}
-            icon={RendIcon}
         >
             {children}
         </MantineMenu.Item>
@@ -37,9 +34,23 @@ MenuItem.propTypes = {
     class_name: PropTypes.string,
 
     /**
+    * component to be used to extends the usability
+    */
+    component: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+    ]),
+
+    /**
      * disables item
     */
     disabled: PropTypes.bool,
+
+    /**
+     * href link to the 
+     */
+    href: PropTypes.string,
+
     /**
     * icon on the left
     */
@@ -55,7 +66,6 @@ MenuItem.propTypes = {
     */
     rightSection: PropTypes.node,
 
-
     /**
     * Tells dash if any prop has changed its value
     */
@@ -66,6 +76,15 @@ MenuItem.propTypes = {
     */
     style: PropTypes.object,
 
+    /**
+    * target - if _blank link will redirect to a new tab
+    */
+    target: PropTypes.string,
+
+    /**
+    * to be used as Link
+    */
+    to: PropTypes.string
 }
 
 export default MenuItem;

@@ -2,8 +2,11 @@ import { Menu as MantineMenu, Divider } from '@mantine/core';
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from 'react';
+import { renderDashComponent } from "dash-extensions-js";
 
-
+/**
+* Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
+*/
 const Menu = (props) => {
 
     const { children, class_name, id } = props
@@ -21,7 +24,10 @@ const Menu = (props) => {
 
                 if (childType === "MenuItem") {
                     return (
-                        <MantineMenu.Item {...omit(["children"], childProps)} key={index}>
+                        <MantineMenu.Item
+                            {...omit(["children", "class_name", "icon"], childProps)}
+                            className={childProps.class_name}
+                            key={index} renderDashComponent={childProps.props}>
                             {childProps.children}
                         </MantineMenu.Item>
                     );
@@ -36,10 +42,9 @@ const Menu = (props) => {
                         <Divider />
                     );
                 };
-                return (
-                    <MantineMenu.Item  {...omit(["children"], childProps)} key={index}>
-                        {childProps.children}
-                    </MantineMenu.Item>
+                return Error(
+                    `Menu only accepts children of type MenuItem, MenuLabel and Divider components.`
+
                 );
             })}
         </MantineMenu>
