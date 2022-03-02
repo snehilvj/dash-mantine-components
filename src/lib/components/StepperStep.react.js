@@ -25,19 +25,20 @@ StepperStep.defaultProps = {
 
 StepperStep.propTypes = {
     /**
-    * Static selector base
-    */
-    // __staticSelector: PropTypes.string,
-    /**
     * Set to false to disable clicks on step
     */
     allowStepClick: PropTypes.bool,
 
-    children: PropTypes.node,
     /**
     * Should step selection be allowed
     */
     allowStepSelect: PropTypes.bool,
+
+    /**
+     * Content Shown in the de component
+     */
+    children: PropTypes.node,
+
     /**
     * Step color from theme.colors
     */
@@ -57,40 +58,49 @@ StepperStep.propTypes = {
         "yellow",
         "orange",
     ]),
+
     /**
     * Step icon displayed when step is completed
     */
     completedIcon: PropTypes.node,
+
     /**
     * 	Step description
     */
     description: PropTypes.node,
+
     /**
     * Step icon, defaults to step index + 1 when rendered within Stepper
     */
     icon: PropTypes.node,
+
     /**
     * 	Icon position relative to step body
     */
     iconPosition: PropTypes.oneOf([
         "left", "right"
     ]),
+
     /**
     * Icon wrapper size in px
     */
     iconSize: PropTypes.number,
+
     /**
     * Step label, render after icon
     */
     label: PropTypes.node,
+
     /**
     * Indicates loading state on step
     */
     loading: PropTypes.bool,
+
     /**
     * Step icon displayed when step is in progress
     */
     progressIcon: PropTypes.node,
+
     /**
     * Radius from theme.radius, or number to set border-radius in px
     */
@@ -98,14 +108,17 @@ StepperStep.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
+
     /**
     * Component size
     */
     size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+
     /**
     * Step state, controlled by Steps component
     */
     state: PropTypes.oneOf(["stepProgress", "stepCompleted", "stepInactive"]),
+
     /**
     * Should icon be displayed
     */
