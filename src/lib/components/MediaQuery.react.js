@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, MediaQuery as MantineMediaQuery } from '@mantine/core';
+import { Box, Text, MediaQuery as MantineMediaQuery } from '@mantine/core';
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 
@@ -8,26 +8,40 @@ import { omit } from "ramda";
  */
 const MediaQuery = (props) => {
 
-    const { children, class_name, styles, boxSx } = props;
+    const { children, class_name, styles, boxSx, contentBox } = props;
+    const children_type = children.props._dashprivate_layout.type
+
+    if (contentBox === true && children_type === "Text") {
+        return (
+            <MantineMediaQuery
+                {...omit(["children", "class_name",
+                    "styles", "boxSx", "contentBox"], props)}
+                className={class_name}
+                styles={styles}
+            >
+                <Box sx={boxSx}>
+                    {children}
+                </Box>
 
 
-    console.log(props, children)
-    console.log(children.props._dashprivate_layout.props)
-    return (
-        <MantineMediaQuery
-            largerThan={800}
-            {...omit(["children", "class_name",
-                "styles", "boxSx", "contentBox"], props)}
-            className={class_name}
-            styles={styles}
-
-        >
-            <Box sx={boxSx}>
-                {children}
-            </Box>
-
-        </MantineMediaQuery>
-    );
+            </MantineMediaQuery>
+        );
+    } else if (children_type === "Text") {
+        return (
+            <MantineMediaQuery
+                {...omit(["children", "class_name",
+                    "styles", "boxSx", "contentBox"], props)}
+                className={class_name}
+                styles={styles}
+            >
+                <Text sx={boxSx}>
+                    {children}
+                </Text>
+            </MantineMediaQuery>
+        )
+    }
+    return Error(
+        `MediaQuery Component only accepts dmc.Text components, and you can flag if it should be a Box component or not.`);
 };
 
 MediaQuery.displayName = "MediaQuery";
