@@ -64,6 +64,7 @@ import TimelineItem from "./components/TimelineItem.react";
 import Menu from "./components/Menu.react";
 import MenuItem from "./components/MenuItem.react";
 import MenuLabel from "./components/MenuLabel.react";
+import Popover from "./components/Popover.react";
 
 export {
     Button,
@@ -132,4 +133,5 @@ export {
     Menu,
     MenuItem,
     MenuLabel,
+    Popover,
 };
