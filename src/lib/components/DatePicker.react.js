@@ -33,7 +33,7 @@ const DatePicker = (props) => {
     }, []);
 
     useDidUpdate(() => {
-        setDate(value && new Date(value));
+        setDate(value);
     }, [value]);
 
     let nProps = omit(
