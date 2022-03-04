@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { omit } from "ramda";
 // import { renderDashComponent } from "dash-extensions-js";
 
+/**
+ * Display user profile image, initials or fallback icon. For more information, see: https://mantine.dev/core/avatar/
+ */
 const Avatar = (props) => {
     const { class_name } = props;
 

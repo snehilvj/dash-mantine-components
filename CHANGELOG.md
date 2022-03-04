@@ -7,6 +7,12 @@
 - New components:
   - Kbd
   - Avatar, AvatarGroup
+  - Highlight
+  - Timeline, TimelineInput
+
+### Fixed
+
+- DateRangePicker will keep the half selected range on dropdown close. # 47
 
 # 0.5.0
 
