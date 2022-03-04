@@ -61,6 +61,9 @@ import Kbd from "./components/Kbd.react";
 import Highlight from "./components/Highlight.react";
 import Timeline from "./components/Timeline.react";
 import TimelineItem from "./components/TimelineItem.react";
+import Menu from "./components/Menu.react";
+import MenuItem from "./components/MenuItem.react";
+import MenuLabel from "./components/MenuLabel.react";
 import Stepper from "./components/Stepper.react";
 import StepperStep from "./components/StepperStep.react";
 import StepperCompleted from "./components/StepperCompleted.react";
@@ -129,6 +132,9 @@ export {
     Highlight,
     Timeline,
     TimelineItem,
+    Menu,
+    MenuItem,
+    MenuLabel,
     Stepper,
     StepperStep,
     StepperCompleted
