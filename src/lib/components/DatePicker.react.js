@@ -20,7 +20,7 @@ const DatePicker = (props) => {
         class_name,
     } = props;
 
-    const [date, setDate] = useState(value && new Date(value));
+    const [date, setDate] = useState(value && dayjs(value).toDate());
 
     const updateProps = (d) => {
         setProps({ value: d && dayjs(d).format("YYYY-MM-DD") });
@@ -33,7 +33,7 @@ const DatePicker = (props) => {
     }, []);
 
     useDidUpdate(() => {
-        setDate(value && new Date(value));
+        setDate(value && dayjs(value).toDate());
     }, [value]);
 
     let nProps = omit(
