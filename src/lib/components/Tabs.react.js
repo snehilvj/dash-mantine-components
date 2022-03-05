@@ -25,7 +25,7 @@ const Tabs = (props) => {
                 return (
                     <Tab
                         key={index}
-                        className={class_name}
+                        className={childProps.class_name}
                         icon={renderDashComponent(childProps.icon)}
                         disabled={childProps.disabled}
                         label={renderDashComponent(childProps.label)}

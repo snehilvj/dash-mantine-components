@@ -78,6 +78,11 @@ RingProgress.propTypes = {
     size: PropTypes.number,
 
     /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
      * Ring thickness
      */
     thickness: PropTypes.number,

@@ -1,19 +1,33 @@
+import React from "react";
+import { Mark as MantineMark } from "@mantine/core";
 import PropTypes from "prop-types";
+import { omit } from "ramda";
 
 /**
- * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
+ * Highlight part of the text. For more information, see: https://mantine.dev/core/mark/
  */
-const MenuItem = (props) => {
-    return <>{props.children}</>;
+const Mark = (props) => {
+    const { children, class_name } = props;
+
+    return (
+        <MantineMark
+            {...omit(["children", "class_name", "setProps"], props)}
+            className={class_name}
+        >
+            {children}
+        </MantineMark>
+    );
 };
 
-MenuItem.displayName = "MenuItem";
+Mark.displayName = "Mark";
 
-MenuItem.defaultProps = {};
+Mark.defaultProps = {
+    color: "yellow",
+};
 
-MenuItem.propTypes = {
+Mark.propTypes = {
     /**
-     * Item children
+     * Full string part of which will be highlighted
      */
     children: PropTypes.string,
 
@@ -23,7 +37,7 @@ MenuItem.propTypes = {
     class_name: PropTypes.string,
 
     /**
-     * Any color from theme.colors
+     * Background color from theme.colors
      */
     color: PropTypes.oneOf([
         "dark",
@@ -43,24 +57,9 @@ MenuItem.propTypes = {
     ]),
 
     /**
-     * Is item disabled
-     */
-    disabled: PropTypes.bool,
-
-    /**
-     * Icon rendered on the left side of label
-     */
-    icon: PropTypes.any,
-
-    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
-
-    /**
-     * Any react node to render on the right side of item, for example, keyboard shortcut or badge
-     */
-    rightSection: PropTypes.any,
 
     /**
      * Inline style override
@@ -68,4 +67,4 @@ MenuItem.propTypes = {
     style: PropTypes.object,
 };
 
-export default MenuItem;
+export default Mark;
