@@ -1,59 +1,55 @@
-import { Menu as MantineMenu } from '@mantine/core';
 import PropTypes from "prop-types";
-import { omit } from "ramda";
-import { renderDashComponent } from "dash-extensions-js";
 
+/**
+ * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
+ */
 const MenuItem = (props) => {
-
-    const { children, class_name } = props
-
-    return (
-        <MantineMenu.Item
-            {...omit(["children", "class_name", "icon"], props)}
-            className={class_name}
-        >
-            {children}
-        </MantineMenu.Item>
-    );
-}
+    return <>{props.children}</>;
+};
 
 MenuItem.displayName = "MenuItem";
 
 MenuItem.defaultProps = {};
 
 MenuItem.propTypes = {
-
     /**
-    * item children
-    */
+     * Item children
+     */
     children: PropTypes.string,
 
     /**
      * Often used with CSS to style elements with common properties
-    */
+     */
     class_name: PropTypes.string,
 
     /**
-    * component to be used to extends the usability
-    */
-    component: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string,
+     * Any color from theme.colors
+     */
+    color: PropTypes.oneOf([
+        "dark",
+        "gray",
+        "red",
+        "pink",
+        "grape",
+        "violet",
+        "indigo",
+        "blue",
+        "cyan",
+        "teal",
+        "green",
+        "lime",
+        "yellow",
+        "orange",
     ]),
 
     /**
-     * disables item
-    */
+     * Is item disabled
+     */
     disabled: PropTypes.bool,
 
     /**
-     * href link to the 
+     * Icon rendered on the left side of label
      */
-    href: PropTypes.string,
-
-    /**
-    * icon on the left
-    */
     icon: PropTypes.any,
 
     /**
@@ -62,31 +58,14 @@ MenuItem.propTypes = {
     id: PropTypes.string,
 
     /**
-     * react node, rendered on the right, for example, Badge or keyboard shortcut
-    */
-    rightSection: PropTypes.node,
-
-    /**
-    * Tells dash if any prop has changed its value
-    */
-    setProps: PropTypes.func,
+     * Any react node to render on the right side of item, for example, keyboard shortcut or badge
+     */
+    rightSection: PropTypes.any,
 
     /**
      * Inline style override
-    */
+     */
     style: PropTypes.object,
-
-    /**
-    * target - if _blank link will redirect to a new tab
-    */
-    target: PropTypes.string,
-
-    /**
-    * to be used as Link
-    */
-    to: PropTypes.string
-}
+};
 
 export default MenuItem;
-
-
