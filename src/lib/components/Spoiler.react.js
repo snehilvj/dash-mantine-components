@@ -30,43 +30,43 @@ Spoiler.propTypes = {
     class_name: PropTypes.string,
 
     /**
-     * Primary content
-     */
-    children: PropTypes.string,
+    * Primary content
+    */
+    children: PropTypes.node,
 
     /**
-     * Label for close spoiler action
-     */
+    * Label for close spoiler action
+    */
     hideLabel: PropTypes.string.isRequired,
 
     /**
-     * The ID of this component, used to identify dash components in callbacks
-     */
+    * The ID of this component, used to identify dash components in callbacks
+    */
     id: PropTypes.string,
 
     /**
-     * Initial spoiler state, true to wrap content in spoiler, false to show content without spoiler, opened state will be updated on mount
-     */
+    * Initial spoiler state, true to wrap content in spoiler, false to show content without spoiler, opened state will be updated on mount
+    */
     initialState: PropTypes.bool,
 
     /**
-     * Max height of visible content, when this point is reached spoiler appears
-     */
+    * Max height of visible content, when this point is reached spoiler appears
+    */
     maxHeight: PropTypes.number,
 
     /**
-     * Label for open spoiler action
-     */
+    * Label for open spoiler action
+    */
     showLabel: PropTypes.string.isRequired,
 
     /**
-     * Inline style override
-     */
+    * Inline style override
+    */
     style: PropTypes.object,
 
     /**
-     * Spoiler reveal transition duration in ms, 0 or null to turn off animation
-     */
+    * Spoiler reveal transition duration in ms, 0 or null to turn off animation
+    */
     transitionDuration: PropTypes.number,
 };
 
