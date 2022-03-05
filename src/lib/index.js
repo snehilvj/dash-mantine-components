@@ -61,9 +61,6 @@ import Kbd from "./components/Kbd.react";
 import Highlight from "./components/Highlight.react";
 import Timeline from "./components/Timeline.react";
 import TimelineItem from "./components/TimelineItem.react";
-import Menu from "./components/Menu.react";
-import MenuItem from "./components/MenuItem.react";
-import MenuLabel from "./components/MenuLabel.react";
 import Mark from "./components/Mark.react";
 
 export {
@@ -130,8 +127,5 @@ export {
     Highlight,
     Timeline,
     TimelineItem,
-    Menu,
-    MenuItem,
-    MenuLabel,
     Mark
 };

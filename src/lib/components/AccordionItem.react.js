@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
  * Utility component to pass to Accordion. For more information, see: https://mantine.dev/core/accordion/
  */
 const AccordionItem = (props) => {
-    return <div>{props.children}</div>;
+    return <>{props.children}</>;
 };
 
 AccordionItem.displayName = "AccordionItem";

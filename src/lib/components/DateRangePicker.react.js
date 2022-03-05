@@ -22,7 +22,7 @@ const DateRangePicker = (props) => {
 
     const convert = (value) => {
         return value.map((item) => {
-            return item ? new Date(item) : null;
+            return item ? dayjs(item).toDate() : null;
         });
     };
 
