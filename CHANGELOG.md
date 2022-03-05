@@ -10,7 +10,8 @@
   - Highlight
   - Timeline, TimelineInput
   - Mark
-
+  - MediaQuery
+  
 ### Fixed
 
 - DateRangePicker will keep the half selected range on dropdown close. #47
