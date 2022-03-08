@@ -14,7 +14,7 @@
   
 ### Fixed
 
-- DateRangePicker will keep the half selected range on dropdown close. #47
+- DateRangePicker will clean up the half selected range on dropdown close. #47
 - DatePicker and DateRangePicker timezone issue. #33
 
 # 0.5.0
