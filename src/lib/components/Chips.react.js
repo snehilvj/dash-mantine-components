@@ -21,7 +21,7 @@ const Chips = (props) => {
         >
             {data.map((chip, index) => {
                 return (
-                    <Chip value={chip.value} key={index}>
+                    <Chip disabled={chip.disabled} value={chip.value} key={index}>
                         {chip.label}
                     </Chip>
                 );
