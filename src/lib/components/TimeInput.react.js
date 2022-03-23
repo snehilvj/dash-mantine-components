@@ -69,11 +69,6 @@ TimeInput.propTypes = {
     class_name: PropTypes.string,
 
     /**
-     * aria-label for clear button
-     */
-    clearButtonLabel: PropTypes.string,
-
-    /**
      * Allow to clear item
      */
     clearable: PropTypes.bool,
@@ -114,24 +109,9 @@ TimeInput.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Sets border color to red and aria-invalid=true on input element
-     */
-    invalid: PropTypes.bool,
-
-    /**
      * Input label, displayed before input [PropTypes.node]
      */
     label: PropTypes.any,
-
-    /**
-     * Will input have multiple lines?
-     */
-    multiline: PropTypes.bool,
-
-    /**
-     * Uncontrolled input name
-     */
-    name: PropTypes.string,
 
     /**
      * Used to allow user interactions in this component to be persisted when

@@ -110,6 +110,11 @@ RadioGroup.propTypes = {
     label: PropTypes.string,
 
     /**
+     * Horizontal or vertical orientation
+     */
+    orientation: PropTypes.oneOf(["horizontal", "vertical"]),
+
+    /**
      * Used to allow user interactions in this component to be persisted when
      * the component - or the page - is refreshed. If `persisted` is truthy and
      * hasn't changed from its previous value, a `value` that the user has
@@ -166,11 +171,6 @@ RadioGroup.propTypes = {
      * Value of currently selected radio (controlled)
      */
     value: PropTypes.string,
-
-    /**
-     * Radios position
-     */
-    variant: PropTypes.oneOf(["horizontal", "vertical"]),
 };
 
 export default RadioGroup;

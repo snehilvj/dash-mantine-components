@@ -39,6 +39,7 @@ Alert.displayName = "Alert";
 
 Alert.defaultProps = {
     hide: false,
+    variant: "light",
 };
 
 Alert.propTypes = {

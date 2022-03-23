@@ -97,7 +97,7 @@ ThemeIcon.propTypes = {
     /**
      * Controls appearance
      */
-    variant: PropTypes.oneOf(["filled", "light", "gradient"]),
+    variant: PropTypes.oneOf(["filled", "light", "gradient", "outline"]),
 };
 
 export default ThemeIcon;

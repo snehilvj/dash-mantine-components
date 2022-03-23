@@ -45,17 +45,17 @@ Navbar.propTypes = {
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
+     * Set to true to hide breakpoint at hiddenBreakpoint
+     */
+    hidden: PropTypes.bool,
+
+    /**
      *  Breakpoint at which navbar will be hidden if hidden prop is true
      */
     hiddenBreakpoint: PropTypes.oneOfType([
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
-
-    /**
-     * Set to true to hide breakpoint at hiddenBreakpoint
-     */
-    hidden: PropTypes.bool,
 
     /**
      *  The ID of this component, used to identify dash components in callbacks

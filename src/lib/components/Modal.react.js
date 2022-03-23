@@ -66,19 +66,9 @@ Modal.propTypes = {
     closeOnEscape: PropTypes.bool,
 
     /**
-     * Hides close button, modal still can be closed with escape key and by clicking outside
-     */
-    hideCloseButton: PropTypes.bool,
-
-    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
-
-    /**
-     * Disables focus trap
-     */
-    noFocusTrap: PropTypes.bool,
 
     /**
      * Mounts modal if true
@@ -180,6 +170,16 @@ Modal.propTypes = {
      * Modal body transitionTimingFunction, defaults to theme.transitionTimingFunction
      */
     transitionTimingFunction: PropTypes.string,
+
+    /**
+     * Disables focus trap
+     */
+    trapFocus: PropTypes.bool,
+
+    /**
+     * Hides close button if set to false, modal still can be closed with escape key and by clicking outside
+     */
+    withCloseButton: PropTypes.bool,
 
     /**
      * Popper zIndex

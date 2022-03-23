@@ -72,6 +72,11 @@ MultiSelect.propTypes = {
     clearable: PropTypes.bool,
 
     /**
+     * Allow creatable option
+     */
+    creatable: PropTypes.bool,
+
+    /**
      * Select options used to renderer items in dropdown
      */
     data: PropTypes.oneOfType([
@@ -109,6 +114,11 @@ MultiSelect.propTypes = {
     disabled: PropTypes.bool,
 
     /**
+     * Dropdown positioning behavior
+     */
+    dropdownPosition: PropTypes.oneOf(["bottom", "top", "flip"]),
+
+    /**
      * Displays error message after input
      */
     error: PropTypes.any,
@@ -134,11 +144,6 @@ MultiSelect.propTypes = {
     initiallyOpened: PropTypes.bool,
 
     /**
-     * Sets border color to red and aria-invalid=true on input element
-     */
-    invalid: PropTypes.bool,
-
-    /**
      * Input label, displayed before input
      */
     label: PropTypes.any,
@@ -157,11 +162,6 @@ MultiSelect.propTypes = {
      * Limit amount of items selected
      */
     maxSelectedValues: PropTypes.number,
-
-    /**
-     * Will input have multiple lines?
-     */
-    multiline: PropTypes.bool,
 
     /**
      * Nothing found label
@@ -304,11 +304,6 @@ MultiSelect.propTypes = {
      * Defines input appearance, defaults to default in light color scheme and filled in dark
      */
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
-
-    /**
-     * Whether to render the dropdown in a Portal
-     */
-    withinPortal: PropTypes.bool,
 
     /**
      * Dropdown z-index

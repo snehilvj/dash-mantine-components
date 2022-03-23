@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid as MantineGrid, Col as MantineCol } from "@mantine/core";
+import { Grid as MantineGrid } from "@mantine/core";
 import { omit } from "ramda";
 
 /**
@@ -14,18 +14,7 @@ const Grid = (props) => {
             {...omit(["setProps", "children", "class_name"], props)}
             className={class_name}
         >
-            {React.Children.map(children, (child, index) => {
-                const childProps = child.props._dashprivate_layout.props;
-                return (
-                    <MantineCol
-                        {...omit(["children", "class_name"], childProps)}
-                        key={index}
-                        className={childProps.class_name}
-                    >
-                        {child}
-                    </MantineCol>
-                );
-            })}
+            {children}
         </MantineGrid>
     );
 };

@@ -11,11 +11,9 @@ const Space = (props) => {
 
     return (
         <MantineSpace
-            {...omit(["setProps", "children", "class_name"], props)}
+            {...omit(["setProps", "class_name"], props)}
             className={class_name}
-        >
-            {props.children}
-        </MantineSpace>
+        />
     );
 };
 
@@ -24,11 +22,6 @@ Space.displayName = "Space";
 Space.defaultProps = {};
 
 Space.propTypes = {
-    /**
-     * Tab content
-     */
-    children: PropTypes.node,
-
     /**
      * Often used with CSS to style elements with common properties
      */

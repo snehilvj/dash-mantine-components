@@ -81,11 +81,6 @@ JsonInput.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Sets border color to red and aria-invalid=true on input element
-     */
-    invalid: PropTypes.bool,
-
-    /**
      * Input label, displayed before input [PropTypes.node]
      */
     label: PropTypes.any,
@@ -99,11 +94,6 @@ JsonInput.propTypes = {
      * Defines minRows in autosize variant, not applicable to regular variant
      */
     minRows: PropTypes.number,
-
-    /**
-     * Will input have multiple lines?
-     */
-    multiline: PropTypes.bool,
 
     /**
      * Input border-radius from theme or number to set border-radius in px

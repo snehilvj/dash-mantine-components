@@ -21,7 +21,9 @@ const Affix = (props) => {
 
 Affix.displayName = "Affix";
 
-Affix.defaultProps = {};
+Affix.defaultProps = {
+    position: { bottom: 0, right: 0 },
+};
 
 Affix.propTypes = {
     /**

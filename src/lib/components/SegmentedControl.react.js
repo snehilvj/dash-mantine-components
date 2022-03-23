@@ -69,6 +69,11 @@ SegmentedControl.propTypes = {
     ).isRequired,
 
     /**
+     * Disabled input state
+     */
+    disabled: PropTypes.bool,
+
+    /**
      * True if component should have 100% width
      */
     fullWidth: PropTypes.bool,
@@ -77,6 +82,11 @@ SegmentedControl.propTypes = {
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
+
+    /**
+     * Display Vertically or horizontally
+     */
+    orientation: PropTypes.oneOf(["horizontal", "vertical"]),
 
     /**
      * Border-radius from theme or number to set border-radius in px

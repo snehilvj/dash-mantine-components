@@ -21,7 +21,9 @@ const Prism = (props) => {
 
 Prism.displayName = "Prism";
 
-Prism.defaultProps = {};
+Prism.defaultProps = {
+    trim: true,
+};
 
 Prism.propTypes = {
     /**
@@ -126,6 +128,11 @@ Prism.propTypes = {
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Defines whether the code should be trimmed, defaults to true
+     */
+    trim: PropTypes.bool,
 
     /**
      * Display line numbers

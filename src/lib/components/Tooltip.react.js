@@ -47,6 +47,11 @@ Tooltip.propTypes = {
     class_name: PropTypes.string,
 
     /**
+     * Close delay in ms, 0 to disable delay
+     */
+    closeDelay: PropTypes.number,
+
+    /**
      * Any color from theme.colors, defaults to gray in light color scheme and dark in dark colors scheme
      */
     color: PropTypes.oneOf([
@@ -65,11 +70,6 @@ Tooltip.propTypes = {
         "yellow",
         "orange",
     ]),
-
-    /**
-     * Close delay in ms, 0 to disable delay
-     */
-    delay: PropTypes.number,
 
     /**
      * True to disable tooltip
@@ -166,11 +166,6 @@ Tooltip.propTypes = {
      * Renders arrow if true
      */
     withArrow: PropTypes.bool,
-
-    /**
-     * Whether to render the target element in a Portal
-     */
-    withinPortal: PropTypes.bool,
 
     /**
      * Allow multiline tooltip content

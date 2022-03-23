@@ -45,14 +45,6 @@ Container.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Horizontal padding defined in theme.spacing, or number value for padding in px
-     */
-    padding: PropTypes.oneOfType([
-        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-        PropTypes.number,
-    ]),
-
-    /**
      * Predefined container max-width or number for max-width in px
      */
     size: PropTypes.oneOfType([
@@ -64,6 +56,76 @@ Container.propTypes = {
      * Inline style override
      */
     style: PropTypes.object,
+
+    /**
+     * Margin props
+     */
+    m: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    my: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mx: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mt: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mb: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    ml: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mr: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    p: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    py: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    px: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pt: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pb: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pl: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pr: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
 };
 
 export default Container;

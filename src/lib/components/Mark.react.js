@@ -21,9 +21,7 @@ const Mark = (props) => {
 
 Mark.displayName = "Mark";
 
-Mark.defaultProps = {
-    color: "yellow",
-};
+Mark.defaultProps = {};
 
 Mark.propTypes = {
     /**

@@ -54,6 +54,16 @@ Drawer.propTypes = {
     class_name: PropTypes.string,
 
     /**
+     * Disable onClick trigger for outside events
+     */
+    closeOnClickOutside: PropTypes.bool,
+
+    /**
+     * Disable onClick trigger for escape key press
+     */
+    closeOnEscape: PropTypes.bool,
+
+    /**
      * Hides close button, modal still can be closed with escape key and by clicking outside
      */
     hideCloseButton: PropTypes.bool,
@@ -64,29 +74,9 @@ Drawer.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Disable onClock trigger for outside events
-     */
-    noCloseOnClickOutside: PropTypes.bool,
-
-    /**
-     * Disable onClock trigger for escape key press
-     */
-    noCloseOnEscape: PropTypes.bool,
-
-    /**
-     * Disables focus trap
-     */
-    noFocusTrap: PropTypes.bool,
-
-    /**
-     * Removes overlay entirely
-     */
-    noOverlay: PropTypes.bool,
-
-    /**
      * Disables scroll lock
      */
-    noScrollLock: PropTypes.bool,
+    lockScroll: PropTypes.bool,
 
     /**
      * If true drawer is mounted to the dom
@@ -170,6 +160,26 @@ Drawer.propTypes = {
      * Transition duration in ms
      */
     transitionDuration: PropTypes.number,
+
+    /**
+     * Drawer transitionTimingFunction css property
+     */
+    transitionTimingFunction: PropTypes.string,
+
+    /**
+     * Disables focus trap
+     */
+    trapFocus: PropTypes.bool,
+
+    /**
+     * Hides close button if set to false, drawer still can be closed with escape key and by clicking outside
+     */
+    withCloseButton: PropTypes.bool,
+
+    /**
+     * Removes overlay entirely
+     */
+    withOverlay: PropTypes.bool,
 
     /**
      * Popper zIndex
