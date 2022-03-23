@@ -97,6 +97,11 @@ Tooltip.propTypes = {
     label: PropTypes.any.isRequired,
 
     /**
+     * Open delay in ms, 0 to disable delay
+     */
+    openDelay: PropTypes.number,
+
+    /**
      * Tooltip opened state for controlled variant
      */
     opened: PropTypes.bool,
