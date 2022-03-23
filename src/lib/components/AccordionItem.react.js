@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 /**
- * Utility component to pass to Accordion. For more information, see: https://mantine.dev/core/accordion/
+ * Utility component to be passed to Accordion. For more information, see: https://mantine.dev/core/accordion/
  */
 const AccordionItem = (props) => {
     return <>{props.children}</>;

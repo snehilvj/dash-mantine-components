@@ -67,6 +67,8 @@ import Menu from "./components/Menu.react";
 import MenuItem from "./components/MenuItem.react";
 import MenuLabel from "./components/MenuLabel.react";
 import Code from "./components/Code.react";
+import List from "./components/List.react";
+import ListItem from "./components/ListItem.react";
 
 export {
     Button,
@@ -138,4 +140,6 @@ export {
     MenuItem,
     MenuLabel,
     Code,
+    List,
+    ListItem,
 };
