@@ -12,7 +12,7 @@
     <img src="https://static.pepy.tech/personalized-badge/dash-mantine-components?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads">
 </p>
 
-Dash Mantine Components is an extensive (55+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
+Dash Mantine Components is an extensive (70+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 
 [Documentation](https://dash-mantine-components.herokuapp.com)
 
