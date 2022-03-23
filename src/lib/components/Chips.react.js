@@ -21,7 +21,11 @@ const Chips = (props) => {
         >
             {data.map((chip, index) => {
                 return (
-                    <Chip disabled={chip.disabled} value={chip.value} key={index}>
+                    <Chip
+                        disabled={chip.disabled}
+                        value={chip.value}
+                        key={index}
+                    >
                         {chip.label}
                     </Chip>
                 );
@@ -46,26 +50,6 @@ Chips.propTypes = {
     class_name: PropTypes.string,
 
     /**
-     * Chips
-     */
-    data: PropTypes.arrayOf(
-        PropTypes.exact({
-            /**
-             * The option's label
-             */
-            label: PropTypes.string.isRequired,
-            /**
-             * Option's value
-             */
-            value: PropTypes.string.isRequired,
-            /**
-             * If true, this option is disabled and cannot be selected
-             */
-            disabled: PropTypes.bool,
-        })
-    ),
-
-    /**
      * Active chip color, defaults to theme.primaryColor
      */
     color: PropTypes.oneOf([
@@ -84,6 +68,26 @@ Chips.propTypes = {
         "yellow",
         "orange",
     ]),
+
+    /**
+     * Chips
+     */
+    data: PropTypes.arrayOf(
+        PropTypes.exact({
+            /**
+             * The option's label
+             */
+            label: PropTypes.string.isRequired,
+            /**
+             * Option's value
+             */
+            value: PropTypes.string.isRequired,
+            /**
+             * If true, this option is disabled and cannot be selected
+             */
+            disabled: PropTypes.bool,
+        })
+    ),
 
     /**
      * Defines flex-direction property, row for horizontal, column for vertical

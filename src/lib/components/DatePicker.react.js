@@ -231,6 +231,11 @@ DatePicker.propTypes = {
     minDate: PropTypes.string,
 
     /**
+     * Modal z-index
+     */
+    modalZIndex: PropTypes.number,
+
+    /**
      * Will input have multiple lines?
      */
     multiline: PropTypes.bool,

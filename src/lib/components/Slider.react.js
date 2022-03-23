@@ -8,7 +8,7 @@ import { renderDashComponents } from "dash-extensions-js";
  * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const Slider = (props) => {
-    const { setProps, class_name } = props;
+    const { setProps, class_name, updatemode } = props;
     let nProps = omit(["setProps", "class_name"], props);
     nProps = renderDashComponents(nProps, ["thumbChildren"]);
 
@@ -16,14 +16,20 @@ const Slider = (props) => {
         setProps({ value });
     };
 
-    return (
-        <MantineSlider onChange={onChange} className={class_name} {...nProps} />
-    );
+    if (updatemode === "drag") {
+        nProps.onChange = onChange;
+    } else {
+        nProps.onChangeEnd = onChange;
+    }
+
+    return <MantineSlider className={class_name} {...nProps} />;
 };
 
 Slider.displayName = "Slider";
 
-Slider.defaultProps = {};
+Slider.defaultProps = {
+    updatemode: "mouseup",
+};
 
 Slider.propTypes = {
     /**
@@ -121,9 +127,9 @@ Slider.propTypes = {
     min: PropTypes.number,
 
     /**
-     * Hidden input name, use with uncontrolled variant
+     * Amount of digits after the decimal point
      */
-    name: PropTypes.string,
+    precision: PropTypes.number,
 
     /**
      * Track border-radius from theme or number to set border-radius in px
@@ -162,6 +168,11 @@ Slider.propTypes = {
      * Thumb children, can be used to add icon
      */
     thumbChildren: PropTypes.any,
+
+    /**
+     * Determines when the component should update its value property. If mouseup (the default) then the slider will only trigger its value when the user has finished dragging the slider. If drag, then the slider will update its value continuously as it is being dragged.
+     */
+    updatemode: PropTypes.oneOf(["mouseup", "drag"]),
 
     /**
      * Current value for controlled slider

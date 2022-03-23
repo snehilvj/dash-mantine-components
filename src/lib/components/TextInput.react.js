@@ -74,19 +74,9 @@ TextInput.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Sets border color to red and aria-invalid=true on input element
-     */
-    invalid: PropTypes.bool,
-
-    /**
      * Input label, displayed before input
      */
     label: PropTypes.any,
-
-    /**
-     * Will input have multiple lines?
-     */
-    multiline: PropTypes.bool,
 
     /**
      * Placeholder, displayed when date is not selected

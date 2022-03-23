@@ -1,11 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { omit } from "ramda";
+import { Grid } from "@mantine/core";
 
 /**
  * Utility component to pass to Grid. For more information, see: https://mantine.dev/core/grid/
  */
 const Col = (props) => {
-    return <div>{props.children}</div>;
+    const { class_name, children } = props;
+
+    return (
+        <Grid.Col
+            {...omit(["children", "class_name"], props)}
+            className={class_name}
+        >
+            {children}
+        </Grid.Col>
+    );
 };
 
 Col.displayName = "Col";

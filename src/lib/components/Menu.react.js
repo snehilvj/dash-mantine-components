@@ -1,9 +1,8 @@
 /* eslint-disable no-undefined */
-import { Menu as MantineMenu, Divider } from "@mantine/core";
+import { Menu as MantineMenu } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from "react";
-import { renderDashComponents } from "dash-extensions-js";
 
 /**
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
@@ -13,40 +12,10 @@ const Menu = (props) => {
 
     return (
         <MantineMenu
-            {...omit(["children", "setProps", "class_name", "control"], props)}
+            {...omit(["children", "setProps", "class_name"], props)}
             className={class_name}
         >
-            {React.Children.map(children, (child, index) => {
-                const childType = child.props._dashprivate_layout.type;
-                const childProps = child.props._dashprivate_layout.props;
-
-                if (childType === "MenuLabel") {
-                    return (
-                        <MantineMenu.Label key={index}>
-                            {child}
-                        </MantineMenu.Label>
-                    );
-                } else if (childType === "Divider") {
-                    return <Divider />;
-                } else if (childType === "MenuItem") {
-                    let nProps = omit(["children", "class_name"], childProps);
-                    nProps = renderDashComponents(childProps, [
-                        "icon",
-                        "rightSection",
-                    ]);
-
-                    return (
-                        <MantineMenu.Item
-                            {...nProps}
-                            className={childProps.class_name}
-                            key={index}
-                        >
-                            {child}
-                        </MantineMenu.Item>
-                    );
-                }
-                return null;
-            })}
+            {children}
         </MantineMenu>
     );
 };
@@ -133,6 +102,11 @@ Menu.propTypes = {
     ]),
 
     /**
+     * Tells dash if any prop has changed its value
+     */
+    setProps: PropTypes.func,
+
+    /**
      * Predefined menu width or number for width in px
      */
     size: PropTypes.oneOfType([
@@ -194,19 +168,9 @@ Menu.propTypes = {
     withArrow: PropTypes.bool,
 
     /**
-     * Whether to render the dropdown in a Portal
-     */
-    withinPortal: PropTypes.bool,
-
-    /**
      * 	Menu body z-index
      */
     zIndex: PropTypes.number,
-
-    /**
-     * Tells dash if any prop has changed its value
-     */
-    setProps: PropTypes.func,
 };
 
 export default Menu;

@@ -19,11 +19,7 @@ const Avatar = (props) => {
 
 Avatar.displayName = "Avatar";
 
-Avatar.defaultProps = {
-    color: "gray",
-    radius: "sm",
-    size: "md",
-};
+Avatar.defaultProps = {};
 
 Avatar.propTypes = {
     /**

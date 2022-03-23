@@ -40,14 +40,6 @@ Paper.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Predefined padding value from theme.spacing or number for padding in px
-     */
-    padding: PropTypes.oneOfType([
-        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-        PropTypes.number,
-    ]),
-
-    /**
      * Predefined border-radius value from theme.radius or number for border-radius in px
      */
     radius: PropTypes.oneOfType([
@@ -69,6 +61,76 @@ Paper.propTypes = {
      * Adds 1px border with theme.colors.gray[2] color in light color scheme and theme.colors.dark[6] in dark color scheme
      */
     withBorder: PropTypes.bool,
+
+    /**
+     * Margin props
+     */
+    m: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    my: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mx: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mt: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mb: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    ml: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mr: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    p: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    py: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    px: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pt: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pb: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pl: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pr: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
 };
 
 export default Paper;

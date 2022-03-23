@@ -32,7 +32,7 @@ Spoiler.propTypes = {
     /**
      * Primary content
      */
-    children: PropTypes.string,
+    children: PropTypes.node,
 
     /**
      * Label for close spoiler action

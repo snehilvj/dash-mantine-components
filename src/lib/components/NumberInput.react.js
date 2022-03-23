@@ -82,11 +82,6 @@ NumberInput.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Sets border color to red and aria-invalid=true on input element
-     */
-    invalid: PropTypes.bool,
-
-    /**
      * Input label, displayed before input
      */
     label: PropTypes.any,
@@ -100,11 +95,6 @@ NumberInput.propTypes = {
      * Minimal possible value
      */
     min: PropTypes.number,
-
-    /**
-     * Will input have multiple lines?
-     */
-    multiline: PropTypes.bool,
 
     /**
      * Prevent value clamp on blur
@@ -163,6 +153,11 @@ NumberInput.propTypes = {
      * Initial delay in milliseconds before stepping the value
      */
     stepHoldDelay: PropTypes.number,
+
+    /**
+     * Delay before stepping the value. Number of milliseconds
+     */
+    stepHoldInterval: PropTypes.number,
 
     /**
      * Input value

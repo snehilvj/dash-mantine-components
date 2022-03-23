@@ -114,6 +114,11 @@ Anchor.propTypes = {
     transform: PropTypes.oneOf(["capitalize", "uppercase", "lowercase"]),
 
     /**
+     * Underline the text
+     */
+    underline: PropTypes.bool,
+
+    /**
      * Link or text variant
      */
     variant: PropTypes.oneOf(["link", "gradient", "text"]),

@@ -53,6 +53,16 @@ Button.defaultProps = {
 
 Button.propTypes = {
     /**
+     * Primary content
+     */
+    children: PropTypes.node,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    class_name: PropTypes.string,
+
+    /**
      * Button color from theme
      */
     color: PropTypes.oneOf([
@@ -71,16 +81,6 @@ Button.propTypes = {
         "yellow",
         "orange",
     ]),
-
-    /**
-     * Primary content
-     */
-    children: PropTypes.node,
-
-    /**
-     * Often used with CSS to style elements with common properties
-     */
-    class_name: PropTypes.string,
 
     /**
      * Reduces vertical and horizontal spacing

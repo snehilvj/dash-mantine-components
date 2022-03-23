@@ -63,6 +63,9 @@ import Timeline from "./components/Timeline.react";
 import TimelineItem from "./components/TimelineItem.react";
 import Mark from "./components/Mark.react";
 import MediaQuery from "./components/MediaQuery.react";
+import Menu from "./components/Menu.react";
+import MenuItem from "./components/MenuItem.react";
+import MenuLabel from "./components/MenuLabel.react";
 
 export {
     Button,
@@ -130,4 +133,7 @@ export {
     TimelineItem,
     Mark,
     MediaQuery,
+    Menu,
+    MenuItem,
+    MenuLabel,
 };

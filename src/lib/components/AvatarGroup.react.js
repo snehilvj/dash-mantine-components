@@ -24,12 +24,7 @@ const AvatarGroup = (props) => {
 
 AvatarGroup.displayName = "AvatarGroup";
 
-AvatarGroup.defaultProps = {
-    limit: 2,
-    radius: "xl",
-    size: "md",
-    spacing: "lg",
-};
+AvatarGroup.defaultProps = {};
 
 AvatarGroup.propTypes = {
     /**

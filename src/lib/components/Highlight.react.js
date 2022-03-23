@@ -99,11 +99,6 @@ Highlight.propTypes = {
     ]),
 
     /**
-     * Styles applied to highlighted part
-     */
-    highlightStyles: PropTypes.object,
-
-    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,

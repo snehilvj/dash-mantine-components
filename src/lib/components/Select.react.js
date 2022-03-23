@@ -67,6 +67,11 @@ Select.propTypes = {
     clearable: PropTypes.bool,
 
     /**
+     * Allow creatable option
+     */
+    creatable: PropTypes.bool,
+
+    /**
      * Select options used to renderer items in dropdown
      */
     data: PropTypes.oneOfType([
@@ -134,11 +139,6 @@ Select.propTypes = {
     initiallyOpened: PropTypes.bool,
 
     /**
-     * Sets border color to red and aria-invalid=true on input element
-     */
-    invalid: PropTypes.bool,
-
-    /**
      * Input label, displayed before input
      */
     label: PropTypes.any,
@@ -152,11 +152,6 @@ Select.propTypes = {
      * Maximum dropdown height in px
      */
     maxDropdownHeight: PropTypes.number,
-
-    /**
-     * Will input have multiple lines?
-     */
-    multiline: PropTypes.bool,
 
     /**
      * Nothing found label
@@ -298,11 +293,6 @@ Select.propTypes = {
      * Defines input appearance, defaults to default in light color scheme and filled in dark
      */
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
-
-    /**
-     * Whether to render the dropdown in a Portal
-     */
-    withinPortal: PropTypes.bool,
 
     /**
      * Dropdown z-index

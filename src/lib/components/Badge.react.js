@@ -25,6 +25,16 @@ Badge.defaultProps = {};
 
 Badge.propTypes = {
     /**
+     * Primary content
+     */
+    children: PropTypes.string,
+
+    /**
+     * Often used with CSS to style elements with common properties
+     */
+    class_name: PropTypes.string,
+
+    /**
      * Badge color from theme
      */
     color: PropTypes.oneOf([
@@ -43,16 +53,6 @@ Badge.propTypes = {
         "yellow",
         "orange",
     ]),
-
-    /**
-     * Primary content
-     */
-    children: PropTypes.string,
-
-    /**
-     * Often used with CSS to style elements with common properties
-     */
-    class_name: PropTypes.string,
 
     /**
      * Sets badge width to 100% of parent element, hides overflow text with text-overflow: ellipsis

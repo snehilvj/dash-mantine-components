@@ -1,7 +1,7 @@
 {
     "name": "dash_mantine_components",
-    "version": "0.6.0",
-    "description": "Custom dash components based on Mantine React Components library",
+    "version": "0.7.0",
+    "description": "Plotly Dash components based on Mantine",
     "repository": {
         "type": "git",
         "url": "git://github.com/snehilvj/dash-mantine-components.git"
@@ -24,11 +24,11 @@
     "author": "Snehil Vijay <snehilvj@outlook.com>",
     "license": "MIT",
     "dependencies": {
-        "@mantine/core": "^3.1.8",
-        "@mantine/dates": "^3.1.8",
-        "@mantine/hooks": "^3.1.8",
-        "@mantine/notifications": "^3.2.3",
-        "@mantine/prism": "^3.1.8",
+        "@mantine/core": "^4.0.7",
+        "@mantine/dates": "^4.0.7",
+        "@mantine/hooks": "^4.0.7",
+        "@mantine/notifications": "^4.0.7",
+        "@mantine/prism": "^4.0.7",
         "dash-extensions-js": "^0.0.8",
         "dayjs": "^1.10.7",
         "ramda": "^0.28.0"

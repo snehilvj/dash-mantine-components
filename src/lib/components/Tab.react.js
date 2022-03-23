@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
  * Utility component to pass to Tabs. For more information, see: https://mantine.dev/core/tabs/
  */
 const Tab = (props) => {
-    return <div>{props.children}</div>;
+    return <>{props.children}</>;
 };
 
 Tab.displayName = "Tab";

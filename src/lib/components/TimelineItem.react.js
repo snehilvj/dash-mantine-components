@@ -10,12 +10,7 @@ const TimelineItem = (props) => {
 
 TimelineItem.displayName = "TimelineItem";
 
-TimelineItem.defaultProps = {
-    bulletSize: 20,
-    lineVariant: "solid",
-    lineWidth: 4,
-    radius: "xl",
-};
+TimelineItem.defaultProps = {};
 
 TimelineItem.propTypes = {
     /**
