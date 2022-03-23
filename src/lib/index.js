@@ -66,6 +66,7 @@ import MediaQuery from "./components/MediaQuery.react";
 import Menu from "./components/Menu.react";
 import MenuItem from "./components/MenuItem.react";
 import MenuLabel from "./components/MenuLabel.react";
+import Code from "./components/Code.react";
 
 export {
     Button,
@@ -136,4 +137,5 @@ export {
     Menu,
     MenuItem,
     MenuLabel,
+    Code,
 };
