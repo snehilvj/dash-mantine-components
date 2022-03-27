@@ -60,72 +60,72 @@ Container.propTypes = {
     /**
      * Margin props
      */
-    m: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    m: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Margin props
      */
-    my: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    my: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Margin props
      */
-    mx: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    mx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Margin props
      */
-    mt: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    mt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Margin props
      */
-    mb: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    mb: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Margin props
      */
-    ml: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    ml: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Margin props
      */
-    mr: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    mr: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Padding props
      */
-    p: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    p: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Padding props
      */
-    py: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    py: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Padding props
      */
-    px: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    px: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Padding props
      */
-    pt: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    pt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Padding props
      */
-    pb: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    pb: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Padding props
      */
-    pl: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    pl: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
     /**
      * Padding props
      */
-    pr: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    pr: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default Container;

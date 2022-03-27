@@ -31,9 +31,11 @@ const RadioGroup = (props) => {
         >
             {data.map((radio, index) => {
                 return (
-                    <Radio value={radio.value} key={index}>
-                        {radio.label}
-                    </Radio>
+                    <Radio
+                        value={radio.value}
+                        key={index}
+                        label={radio.label}
+                    />
                 );
             })}
         </MantineRadioGroup>
