@@ -1,5 +1,19 @@
 # Change Log
 
+# 0.7.0 (Mantine v4.0)
+
+### Added
+
+- New components:
+  - Menu, MenuItem, MenuLabel
+    Code
+    List, ListItem
+    BackgroundImage
+
+### Fixed
+
+- Chip disabled state was not passed to component.
+
 # 0.6.0
 
 ### Added
