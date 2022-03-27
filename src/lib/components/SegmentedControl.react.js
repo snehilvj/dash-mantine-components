@@ -55,18 +55,21 @@ SegmentedControl.propTypes = {
     /**
      * Data based on which controls are rendered
      */
-    data: PropTypes.arrayOf(
-        PropTypes.exact({
-            /**
-             * The option's label
-             */
-            label: PropTypes.string.isRequired,
-            /**
-             * Option's value
-             */
-            value: PropTypes.string.isRequired,
-        })
-    ).isRequired,
+    data: PropTypes.oneOfType([
+        PropTypes.arrayOf(
+            PropTypes.exact({
+                /**
+                 * The option's label
+                 */
+                label: PropTypes.string.isRequired,
+                /**
+                 * Option's value
+                 */
+                value: PropTypes.string.isRequired,
+            })
+        ),
+        PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
 
     /**
      * Disabled input state
