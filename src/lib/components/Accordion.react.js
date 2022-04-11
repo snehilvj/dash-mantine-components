@@ -1,3 +1,4 @@
+/* eslint-disable no-undefined */
 import React from "react";
 import { Accordion as MantineAccordion } from "@mantine/core";
 import PropTypes from "prop-types";
@@ -18,7 +19,7 @@ const Accordion = (props) => {
         <MantineAccordion
             {...omit(["setProps", "class_name", "icon"], props)}
             onChange={onChange}
-            icon={renderDashComponent(icon)}
+            icon={icon ? renderDashComponent(icon) : undefined}
             className={class_name}
         >
             {React.Children.map(children, (child, index) => {

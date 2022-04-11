@@ -29,7 +29,10 @@ SimpleGrid.propTypes = {
      */
     breakpoints: PropTypes.arrayOf(
         PropTypes.exact({
-            maxWidth: PropTypes.number.isRequired,
+            maxWidth: PropTypes.oneOfType([
+                PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+                PropTypes.number,
+            ]),
             cols: PropTypes.number.isRequired,
             spacing: PropTypes.oneOfType([
                 PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),

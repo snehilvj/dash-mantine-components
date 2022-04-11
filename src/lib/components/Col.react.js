@@ -30,11 +30,6 @@ Col.propTypes = {
     children: PropTypes.node,
 
     /**
-     * Total amount of columns, controlled by Grid component
-     * */
-    columns: PropTypes.number,
-
-    /**
      * Often used with CSS to style elements with common properties
      */
     class_name: PropTypes.string,
@@ -46,11 +41,6 @@ Col.propTypes = {
         PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
         PropTypes.number,
     ]),
-
-    /**
-     * sets flex-grow to 1 if true, controlled by Grid component
-     */
-    grow: PropTypes.bool,
 
     /**
      * The ID of this component, used to identify dash components in callbacks

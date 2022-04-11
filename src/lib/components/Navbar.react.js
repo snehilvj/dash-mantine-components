@@ -63,14 +63,6 @@ Navbar.propTypes = {
     id: PropTypes.string,
 
     /**
-     *  Navbar padding from theme.spacing or number to set padding in px
-     */
-    padding: PropTypes.oneOfType([
-        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-        PropTypes.number,
-    ]),
-
-    /**
      *  Control top, left, right or bottom position values, controlled by AppShell component if rendered inside
      */
     position: PropTypes.exact({
@@ -94,6 +86,76 @@ Navbar.propTypes = {
      *  z-index
      */
     zIndex: PropTypes.number,
+
+    /**
+     * Margin props
+     */
+    m: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    my: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mb: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    ml: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mr: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    p: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    py: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    px: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pb: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pl: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pr: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default Navbar;
