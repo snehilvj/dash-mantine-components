@@ -27,9 +27,7 @@ const Slider = (props) => {
 
 Slider.displayName = "Slider";
 
-Slider.defaultProps = {
-    updatemode: "mouseup",
-};
+Slider.defaultProps = {};
 
 Slider.propTypes = {
     /**

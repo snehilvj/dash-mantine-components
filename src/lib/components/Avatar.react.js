@@ -7,13 +7,15 @@ import { omit } from "ramda";
  * Display user profile image, initials or fallback icon. For more information, see: https://mantine.dev/core/avatar/
  */
 const Avatar = (props) => {
-    const { class_name } = props;
+    const { class_name, children } = props;
 
     return (
         <MantineAvatar
             {...omit(["setProps", "class_name"], props)}
             className={class_name}
-        />
+        >
+            {children}
+        </MantineAvatar>
     );
 };
 
@@ -26,6 +28,11 @@ Avatar.propTypes = {
      * Image alt text or title for placeholder variant
      */
     alt: PropTypes.string,
+
+    /**
+     * Custom placeholder
+     */
+    children: PropTypes.node,
 
     /**
      * Often used with CSS to style elements with common properties

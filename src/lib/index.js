@@ -70,6 +70,7 @@ import Code from "./components/Code.react";
 import List from "./components/List.react";
 import ListItem from "./components/ListItem.react";
 import BackgroundImage from "./components/BackgroundImage.react";
+import DemoSlider from "./components/DemoSlider.react";
 
 export {
     Button,
@@ -144,4 +145,5 @@ export {
     List,
     ListItem,
     BackgroundImage,
+    DemoSlider,
 };

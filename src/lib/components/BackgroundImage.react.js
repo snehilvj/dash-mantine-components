@@ -26,6 +26,11 @@ BackgroundImage.propTypes = {
     children: PropTypes.node,
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Predefined border-radius value from theme.radius or number for border-radius in px
      */
     radius: PropTypes.oneOfType([

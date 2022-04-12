@@ -40,14 +40,7 @@ const Accordion = (props) => {
 
 Accordion.displayName = "Accordion";
 
-Accordion.defaultProps = {
-    disableIconRotation: false,
-    iconPosition: "left",
-    iconSize: 24,
-    offsetIcon: true,
-    order: 3,
-    transitionDuration: 200,
-};
+Accordion.defaultProps = {};
 
 Accordion.propTypes = {
     /**

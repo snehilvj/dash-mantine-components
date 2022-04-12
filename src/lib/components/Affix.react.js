@@ -21,9 +21,7 @@ const Affix = (props) => {
 
 Affix.displayName = "Affix";
 
-Affix.defaultProps = {
-    position: { bottom: 0, right: 0 },
-};
+Affix.defaultProps = {};
 
 Affix.propTypes = {
     /**
@@ -55,9 +53,6 @@ Affix.propTypes = {
      * Inline style override
      */
     style: PropTypes.object,
-
-    /** Element where portal should be rendered, by default new div element is created and appended to document.body */
-    target: PropTypes.string,
 
     /**
      * Root element z-index property
