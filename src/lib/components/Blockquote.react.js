@@ -1,3 +1,4 @@
+/* eslint-disable no-undefined */
 import { Blockquote as MantineBlockquote } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
@@ -14,7 +15,7 @@ const Blockquote = (props) => {
         <MantineBlockquote
             {...omit(["setProps", "children", "class_name", "icon"], props)}
             className={class_name}
-            icon={renderDashComponent(icon)}
+            icon={icon ? renderDashComponent(icon) : undefined}
         >
             {children}
         </MantineBlockquote>
