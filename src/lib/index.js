@@ -71,6 +71,7 @@ import List from "./components/List.react";
 import ListItem from "./components/ListItem.react";
 import BackgroundImage from "./components/BackgroundImage.react";
 import DemoSlider from "./components/DemoSlider.react";
+import ActionIcon from "./components/ActionIcon.react";
 
 export {
     Button,
@@ -146,4 +147,5 @@ export {
     ListItem,
     BackgroundImage,
     DemoSlider,
+    ActionIcon,
 };
