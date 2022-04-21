@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ActionIcon, ThemeIcon, Tooltip } from "@mantine/core";
+import { ThemeIcon, Tooltip } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import PropTypes from "prop-types";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";

@@ -1,4 +1,4 @@
-import { Avatar, AvatarsGroup as AvatarGroupMantine } from "@mantine/core";
+import { Avatar, AvatarsGroup as AvatarsGroupMantine } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import React from "react";
@@ -6,11 +6,11 @@ import React from "react";
 /**
  * Display user profile image, initials or fallback icon. For more information, see: https://mantine.dev/core/avatar/
  */
-const AvatarGroup = (props) => {
+const AvatarsGroup = (props) => {
     const { children, class_name } = props;
 
     return (
-        <AvatarGroupMantine
+        <AvatarsGroupMantine
             {...omit(["setProps", "children", "class_name"], props)}
             className={class_name}
         >
@@ -18,15 +18,15 @@ const AvatarGroup = (props) => {
                 const childProps = child.props._dashprivate_layout.props;
                 return <Avatar {...childProps} key={index} />;
             })}
-        </AvatarGroupMantine>
+        </AvatarsGroupMantine>
     );
 };
 
-AvatarGroup.displayName = "AvatarGroup";
+AvatarsGroup.displayName = "AvatarsGroup";
 
-AvatarGroup.defaultProps = {};
+AvatarsGroup.defaultProps = {};
 
-AvatarGroup.propTypes = {
+AvatarsGroup.propTypes = {
     /**
      * <Avatar /> components only
      */
@@ -82,4 +82,4 @@ AvatarGroup.propTypes = {
     total: PropTypes.number,
 };
 
-export default AvatarGroup;
+export default AvatarsGroup;

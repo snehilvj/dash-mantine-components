@@ -56,7 +56,7 @@ import TimeInput from "./components/TimeInput.react";
 import Loader from "./components/Loader.react";
 import LoadingOverlay from "./components/LoadingOverlay.react";
 import Avatar from "./components/Avatar.react";
-import AvatarGroup from "./components/AvatarGroup.react";
+import AvatarsGroup from "./components/AvatarsGroup.react";
 import Kbd from "./components/Kbd.react";
 import Highlight from "./components/Highlight.react";
 import Timeline from "./components/Timeline.react";
@@ -133,7 +133,7 @@ export {
     Loader,
     LoadingOverlay,
     Avatar,
-    AvatarGroup,
+    AvatarsGroup,
     Kbd,
     Highlight,
     Timeline,
