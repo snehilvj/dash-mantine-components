@@ -96,6 +96,11 @@ JsonInput.propTypes = {
     minRows: PropTypes.number,
 
     /**
+     * Placeholder
+     */
+    placeholder: PropTypes.string,
+
+    /**
      * Input border-radius from theme or number to set border-radius in px
      */
     radius: PropTypes.oneOfType([
