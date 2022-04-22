@@ -29,7 +29,7 @@ const ThemeSwitcher = (props) => {
                 style={style}
                 variant="outline"
                 onClick={onClick}
-                color={colorScheme === "dark" ? "yellow" : "indigo"}
+                color={colorScheme === "dark" ? "yellow" : "dark"}
             >
                 {colorScheme === "dark" ? (
                     <SunIcon size={22} />
