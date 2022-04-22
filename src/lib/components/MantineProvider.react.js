@@ -30,6 +30,11 @@ MantineProvider.propTypes = {
     id: PropTypes.string,
 
     /**
+     * inherit from one level up MantineProvider
+     */
+    inherit: PropTypes.bool,
+
+    /**
      * Styles
      */
     styles: PropTypes.object,
