@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
-import { useNotifications } from "@mantine/notifications";
+import {
+    showNotification,
+    updateNotification,
+    hideNotification,
+} from "@mantine/notifications";
 import PropTypes from "prop-types";
 import { renderDashComponents } from "dash-extensions-js";
 import { omit } from "ramda";
@@ -8,7 +12,6 @@ import { omit } from "ramda";
  * Show dynamic notifications and alerts to user, part of notifications system. For more information, see: https://mantine.dev/others/notifications/
  */
 const Notification = (props) => {
-    const notification = useNotifications();
     const {
         action,
         autoClose,
@@ -30,15 +33,15 @@ const Notification = (props) => {
 
         switch (nProps.action) {
             case "show":
-                notification.showNotification(nProps);
+                showNotification(nProps);
                 break;
 
             case "update":
-                notification.updateNotification(nProps.id, nProps);
+                updateNotification(nProps);
                 break;
 
             case "hide":
-                notification.hideNotification(nProps.id);
+                hideNotification(nProps.id);
                 break;
 
             default:
