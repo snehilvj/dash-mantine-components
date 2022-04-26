@@ -24,7 +24,10 @@ const SegmentedControl = (props) => {
 
 SegmentedControl.displayName = "SegmentedControl";
 
-SegmentedControl.defaultProps = {};
+SegmentedControl.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 SegmentedControl.propTypes = {
     /**
@@ -90,6 +93,34 @@ SegmentedControl.propTypes = {
      * Display Vertically or horizontally
      */
     orientation: PropTypes.oneOf(["horizontal", "vertical"]),
+
+    /**
+     * Used to allow user interactions in this component to be persisted when
+     * the component - or the page - is refreshed. If `persisted` is truthy and
+     * hasn't changed from its previous value, a `value` that the user has
+     * changed while using the app will keep that change, as long as
+     * the new `value` also matches what was given originally.
+     * Used in conjunction with `persistence_type`.
+     */
+    persistence: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+
+    /**
+     * Properties whose user interactions will persist after refreshing the
+     * component or the page.
+     */
+    persisted_props: PropTypes.arrayOf(PropTypes.oneOf(["value"])),
+
+    /**
+     * Where persisted user changes will be stored:
+     * memory: only kept in memory, reset on page refresh.
+     * local: window.localStorage, data is kept after the browser quit.
+     * session: window.sessionStorage, data is cleared once the browser quit.
+     */
+    persistence_type: PropTypes.oneOf(["local", "session", "memory"]),
 
     /**
      * Border-radius from theme or number to set border-radius in px

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Slider as MantineSlider } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
@@ -8,26 +8,39 @@ import { renderDashComponents } from "dash-extensions-js";
  * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const Slider = (props) => {
-    const { setProps, class_name, updatemode } = props;
-    let nProps = omit(["setProps", "class_name"], props);
+    const { setProps, class_name, updatemode, value } = props;
+    let nProps = omit(["setProps", "class_name", "value"], props);
     nProps = renderDashComponents(nProps, ["thumbChildren"]);
 
-    const onChange = (value) => {
-        setProps({ value });
-    };
+    const [val, setVal] = useState(value);
 
-    if (updatemode === "drag") {
-        nProps.onChange = onChange;
-    } else {
-        nProps.onChangeEnd = onChange;
-    }
-
-    return <MantineSlider className={class_name} {...nProps} />;
+    return (
+        <MantineSlider
+            className={class_name}
+            {...nProps}
+            value={val}
+            onChange={(value) => {
+                setVal(value);
+                if (updatemode === "drag") {
+                    setProps({ value });
+                }
+            }}
+            onChangeEnd={(value) => {
+                if (updatemode === "mouseup") {
+                    setProps({ value });
+                }
+            }}
+        />
+    );
 };
 
 Slider.displayName = "Slider";
 
-Slider.defaultProps = {};
+Slider.defaultProps = {
+    updatemode: "mouseup",
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 Slider.propTypes = {
     /**
@@ -54,6 +67,11 @@ Slider.propTypes = {
         "yellow",
         "orange",
     ]),
+
+    /**
+     * Disables slider
+     */
+    disabled: PropTypes.bool,
 
     /**
      * The ID of this component, used to identify dash components in callbacks
@@ -125,6 +143,34 @@ Slider.propTypes = {
     min: PropTypes.number,
 
     /**
+     * Used to allow user interactions in this component to be persisted when
+     * the component - or the page - is refreshed. If `persisted` is truthy and
+     * hasn't changed from its previous value, a `value` that the user has
+     * changed while using the app will keep that change, as long as
+     * the new `value` also matches what was given originally.
+     * Used in conjunction with `persistence_type`.
+     */
+    persistence: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+
+    /**
+     * Properties whose user interactions will persist after refreshing the
+     * component or the page.
+     */
+    persisted_props: PropTypes.arrayOf(PropTypes.oneOf(["value"])),
+
+    /**
+     * Where persisted user changes will be stored:
+     * memory: only kept in memory, reset on page refresh.
+     * local: window.localStorage, data is kept after the browser quit.
+     * session: window.sessionStorage, data is cleared once the browser quit.
+     */
+    persistence_type: PropTypes.oneOf(["local", "session", "memory"]),
+
+    /**
      * Amount of digits after the decimal point
      */
     precision: PropTypes.number,
@@ -150,7 +196,10 @@ Slider.propTypes = {
     /**
      * Predefined track and thumb size, number to set sizes in px
      */
-    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+    size: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
 
     /**
      * Number by which value will be incremented/decremented with thumb drag and arrows
