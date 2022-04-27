@@ -39,6 +39,14 @@ Table.propTypes = {
     class_name: PropTypes.string,
 
     /**
+     * Sets font size of all text inside table
+     */
+    fontSize: PropTypes.oneOfType([
+        PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+        PropTypes.number,
+    ]),
+
+    /**
      * The ID of this component, used to identify dash components in callbacks
      */
     id: PropTypes.string,
