@@ -179,6 +179,7 @@ ActionIcon.propTypes = {
      */
     variant: PropTypes.oneOf([
         "transparent",
+        "default",
         "hover",
         "filled",
         "light",
