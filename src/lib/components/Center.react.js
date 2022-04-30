@@ -40,10 +40,74 @@ Center.propTypes = {
     id: PropTypes.string,
 
     /**
-     * Set to true to use inline-flex instead of flex
+     * Margin props
      */
-    // inline: PropTypes.bool,
+    m: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
+    /**
+     * Margin props
+     */
+    my: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mb: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    ml: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Margin props
+     */
+    mr: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    p: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    py: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    px: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pb: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pl: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /**
+     * Padding props
+     */
+    pr: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /**
      * Inline style override
      */
