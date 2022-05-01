@@ -1,5 +1,19 @@
 # Change Log
 
+# 0.8.0
+
+### Added
+
+- ActionIcon component
+- (Specific to dmc-docs) DemoSlider, ThemeSwitcher
+
+### Fixed
+
+- Missing default icon bug in accordion and Blockquote.
+- Slider onChange callbacks
+- New props in various components
+- Add persistence to all inputs as well as tabs
+
 # 0.7.0 (Mantine v4.0)
 
 ### Added
