@@ -16,6 +16,7 @@ const TextInput = (props) => {
         "rightSection",
         "icon",
         "error",
+        "type"
     ]);
 
     const updateProps = (value) => {
@@ -122,6 +123,11 @@ TextInput.propTypes = {
     style: PropTypes.object,
 
     /**
+     * Input element type
+     */
+    type: PropTypes.oneOf(["number", "search", "text", "tel", "url", "email", "password"]),
+
+     /**
      * Input value
      */
     value: PropTypes.node,
