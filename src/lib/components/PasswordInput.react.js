@@ -1,5 +1,5 @@
 import React from "react";
-import { PasswordInput } from '@mantine/core';
+import { PasswordInput as MantinePasswordInput } from '@mantine/core';
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import { renderDashComponents } from "dash-extensions-js";
@@ -7,7 +7,7 @@ import { renderDashComponents } from "dash-extensions-js";
 /**
  * Capture password from user with option to toggle visibility. For more information, see: https://mantine.dev/core/password-input/
  */
- const TextInput = (props) => {
+ const PasswordInput = (props) => {
     const { setProps, class_name } = props;
     let nProps = omit(["setProps", "class_name"], props);
     nProps = renderDashComponents(nProps, [
