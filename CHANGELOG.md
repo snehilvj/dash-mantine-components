@@ -1,5 +1,12 @@
 # Change Log
 
+# 0.8.1
+
+### Added
+
+- PasswordInput component
+- Input element type ("number", "search", "text", "tel", "url", "email", "password") for TextInput component
+
 # 0.8.0
 
 ### Added
