@@ -73,6 +73,7 @@ import BackgroundImage from "./components/BackgroundImage.react";
 import DemoSlider from "./components/DemoSlider.react";
 import ActionIcon from "./components/ActionIcon.react";
 import ThemeSwitcher from "./components/ThemeSwitcher.react";
+import Stack from "./components/Stack.react";
 
 export {
     Button,
@@ -150,4 +151,5 @@ export {
     DemoSlider,
     ActionIcon,
     ThemeSwitcher,
+    Stack
 };
