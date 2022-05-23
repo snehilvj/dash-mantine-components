@@ -73,6 +73,9 @@ import BackgroundImage from "./components/BackgroundImage.react";
 import DemoSlider from "./components/DemoSlider.react";
 import ActionIcon from "./components/ActionIcon.react";
 import ThemeSwitcher from "./components/ThemeSwitcher.react";
+import Stepper from "./components/Stepper.react";
+import StepperStep from "./components/StepperStep.react";
+import StepperCompleted from "./components/StepperCompleted.react";
 
 export {
     Button,
@@ -150,4 +153,7 @@ export {
     DemoSlider,
     ActionIcon,
     ThemeSwitcher,
+    Stepper,
+    StepperStep,
+    StepperCompleted
 };
