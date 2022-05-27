@@ -11,8 +11,8 @@ const Group = (props) => {
 
     return (
         <MantineGroup
-            {...omit(["children", "setProps", "class_name"], props)}
             className={class_name}
+            {...omit(["setProps", "children", "class_name"], props)}
         >
             {React.Children.map(children, (child, index) => {
                 return <div key={index}>{child}</div>;
@@ -32,7 +32,7 @@ Group.propTypes = {
     align: PropTypes.oneOf(["stretch", "center", "flex-end", "flex-start"]),
 
     /**
-     * Content
+     * Primary content inside the stack
      */
     children: PropTypes.node,
 
