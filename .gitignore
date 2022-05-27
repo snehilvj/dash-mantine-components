@@ -296,3 +296,4 @@ dash_mantine_components/*
 !dash_mantine_components/theme/
 
 usage.py
+usage.css

@@ -13,6 +13,7 @@ import Checkbox from "./components/Checkbox.react";
 import Slider from "./components/Slider.react";
 import Alert from "./components/Alert.react";
 import TextInput from "./components/TextInput.react";
+import PasswordInput from "./components/PasswordInput.react";
 import Center from "./components/Center.react";
 import Container from "./components/Container.react";
 import SegmentedControl from "./components/SegmentedControl.react";
@@ -74,6 +75,7 @@ import DemoSlider from "./components/DemoSlider.react";
 import ActionIcon from "./components/ActionIcon.react";
 import ThemeSwitcher from "./components/ThemeSwitcher.react";
 import Stack from "./components/Stack.react";
+import Pagination from "./components/Pagination.react";
 
 export {
     Button,
@@ -91,6 +93,7 @@ export {
     Slider,
     Alert,
     TextInput,
+    PasswordInput,
     Center,
     Container,
     SegmentedControl,
@@ -152,4 +155,5 @@ export {
     ActionIcon,
     ThemeSwitcher,
     Stack,
+    Pagination
 };

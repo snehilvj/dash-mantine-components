@@ -1,13 +1,13 @@
 import React from "react";
-import { TextInput as MantineTextInput } from "@mantine/core";
+import { PasswordInput as MantinePasswordInput } from "@mantine/core";
 import PropTypes from "prop-types";
 import { omit } from "ramda";
 import { renderDashComponents } from "dash-extensions-js";
 
 /**
- * Custom input with label and description. For more information, see: https://mantine.dev/core/text-input/
+ * Capture password from user with option to toggle visibility. For more information, see: https://mantine.dev/core/password-input/
  */
-const TextInput = (props) => {
+const PasswordInput = (props) => {
     const { setProps, class_name } = props;
     let nProps = omit(["setProps", "class_name"], props);
     nProps = renderDashComponents(nProps, [
@@ -23,7 +23,7 @@ const TextInput = (props) => {
     };
 
     return (
-        <MantineTextInput
+        <MantinePasswordInput
             {...nProps}
             className={class_name}
             onChange={(ev) => updateProps(ev.currentTarget.value)}
@@ -31,13 +31,13 @@ const TextInput = (props) => {
     );
 };
 
-TextInput.displayName = "TextInput";
+PasswordInput.displayName = "PasswordInput";
 
-TextInput.defaultProps = {
+PasswordInput.defaultProps = {
     value: "",
 };
 
-TextInput.propTypes = {
+PasswordInput.propTypes = {
     /**
      * Often used with CSS to style elements with common properties
      */
@@ -145,4 +145,4 @@ TextInput.propTypes = {
     variant: PropTypes.oneOf(["default", "filled", "unstyled", "headless"]),
 };
 
-export default TextInput;
+export default PasswordInput;
