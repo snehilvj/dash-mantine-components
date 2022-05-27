@@ -13,6 +13,7 @@ import Checkbox from "./components/Checkbox.react";
 import Slider from "./components/Slider.react";
 import Alert from "./components/Alert.react";
 import TextInput from "./components/TextInput.react";
+import PasswordInput from "./components/PasswordInput.react";
 import Center from "./components/Center.react";
 import Container from "./components/Container.react";
 import SegmentedControl from "./components/SegmentedControl.react";
@@ -90,6 +91,7 @@ export {
     Slider,
     Alert,
     TextInput,
+    PasswordInput,
     Center,
     Container,
     SegmentedControl,

@@ -1,5 +1,13 @@
 # Change Log
 
+# 0.9.0
+
+### Added
+
+- New components
+  - PasswordInput
+- Input element types for TextInput component
+
 # 0.8.0
 
 ### Added
