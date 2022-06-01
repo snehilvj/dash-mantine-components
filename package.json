@@ -1,6 +1,6 @@
 {
     "name": "dash_mantine_components",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "description": "Plotly Dash components based on Mantine",
     "repository": {
         "type": "git",

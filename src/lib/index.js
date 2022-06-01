@@ -155,5 +155,5 @@ export {
     ActionIcon,
     ThemeSwitcher,
     Stack,
-    Pagination
+    Pagination,
 };

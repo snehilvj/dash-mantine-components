@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ThemeIcon, Tooltip } from "@mantine/core";
+import { ThemeIcon } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import PropTypes from "prop-types";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
@@ -22,22 +22,20 @@ const ThemeSwitcher = (props) => {
     }, [colorScheme]);
 
     return (
-        <Tooltip label="Change Theme">
-            <ThemeIcon
-                size={36}
-                radius={30}
-                style={style}
-                variant="outline"
-                onClick={onClick}
-                color={colorScheme === "dark" ? "yellow" : "dark"}
-            >
-                {colorScheme === "dark" ? (
-                    <SunIcon size={22} />
-                ) : (
-                    <MoonIcon size={22} />
-                )}
-            </ThemeIcon>
-        </Tooltip>
+        <ThemeIcon
+            size={36}
+            radius={30}
+            style={style}
+            variant="outline"
+            onClick={onClick}
+            color={colorScheme === "dark" ? "yellow" : "dark"}
+        >
+            {colorScheme === "dark" ? (
+                <SunIcon size={22} />
+            ) : (
+                <MoonIcon size={22} />
+            )}
+        </ThemeIcon>
     );
 };
 

@@ -6,6 +6,8 @@
 
 - New components
   - PasswordInput
+  - Stack
+  - Pagination
 - Input element types for TextInput component
 
 # 0.8.0
