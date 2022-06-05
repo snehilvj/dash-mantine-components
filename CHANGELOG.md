@@ -1,5 +1,16 @@
 # Change Log
 
+# 0.10.0
+
+### Added
+
+- New components
+  - Textarea
+
+### Fixed
+
+- Missing id's from Stack and Timeline components.
+
 # 0.9.0
 
 ### Added

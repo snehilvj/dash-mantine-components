@@ -42,6 +42,11 @@ Stack.propTypes = {
     class_name: PropTypes.string,
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Set grid justify-content property
      */
     justify: PropTypes.oneOf([

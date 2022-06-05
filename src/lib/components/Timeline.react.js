@@ -82,6 +82,11 @@ Timeline.propTypes = {
     ]),
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Line width in px
      */
     lineWidth: PropTypes.number,

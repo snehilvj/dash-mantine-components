@@ -76,6 +76,7 @@ import ActionIcon from "./components/ActionIcon.react";
 import ThemeSwitcher from "./components/ThemeSwitcher.react";
 import Stack from "./components/Stack.react";
 import Pagination from "./components/Pagination.react";
+import Textarea from "./components/Textarea.react";
 
 export {
     Button,
@@ -156,4 +157,5 @@ export {
     ThemeSwitcher,
     Stack,
     Pagination,
+    Textarea,
 };

@@ -54,6 +54,11 @@ TimelineItem.propTypes = {
     ]),
 
     /**
+     * The ID of this component, used to identify dash components in callbacks
+     */
+    id: PropTypes.string,
+
+    /**
      * Line border style
      */
     lineVariant: PropTypes.oneOf(["dashed", "dotted", "solid"]),
