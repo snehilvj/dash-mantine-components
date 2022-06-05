@@ -41,7 +41,7 @@ Textarea.propTypes = {
     /**
      * If true Textarea will grow with content until maxRows are reached
      */
-    autoSize: PropTypes.bool,
+    autosize: PropTypes.bool,
 
     /**
      * Often used with CSS to style elements with common properties

@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.10.1
+
+### Fixed
+
+- Typo in `autosize` prop name in Textarea component.
+
 # 0.10.0
 
 ### Added
