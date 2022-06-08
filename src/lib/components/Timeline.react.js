@@ -52,7 +52,7 @@ Timeline.propTypes = {
     bulletSize: PropTypes.number,
 
     /**
-     * <Timeline.Item /> components only
+     * dmc.TimelineItem components only
      */
     children: PropTypes.node,
 

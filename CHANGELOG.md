@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.10.2
+
+### Fixed
+
+- Tooltip component was not working properly.
+
 # 0.10.1
 
 ### Fixed
