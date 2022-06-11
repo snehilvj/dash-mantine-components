@@ -77,6 +77,11 @@ TimelineItem.propTypes = {
     ]),
 
     /**
+     * Inline style override
+     */
+    style: PropTypes.object,
+
+    /**
      * Item title, rendered next to bullet
      */
     title: PropTypes.any,

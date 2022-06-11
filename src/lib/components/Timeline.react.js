@@ -103,6 +103,11 @@ Timeline.propTypes = {
      * Reverse active direction without reversing items
      */
     reverseActive: PropTypes.bool,
+
+    /**
+     * Inline style override
+     */
+    style: PropTypes.object,
 };
 
 export default Timeline;

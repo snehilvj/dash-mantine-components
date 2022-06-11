@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.10.3
+
+### Added
+
+- `style` prop in Timeline and TimelineItem.
+
 # 0.10.2
 
 ### Fixed
