@@ -8,12 +8,13 @@ import React from "react";
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
  */
 const Menu = (props) => {
-    const { children, class_name } = props;
+    const { children, class_name, control, wrappingDivClassName, wrappingDivStyle } = props;
 
     return (
         <MantineMenu
-            {...omit(["children", "setProps", "class_name"], props)}
+            {...omit(["children", "setProps", "class_name", "control"], props)}
             className={class_name}
+            control={<div {...{wrappingDivClassName, wrappingDivStyle}}>{control}</div>}
         >
             {children}
         </MantineMenu>
@@ -54,6 +55,11 @@ Menu.propTypes = {
      * Close menu on scroll
      */
     closeOnScroll: PropTypes.bool,
+
+    /**
+     * Menu button component
+     */
+    control: PropTypes.node,
 
     /**
      * Close delay for hover trigger
@@ -166,6 +172,16 @@ Menu.propTypes = {
      * Renders arrow if true
      */
     withArrow: PropTypes.bool,
+
+    /**
+     * Wrapping target div class
+     */
+    wrappingDivClassName: PropTypes.string,
+
+    /**
+     * Wrapping target div style
+     */
+    wrappingDivStyle: PropTypes.object,
 
     /**
      * 	Menu body z-index
