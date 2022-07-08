@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.10.4
+
+### Added
+
+- `control` prop in Menu.
+
 # 0.10.3
 
 ### Added
@@ -78,7 +84,7 @@
   - Timeline, TimelineInput
   - Mark
   - MediaQuery
-  
+
 ### Fixed
 
 - DateRangePicker will clean up the half selected range on dropdown close. #47
