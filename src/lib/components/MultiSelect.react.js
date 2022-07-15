@@ -9,7 +9,6 @@ import { renderDashComponents } from "dash-extensions-js";
  */
 const MultiSelect = (props) => {
     const { setProps, data, class_name, creatable, createLabelPrefix } = props;
-    const [createdData, setCreatedData] = React.useState([])
 
     let nProps = omit(
         [
@@ -31,20 +30,26 @@ const MultiSelect = (props) => {
         "rightSection",
     ]);
 
-    const updateProps = (value) => {
+    const updateValue = (value) => {
         setProps({ value });
     };
+    const updateData = (data) => {
+        setProps({ data })
+    }
 
     const getCreateLabel = creatable ? (query) => `${createLabelPrefix}${query}`: null
 
     return (
         <MatineMultiSelect
             {...nProps}
-            data={[...data, ...createdData]}
-            onChange={updateProps}
+            data={data}
+            onChange={updateValue}
             className={class_name}
             getCreateLabel={getCreateLabel}
-            onCreate={(query) => setCreatedData((current) => [...current, query])}
+            onCreate={(query) => data.length > 0 ?
+                updateData([...data, typeof(data[0]) === "string" ? query : {value: query, label: query}]) :
+                updateData([...data, query])
+            }
         />
     );
 };
