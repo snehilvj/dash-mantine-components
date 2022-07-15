@@ -8,7 +8,8 @@ import { renderDashComponents } from "dash-extensions-js";
  * Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/
  */
 const MultiSelect = (props) => {
-    const { setProps, data, class_name } = props;
+    const { setProps, data, class_name, creatable, createLabelPrefix } = props;
+
     let nProps = omit(
         [
             "setProps",
@@ -17,6 +18,7 @@ const MultiSelect = (props) => {
             "persistence",
             "persisted_props",
             "persistence_type",
+            "createLabelPrefix",
         ],
         props
     );
@@ -28,16 +30,26 @@ const MultiSelect = (props) => {
         "rightSection",
     ]);
 
-    const updateProps = (value) => {
+    const updateValue = (value) => {
         setProps({ value });
     };
+    const updateData = (data) => {
+        setProps({ data })
+    }
+
+    const getCreateLabel = creatable ? (query) => `${createLabelPrefix}${query}`: null
 
     return (
         <MatineMultiSelect
             {...nProps}
             data={data}
-            onChange={updateProps}
+            onChange={updateValue}
             className={class_name}
+            getCreateLabel={getCreateLabel}
+            onCreate={(query) => data.length > 0 ?
+                updateData([...data, typeof(data[0]) === "string" ? query : {value: query, label: query}]) :
+                updateData([...data, query])
+            }
         />
     );
 };
@@ -75,6 +87,11 @@ MultiSelect.propTypes = {
      * Allow creatable option
      */
     creatable: PropTypes.bool,
+
+    /**
+     * Creatable option label prefix
+     */
+     createLabelPrefix: PropTypes.string,
 
     /**
      * Select options used to renderer items in dropdown
