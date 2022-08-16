@@ -1,8 +1,4 @@
-# dash is required to call `build:py`
-dash[dev]>=1.15.0
-dash-iconify
-dash-labs
-mistune
-python-frontmatter
-pydantic
-requests
+dash[dev]>=2.5.1
+wheel
+build
+black

@@ -1,0 +1,4 @@
+input:invalid {
+    border-color: #f03e3e;
+    outline: none;
+}

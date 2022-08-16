@@ -275,12 +275,17 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
+# Julia manifest file names
+Manifest.toml
+JuliaManifest.toml
+
 .DS_Store
+.vscode
 
 # R build artifacts
 inst
 man
-R/*
+R
 DESCRIPTION
 NAMESPACE
 
@@ -291,9 +296,7 @@ src/jl
 Project.toml
 
 # dash-mantine-components artifacts
-dash_mantine_components/*
+dash_mantine_components
 !dash_mantine_components/__init__.py
-!dash_mantine_components/theme/
 
 usage.py
-usage.css
