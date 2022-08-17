@@ -6,6 +6,8 @@ import ActionIcon from "./components/core/ActionIcon";
 import Affix from "./components/core/Affix";
 import Alert from "./components/core/Alert";
 import Anchor from "./components/core/Anchor";
+import Avatar from "./components/core/avatar/Avatar";
+import AvatarGroup from "./components/core/avatar/AvatarGroup";
 
 export {
     Accordion,
@@ -16,4 +18,6 @@ export {
     Affix,
     Alert,
     Anchor,
+    Avatar,
+    AvatarGroup,
 };
