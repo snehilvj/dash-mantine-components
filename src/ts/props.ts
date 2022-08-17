@@ -1,4 +1,4 @@
-import type { MantineNumberSize } from "@mantine/core";
+import type { MantineNumberSize, MantineGradient } from "@mantine/styles";
 
 declare type MantineStyleSystemValue = MantineNumberSize | (string & {});
 type MantineStyleSystemProps = {
@@ -62,3 +62,66 @@ export type MantineColors =
     | "yellow"
     | "orange"
     | "teal";
+
+export type TextProps = {
+    /** Text content */
+    children?: React.ReactNode;
+    /** Key of theme.fontSizes or number to set font-size in px */
+    size?: MantineNumberSize;
+    /** Key of theme.colors or any valid CSS color */
+    color?: "dimmed" | MantineColors;
+    /** Sets font-weight css property */
+    weight?:
+        | "normal"
+        | "bold"
+        | "bolder"
+        | "lighter"
+        | "initial"
+        | "inherit"
+        | number;
+    /** Sets text-transform css property */
+    transform?:
+        | "-moz-initial"
+        | "inherit"
+        | "initial"
+        | "revert"
+        | "unset"
+        | "none"
+        | "capitalize"
+        | "full-size-kana"
+        | "full-width"
+        | "lowercase"
+        | "uppercase";
+    /** Sets text-align css property */
+    align?:
+        | "left"
+        | "right"
+        | "-moz-initial"
+        | "inherit"
+        | "initial"
+        | "revert"
+        | "unset"
+        | "center"
+        | "end"
+        | "start"
+        | "justify"
+        | "match-parent";
+    /** Link or text variant */
+    variant?: "text" | "link" | "gradient";
+    /** CSS -webkit-line-clamp property */
+    lineClamp?: number;
+    /** Sets line-height to 1 for centering */
+    inline?: boolean;
+    /** Underline the text */
+    underline?: boolean;
+    /** Add strikethrough styles */
+    strikethrough?: boolean;
+    /** Adds font-style: italic style */
+    italic?: boolean;
+    /** Inherit font properties from parent element */
+    inherit?: boolean;
+    /** Controls gradient settings in gradient variant only */
+    gradient?: MantineGradient;
+    /** Shorthand for component="span" */
+    span?: boolean;
+};

@@ -5,6 +5,7 @@ import AccordionControl from "./components/core/accordion/AccordionControl";
 import ActionIcon from "./components/core/ActionIcon";
 import Affix from "./components/core/Affix";
 import Alert from "./components/core/Alert";
+import Anchor from "./components/core/Anchor";
 
 export {
     Accordion,
@@ -14,4 +15,5 @@ export {
     ActionIcon,
     Affix,
     Alert,
+    Anchor,
 };
