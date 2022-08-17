@@ -8,6 +8,7 @@ import Alert from "./components/core/Alert";
 import Anchor from "./components/core/Anchor";
 import Avatar from "./components/core/avatar/Avatar";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
+import Badge from "./components/core/Badge";
 
 export {
     Accordion,
@@ -20,4 +21,5 @@ export {
     Anchor,
     Avatar,
     AvatarGroup,
+    Badge,
 };
