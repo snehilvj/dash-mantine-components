@@ -10,6 +10,7 @@ import Avatar from "./components/core/avatar/Avatar";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Badge from "./components/core/Badge";
 import BackgroundImage from "./components/core/BackgroundImage";
+import Blockquote from "./components/core/Blockquote";
 
 export {
     Accordion,
@@ -24,4 +25,5 @@ export {
     AvatarGroup,
     Badge,
     BackgroundImage,
+    Blockquote,
 };
