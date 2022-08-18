@@ -14,6 +14,7 @@ import Blockquote from "./components/core/Blockquote";
 import Breadcrumbs from "./components/core/Breadcrumbs";
 import Button from "./components/core/Button";
 import Center from "./components/core/Center";
+import Checkbox from "./components/core/Checkbox";
 
 export {
     Accordion,
@@ -32,4 +33,5 @@ export {
     Breadcrumbs,
     Button,
     Center,
+    Checkbox,
 };
