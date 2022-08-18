@@ -9,6 +9,7 @@ import Anchor from "./components/core/Anchor";
 import Avatar from "./components/core/avatar/Avatar";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Badge from "./components/core/Badge";
+import BackgroundImage from "./components/core/BackgroundImage";
 
 export {
     Accordion,
@@ -22,4 +23,5 @@ export {
     Avatar,
     AvatarGroup,
     Badge,
+    BackgroundImage,
 };
