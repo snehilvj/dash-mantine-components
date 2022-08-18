@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DashComponentProps, MantineColors } from "../../../props";
 import { Checkbox as MantineCheckbox } from "@mantine/core";
 import { MantineNumberSize, MantineSize } from "@mantine/styles";
 

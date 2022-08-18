@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { DashComponentProps, InputWrapperBaseProps } from "../../props";
+import { DashComponentProps, InputWrapperBaseProps } from "../../../props";
 import { Checkbox } from "@mantine/core";
 import { MantineNumberSize, MantineSize } from "@mantine/styles";
 

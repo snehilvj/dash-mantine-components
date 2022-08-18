@@ -14,8 +14,10 @@ import Blockquote from "./components/core/Blockquote";
 import Breadcrumbs from "./components/core/Breadcrumbs";
 import Button from "./components/core/Button";
 import Center from "./components/core/Center";
-import Checkbox from "./components/core/Checkbox";
-import CheckboxGroup from "./components/core/CheckboxGroup";
+import Checkbox from "./components/core/checkbox/Checkbox";
+import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
+import Chip from "./components/core/chip/Chip";
+import ChipGroup from "./components/core/chip/ChipGroup";
 
 export {
     Accordion,
@@ -36,4 +38,6 @@ export {
     Center,
     Checkbox,
     CheckboxGroup,
+    Chip,
+    ChipGroup,
 };
