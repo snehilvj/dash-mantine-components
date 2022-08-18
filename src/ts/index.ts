@@ -13,6 +13,7 @@ import BackgroundImage from "./components/core/BackgroundImage";
 import Blockquote from "./components/core/Blockquote";
 import Breadcrumbs from "./components/core/Breadcrumbs";
 import Button from "./components/core/Button";
+import Center from "./components/core/Center";
 
 export {
     Accordion,
@@ -30,4 +31,5 @@ export {
     Blockquote,
     Breadcrumbs,
     Button,
+    Center,
 };
