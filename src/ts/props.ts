@@ -1,4 +1,8 @@
-import type { MantineNumberSize, MantineGradient } from "@mantine/styles";
+import type {
+    MantineNumberSize,
+    MantineGradient,
+    MantineTheme,
+} from "@mantine/styles";
 
 declare type MantineStyleSystemValue = MantineNumberSize | (string & {});
 type MantineStyleSystemProps = {
@@ -125,3 +129,12 @@ export type TextProps = {
     /** Shorthand for component="span" */
     span?: boolean;
 };
+
+export type LoaderProps = {
+    /** Defines width of loader */
+    size?: MantineNumberSize;
+    /** Loader color from theme */
+    color?: MantineColors;
+    /** Loader appearance */
+    variant?: MantineTheme["loader"];
+} & DefaultProps;

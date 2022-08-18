@@ -1,17 +1,8 @@
 import React, { useCallback } from "react";
-import { DashComponentProps, DefaultProps, MantineColors } from "../../props";
+import { DashComponentProps, LoaderProps, MantineColors } from "../../props";
 import { ActionIcon as MantineActionIcon } from "@mantine/core";
 import { ActionIconVariant } from "@mantine/core/lib/ActionIcon";
-import { MantineNumberSize, MantineTheme } from "@mantine/styles";
-
-type LoaderProps = {
-    /** Defines width of loader */
-    size?: MantineNumberSize;
-    /** Loader color from theme */
-    color?: MantineColors;
-    /** Loader appearance */
-    variant?: MantineTheme["loader"];
-} & DefaultProps;
+import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Icon */
@@ -56,7 +47,6 @@ const ActionIcon = (props: Props) => {
 
 ActionIcon.defaultProps = {
     n_clicks: 0,
-    loading: false,
 };
 
 export default ActionIcon;

@@ -12,6 +12,7 @@ import Badge from "./components/core/Badge";
 import BackgroundImage from "./components/core/BackgroundImage";
 import Blockquote from "./components/core/Blockquote";
 import Breadcrumbs from "./components/core/Breadcrumbs";
+import Button from "./components/core/Button";
 
 export {
     Accordion,
@@ -28,4 +29,5 @@ export {
     BackgroundImage,
     Blockquote,
     Breadcrumbs,
+    Button,
 };
