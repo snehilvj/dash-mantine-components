@@ -11,6 +11,7 @@ import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Badge from "./components/core/Badge";
 import BackgroundImage from "./components/core/BackgroundImage";
 import Blockquote from "./components/core/Blockquote";
+import Breadcrumbs from "./components/core/Breadcrumbs";
 
 export {
     Accordion,
@@ -26,4 +27,5 @@ export {
     Badge,
     BackgroundImage,
     Blockquote,
+    Breadcrumbs,
 };
