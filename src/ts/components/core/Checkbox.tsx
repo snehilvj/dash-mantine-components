@@ -18,7 +18,8 @@ type Props = {
     transitionDuration?: number;
     /** State of check box */
     checked?: boolean;
-    /** Properties whose user interactions will persist after refreshing the component or the page.*/
+    /** To be used with checkbox group */
+    value?: string;
 } & DashComponentProps;
 
 /**

@@ -138,3 +138,18 @@ export type LoaderProps = {
     /** Loader appearance */
     variant?: MantineTheme["loader"];
 } & DefaultProps;
+
+export type InputWrapperBaseProps = {
+    /** Input label, displayed before input */
+    label?: React.ReactNode;
+    /** Input description, displayed after label */
+    description?: React.ReactNode;
+    /** Displays error message after input */
+    error?: React.ReactNode;
+    /** Adds required attribute to the input and red asterisk on the right side of label */
+    required?: boolean;
+    /** Determines whether required asterisk should be rendered, overrides required prop, does not add required attribute to the input */
+    withAsterisk?: boolean;
+    /** Controls order of the Input.Wrapper elements */
+    inputWrapperOrder?: ("label" | "input" | "description" | "error")[];
+};

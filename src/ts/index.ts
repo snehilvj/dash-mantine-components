@@ -15,6 +15,7 @@ import Breadcrumbs from "./components/core/Breadcrumbs";
 import Button from "./components/core/Button";
 import Center from "./components/core/Center";
 import Checkbox from "./components/core/Checkbox";
+import CheckboxGroup from "./components/core/CheckboxGroup";
 
 export {
     Accordion,
@@ -34,4 +35,5 @@ export {
     Button,
     Center,
     Checkbox,
+    CheckboxGroup,
 };
