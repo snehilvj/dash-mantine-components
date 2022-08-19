@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { DashComponentProps, LoaderProps, MantineColors } from "../../props";
+import { DashComponentProps } from "../../props";
 import { ColorPicker as MantineColorPicker } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
 

@@ -20,6 +20,8 @@ import Chip from "./components/core/chip/Chip";
 import ChipGroup from "./components/core/chip/ChipGroup";
 import Code from "./components/core/Code";
 import ColorPicker from "./components/core/ColorPicker";
+import Col from "./components/core/Col";
+import Container from "./components/core/Container";
 
 export {
     Accordion,
@@ -44,4 +46,6 @@ export {
     ChipGroup,
     Code,
     ColorPicker,
+    Col,
+    Container,
 };

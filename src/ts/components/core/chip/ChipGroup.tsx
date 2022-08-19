@@ -24,7 +24,7 @@ type Props = {
     /** Space between elements */
     spacing?: MantineNumberSize;
     /** Defines align-items css property */
-    align?: React.CSSProperties["alignItems"];
+    align?: "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
 } & DashComponentProps;
 
 /**
