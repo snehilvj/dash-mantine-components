@@ -18,6 +18,7 @@ import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
 import Chip from "./components/core/chip/Chip";
 import ChipGroup from "./components/core/chip/ChipGroup";
+import Code from "./components/core/Code";
 
 export {
     Accordion,
@@ -40,4 +41,5 @@ export {
     CheckboxGroup,
     Chip,
     ChipGroup,
+    Code,
 };
