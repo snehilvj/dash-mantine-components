@@ -22,6 +22,7 @@ import Code from "./components/core/Code";
 import ColorPicker from "./components/core/ColorPicker";
 import Col from "./components/core/Col";
 import Container from "./components/core/Container";
+import DatePicker from "./components/dates/DatePicker";
 
 export {
     Accordion,
@@ -48,4 +49,5 @@ export {
     ColorPicker,
     Col,
     Container,
+    DatePicker,
 };
