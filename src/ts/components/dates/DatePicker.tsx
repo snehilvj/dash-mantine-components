@@ -1,8 +1,12 @@
-import { DashComponentProps, InputSharedProps } from "../../props";
+import {
+    DashComponentProps,
+    InputSharedProps,
+    MantineTransition,
+} from "../../props";
 import { DatePicker as MantineDatePicker } from "@mantine/dates";
 import { FirstDayOfWeek } from "@mantine/dates/lib/types";
 import { isDateInList } from "../../utils";
-import { MantineTransition, MantineSize } from "@mantine/core";
+import { MantineSize } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import dayjs from "dayjs";
 import React, { useState, useCallback, useEffect } from "react";

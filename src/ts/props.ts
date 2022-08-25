@@ -5,7 +5,7 @@ import type {
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
 
-type MantineStyleSystemProps = {
+export type MantineStyleSystemProps = {
     /** margin props */
     m?: MantineSize;
     /** margin props */
@@ -174,3 +174,22 @@ export interface InputSharedProps {
     /** Input size */
     size?: MantineSize;
 }
+
+export type MantineTransition =
+    | "fade"
+    | "skew-up"
+    | "skew-down"
+    | "rotate-right"
+    | "rotate-left"
+    | "slide-down"
+    | "slide-up"
+    | "slide-right"
+    | "slide-left"
+    | "scale-y"
+    | "scale-x"
+    | "scale"
+    | "pop"
+    | "pop-top-left"
+    | "pop-top-right"
+    | "pop-bottom-left"
+    | "pop-bottom-right";
