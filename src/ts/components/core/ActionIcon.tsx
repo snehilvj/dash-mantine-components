@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { DashComponentProps, LoaderProps, MantineColors } from "../../props";
 import { ActionIcon as MantineActionIcon } from "@mantine/core";
 import { ActionIconVariant } from "@mantine/core/lib/ActionIcon";
-import { MantineNumberSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Icon */
@@ -12,9 +12,9 @@ type Props = {
     /** Key of theme.colors */
     color?: MantineColors;
     /** Button border-radius from theme or number to set border-radius in px */
-    radius?: MantineNumberSize;
+    radius?: MantineSize;
     /** Predefined icon size or number to set width and height in px */
-    size?: MantineNumberSize;
+    size?: MantineSize;
     /** Props spread to Loader component */
     loaderProps?: LoaderProps;
     /** Indicates loading state */

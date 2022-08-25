@@ -1,13 +1,13 @@
 import React from "react";
 import { DashComponentProps } from "../../props";
 import { BackgroundImage as MantineBackgroundImage } from "@mantine/core";
-import { MantineNumberSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Image url */
     src: string;
     /** Key of theme.radius or number to set border-radius in px */
-    radius?: MantineNumberSize;
+    radius?: MantineSize;
     /** Content */
     children?: React.ReactNode;
 } & DashComponentProps;

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { DashComponentProps, MantineColors } from "../../props";
 import { Alert as MantineAlert } from "@mantine/core";
 import { AlertVariant } from "@mantine/core/lib/Alert/Alert";
-import { MantineNumberSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Alert title */
@@ -17,10 +17,8 @@ type Props = {
     icon?: React.ReactNode;
     /** True to display close button */
     withCloseButton?: boolean;
-    /** Close button aria-label */
-    closeButtonLabel?: string;
     /** Radius from theme.radius, or number to set border-radius in px, defaults to theme.defaultRadius */
-    radius?: MantineNumberSize;
+    radius?: MantineSize;
     /** Duration in milliseconds after which the Alert dismisses itself. */
     duration: number;
     /** Whether to hide the alert */

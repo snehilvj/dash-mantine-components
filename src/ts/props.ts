@@ -1,39 +1,39 @@
 import type {
-    MantineNumberSize,
     MantineGradient,
     MantineTheme,
+    MantineSize,
 } from "@mantine/styles";
+import { InputVariant } from "@mantine/core/lib/Input";
 
-declare type MantineStyleSystemValue = MantineNumberSize | (string & {});
 type MantineStyleSystemProps = {
     /** margin props */
-    m?: MantineStyleSystemValue;
+    m?: MantineSize;
     /** margin props */
-    my?: MantineStyleSystemValue;
+    my?: MantineSize;
     /** margin props */
-    mx?: MantineStyleSystemValue;
+    mx?: MantineSize;
     /** margin props */
-    mt?: MantineStyleSystemValue;
+    mt?: MantineSize;
     /** margin props */
-    mb?: MantineStyleSystemValue;
+    mb?: MantineSize;
     /** margin props */
-    ml?: MantineStyleSystemValue;
+    ml?: MantineSize;
     /** margin props */
-    mr?: MantineStyleSystemValue;
+    mr?: MantineSize;
     /** padding props */
-    p?: MantineStyleSystemValue;
+    p?: MantineSize;
     /** padding props */
-    py?: MantineStyleSystemValue;
+    py?: MantineSize;
     /** padding props */
-    px?: MantineStyleSystemValue;
+    px?: MantineSize;
     /** padding props */
-    pt?: MantineStyleSystemValue;
+    pt?: MantineSize;
     /** padding props */
-    pb?: MantineStyleSystemValue;
+    pb?: MantineSize;
     /** padding props */
-    pl?: MantineStyleSystemValue;
+    pl?: MantineSize;
     /** padding props */
-    pr?: MantineStyleSystemValue;
+    pr?: MantineSize;
 };
 
 export type DefaultProps = {
@@ -71,7 +71,7 @@ export type TextProps = {
     /** Text content */
     children?: React.ReactNode;
     /** Key of theme.fontSizes or number to set font-size in px */
-    size?: MantineNumberSize;
+    size?: MantineSize;
     /** Key of theme.colors or any valid CSS color */
     color?: "dimmed" | MantineColors;
     /** Sets font-weight css property */
@@ -132,7 +132,7 @@ export type TextProps = {
 
 export type LoaderProps = {
     /** Defines width of loader */
-    size?: MantineNumberSize;
+    size?: MantineSize;
     /** Loader color from theme */
     color?: MantineColors;
     /** Loader appearance */
@@ -153,3 +153,24 @@ export type InputWrapperBaseProps = {
     /** Controls order of the Input.Wrapper elements */
     inputWrapperOrder?: ("label" | "input" | "description" | "error")[];
 };
+
+export interface InputSharedProps {
+    /** Adds icon on the left side of input */
+    icon?: React.ReactNode;
+    /** Width of icon section in px */
+    iconWidth?: number;
+    /** Right section of input, similar to icon but on the right */
+    rightSection?: React.ReactNode;
+    /** Width of right section, is used to calculate input padding-right */
+    rightSectionWidth?: number;
+    /** Sets required on input element */
+    required?: boolean;
+    /** Input border-radius from theme or number to set border-radius in px */
+    radius?: MantineSize;
+    /** Defines input appearance, defaults to default in light color scheme and filled in dark */
+    variant?: InputVariant;
+    /** Disabled input state */
+    disabled?: boolean;
+    /** Input size */
+    size?: MantineSize;
+}

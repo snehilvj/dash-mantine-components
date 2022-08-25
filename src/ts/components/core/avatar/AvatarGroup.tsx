@@ -1,13 +1,13 @@
 import React from "react";
 import { DashComponentProps, MantineColors } from "../../../props";
 import { Avatar } from "@mantine/core";
-import { MantineNumberSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Avatar components */
     children?: React.ReactNode;
     /** Negative space between Avatars */
-    spacing?: MantineNumberSize;
+    spacing?: MantineSize;
 } & DashComponentProps;
 
 /**

@@ -1,11 +1,11 @@
-import { DashComponentProps } from "../../props";
+import { DashComponentProps, InputSharedProps } from "../../props";
 import { DatePicker as MantineDatePicker } from "@mantine/dates";
 import { FirstDayOfWeek } from "@mantine/dates/lib/types";
+import { isDateInList } from "../../utils";
 import { MantineTransition, MantineSize } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import dayjs from "dayjs";
 import React, { useState, useCallback, useEffect } from "react";
-import { isDateInList } from "../../utils";
 
 type Props = {
     /** Placeholder, displayed when date is not selected */
@@ -26,8 +26,6 @@ type Props = {
     dropdownPosition?: "bottom-start" | "top-start" | "flip";
     /** Allow to clear value */
     clearable?: boolean;
-    /** aria-label for clear button */
-    clearButtonLabel?: string;
     /** Dropdown zIndex */
     zIndex?: number;
     /** call onChange with last valid value onBlur */
@@ -72,18 +70,6 @@ type Props = {
     allowLevelChange?: boolean;
     /** Initial date selection level */
     initialLevel?: "date" | "month" | "year";
-    /** Next month control aria-label */
-    nextMonthLabel?: string;
-    /** Previous month control aria-label */
-    previousMonthLabel?: string;
-    /** Next year control aria-label */
-    nextYearLabel?: string;
-    /** Previous year control aria-label */
-    previousYearLabel?: string;
-    /** Next decade control aria-label */
-    nextDecadeLabel?: string;
-    /** Previous decade control aria-label */
-    previousDecadeLabel?: string;
     /** dayjs Calendar month label format */
     labelFormat?: string;
     /** dayjs Calendar year label format */
@@ -106,7 +92,24 @@ type Props = {
     styledDates?: string[];
     /** className to be added to dates to be styled */
     styledDatesClassName?: string;
-} & DashComponentProps;
+    /** When true dates that are outside of given month cannot be clicked or focused */
+    disableOutsideEvents?: boolean;
+    /** Disabled input state */
+    disabled: boolean;
+    /** Set to true to make calendar take 100% of container width */
+    fullWidth?: boolean;
+    /** Prevent focusing upon clicking */
+    preventFocus?: boolean;
+    /** Should focusable days have tabIndex={0}? */
+    focusable?: boolean;
+    /** Set to false to remove weekdays row */
+    hideWeekdays?: boolean;
+    /** Remove outside dates */
+    hideOutsideDates?: boolean;
+    /** Indices of weekend days */
+    weekendDays?: number[];
+} & DashComponentProps &
+    InputSharedProps;
 
 /**
  * Capture date input from user. For more information, see: https://mantine.dev/dates/date-picker/
@@ -180,6 +183,7 @@ const DatePicker = (props: Props) => {
         <MantineDatePicker
             onChange={onChange}
             locale={locale}
+            value={date}
             minDate={minDate && new Date(minDate)}
             maxDate={maxDate && new Date(maxDate)}
             initialMonth={initialMonth && new Date(initialMonth)}
@@ -190,6 +194,8 @@ const DatePicker = (props: Props) => {
     );
 };
 
-DatePicker.defaultProps = {};
+DatePicker.defaultProps = {
+    styledDatesClassName: "styledDates",
+};
 
 export default DatePicker;

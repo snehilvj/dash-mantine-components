@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
 import { DashComponentProps, MantineColors } from "../../../props";
 import { Chip as MantineChip } from "@mantine/core";
-import { MantineNumberSize, MantineSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Chip radius from theme or number to set value in px */
-    radius?: MantineNumberSize;
+    radius?: MantineSize;
     /** Predefined chip size */
     size?: MantineSize;
     /** Chip input type */

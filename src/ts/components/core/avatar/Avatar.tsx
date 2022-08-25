@@ -1,7 +1,7 @@
 import React from "react";
 import { DashComponentProps, MantineColors } from "../../../props";
 import { Avatar as MantineAvatar } from "@mantine/core";
-import { MantineNumberSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Image url */
@@ -9,9 +9,9 @@ type Props = {
     /** Image alt text or title for placeholder variant */
     alt?: string;
     /** Avatar width and height */
-    size?: MantineNumberSize;
+    size?: MantineSize;
     /** Value from theme.radius or number to set border-radius in px */
-    radius?: MantineNumberSize;
+    radius?: MantineSize;
     /** Color from theme.colors used for letter and icon placeholders */
     color?: MantineColors;
     /** Custom placeholder */

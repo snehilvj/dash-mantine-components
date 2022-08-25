@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { DashComponentProps, InputWrapperBaseProps } from "../../../props";
 import { Checkbox } from "@mantine/core";
-import { MantineNumberSize, MantineSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Checkbox components only */
@@ -11,9 +11,9 @@ type Props = {
     /** Horizontal or vertical orientation */
     orientation?: "horizontal" | "vertical";
     /** Spacing between checkboxes in horizontal orientation */
-    spacing?: MantineNumberSize;
+    spacing?: MantineSize;
     /** Space between label and inputs */
-    offset?: MantineNumberSize;
+    offset?: MantineSize;
     /** Predefined label fontSize, checkbox width, height and border-radius */
     size?: MantineSize;
 } & InputWrapperBaseProps &

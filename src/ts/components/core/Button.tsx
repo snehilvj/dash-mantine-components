@@ -1,11 +1,7 @@
 import React, { useCallback } from "react";
 import { DashComponentProps, MantineColors, LoaderProps } from "../../props";
 import { Button as MantineButton } from "@mantine/core";
-import {
-    MantineNumberSize,
-    MantineSize,
-    MantineGradient,
-} from "@mantine/styles";
+import { MantineSize, MantineGradient } from "@mantine/styles";
 import { ButtonVariant } from "@mantine/core/lib/Button";
 
 type Props = {
@@ -22,7 +18,7 @@ type Props = {
     /** Sets button width to 100% of parent element */
     fullWidth?: boolean;
     /** Button border-radius from theme or number to set border-radius in px */
-    radius?: MantineNumberSize;
+    radius?: MantineSize;
     /** Controls button appearance */
     variant?: ButtonVariant;
     /** Controls gradient settings in gradient variant only */

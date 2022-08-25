@@ -1,13 +1,13 @@
 import React from "react";
 import { DashComponentProps } from "../../props";
 import { Container as MantineContainer } from "@mantine/core";
-import { MantineNumberSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Container content */
     children?: React.ReactNode;
     /** Predefined container max-width or number for max-width in px */
-    size?: MantineNumberSize;
+    size?: MantineSize;
     /** If fluid is set to true, size prop is ignored and Container always take 100% of width */
     fluid?: boolean;
 } & DashComponentProps;

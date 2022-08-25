@@ -20,12 +20,6 @@ type Props = {
     fullWidth?: boolean;
     /** Should interactive elements be focusable */
     focusable?: boolean;
-    /** Saturation slider aria-label */
-    saturationLabel?: string;
-    /** Hue slider aria-label */
-    hueLabel?: string;
-    /** Alpha slider aria-label */
-    alphaLabel?: string;
 } & DashComponentProps;
 
 /**

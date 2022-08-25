@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { DashComponentProps } from "../../../props";
 import { Chip } from "@mantine/core";
-import { MantineNumberSize, MantineSize } from "@mantine/styles";
+import { MantineSize } from "@mantine/styles";
 import { GroupPosition } from "@mantine/core/lib/Group";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
     /** Value of currently selected Chip */
     value?: string[];
     /** Space between label and inputs */
-    offset?: MantineNumberSize;
+    offset?: MantineSize;
     /** Predefined label fontSize, Chip width, height and border-radius */
     size?: MantineSize;
     /** Allow multiple values to be selected at a time */
@@ -22,7 +22,7 @@ type Props = {
     /** Defines flex-grow property for each element, true -> 1, false -> 0 */
     grow?: boolean;
     /** Space between elements */
-    spacing?: MantineNumberSize;
+    spacing?: MantineSize;
     /** Defines align-items css property */
     align?: "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
 } & DashComponentProps;

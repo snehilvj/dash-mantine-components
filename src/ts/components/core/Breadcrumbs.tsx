@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DashComponentProps } from "../../props";
 import { Breadcrumbs as MantineBreadcrumbs } from "@mantine/core";
 
 type Props = {

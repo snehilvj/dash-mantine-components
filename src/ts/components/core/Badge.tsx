@@ -1,11 +1,7 @@
 import React from "react";
 import { DashComponentProps, MantineColors } from "../../props";
 import { Badge as MantineBadge, BadgeVariant } from "@mantine/core";
-import {
-    MantineSize,
-    MantineNumberSize,
-    MantineGradient,
-} from "@mantine/styles";
+import { MantineSize, MantineGradient } from "@mantine/styles";
 
 type Props = {
     /** Key of theme.colors */
@@ -17,7 +13,7 @@ type Props = {
     /** Badge height and font size */
     size?: MantineSize;
     /** Key of theme.radius or number to set border-radius in px */
-    radius?: MantineNumberSize;
+    radius?: MantineSize;
     /** Sets badge width to 100% of parent element, hides overflow text with text-overflow: ellipsis */
     fullWidth?: boolean;
     /** Section rendered on the left side of label */
