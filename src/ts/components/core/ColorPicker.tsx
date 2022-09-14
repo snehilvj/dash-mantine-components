@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { DashComponentProps } from "../../props";
 import { ColorPicker as MantineColorPicker } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
@@ -28,12 +28,9 @@ type Props = {
 const ColorPicker = (props: Props) => {
     const { setProps, value, ...other } = props;
 
-    const onChange = useCallback(
-        (value) => {
-            setProps({ value });
-        },
-        [value]
-    );
+    const onChange = (value: string) => {
+        setProps({ value });
+    };
 
     return <MantineColorPicker onChange={onChange} {...other} />;
 };

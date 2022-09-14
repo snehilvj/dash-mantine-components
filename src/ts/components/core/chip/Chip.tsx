@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { DashComponentProps, MantineColors } from "../../../props";
 import { Chip as MantineChip } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
@@ -28,12 +28,9 @@ type Props = {
 const Chip = (props: Props) => {
     const { checked, children, setProps, ...other } = props;
 
-    const onChange = useCallback(
-        (checked) => {
-            setProps({ checked });
-        },
-        [checked]
-    );
+    const onChange = (checked: boolean) => {
+        setProps({ checked });
+    };
 
     return (
         <MantineChip onChange={onChange} {...other}>

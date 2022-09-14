@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { DashComponentProps } from "../../../props";
 import { Accordion as MantineAccordion } from "@mantine/core";
 import {
@@ -41,12 +41,9 @@ type Props = {
 const Accordion = (props: Props) => {
     const { children, setProps, value, ...other } = props;
 
-    const onChange = useCallback(
-        (value) => {
-            setProps({ value });
-        },
-        [value]
-    );
+    const onChange = (value: string) => {
+        setProps({ value });
+    };
 
     return (
         <MantineAccordion value={value} onChange={onChange} {...other}>

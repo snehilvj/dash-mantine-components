@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { DashComponentProps, MantineColors, LoaderProps } from "../../props";
 import { Button as MantineButton } from "@mantine/core";
 import { MantineSize, MantineGradient } from "@mantine/styles";
@@ -45,14 +45,15 @@ type Props = {
  * Render button or link with button styles from mantine theme. For more information, see: https://mantine.dev/core/button/
  */
 const Button = (props: Props) => {
-    const { children, setProps, n_clicks, ...other } = props;
+    const { children, setProps, disabled, n_clicks, ...other } = props;
 
-    const increment = useCallback(
-        (n_clicks) => {
-            setProps({ n_clicks: n_clicks + 1 });
-        },
-        [n_clicks]
-    );
+    const increment = () => {
+        if (!disabled) {
+            setProps({
+                n_clicks: n_clicks + 1,
+            });
+        }
+    };
 
     return (
         <MantineButton onClick={increment} {...other}>

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { DashComponentProps, InputWrapperBaseProps } from "../../../props";
 import { Checkbox } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
@@ -25,12 +25,9 @@ type Props = {
 const CheckboxGroup = (props: Props) => {
     const { children, value, setProps, ...other } = props;
 
-    const onChange = useCallback(
-        (value) => {
-            setProps({ value });
-        },
-        [value]
-    );
+    const onChange = (value: string[]) => {
+        setProps({ value });
+    };
 
     return (
         <Checkbox.Group onChange={onChange} {...other}>

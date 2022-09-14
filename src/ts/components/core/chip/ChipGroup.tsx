@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { DashComponentProps } from "../../../props";
 import { Chip } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
@@ -33,12 +33,9 @@ type Props = {
 const ChipGroup = (props: Props) => {
     const { children, value, setProps, ...other } = props;
 
-    const onChange = useCallback(
-        (value) => {
-            setProps({ value });
-        },
-        [value]
-    );
+    const onChange = (value: string[]) => {
+        setProps({ value });
+    };
 
     return (
         <Chip.Group onChange={onChange} {...other}>

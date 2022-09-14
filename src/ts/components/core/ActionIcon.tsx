@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { DashComponentProps, LoaderProps, MantineColors } from "../../props";
 import { ActionIcon as MantineActionIcon } from "@mantine/core";
 import { ActionIconVariant } from "@mantine/core/lib/ActionIcon";
@@ -29,14 +29,15 @@ type Props = {
  * Icon ActionIcon to indicate secondary action. For more information, see: https://mantine.dev/core/action-icon/
  */
 const ActionIcon = (props: Props) => {
-    const { children, setProps, n_clicks, ...other } = props;
+    const { children, setProps, disabled, n_clicks, ...other } = props;
 
-    const increment = useCallback(
-        (n_clicks) => {
-            setProps({ n_clicks: n_clicks + 1 });
-        },
-        [n_clicks]
-    );
+    const increment = () => {
+        if (!disabled) {
+            setProps({
+                n_clicks: n_clicks + 1,
+            });
+        }
+    };
 
     return (
         <MantineActionIcon onClick={increment} {...other}>

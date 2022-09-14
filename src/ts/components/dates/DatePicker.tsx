@@ -9,7 +9,7 @@ import { isDateInList } from "../../utils";
 import { MantineSize } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import dayjs from "dayjs";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 type Props = {
     /** Placeholder, displayed when date is not selected */
@@ -92,10 +92,6 @@ type Props = {
     withAsterisk?: boolean;
     /** Specifies additional days between min_date_allowed and max_date_allowed that should be disabled */
     disabledDates?: string[];
-    /** Adds styledDatesClassName to provided dates */
-    styledDates?: string[];
-    /** className to be added to dates to be styled */
-    styledDatesClassName?: string;
     /** When true dates that are outside of given month cannot be clicked or focused */
     disableOutsideEvents?: boolean;
     /** Disabled input state */
@@ -127,21 +123,15 @@ const DatePicker = (props: Props) => {
         initialMonth,
         locale,
         disabledDates,
-        styledDates,
-        styledDatesClassName,
         ...other
     } = props;
 
     const [date, setDate] = useState(value && dayjs(value).toDate());
     const excludedDates = [];
-    const stylizedDates = [];
 
-    const onChange = useCallback(
-        (value) => {
-            setProps({ value: value && dayjs(value).format("YYYY-MM-DD") });
-        },
-        [value]
-    );
+    const onChange = (value: Date) => {
+        setProps({ value: value && dayjs(value).format("YYYY-MM-DD") });
+    };
 
     // add locale support
     useEffect(() => {
@@ -159,29 +149,11 @@ const DatePicker = (props: Props) => {
         }
     }, []);
 
-    // add styling to certain dates
-    useEffect(() => {
-        if (styledDates) {
-            for (let date of styledDates) {
-                stylizedDates.push(dayjs(date).toDate());
-            }
-        }
-    }, []);
-
     useDidUpdate(() => {
         setDate(value && dayjs(value).toDate());
     }, [value]);
 
-    const isExcluded = useCallback(
-        (date: Date) => isDateInList(date, excludedDates),
-        []
-    );
-
-    const isStyled = useCallback(
-        (date: Date) =>
-            isDateInList(date, stylizedDates) ? styledDatesClassName : null,
-        []
-    );
+    const isExcluded = (date: Date) => isDateInList(date, excludedDates);
 
     return (
         <MantineDatePicker
@@ -192,7 +164,6 @@ const DatePicker = (props: Props) => {
             maxDate={maxDate && new Date(maxDate)}
             initialMonth={initialMonth && new Date(initialMonth)}
             excludeDate={isExcluded}
-            dayClassName={isStyled}
             {...other}
         />
     );

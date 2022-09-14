@@ -24,6 +24,7 @@ import Col from "./components/core/Col";
 import Container from "./components/core/Container";
 import DatePicker from "./components/dates/DatePicker";
 import Divider from "./components/core/Divider";
+import Drawer from "./components/core/Drawer";
 
 export {
     Accordion,
@@ -52,4 +53,5 @@ export {
     Container,
     DatePicker,
     Divider,
+    Drawer,
 };
