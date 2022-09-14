@@ -53,7 +53,7 @@ type Props = {
 } & DashComponentProps;
 
 /**
- * Horizontal line with optional label or vertical divider. For more information, see: https://mantine.dev/core/divider/
+ * Display overlay area at any side of the screen. For more information, see: https://mantine.dev/core/drawer/
  */
 const Drawer = (props: Props) => {
     const { setProps, opened, children, ...other } = props;

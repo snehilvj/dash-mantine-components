@@ -193,3 +193,27 @@ export type MantineTransition =
     | "pop-top-right"
     | "pop-bottom-left"
     | "pop-bottom-right";
+
+export type AlignContentProps =
+    | "left"
+    | "right"
+    | "-moz-initial"
+    | "inherit"
+    | "initial"
+    | "revert"
+    | "unset"
+    | "center"
+    | "end"
+    | "start"
+    | "justify"
+    | "match-parent";
+
+export type JustifyContentProps =
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly"
+    | "initial"
+    | "inherit";
