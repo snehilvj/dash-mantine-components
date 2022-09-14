@@ -26,6 +26,7 @@ import DatePicker from "./components/dates/DatePicker";
 import Divider from "./components/core/Divider";
 import Drawer from "./components/core/Drawer";
 import Grid from "./components/core/Grid";
+import Group from "./components/core/Group";
 
 export {
     Accordion,
@@ -56,4 +57,5 @@ export {
     Divider,
     Drawer,
     Grid,
+    Group,
 };
