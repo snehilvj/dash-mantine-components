@@ -27,6 +27,8 @@ import Divider from "./components/core/Divider";
 import Drawer from "./components/core/Drawer";
 import Grid from "./components/core/Grid";
 import Group from "./components/core/Group";
+import Header from "./components/core/Header";
+import Highlight from "./components/core/Highlight";
 
 export {
     Accordion,
@@ -58,4 +60,6 @@ export {
     Drawer,
     Grid,
     Group,
+    Header,
+    Highlight,
 };
