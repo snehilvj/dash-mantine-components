@@ -95,7 +95,7 @@ type Props = {
     /** When true dates that are outside of given month cannot be clicked or focused */
     disableOutsideEvents?: boolean;
     /** Disabled input state */
-    disabled: boolean;
+    disabled?: boolean;
     /** Set to true to make calendar take 100% of container width */
     fullWidth?: boolean;
     /** Prevent focusing upon clicking */
@@ -169,8 +169,6 @@ const DatePicker = (props: Props) => {
     );
 };
 
-DatePicker.defaultProps = {
-    styledDatesClassName: "styledDates",
-};
+DatePicker.defaultProps = {};
 
 export default DatePicker;

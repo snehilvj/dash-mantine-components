@@ -36,6 +36,7 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Loader from "./components/core/Loader";
 import LoadingOverlay from "./components/core/LoadingOverlay";
+import MantineProvider from "./components/core/MantineProvider";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -77,5 +78,6 @@ export {
     ListItem,
     Loader,
     LoadingOverlay,
+    MantineProvider,
     TextInput,
 };

@@ -67,6 +67,15 @@ export type MantineColors =
     | "orange"
     | "teal";
 
+export type FontWeight =
+    | "normal"
+    | "bold"
+    | "bolder"
+    | "lighter"
+    | "initial"
+    | "inherit"
+    | number;
+
 export type TextProps = {
     /** Text content */
     children?: React.ReactNode;
@@ -75,14 +84,7 @@ export type TextProps = {
     /** Key of theme.colors or any valid CSS color */
     color?: "dimmed" | MantineColors;
     /** Sets font-weight css property */
-    weight?:
-        | "normal"
-        | "bold"
-        | "bolder"
-        | "lighter"
-        | "initial"
-        | "inherit"
-        | number;
+    weight?: FontWeight;
     /** Sets text-transform css property */
     transform?:
         | "-moz-initial"
