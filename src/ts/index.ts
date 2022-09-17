@@ -32,6 +32,8 @@ import Highlight from "./components/core/Highlight";
 import Image from "./components/core/Image";
 // import JsonInput from "./components/core/TextInput";
 import Kbd from "./components/core/Kbd";
+import List from "./components/core/list/List";
+import ListItem from "./components/core/list/ListItem";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -69,5 +71,7 @@ export {
     Image,
     // JsonInput,
     Kbd,
+    List,
+    ListItem,
     TextInput,
 };

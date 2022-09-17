@@ -1,7 +1,6 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DashComponentProps } from "../../props";
 import { Kbd as MantineKbd } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Keyboard key */
