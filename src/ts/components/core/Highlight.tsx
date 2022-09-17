@@ -13,7 +13,7 @@ type Props = {
     DashComponentProps;
 
 /**
- * Highlight. For more information, see: https://mantine.dev/core/app-shell/
+ * Highlight given part of a string with mark tag. For more information, see: https://mantine.dev/core/app-shell/
  */
 const Highlight = (props: Props) => {
     const { children, setProps, ...other } = props;

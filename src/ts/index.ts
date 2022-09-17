@@ -29,6 +29,7 @@ import Grid from "./components/core/Grid";
 import Group from "./components/core/Group";
 import Header from "./components/core/Header";
 import Highlight from "./components/core/Highlight";
+import Image from "./components/core/Image";
 
 export {
     Accordion,
@@ -62,4 +63,5 @@ export {
     Group,
     Header,
     Highlight,
+    Image,
 };
