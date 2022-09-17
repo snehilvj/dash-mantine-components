@@ -30,6 +30,7 @@ import Group from "./components/core/Group";
 import Header from "./components/core/Header";
 import Highlight from "./components/core/Highlight";
 import Image from "./components/core/Image";
+import TextInput from "./components/core/TextInput";
 
 export {
     Accordion,
@@ -64,4 +65,5 @@ export {
     Header,
     Highlight,
     Image,
+    TextInput,
 };
