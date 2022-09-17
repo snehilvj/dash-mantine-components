@@ -34,6 +34,7 @@ import Image from "./components/core/Image";
 import Kbd from "./components/core/Kbd";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
+import Loader from "./components/core/Loader";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -73,5 +74,6 @@ export {
     Kbd,
     List,
     ListItem,
+    Loader,
     TextInput,
 };
