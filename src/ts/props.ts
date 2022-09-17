@@ -175,6 +175,17 @@ export interface InputSharedProps {
     size?: MantineSize;
 }
 
+export type TextAreaProps = {
+    /** If true textarea will grow with content until maxRows are reached  */
+    autosize?: boolean;
+    /** Defines maxRows in autosize variant, not applicable to regular variant */
+    maxRows?: number;
+    /** Defined minRows in autosize variant and rows in regular variant */
+    minRows?: number;
+    /** Props passed to root element */
+} & InputSharedProps &
+    InputWrapperBaseProps;
+
 export type MantineTransition =
     | "fade"
     | "skew-up"

@@ -9,6 +9,10 @@ import { TextInput as MantineTextInput } from "@mantine/core";
 type Props = {
     /** Input element type */
     type?: "number" | "search" | "text" | "tel" | "url" | "email" | "password";
+    /** Placeholder */
+    placeholder?: string;
+    /** Value for controlled input */
+    value?: string;
 } & InputSharedProps &
     InputWrapperBaseProps &
     DashComponentProps;
@@ -31,6 +35,6 @@ const TextInput = (props: Props) => {
     );
 };
 
-TextInput.defaultProps = {};
+TextInput.defaultProps = { value: "" };
 
 export default TextInput;

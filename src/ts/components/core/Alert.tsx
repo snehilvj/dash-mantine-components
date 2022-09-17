@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { DashComponentProps, MantineColors } from "../../props";
 import { Alert as MantineAlert } from "@mantine/core";
-import { AlertVariant } from "@mantine/core/lib/Alert/Alert";
+import { AlertVariant } from "@mantine/core/lib/Alert/Alert.styles";
 import { MantineSize } from "@mantine/styles";
 
 type Props = {

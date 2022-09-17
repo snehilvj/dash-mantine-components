@@ -30,6 +30,8 @@ import Group from "./components/core/Group";
 import Header from "./components/core/Header";
 import Highlight from "./components/core/Highlight";
 import Image from "./components/core/Image";
+// import JsonInput from "./components/core/TextInput";
+import Kbd from "./components/core/Kbd";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -65,5 +67,7 @@ export {
     Header,
     Highlight,
     Image,
+    // JsonInput,
+    Kbd,
     TextInput,
 };
