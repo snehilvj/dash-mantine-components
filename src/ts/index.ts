@@ -35,6 +35,7 @@ import Kbd from "./components/core/Kbd";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Loader from "./components/core/Loader";
+import LoadingOverlay from "./components/core/LoadingOverlay";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -75,5 +76,6 @@ export {
     List,
     ListItem,
     Loader,
+    LoadingOverlay,
     TextInput,
 };
