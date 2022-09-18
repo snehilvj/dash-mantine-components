@@ -3,7 +3,7 @@ import { DashComponentProps, MantineColors, TextProps } from "../../props";
 import { Highlight as MantineHighlight } from "@mantine/core";
 
 type Props = {
-    /** Section content */
+    /** Content */
     children?: string;
     /** Substring or an array of substrings to highlight in children */
     highlight: string | string[];

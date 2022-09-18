@@ -20,9 +20,9 @@ type Props = {
     /** Radius from theme.radius, or number to set border-radius in px, defaults to theme.defaultRadius */
     radius?: MantineSize;
     /** Duration in milliseconds after which the Alert dismisses itself. */
-    duration: number;
+    duration?: number;
     /** Whether to hide the alert */
-    hide: boolean;
+    hide?: boolean;
 } & DashComponentProps;
 
 /**
