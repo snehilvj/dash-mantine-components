@@ -38,6 +38,7 @@ import Loader from "./components/core/Loader";
 import LoadingOverlay from "./components/core/LoadingOverlay";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
+import MediaQuery from "./components/core/MediaQuery";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -81,5 +82,6 @@ export {
     LoadingOverlay,
     MantineProvider,
     Mark,
+    MediaQuery,
     TextInput,
 };
