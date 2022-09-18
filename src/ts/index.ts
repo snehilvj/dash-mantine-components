@@ -45,6 +45,7 @@ import MediaQuery from "./components/core/MediaQuery";
 // import MenuTarget from "./components/core/menu/MenuTarget";
 // import MenuLabel from "./components/core/menu/MenuLabel";
 import Modal from "./components/core/Modal";
+import MultiSelect from "./components/core/MultiSelect";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -95,5 +96,6 @@ export {
     // MenuTarget,
     // MenuLabel,
     Modal,
+    MultiSelect,
     TextInput,
 };
