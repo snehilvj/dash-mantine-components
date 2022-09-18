@@ -4,6 +4,7 @@ import type {
     MantineSize,
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
+import { FloatingPosition } from "@mantine/core/lib/Floating";
 
 export type MantineStyleSystemProps = {
     /** margin props */
@@ -241,4 +242,33 @@ export type LoadingStateProps = {
         /** Holds the name of the component that is loading */
         component_name: string;
     };
+};
+
+export type PopoverBaseProps = {
+    /** Dropdown position relative to target */
+    position?: FloatingPosition;
+    /** Space between target element and dropdown in px */
+    offset?: number;
+    /** One of premade transitions ot transition object */
+    transition?: MantineTransition;
+    /** Transition duration in ms */
+    transitionDuration?: number;
+    /** Exit transition duration in ms */
+    exitTransitionDuration?: number;
+    /** Dropdown width, or 'target' to make dropdown width the same as target element */
+    width?: string | number;
+    /** Determines whether component should have an arrow */
+    withArrow?: boolean;
+    /** Arrow size in px */
+    arrowSize?: number;
+    /** Arrow offset in px */
+    arrowOffset?: number;
+    /** Determines whether dropdown should be rendered within Portal, defaults to false */
+    withinPortal?: boolean;
+    /** Dropdown z-index */
+    zIndex?: number;
+    /** Radius from theme.radius or number to set border-radius in px */
+    radius?: MantineSize;
+    /** Key of theme.shadow or any other valid css box-shadow value */
+    shadow?: MantineSize;
 };
