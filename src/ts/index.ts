@@ -50,6 +50,7 @@ import Progress from "./components/core/Progress";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RingProgress from "./components/core/RingProgress";
+import ScrollArea from "./components/core/ScrollArea";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -105,5 +106,6 @@ export {
     Radio,
     RadioGroup,
     RingProgress,
+    ScrollArea,
     TextInput,
 };
