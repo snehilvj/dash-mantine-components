@@ -48,6 +48,7 @@ import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/MultiSelect";
 import Navbar from "./components/core/Navbar";
 import NumberInput from "./components/core/NumberInput";
+import Pagination from "./components/core/Pagination";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -101,5 +102,6 @@ export {
     MultiSelect,
     Navbar,
     NumberInput,
+    Pagination,
     TextInput,
 };

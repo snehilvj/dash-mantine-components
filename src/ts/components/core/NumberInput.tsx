@@ -31,7 +31,6 @@ type Props = {
     defaultValue?: number | undefined;
     /** Prevent value clamp on blur */
     noClampOnBlur?: boolean;
-
     /** Input type, defaults to text */
     type?: "text" | "number";
 } & InputSharedProps &
