@@ -51,6 +51,7 @@ import NumberInput from "./components/core/NumberInput";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
 import PasswordInput from "./components/core/PasswordInput";
+import Prism from "./components/core/Prism";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -107,5 +108,6 @@ export {
     Pagination,
     Paper,
     PasswordInput,
+    Prism,
     TextInput,
 };
