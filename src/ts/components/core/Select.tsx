@@ -1,50 +1,50 @@
 import React from "react";
 import { DashComponentProps, SelectSharedProps } from "../../props";
-import { MultiSelect as MantineMultiSelect } from "@mantine/core";
+import { Select as MantineSelect } from "@mantine/core";
 
 type Props = {
     /** Maximum dropdown height in px */
     maxDropdownHeight?: number;
-    /** Enable items searching */
+    /** Set to true to enable search */
     searchable?: boolean;
-    /** Clear search value when item is selected */
-    clearSearchOnChange?: boolean;
     /** Allow to clear item */
     clearable?: boolean;
     /** aria-label for clear button */
     clearButtonLabel?: string;
-    /** Clear search field value on blur */
-    clearSearchOnBlur?: boolean;
+    /** Controlled search input value */
+    searchValue?: string;
     /** Allow creatable option  */
     creatable?: boolean;
-    /** Change dropdown component, can be used to add custom scrollbars */
+    /** Change dropdown component, can be used to add native scrollbars */
     dropdownComponent?: any;
-    /** Limit amount of items selected */
-    maxSelectedValues?: number;
     /** Select highlighted item on blur */
     selectOnBlur?: boolean;
+    /** Allow deselecting items on click */
+    allowDeselect?: boolean;
+    /** Should data be filtered when search value exactly matches selected item */
+    filterDataOnExactSearchMatch?: boolean;
     /** Set the clear button tab index to disabled or default after input field */
     clearButtonTabIndex?: -1 | 0;
     /** Controlled input value */
-    value?: string[];
+    value?: string;
 } & SelectSharedProps &
     DashComponentProps;
 
 /**
- * Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/
+ * Custom searchable select. For more information, see: https://mantine.dev/core/select/
  */
-const MultiSelect = (props: Props) => {
+const Select = (props: Props) => {
     const { setProps, ...other } = props;
 
-    const onChange = (value: string[]) => {
+    const onChange = (value: string) => {
         setProps({ value });
     };
 
-    return <MantineMultiSelect onChange={onChange} {...other} />;
+    return <MantineSelect onChange={onChange} {...other} />;
 };
 
-MultiSelect.defaultProps = {
+Select.defaultProps = {
     data: [],
 };
 
-export default MultiSelect;
+export default Select;

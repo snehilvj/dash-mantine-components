@@ -5,6 +5,7 @@ import type {
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
+import { SelectItem } from "@mantine/core/lib/Select/";
 
 export type MantineStyleSystemProps = {
     /** margin props */
@@ -272,3 +273,37 @@ export type PopoverBaseProps = {
     /** Key of theme.shadow or any other valid css box-shadow value */
     shadow?: MantineSize;
 };
+
+export type SelectSharedProps = {
+    /** Select data used to renderer items in dropdown */
+    data: (string | SelectItem)[];
+    /** Input size */
+    size?: MantineSize;
+    /** Dropdown body appear/disappear transition */
+    transition?: MantineTransition;
+    /** Dropdown body transition duration */
+    transitionDuration?: number;
+    /** Dropdown body transition timing function, defaults to theme.transitionTimingFunction */
+    transitionTimingFunction?: string;
+    /** Dropdown shadow from theme or any value to set box-shadow */
+    shadow?: MantineSize;
+    /** Initial dropdown opened state */
+    initiallyOpened?: boolean;
+    /** Whether to render the dropdown in a Portal */
+    withinPortal?: boolean;
+    /** Limit amount of items displayed at a time for searchable select */
+    limit?: number;
+    /** Nothing found label */
+    nothingFound?: React.ReactNode;
+    /** Dropdown z-index */
+    zIndex?: number;
+    /** Dropdown positioning behavior */
+    dropdownPosition?: "bottom" | "top" | "flip";
+    /** Whether to switch item order and keyboard navigation on dropdown position flip */
+    switchDirectionOnFlip?: boolean;
+    /** Placeholder */
+    placeholder?: string;
+    /** Whether the input is disabled */
+    disabled?: boolean;
+} & InputSharedProps &
+    InputWrapperBaseProps;
