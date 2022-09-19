@@ -50,6 +50,7 @@ import Navbar from "./components/core/Navbar";
 import NumberInput from "./components/core/NumberInput";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
+import PasswordInput from "./components/core/PasswordInput";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -105,5 +106,6 @@ export {
     NumberInput,
     Pagination,
     Paper,
+    PasswordInput,
     TextInput,
 };
