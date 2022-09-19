@@ -30,7 +30,6 @@ import Group from "./components/core/Group";
 import Header from "./components/core/Header";
 import Highlight from "./components/core/Highlight";
 import Image from "./components/core/Image";
-// import JsonInput from "./components/core/TextInput";
 import Kbd from "./components/core/Kbd";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
@@ -39,11 +38,6 @@ import LoadingOverlay from "./components/core/LoadingOverlay";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
 import MediaQuery from "./components/core/MediaQuery";
-// import Menu from "./components/core/menu/Menu";
-// import MenuItem from "./components/core/menu/MenuItem";
-// import MenuDropdown from "./components/core/menu/MenuDropdown";
-// import MenuTarget from "./components/core/menu/MenuTarget";
-// import MenuLabel from "./components/core/menu/MenuLabel";
 import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/MultiSelect";
 import Navbar from "./components/core/Navbar";
@@ -52,6 +46,7 @@ import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
 import PasswordInput from "./components/core/PasswordInput";
 import Prism from "./components/core/Prism";
+import Progress from "./components/core/Progress";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -87,7 +82,6 @@ export {
     Header,
     Highlight,
     Image,
-    // JsonInput,
     Kbd,
     List,
     ListItem,
@@ -96,11 +90,6 @@ export {
     MantineProvider,
     Mark,
     MediaQuery,
-    // Menu,
-    // MenuItem,
-    // MenuDropdown,
-    // MenuTarget,
-    // MenuLabel,
     Modal,
     MultiSelect,
     Navbar,
@@ -109,5 +98,6 @@ export {
     Paper,
     PasswordInput,
     Prism,
+    Progress,
     TextInput,
 };
