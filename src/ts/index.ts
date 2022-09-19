@@ -49,6 +49,7 @@ import Prism from "./components/core/Prism";
 import Progress from "./components/core/Progress";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
+import RingProgress from "./components/core/RingProgress";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -103,5 +104,6 @@ export {
     Progress,
     Radio,
     RadioGroup,
+    RingProgress,
     TextInput,
 };
