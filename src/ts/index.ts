@@ -49,6 +49,7 @@ import MultiSelect from "./components/core/MultiSelect";
 import Navbar from "./components/core/Navbar";
 import NumberInput from "./components/core/NumberInput";
 import Pagination from "./components/core/Pagination";
+import Paper from "./components/core/Paper";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -103,5 +104,6 @@ export {
     Navbar,
     NumberInput,
     Pagination,
+    Paper,
     TextInput,
 };
