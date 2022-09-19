@@ -51,6 +51,7 @@ import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RingProgress from "./components/core/RingProgress";
 import ScrollArea from "./components/core/ScrollArea";
+import SegmentedControl from "./components/core/SegmentedControl";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -107,5 +108,6 @@ export {
     RadioGroup,
     RingProgress,
     ScrollArea,
+    SegmentedControl,
     TextInput,
 };
