@@ -47,6 +47,8 @@ import Paper from "./components/core/Paper";
 import PasswordInput from "./components/core/PasswordInput";
 import Prism from "./components/core/Prism";
 import Progress from "./components/core/Progress";
+import Radio from "./components/core/radio/Radio";
+import RadioGroup from "./components/core/radio/RadioGroup";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -99,5 +101,7 @@ export {
     PasswordInput,
     Prism,
     Progress,
+    Radio,
+    RadioGroup,
     TextInput,
 };
