@@ -47,6 +47,7 @@ import MediaQuery from "./components/core/MediaQuery";
 import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/MultiSelect";
 import Navbar from "./components/core/Navbar";
+import NumberInput from "./components/core/NumberInput";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -99,5 +100,6 @@ export {
     Modal,
     MultiSelect,
     Navbar,
+    NumberInput,
     TextInput,
 };
