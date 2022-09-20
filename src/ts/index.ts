@@ -53,6 +53,7 @@ import RingProgress from "./components/core/RingProgress";
 import ScrollArea from "./components/core/ScrollArea";
 import SegmentedControl from "./components/core/SegmentedControl";
 import Select from "./components/core/Select";
+import SimpleGrid from "./components/core/SimpleGrid";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -111,5 +112,6 @@ export {
     ScrollArea,
     SegmentedControl,
     Select,
+    SimpleGrid,
     TextInput,
 };
