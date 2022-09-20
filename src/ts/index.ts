@@ -55,6 +55,7 @@ import SegmentedControl from "./components/core/SegmentedControl";
 import Select from "./components/core/Select";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Skeleton from "./components/core/Skeleton";
+import Slider from "./components/core/Slider";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -115,5 +116,6 @@ export {
     Select,
     SimpleGrid,
     Skeleton,
+    Slider,
     TextInput,
 };
