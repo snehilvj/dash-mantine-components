@@ -58,6 +58,7 @@ import Skeleton from "./components/core/Skeleton";
 import Slider from "./components/core/Slider";
 import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
+import Stack from "./components/core/Stack";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -121,5 +122,6 @@ export {
     Slider,
     Space,
     Spoiler,
+    Stack,
     TextInput,
 };

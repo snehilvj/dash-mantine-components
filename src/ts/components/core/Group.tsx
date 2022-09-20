@@ -19,7 +19,7 @@ type Props = {
 } & DashComponentProps;
 
 /**
- * Compose elements and components in flex container. For more information, see: https://mantine.dev/core/group/
+ * Compose elements and components in horizontal flex container. For more information, see: https://mantine.dev/core/group/
  */
 const Group = (props: Props) => {
     const { children, setProps, ...other } = props;
