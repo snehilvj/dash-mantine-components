@@ -60,6 +60,10 @@ import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
 import Switch from "./components/core/Switch";
+import Tab from "./components/core/tabs/Tab";
+import Tabs from "./components/core/tabs/Tabs";
+import TabsList from "./components/core/tabs/TabsList";
+import TabsPanel from "./components/core/tabs/TabsPanel";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -125,5 +129,9 @@ export {
     Spoiler,
     Stack,
     Switch,
+    Tab,
+    Tabs,
+    TabsList,
+    TabsPanel,
     TextInput,
 };
