@@ -54,6 +54,7 @@ import ScrollArea from "./components/core/ScrollArea";
 import SegmentedControl from "./components/core/SegmentedControl";
 import Select from "./components/core/Select";
 import SimpleGrid from "./components/core/SimpleGrid";
+import Skeleton from "./components/core/Skeleton";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -113,5 +114,6 @@ export {
     SegmentedControl,
     Select,
     SimpleGrid,
+    Skeleton,
     TextInput,
 };
