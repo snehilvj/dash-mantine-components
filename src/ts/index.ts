@@ -59,6 +59,7 @@ import Slider from "./components/core/Slider";
 import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
+import Switch from "./components/core/Switch";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -123,5 +124,6 @@ export {
     Space,
     Spoiler,
     Stack,
+    Switch,
     TextInput,
 };
