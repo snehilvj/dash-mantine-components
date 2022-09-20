@@ -56,6 +56,7 @@ import Select from "./components/core/Select";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Skeleton from "./components/core/Skeleton";
 import Slider from "./components/core/Slider";
+import Space from "./components/core/Space";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -117,5 +118,6 @@ export {
     SimpleGrid,
     Skeleton,
     Slider,
+    Space,
     TextInput,
 };

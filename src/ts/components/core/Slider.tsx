@@ -56,7 +56,7 @@ type Props = {
 } & DashComponentProps;
 
 /**
- * Indicate content loading state. For more information, see: https://mantine.dev/core/skeleton/
+ * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const Slider = (props: Props) => {
     const { setProps, updatemode, value, ...other } = props;
