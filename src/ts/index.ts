@@ -38,6 +38,11 @@ import LoadingOverlay from "./components/core/LoadingOverlay";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
 import MediaQuery from "./components/core/MediaQuery";
+import Menu from "./components/core/menu/Menu";
+import MenuItem from "./components/core/menu/MenuItem";
+import MenuDropdown from "./components/core/menu/MenuDropdown";
+import MenuTarget from "./components/core/menu/MenuTarget";
+import MenuLabel from "./components/core/menu/MenuLabel";
 import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/MultiSelect";
 import Navbar from "./components/core/Navbar";
@@ -116,6 +121,11 @@ export {
     MantineProvider,
     Mark,
     MediaQuery,
+    Menu,
+    MenuItem,
+    MenuDropdown,
+    MenuTarget,
+    MenuLabel,
     Modal,
     MultiSelect,
     Navbar,
