@@ -68,6 +68,7 @@ import Table from "./components/core/Table";
 import Text from "./components/core/Text";
 import Textarea from "./components/core/Textarea";
 import TextInput from "./components/core/TextInput";
+import ThemeIcon from "./components/core/ThemeIcon";
 
 export {
     Accordion,
@@ -140,4 +141,5 @@ export {
     Text,
     Textarea,
     TextInput,
+    ThemeIcon,
 };
