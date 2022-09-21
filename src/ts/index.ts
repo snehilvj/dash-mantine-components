@@ -72,6 +72,7 @@ import ThemeIcon from "./components/core/ThemeIcon";
 import TimeInput from "./components/core/TimeInput";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
+import Title from "./components/core/Title";
 
 export {
     Accordion,
@@ -148,4 +149,5 @@ export {
     TimeInput,
     Timeline,
     TimelineItem,
+    Title,
 };
