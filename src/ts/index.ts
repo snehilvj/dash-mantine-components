@@ -66,6 +66,7 @@ import TabsList from "./components/core/tabs/TabsList";
 import TabsPanel from "./components/core/tabs/TabsPanel";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
+import Textarea from "./components/core/Textarea";
 import TextInput from "./components/core/TextInput";
 
 export {
@@ -137,5 +138,6 @@ export {
     TabsPanel,
     Table,
     Text,
+    Textarea,
     TextInput,
 };
