@@ -69,6 +69,7 @@ import Text from "./components/core/Text";
 import Textarea from "./components/core/Textarea";
 import TextInput from "./components/core/TextInput";
 import ThemeIcon from "./components/core/ThemeIcon";
+import TimeInput from "./components/core/TimeInput";
 
 export {
     Accordion,
@@ -142,4 +143,5 @@ export {
     Textarea,
     TextInput,
     ThemeIcon,
+    TimeInput,
 };
