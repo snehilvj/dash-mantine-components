@@ -73,6 +73,7 @@ import TimeInput from "./components/core/TimeInput";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Title from "./components/core/Title";
+import Tooltip from "./components/core/Tooltip";
 
 export {
     Accordion,
@@ -150,4 +151,5 @@ export {
     Timeline,
     TimelineItem,
     Title,
+    Tooltip,
 };
