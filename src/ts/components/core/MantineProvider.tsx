@@ -15,7 +15,7 @@ type Props = {
     /** Inherit from one level up MantineProvider */
     inherit?: boolean;
     /** Styles */
-    styles: object;
+    styles?: object;
 };
 
 /**

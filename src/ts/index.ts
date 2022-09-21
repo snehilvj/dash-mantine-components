@@ -70,6 +70,8 @@ import Textarea from "./components/core/Textarea";
 import TextInput from "./components/core/TextInput";
 import ThemeIcon from "./components/core/ThemeIcon";
 import TimeInput from "./components/core/TimeInput";
+import Timeline from "./components/core/timeline/Timeline";
+import TimelineItem from "./components/core/timeline/TimelineItem";
 
 export {
     Accordion,
@@ -144,4 +146,6 @@ export {
     TextInput,
     ThemeIcon,
     TimeInput,
+    Timeline,
+    TimelineItem,
 };
