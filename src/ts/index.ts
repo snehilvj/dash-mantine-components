@@ -46,6 +46,8 @@ import MenuLabel from "./components/core/menu/MenuLabel";
 import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/MultiSelect";
 import Navbar from "./components/core/Navbar";
+// import Notification from "./components/core/notifications/Notification";
+// import NotificationsProvider from "./components/core/notifications/NotificationsProvider";
 import NumberInput from "./components/core/NumberInput";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
@@ -129,6 +131,8 @@ export {
     Modal,
     MultiSelect,
     Navbar,
+    // Notification,
+    // NotificationsProvider,
     NumberInput,
     Pagination,
     Paper,
