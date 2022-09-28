@@ -1,14 +1,14 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Avatar } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Avatar components */
     children?: React.ReactNode;
     /** Negative space between Avatars */
-    spacing?: MantineSize;
-} & DashComponentProps;
+    spacing?: MantineNumberSize;
+} & DefaultProps;
 
 /**
  * Display user profile image, initials or fallback icon. For more information, see: https://mantine.dev/core/avatar/

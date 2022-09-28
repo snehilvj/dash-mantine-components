@@ -1,7 +1,12 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Avatar as MantineAvatar } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { AvatarVariant } from "@mantine/core/lib/Avatar/Avatar.styles";
+import {
+    MantineNumberSize,
+    MantineColor,
+    MantineGradient,
+} from "@mantine/styles";
 
 type Props = {
     /** Image url */
@@ -9,14 +14,18 @@ type Props = {
     /** Image alt text or title for placeholder variant */
     alt?: string;
     /** Avatar width and height */
-    size?: MantineSize;
+    size?: MantineNumberSize;
     /** Value from theme.radius or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Color from theme.colors used for letter and icon placeholders */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Custom placeholder */
     children?: React.ReactNode;
-} & DashComponentProps;
+    /** Controls gradient settings in gradient variant only */
+    gradient?: MantineGradient;
+    /** Controls appearance */
+    variant?: AvatarVariant;
+} & DefaultProps;
 
 /**
  * Display user profile image, initials or fallback icon. For more information, see: https://mantine.dev/core/avatar/
