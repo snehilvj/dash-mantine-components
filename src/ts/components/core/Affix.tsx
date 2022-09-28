@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DashBaseProps } from "../../props";
 import { Affix as MantineAffix } from "@mantine/core";
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
         bottom?: string | number;
         right?: string | number;
     };
-} & DashComponentProps;
+} & DashBaseProps;
 
 /**
  * Render react node inside portal at fixed position. For more information, see: https://mantine.dev/core/affix/
