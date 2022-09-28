@@ -1,12 +1,12 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Chip as MantineChip } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineSize, MantineNumberSize, MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Chip radius from theme or number to set value in px */
-    radius?: MantineSize;
-    /** Predefined chip size */
+    radius?: MantineNumberSize;
+    /** Predefined label font-size and checkbox width and height in px */
     size?: MantineSize;
     /** Chip input type */
     type?: "radio" | "checkbox";
@@ -17,13 +17,13 @@ type Props = {
     /** Checked state for controlled component */
     checked?: boolean;
     /** Active color from theme, defaults to theme.primaryColor */
-    color?: MantineColors;
-    /** To be used with checkbox group */
+    color?: MantineColor;
+    /** To be used with chip group */
     value?: string;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
- * Capture boolean input from user. For more information, see: https://mantine.dev/core/Chip/
+ * Pick one or multiple values with inline controls. For more information, see: https://mantine.dev/core/chip/
  */
 const Chip = (props: Props) => {
     const { checked, children, setProps, ...other } = props;

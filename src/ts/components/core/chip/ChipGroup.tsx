@@ -1,7 +1,7 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Chip } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 import { GroupPosition } from "@mantine/core/lib/Group";
 
 type Props = {
@@ -9,10 +9,6 @@ type Props = {
     children?: React.ReactNode;
     /** Value of currently selected Chip */
     value?: string[];
-    /** Space between label and inputs */
-    offset?: MantineSize;
-    /** Predefined label fontSize, Chip width, height and border-radius */
-    size?: MantineSize;
     /** Allow multiple values to be selected at a time */
     multiple?: boolean;
     /** Defines justify-content property */
@@ -22,13 +18,13 @@ type Props = {
     /** Defines flex-grow property for each element, true -> 1, false -> 0 */
     grow?: boolean;
     /** Space between elements */
-    spacing?: MantineSize;
+    spacing?: MantineNumberSize;
     /** Defines align-items css property */
     align?: "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
- * Capture boolean input from user. For more information, see: https://mantine.dev/core/Chip/
+ * Pick one or multiple values with inline controls. For more information, see: https://mantine.dev/core/chip/
  */
 const ChipGroup = (props: Props) => {
     const { children, value, setProps, ...other } = props;
