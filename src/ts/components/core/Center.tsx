@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { Center as MantineCenter } from "@mantine/core";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
     children?: React.ReactNode;
     /** Set to true to use inline-flex instead of flex */
     inline?: boolean;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Centers content vertically and horizontally. For more information, see: https://mantine.dev/core/center/
