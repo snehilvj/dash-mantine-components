@@ -85,12 +85,12 @@ export type FontWeight =
     | number;
 
 export type TextProps = {
-    /** Text content */
+    /** Content */
     children?: React.ReactNode;
     /** Key of theme.fontSizes or number to set font-size in px */
-    size?: MantineSize;
+    size?: MantineNumberSize;
     /** Key of theme.colors or any valid CSS color */
-    color?: "dimmed" | MantineColors;
+    color?: "dimmed" | MantineColor;
     /** Sets font-weight css property */
     weight?: FontWeight;
     /** Sets text-transform css property */
@@ -107,19 +107,7 @@ export type TextProps = {
         | "lowercase"
         | "uppercase";
     /** Sets text-align css property */
-    align?:
-        | "left"
-        | "right"
-        | "-moz-initial"
-        | "inherit"
-        | "initial"
-        | "revert"
-        | "unset"
-        | "center"
-        | "end"
-        | "start"
-        | "justify"
-        | "match-parent";
+    align?: AlignContentProps;
     /** Link or text variant */
     variant?: "text" | "link" | "gradient";
     /** CSS -webkit-line-clamp property */

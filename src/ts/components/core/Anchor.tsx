@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps, TextProps } from "../../props";
+import { DefaultProps, TextProps } from "../../props";
 import { Anchor as MantineAnchor } from "@mantine/core";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
     /** href */
     href: string;
 } & TextProps &
-    DashComponentProps;
+    DefaultProps;
 
 /**
  * Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/
