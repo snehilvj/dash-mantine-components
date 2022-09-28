@@ -1,12 +1,13 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Menu, Box } from "@mantine/core";
+import { MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Item label */
     children?: React.ReactNode;
     /** Key of theme.colors */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Determines whether menu should be closed when item is clicked, overrides closeOnItemClick prop on Menu component */
     closeMenuOnClick?: boolean;
     /** Icon rendered on the left side of the label */
@@ -21,7 +22,7 @@ type Props = {
     n_clicks?: number;
     /** Target if MenuItem is supposed to be used as a link */
     target?: "_blank" | "_self";
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
@@ -50,13 +51,13 @@ const MenuItem = (props: Props) => {
     if (href) {
         component = (
             <Menu.Item component="a" href={href} target={target} {...other}>
-                <Box>{children}</Box>
+                <Box style={{ width: "fit-content" }}>{children}</Box>
             </Menu.Item>
         );
     } else {
         component = (
             <Menu.Item onClick={increment} {...other}>
-                <Box>{children}</Box>
+                <Box style={{ width: "fit-content" }}>{children}</Box>
             </Menu.Item>
         );
     }

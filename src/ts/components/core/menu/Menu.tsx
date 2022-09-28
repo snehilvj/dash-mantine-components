@@ -1,6 +1,6 @@
 import React from "react";
-import { DashComponentProps, PopoverBaseProps } from "../../../props";
-import { Menu as MantineMenu, Box, UnstyledButton } from "@mantine/core";
+import { DashBaseProps, PopoverBaseProps } from "../../../props";
+import { Menu as MantineMenu, Box } from "@mantine/core";
 import { MenuTriggerEvent } from "@mantine/core/lib/Menu/Menu.types";
 
 type Props = {
@@ -25,7 +25,7 @@ type Props = {
     /** Events that trigger outside clicks */
     clickOutsideEvents?: string[];
 } & PopoverBaseProps &
-    DashComponentProps;
+    DashBaseProps;
 
 /**
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/

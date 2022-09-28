@@ -1,11 +1,11 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Menu } from "@mantine/core";
 
 type Props = {
     /** Label content */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/

@@ -1,11 +1,11 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Menu, Box } from "@mantine/core";
 
 type Props = {
     /** Menu dropdown content */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
@@ -15,7 +15,7 @@ const MenuDropdown = (props: Props) => {
 
     return (
         <Menu.Dropdown {...other}>
-            <Box>{children}</Box>
+            <Box style={{ width: "fit-content" }}>{children}</Box>
         </Menu.Dropdown>
     );
 };
