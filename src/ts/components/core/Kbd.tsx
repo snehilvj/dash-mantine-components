@@ -1,11 +1,11 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { Kbd as MantineKbd } from "@mantine/core";
 
 type Props = {
     /** Keyboard key */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Display keyboard button or keys combination. For more information, see: https://mantine.dev/core/kbd/

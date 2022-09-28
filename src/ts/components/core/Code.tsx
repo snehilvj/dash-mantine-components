@@ -1,15 +1,16 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DefaultProps } from "../../props";
 import { Code as MantineCode } from "@mantine/core";
+import { MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Code content */
     children?: React.ReactNode;
     /** Code color and background from theme, defaults to gray in light theme and to dark in dark theme */
-    color?: MantineColors;
+    color?: MantineColor;
     /** True for code block, false for inline code */
     block?: boolean;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Inline or block code without syntax highlight. For more information, see: https://mantine.dev/core/code/

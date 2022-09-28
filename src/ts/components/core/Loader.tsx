@@ -1,8 +1,8 @@
 import React from "react";
-import { DashComponentProps, LoaderProps } from "../../props";
+import { DefaultProps, LoaderProps } from "../../props";
 import { Loader as MantineLoader } from "@mantine/core";
 
-type Props = LoaderProps & DashComponentProps;
+type Props = LoaderProps & DefaultProps;
 
 /**
  * Indicate loading state. For more information, see: https://mantine.dev/core/loader/

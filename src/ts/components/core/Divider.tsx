@@ -1,22 +1,22 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DefaultProps } from "../../props";
 import { Divider as MantineDivider } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize, MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Line orientation */
     orientation?: "horizontal" | "vertical";
     /** Sets height in horizontal orientation and width in vertical */
-    size?: MantineSize;
+    size?: MantineNumberSize;
     /** Adds text after line in horizontal orientation */
     label?: React.ReactNode;
     /** Label position */
     labelPosition?: "left" | "center" | "right";
     /** Divider borderStyle */
     variant?: "solid" | "dashed" | "dotted";
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Horizontal line with optional label or vertical divider. For more information, see: https://mantine.dev/core/divider/
