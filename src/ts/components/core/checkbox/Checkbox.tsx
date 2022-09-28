@@ -1,13 +1,13 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Checkbox as MantineCheckbox } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineSize, MantineNumberSize, MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Key of theme.colors */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Key of theme.radius or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Predefined label font-size and checkbox width and height in px */
     size?: MantineSize;
     /** Checkbox label */
@@ -20,7 +20,7 @@ type Props = {
     checked?: boolean;
     /** To be used with checkbox group */
     value?: string;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/
