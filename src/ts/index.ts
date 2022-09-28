@@ -40,6 +40,7 @@ import Mark from "./components/core/Mark";
 import MediaQuery from "./components/core/MediaQuery";
 import Menu from "./components/core/menu/Menu";
 import MenuItem from "./components/core/menu/MenuItem";
+import MenuDivider from "./components/core/menu/MenuDivider";
 import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuTarget from "./components/core/menu/MenuTarget";
 import MenuLabel from "./components/core/menu/MenuLabel";
@@ -125,6 +126,7 @@ export {
     MediaQuery,
     Menu,
     MenuItem,
+    MenuDivider,
     MenuDropdown,
     MenuTarget,
     MenuLabel,

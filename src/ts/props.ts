@@ -3,9 +3,11 @@ import type {
     MantineTheme,
     MantineSize,
     MantineNumberSize,
+    MantineShadow,
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
+import { PopoverWidth } from "@mantine/core/lib/Popover/Popover.types";
 import { SelectItem } from "@mantine/core/lib/Select/";
 
 export type MantineStyleSystemProps = {
@@ -39,7 +41,7 @@ export type MantineStyleSystemProps = {
     pr?: MantineNumberSize;
 };
 
-export type DefaultProps = {
+export type DashBaseProps = {
     /** Often used with CSS to style elements with common properties */
     className?: string;
     /** Inline style */
@@ -48,9 +50,13 @@ export type DefaultProps = {
     styles?: object;
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
+    /** Remove all Mantine styling from the component */
+    unstyled?: boolean;
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
-} & MantineStyleSystemProps;
+};
+
+export type DefaultProps = DashBaseProps & MantineStyleSystemProps;
 
 export type MantineColors =
     | "dark"
@@ -256,21 +262,19 @@ export type PopoverBaseProps = {
     /** Exit transition duration in ms */
     exitTransitionDuration?: number;
     /** Dropdown width, or 'target' to make dropdown width the same as target element */
-    width?: string | number;
+    width?: PopoverWidth;
     /** Determines whether component should have an arrow */
     withArrow?: boolean;
     /** Arrow size in px */
     arrowSize?: number;
     /** Arrow offset in px */
     arrowOffset?: number;
-    /** Determines whether dropdown should be rendered within Portal, defaults to false */
-    withinPortal?: boolean;
     /** Dropdown z-index */
     zIndex?: number;
     /** Radius from theme.radius or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Key of theme.shadow or any other valid css box-shadow value */
-    shadow?: MantineSize;
+    shadow?: MantineShadow;
 };
 
 export type SelectSharedProps = {

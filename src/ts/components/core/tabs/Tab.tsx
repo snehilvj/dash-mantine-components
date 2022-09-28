@@ -1,6 +1,7 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Tabs } from "@mantine/core";
+import { MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Value that is used to connect Tab with associated panel */
@@ -12,10 +13,10 @@ type Props = {
     /** Section of content displayed before label */
     icon?: React.ReactNode;
     /** Key of theme.colors */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Whether the tab is disabled */
     disabled?: boolean;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Utility component to pass to TabsList. For more information, see: https://mantine.dev/core/tabs/

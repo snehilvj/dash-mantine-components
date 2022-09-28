@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Tabs } from "@mantine/core";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
     children?: React.ReactNode;
     /** Value of associated control */
     value: string;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Utility component to pass to Tabs. For more information, see: https://mantine.dev/core/tabs/

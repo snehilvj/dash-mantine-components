@@ -1,7 +1,7 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Tabs as MantineTabs } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize, MantineColor } from "@mantine/styles";
 import {
     TabsOrientation,
     TabsVariant,
@@ -23,14 +23,14 @@ type Props = {
     /** Controls component visuals */
     variant?: TabsVariant;
     /** Key of theme.colors */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Tabs border-radius from theme.radius or number ti set value from theme, defaults to theme.defaultRadius */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Determines whether tabs should have inverted styles */
     inverted?: boolean;
     /** If set to false, Tabs.Panel content will not stay mounted when tab is not active */
     keepMounted?: boolean;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Switch between different views. For more information, see: https://mantine.dev/core/tabs/

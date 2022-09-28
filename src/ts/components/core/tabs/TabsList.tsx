@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Tabs } from "@mantine/core";
 import { TabsPosition } from "@mantine/core/lib/Tabs/Tabs.types";
 
@@ -10,7 +10,7 @@ type Props = {
     grow?: boolean;
     /** Tabs alignment */
     position?: TabsPosition;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Utility component to pass to Tabs. For more information, see: https://mantine.dev/core/tabs/
