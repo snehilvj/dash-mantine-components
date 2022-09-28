@@ -1,12 +1,12 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Accordion as MantineAccordion } from "@mantine/core";
 import {
     AccordionChevronPosition,
     AccordionHeadingOrder,
     AccordionVariant,
 } from "@mantine/core/lib/Accordion/Accordion.types";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Determines whether arrow key presses should loop though items (first to last and last to first) */
@@ -32,8 +32,8 @@ type Props = {
     /** Controls visuals */
     variant?: AccordionVariant;
     /** border-radius from theme.radius or number to set value in px, will not be applied to default variant  */
-    radius?: MantineSize;
-} & DashComponentProps;
+    radius?: MantineNumberSize;
+} & DefaultProps;
 
 /**
  * Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/

@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Accordion } from "@mantine/core";
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
     children?: React.ReactNode;
     /** Icon rendered next to label */
     icon?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/

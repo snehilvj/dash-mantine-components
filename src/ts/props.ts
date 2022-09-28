@@ -2,6 +2,7 @@ import type {
     MantineGradient,
     MantineTheme,
     MantineSize,
+    MantineNumberSize,
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
@@ -9,33 +10,33 @@ import { SelectItem } from "@mantine/core/lib/Select/";
 
 export type MantineStyleSystemProps = {
     /** margin props */
-    m?: MantineSize;
+    m?: MantineNumberSize;
     /** margin props */
-    my?: MantineSize;
+    my?: MantineNumberSize;
     /** margin props */
-    mx?: MantineSize;
+    mx?: MantineNumberSize;
     /** margin props */
-    mt?: MantineSize;
+    mt?: MantineNumberSize;
     /** margin props */
-    mb?: MantineSize;
+    mb?: MantineNumberSize;
     /** margin props */
-    ml?: MantineSize;
+    ml?: MantineNumberSize;
     /** margin props */
-    mr?: MantineSize;
+    mr?: MantineNumberSize;
     /** padding props */
-    p?: MantineSize;
+    p?: MantineNumberSize;
     /** padding props */
-    py?: MantineSize;
+    py?: MantineNumberSize;
     /** padding props */
-    px?: MantineSize;
+    px?: MantineNumberSize;
     /** padding props */
-    pt?: MantineSize;
+    pt?: MantineNumberSize;
     /** padding props */
-    pb?: MantineSize;
+    pb?: MantineNumberSize;
     /** padding props */
-    pl?: MantineSize;
+    pl?: MantineNumberSize;
     /** padding props */
-    pr?: MantineSize;
+    pr?: MantineNumberSize;
 };
 
 export type DefaultProps = {
@@ -43,15 +44,13 @@ export type DefaultProps = {
     className?: string;
     /** Inline style */
     style?: any;
-};
-
-export type DashComponentProps = {
+    /** Mantine styles API  */
+    styles?: object;
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
-} & DefaultProps &
-    MantineStyleSystemProps;
+} & MantineStyleSystemProps;
 
 export type MantineColors =
     | "dark"
