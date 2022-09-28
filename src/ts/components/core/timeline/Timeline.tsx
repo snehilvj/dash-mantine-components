@@ -1,17 +1,17 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { Timeline as MantineTimeline } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize, MantineColor } from "@mantine/styles";
 
 type Props = {
-    /** TimelineItem components only */
+    /** dmc.TimelineItem components only */
     children?: React.ReactNode;
     /** Index of active element */
     active?: number;
     /** Active color from theme */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Radius from theme.radius, or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Bullet size in px */
     bulletSize?: number;
     /** Timeline alignment */
@@ -20,7 +20,7 @@ type Props = {
     lineWidth?: number;
     /** Reverse active direction without reversing items */
     reverseActive?: boolean;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Display list of events in chronological order. For more information, see: https://mantine.dev/core/timeline/

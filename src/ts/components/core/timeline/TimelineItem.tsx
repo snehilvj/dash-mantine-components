@@ -1,7 +1,6 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../../props";
-import { Timeline } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { DefaultProps } from "../../../props";
+import { MantineNumberSize, MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Item title, rendered next to bullet */
@@ -11,7 +10,7 @@ type Props = {
     /** Bullet width, height and border-radius in px, controlled by Timeline component */
     bulletSize?: number;
     /** Radius from theme.radius, or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** React node that will be rendered after title */
     children?: React.ReactNode;
     /** Should this item be highlighted, controlled by Timeline component */
@@ -19,14 +18,14 @@ type Props = {
     /** Should line of this item be highlighted, controlled by Timeline component */
     lineActive?: boolean;
     /** Highlight color for active item */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Line and bullet position relative to item content, controlled by Timeline component */
     align?: "right" | "left";
     /** Line border style */
     lineVariant?: "solid" | "dashed" | "dotted";
     /** Line border width in px, controlled by Timeline component */
     lineWidth?: number;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Display list of events in chronological order. For more information, see: https://mantine.dev/core/timeline/
