@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DefaultProps } from "../../props";
 import { Alert as MantineAlert } from "@mantine/core";
 import { AlertVariant } from "@mantine/core/lib/Alert/Alert.styles";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize, MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Alert title */
@@ -12,18 +12,18 @@ type Props = {
     /** Alert message */
     children?: React.ReactNode;
     /** Color from theme.colors */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Icon displayed next to title */
     icon?: React.ReactNode;
     /** True to display close button */
     withCloseButton?: boolean;
     /** Radius from theme.radius, or number to set border-radius in px, defaults to theme.defaultRadius */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Duration in milliseconds after which the Alert dismisses itself. */
     duration?: number;
     /** Whether to hide the alert */
     hide?: boolean;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Attract user attention with important static message. For more information, see: https://mantine.dev/core/alert/
