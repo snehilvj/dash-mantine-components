@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { Space as MantineSpace } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
 
@@ -10,7 +10,7 @@ type Props = {
     h?: MantineSize;
     /** Content */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Add horizontal or vertical spacing from theme. For more information, see: https://mantine.dev/core/space/

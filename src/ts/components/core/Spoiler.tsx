@@ -1,7 +1,6 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { Spoiler as MantineSpoiler } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Max height of visible content, when this point is reached spoiler appears */
@@ -16,7 +15,7 @@ type Props = {
     transitionDuration?: number;
     /** Content */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Hide long sections of content under spoiler. For more information, see: https://mantine.dev/core/spoiler/

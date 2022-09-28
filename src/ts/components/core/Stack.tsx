@@ -1,22 +1,22 @@
 import React from "react";
 import {
-    DashComponentProps,
+    DefaultProps,
     AlignContentProps,
     JustifyContentProps,
 } from "../../props";
 import { Stack as MantineStack } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Children */
     children?: React.ReactNode;
     /** Key of theme.spacing or number to set gap in px */
-    spacing?: MantineSize;
+    spacing?: MantineNumberSize;
     /** justify-content CSS property */
     justify?: JustifyContentProps;
     /** Defines align-items css property */
     align?: AlignContentProps;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Compose elements and components in vertical flex container. For more information, see: https://mantine.dev/core/stack/

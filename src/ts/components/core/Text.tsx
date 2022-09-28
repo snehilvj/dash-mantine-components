@@ -1,12 +1,8 @@
 import React from "react";
-import { DashComponentProps, TextProps } from "../../props";
+import { DefaultProps, TextProps } from "../../props";
 import { Text as MantineText } from "@mantine/core";
 
-type Props = {
-    /** Content */
-    children?: React.ReactNode;
-} & TextProps &
-    DashComponentProps;
+type Props = TextProps & DefaultProps;
 
 /**
  * Render text and links with theme styles. For more information, see: https://mantine.dev/core/text/
