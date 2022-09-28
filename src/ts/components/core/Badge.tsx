@@ -1,11 +1,16 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DefaultProps } from "../../props";
 import { Badge as MantineBadge, BadgeVariant } from "@mantine/core";
-import { MantineSize, MantineGradient } from "@mantine/styles";
+import {
+    MantineSize,
+    MantineNumberSize,
+    MantineColor,
+    MantineGradient,
+} from "@mantine/styles";
 
 type Props = {
     /** Key of theme.colors */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Controls appearance */
     variant?: BadgeVariant;
     /** Controls gradient, applied to gradient variant only */
@@ -13,7 +18,7 @@ type Props = {
     /** Badge height and font size */
     size?: MantineSize;
     /** Key of theme.radius or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Sets badge width to 100% of parent element, hides overflow text with text-overflow: ellipsis */
     fullWidth?: boolean;
     /** Section rendered on the left side of label */
@@ -22,7 +27,7 @@ type Props = {
     rightSection?: React.ReactNode;
     /** Badge label */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Render react node inside portal at fixed position. For more information, see: https://mantine.dev/core/Badge/
