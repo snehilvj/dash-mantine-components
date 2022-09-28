@@ -1,8 +1,12 @@
 import React from "react";
-import { DashComponentProps, LoaderProps, MantineColors } from "../../props";
+import { DefaultProps, LoaderProps } from "../../props";
 import { ActionIcon as MantineActionIcon } from "@mantine/core";
 import { ActionIconVariant } from "@mantine/core/lib/ActionIcon";
-import { MantineSize } from "@mantine/styles";
+import {
+    MantineNumberSize,
+    MantineColor,
+    MantineGradient,
+} from "@mantine/styles";
 
 type Props = {
     /** Icon */
@@ -10,11 +14,13 @@ type Props = {
     /** Controls appearance */
     variant?: ActionIconVariant;
     /** Key of theme.colors */
-    color?: MantineColors;
+    color?: MantineColor;
+    /** Controls gradient settings in gradient variant only */
+    gradient?: MantineGradient;
     /** Button border-radius from theme or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Predefined icon size or number to set width and height in px */
-    size?: MantineSize;
+    size?: MantineNumberSize;
     /** Props spread to Loader component */
     loaderProps?: LoaderProps;
     /** Indicates loading state */
@@ -23,7 +29,7 @@ type Props = {
     disabled?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
     n_clicks: number;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Icon ActionIcon to indicate secondary action. For more information, see: https://mantine.dev/core/action-icon/

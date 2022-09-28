@@ -4,6 +4,7 @@ import type {
     MantineSize,
     MantineNumberSize,
     MantineShadow,
+    MantineColor,
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
@@ -141,9 +142,9 @@ export type TextProps = {
 
 export type LoaderProps = {
     /** Defines width of loader */
-    size?: MantineSize;
+    size?: MantineNumberSize;
     /** Loader color from theme */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Loader appearance */
     variant?: MantineTheme["loader"];
 } & DefaultProps;
