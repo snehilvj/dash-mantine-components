@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../../props";
+import { DefaultProps } from "../../../props";
 import { List } from "@mantine/core";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
     children?: React.ReactNode;
     /** Icon to replace bullet */
     icon?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Display ordered or unordered list, see: https://mantine.dev/core/list/
