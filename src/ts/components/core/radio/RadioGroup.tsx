@@ -1,28 +1,26 @@
 import React from "react";
-import { DashComponentProps, InputWrapperBaseProps } from "../../../props";
+import { DefaultProps, InputWrapperBaseProps } from "../../../props";
 import { Radio } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineSize, MantineNumberSize } from "@mantine/styles";
 
 type Props = {
-    /** Radio components only */
+    /** dmc.Radio components only */
     children?: React.ReactNode;
     /** Value of currently selected radio */
     value?: string;
     /** Horizontal or vertical orientation */
     orientation?: "horizontal" | "vertical";
     /** Spacing between radios in horizontal orientation */
-    spacing?: MantineSize;
+    spacing?: MantineNumberSize;
     /** Space between label and inputs */
-    offset?: MantineSize;
+    offset?: MantineNumberSize;
     /** Predefined label fontSize, radio width, height and border-radius */
     size?: MantineSize;
-    /** Name attribute of radio inputs */
-    name?: string;
 } & InputWrapperBaseProps &
-    DashComponentProps;
+    DefaultProps;
 
 /**
- * Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/radio-group/
+ * Wrapper for input type radio. For more information, see: https://mantine.dev/core/radio/
  */
 const RadioGroup = (props: Props) => {
     const { setProps, children, ...other } = props;
