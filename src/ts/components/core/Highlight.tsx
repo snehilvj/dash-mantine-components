@@ -1,6 +1,7 @@
 import React from "react";
-import { DashComponentProps, MantineColors, TextProps } from "../../props";
+import { DefaultProps, TextProps } from "../../props";
 import { Highlight as MantineHighlight } from "@mantine/core";
+import { MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Content */
@@ -8,9 +9,9 @@ type Props = {
     /** Substring or an array of substrings to highlight in children */
     highlight: string | string[];
     /** Color from theme that is used for highlighting */
-    highlightColor?: MantineColors;
+    highlightColor?: MantineColor;
 } & TextProps &
-    DashComponentProps;
+    DefaultProps;
 
 /**
  * Highlight given part of a string with mark tag. For more information, see: https://mantine.dev/core/app-shell/

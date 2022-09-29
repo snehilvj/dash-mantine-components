@@ -1,9 +1,9 @@
 import React from "react";
-import { DashComponentProps, TextProps } from "../../props";
+import { DefaultProps, TextProps } from "../../props";
 import { Title as MantineTitle, TitleOrder } from "@mantine/core";
 import { TitleSize } from "@mantine/core/lib/Title/Title";
 
-interface Props extends Omit<TextProps, "size">, DashComponentProps {
+interface Props extends Omit<TextProps, "size">, DefaultProps {
     /** Defines component and styles which will be used */
     order?: TitleOrder;
     /** Title font-size: h1-h6 or any valid CSS font-size value */
