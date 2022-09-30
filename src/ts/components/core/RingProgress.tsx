@@ -1,6 +1,7 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DefaultProps } from "../../props";
 import { RingProgress as MantineRingProgress } from "@mantine/core";
+import { MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Label displayed in the center of the ring */
@@ -14,10 +15,10 @@ type Props = {
     /** Ring sections */
     sections: {
         value: number;
-        color: MantineColors;
+        color: MantineColor;
         tooltip?: React.ReactNode;
     }[];
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Give user feedback for status of the task with circle diagram. For more information, see: https://mantine.dev/core/ring-progress/

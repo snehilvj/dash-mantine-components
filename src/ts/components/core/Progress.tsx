@@ -1,11 +1,11 @@
 import React from "react";
-import { DashComponentProps, MantineColors } from "../../props";
+import { DefaultProps } from "../../props";
 import { Progress as MantineProgress } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize, MantineColor } from "@mantine/styles";
 
 interface ProgressSection {
     value: number;
-    color: MantineColors;
+    color: MantineColor;
     label?: string;
     tooltip?: React.ReactNode;
 }
@@ -14,11 +14,11 @@ type Props = {
     /** Percent of filled bar (0-100) */
     value?: number;
     /** Progress color from theme */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Predefined progress height or number for height in px */
-    size?: MantineSize;
+    size?: MantineNumberSize;
     /** Predefined progress radius from theme.radius or number for height in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Adds stripes */
     striped?: boolean;
     /** Whether to animate striped progress bars */
@@ -27,7 +27,7 @@ type Props = {
     label?: string;
     /** Replaces value if present, renders multiple sections instead of single one */
     sections?: ProgressSection[];
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Give user feedback for status of the task. For more information, see: https://mantine.dev/core/progress/
