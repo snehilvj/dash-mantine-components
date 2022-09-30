@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { ScrollArea as MantineScrollArea } from "@mantine/core";
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
     offsetScrollbars?: boolean;
     /** Content of the scroll area */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * A port of the ScrollArea component. For more information, see: https://mantine.dev/core/table/

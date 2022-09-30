@@ -1,7 +1,7 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { SimpleGrid as MantineSimpleGrid } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 import { SimpleGridBreakpoint } from "@mantine/core/lib/SimpleGrid/SimpleGrid.styles";
 
 type Props = {
@@ -10,12 +10,12 @@ type Props = {
     /** Default amount of columns, used when none of breakpoints can be applied  */
     cols?: number;
     /** Spacing between columns, used when none of breakpoints can be applied */
-    spacing?: MantineSize;
+    spacing?: MantineNumberSize;
     /** Vertical spacing between columns, used when none of breakpoints can be applied  */
-    verticalSpacing?: MantineSize;
+    verticalSpacing?: MantineNumberSize;
     /** Content */
     children?: React.ReactNode;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Responsive grid where each item takes equal amount of space. For more information, see: https://mantine.dev/core/simple-grid/

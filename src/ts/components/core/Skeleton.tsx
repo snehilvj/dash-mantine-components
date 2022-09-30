@@ -1,7 +1,7 @@
 import React from "react";
-import { DashComponentProps, LoadingStateProps } from "../../props";
+import { DefaultProps, LoadingStateProps } from "../../props";
 import { Skeleton as MantineSkeleton } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Should skeleton overlay be displayed */
@@ -13,13 +13,13 @@ type Props = {
     /** If Skeleton is a circle, it's width and border-radius will be equal to height */
     circle?: boolean;
     /** Radius from theme.radius or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Whether to show the animation effect */
     animate?: boolean;
     /** Content */
     children?: React.ReactNode;
 } & LoadingStateProps &
-    DashComponentProps;
+    DefaultProps;
 
 /**
  * Indicate content loading state. For more information, see: https://mantine.dev/core/skeleton/
