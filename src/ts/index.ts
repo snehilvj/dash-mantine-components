@@ -64,7 +64,8 @@ import SegmentedControl from "./components/core/SegmentedControl";
 import Select from "./components/core/Select";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Skeleton from "./components/core/Skeleton";
-import Slider from "./components/core/Slider";
+import Slider from "./components/core/slider/Slider";
+import RangeSlider from "./components/core/slider/RangeSlider";
 import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
@@ -83,7 +84,7 @@ import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Title from "./components/core/Title";
 import Tooltip from "./components/core/tooltip/Tooltip";
-import TooltipFloating from "./components/core/tooltip/TooltipFloating";
+import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
 
 export {
     Accordion,
@@ -153,6 +154,7 @@ export {
     SimpleGrid,
     Skeleton,
     Slider,
+    RangeSlider,
     Space,
     Spoiler,
     Stack,
@@ -171,5 +173,5 @@ export {
     TimelineItem,
     Title,
     Tooltip,
-    TooltipFloating,
+    FloatingTooltip,
 };
