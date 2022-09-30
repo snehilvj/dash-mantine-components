@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { ColorPicker as MantineColorPicker } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
 
@@ -20,7 +20,7 @@ type Props = {
     fullWidth?: boolean;
     /** Should interactive elements be focusable */
     focusable?: boolean;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Inline color picker. For more information, see: https://mantine.dev/core/color-picker/

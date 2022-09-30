@@ -1,26 +1,29 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { Grid } from "@mantine/core";
+import { ColSpan } from "@mantine/core/lib/Grid/Col/Col.styles";
+
+type OrderType = "inherit" | "initial" | number;
 
 type Props = {
     /** Col content */
     children?: React.ReactNode;
     /** Default col span */
-    span?: number;
+    span?: ColSpan;
     /** Column left offset */
     offset?: number;
     /** Default col order */
-    order?: number;
+    order?: OrderType;
     /** Col order at (min-width: theme.breakpoints.xs) */
-    orderXs?: number;
+    orderXs?: OrderType;
     /** Col order at (min-width: theme.breakpoints.sm) */
-    orderSm?: number;
+    orderSm?: OrderType;
     /** Col order at (min-width: theme.breakpoints.md) */
-    orderMd?: number;
+    orderMd?: OrderType;
     /** Col order at (min-width: theme.breakpoints.lg) */
-    orderLg?: number;
+    orderLg?: OrderType;
     /** Col order at (min-width: theme.breakpoints.xl) */
-    orderXl?: number;
+    orderXl?: OrderType;
     /** Column left offset at (min-width: theme.breakpoints.xs) */
     offsetXs?: number;
     /** Column left offset at (min-width: theme.breakpoints.sm) */
@@ -32,16 +35,16 @@ type Props = {
     /** Column left offset at (min-width: theme.breakpoints.xl) */
     offsetXl?: number;
     /** Col span at (min-width: theme.breakpoints.xs) */
-    xs?: number;
+    xs?: ColSpan;
     /** Col span at (min-width: theme.breakpoints.sm) */
-    sm?: number;
+    sm?: ColSpan;
     /** Col span at (min-width: theme.breakpoints.md) */
-    md?: number;
+    md?: ColSpan;
     /** Col span at (min-width: theme.breakpoints.lg) */
-    lg?: number;
+    lg?: ColSpan;
     /** Col span at (min-width: theme.breakpoints.xl) */
-    xl?: number;
-} & DashComponentProps;
+    xl?: ColSpan;
+} & DefaultProps;
 
 /**
  * Inline or block code without syntax highlight. For more information, see: https://mantine.dev/core/code/
