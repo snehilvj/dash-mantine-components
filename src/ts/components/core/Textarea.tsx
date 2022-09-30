@@ -1,11 +1,6 @@
 import React from "react";
-import {
-    DashComponentProps,
-    InputWrapperBaseProps,
-    InputSharedProps,
-} from "../../props";
+import { DefaultProps, InputComponentProps } from "../../props";
 import { Textarea as MantineTextarea } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
 
 type Props = {
     /** If true textarea will grow with content until maxRows are reached  */
@@ -14,15 +9,10 @@ type Props = {
     maxRows?: number;
     /** Defined minRows in autosize variant and rows in regular variant */
     minRows?: number;
-    /** Input size */
-    size?: MantineSize;
-    /** Placeholder */
-    placeholder?: string;
     /** Value for controlled input */
     value?: string;
-} & InputSharedProps &
-    InputWrapperBaseProps &
-    DashComponentProps;
+} & InputComponentProps &
+    DefaultProps;
 
 /**
  * Capture string input from user. For more information, see: https://mantine.dev/core/text-input/
