@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps, SelectSharedProps } from "../../props";
+import { DefaultProps, SelectSharedProps } from "../../props";
 import { Select as MantineSelect } from "@mantine/core";
 
 type Props = {
@@ -9,14 +9,8 @@ type Props = {
     searchable?: boolean;
     /** Allow to clear item */
     clearable?: boolean;
-    /** aria-label for clear button */
-    clearButtonLabel?: string;
-    /** Controlled search input value */
-    searchValue?: string;
     /** Allow creatable option  */
     creatable?: boolean;
-    /** Change dropdown component, can be used to add native scrollbars */
-    dropdownComponent?: any;
     /** Select highlighted item on blur */
     selectOnBlur?: boolean;
     /** Allow deselecting items on click */
@@ -28,7 +22,7 @@ type Props = {
     /** Controlled input value */
     value?: string;
 } & SelectSharedProps &
-    DashComponentProps;
+    DefaultProps;
 
 /**
  * Custom searchable select. For more information, see: https://mantine.dev/core/select/

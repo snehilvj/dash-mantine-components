@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps, SelectSharedProps } from "../../props";
+import { DefaultProps, SelectSharedProps } from "../../props";
 import { MultiSelect as MantineMultiSelect } from "@mantine/core";
 
 type Props = {
@@ -11,14 +11,10 @@ type Props = {
     clearSearchOnChange?: boolean;
     /** Allow to clear item */
     clearable?: boolean;
-    /** aria-label for clear button */
-    clearButtonLabel?: string;
     /** Clear search field value on blur */
     clearSearchOnBlur?: boolean;
     /** Allow creatable option  */
     creatable?: boolean;
-    /** Change dropdown component, can be used to add custom scrollbars */
-    dropdownComponent?: any;
     /** Limit amount of items selected */
     maxSelectedValues?: number;
     /** Select highlighted item on blur */
@@ -28,7 +24,7 @@ type Props = {
     /** Controlled input value */
     value?: string[];
 } & SelectSharedProps &
-    DashComponentProps;
+    DefaultProps;
 
 /**
  * Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/

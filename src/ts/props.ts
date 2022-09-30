@@ -10,6 +10,7 @@ import { InputVariant } from "@mantine/core/lib/Input";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
 import { PopoverWidth } from "@mantine/core/lib/Popover/Popover.types";
 import { SelectItem } from "@mantine/core/lib/Select/";
+import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 
 export type MantineStyleSystemProps = {
     /** margin props */
@@ -135,7 +136,7 @@ export type LoaderProps = {
     color?: MantineColor;
     /** Loader appearance */
     variant?: MantineTheme["loader"];
-} & DefaultProps;
+};
 
 export type InputWrapperBaseProps = {
     /** Input label, displayed before input */
@@ -164,7 +165,7 @@ export interface InputSharedProps {
     /** Sets required on input element */
     required?: boolean;
     /** Input border-radius from theme or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Defines input appearance, defaults to default in light color scheme and filled in dark */
     variant?: InputVariant;
     /** Disabled input state */
@@ -183,25 +184,6 @@ export type TextAreaProps = {
     /** Props passed to root element */
 } & InputSharedProps &
     InputWrapperBaseProps;
-
-export type MantineTransition =
-    | "fade"
-    | "skew-up"
-    | "skew-down"
-    | "rotate-right"
-    | "rotate-left"
-    | "slide-down"
-    | "slide-up"
-    | "slide-right"
-    | "slide-left"
-    | "scale-y"
-    | "scale-x"
-    | "scale"
-    | "pop"
-    | "pop-top-left"
-    | "pop-top-right"
-    | "pop-bottom-left"
-    | "pop-bottom-right";
 
 export type AlignContentProps =
     | "left"
@@ -245,7 +227,7 @@ export type PopoverBaseProps = {
     /** Space between target element and dropdown in px */
     offset?: number;
     /** One of premade transitions ot transition object */
-    transition?: MantineTransition;
+    transition?: MantineTransitionName;
     /** Transition duration in ms */
     transitionDuration?: number;
     /** Exit transition duration in ms */
@@ -272,17 +254,15 @@ export type SelectSharedProps = {
     /** Input size */
     size?: MantineSize;
     /** Dropdown body appear/disappear transition */
-    transition?: MantineTransition;
+    transition?: MantineTransitionName;
     /** Dropdown body transition duration */
     transitionDuration?: number;
     /** Dropdown body transition timing function, defaults to theme.transitionTimingFunction */
     transitionTimingFunction?: string;
     /** Dropdown shadow from theme or any value to set box-shadow */
-    shadow?: MantineSize;
+    shadow?: MantineShadow;
     /** Initial dropdown opened state */
     initiallyOpened?: boolean;
-    /** Whether to render the dropdown in a Portal */
-    withinPortal?: boolean;
     /** Limit amount of items displayed at a time for searchable select */
     limit?: number;
     /** Nothing found label */
@@ -297,5 +277,5 @@ export type SelectSharedProps = {
     placeholder?: string;
     /** Whether the input is disabled */
     disabled?: boolean;
-} & InputSharedProps &
-    InputWrapperBaseProps;
+} & InputWrapperBaseProps &
+    Omit<InputSharedProps, "size">;
