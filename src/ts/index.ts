@@ -82,7 +82,8 @@ import TimeInput from "./components/core/TimeInput";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Title from "./components/core/Title";
-import Tooltip from "./components/core/Tooltip";
+import Tooltip from "./components/core/tooltip/Tooltip";
+import TooltipFloating from "./components/core/tooltip/TooltipFloating";
 
 export {
     Accordion,
@@ -170,4 +171,5 @@ export {
     TimelineItem,
     Title,
     Tooltip,
+    TooltipFloating,
 };
