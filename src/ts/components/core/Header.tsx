@@ -1,5 +1,5 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { Header as MantineHeader } from "@mantine/core";
 import { VerticalSectionPosition } from "@mantine/core/lib/AppShell/VerticalSection/VerticalSection.styles";
 
@@ -16,7 +16,7 @@ type Props = {
     position?: VerticalSectionPosition;
     /** z-index */
     zIndex?: number;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Header. For more information, see: https://mantine.dev/core/app-shell/

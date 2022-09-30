@@ -1,7 +1,7 @@
 import React from "react";
-import { DashComponentProps, AlignContentProps } from "../../props";
+import { DefaultProps, AlignContentProps } from "../../props";
 import { Group as MantineGroup, GroupPosition } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Children */
@@ -13,10 +13,10 @@ type Props = {
     /** Defines flex-grow property for each element, true -> 1, false -> 0 */
     grow?: boolean;
     /** Space between elements */
-    spacing?: MantineSize;
+    spacing?: MantineNumberSize;
     /** Defines align-items css property */
     align?: AlignContentProps;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Compose elements and components in horizontal flex container. For more information, see: https://mantine.dev/core/group/

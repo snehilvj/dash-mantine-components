@@ -8,7 +8,7 @@ import { Grid as MantineGrid } from "@mantine/core";
 import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
-    /** Col components only */
+    /** dmc.Col components only */
     children?: React.ReactNode;
     /** Spacing between columns predefined value from theme.spacing or number for gutter in px  */
     gutter?: MantineNumberSize;

@@ -1,11 +1,11 @@
 import React from "react";
-import { DashComponentProps } from "../../props";
+import { DefaultProps } from "../../props";
 import { Navbar as MantineNavbar } from "@mantine/core";
 import {
     HorizontalSectionPosition,
     HorizontalSectionWidth,
 } from "@mantine/core/lib/AppShell/HorizontalSection/HorizontalSection.styles";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Content */
@@ -21,12 +21,12 @@ type Props = {
     /** Position for fixed variant */
     position?: HorizontalSectionPosition;
     /** Breakpoint at which component will be hidden if hidden prop is true */
-    hiddenBreakpoint?: MantineSize;
+    hiddenBreakpoint?: MantineNumberSize;
     /** Set to true to hide component at hiddenBreakpoint */
     hidden?: boolean;
     /** z-index */
-    zIndex?: React.CSSProperties["zIndex"];
-} & DashComponentProps;
+    zIndex?: number;
+} & DefaultProps;
 
 /**
  * Navbar. For more information, see: https://mantine.dev/core/app-shell/
