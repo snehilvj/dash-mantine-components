@@ -1,21 +1,14 @@
 import React from "react";
-import {
-    DashComponentProps,
-    InputWrapperBaseProps,
-    InputSharedProps,
-} from "../../props";
+import { DefaultProps, InputComponentProps } from "../../props";
 import { TextInput as MantineTextInput } from "@mantine/core";
 
 type Props = {
     /** Input element type */
     type?: "number" | "search" | "text" | "tel" | "url" | "email" | "password";
-    /** Placeholder */
-    placeholder?: string;
     /** Value for controlled input */
     value?: string;
-} & InputSharedProps &
-    InputWrapperBaseProps &
-    DashComponentProps;
+} & InputComponentProps &
+    DefaultProps;
 
 /**
  * Capture string input from user. For more information, see: https://mantine.dev/core/text-input/

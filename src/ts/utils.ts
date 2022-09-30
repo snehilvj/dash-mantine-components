@@ -4,3 +4,7 @@ export const isDateInList = (value: Date, array: Date[]) => {
         return item.getTime() === value.getTime();
     });
 };
+
+// check if all the elements in the array are string
+export const isStringsArray = (arr: any[]) =>
+    arr.every((i) => typeof i === "string");

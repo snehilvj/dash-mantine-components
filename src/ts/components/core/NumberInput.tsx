@@ -1,9 +1,5 @@
 import React from "react";
-import {
-    DashComponentProps,
-    InputWrapperBaseProps,
-    InputSharedProps,
-} from "../../props";
+import { DefaultProps, InputComponentProps } from "../../props";
 import { NumberInput as MantineNumberInput } from "@mantine/core";
 
 type Props = {
@@ -27,15 +23,12 @@ type Props = {
     hideControls?: boolean;
     /** Amount of digits after the decimal point  */
     precision?: number;
-    /** Default value for uncontrolled variant only */
-    defaultValue?: number | undefined;
     /** Prevent value clamp on blur */
     noClampOnBlur?: boolean;
     /** Input type, defaults to text */
     type?: "text" | "number";
-} & InputSharedProps &
-    InputWrapperBaseProps &
-    DashComponentProps;
+} & InputComponentProps &
+    DefaultProps;
 
 /**
  * Capture number input from user. For more information, see: https://mantine.dev/core/number-input/

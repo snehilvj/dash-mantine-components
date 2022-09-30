@@ -172,6 +172,8 @@ export interface InputSharedProps {
     disabled?: boolean;
     /** Input size */
     size?: MantineSize;
+    /** Placeholder */
+    placeholder?: string;
 }
 
 export type TextAreaProps = {
@@ -253,6 +255,10 @@ export type SelectSharedProps = {
     data: (string | SelectItem)[];
     /** Input size */
     size?: MantineSize;
+    /** Maximum dropdown height in px */
+    maxDropdownHeight?: number;
+    /** Select highlighted item on blur */
+    selectOnBlur?: boolean;
     /** Dropdown body appear/disappear transition */
     transition?: MantineTransitionName;
     /** Dropdown body transition duration */
@@ -273,9 +279,15 @@ export type SelectSharedProps = {
     dropdownPosition?: "bottom" | "top" | "flip";
     /** Whether to switch item order and keyboard navigation on dropdown position flip */
     switchDirectionOnFlip?: boolean;
-    /** Placeholder */
-    placeholder?: string;
+    /** Allow to clear item */
+    clearable?: boolean;
+    /** Allow creatable option  */
+    creatable?: boolean;
+    /** Enable items searching */
+    searchable?: boolean;
     /** Whether the input is disabled */
     disabled?: boolean;
 } & InputWrapperBaseProps &
     Omit<InputSharedProps, "size">;
+
+export type InputComponentProps = InputSharedProps & InputWrapperBaseProps;

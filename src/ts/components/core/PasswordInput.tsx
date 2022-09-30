@@ -1,27 +1,16 @@
 import React from "react";
-import {
-    DashComponentProps,
-    InputWrapperBaseProps,
-    InputSharedProps,
-} from "../../props";
+import { DefaultProps, InputComponentProps } from "../../props";
 import { PasswordInput as MantinePasswordInput } from "@mantine/core";
 
 type Props = {
     /** Toggle button tabIndex, set to 0 to make button focusable with tab key */
     toggleTabIndex?: -1 | 0;
-    /** aria-label for visibility toggle button */
-    visibilityToggleLabel?: string;
     /** Determines whether input content should be visible (controlled) */
     visible?: boolean;
-    /** Determines whether input content should be visible (uncontrolled) */
-    defaultVisible?: boolean;
     /** Value for controlled input */
     value?: string;
-    /** Placeholder */
-    placeholder?: string;
-} & InputSharedProps &
-    InputWrapperBaseProps &
-    DashComponentProps;
+} & InputComponentProps &
+    DefaultProps;
 
 /**
  * Capture password from user with option to toggle visibility. For more information, see: https://mantine.dev/core/password-input/
