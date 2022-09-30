@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { DashComponentProps, MantineTransition } from "../../props";
+import { DashBaseProps } from "../../props";
 import { Modal as MantineModal } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize, MantineShadow } from "@mantine/styles";
+import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 
 type Props = {
     /** Content */
@@ -25,21 +26,19 @@ type Props = {
     /** Determines whether the modal should take the entire screen */
     fullScreen?: boolean;
     /** Modal radius */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Modal body width */
     size?: string | number;
     /** Modal body transition */
-    transition?: MantineTransition;
+    transition?: MantineTransitionName;
     /** Duration in ms of modal transitions, set to 0 to disable all animations */
     transitionDuration?: number;
     /** Modal body transitionTimingFunction, defaults to theme.transitionTimingFunction */
     transitionTimingFunction?: string;
-    /** Close button aria-label */
-    closeButtonLabel?: string;
     /** Modal shadow from theme or css value */
-    shadow?: MantineSize;
+    shadow?: MantineShadow;
     /** Modal padding from theme or number value for padding in px */
-    padding?: MantineSize;
+    padding?: MantineNumberSize;
     /** Should modal be closed when outside click was registered? */
     closeOnClickOutside?: boolean;
     /** Should modal be closed when escape is pressed? */
@@ -50,11 +49,9 @@ type Props = {
     centered?: boolean;
     /** Determines whether scroll should be locked when modal is opened, defaults to true */
     lockScroll?: boolean;
-    /** Determines whether modal should be rendered within Portal, defaults to true */
-    withinPortal?: boolean;
     /** Determines whether focus should be returned to the last active element when drawer is closed */
     withFocusReturn?: boolean;
-} & DashComponentProps;
+} & DashBaseProps;
 
 /**
  * Modal with optional header. For more information, see: https://mantine.dev/core/modal/

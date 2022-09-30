@@ -1,15 +1,11 @@
 import React from "react";
-import {
-    DashComponentProps,
-    MantineColors,
-    AlignContentProps,
-} from "../../props";
+import { DefaultProps, AlignContentProps } from "../../props";
 import { Pagination as MantinePagination, GroupPosition } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize, MantineColor } from "@mantine/styles";
 
 type Props = {
     /** Active item color from theme, defaults to theme.primaryColor */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Controlled active page number */
     page?: number;
     /** Total amount of pages */
@@ -19,11 +15,11 @@ type Props = {
     /** Amount of elements visible on left/right edges */
     boundaries?: number;
     /** Spacing between items from theme or number to set value in px, defaults to theme.spacing.xs / 2 */
-    spacing?: MantineSize;
+    spacing?: MantineNumberSize;
     /** Predefined item size or number to set width and height in px */
-    size?: MantineSize;
+    size?: MantineNumberSize;
     /** Predefined item radius or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
     /** Show/hide jump to start/end controls */
     withEdges?: boolean;
     /** Show/hide prev/next controls */
@@ -38,7 +34,7 @@ type Props = {
     grow?: boolean;
     /** Defines align-items css property */
     align?: AlignContentProps;
-} & DashComponentProps;
+} & DefaultProps;
 
 /**
  * Display active page and navigate between multiple pages. For more information, see: https://mantine.dev/core/pagination/

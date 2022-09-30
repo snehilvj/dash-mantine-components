@@ -1,11 +1,7 @@
 import React from "react";
-import {
-    DashComponentProps,
-    LoaderProps,
-    LoadingStateProps,
-} from "../../props";
+import { DefaultProps, LoaderProps, LoadingStateProps } from "../../props";
 import { LoadingOverlay as MantineLoadingOverlay } from "@mantine/core";
-import { MantineSize } from "@mantine/styles";
+import { MantineNumberSize } from "@mantine/styles";
 import { mergeRight } from "ramda";
 
 type Props = {
@@ -28,9 +24,9 @@ type Props = {
     /** Exit transition duration in ms */
     exitTransitionDuration?: number;
     /** Value from theme.radius or number to set border-radius in px */
-    radius?: MantineSize;
+    radius?: MantineNumberSize;
 } & LoadingStateProps &
-    DashComponentProps;
+    DefaultProps;
 
 /**
  * Similar to dcc.Loading, overlay over given container with centered Loader from Mantine Theme. For more information, see: https://mantine.dev/core/loading-overlay/
