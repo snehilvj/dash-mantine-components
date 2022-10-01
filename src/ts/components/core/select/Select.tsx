@@ -1,5 +1,5 @@
-import React from "react";
-import { DefaultProps, SelectSharedProps } from "../../props";
+import React, { useState } from "react";
+import { DefaultProps, SelectSharedProps } from "../../../props";
 import { Select as MantineSelect } from "@mantine/core";
 
 type Props = {
@@ -16,13 +16,27 @@ type Props = {
  * Custom searchable select. For more information, see: https://mantine.dev/core/select/
  */
 const Select = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, data, ...other } = props;
+
+    const [options, setOptions] = useState(data);
 
     const onChange = (value: string) => {
         setProps({ value });
     };
 
-    return <MantineSelect onChange={onChange} {...other} />;
+    return (
+        <MantineSelect
+            onChange={onChange}
+            getCreateLabel={(query) => `+ Create ${query}`}
+            onCreate={(query) => {
+                const item = { value: query, label: query };
+                setOptions((current) => [...current, item]);
+                return item;
+            }}
+            data={options}
+            {...other}
+        />
+    );
 };
 
 Select.defaultProps = {

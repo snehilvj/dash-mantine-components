@@ -1,5 +1,5 @@
-import React from "react";
-import { DefaultProps, SelectSharedProps } from "../../props";
+import React, { useState } from "react";
+import { DefaultProps, SelectSharedProps } from "../../../props";
 import { MultiSelect as MantineMultiSelect } from "@mantine/core";
 
 type Props = {
@@ -18,13 +18,28 @@ type Props = {
  * Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/
  */
 const MultiSelect = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, data, nothingFound, ...other } = props;
+
+    const [options, setOptions] = useState(data);
 
     const onChange = (value: string[]) => {
         setProps({ value });
     };
 
-    return <MantineMultiSelect onChange={onChange} {...other} />;
+    return (
+        <MantineMultiSelect
+            onChange={onChange}
+            getCreateLabel={(query) => `+ Create ${query}`}
+            onCreate={(query) => {
+                const item = { value: query, label: query };
+                setOptions((current) => [...current, item]);
+                return item;
+            }}
+            data={options}
+            {...other}
+            nothingFound="hiya"
+        />
+    );
 };
 
 MultiSelect.defaultProps = {

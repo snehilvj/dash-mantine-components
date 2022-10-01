@@ -50,7 +50,8 @@ import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuTarget from "./components/core/menu/MenuTarget";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import Modal from "./components/core/Modal";
-import MultiSelect from "./components/core/MultiSelect";
+import MultiSelect from "./components/core/select/MultiSelect";
+import Select from "./components/core/select/Select";
 // import Notification from "./components/notifications/Notification";
 // import NotificationsProvider from "./components/notifications/NotificationsProvider";
 import NumberInput from "./components/core/NumberInput";
@@ -64,7 +65,6 @@ import RadioGroup from "./components/core/radio/RadioGroup";
 import RingProgress from "./components/core/RingProgress";
 import ScrollArea from "./components/core/ScrollArea";
 import SegmentedControl from "./components/core/SegmentedControl";
-import Select from "./components/core/Select";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Skeleton from "./components/core/Skeleton";
 import Slider from "./components/core/slider/Slider";
@@ -143,6 +143,7 @@ export {
     MenuLabel,
     Modal,
     MultiSelect,
+    Select,
     // Notification,
     // NotificationsProvider,
     NumberInput,
@@ -156,7 +157,6 @@ export {
     RingProgress,
     ScrollArea,
     SegmentedControl,
-    Select,
     SimpleGrid,
     Skeleton,
     Slider,
