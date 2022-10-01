@@ -24,6 +24,7 @@ import ColorPicker from "./components/core/ColorPicker";
 import Col from "./components/core/Col";
 import Container from "./components/core/Container";
 import DatePicker from "./components/dates/DatePicker";
+import DateRangePicker from "./components/dates/DateRangePicker";
 import Divider from "./components/core/Divider";
 import Drawer from "./components/core/Drawer";
 import Grid from "./components/core/Grid";
@@ -113,6 +114,7 @@ export {
     Col,
     Container,
     DatePicker,
+    DateRangePicker,
     Divider,
     Drawer,
     Grid,
