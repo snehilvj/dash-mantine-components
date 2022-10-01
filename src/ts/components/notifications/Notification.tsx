@@ -4,7 +4,7 @@ import {
     updateNotification,
     hideNotification,
 } from "@mantine/notifications";
-import { MantineColors } from "../../../props";
+import { MantineColors } from "../../props";
 import { MantineSize } from "@mantine/styles";
 
 type Props = {
