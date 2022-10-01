@@ -11,6 +11,7 @@ import { FloatingPosition } from "@mantine/core/lib/Floating";
 import { PopoverWidth } from "@mantine/core/lib/Popover/Popover.types";
 import { SelectItem } from "@mantine/core/lib/Select/";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
+import { FirstDayOfWeek } from "@mantine/dates/lib/types";
 
 export type MantineStyleSystemProps = {
     /** margin props */
@@ -291,3 +292,74 @@ export type SelectSharedProps = {
     Omit<InputSharedProps, "size">;
 
 export type InputComponentProps = InputSharedProps & InputWrapperBaseProps;
+
+export type DatePickerSharedProps = {
+    /** Dropdown appear/disappear transition */
+    transition?: MantineTransitionName;
+    /** Dropdown appear/disappear transition duration */
+    transitionDuration?: number;
+    /** Dropdown appear/disappear transition timing function, defaults to theme.transitionTimingFunction */
+    transitionTimingFunction?: string;
+    /** Dropdown shadow from theme or css value for custom box-shadow */
+    shadow?: MantineSize;
+    /** Input size */
+    size?: MantineSize;
+    /** Where to show calendar in modal or popover */
+    dropdownType?: "popover" | "modal";
+    /** Dropdown positioning behavior */
+    dropdownPosition?: "bottom-start" | "top-start" | "flip";
+    /** Allow to clear value */
+    clearable?: boolean;
+    /** Dropdown zIndex */
+    zIndex?: number;
+    /** call onChange with last valid value onBlur */
+    fixOnBlur?: boolean;
+    /** Events that should trigger outside clicks */
+    clickOutsideEvents?: string[];
+    /** Modal z-index */
+    modalZIndex?: number;
+    /** Set the clear button tab index to disabled or default after input field */
+    clearButtonTabIndex?: -1 | 0;
+    /** Amount of months */
+    amountOfMonths?: number;
+    /** Paginate by amount of months */
+    paginateBy?: number;
+    /** Allow to change level (date - month - year) */
+    allowLevelChange?: boolean;
+    /** Initial date selection level */
+    initialLevel?: "date" | "month" | "year";
+    /** Specifies additional days between min_date_allowed and max_date_allowed that should be disabled */
+    disabledDates?: string[];
+    /** When true dates that are outside of given month cannot be clicked or focused */
+    disableOutsideEvents?: boolean;
+    /** Set to true to make calendar take 100% of container width */
+    fullWidth?: boolean;
+    /** Prevent focusing upon clicking */
+    preventFocus?: boolean;
+    /** Should focusable days have tabIndex={0}? */
+    focusable?: boolean;
+    /** Maximum possible date */
+    maxDate?: string;
+    /** Minimum possible date */
+    minDate?: string;
+    /** Set to false to remove weekdays row */
+    hideWeekdays?: boolean;
+    /** Remove outside dates */
+    hideOutsideDates?: boolean;
+    /** Indices of weekend days */
+    weekendDays?: number[];
+    /** Set first day of the week */
+    firstDayOfWeek?: FirstDayOfWeek;
+    /** Set to false to force dropdown to stay open after date was selected */
+    closeCalendarOnChange?: boolean;
+    /** Set to true to open dropdown on clear */
+    openDropdownOnClear?: boolean;
+    /** dayjs input format */
+    inputFormat?: string;
+    /** Control initial dropdown opened state */
+    initiallyOpened?: boolean;
+    /** Initial month for uncontrolled calendar */
+    initialMonth?: string;
+    /** Locale used for labels formatting, defaults to theme.datesLocale */
+    locale?: string;
+} & InputComponentProps;
