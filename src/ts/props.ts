@@ -404,3 +404,43 @@ export type HorizontalSectionSharedProps = {
     /** z-index */
     zIndex?: number;
 } & DefaultProps;
+
+export type SliderSharedProps = {
+    /** Color from theme.colors */
+    color?: MantineColor;
+    /** Track border-radius from theme or number to set border-radius in px */
+    radius?: MantineNumberSize;
+    /** Predefined track and thumb size, number to set sizes in px */
+    size?: MantineNumberSize;
+    /** Minimal possible value */
+    min?: number;
+    /** Maximum possible value */
+    max?: number;
+    /** Number by which value will be incremented/decremented with thumb drag and arrows */
+    step?: number;
+    /** Amount of digits after the decimal point */
+    precision?: number;
+    /** Marks which will be placed on the track */
+    marks?: {
+        value: number;
+        label?: React.ReactNode;
+    }[];
+    /** Label appear/disappear transition */
+    labelTransition?: MantineTransitionName;
+    /** Label appear/disappear transition duration in ms */
+    labelTransitionDuration?: number;
+    /** Label appear/disappear transition timing function, defaults to theme.transitionRimingFunction */
+    labelTransitionTimingFunction?: string;
+    /** If true label will be not be hidden when user stops dragging */
+    labelAlwaysOn?: boolean;
+    /** If true slider label will appear on hover */
+    showLabelOnHover?: boolean;
+    /** Thumb children, can be used to add icon */
+    thumbChildren?: React.ReactNode;
+    /** Disables slider */
+    disabled?: boolean;
+    /** Thumb width and height in px */
+    thumbSize?: number;
+    /** Determines when the component should update its value property. If mouseup (the default) then the slider will only trigger its value when the user has finished dragging the slider. If drag, then the slider will update its value continuously as it is being dragged. */
+    updatemode: "mouseup" | "drag";
+};
