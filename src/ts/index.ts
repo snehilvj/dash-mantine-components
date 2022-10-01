@@ -29,7 +29,10 @@ import Divider from "./components/core/Divider";
 import Drawer from "./components/core/Drawer";
 import Grid from "./components/core/Grid";
 import Group from "./components/core/Group";
-import Header from "./components/core/Header";
+import Aside from "./components/core/appshell/Aside";
+import Footer from "./components/core/appshell/Footer";
+import Header from "./components/core/appshell/Header";
+import Navbar from "./components/core/appshell/Navbar";
 import Highlight from "./components/core/Highlight";
 import Image from "./components/core/Image";
 import Kbd from "./components/core/Kbd";
@@ -48,9 +51,8 @@ import MenuTarget from "./components/core/menu/MenuTarget";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/MultiSelect";
-import Navbar from "./components/core/Navbar";
-// import Notification from "./components/core/notifications/Notification";
-// import NotificationsProvider from "./components/core/notifications/NotificationsProvider";
+// import Notification from "./components/notifications/Notification";
+// import NotificationsProvider from "./components/notifications/NotificationsProvider";
 import NumberInput from "./components/core/NumberInput";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
@@ -119,7 +121,10 @@ export {
     Drawer,
     Grid,
     Group,
+    Aside,
+    Footer,
     Header,
+    Navbar,
     Highlight,
     Image,
     Kbd,
@@ -138,7 +143,6 @@ export {
     MenuLabel,
     Modal,
     MultiSelect,
-    Navbar,
     // Notification,
     // NotificationsProvider,
     NumberInput,

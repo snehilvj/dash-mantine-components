@@ -12,6 +12,11 @@ import { PopoverWidth } from "@mantine/core/lib/Popover/Popover.types";
 import { SelectItem } from "@mantine/core/lib/Select/";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 import { FirstDayOfWeek } from "@mantine/dates/lib/types";
+import { VerticalSectionPosition } from "@mantine/core/lib/AppShell/VerticalSection/VerticalSection.styles";
+import {
+    HorizontalSectionPosition,
+    HorizontalSectionWidth,
+} from "@mantine/core/lib/AppShell/HorizontalSection/HorizontalSection.styles";
 
 export type MantineStyleSystemProps = {
     /** margin props */
@@ -363,3 +368,39 @@ export type DatePickerSharedProps = {
     /** Locale used for labels formatting, defaults to theme.datesLocale */
     locale?: string;
 } & InputComponentProps;
+
+export type VerticalSectionSharedProps = {
+    /** Section content */
+    children?: React.ReactNode;
+    /** Section height */
+    height: number | string;
+    /** Border */
+    withBorder?: boolean;
+    /** Changes position to fixed, controlled by AppShell component if rendered inside */
+    fixed?: boolean;
+    /** Control top, left, right or bottom position values, controlled by AppShell component if rendered inside */
+    position?: VerticalSectionPosition;
+    /** z-index */
+    zIndex?: number;
+} & DefaultProps;
+
+export type HorizontalSectionSharedProps = {
+    /** Section Content */
+    children?: React.ReactNode;
+    /** Component width with breakpoints */
+    width?: HorizontalSectionWidth;
+    /** Component height */
+    height?: string | number;
+    /** Border */
+    withBorder?: boolean;
+    /** Set position to fixed */
+    fixed?: boolean;
+    /** Position for fixed variant */
+    position?: HorizontalSectionPosition;
+    /** Breakpoint at which component will be hidden if hidden prop is true */
+    hiddenBreakpoint?: MantineNumberSize;
+    /** Set to true to hide component at hiddenBreakpoint */
+    hidden?: boolean;
+    /** z-index */
+    zIndex?: number;
+} & DefaultProps;
