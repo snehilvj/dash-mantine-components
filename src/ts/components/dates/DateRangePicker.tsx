@@ -49,6 +49,8 @@ const DateRangePicker = (props: Props) => {
         const [start, end] = d;
         if (start && end) {
             setProps({ value: [dayjsToString(start), dayjsToString(end)] });
+        } else if (start || end) {
+            setDates([start, end]);
         } else {
             setProps({ value: null });
         }
@@ -68,7 +70,7 @@ const DateRangePicker = (props: Props) => {
                 excludedDates.push(stringToDayjs(date));
             }
         }
-    }, []);
+    }, [disabledDates]);
 
     useDidUpdate(() => {
         setDates(value ? convertToDateArray(value) : [null, null]);
@@ -76,9 +78,14 @@ const DateRangePicker = (props: Props) => {
 
     const isExcluded = (date: Date) => isDateInList(date, excludedDates);
 
+    const cleanUp = () => {
+        setDates([null, null]);
+    };
+
     return (
         <MantineDateRangePicker
             onChange={onChange}
+            onDropdownClose={cleanUp}
             locale={locale}
             value={dates}
             minDate={stringToDayjs(minDate)}
