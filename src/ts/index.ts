@@ -52,8 +52,8 @@ import MenuLabel from "./components/core/menu/MenuLabel";
 import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/select/MultiSelect";
 import Select from "./components/core/select/Select";
-// import Notification from "./components/notifications/Notification";
-// import NotificationsProvider from "./components/notifications/NotificationsProvider";
+import Notification from "./components/notifications/Notification";
+import NotificationsProvider from "./components/notifications/NotificationsProvider";
 import NumberInput from "./components/core/NumberInput";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
@@ -82,7 +82,7 @@ import Text from "./components/core/Text";
 import Textarea from "./components/core/Textarea";
 import TextInput from "./components/core/TextInput";
 import ThemeIcon from "./components/core/ThemeIcon";
-import TimeInput from "./components/core/TimeInput";
+import TimeInput from "./components/dates/TimeInput";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Title from "./components/core/Title";
@@ -144,8 +144,8 @@ export {
     Modal,
     MultiSelect,
     Select,
-    // Notification,
-    // NotificationsProvider,
+    Notification,
+    NotificationsProvider,
     NumberInput,
     Pagination,
     Paper,
