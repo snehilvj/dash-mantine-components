@@ -79,7 +79,9 @@ const DateRangePicker = (props: Props) => {
     const isExcluded = (date: Date) => isDateInList(date, excludedDates);
 
     const cleanUp = () => {
-        setDates(value ? convertToDateArray(value) : [null, null]);
+        if (!value) {
+            setDates([null, null]);
+        }
     };
 
     return (
