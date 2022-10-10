@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import AccordionMultiple from "./components/core/accordion/AccordionMultiple";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionControl from "./components/core/accordion/AccordionControl";
@@ -91,6 +92,7 @@ import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
 
 export {
     Accordion,
+    AccordionMultiple,
     AccordionPanel,
     AccordionItem,
     AccordionControl,

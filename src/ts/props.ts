@@ -17,6 +17,11 @@ import {
     HorizontalSectionPosition,
     HorizontalSectionWidth,
 } from "@mantine/core/lib/AppShell/HorizontalSection/HorizontalSection.styles";
+import {
+    AccordionChevronPosition,
+    AccordionHeadingOrder,
+    AccordionVariant,
+} from "@mantine/core/lib/Accordion/Accordion.types";
 
 export type MantineStyleSystemProps = {
     /** margin props */
@@ -444,3 +449,26 @@ export type SliderSharedProps = {
     /** Determines when the component should update its value property. If mouseup (the default) then the slider will only trigger its value when the user has finished dragging the slider. If drag, then the slider will update its value continuously as it is being dragged. */
     updatemode: "mouseup" | "drag";
 };
+
+export type AccordionSharedProps = {
+    /** Determines whether arrow key presses should loop though items (first to last and last to first) */
+    loop?: boolean;
+    /** Accordion content */
+    children?: React.ReactNode;
+    /** Transition duration in ms, set 0 to disable transitions */
+    transitionDuration?: number;
+    /** Determines whether chevron rotation should be disabled */
+    disableChevronRotation?: boolean;
+    /** Determines position of the chevron */
+    chevronPosition?: AccordionChevronPosition;
+    /** Chevron size in px */
+    chevronSize?: number;
+    /** Heading order, has no effect on visuals */
+    order?: AccordionHeadingOrder;
+    /** Replaces chevron on all items */
+    chevron?: React.ReactNode;
+    /** Controls visuals */
+    variant?: AccordionVariant;
+    /** border-radius from theme.radius or number to set value in px, will not be applied to default variant  */
+    radius?: MantineNumberSize;
+} & DefaultProps;
