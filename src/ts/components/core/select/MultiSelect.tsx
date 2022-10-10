@@ -18,7 +18,7 @@ type Props = {
  * Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/
  */
 const MultiSelect = (props: Props) => {
-    const { setProps, data, nothingFound, ...other } = props;
+    const { setProps, data, ...other } = props;
 
     const [options, setOptions] = useState(data);
 
@@ -37,7 +37,6 @@ const MultiSelect = (props: Props) => {
             }}
             data={options}
             {...other}
-            nothingFound="hiya"
         />
     );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps, InputComponentProps } from "../../props";
+import { DefaultProps, InputComponentProps } from "../../../props";
 import { Textarea as MantineTextarea } from "@mantine/core";
 
 type Props = {

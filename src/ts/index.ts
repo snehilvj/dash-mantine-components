@@ -36,6 +36,7 @@ import Header from "./components/core/appshell/Header";
 import Navbar from "./components/core/appshell/Navbar";
 import Highlight from "./components/core/Highlight";
 import Image from "./components/core/Image";
+import JsonInput from "./components/core/textinput/JsonInput";
 import Kbd from "./components/core/Kbd";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
@@ -55,10 +56,10 @@ import MultiSelect from "./components/core/select/MultiSelect";
 import Select from "./components/core/select/Select";
 // import Notification from "./components/notifications/Notification";
 // import NotificationsProvider from "./components/notifications/NotificationsProvider";
-import NumberInput from "./components/core/NumberInput";
+import NumberInput from "./components/core/textinput/NumberInput";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
-import PasswordInput from "./components/core/PasswordInput";
+import PasswordInput from "./components/core/textinput/PasswordInput";
 import Prism from "./components/core/Prism";
 import Progress from "./components/core/Progress";
 import Radio from "./components/core/radio/Radio";
@@ -80,8 +81,8 @@ import TabsList from "./components/core/tabs/TabsList";
 import TabsPanel from "./components/core/tabs/TabsPanel";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
-import Textarea from "./components/core/Textarea";
-import TextInput from "./components/core/TextInput";
+import Textarea from "./components/core/textinput/Textarea";
+import TextInput from "./components/core/textinput/TextInput";
 import ThemeIcon from "./components/core/ThemeIcon";
 import TimeInput from "./components/dates/TimeInput";
 import Timeline from "./components/core/timeline/Timeline";
@@ -129,6 +130,7 @@ export {
     Navbar,
     Highlight,
     Image,
+    JsonInput,
     Kbd,
     List,
     ListItem,

@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps, InputComponentProps } from "../../props";
+import { DefaultProps, InputComponentProps } from "../../../props";
 import { PasswordInput as MantinePasswordInput } from "@mantine/core";
 
 type Props = {
