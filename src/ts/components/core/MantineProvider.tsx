@@ -2,6 +2,8 @@ import React from "react";
 import { MantineProvider as MantineMantineProvider } from "@mantine/core";
 
 type Props = {
+    /** Unique ID to identify this component in Dash callbacks. */
+    id?: string;
     /** Theme */
     theme?: object;
     /** Normalize CSS */

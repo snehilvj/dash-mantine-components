@@ -90,6 +90,9 @@ import TimelineItem from "./components/core/timeline/TimelineItem";
 import Title from "./components/core/Title";
 import Tooltip from "./components/core/tooltip/Tooltip";
 import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
+// for docs
+import DemoSlider from "./components/docs/DemoSlider";
+import DemoSegmentedControl from "./components/docs/DemoSegmentedControl";
 
 export {
     Accordion,
@@ -184,4 +187,7 @@ export {
     Title,
     Tooltip,
     FloatingTooltip,
+    // for docs
+    DemoSlider,
+    DemoSegmentedControl,
 };

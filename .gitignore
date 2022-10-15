@@ -296,7 +296,7 @@ src/jl
 Project.toml
 
 # dash-mantine-components artifacts
-dash_mantine_components
+dash_mantine_components/*
 !dash_mantine_components/__init__.py
-
+!dash_mantine_components/theme/
 usage.py

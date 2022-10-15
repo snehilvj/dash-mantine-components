@@ -48,5 +48,10 @@
         "@mantine/nprogress": "^5.1.5",
         "@mantine/prism": "^5.4.0",
         "dayjs": "^1.11.5"
-    }
+    },
+    "files": [
+        "/dash_mantine_components/*{.js,.map}",
+        "/dash_mantine_components/metadata.json",
+        "LICENSE"
+    ]
 }
