@@ -23,7 +23,14 @@ const DemoSegmentedControl = (props: Props) => {
 
     return (
         <Input.Wrapper {...props}>
-            <SegmentedControl onChange={onChange} data={data} value={value} />
+            <div>
+                <SegmentedControl
+                    onChange={onChange}
+                    data={data}
+                    value={value}
+                    fullWidth
+                />
+            </div>
         </Input.Wrapper>
     );
 };

@@ -16,8 +16,6 @@ type Props = {
     children?: React.ReactNode;
     /** Inherit from one level up MantineProvider */
     inherit?: boolean;
-    /** Styles */
-    styles?: object;
 };
 
 /**
