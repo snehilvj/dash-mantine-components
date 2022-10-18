@@ -42,7 +42,7 @@ CustomEvent.prototype = window.Event.prototype;
  * Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/
  */
 const Anchor = (props: Props) => {
-    const { href, target, refresh, children, ...others } = props;
+    const { href, target, refresh, children, setProps, ...others } = props;
 
     const onClick = (
         ev: MouseEvent<HTMLAnchorElement>,
