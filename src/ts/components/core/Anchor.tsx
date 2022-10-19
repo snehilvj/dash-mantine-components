@@ -2,6 +2,7 @@ import React, { MouseEvent } from "react";
 import { DefaultProps, TextProps } from "../../props";
 import { Anchor as MantineAnchor } from "@mantine/core";
 import { isNil } from "ramda";
+import isAbsoluteUrl from "is-absolute-url";
 
 type Target = "_blank" | "_self";
 
@@ -52,7 +53,12 @@ const Anchor = (props: Props) => {
     ) => {
         const hasModifiers =
             ev.metaKey || ev.shiftKey || ev.altKey || ev.ctrlKey;
+
         if (hasModifiers) {
+            return;
+        }
+
+        if (href && isAbsoluteUrl(href)) {
             return;
         }
 

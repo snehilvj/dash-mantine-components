@@ -47,7 +47,8 @@
         "@mantine/notifications": "^5.4.0",
         "@mantine/nprogress": "^5.1.5",
         "@mantine/prism": "^5.4.0",
-        "dayjs": "^1.11.5"
+        "dayjs": "^1.11.5",
+        "is-absolute-url": "^4.0.1"
     },
     "files": [
         "/dash_mantine_components/*{.js,.map}",
