@@ -7,12 +7,14 @@ import ActionIcon from "./components/core/ActionIcon";
 import Affix from "./components/core/Affix";
 import Alert from "./components/core/Alert";
 import Anchor from "./components/core/Anchor";
+import AppShell from "./components/core/appshell/AppShell";
 import Avatar from "./components/core/avatar/Avatar";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Badge from "./components/core/Badge";
 import BackgroundImage from "./components/core/BackgroundImage";
 import Blockquote from "./components/core/Blockquote";
 import Breadcrumbs from "./components/core/Breadcrumbs";
+import Burger from "./components/core/Burger";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Center from "./components/core/Center";
@@ -104,12 +106,14 @@ export {
     Affix,
     Alert,
     Anchor,
+    AppShell,
     Avatar,
     AvatarGroup,
     Badge,
     BackgroundImage,
     Blockquote,
     Breadcrumbs,
+    Burger,
     Button,
     ButtonGroup,
     Center,
