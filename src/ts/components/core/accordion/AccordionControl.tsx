@@ -16,12 +16,12 @@ type Props = {
 /**
  * Divide content into collapsible sections. For more information, see: https://mantine.dev/core/accordion/
  */
-const AccprdionControl = (props: Props) => {
+const AccordionControl = (props: Props) => {
     const { children, setProps, ...other } = props;
 
     return <Accordion.Control {...other}>{children}</Accordion.Control>;
 };
 
-AccprdionControl.defaultProps = {};
+AccordionControl.defaultProps = {};
 
-export default AccprdionControl;
+export default AccordionControl;
