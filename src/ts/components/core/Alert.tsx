@@ -44,7 +44,7 @@ const Alert = (props: Props) => {
     }, [hide]);
 
     const onClose = () => {
-        setProps({ hide });
+        setProps({ hide: true });
     };
 
     return hide ? null : (
