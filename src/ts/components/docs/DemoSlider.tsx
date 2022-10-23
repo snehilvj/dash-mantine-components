@@ -15,19 +15,19 @@ type Props = {
 const DemoSlider = (props: Props) => {
     const { setProps, value } = props;
     const sliderMap = {
-        1: "xs",
-        2: "sm",
-        3: "md",
-        4: "lg",
-        5: "xl",
+        0: "xs",
+        1: "sm",
+        2: "md",
+        3: "lg",
+        4: "xl",
     };
 
     const invertedSliderMap = {
-        xs: 1,
-        sm: 2,
-        md: 3,
-        lg: 4,
-        xl: 5,
+        xs: 0,
+        sm: 1,
+        md: 2,
+        lg: 3,
+        xl: 4,
     };
 
     const onChange = (value: number) => {
@@ -39,15 +39,15 @@ const DemoSlider = (props: Props) => {
             <Slider
                 onChange={onChange}
                 marks={[
+                    { value: 0 },
                     { value: 1 },
                     { value: 2 },
                     { value: 3 },
                     { value: 4 },
-                    { value: 5 },
                 ]}
                 label={(value) => sliderMap[value]}
-                min={1}
-                max={5}
+                min={0}
+                max={4}
                 step={1}
                 value={invertedSliderMap[value]}
             />
