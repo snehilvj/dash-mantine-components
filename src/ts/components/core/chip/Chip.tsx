@@ -26,7 +26,7 @@ type Props = {
  * Pick one or multiple values with inline controls. For more information, see: https://mantine.dev/core/chip/
  */
 const Chip = (props: Props) => {
-    const { checked, children, setProps, ...other } = props;
+    const { children, setProps, ...other } = props;
 
     const onChange = (checked: boolean) => {
         setProps({ checked });
@@ -39,6 +39,8 @@ const Chip = (props: Props) => {
     );
 };
 
-Chip.defaultProps = {};
+Chip.defaultProps = {
+    checked: false,
+};
 
 export default Chip;

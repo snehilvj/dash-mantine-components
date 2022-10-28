@@ -27,7 +27,7 @@ type Props = {
  * Pick one or multiple values with inline controls. For more information, see: https://mantine.dev/core/chip/
  */
 const ChipGroup = (props: Props) => {
-    const { children, value, setProps, ...other } = props;
+    const { children, setProps, ...other } = props;
 
     const onChange = (value: string[]) => {
         setProps({ value });
