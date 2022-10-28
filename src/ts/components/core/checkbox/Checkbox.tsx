@@ -40,6 +40,8 @@ const Checkbox = (props: Props) => {
     );
 };
 
-Checkbox.defaultProps = {};
+Checkbox.defaultProps = {
+    checked: false,
+};
 
 export default Checkbox;
