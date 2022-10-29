@@ -4,6 +4,7 @@ import { Tabs as MantineTabs } from "@mantine/core";
 import { MantineNumberSize, MantineColor } from "@mantine/styles";
 import {
     TabsOrientation,
+    TabsPlacement,
     TabsVariant,
 } from "@mantine/core/lib/Tabs/Tabs.types";
 
@@ -30,6 +31,8 @@ type Props = {
     inverted?: boolean;
     /** If set to false, Tabs.Panel content will not stay mounted when tab is not active */
     keepMounted?: boolean;
+    /** Tabs.List placement relative to Tabs.Panel, applicable only for orientation="vertical", left by default */
+    placement?: TabsPlacement;
 } & DefaultProps;
 
 /**
