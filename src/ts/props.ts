@@ -67,6 +67,8 @@ export type DashBaseProps = {
     unstyled?: boolean;
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
+    /** With sx you can add styles to component root element. If you need to customize styles of other elements within component use styles prop */
+    sx?: any;
 };
 
 export type DefaultProps = DashBaseProps & MantineStyleSystemProps;
