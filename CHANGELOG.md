@@ -1,5 +1,28 @@
 # Change Log
 
+# 0.11.0a0
+
+This is an alpha release based on Mantine v5. This version of dmc is a big overhaul with lots of new features but at the cost of backward compatibility for many components.
+
+### Changed
+
+- Updates for Mantine v5.
+  - New component APIs such as for Tabs, Accordion, RadioGroup, etc.
+  - Prop names
+- Adopted typescript which simplified the code a lot. Thanks to @plotly team.
+- Organisation of components source code.
+
+### Added
+
+- New components:
+  - FloatingTooltip
+  - Aside, Footer
+  - RangeSlider
+
+### Removed
+
+- Notification and NotificationsProvider component **for now**, as they are not compiling for some reason.
+
 # 0.10.3
 
 ### Added

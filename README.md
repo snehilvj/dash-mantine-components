@@ -81,9 +81,11 @@ if __name__ == "__main__":
 
 5. Ensure that component props are sorted in ascending order. Refer to existing components.
 
-6. Add a line in the CHANGELOG.md under one of these: Added, Changed, Deprecated, Removed, Fixed.
+6. Build the components with the command: `npm run build`.
 
-7. Raise a PR, including an example to reproduce the changes contributed by the PR.
+7. Once you are ready to commit, add a line in the CHANGELOG.md under one of these: Added, Changed, Deprecated, Removed, Fixed.
+
+8. Raise a PR, including an example to reproduce the changes contributed by the PR.
 
 ## TODO
 
