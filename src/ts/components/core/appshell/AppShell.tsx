@@ -32,7 +32,7 @@ type Props = {
  * Layout component to create a popular Header - Navbar - Footer - Aside - Content layout pattern. For more information, see: https://mantine.dev/core/app-shell/
  */
 const AppShell = (props: Props) => {
-    const {children, ...other } = props;
+    const {children, setProps, ...other } = props;
 
     return <MantineAppShell {...other}>{children}</MantineAppShell>
 }
