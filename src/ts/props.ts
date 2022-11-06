@@ -187,7 +187,11 @@ export interface InputSharedProps {
     size?: MantineSize;
     /** Placeholder */
     placeholder?: string;
+    /** Name prop */
+    name?: string;
 }
+
+export type InputComponentProps = InputSharedProps & InputWrapperBaseProps;
 
 export type TextAreaProps = {
     /** If true textarea will grow with content until maxRows are reached  */
@@ -302,8 +306,6 @@ export type SelectSharedProps = {
     disabled?: boolean;
 } & InputWrapperBaseProps &
     Omit<InputSharedProps, "size">;
-
-export type InputComponentProps = InputSharedProps & InputWrapperBaseProps;
 
 export type DatePickerSharedProps = {
     /** Dropdown appear/disappear transition */
