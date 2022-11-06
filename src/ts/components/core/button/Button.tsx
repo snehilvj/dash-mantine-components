@@ -61,7 +61,7 @@ const Button = (props: Props) => {
     };
 
     return (
-        <MantineButton onClick={increment} {...other}>
+        <MantineButton onClick={increment} disabled={disabled} {...other}>
             {children}
         </MantineButton>
     );
