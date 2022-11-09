@@ -15,6 +15,8 @@ import Blockquote from "./components/core/Blockquote";
 import Breadcrumbs from "./components/core/Breadcrumbs";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
+import Card from "./components/core/card/Card";
+import CardSection from "./components/core/card/CardSection";
 import Center from "./components/core/Center";
 import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
@@ -112,6 +114,8 @@ export {
     Breadcrumbs,
     Button,
     ButtonGroup,
+    Card,
+    CardSection,
     Center,
     Checkbox,
     CheckboxGroup,
