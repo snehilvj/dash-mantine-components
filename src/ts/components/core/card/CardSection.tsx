@@ -1,6 +1,5 @@
 import React from "react";
 import { DefaultProps } from "../../../props";
-import { CardSection as MantineCardSection } from "@mantine/core";
 
 type Props = {
     /** Card children */
@@ -14,15 +13,12 @@ type Props = {
 /**
  * Renders white or dark background depending on color scheme. For more information, see: https://mantine.dev/core/card/
  */
- const CardSection = (props: Props) => {
+const CardSection = (props: Props) => {
     const { children, setProps, ...other } = props;
 
-    return <MantineCardSection {...other}>{children}</MantineCardSection>;
+    return <> {children}</>;
 };
 
-CardSection.defaultProps = {
-    withBorder: false,
-    inheritPadding: false,
-};
+CardSection.defaultProps = {};
 
 export default CardSection;

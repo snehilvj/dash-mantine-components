@@ -1,6 +1,6 @@
 import React from "react";
 import { DefaultProps } from "../../../props";
-import { Card as MantineCard } from "@mantine/core";
+import { Card as MantineCard, CardSection } from "@mantine/core";
 import { MantineNumberSize, MantineShadow } from "@mantine/styles";
 
 type Props = {
@@ -17,14 +17,29 @@ type Props = {
 /**
  * Renders white or dark background depending on color scheme. For more information, see: https://mantine.dev/core/card/
  */
- const Card = (props: Props) => {
+const Card = (props: Props) => {
     const { children, setProps, ...other } = props;
 
-    return <MantineCard {...other}>{children}</MantineCard>;
+    return (
+        <MantineCard {...other}>
+            {React.Children.map(children, (child: any, index) => {
+                const childProps = child.props._dashprivate_layout.props;
+                const childType = child.props._dashprivate_layout.type;
+
+                if (childType === "CardSection") {
+                    return (
+                        <CardSection {...childProps} key={index}>
+                            {child}
+                        </CardSection>
+                    );
+                } else {
+                    return child;
+                }
+            })}
+        </MantineCard>
+    );
 };
 
-Card.defaultProps = {
-    p: 'md',
-};
+Card.defaultProps = {};
 
 export default Card;
