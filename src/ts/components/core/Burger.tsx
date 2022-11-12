@@ -31,8 +31,6 @@ const Burger = (props: BurgerProps) => {
 
 Burger.defaultProps = {
     opened: false,
-    size: 'md',
-    transitionDuration: 300,
 };
 
 export default Burger;

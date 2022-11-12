@@ -13,7 +13,7 @@ type Props = {
     /** <Footer /> component */
     footer?: JSX.Element;
     /** zIndex prop passed to Navbar and Header components */
-    zIndex?: React.CSSProperties['zIndex'];
+    zIndex?: number;
     /** true to switch from static layout to fixed */
     fixed?: boolean;
     /** true to hide all AppShell parts and render only children */
@@ -29,13 +29,13 @@ type Props = {
 } & DefaultProps;
 
 /**
- * Layout component to create a popular Header - Navbar - Footer - Aside - Content layout pattern. For more information, see: https://mantine.dev/core/app-shell/
+ * Responsive shell for your application with header and navbar. For more information, see: https://mantine.dev/core/app-shell/
  */
 const AppShell = (props: Props) => {
-    const {children, setProps, ...other } = props;
+    const { children, setProps, ...other } = props;
 
-    return <MantineAppShell {...other}>{children}</MantineAppShell>
-}
+    return <MantineAppShell {...other}>{children}</MantineAppShell>;
+};
 
 AppShell.defaultProps = {};
 
