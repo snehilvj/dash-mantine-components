@@ -35,6 +35,11 @@ This is an alpha release based on Mantine v5. This version of dmc is a big overh
 
 - Tooltip component was not working properly.
 
+### Added
+
+- New components:
+  - Card (and CardSection)
+
 # 0.10.1
 
 ### Fixed
