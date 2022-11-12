@@ -79,13 +79,9 @@ if __name__ == "__main__":
 
 4. Add your new component in `src/lib/components`. Make sure to include it in the `src/lib/index.js` as well.
 
-5. Ensure that component props are sorted in ascending order. Refer to existing components.
+5. Build the components with the command: `npm run build`.
 
-6. Build the components with the command: `npm run build`.
-
-7. Once you are ready to commit, add a line in the CHANGELOG.md under one of these: Added, Changed, Deprecated, Removed, Fixed.
-
-8. Raise a PR, including an example to reproduce the changes contributed by the PR.
+6. Raise a PR, including an example to reproduce the changes contributed by the PR.
 
 ## TODO
 
