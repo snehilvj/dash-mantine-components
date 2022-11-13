@@ -43,6 +43,6 @@ const NumberInput = (props: Props) => {
     return <MantineNumberInput {...other} onChange={onChange} />;
 };
 
-NumberInput.defaultProps = {};
+NumberInput.defaultProps = { value: "" };
 
 export default NumberInput;
