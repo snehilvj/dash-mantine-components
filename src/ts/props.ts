@@ -189,6 +189,8 @@ export interface InputSharedProps {
     placeholder?: string;
     /** Name prop */
     name?: string;
+    /** Debounce time */
+    debounce?: number;
 }
 
 export type InputComponentProps = InputSharedProps & InputWrapperBaseProps;

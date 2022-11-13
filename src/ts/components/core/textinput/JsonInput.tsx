@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { DefaultProps, InputComponentProps } from "../../../props";
 import { JsonInput as MantineJsonInput } from "@mantine/core";
 
@@ -22,15 +23,22 @@ type Props = {
  * Capture json data from user. For more information, see: https://mantine.dev/core/json-input/
  */
 const JsonInput = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, value, debounce, ...other } = props;
 
-    const onChange = (value: string) => {
-        setProps({ value });
-    };
+    const [val, setVal] = useState(value);
+    const [debounced] = useDebouncedValue(val, debounce);
 
-    return <MantineJsonInput {...other} onChange={onChange} />;
+    useEffect(() => {
+        setProps({ value: debounced });
+    }, [debounced]);
+
+    useDidUpdate(() => {
+        setVal(value);
+    }, [value]);
+
+    return <MantineJsonInput {...other} value={val} onChange={setVal} />;
 };
 
-JsonInput.defaultProps = { value: "" };
+JsonInput.defaultProps = { value: "", debounce: 0 };
 
 export default JsonInput;

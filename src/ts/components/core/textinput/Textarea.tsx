@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { DefaultProps, InputComponentProps } from "../../../props";
 import { Textarea as MantineTextarea } from "@mantine/core";
 
@@ -18,20 +19,27 @@ type Props = {
  * Capture string input from user. For more information, see: https://mantine.dev/core/text-input/
  */
 const Textarea = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, value, debounce, ...other } = props;
 
-    const updateProps = (value: string) => {
-        setProps({ value });
-    };
+    const [val, setVal] = useState(value);
+    const [debounced] = useDebouncedValue(val, debounce);
 
+    useEffect(() => {
+        setProps({ value: debounced });
+    }, [debounced]);
+
+    useDidUpdate(() => {
+        setVal(value);
+    }, [value]);
     return (
         <MantineTextarea
             {...other}
-            onChange={(ev) => updateProps(ev.currentTarget.value)}
+            value={val}
+            onChange={(ev) => setVal(ev.currentTarget.value)}
         />
     );
 };
 
-Textarea.defaultProps = { value: "" };
+Textarea.defaultProps = { value: "", debounce: 0 };
 
 export default Textarea;
