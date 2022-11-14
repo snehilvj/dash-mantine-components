@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { DefaultProps, SelectSharedProps } from "../../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    SelectSharedProps,
+} from "../../../props";
 import { MultiSelect as MantineMultiSelect } from "@mantine/core";
 
 type Props = {
@@ -12,13 +16,21 @@ type Props = {
     /** Controlled input value */
     value?: string[];
 } & SelectSharedProps &
+    PersistenceProps &
     DefaultProps;
 
 /**
  * Custom searchable MultiSelect. For more information, see: https://mantine.dev/core/multi-select/
  */
 const MultiSelect = (props: Props) => {
-    const { setProps, data, ...other } = props;
+    const {
+        setProps,
+        data,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const [options, setOptions] = useState(data);
 
@@ -43,6 +55,8 @@ const MultiSelect = (props: Props) => {
 
 MultiSelect.defaultProps = {
     data: [],
+    persisted_props: ["value"],
+    persistence_type: "local",
 };
 
 export default MultiSelect;

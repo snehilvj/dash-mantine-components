@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../props";
+import { DefaultProps, PersistenceProps } from "../../props";
 import { Switch as MantineSwitch } from "@mantine/core";
 import { MantineSize, MantineNumberSize, MantineColor } from "@mantine/styles";
 
@@ -22,13 +22,20 @@ type Props = {
     disabled?: boolean;
     /** State of check box */
     checked?: boolean;
-} & DefaultProps;
+} & PersistenceProps &
+    DefaultProps;
 
 /**
  * Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/switch/
  */
 const Switch = (props: Props) => {
-    const { setProps, ...other } = props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const updateProps = (checked: boolean) => {
         setProps({ checked });
@@ -44,6 +51,8 @@ const Switch = (props: Props) => {
 
 Switch.defaultProps = {
     checked: false,
+    persisted_props: ["checked"],
+    persistence_type: "local",
 };
 
 export default Switch;

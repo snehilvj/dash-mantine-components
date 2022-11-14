@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { DefaultProps, SelectSharedProps } from "../../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    SelectSharedProps,
+} from "../../../props";
 import { Select as MantineSelect } from "@mantine/core";
 
 type Props = {
@@ -9,14 +13,22 @@ type Props = {
     filterDataOnExactSearchMatch?: boolean;
     /** Controlled input value */
     value?: string;
-} & SelectSharedProps &
+} & PersistenceProps &
+    SelectSharedProps &
     DefaultProps;
 
 /**
  * Custom searchable select. For more information, see: https://mantine.dev/core/select/
  */
 const Select = (props: Props) => {
-    const { setProps, data, ...other } = props;
+    const {
+        setProps,
+        data,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const [options, setOptions] = useState(data);
 
@@ -41,6 +53,8 @@ const Select = (props: Props) => {
 
 Select.defaultProps = {
     data: [],
+    persisted_props: ["value"],
+    persistence_type: "local",
 };
 
 export default Select;

@@ -495,7 +495,7 @@ export type PersistenceProps = {
      * component or the page. Since only `value` is allowed this prop can
      * normally be ignored.
      */
-    persisted_props: "value"[];
+    persisted_props: Array<string>;
 
     /**
      * Where persisted user changes will be stored:

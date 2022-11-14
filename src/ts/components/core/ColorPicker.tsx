@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../props";
+import { DefaultProps, PersistenceProps } from "../../props";
 import { ColorPicker as MantineColorPicker } from "@mantine/core";
 import { MantineSize } from "@mantine/styles";
 
@@ -20,13 +20,21 @@ type Props = {
     fullWidth?: boolean;
     /** Should interactive elements be focusable */
     focusable?: boolean;
-} & DefaultProps;
+} & PersistenceProps &
+    DefaultProps;
 
 /**
  * Inline color picker. For more information, see: https://mantine.dev/core/color-picker/
  */
 const ColorPicker = (props: Props) => {
-    const { setProps, value, ...other } = props;
+    const {
+        setProps,
+        value,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onChange = (value: string) => {
         setProps({ value });
@@ -35,6 +43,9 @@ const ColorPicker = (props: Props) => {
     return <MantineColorPicker onChange={onChange} {...other} />;
 };
 
-ColorPicker.defaultProps = {};
+ColorPicker.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default ColorPicker;

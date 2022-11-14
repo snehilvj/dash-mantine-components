@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../../props";
+import { DefaultProps, PersistenceProps } from "../../../props";
 import { Checkbox as MantineCheckbox } from "@mantine/core";
 import { MantineSize, MantineNumberSize, MantineColor } from "@mantine/styles";
 
@@ -20,13 +20,20 @@ type Props = {
     checked?: boolean;
     /** To be used with checkbox group */
     value?: string;
-} & DefaultProps;
+} & DefaultProps &
+    PersistenceProps;
 
 /**
  * Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/
  */
 const Checkbox = (props: Props) => {
-    const { setProps, ...other } = props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const updateProps = (checked: boolean) => {
         setProps({ checked });
@@ -42,6 +49,8 @@ const Checkbox = (props: Props) => {
 
 Checkbox.defaultProps = {
     checked: false,
+    persisted_props: ["checked"],
+    persistence_type: "local",
 };
 
 export default Checkbox;

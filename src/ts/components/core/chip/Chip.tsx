@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../../props";
+import { DefaultProps, PersistenceProps } from "../../../props";
 import { Chip as MantineChip } from "@mantine/core";
 import { MantineSize, MantineNumberSize, MantineColor } from "@mantine/styles";
 
@@ -20,13 +20,21 @@ type Props = {
     color?: MantineColor;
     /** To be used with chip group */
     value?: string;
-} & DefaultProps;
+} & PersistenceProps &
+    DefaultProps;
 
 /**
  * Pick one or multiple values with inline controls. For more information, see: https://mantine.dev/core/chip/
  */
 const Chip = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const {
+        children,
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onChange = (checked: boolean) => {
         setProps({ checked });
@@ -41,6 +49,8 @@ const Chip = (props: Props) => {
 
 Chip.defaultProps = {
     checked: false,
+    persisted_props: ["checked"],
+    persistence_type: "local",
 };
 
 export default Chip;
