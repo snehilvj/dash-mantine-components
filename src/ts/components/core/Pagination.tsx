@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps, AlignContentProps } from "../../props";
+import { DefaultProps, PersistenceProps, AlignContentProps } from "../../props";
 import { Pagination as MantinePagination, GroupPosition } from "@mantine/core";
 import { MantineNumberSize, MantineColor } from "@mantine/styles";
 
@@ -34,13 +34,20 @@ type Props = {
     grow?: boolean;
     /** Defines align-items css property */
     align?: AlignContentProps;
-} & DefaultProps;
+} & DefaultProps &
+    PersistenceProps;
 
 /**
  * Display active page and navigate between multiple pages. For more information, see: https://mantine.dev/core/pagination/
  */
 const Pagination = (props: Props) => {
-    const { setProps, ...other } = props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onChange = (page: number) => {
         setProps({ page });
@@ -49,6 +56,9 @@ const Pagination = (props: Props) => {
     return <MantinePagination {...other} onChange={onChange} />;
 };
 
-Pagination.defaultProps = {};
+Pagination.defaultProps = {
+    persisted_props: ["page"],
+    persistence_type: "local",
+};
 
 export default Pagination;

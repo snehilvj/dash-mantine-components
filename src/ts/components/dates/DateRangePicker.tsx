@@ -1,4 +1,8 @@
-import { DefaultProps, DatePickerSharedProps } from "../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    DatePickerSharedProps,
+} from "../../props";
 import {
     DateRangePicker as MantineDateRangePicker,
     DateRangePickerValue,
@@ -16,6 +20,7 @@ type Props = {
     /** Separator between dates */
     labelSeparator?: string;
 } & DefaultProps &
+    PersistenceProps &
     DatePickerSharedProps;
 
 /**
@@ -30,6 +35,9 @@ const DateRangePicker = (props: Props) => {
         initialMonth,
         locale,
         disabledDates,
+        persistence,
+        persisted_props,
+        persistence_type,
         ...other
     } = props;
 
@@ -99,6 +107,9 @@ const DateRangePicker = (props: Props) => {
     );
 };
 
-DateRangePicker.defaultProps = {};
+DateRangePicker.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default DateRangePicker;

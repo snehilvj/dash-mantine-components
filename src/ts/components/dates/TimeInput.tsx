@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { DefaultProps, InputComponentProps } from "../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    InputComponentProps,
+} from "../../props";
 import { TimeInput as MantineTimeInput } from "@mantine/dates";
 import dayjs from "dayjs";
 import { useDidUpdate } from "@mantine/hooks";
@@ -22,13 +26,21 @@ type Props = {
     /** Placeholder for am/pm input */
     amPmPlaceholder?: string;
 } & Omit<InputComponentProps, "placeholder"> &
+    PersistenceProps &
     DefaultProps;
 
 /**
  * Capture time input from user. For more information, see: https://mantine.dev/dates/time-input/
  */
 const TimeInput = (props: Props) => {
-    const { setProps, value, ...other } = props;
+    const {
+        setProps,
+        value,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const [time, setTime] = useState(value && new Date(value));
 
@@ -43,6 +55,9 @@ const TimeInput = (props: Props) => {
     return <MantineTimeInput onChange={onChange} value={time} {...other} />;
 };
 
-TimeInput.defaultProps = {};
+TimeInput.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default TimeInput;

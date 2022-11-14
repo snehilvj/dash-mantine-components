@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../props";
+import { DefaultProps, PersistenceProps } from "../../props";
 import {
     SegmentedControl as MantineSegmentedControl,
     SegmentedControlItem,
@@ -27,13 +27,20 @@ type Props = {
     transitionTimingFunction?: string;
     /** Display Vertically */
     orientation?: "vertical" | "horizontal";
-} & DefaultProps;
+} & PersistenceProps &
+    DefaultProps;
 
 /**
  * Horizontal control made of multiple segments, alternative to RadioGroup. For more information, see: https://mantine.dev/core/segmented-control/
  */
 const SegmentedControl = (props: Props) => {
-    const { setProps, ...other } = props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onChange = (value: string) => {
         setProps({ value });
@@ -42,6 +49,9 @@ const SegmentedControl = (props: Props) => {
     return <MantineSegmentedControl onChange={onChange} {...other} />;
 };
 
-SegmentedControl.defaultProps = {};
+SegmentedControl.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default SegmentedControl;

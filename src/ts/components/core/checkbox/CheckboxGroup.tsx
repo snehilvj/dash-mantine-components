@@ -1,5 +1,9 @@
 import React from "react";
-import { DefaultProps, InputWrapperBaseProps } from "../../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    InputWrapperBaseProps,
+} from "../../../props";
 import { Checkbox } from "@mantine/core";
 import { MantineSize, MantineNumberSize } from "@mantine/styles";
 
@@ -17,13 +21,22 @@ type Props = {
     /** Predefined label fontSize, checkbox width, height and border-radius */
     size?: MantineSize;
 } & InputWrapperBaseProps &
+    PersistenceProps &
     DefaultProps;
 
 /**
  * Capture boolean input from user. For more information, see: https://mantine.dev/core/checkbox/
  */
 const CheckboxGroup = (props: Props) => {
-    const { children, value, setProps, ...other } = props;
+    const {
+        children,
+        value,
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onChange = (value: string[]) => {
         setProps({ value });
@@ -36,6 +49,9 @@ const CheckboxGroup = (props: Props) => {
     );
 };
 
-CheckboxGroup.defaultProps = {};
+CheckboxGroup.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default CheckboxGroup;

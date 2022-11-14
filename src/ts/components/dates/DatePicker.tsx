@@ -1,4 +1,8 @@
-import { DefaultProps, DatePickerSharedProps } from "../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    DatePickerSharedProps,
+} from "../../props";
 import { DatePicker as MantineDatePicker } from "@mantine/dates";
 import { isDateInList, stringToDayjs, dayjsToString } from "../../utils";
 import { useDidUpdate } from "@mantine/hooks";
@@ -11,6 +15,7 @@ type Props = {
     /** Allow free input */
     allowFreeInput?: boolean;
 } & DefaultProps &
+    PersistenceProps &
     DatePickerSharedProps;
 
 /**
@@ -25,6 +30,9 @@ const DatePicker = (props: Props) => {
         initialMonth,
         locale,
         disabledDates,
+        persistence,
+        persisted_props,
+        persistence_type,
         ...other
     } = props;
 
@@ -71,6 +79,9 @@ const DatePicker = (props: Props) => {
     );
 };
 
-DatePicker.defaultProps = {};
+DatePicker.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default DatePicker;

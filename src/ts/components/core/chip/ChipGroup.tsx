@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../../props";
+import { DefaultProps, PersistenceProps } from "../../../props";
 import { Chip } from "@mantine/core";
 import { MantineNumberSize } from "@mantine/styles";
 import { GroupPosition } from "@mantine/core/lib/Group";
@@ -21,13 +21,21 @@ type Props = {
     spacing?: MantineNumberSize;
     /** Defines align-items css property */
     align?: "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
-} & DefaultProps;
+} & DefaultProps &
+    PersistenceProps;
 
 /**
  * Pick one or multiple values with inline controls. For more information, see: https://mantine.dev/core/chip/
  */
 const ChipGroup = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const {
+        children,
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onChange = (value: string[]) => {
         setProps({ value });
@@ -40,6 +48,9 @@ const ChipGroup = (props: Props) => {
     );
 };
 
-ChipGroup.defaultProps = {};
+ChipGroup.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default ChipGroup;

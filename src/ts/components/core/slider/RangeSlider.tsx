@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { DefaultProps, SliderSharedProps } from "../../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    SliderSharedProps,
+} from "../../../props";
 import { RangeSlider as MantineRangeSlider } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 
@@ -9,13 +13,22 @@ type Props = {
     /** Minimal range interval */
     minRange?: number;
 } & SliderSharedProps &
+    PersistenceProps &
     DefaultProps;
 
 /**
  * Capture user feedback from a range of values. For more information, see: https://mantine.dev/core/slider/
  */
 const RangeSlider = (props: Props) => {
-    const { setProps, updatemode, value, ...other } = props;
+    const {
+        setProps,
+        updatemode,
+        value,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const [val, setVal] = useState<[number, number]>(value);
 
@@ -44,6 +57,8 @@ const RangeSlider = (props: Props) => {
 
 RangeSlider.defaultProps = {
     updatemode: "mouseup",
+    persisted_props: ["value"],
+    persistence_type: "local",
 };
 
 export default RangeSlider;

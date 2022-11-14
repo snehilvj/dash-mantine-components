@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../../props";
+import { DefaultProps, PersistenceProps } from "../../../props";
 import { Tabs as MantineTabs } from "@mantine/core";
 import { MantineNumberSize, MantineColor } from "@mantine/styles";
 import {
@@ -33,13 +33,21 @@ type Props = {
     keepMounted?: boolean;
     /** Tabs.List placement relative to Tabs.Panel, applicable only for orientation="vertical", left by default */
     placement?: TabsPlacement;
-} & DefaultProps;
+} & PersistenceProps &
+    DefaultProps;
 
 /**
  * Switch between different views. For more information, see: https://mantine.dev/core/tabs/
  */
 const Tabs = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const {
+        children,
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onTabChange = (value: string) => {
         setProps({ value });
@@ -52,6 +60,6 @@ const Tabs = (props: Props) => {
     );
 };
 
-Tabs.defaultProps = {};
+Tabs.defaultProps = { persisted_props: ["value"], persistence_type: "local" };
 
 export default Tabs;

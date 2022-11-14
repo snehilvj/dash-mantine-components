@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../props";
+import { DefaultProps, PersistenceProps } from "../../props";
 import { Burger as MantineBurger } from "@mantine/core";
 import { MantineNumberSize } from "@mantine/styles";
 
@@ -12,13 +12,21 @@ type BurgerProps = {
     size?: MantineNumberSize;
     /** Transition duration in ms */
     transitionDuration?: number;
-} & DefaultProps;
+} & PersistenceProps &
+    DefaultProps;
 
 /**
  * Display burger-style menu button. For more information, see: https://mantine.dev/core/burger/
  */
 const Burger = (props: BurgerProps) => {
-    const { setProps, opened, ...other } = props;
+    const {
+        setProps,
+        opened,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onClick = () => {
         setProps({
@@ -31,6 +39,8 @@ const Burger = (props: BurgerProps) => {
 
 Burger.defaultProps = {
     opened: false,
+    persisted_props: ["opened"],
+    persistence_type: "local",
 };
 
 export default Burger;
