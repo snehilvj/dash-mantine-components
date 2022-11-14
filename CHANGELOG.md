@@ -1,5 +1,22 @@
 # Change Log
 
+# 0.11.0a1
+
+### Added
+
+- New components:
+  - Card, CardSection
+  - Burger
+  - AppShell
+- Persistence props
+- `name` prop in text inputs for forms. #103
+- Ability to debounce callbacks by specifying a duration in all text inputs. #102
+
+### Fixed
+
+- Button not showing disabled state. #106
+- Inability to move RangeSlider left handle when `min` prop is set to a negative value. (Fixed in upstream)
+
 # 0.11.0a0
 
 This is an alpha release based on Mantine v5. This version of dmc is a big overhaul with lots of new features but at the cost of backward compatibility for many components.
