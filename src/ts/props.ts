@@ -488,14 +488,14 @@ export type PersistenceProps = {
      * the new `value` also matches what was given originally.
      * Used in conjunction with `persistence_type`.
      */
-    persistence: boolean | string | number;
+    persistence?: boolean | string | number;
 
     /**
      * Properties whose user interactions will persist after refreshing the
      * component or the page. Since only `value` is allowed this prop can
      * normally be ignored.
      */
-    persisted_props: Array<string>;
+    persisted_props?: Array<string>;
 
     /**
      * Where persisted user changes will be stored:
@@ -503,5 +503,5 @@ export type PersistenceProps = {
      * local: window.localStorage, data is kept after the browser quit.
      * session: window.sessionStorage, data is cleared once the browser quit.
      */
-    persistence_type: "local" | "session" | "memory";
+    persistence_type?: "local" | "session" | "memory";
 };

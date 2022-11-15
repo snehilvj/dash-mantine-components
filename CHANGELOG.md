@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.11.0a2
+
+### Fixed
+
+- Make persistence props optional.
+
 # 0.11.0a1
 
 ### Added
