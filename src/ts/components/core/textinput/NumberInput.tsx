@@ -61,7 +61,14 @@ const NumberInput = (props: Props) => {
         setVal(value);
     }, [value]);
 
-    return <MantineNumberInput {...other} value={val} onChange={setVal} />;
+    return (
+        <MantineNumberInput
+            {...other}
+            value={val}
+            wrapperProps={{ autoComplete: "off" }}
+            onChange={setVal}
+        />
+    );
 };
 
 NumberInput.defaultProps = {

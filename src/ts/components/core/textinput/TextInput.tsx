@@ -45,6 +45,7 @@ const TextInput = (props: Props) => {
         <MantineTextInput
             {...other}
             value={val}
+            wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}
         />
     );

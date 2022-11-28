@@ -48,6 +48,7 @@ const Textarea = (props: Props) => {
         <MantineTextarea
             {...other}
             value={val}
+            wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}
         />
     );

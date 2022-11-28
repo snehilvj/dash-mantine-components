@@ -49,7 +49,14 @@ const JsonInput = (props: Props) => {
         setVal(value);
     }, [value]);
 
-    return <MantineJsonInput {...other} value={val} onChange={setVal} />;
+    return (
+        <MantineJsonInput
+            {...other}
+            value={val}
+            wrapperProps={{ autoComplete: "off" }}
+            onChange={setVal}
+        />
+    );
 };
 
 JsonInput.defaultProps = {
