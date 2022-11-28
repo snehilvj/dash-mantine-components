@@ -34,6 +34,9 @@ import Divider from "./components/core/Divider";
 import Drawer from "./components/core/Drawer";
 import Grid from "./components/core/Grid";
 import Group from "./components/core/Group";
+import HoverCard from "./components/core/hovercard/HoverCard";
+import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
+import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
 import Aside from "./components/core/appshell/Aside";
 import Footer from "./components/core/appshell/Footer";
 import Header from "./components/core/appshell/Header";
@@ -135,6 +138,9 @@ export {
     Drawer,
     Grid,
     Group,
+    HoverCard,
+    HoverCardDropdown,
+    HoverCardTarget,
     Aside,
     Footer,
     Header,

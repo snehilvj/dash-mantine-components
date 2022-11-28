@@ -8,7 +8,7 @@ import type {
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
-import { PopoverWidth } from "@mantine/core/lib/Popover/Popover.types";
+import { PopoverWidth, PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
 import { SelectItem } from "@mantine/core/lib/Select/";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 import { FirstDayOfWeek } from "@mantine/dates/lib/types";
@@ -109,17 +109,17 @@ export type TextProps = {
     weight?: FontWeight;
     /** Sets text-transform css property */
     transform?:
-        | "-moz-initial"
-        | "inherit"
-        | "initial"
-        | "revert"
-        | "unset"
-        | "none"
-        | "capitalize"
-        | "full-size-kana"
-        | "full-width"
-        | "lowercase"
-        | "uppercase";
+    | "-moz-initial"
+    | "inherit"
+    | "initial"
+    | "revert"
+    | "unset"
+    | "none"
+    | "capitalize"
+    | "full-size-kana"
+    | "full-width"
+    | "lowercase"
+    | "uppercase";
     /** Sets text-align css property */
     align?: AlignContentProps;
     /** Link or text variant */
@@ -261,12 +261,23 @@ export type PopoverBaseProps = {
     arrowSize?: number;
     /** Arrow offset in px */
     arrowOffset?: number;
+    /** Arrow radius in px */
+    arrowRadius?: number;
+    /** Determines whether dropdown should be rendered within Portal, defaults to false */
+    withinPortal?: boolean;
+    /** Radius from theme.radius or number to set border-radius in px */
+    disabled?: boolean;
+    /** Determines whether focus should be automatically returned to control when dropdown closes, false by default */
+    returnFocus?: boolean;
     /** Dropdown z-index */
     zIndex?: number;
     /** Radius from theme.radius or number to set border-radius in px */
     radius?: MantineNumberSize;
     /** Key of theme.shadow or any other valid css box-shadow value */
     shadow?: MantineShadow;
+    /** Floating ui middlewares to configure position handling */
+    middlewares?: PopoverMiddlewares;
+
 };
 
 export type SelectSharedProps = {
