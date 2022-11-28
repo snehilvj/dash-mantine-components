@@ -5,6 +5,7 @@ import {
     SelectSharedProps,
 } from "../../../props";
 import { MultiSelect as MantineMultiSelect } from "@mantine/core";
+import { useDidUpdate } from "@mantine/hooks";
 
 type Props = {
     /** Clear search value when item is selected */
@@ -33,6 +34,10 @@ const MultiSelect = (props: Props) => {
     } = props;
 
     const [options, setOptions] = useState(data);
+
+    useDidUpdate(() => {
+        setOptions(data);
+    }, [data]);
 
     const onChange = (value: string[]) => {
         setProps({ value });

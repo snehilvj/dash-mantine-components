@@ -5,6 +5,7 @@ import {
     SelectSharedProps,
 } from "../../../props";
 import { Select as MantineSelect } from "@mantine/core";
+import { useDidUpdate } from "@mantine/hooks";
 
 type Props = {
     /** Allow deselecting items on click */
@@ -35,6 +36,10 @@ const Select = (props: Props) => {
     const onChange = (value: string) => {
         setProps({ value });
     };
+
+    useDidUpdate(() => {
+        setOptions(data);
+    }, [data]);
 
     return (
         <MantineSelect
