@@ -46,6 +46,7 @@ const Select = (props: Props) => {
                 return item;
             }}
             data={options}
+            wrapperProps={{ autoComplete: "off" }}
             {...other}
         />
     );

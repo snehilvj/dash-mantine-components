@@ -34,3 +34,6 @@ publish: package
 clean:
     rm -rf dist
     rm -rf build
+
+format:
+    npx prettier --write src/ts/

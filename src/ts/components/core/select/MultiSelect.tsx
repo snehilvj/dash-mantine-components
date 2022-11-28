@@ -48,6 +48,7 @@ const MultiSelect = (props: Props) => {
                 return item;
             }}
             data={options}
+            wrapperProps={{ autoComplete: "off" }}
             {...other}
         />
     );
