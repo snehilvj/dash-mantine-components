@@ -8,7 +8,10 @@ import type {
 } from "@mantine/styles";
 import { InputVariant } from "@mantine/core/lib/Input";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
-import { PopoverWidth, PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
+import {
+    PopoverWidth,
+    PopoverMiddlewares,
+} from "@mantine/core/lib/Popover/Popover.types";
 import { SelectItem } from "@mantine/core/lib/Select/";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 import { FirstDayOfWeek } from "@mantine/dates/lib/types";
@@ -109,17 +112,17 @@ export type TextProps = {
     weight?: FontWeight;
     /** Sets text-transform css property */
     transform?:
-    | "-moz-initial"
-    | "inherit"
-    | "initial"
-    | "revert"
-    | "unset"
-    | "none"
-    | "capitalize"
-    | "full-size-kana"
-    | "full-width"
-    | "lowercase"
-    | "uppercase";
+        | "-moz-initial"
+        | "inherit"
+        | "initial"
+        | "revert"
+        | "unset"
+        | "none"
+        | "capitalize"
+        | "full-size-kana"
+        | "full-width"
+        | "lowercase"
+        | "uppercase";
     /** Sets text-align css property */
     align?: AlignContentProps;
     /** Link or text variant */
@@ -277,7 +280,6 @@ export type PopoverBaseProps = {
     shadow?: MantineShadow;
     /** Floating ui middlewares to configure position handling */
     middlewares?: PopoverMiddlewares;
-
 };
 
 export type SelectSharedProps = {

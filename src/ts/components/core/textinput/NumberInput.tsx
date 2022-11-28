@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { DefaultProps, PersistenceProps, InputComponentProps } from "../../../props";
+import {
+    DefaultProps,
+    PersistenceProps,
+    InputComponentProps,
+} from "../../../props";
 import { NumberInput as MantineNumberInput } from "@mantine/core";
 
 type Props = {
@@ -28,17 +32,23 @@ type Props = {
     noClampOnBlur?: boolean;
     /** Input type, defaults to text */
     type?: "text" | "number";
-} & InputComponentProps & PersistenceProps &
+} & InputComponentProps &
+    PersistenceProps &
     DefaultProps;
 
 /**
  * Capture number input from user. For more information, see: https://mantine.dev/core/number-input/
  */
 const NumberInput = (props: Props) => {
-    const { setProps, value, debounce, persistence,
+    const {
+        setProps,
+        value,
+        debounce,
+        persistence,
         persisted_props,
         persistence_type,
-        ...other } = props;
+        ...other
+    } = props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -55,7 +65,9 @@ const NumberInput = (props: Props) => {
 };
 
 NumberInput.defaultProps = {
-    value: "", debounce: 0, persisted_props: ["value"],
+    value: "",
+    debounce: 0,
+    persisted_props: ["value"],
     persistence_type: "local",
 };
 

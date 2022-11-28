@@ -28,15 +28,8 @@ type Props = {
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
  */
 const MenuItem = (props: Props) => {
-    const {
-        children,
-        disabled,
-        href,
-        target,
-        n_clicks,
-        setProps,
-        ...other
-    } = props;
+    const { children, disabled, href, target, n_clicks, setProps, ...other } =
+        props;
 
     const increment = () => {
         if (!disabled) {
