@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { DefaultProps, InputComponentProps } from "../../../props";
+import { DefaultProps, PersistenceProps, InputComponentProps } from "../../../props";
 import { JsonInput as MantineJsonInput } from "@mantine/core";
 
 type Props = {
@@ -16,14 +16,17 @@ type Props = {
     maxRows?: number;
     /** Defined minRows in autosize variant and rows in regular variant */
     minRows?: number;
-} & InputComponentProps &
+} & InputComponentProps & PersistenceProps &
     DefaultProps;
 
 /**
  * Capture json data from user. For more information, see: https://mantine.dev/core/json-input/
  */
 const JsonInput = (props: Props) => {
-    const { setProps, value, debounce, ...other } = props;
+    const { setProps, value, debounce, persistence,
+        persisted_props,
+        persistence_type,
+        ...other } = props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -39,6 +42,9 @@ const JsonInput = (props: Props) => {
     return <MantineJsonInput {...other} value={val} onChange={setVal} />;
 };
 
-JsonInput.defaultProps = { value: "", debounce: 0 };
+JsonInput.defaultProps = {
+    value: "", debounce: 0, persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default JsonInput;
