@@ -4,12 +4,11 @@ import {
     updateNotification,
     hideNotification,
 } from "@mantine/notifications";
-import { MantineColors } from "../../props";
-import { MantineSize } from "@mantine/styles";
+import { MantineColor, MantineSize } from "@mantine/styles";
 
 type Props = {
     /** Notification line or icon color */
-    color?: MantineColors;
+    color?: MantineColor;
     /** Radius from theme.radius, or number to set border-radius in px */
     radius?: MantineSize;
     /** Notification icon, replaces color line */
@@ -28,13 +27,15 @@ type Props = {
     autoClose?: boolean | number;
     /** Action */
     action: "show" | "update" | "hide";
+    /** Update props to trigger callbacks. */
+    setProps: (props: Record<string, any>) => void;
 };
 
 /**
  * Show dynamic notifications and alerts to user, part of notifications system. For more information, see: https://mantine.dev/others/notifications/
  */
 const Notification = (props: Props) => {
-    const { action, ...others } = props;
+    const { action, setProps, ...others } = props;
 
     switch (action) {
         case "show":
@@ -52,6 +53,8 @@ const Notification = (props: Props) => {
         default:
             break;
     }
+
+    return <div />;
 };
 
 Notification.defaultProps = {};

@@ -4,12 +4,12 @@ import { NotificationsProvider as MantineNotificationsProvider } from "@mantine/
 type Props = {
     /** Notifications position */
     position?:
-        | "top-left"
-        | "top-right"
-        | "top-center"
-        | "bottom-left"
-        | "bottom-right"
-        | "bottom-center";
+    | "top-left"
+    | "top-right"
+    | "top-center"
+    | "bottom-left"
+    | "bottom-right"
+    | "bottom-center";
     /** Auto close timeout for all notifications, false to disable auto close, can be overwritten for individual notifications by showNotification function */
     autoClose?: number | false;
     /** Notification transitions duration, 0 to turn transitions off */
@@ -24,13 +24,15 @@ type Props = {
     zIndex?: number;
     /** Your application */
     children?: React.ReactNode;
+    /** Update props to trigger callbacks. */
+    setProps: (props: Record<string, any>) => void;
 };
 
 /**
  * Mantine notifications system. For more information, see: https://mantine.dev/others/notifications/
  */
 const NotificationsProvider = (props: Props) => {
-    const { children, ...other } = props;
+    const { children, setProps, ...other } = props;
 
     return (
         <MantineNotificationsProvider {...other}>

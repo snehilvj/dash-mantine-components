@@ -4,7 +4,7 @@ const packagejson = require('./package.json');
 
 const dashLibraryName = packagejson.name.replace(/-/g, '_');
 
-module.exports = function (env, argv) {
+module.exports = function(env, argv) {
     const mode = (argv && argv.mode) || 'production';
     const entry = [path.join(__dirname, 'src/ts/index.ts')];
     const output = {
@@ -38,7 +38,7 @@ module.exports = function (env, argv) {
         target: 'web',
         externals,
         resolve: {
-            extensions: ['.ts', '.tsx'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },
         module: {
             rules: [

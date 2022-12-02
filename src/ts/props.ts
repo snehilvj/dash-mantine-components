@@ -76,22 +76,6 @@ export type DashBaseProps = {
 
 export type DefaultProps = DashBaseProps & MantineStyleSystemProps;
 
-export type MantineColors =
-    | "dark"
-    | "gray"
-    | "red"
-    | "pink"
-    | "grape"
-    | "violet"
-    | "indigo"
-    | "blue"
-    | "cyan"
-    | "green"
-    | "lime"
-    | "yellow"
-    | "orange"
-    | "teal";
-
 export type FontWeight =
     | "normal"
     | "bold"
