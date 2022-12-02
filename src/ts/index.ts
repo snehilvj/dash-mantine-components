@@ -77,6 +77,9 @@ import SegmentedControl from "./components/core/SegmentedControl";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Skeleton from "./components/core/Skeleton";
 import Slider from "./components/core/slider/Slider";
+import Stepper from "./components/core/stepper/Stepper";
+import StepperStep from "./components/core/stepper/StepperStep";
+import StepperCompleted from "./components/core/stepper/StepperCompleted";
 import RangeSlider from "./components/core/slider/RangeSlider";
 import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
@@ -185,6 +188,9 @@ export {
     Space,
     Spoiler,
     Stack,
+    Stepper,
+    StepperStep,
+    StepperCompleted,
     Switch,
     Tab,
     Tabs,
