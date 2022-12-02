@@ -28,13 +28,20 @@ const Select = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        searchValue,
         ...other
     } = props;
 
     const [options, setOptions] = useState(data);
+    const [searchVal, onSearchValChange] = useState(searchValue);
 
     const onChange = (value: string) => {
         setProps({ value });
+    };
+
+    const onSearchChange = (value: string) => {
+        setProps({ searchValue: value });
+        onSearchValChange(value);
     };
 
     useDidUpdate(() => {
@@ -51,6 +58,8 @@ const Select = (props: Props) => {
                 return item;
             }}
             data={options}
+            searchValue={searchVal}
+            onSearchChange={onSearchChange}
             wrapperProps={{ autoComplete: "off" }}
             {...other}
         />

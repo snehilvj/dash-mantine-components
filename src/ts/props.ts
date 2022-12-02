@@ -291,6 +291,8 @@ export type SelectSharedProps = {
     nothingFound?: React.ReactNode;
     /** Dropdown z-index */
     zIndex?: number;
+    /** Controlled search input value */
+    searchValue?: string;
     /** Dropdown positioning behavior */
     dropdownPosition?: "bottom" | "top" | "flip";
     /** Whether to switch item order and keyboard navigation on dropdown position flip */

@@ -30,10 +30,12 @@ const MultiSelect = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        searchValue,
         ...other
     } = props;
 
     const [options, setOptions] = useState(data);
+    const [searchVal, onSearchValChange] = useState(searchValue);
 
     useDidUpdate(() => {
         setOptions(data);
@@ -41,6 +43,11 @@ const MultiSelect = (props: Props) => {
 
     const onChange = (value: string[]) => {
         setProps({ value });
+    };
+
+    const onSearchChange = (value: string) => {
+        setProps({ searchValue: value });
+        onSearchValChange(value);
     };
 
     return (
@@ -54,6 +61,8 @@ const MultiSelect = (props: Props) => {
             }}
             data={options}
             wrapperProps={{ autoComplete: "off" }}
+            searchValue={searchVal}
+            onSearchChange={onSearchChange}
             {...other}
         />
     );
