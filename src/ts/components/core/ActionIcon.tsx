@@ -46,7 +46,7 @@ const ActionIcon = (props: Props) => {
     };
 
     return (
-        <MantineActionIcon onClick={increment} {...other}>
+        <MantineActionIcon disabled={disabled} onClick={increment} {...other}>
             {children}
         </MantineActionIcon>
     );
