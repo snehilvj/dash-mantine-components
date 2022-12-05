@@ -1,7 +1,8 @@
-import React from "react";
-import { DefaultProps } from "../../../props";
+import React, { MouseEvent } from "react";
+import { DefaultProps, TargetProps } from "../../../props";
 import { Menu, Box } from "@mantine/core";
 import { MantineColor } from "@mantine/styles";
+import { onClick } from "../../../utils"
 
 type Props = {
     /** Item label */
@@ -21,14 +22,16 @@ type Props = {
     /** An integer that represents the number of times that this element has been clicked on */
     n_clicks?: number;
     /** Target if MenuItem is supposed to be used as a link */
-    target?: "_blank" | "_self";
+    target?: TargetProps;
+    /** Whether to refresh the page */
+    refresh?: boolean;
 } & DefaultProps;
 
 /**
  * Combine a list of secondary actions into single interactive area. For more information, see: https://mantine.dev/core/menu/
  */
 const MenuItem = (props: Props) => {
-    const { children, disabled, href, target, n_clicks, setProps, ...other } =
+    const { children, disabled, href, target, refresh, n_clicks, setProps, ...other } =
         props;
 
     const increment = () => {
@@ -39,23 +42,23 @@ const MenuItem = (props: Props) => {
         }
     };
 
-    let component: React.ReactNode;
-
     if (href) {
-        component = (
-            <Menu.Item component="a" href={href} target={target} {...other}>
+        return (
+            <Menu.Item component="a" onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
+                onClick(ev, href, target, refresh)
+            }
+                href={href} target={target} {...other}>
                 <Box style={{ width: "fit-content" }}>{children}</Box>
             </Menu.Item>
         );
     } else {
-        component = (
+        return (
             <Menu.Item onClick={increment} {...other}>
                 <Box style={{ width: "fit-content" }}>{children}</Box>
             </Menu.Item>
         );
     }
 
-    return component;
 };
 
 MenuItem.defaultProps = { n_clicks: 0 };
