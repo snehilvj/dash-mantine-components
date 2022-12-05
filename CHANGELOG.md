@@ -1,5 +1,27 @@
 # Change Log
 
+# 0.11.0a3
+
+### Added
+
+- New components
+  - HoverCard #114
+  - Stepper #109
+  - Notification!!
+- Disable browser autocomplete in input components #111
+- Search value prop for Select and MultiSelect #89
+- Missing persistence props from text inputs
+- Ability to set Select/Multiselect options using callbacks
+
+### Fixed
+
+- ActionIcon was not reflecting disabled state.
+
+### Changed
+
+- MenuItem links now work like Anchor (which in turn works as dcc.Link now).
+
+
 # 0.11.0a2
 
 ### Fixed
