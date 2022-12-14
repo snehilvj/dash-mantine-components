@@ -28,11 +28,13 @@ type Props = {
     /** Indicates disabled state */
     disabled?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
-    n_clicks: number;
+    n_clicks?: number;
+    /** Set title prop to make ActionIcon visible to screen readers */
+    title?: string;
 } & DefaultProps;
 
 /**
- * Icon ActionIcon to indicate secondary action. For more information, see: https://mantine.dev/core/action-icon/
+ * Icon button. For more information, see: https://mantine.dev/core/action-icon/
  */
 const ActionIcon = (props: Props) => {
     const { children, setProps, disabled, n_clicks, ...other } = props;

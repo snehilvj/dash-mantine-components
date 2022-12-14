@@ -43,7 +43,7 @@ type Props = {
     /** Disabled state */
     disabled?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
-    n_clicks: number;
+    n_clicks?: number;
 } & DefaultProps;
 
 /**
