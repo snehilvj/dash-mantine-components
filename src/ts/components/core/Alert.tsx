@@ -23,6 +23,8 @@ type Props = {
     duration?: number;
     /** Whether to hide the alert */
     hide?: boolean;
+    /** Close button aria-label */
+    closeButtonLabel?: string;
 } & DefaultProps;
 
 /**
