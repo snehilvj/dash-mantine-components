@@ -12,6 +12,10 @@ type Props = {
     value?: any;
     /** Minimal range interval */
     minRange?: number;
+    /** First thumb aria-label */
+    thumbFromLabel?: string;
+    /** Second thumb aria-label */
+    thumbToLabel?: string;
 } & SliderSharedProps &
     PersistenceProps &
     DefaultProps;

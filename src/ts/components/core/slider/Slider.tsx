@@ -10,6 +10,8 @@ import { useDidUpdate } from "@mantine/hooks";
 type Props = {
     /** Current value for controlled slider */
     value?: number;
+    /** Thumb aria-label */
+    thumbLabel?: string;
 } & SliderSharedProps &
     PersistenceProps &
     DefaultProps;
