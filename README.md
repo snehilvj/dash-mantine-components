@@ -24,8 +24,8 @@ Dash Mantine Components is an extensive (70+) Dash components library based on [
 
 - [Installation](#installation)
 - [Quickstart](#quickstart)
+- [Sponsors](#sponsors)
 - [Contributing](#contributing)
-- [TODO](#todo)
 
 ## Installation
 
@@ -59,6 +59,12 @@ if __name__ == "__main__":
     app.run_server(debug=True)
 ```
 
+## Sponsors
+
+Thanks to the following users for supporting my efforts on dash-mantine-components.
+
+1. @AnnMarieW
+
 ## Contributing
 
 1. Join our [Discord](https://discord.gg/KuJkh4Pyq5) community.
@@ -83,8 +89,3 @@ if __name__ == "__main__":
 
 6. Raise a PR, including an example to reproduce the changes contributed by the PR.
 
-## TODO
-
-1. Add contributing guide.
-2. Add testing.
-3. Add lazy loading to the components.
