@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultProps } from "../../props";
+import { DefaultProps } from "../../../props";
 import { BackgroundImage as MantineBackgroundImage } from "@mantine/core";
 import { MantineNumberSize } from "@mantine/styles";
 
