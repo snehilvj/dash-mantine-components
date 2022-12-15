@@ -1,7 +1,7 @@
 import React, { MouseEvent } from "react";
 import { DefaultProps, TargetProps, TextProps } from "../../props";
 import { Anchor as MantineAnchor } from "@mantine/core";
-import { onClick } from "../../utils"
+import { onClick } from "../../utils";
 
 type Props = {
     /** Target */

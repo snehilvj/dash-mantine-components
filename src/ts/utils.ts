@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { TargetProps } from "./props";
 import { isNil } from "ramda";
 import isAbsoluteUrl from "is-absolute-url";
-import { MouseEvent } from "react"
+import { MouseEvent } from "react";
 
 // checks for a date against a list of dates
 export const isDateInList = (value: Date, array: Date[]) => {
@@ -48,15 +48,13 @@ function CustomEvent(event, params) {
 }
 CustomEvent.prototype = window.Event.prototype;
 
-
 export const onClick = (
     ev: MouseEvent<HTMLAnchorElement>,
     href: string,
     target: TargetProps,
     refresh: boolean
 ) => {
-    const hasModifiers =
-        ev.metaKey || ev.shiftKey || ev.altKey || ev.ctrlKey;
+    const hasModifiers = ev.metaKey || ev.shiftKey || ev.altKey || ev.ctrlKey;
 
     if (hasModifiers) {
         return;
@@ -79,11 +77,8 @@ export const onClick = (
         win.location = href;
     } else {
         win.history.pushState({}, "", href);
-        window.dispatchEvent(
-            CustomEvent("_dashprivate_pushstate", undefined)
-        );
+        window.dispatchEvent(CustomEvent("_dashprivate_pushstate", undefined));
     }
     // scroll back to top
     win.scrollTo(0, 0);
 };
-

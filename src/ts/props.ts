@@ -96,17 +96,17 @@ export type TextProps = {
     weight?: FontWeight;
     /** Sets text-transform css property */
     transform?:
-    | "-moz-initial"
-    | "inherit"
-    | "initial"
-    | "revert"
-    | "unset"
-    | "none"
-    | "capitalize"
-    | "full-size-kana"
-    | "full-width"
-    | "lowercase"
-    | "uppercase";
+        | "-moz-initial"
+        | "inherit"
+        | "initial"
+        | "revert"
+        | "unset"
+        | "none"
+        | "capitalize"
+        | "full-size-kana"
+        | "full-width"
+        | "lowercase"
+        | "uppercase";
     /** Sets text-align css property */
     align?: AlignContentProps;
     /** Link or text variant */
@@ -520,4 +520,3 @@ export type PersistenceProps = {
 };
 
 export type TargetProps = "_blank" | "_self";
-
