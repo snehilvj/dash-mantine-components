@@ -51,6 +51,8 @@ type Props = {
     lockScroll?: boolean;
     /** Determines whether focus should be returned to the last active element when drawer is closed */
     withFocusReturn?: boolean;
+    /** Close button aria-label */
+    closeButtonLabel?: string;
 } & DashBaseProps;
 
 /**
