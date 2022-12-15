@@ -377,6 +377,20 @@ export type DatePickerSharedProps = {
     initialMonth?: string;
     /** Locale used for labels formatting, defaults to theme.datesLocale */
     locale?: string;
+    /** aria-label for clear button */
+    clearButtonLabel?: string;
+    /** Next month control aria-label */
+    nextMonthLabel?: string;
+    /** Previous month control aria-label */
+    previousMonthLabel?: string;
+    /** Next year control aria-label */
+    nextYearLabel?: string;
+    /** Previous year control aria-label */
+    previousYearLabel?: string;
+    /** Next decade control aria-label */
+    nextDecadeLabel?: string;
+    /** Previous decade control aria-label */
+    previousDecadeLabel?: string;
 } & InputComponentProps;
 
 export type VerticalSectionSharedProps = {

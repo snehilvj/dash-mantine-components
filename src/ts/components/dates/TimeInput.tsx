@@ -25,6 +25,14 @@ type Props = {
     timePlaceholder?: string;
     /** Placeholder for am/pm input */
     amPmPlaceholder?: string;
+    /** aria-label for hours input */
+    hoursLabel?: string;
+    /** aria-label for minutes input */
+    minutesLabel?: string;
+    /** aria-label for seconds input */
+    secondsLabel?: string;
+    /** aria-label for am/pm input */
+    amPmLabel?: string;
 } & Omit<InputComponentProps, "placeholder"> &
     PersistenceProps &
     DefaultProps;
