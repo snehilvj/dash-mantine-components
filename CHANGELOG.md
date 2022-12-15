@@ -1,5 +1,12 @@
 # Change Log
 
+# 0.11.0
+
+### Added
+
+- Accessibility props in some components.
+
+
 # 0.11.0a3
 
 ### Added
