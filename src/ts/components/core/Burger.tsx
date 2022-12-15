@@ -12,6 +12,8 @@ type BurgerProps = {
     size?: MantineNumberSize;
     /** Transition duration in ms */
     transitionDuration?: number;
+    /** Set title prop to make Burger visible to screen readers */
+    title?: string;
 } & PersistenceProps &
     DefaultProps;
 
