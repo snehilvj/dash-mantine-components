@@ -2,6 +2,8 @@ import React from "react";
 import { DefaultProps } from "../../../props";
 import { Timeline as MantineTimeline } from "@mantine/core";
 import { MantineNumberSize, MantineColor } from "@mantine/styles";
+import { renderDashComponents } from "dash-extensions-js";
+import { omit } from "ramda";
 
 type Props = {
     /** dmc.TimelineItem components only */
@@ -32,8 +34,12 @@ const Timeline = (props: Props) => {
         <MantineTimeline {...other}>
             {React.Children.map(children, (child: any, index) => {
                 const childProps = child.props._dashprivate_layout.props;
+                const renderedProps = renderDashComponents(
+                    omit(["children"], childProps),
+                    ["title", "bullet"]
+                );
                 return (
-                    <MantineTimeline.Item {...childProps} key={index}>
+                    <MantineTimeline.Item {...renderedProps} key={index}>
                         {child}
                     </MantineTimeline.Item>
                 );
