@@ -1,5 +1,16 @@
 # Change Log
 
+# 0.11.1
+
+### Added
+
+- Missing style props in Notification component.
+
+### Fixed
+
+- Bullet and title were not rendered. #126
+
+
 # 0.11.0
 
 ### Added
