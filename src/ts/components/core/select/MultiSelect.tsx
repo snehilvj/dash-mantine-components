@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     DefaultProps,
     PersistenceProps,
@@ -16,6 +16,8 @@ type Props = {
     maxSelectedValues?: number;
     /** Controlled input value */
     value?: string[];
+    /** State of the dropdown */
+    isOpen?: boolean;
 } & SelectSharedProps &
     PersistenceProps &
     DefaultProps;
@@ -33,10 +35,15 @@ const MultiSelect = (props: Props) => {
         searchValue,
         ...other
     } = props;
-
+    
+    const [isOpen, setIsOpen] = useState(null);
     const [options, setOptions] = useState(data);
     const [searchVal, onSearchValChange] = useState(searchValue);
-
+    
+    useEffect(() => {
+        setIsOpen(() => true);
+    }, []);
+    
     useDidUpdate(() => {
         setOptions(data);
     }, [data]);
@@ -53,6 +60,10 @@ const MultiSelect = (props: Props) => {
     return (
         <MantineMultiSelect
             onChange={onChange}
+            onClose={() => {
+                setIsOpen(false);
+            }}
+            isOpen={isOpen}
             getCreateLabel={(query) => `+ Create ${query}`}
             onCreate={(query) => {
                 const item = { value: query, label: query };
@@ -72,6 +83,7 @@ MultiSelect.defaultProps = {
     data: [],
     persisted_props: ["value"],
     persistence_type: "local",
+    isOpen: false
 };
 
 export default MultiSelect;
