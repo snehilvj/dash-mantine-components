@@ -43,7 +43,7 @@ const CheckboxGroup = (props: Props) => {
     };
 
     return (
-        <Checkbox.Group onChange={onChange} {...other}>
+        <Checkbox.Group onChange={onChange} defaultValue={value} {...other}>
             {children}
         </Checkbox.Group>
     );
