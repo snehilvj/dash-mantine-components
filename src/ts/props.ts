@@ -26,35 +26,111 @@ import {
     AccordionVariant,
 } from "@mantine/core/lib/Accordion/Accordion.types";
 
+type PositionProps = "auto" | "initial" | "inherit" | number | string;
+
 export type MantineStyleSystemProps = {
-    /** margin props */
+    /** Mantine Style System Props */
     m?: MantineNumberSize;
-    /** margin props */
+    /** Mantine Style System Props */
     my?: MantineNumberSize;
-    /** margin props */
+    /** Mantine Style System Props */
     mx?: MantineNumberSize;
-    /** margin props */
+    /** Mantine Style System Props */
     mt?: MantineNumberSize;
-    /** margin props */
+    /** Mantine Style System Props */
     mb?: MantineNumberSize;
-    /** margin props */
+    /** Mantine Style System Props */
     ml?: MantineNumberSize;
-    /** margin props */
+    /** Mantine Style System Props */
     mr?: MantineNumberSize;
-    /** padding props */
+    /** Mantine Style System Props */
     p?: MantineNumberSize;
-    /** padding props */
+    /** Mantine Style System Props */
     py?: MantineNumberSize;
-    /** padding props */
+    /** Mantine Style System Props */
     px?: MantineNumberSize;
-    /** padding props */
+    /** Mantine Style System Props */
     pt?: MantineNumberSize;
-    /** padding props */
+    /** Mantine Style System Props */
     pb?: MantineNumberSize;
-    /** padding props */
+    /** Mantine Style System Props */
     pl?: MantineNumberSize;
-    /** padding props */
+    /** Mantine Style System Props */
     pr?: MantineNumberSize;
+    /** Mantine Style System Props */
+    bg?: MantineColor;
+    /** Mantine Style System Props */
+    c?: MantineColor;
+    /** Mantine Style System Props */
+    opacity?: number;
+    /** Mantine Style System Props */
+    ff?: "initial" | "inherit" | string;
+    /** Mantine Style System Props */
+    fz?: MantineNumberSize;
+    /** Mantine Style System Props */
+    fw?: FontWeight;
+    /** Mantine Style System Props */
+    lts?: "normal" | "initial" | "inherit" | string | number;
+    /** Mantine Style System Props */
+    ta?: "left" | "right" | "center" | "justify" | "initial" | "inherit";
+    /** Mantine Style System Props */
+    lh?: "normal" | "initial" | "inherit" | string | number;
+    /** Mantine Style System Props */
+    fs?: "normal" | "italic" | "oblique" | "initial" | "inherit";
+    /** Mantine Style System Props */
+    tt?:
+        | "none"
+        | "capitalize"
+        | "uppercase"
+        | "lowercase"
+        | "initial"
+        | "inherit";
+    /** Mantine Style System Props */
+    td?: string;
+    /** Mantine Style System Props */
+    w?: MantineNumberSize;
+    /** Mantine Style System Props */
+    miw?: MantineNumberSize;
+    /** Mantine Style System Props */
+    maw?: MantineNumberSize;
+    /** Mantine Style System Props */
+    h?: MantineNumberSize;
+    /** Mantine Style System Props */
+    mih?: MantineNumberSize;
+    /** Mantine Style System Props */
+    mah?: MantineNumberSize;
+    /** Mantine Style System Props */
+    bgsz?:
+        | "auto"
+        | "cover"
+        | "contain"
+        | "initial"
+        | "inherit"
+        | string
+        | number;
+    /** Mantine Style System Props */
+    bgp?: string;
+    /** Mantine Style System Props */
+    bgr?:
+        | "repeat"
+        | "repeat-x"
+        | "repeat-y"
+        | "no-repeat"
+        | "initial"
+        | "inherit";
+    /** Mantine Style System Props */
+    pos?: "static" | "relative" | "fixed" | "absolute" | "sticky";
+    /** Mantine Style System Props */
+    top?: PositionProps;
+    /** Mantine Style System Props */
+    left?: PositionProps;
+    /** Mantine Style System Props */
+    bottom?: PositionProps;
+    /** Mantine Style System Props */
+    right?: PositionProps;
+    /** Mantine Style System Props */
+    inset?: PositionProps;
+    /** Mantine Style System Props */
 };
 
 export type DashBaseProps = {
