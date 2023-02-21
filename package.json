@@ -41,11 +41,11 @@
     "license": "MIT",
     "dependencies": {
         "@emotion/react": "^11.10.4",
-        "@mantine/core": "^5.4.0",
-        "@mantine/dates": "^5.4.0",
-        "@mantine/hooks": "^5.4.0",
-        "@mantine/notifications": "^5.4.0",
-        "@mantine/prism": "^5.4.0",
+        "@mantine/core": "^5.10.4",
+        "@mantine/dates": "^5.10.4",
+        "@mantine/hooks": "^5.10.4",
+        "@mantine/notifications": "^5.10.4",
+        "@mantine/prism": "^5.10.4",
         "dash-extensions-js": "^0.0.8",
         "dayjs": "^1.11.5",
         "is-absolute-url": "^4.0.1"
