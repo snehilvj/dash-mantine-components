@@ -104,6 +104,10 @@ import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
 import DemoSlider from "./components/docs/DemoSlider";
 import DemoSegmentedControl from "./components/docs/DemoSegmentedControl";
 
+//m42
+import BetterMultiSelect from "./components/m42/betterselect/BetterMultiSelect";
+import BetterSelect from "./components/m42/betterselect/BetterSelect";
+
 export {
     Accordion,
     AccordionMultiple,
@@ -210,4 +214,7 @@ export {
     // for docs
     DemoSlider,
     DemoSegmentedControl,
+    // m42
+    BetterMultiSelect,
+    BetterSelect,
 };
