@@ -47,9 +47,7 @@ const Stepper = (props: Props) => {
 
     return (
         <MantineStepper active={act} {...other}>
-
             {React.Children.map(children, (child: any, index) => {
-
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "StepperCompleted") {
                     return (
@@ -59,21 +57,25 @@ const Stepper = (props: Props) => {
                     );
                 } else {
                     const childProps = child.props._dashprivate_layout.props;
-                    
+
                     const renderedProps = renderDashComponents(
                         omit(["children"], childProps),
-                        ["label","description","icon","progressIcon","completedIcon"]
+                        [
+                            "label",
+                            "description",
+                            "icon",
+                            "progressIcon",
+                            "completedIcon",
+                        ]
                     );
-                    
+
                     return (
-                        <MantineStepper.Step {...renderedProps}  key={index}>
+                        <MantineStepper.Step {...renderedProps} key={index}>
                             {child}
                         </MantineStepper.Step>
-
                     );
                 }
             })}
-
         </MantineStepper>
     );
 };
