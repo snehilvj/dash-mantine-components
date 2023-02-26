@@ -16,6 +16,8 @@ type Props = {
     minRows?: number;
     /** Value for controlled input */
     value?: string;
+    /** Spell check property */
+    spellCheck?: boolean;
 } & InputComponentProps &
     PersistenceProps &
     DefaultProps;

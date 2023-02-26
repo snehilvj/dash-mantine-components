@@ -20,6 +20,8 @@ type Props = {
     maxRows?: number;
     /** Defined minRows in autosize variant and rows in regular variant */
     minRows?: number;
+    /** Spell check property */
+    spellCheck?: boolean;
 } & InputComponentProps &
     PersistenceProps &
     DefaultProps;
