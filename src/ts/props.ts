@@ -139,7 +139,7 @@ export type DashBaseProps = {
     /** Inline style */
     style?: any;
     /** Mantine styles API  */
-    styles?: object;
+    styles?: any;
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
     /** Remove all Mantine styling from the component */
