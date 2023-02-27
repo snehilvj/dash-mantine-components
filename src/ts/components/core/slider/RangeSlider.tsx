@@ -12,6 +12,8 @@ type Props = {
     value?: any;
     /** Minimal range interval */
     minRange?: number;
+    /** Maximum range interval */
+    maxRange?: number;
     /** First thumb aria-label */
     thumbFromLabel?: string;
     /** Second thumb aria-label */

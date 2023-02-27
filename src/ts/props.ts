@@ -171,6 +171,8 @@ export type TextProps = {
     color?: "dimmed" | MantineColor;
     /** Sets font-weight css property */
     weight?: FontWeight;
+    /** CSS truncate overflowing text with an ellipsis */
+    truncate?: 'end' | 'start' | true;
     /** Sets text-transform css property */
     transform?:
     | "-moz-initial"

@@ -18,6 +18,8 @@ type Props = {
         color: MantineColor;
         tooltip?: React.ReactNode;
     }[];
+    /** Color of the root section, key of theme.colors or CSS color value */
+    rootColor?: MantineColor;
 } & DefaultProps;
 
 /**
