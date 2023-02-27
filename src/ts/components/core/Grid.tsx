@@ -12,6 +12,16 @@ type Props = {
     children?: React.ReactNode;
     /** Spacing between columns predefined value from theme.spacing or number for gutter in px  */
     gutter?: MantineNumberSize;
+    /** Gutter when screen size is larger than theme.breakpoints.xs */
+    gutterXs?: MantineNumberSize;
+    /** Gutter when screen size is larger than theme.breakpoints.sm */
+    gutterSm?: MantineNumberSize;
+    /** Gutter when screen size is larger than theme.breakpoints.md */
+    gutterMd?: MantineNumberSize;
+    /** Gutter when screen size is larger than theme.breakpoints.lg */
+    gutterLg?: MantineNumberSize;
+    /** Gutter when screen size is larger than theme.breakpoints.xl */
+    gutterXl?: MantineNumberSize;
     /** Should columns in the last row take 100% of grid width */
     grow?: boolean;
     /** Set grid justify-content property */
