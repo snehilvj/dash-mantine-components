@@ -31,6 +31,8 @@ type Props = {
     radius?: MantineNumberSize;
     /** Breakpoint at which orientation will change from horizontal to vertical */
     breakpoint?: MantineNumberSize;
+    /** Whether to enable click on upcoming steps by default. Defaults to true **/
+    allowNextStepsSelect?: boolean;
 } & DefaultProps;
 
 /**
