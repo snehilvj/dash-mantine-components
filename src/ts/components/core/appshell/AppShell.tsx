@@ -4,14 +4,16 @@ import { AppShell as MantineAppShell } from "@mantine/core";
 import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
+    /** Determines how Navbar and Aside components are positioned relative to Header and Footer components */
+    layout?: 'default' | 'alt';
     /** <Navbar /> component */
-    navbar?: JSX.Element;
+    navbar?: React.ReactElement;
     /** <Aside /> component */
-    aside?: JSX.Element;
+    aside?: React.ReactElement;
     /** <Header /> component */
-    header?: JSX.Element;
+    header?: React.ReactElement;
     /** <Footer /> component */
-    footer?: JSX.Element;
+    footer?: React.ReactElement;
     /** zIndex prop passed to Navbar and Header components */
     zIndex?: number;
     /** true to switch from static layout to fixed */
