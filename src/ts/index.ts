@@ -43,7 +43,7 @@ import HoverCard from "./components/core/hovercard/HoverCard";
 import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
 import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
 import Image from "./components/core/image/Image";
-import Indicator from "./components/core/Indicator"
+import Indicator from "./components/core/Indicator";
 import JsonInput from "./components/core/textinput/JsonInput";
 import Kbd from "./components/core/Kbd";
 import List from "./components/core/list/List";
@@ -102,6 +102,7 @@ import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Title from "./components/core/Title";
 import Tooltip from "./components/core/tooltip/Tooltip";
+import TransferList from "./components/core/TransferList";
 // for docs
 import DemoSlider from "./components/docs/DemoSlider";
 import DemoSegmentedControl from "./components/docs/DemoSegmentedControl";
@@ -211,6 +212,7 @@ export {
     TimelineItem,
     Title,
     Tooltip,
+    TransferList,
     // for docs
     DemoSlider,
     DemoSegmentedControl,

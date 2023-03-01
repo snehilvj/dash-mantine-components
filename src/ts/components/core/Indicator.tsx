@@ -1,7 +1,7 @@
 import React from "react";
 import { DefaultProps } from "../../props";
 import { Indicator as MantineIndicator } from "@mantine/core";
-import { MantineColor, MantineNumberSize } from '@mantine/styles';
+import { MantineColor, MantineNumberSize } from "@mantine/styles";
 import { IndicatorPosition } from "@mantine/core/lib/Indicator/Indicator.types";
 
 type Props = {
@@ -34,20 +34,16 @@ type Props = {
     /** Indicator processing animation */
     processing?: boolean;
     /** Indicator z-index */
-    zIndex?: number
+    zIndex?: number;
 } & DefaultProps;
 
 /**
  * Display element at the corner of another element. For more information, see: https://mantine.dev/core/indicator/
  */
 const Indicator = (props: Props) => {
-    const {
-        children,
-        setProps,
-        ...other
-    } = props;
+    const { children, setProps, ...other } = props;
 
-    return <MantineIndicator {...other} >{children} </MantineIndicator>
+    return <MantineIndicator {...other}>{children} </MantineIndicator>;
 };
 
 Indicator.defaultProps = {
