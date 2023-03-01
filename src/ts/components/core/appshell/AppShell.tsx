@@ -5,7 +5,7 @@ import { MantineNumberSize } from "@mantine/styles";
 
 type Props = {
     /** Determines how Navbar and Aside components are positioned relative to Header and Footer components */
-    layout?: 'default' | 'alt';
+    layout?: "default" | "alt";
     /** <Navbar /> component */
     navbar?: React.ReactElement;
     /** <Aside /> component */
