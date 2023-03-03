@@ -78,6 +78,7 @@ const NavLink = (props: Props) => {
                 href={href}
                 target={target}
                 onChange={onChange}
+                disabled={disabled}
                 {...other}
             >
                 {children}
@@ -85,7 +86,7 @@ const NavLink = (props: Props) => {
         );
     } else {
         return (
-            <MantineNavLink onChange={onChange} onClick={increment} {...other}>
+            <MantineNavLink disabled={disabled} onChange={onChange} onClick={increment} {...other}>
                 {children}
             </MantineNavLink>
         );

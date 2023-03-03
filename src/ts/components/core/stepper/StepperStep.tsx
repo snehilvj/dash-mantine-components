@@ -27,10 +27,6 @@ type Props = {
     radius?: MantineNumberSize;
     /** Indicates loading state on step */
     loading?: boolean;
-    /** Set to false to disable clicks on step */
-    allowStepClick?: boolean;
-    /** Should step selection be allowed */
-    allowStepSelect?: boolean;
     /** Component orientation */
     orientation?: "vertical" | "horizontal";
     /** StepperStep content */
