@@ -131,6 +131,31 @@ export type MantineStyleSystemProps = {
     /** Mantine Style System Props */
     inset?: PositionProps;
     /** Mantine Style System Props */
+    display?:
+        | "inline"
+        | "block"
+        | "contents"
+        | "flex"
+        | "grid"
+        | "inline-block"
+        | "inline-flex"
+        | "inline-grid"
+        | "inline-table"
+        | "list-item"
+        | "run-in"
+        | "table"
+        | "table-caption"
+        | "table-column-group"
+        | "table-header-group"
+        | "table-footer-group"
+        | "table-row-group"
+        | "table-cell"
+        | "table-column"
+        | "table-row"
+        | "none"
+        | "initial"
+        | "inherit"
+        | "inherit";
 };
 
 export type DashBaseProps = {
@@ -139,7 +164,7 @@ export type DashBaseProps = {
     /** Inline style */
     style?: any;
     /** Mantine styles API  */
-    styles?: object;
+    styles?: any;
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
     /** Remove all Mantine styling from the component */
@@ -170,6 +195,8 @@ export type TextProps = {
     color?: "dimmed" | MantineColor;
     /** Sets font-weight css property */
     weight?: FontWeight;
+    /** CSS truncate overflowing text with an ellipsis */
+    truncate?: "end" | "start" | true;
     /** Sets text-transform css property */
     transform?:
         | "-moz-initial"

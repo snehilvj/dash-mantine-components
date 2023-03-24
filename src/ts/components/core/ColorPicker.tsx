@@ -7,7 +7,7 @@ type Props = {
     /** Controlled component value */
     value?: string;
     /** Color format */
-    format?: "hex" | "rgba" | "rgb" | "hsl" | "hsla";
+    format?: "hex" | "hexa" | "rgba" | "rgb" | "hsl" | "hsla";
     /** Set to false to display swatches only */
     withPicker?: boolean;
     /** Predefined colors */

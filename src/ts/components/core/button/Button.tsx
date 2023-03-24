@@ -37,7 +37,7 @@ type Props = {
     /** Props spread to Loader component */
     loaderProps?: LoaderProps;
     /** Loader position relative to button label */
-    loaderPosition?: "left" | "right";
+    loaderPosition?: "left" | "right" | "center";
     /** Button label */
     children?: React.ReactNode;
     /** Disabled state */

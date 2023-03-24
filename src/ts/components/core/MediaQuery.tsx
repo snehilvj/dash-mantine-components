@@ -13,21 +13,26 @@ type Props = {
     query?: string;
     /** Styles applied to child when breakpoint matches */
     styles: Record<string, CSSObject>;
+    /** props for inner box */
+    innerBoxStyle?: any;
 };
 
 /**
  * Apply styles to children if media query matches. For more information, see: https://mantine.dev/core/media-query/
  */
 const MediaQuery = (props: Props) => {
-    const { children, styles, ...other } = props;
+    const { children, innerBoxStyle, ...other } = props;
+    const newStyle = { width: "fit-content", ...innerBoxStyle };
 
     return (
-        <MantineMediaQuery styles={styles} {...other}>
-            <Box style={{ width: "fit-content" }}>{children}</Box>
+        <MantineMediaQuery {...other}>
+            <Box style={newStyle}>{children}</Box>
         </MantineMediaQuery>
     );
 };
 
-MediaQuery.defaultProps = {};
+MediaQuery.defaultProps = {
+    innerBoxStyle: {},
+};
 
 export default MediaQuery;

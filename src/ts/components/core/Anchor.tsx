@@ -17,7 +17,7 @@ type Props = {
  * Display links with theme styles. For more information, see: https://mantine.dev/core/anchor/
  */
 const Anchor = (props: Props) => {
-    const { href, target, refresh, children, setProps, ...others } = props;
+    const { href, target, refresh, children, setProps, ...other } = props;
 
     return (
         <MantineAnchor
@@ -26,12 +26,13 @@ const Anchor = (props: Props) => {
             }
             href={href}
             target={target}
-            {...others}
+            {...other}
         >
             {children}
         </MantineAnchor>
     );
 };
+
 Anchor.defaultProps = {};
 
 export default Anchor;

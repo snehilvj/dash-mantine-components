@@ -3,6 +3,8 @@ import { DefaultProps } from "../../../props";
 import { Stepper as MantineStepper } from "@mantine/core";
 import { MantineNumberSize, MantineSize, MantineColor } from "@mantine/styles";
 import { useDidUpdate } from "@mantine/hooks";
+import { renderDashComponents } from "dash-extensions-js";
+import { omit } from "ramda";
 
 type Props = {
     /** <Stepper.Step /> components only */
@@ -55,8 +57,20 @@ const Stepper = (props: Props) => {
                     );
                 } else {
                     const childProps = child.props._dashprivate_layout.props;
+
+                    const renderedProps = renderDashComponents(
+                        omit(["children"], childProps),
+                        [
+                            "label",
+                            "description",
+                            "icon",
+                            "progressIcon",
+                            "completedIcon",
+                        ]
+                    );
+
                     return (
-                        <MantineStepper.Step {...childProps} key={index}>
+                        <MantineStepper.Step {...renderedProps} key={index}>
                             {child}
                         </MantineStepper.Step>
                     );

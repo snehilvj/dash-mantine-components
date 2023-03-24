@@ -12,6 +12,8 @@ type Props = {
     type?: "number" | "search" | "text" | "tel" | "url" | "email" | "password";
     /** Value for controlled input */
     value?: string;
+    /** Spell check property */
+    spellCheck?: boolean;
 } & InputComponentProps &
     PersistenceProps &
     DefaultProps;

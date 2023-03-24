@@ -12,14 +12,14 @@ type Props = {
     size?: MantineSize;
     /** Checkbox label */
     label?: React.ReactNode;
-    /** Indeterminate state of checkbox, overwrites checked */
-    indeterminate?: boolean;
     /** Transition duration in ms */
     transitionDuration?: number;
     /** State of check box */
     checked?: boolean;
     /** To be used with checkbox group */
     value?: string;
+    /** Whether component is disabled */
+    disabled?: boolean;
 } & DefaultProps &
     PersistenceProps;
 

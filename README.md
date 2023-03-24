@@ -63,8 +63,9 @@ if __name__ == "__main__":
 
 Thanks to the following people for supporting my efforts on dash-mantine-components.
 
-1. [Ann Marie Ward](https://github.com/AnnMarieW)
-2. [Rick Ahlf](https://github.com/rick643charts)
+1. [ASCEND.IO](https://www.ascend.io)
+2. [Ann Marie Ward](https://github.com/AnnMarieW)
+3. [Rick Ahlf](https://www.linkedin.com/in/rickahlf/)
 
 ## Contributing
 

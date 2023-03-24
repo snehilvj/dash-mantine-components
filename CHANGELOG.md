@@ -1,5 +1,29 @@
 # Change Log
 
+# 0.12.0
+
+### Changed
+
+- Updated to use latest Mantine - v5.10.5
+
+### Added
+
+- New Mantine Style props. #142
+- `spellcheck` prop to text input components #133
+- `style` prop for MediaQuery inner box component #148
+- New props to few components because of Mantine version upgrade.
+- New components
+  - NavLink
+  - TransferList
+  - Indicator
+  
+### Fixed
+
+- Add `disabled` property in Checkbox #150
+- Pass initial value to Checkbox component #140
+- Stepper icon bug #146
+
+
 # 0.11.1
 
 ### Added
