@@ -48,7 +48,6 @@ const Checkbox = (props: Props) => {
 };
 
 Checkbox.defaultProps = {
-    checked: false,
     persisted_props: ["checked"],
     persistence_type: "local",
 };
