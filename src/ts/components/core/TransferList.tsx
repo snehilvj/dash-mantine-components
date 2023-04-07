@@ -38,7 +38,13 @@ type Props = {
  * Navigation link. For more information, see: https://mantine.dev/core/nav-link/
  */
 const TransferList = (props: Props) => {
-    const { setProps, ...other } = props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        ...other
+    } = props;
 
     const onChange = (value: TransferListData) => {
         setProps({ value });
