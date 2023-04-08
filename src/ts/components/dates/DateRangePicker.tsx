@@ -7,7 +7,7 @@ import {
     DateRangePicker as MantineDateRangePicker,
     DateRangePickerValue,
 } from "@mantine/dates";
-import { isDateInList, stringToDayjs, dayjsToString } from "../../utils";
+import { isDisabled, stringToDayjs, dayjsToString } from "../../utils";
 import { useDidUpdate } from "@mantine/hooks";
 import dayjs from "dayjs";
 import React, { useState, useEffect } from "react";
@@ -51,7 +51,6 @@ const DateRangePicker = (props: Props) => {
     const [dates, setDates] = useState<DateRangePickerValue>(
         value && convertToDateArray(value)
     );
-    const excludedDates = [];
 
     const onChange = (d: DateRangePickerValue) => {
         const [start, end] = d;
@@ -71,20 +70,13 @@ const DateRangePicker = (props: Props) => {
         }
     }, []);
 
-    // add disabled dates support
-    useEffect(() => {
-        if (disabledDates) {
-            for (let date of disabledDates) {
-                excludedDates.push(stringToDayjs(date));
-            }
-        }
-    }, [disabledDates]);
-
     useDidUpdate(() => {
         setDates(value ? convertToDateArray(value) : [null, null]);
     }, [value]);
 
-    const isExcluded = (date: Date) => isDateInList(date, excludedDates);
+    const isExcluded = (date: Date) => {
+        return isDisabled(date, disabledDates);
+    };
 
     const cleanUp = () => {
         if (!value) {
