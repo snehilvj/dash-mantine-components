@@ -24,7 +24,7 @@ type Props = {
     disallowClose?: boolean;
     /** The ID of this component, used to identify dash components in callbacks */
     id: string;
-    /** Auto close timeout, false to disable auto close */
+    /** Auto close timeout in milliseconds, false to disable auto close */
     autoClose?: boolean | number;
     /** Action */
     action: "show" | "update" | "hide";
