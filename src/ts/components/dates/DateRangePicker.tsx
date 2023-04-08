@@ -53,11 +53,11 @@ const DateRangePicker = (props: Props) => {
     );
 
     const onChange = (d: DateRangePickerValue) => {
+        setDates(d);
         const [start, end] = d;
         if (start && end) {
             setProps({ value: [dayjsToString(start), dayjsToString(end)] });
         } else if (start || end) {
-            setDates([start, end]);
         } else {
             setProps({ value: null });
         }
@@ -75,19 +75,12 @@ const DateRangePicker = (props: Props) => {
     }, [value]);
 
     const isExcluded = (date: Date) => {
-        return isDisabled(date, disabledDates);
-    };
-
-    const cleanUp = () => {
-        if (!value) {
-            setDates([null, null]);
-        }
+        return isDisabled(date, disabledDates || []);
     };
 
     return (
         <MantineDateRangePicker
             onChange={onChange}
-            onDropdownClose={cleanUp}
             locale={locale}
             value={dates}
             minDate={stringToDayjs(minDate)}

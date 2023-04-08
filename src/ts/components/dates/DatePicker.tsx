@@ -54,7 +54,7 @@ const DatePicker = (props: Props) => {
     }, [value]);
 
     const isExcluded = (date: Date) => {
-        return isDisabled(date, disabledDates);
+        return isDisabled(date, disabledDates || []);
     };
 
     return (
