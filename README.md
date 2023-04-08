@@ -66,6 +66,7 @@ Thanks to the following people for supporting my efforts on dash-mantine-compone
 1. [ASCEND.IO](https://www.ascend.io)
 2. [Ann Marie Ward](https://github.com/AnnMarieW)
 3. [Rick Ahlf](https://www.linkedin.com/in/rickahlf/)
+4. [@josca42](https://github.com/josca42)
 
 ## Contributing
 
