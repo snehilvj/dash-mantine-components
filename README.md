@@ -36,24 +36,36 @@ pip install dash-mantine-components
 ## Quickstart
 
 ```python
+from datetime import datetime, date
+
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output
+from dash import Dash, Input, Output, html, callback
+from dash.exceptions import PreventUpdate
 
 app = Dash(__name__)
 
 app.layout = html.Div(
     [
-        dmc.DatePicker(id="datepicker", format="dddd, MMMM D, YYYY"),
-        dmc.Text(id="text"),
-        dmc.Button("Click Me!")
+        dmc.DatePicker(
+            id="date-picker",
+            label="Start Date",
+            description="You can also provide a description",
+            minDate=date(2020, 8, 5),
+            value=None,
+            style={"width": 200},
+        ),
+        dmc.Space(h=10),
+        dmc.Text(id="selected-date"),
     ]
 )
 
-
-@app.callback(Output("text", "children"), Input("datepicker", "date"))
-def datepicker(date):
-    return date
-
+@callback(Output("selected-date", "children"), Input("date-picker", "value"))
+def update_output(d):
+    prefix = "You have selected: "
+    if d:
+        return prefix + d
+    else:
+        raise PreventUpdate
 
 if __name__ == "__main__":
     app.run_server(debug=True)
