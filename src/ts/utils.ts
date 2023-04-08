@@ -17,7 +17,7 @@ export const isStringsArray = (arr: any[]) =>
 
 // convert to dayjs Date
 export const stringToDayjs = (d: string | null) => {
-    return d ? dayjs(d).toDate() : undefined;
+    return d && dayjs(d).toDate();
 };
 
 // convert to date string for dash
