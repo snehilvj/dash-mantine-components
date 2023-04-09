@@ -23,7 +23,7 @@ install:
 
 # Package the application for distribution using python wheel.
 package: clean build
-    python -m build --wheel
+    python -m build 
 
 # Publish the package to pypi using twine.
 publish: package
