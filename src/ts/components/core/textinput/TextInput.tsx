@@ -47,11 +47,9 @@ const TextInput = (props: Props) => {
         setVal(value);
     }, [value]);
     
-    const increment = () => {
-        if (!disabled) {
-            setProps({
-                n_submit: n_submit + 1,
-            });
+    const handleKeyDown = (ev) => {
+        if (ev.key === 'Enter') {
+            setProps({ n_submit: n_submit + 1 });
         }
     };
 
@@ -61,7 +59,7 @@ const TextInput = (props: Props) => {
             value={val}
             wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}
-            onSubmit={increment}
+            onKeyDown={handleKeyDown}
         />
     );
 };
