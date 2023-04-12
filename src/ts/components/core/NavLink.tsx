@@ -86,7 +86,12 @@ const NavLink = (props: Props) => {
         );
     } else {
         return (
-            <MantineNavLink disabled={disabled} onChange={onChange} onClick={increment} {...other}>
+            <MantineNavLink
+                disabled={disabled}
+                onChange={onChange}
+                onClick={increment}
+                {...other}
+            >
                 {children}
             </MantineNavLink>
         );

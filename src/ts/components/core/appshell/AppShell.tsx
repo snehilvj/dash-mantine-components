@@ -7,13 +7,13 @@ type Props = {
     /** Determines how Navbar and Aside components are positioned relative to Header and Footer components */
     layout?: "default" | "alt";
     /** <Navbar /> component */
-    navbar?: React.ReactElement;
+    navbar?: JSX.Element;
     /** <Aside /> component */
-    aside?: React.ReactElement;
+    aside?: JSX.Element;
     /** <Header /> component */
-    header?: React.ReactElement;
+    header?: JSX.Element;
     /** <Footer /> component */
-    footer?: React.ReactElement;
+    footer?: JSX.Element;
     /** zIndex prop passed to Navbar and Header components */
     zIndex?: number;
     /** true to switch from static layout to fixed */

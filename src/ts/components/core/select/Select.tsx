@@ -54,7 +54,8 @@ const Select = (props: Props) => {
             getCreateLabel={(query) => `+ Create ${query}`}
             onCreate={(query) => {
                 const item = { value: query, label: query };
-                setOptions((current) => [...current, item]);
+                const newOptions = [...options, item];
+                setProps({ data: newOptions });
                 return item;
             }}
             data={options}

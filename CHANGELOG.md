@@ -1,5 +1,20 @@
 # Change Log
 
+# 0.12.1
+
+### Added
+
+- Persistence props for TransferList #171
+- Clearing datepicker via callback #167
+- Trigger callback when new options are created using the creatable prop in Select and MultiSelect #164
+- Add `classNames` prop to all components
+
+### Fixed
+
+- Disabled dates losing effect in DatePicker and DateRangePicker #137
+- Date range selection issue when selecting adjacent dates #66
+- AppShell prop types #162
+
 # 0.12.0
 
 ### Changed

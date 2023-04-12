@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import { DefaultProps } from "../../props";
+import React from "react";
+import { DefaultProps, PersistenceProps } from "../../props";
 import { TransferList as MantineTransferList } from "@mantine/core";
 import { MantineNumberSize } from "@mantine/styles";
-import {
-    TransferListItem,
-    TransferListData,
-} from "@mantine/core/lib/TransferList/types";
+import { TransferListData } from "@mantine/core/lib/TransferList/types";
 
 type Props = {
     /** Current value */
@@ -34,7 +31,8 @@ type Props = {
     limit?: number;
     /** Whether to transfer only items matching the filter when clicking the transfer all control */
     transferAllMatchingFilter?: boolean;
-} & DefaultProps;
+} & PersistenceProps &
+    DefaultProps;
 
 /**
  * Navigation link. For more information, see: https://mantine.dev/core/nav-link/
@@ -42,20 +40,32 @@ type Props = {
 const TransferList = (props: Props) => {
     const {
         setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
         ...other
     } = props;
 
     const onChange = (value: TransferListData) => {
-        setProps({ value })
-    }
+        setProps({ value });
+    };
 
     const onSearch = (value: [string, string]) => {
         setProps({ searchValues: value });
     };
 
-    return <MantineTransferList onChange={onChange} onSearch={onSearch} {...other} />;
+    return (
+        <MantineTransferList
+            onChange={onChange}
+            onSearch={onSearch}
+            {...other}
+        />
+    );
 };
 
-TransferList.defaultProps = {};
+TransferList.defaultProps = {
+    persisted_props: ["value"],
+    persistence_type: "local",
+};
 
 export default TransferList;

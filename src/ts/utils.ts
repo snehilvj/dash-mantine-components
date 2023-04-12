@@ -4,11 +4,8 @@ import { isNil } from "ramda";
 import isAbsoluteUrl from "is-absolute-url";
 import { MouseEvent } from "react";
 
-// checks for a date against a list of dates
-export const isDateInList = (value: Date, array: Date[]) => {
-    return !!array.find((item) => {
-        return item.getTime() === value.getTime();
-    });
+export const isDisabled = (date: Date, disabledDates: string[]) => {
+    return disabledDates.includes(dayjsToString(date));
 };
 
 // check if all the elements in the array are string
@@ -17,7 +14,7 @@ export const isStringsArray = (arr: any[]) =>
 
 // convert to dayjs Date
 export const stringToDayjs = (d: string | null) => {
-    return d ? dayjs(d).toDate() : undefined;
+    return d && dayjs(d).toDate();
 };
 
 // convert to date string for dash

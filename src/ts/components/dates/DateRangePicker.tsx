@@ -7,7 +7,7 @@ import {
     DateRangePicker as MantineDateRangePicker,
     DateRangePickerValue,
 } from "@mantine/dates";
-import { isDateInList, stringToDayjs, dayjsToString } from "../../utils";
+import { isDisabled, stringToDayjs, dayjsToString } from "../../utils";
 import { useDidUpdate } from "@mantine/hooks";
 import dayjs from "dayjs";
 import React, { useState, useEffect } from "react";
@@ -51,14 +51,13 @@ const DateRangePicker = (props: Props) => {
     const [dates, setDates] = useState<DateRangePickerValue>(
         value && convertToDateArray(value)
     );
-    const excludedDates = [];
 
     const onChange = (d: DateRangePickerValue) => {
+        setDates(d);
         const [start, end] = d;
         if (start && end) {
             setProps({ value: [dayjsToString(start), dayjsToString(end)] });
         } else if (start || end) {
-            setDates([start, end]);
         } else {
             setProps({ value: null });
         }
@@ -71,31 +70,17 @@ const DateRangePicker = (props: Props) => {
         }
     }, []);
 
-    // add disabled dates support
-    useEffect(() => {
-        if (disabledDates) {
-            for (let date of disabledDates) {
-                excludedDates.push(stringToDayjs(date));
-            }
-        }
-    }, [disabledDates]);
-
     useDidUpdate(() => {
         setDates(value ? convertToDateArray(value) : [null, null]);
     }, [value]);
 
-    const isExcluded = (date: Date) => isDateInList(date, excludedDates);
-
-    const cleanUp = () => {
-        if (!value) {
-            setDates([null, null]);
-        }
+    const isExcluded = (date: Date) => {
+        return isDisabled(date, disabledDates || []);
     };
 
     return (
         <MantineDateRangePicker
             onChange={onChange}
-            onDropdownClose={cleanUp}
             locale={locale}
             value={dates}
             minDate={stringToDayjs(minDate)}

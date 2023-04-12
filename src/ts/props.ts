@@ -79,12 +79,12 @@ export type MantineStyleSystemProps = {
     fs?: "normal" | "italic" | "oblique" | "initial" | "inherit";
     /** Mantine Style System Props */
     tt?:
-        | "none"
-        | "capitalize"
-        | "uppercase"
-        | "lowercase"
-        | "initial"
-        | "inherit";
+    | "none"
+    | "capitalize"
+    | "uppercase"
+    | "lowercase"
+    | "initial"
+    | "inherit";
     /** Mantine Style System Props */
     td?: string;
     /** Mantine Style System Props */
@@ -101,23 +101,23 @@ export type MantineStyleSystemProps = {
     mah?: MantineNumberSize;
     /** Mantine Style System Props */
     bgsz?:
-        | "auto"
-        | "cover"
-        | "contain"
-        | "initial"
-        | "inherit"
-        | string
-        | number;
+    | "auto"
+    | "cover"
+    | "contain"
+    | "initial"
+    | "inherit"
+    | string
+    | number;
     /** Mantine Style System Props */
     bgp?: string;
     /** Mantine Style System Props */
     bgr?:
-        | "repeat"
-        | "repeat-x"
-        | "repeat-y"
-        | "no-repeat"
-        | "initial"
-        | "inherit";
+    | "repeat"
+    | "repeat-x"
+    | "repeat-y"
+    | "no-repeat"
+    | "initial"
+    | "inherit";
     /** Mantine Style System Props */
     pos?: "static" | "relative" | "fixed" | "absolute" | "sticky";
     /** Mantine Style System Props */
@@ -132,35 +132,37 @@ export type MantineStyleSystemProps = {
     inset?: PositionProps;
     /** Mantine Style System Props */
     display?:
-        | "inline"
-        | "block"
-        | "contents"
-        | "flex"
-        | "grid"
-        | "inline-block"
-        | "inline-flex"
-        | "inline-grid"
-        | "inline-table"
-        | "list-item"
-        | "run-in"
-        | "table"
-        | "table-caption"
-        | "table-column-group"
-        | "table-header-group"
-        | "table-footer-group"
-        | "table-row-group"
-        | "table-cell"
-        | "table-column"
-        | "table-row"
-        | "none"
-        | "initial"
-        | "inherit"
-        | "inherit";
+    | "inline"
+    | "block"
+    | "contents"
+    | "flex"
+    | "grid"
+    | "inline-block"
+    | "inline-flex"
+    | "inline-grid"
+    | "inline-table"
+    | "list-item"
+    | "run-in"
+    | "table"
+    | "table-caption"
+    | "table-column-group"
+    | "table-header-group"
+    | "table-footer-group"
+    | "table-row-group"
+    | "table-cell"
+    | "table-column"
+    | "table-row"
+    | "none"
+    | "initial"
+    | "inherit"
+    | "inherit";
 };
 
 export type DashBaseProps = {
     /** Often used with CSS to style elements with common properties */
     className?: string;
+    /** add class names to Mantine components */
+    classNames?: object;
     /** Inline style */
     style?: any;
     /** Mantine styles API  */
@@ -199,17 +201,17 @@ export type TextProps = {
     truncate?: "end" | "start" | true;
     /** Sets text-transform css property */
     transform?:
-        | "-moz-initial"
-        | "inherit"
-        | "initial"
-        | "revert"
-        | "unset"
-        | "none"
-        | "capitalize"
-        | "full-size-kana"
-        | "full-width"
-        | "lowercase"
-        | "uppercase";
+    | "-moz-initial"
+    | "inherit"
+    | "initial"
+    | "revert"
+    | "unset"
+    | "none"
+    | "capitalize"
+    | "full-size-kana"
+    | "full-width"
+    | "lowercase"
+    | "uppercase";
     /** Sets text-align css property */
     align?: AlignContentProps;
     /** Link or text variant */
