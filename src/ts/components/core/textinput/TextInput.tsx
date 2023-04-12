@@ -14,6 +14,8 @@ type Props = {
     value?: string;
     /** Spell check property */
     spellCheck?: boolean;
+    /** An integer that represents the number of times that this element has been submitted */
+    n_submit?: number;
 } & InputComponentProps &
     PersistenceProps &
     DefaultProps;
@@ -29,6 +31,8 @@ const TextInput = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        disabled,
+        n_submit,
         ...other
     } = props;
 
@@ -42,6 +46,12 @@ const TextInput = (props: Props) => {
     useDidUpdate(() => {
         setVal(value);
     }, [value]);
+    
+    const handleKeyDown = (ev) => {
+        if (ev.key === 'Enter') {
+            setProps({ n_submit: n_submit + 1 });
+        }
+    };
 
     return (
         <MantineTextInput
@@ -49,6 +59,7 @@ const TextInput = (props: Props) => {
             value={val}
             wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}
+            onKeyDown={handleKeyDown}
         />
     );
 };
@@ -58,6 +69,7 @@ TextInput.defaultProps = {
     debounce: 0,
     persisted_props: ["value"],
     persistence_type: "local",
+    n_submit: 0,
 };
 
 export default TextInput;
