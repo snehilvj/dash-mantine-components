@@ -4,11 +4,17 @@ import {
     DatePickerType,
     DateValue,
 } from "@mantine/dates/lib/types";
-import { MantineSize } from "./mantine";
+import { PersistenceProps } from "./dash";
+import {
+    InputComponentProps,
+    MantineSize,
+    ModalProps,
+    PopoverProps,
+} from "./mantine";
 
 export type DateValueType = DateValue | [DateValue, DateValue] | Date[];
 
-export type DatePickerBaseProps = {
+export type DatePickerProps = {
     /** Picker type: range, multiple or default */
     type?: DatePickerType;
     /** Value for controlled component */
@@ -53,4 +59,25 @@ export type DatePickerBaseProps = {
     level?: CalendarLevel;
     /** Specifies days that should be disabled */
     disabledDates?: string[];
-};
+} & PersistenceProps;
+
+export type DateInputSharedProps = {
+    /** Determines whether dropdown should be closed when date is selected, not applicable when type="multiple", true by default */
+    closeOnChange?: boolean;
+    /** Type of dropdown, defaults to popover */
+    dropdownType?: "popover" | "modal";
+    /** Props added to Popover component */
+    popoverProps?: Partial<Omit<PopoverProps, "children">>;
+    /** Props added to Modal component */
+    modalProps?: Partial<Omit<ModalProps, "children">>;
+    /** Determines whether input value can be cleared, adds clear button to right section, false by default */
+    clearable?: boolean;
+    /** Props added to clear button */
+    clearButtonProps?: object;
+    /** Determines whether the user can modify the value */
+    readOnly?: boolean;
+    /** Determines whether dates value should be sorted before onChange call, only applicable when type="multiple", true by default */
+    sortDates?: boolean;
+    /** Separator between range value */
+    labelSeparator?: string;
+} & InputComponentProps;

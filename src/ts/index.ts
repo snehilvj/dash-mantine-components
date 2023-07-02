@@ -6,6 +6,7 @@ import AccordionPanel from "./components/core/accordion/AccordionPanel";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import DatePicker from "./components/dates/DatePicker";
+import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
 
 export {
@@ -17,5 +18,6 @@ export {
     Button,
     ButtonGroup,
     DatePicker,
+    DatePickerInput,
     DatesProvider,
 };

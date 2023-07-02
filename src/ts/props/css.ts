@@ -141,3 +141,10 @@ export type FlexWrap =
     | "wrap-reverse"
     | "initial"
     | "inherit";
+
+export type TransitionProperty =
+    | "none"
+    | "all"
+    | "string"
+    | "initial"
+    | "inherit";
