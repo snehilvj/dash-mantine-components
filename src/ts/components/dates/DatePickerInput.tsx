@@ -1,8 +1,6 @@
-import { DateValue, DatePicker as MantineDatePicker } from "@mantine/dates";
+import { DateValue, DatePickerInput as MantineDatePickerInput } from "@mantine/dates";
 import { useDidUpdate } from "@mantine/hooks";
-import { DashBaseProps } from "props/dash";
-import { DatePickerProps } from "props/dates";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { DateInputSharedProps, DatePickerProps } from "props/dates";
 import React, { useState } from "react";
 import {
     isDisabled,
@@ -11,13 +9,14 @@ import {
     toStrings,
 } from "../../utils/dates";
 
-type Props = DatePickerProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+type Props = {
+    /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
+    valueFormat?: string;
+} & DatePickerProps &
+    DateInputSharedProps;
 
 /** Inline date, multiple dates and dates range picker. */
-const DatePicker = (props: Props) => {
+const DatePickerInput = (props: Props) => {
     const {
         setProps,
         value,
@@ -45,7 +44,7 @@ const DatePicker = (props: Props) => {
     };
 
     return (
-        <MantineDatePicker
+        <MantineDatePickerInput
             onChange={onChange}
             value={date}
             minDate={stringToDayjs(minDate)}
@@ -56,9 +55,9 @@ const DatePicker = (props: Props) => {
     );
 };
 
-DatePicker.defaultProps = {
+DatePickerInput.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
 };
 
-export default DatePicker;
+export default DatePickerInput;
