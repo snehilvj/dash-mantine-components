@@ -42,7 +42,7 @@ type Props = {
     MantineStyleSystemProps;
 
 /** Icon button. */
-export const ActionIcon = (props: Props) => {
+const ActionIcon = (props: Props) => {
     const { children, setProps, disabled, n_clicks, ...other } = props;
 
     const increment = () => {
@@ -63,3 +63,5 @@ export const ActionIcon = (props: Props) => {
 ActionIcon.defaultProps = {
     n_clicks: 0,
 };
+
+export default ActionIcon
