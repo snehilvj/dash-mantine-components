@@ -1,14 +1,11 @@
 import React from "react";
 import { Button as MantineButton } from "@mantine/core";
-import {
-    MantineSize,
-    MantineNumberSize,
-    MantineGradient,
-} from "@mantine/styles";
-
+import { MantineGradient } from "@mantine/styles";
 import {
     LoaderProps,
+    MantineSize,
     MantineColor,
+    MantineNumberSize,
     MantineStyleSystemProps,
     MantineStylesAPIProps,
 } from "props/mantine";
