@@ -1,4 +1,3 @@
-import { MantineSize } from "@mantine/core";
 import {
     BackgroundAttachment,
     BackgroundPosition,
@@ -19,7 +18,8 @@ import {
 import { MantineTheme } from "@mantine/styles";
 import { DashBaseProps } from "./dash";
 
-export type MantineNumberSize = MantineSize | number | string;
+export type MantineSize = "xs" | "sm" | "md" | "lg" | "xl" | string;
+export type MantineNumberSize = MantineSize | number;
 
 export type MantineColor = DefaultMantineColor | string;
 

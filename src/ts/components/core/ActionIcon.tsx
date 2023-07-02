@@ -1,9 +1,10 @@
 import { ActionIcon as MantineActionIcon } from "@mantine/core";
-import { MantineGradient, MantineNumberSize } from "@mantine/styles";
+import { MantineGradient } from "@mantine/styles";
 import { DashBaseProps } from "props/dash";
 import {
     LoaderProps,
     MantineColor,
+    MantineNumberSize,
     MantineStyleSystemProps,
     MantineStylesAPIProps,
 } from "props/mantine";
