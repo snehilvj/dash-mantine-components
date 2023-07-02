@@ -15,10 +15,10 @@ import {
 import { DashBaseProps } from "props/dash";
 
 type Props = {
-   /** Predefined button size */
+    /** Predefined button size */
     size?: MantineSize;
     /** Button type attribute */
-    type?: 'submit' | 'button' | 'reset';
+    type?: "submit" | "button" | "reset";
     /** Button color from theme */
     color?: MantineColor;
     /** Adds icon before button label  */
@@ -30,7 +30,14 @@ type Props = {
     /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
     radius?: MantineNumberSize;
     /** Controls button appearance */
-    variant?: 'filled' | 'outline' | 'light' | 'white' | 'default' | 'subtle' | 'gradient';
+    variant?:
+        | "filled"
+        | "outline"
+        | "light"
+        | "white"
+        | "default"
+        | "subtle"
+        | "gradient";
     /** Controls gradient settings in gradient variant only */
     gradient?: MantineGradient;
     /** Set text-transform to uppercase */
@@ -42,14 +49,14 @@ type Props = {
     /** Props spread to Loader component */
     loaderProps?: LoaderProps;
     /** Loader position relative to button label */
-    loaderPosition?: 'left' | 'right' | 'center';
+    loaderPosition?: "left" | "right" | "center";
     /** Button label */
     children?: React.ReactNode;
     /** Disabled state */
     disabled?: boolean;
-     /** An integer that represents the number of times that this element has been clicked on */
+    /** An integer that represents the number of times that this element has been clicked on */
     n_clicks?: number;
-} &DashBaseProps &
+} & DashBaseProps &
     MantineStylesAPIProps &
     MantineStyleSystemProps;
 
