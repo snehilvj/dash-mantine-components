@@ -64,4 +64,4 @@ ActionIcon.defaultProps = {
     n_clicks: 0,
 };
 
-export default ActionIcon
+export default ActionIcon;
