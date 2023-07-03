@@ -23,6 +23,11 @@ import { PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 import { MantineTheme } from "@mantine/styles";
 import { DashBaseProps } from "./dash";
+import { VerticalSectionPosition } from "@mantine/core/lib/AppShell/VerticalSection/VerticalSection.styles";
+import {
+    HorizontalSectionPosition,
+    HorizontalSectionWidth,
+} from "@mantine/core/lib/AppShell/HorizontalSection/HorizontalSection.styles";
 
 export type MantineSize = "xs" | "sm" | "md" | "lg" | "xl" | string;
 export type MantineNumberSize = MantineSize | number;
@@ -348,3 +353,45 @@ export type PopoverProps = {
 // } & Omit<ModalRootProps, 'title'>
 
 export type ModalProps = {};
+
+export type VerticalSectionSharedProps = {
+    variant?: string;
+    /** Section content */
+    children: React.ReactNode;
+    /** Component height with breakpoints */
+    height: number | string;
+    /** Determines whether the element should have border */
+    withBorder?: boolean;
+    /** Changes position to fixed, controlled by AppShell component if rendered inside */
+    fixed?: boolean;
+    /** Control top, left, right or bottom position values, controlled by AppShell component if rendered inside */
+    position?: VerticalSectionPosition;
+    /** z-index */
+    zIndex?: number;
+} & DashBaseProps &
+    MantineStyleSystemProps &
+    MantineStylesAPIProps;
+
+export type HorizontalSectionSharedProps = {
+    variant?: string;
+    /** Component width with breakpoints */
+    width?: HorizontalSectionWidth;
+    /** Component height */
+    height?: string | number;
+    /** HorizontalSection content */
+    children: React.ReactNode;
+    /** Determines whether the element should have border */
+    withBorder?: boolean;
+    /** Set position to fixed */
+    fixed?: boolean;
+    /** Position for fixed variant */
+    position?: HorizontalSectionPosition;
+    /** Breakpoint at which component will be hidden if hidden prop is true */
+    hiddenBreakpoint?: MantineNumberSize;
+    /** Set to true to hide component at hiddenBreakpoint */
+    hidden?: boolean;
+    /** z-index */
+    zIndex?: number;
+} & DashBaseProps &
+    MantineStyleSystemProps &
+    MantineStylesAPIProps;
