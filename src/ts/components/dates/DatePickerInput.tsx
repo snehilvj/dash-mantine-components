@@ -1,4 +1,7 @@
-import { DateValue, DatePickerInput as MantineDatePickerInput } from "@mantine/dates";
+import {
+    DateValue,
+    DatePickerInput as MantineDatePickerInput,
+} from "@mantine/dates";
 import { useDidUpdate } from "@mantine/hooks";
 import { DateInputSharedProps, DatePickerProps } from "props/dates";
 import React, { useState } from "react";
@@ -15,7 +18,7 @@ type Props = {
 } & DatePickerProps &
     DateInputSharedProps;
 
-/** Inline date, multiple dates and dates range picker. */
+/** Date, multiple dates and dates range picker input. */
 const DatePickerInput = (props: Props) => {
     const {
         setProps,
