@@ -22,7 +22,6 @@ import {
 import { PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 import { MantineTheme } from "@mantine/styles";
-import { DashBaseProps } from "./dash";
 import { VerticalSectionPosition } from "@mantine/core/lib/AppShell/VerticalSection/VerticalSection.styles";
 import {
     HorizontalSectionPosition,
@@ -160,9 +159,7 @@ export type LoaderProps = {
     color?: MantineColor;
     /** Loader appearance */
     variant?: MantineTheme["loader"];
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+};
 
 export type InputComponentProps = {
     /** Adds icon on the left side of input */
@@ -203,9 +200,7 @@ export type InputComponentProps = {
     errorProps?: Record<string, any>;
     /** Controls order of the Input.Wrapper elements */
     inputWrapperOrder?: ("label" | "input" | "description" | "error")[];
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+};
 
 export type TransitionProps = {
     /** If set element will not be unmounted from the DOM when it is hidden, display: none styles will be added instead */
@@ -280,8 +275,7 @@ export type PopoverProps = {
     id?: string;
     /** Determines whether dropdown and target element should have accessible roles, defaults to true */
     withRoles?: boolean;
-} & Omit<MantineStylesAPIProps, "sx"> &
-    PopoverBaseProps;
+} & PopoverBaseProps;
 
 //     type  ModalBaseSettings ={
 //     variant?: string;
@@ -368,9 +362,7 @@ export type VerticalSectionSharedProps = {
     position?: VerticalSectionPosition;
     /** z-index */
     zIndex?: number;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+};
 
 export type HorizontalSectionSharedProps = {
     variant?: string;
@@ -392,6 +384,4 @@ export type HorizontalSectionSharedProps = {
     hidden?: boolean;
     /** z-index */
     zIndex?: number;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+};

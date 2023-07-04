@@ -31,7 +31,10 @@ type Props = {
     /** Predefined button size or any valid CSS value to set width and height */
     size?: MantineNumberSize;
     /** Props added to Loader component (only visible when `loading` prop is set) */
-    loaderProps?: LoaderProps;
+    loaderProps?: LoaderProps &
+        DashBaseProps &
+        MantineStylesAPIProps &
+        MantineStyleSystemProps;
     /** Indicates loading state */
     loading?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
