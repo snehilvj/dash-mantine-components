@@ -1,9 +1,19 @@
-import React from "react";
 import { Aside as MantineAside } from "@mantine/core";
-import { HorizontalSectionSharedProps } from "props/mantine";
+import { DashBaseProps } from "props/dash";
+import {
+    HorizontalSectionSharedProps,
+    MantineStyleSystemProps,
+    MantineStylesAPIProps,
+} from "props/mantine";
+import React from "react";
+
+type Props = HorizontalSectionSharedProps &
+    DashBaseProps &
+    MantineStyleSystemProps &
+    MantineStylesAPIProps;
 
 /** Aside. */
-const Aside = (props: HorizontalSectionSharedProps) => {
+const Aside = (props: Props) => {
     const { children, setProps, ...other } = props;
 
     return <MantineAside {...other}>{children}</MantineAside>;

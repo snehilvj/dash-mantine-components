@@ -1,9 +1,19 @@
 import { Navbar as MantineNavbar } from "@mantine/core";
-import { HorizontalSectionSharedProps } from "props/mantine";
+import { DashBaseProps } from "props/dash";
+import {
+    HorizontalSectionSharedProps,
+    MantineStyleSystemProps,
+    MantineStylesAPIProps,
+} from "props/mantine";
 import React from "react";
 
+type Props = HorizontalSectionSharedProps &
+    DashBaseProps &
+    MantineStyleSystemProps &
+    MantineStylesAPIProps;
+
 /** Navbar. */
-const Navbar = (props: HorizontalSectionSharedProps) => {
+const Navbar = (props: Props) => {
     const { children, setProps, ...other } = props;
 
     return <MantineNavbar {...other}>{children}</MantineNavbar>;

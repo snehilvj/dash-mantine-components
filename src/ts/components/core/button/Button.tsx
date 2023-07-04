@@ -1,15 +1,15 @@
-import React from "react";
 import { Button as MantineButton } from "@mantine/core";
 import { MantineGradient } from "@mantine/styles";
+import { DashBaseProps } from "props/dash";
 import {
     LoaderProps,
-    MantineSize,
     MantineColor,
     MantineNumberSize,
+    MantineSize,
     MantineStyleSystemProps,
     MantineStylesAPIProps,
 } from "props/mantine";
-import { DashBaseProps } from "props/dash";
+import React from "react";
 
 type Props = {
     /** Predefined button size */
@@ -44,7 +44,10 @@ type Props = {
     /** Indicate loading state */
     loading?: boolean;
     /** Props spread to Loader component */
-    loaderProps?: LoaderProps;
+    loaderProps?: LoaderProps &
+        DashBaseProps &
+        MantineStylesAPIProps &
+        MantineStyleSystemProps;
     /** Loader position relative to button label */
     loaderPosition?: "left" | "right" | "center";
     /** Button label */
