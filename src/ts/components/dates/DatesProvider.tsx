@@ -16,7 +16,9 @@ type DatesProviderSettings = {
 };
 
 type Props = {
+    /** Settings for all date components inside the provider */
     settings: DatesProviderSettings;
+    /** content */
     children: React.ReactNode;
 } & DashBaseProps &
     MantineStylesAPIProps &
