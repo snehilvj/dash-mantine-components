@@ -3,7 +3,9 @@ import {
     DatePickerInput as MantineDatePickerInput,
 } from "@mantine/dates";
 import { useDidUpdate } from "@mantine/hooks";
+import { DashBaseProps, PersistenceProps } from "props/dash";
 import { DateInputSharedProps, DatePickerProps } from "props/dates";
+import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
 import React, { useState } from "react";
 import {
     isDisabled,
@@ -13,10 +15,16 @@ import {
 } from "../../utils/dates";
 
 type Props = {
+    /** Specifies days that should be disabled */
+    disabledDates?: string[];
     /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
     valueFormat?: string;
 } & DatePickerProps &
-    DateInputSharedProps;
+    DateInputSharedProps &
+    DashBaseProps &
+    MantineStylesAPIProps &
+    PersistenceProps &
+    MantineStyleSystemProps;
 
 /** Date, multiple dates and dates range picker input. */
 const DatePickerInput = (props: Props) => {
@@ -37,7 +45,7 @@ const DatePickerInput = (props: Props) => {
     const onChange = (d: DateValue) => {
         setDate(d);
     };
-    
+
     useDidUpdate(() => {
         setProps({ value: toStrings(date) });
     }, [date]);

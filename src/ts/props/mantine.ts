@@ -275,7 +275,8 @@ export type PopoverProps = {
     id?: string;
     /** Determines whether dropdown and target element should have accessible roles, defaults to true */
     withRoles?: boolean;
-} & PopoverBaseProps;
+} & Omit<MantineStylesAPIProps, "sx"> &
+    PopoverBaseProps;
 
 //     type  ModalBaseSettings ={
 //     variant?: string;

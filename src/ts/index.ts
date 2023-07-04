@@ -11,6 +11,7 @@ import Navbar from "./components/core/appshell/navbar/Navbar";
 import NavbarSection from "./components/core/appshell/navbar/NavbarSection";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
+import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
@@ -25,6 +26,7 @@ export {
     Aside,
     Button,
     ButtonGroup,
+    DateInput,
     DatePicker,
     DatePickerInput,
     DatesProvider,

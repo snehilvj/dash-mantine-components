@@ -1,27 +1,23 @@
-import { DateValue, DatePicker as MantineDatePicker } from "@mantine/dates";
+import { DateValue, DateInput as MantineDateInput } from "@mantine/dates";
 import { useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import { DatePickerProps } from "props/dates";
+import { DateInputProps, DateInputSharedProps } from "props/dates";
 import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
 import React, { useState } from "react";
-import {
-    isDisabled,
-    stringToDayjs,
-    toDates,
-    toStrings,
-} from "../../utils/dates";
+import { dayjsToString, isDisabled, stringToDayjs } from "../../utils/dates";
 
 type Props = {
     /** Specifies days that should be disabled */
     disabledDates?: string[];
-} & DatePickerProps &
+} & DateInputProps &
+    DateInputSharedProps &
     DashBaseProps &
-    MantineStyleSystemProps &
     MantineStylesAPIProps &
-    PersistenceProps;
+    PersistenceProps &
+    MantineStyleSystemProps;
 
-/** Inline date, multiple dates and dates range picker. */
-const DatePicker = (props: Props) => {
+/** Date, multiple dates and dates range picker input. */
+const DateInput = (props: Props) => {
     const {
         setProps,
         value,
@@ -34,18 +30,18 @@ const DatePicker = (props: Props) => {
         ...other
     } = props;
 
-    const [date, setDate] = useState(toDates(value));
+    const [date, setDate] = useState(stringToDayjs(value));
 
     const onChange = (d: DateValue) => {
         setDate(d);
     };
 
     useDidUpdate(() => {
-        setProps({ value: toStrings(date) });
+        setProps({ value: dayjsToString(date) });
     }, [date]);
 
     useDidUpdate(() => {
-        setDate(toDates(value));
+        setDate(stringToDayjs(value));
     }, [value]);
 
     const isExcluded = (date: Date) => {
@@ -53,7 +49,7 @@ const DatePicker = (props: Props) => {
     };
 
     return (
-        <MantineDatePicker
+        <MantineDateInput
             onChange={onChange}
             value={date}
             minDate={stringToDayjs(minDate)}
@@ -64,9 +60,9 @@ const DatePicker = (props: Props) => {
     );
 };
 
-DatePicker.defaultProps = {
+DateInput.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
 };
 
-export default DatePicker;
+export default DateInput;
