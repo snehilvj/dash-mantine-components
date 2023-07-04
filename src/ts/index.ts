@@ -1,6 +1,8 @@
 import ActionIcon from "./components/core/ActionIcon";
 import AspectRatio from "./components/core/AspectRatio";
 import Center from "./components/core/Center";
+import Container from "./components/core/Container";
+import Flex from "./components/core/Flex";
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
@@ -13,16 +15,19 @@ import Navbar from "./components/core/appshell/navbar/Navbar";
 import NavbarSection from "./components/core/appshell/navbar/NavbarSection";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
+import Menu from "./components/core/menu/Menu";
+import MenuDivider from "./components/core/menu/MenuDivider";
+import MenuDropdown from "./components/core/menu/MenuDropdown";
+import MenuItem from "./components/core/menu/MenuItem";
+import MenuLabel from "./components/core/menu/MenuLabel";
+import MenuTarget from "./components/core/menu/MenuTarget";
 import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
-import Container from "./components/core/Container";
-import Flex from "./components/core/Flex";
 
 export {
     Accordion,
-    Flex,
     AccordionControl,
     AccordionItem,
     AccordionPanel,
@@ -30,16 +35,23 @@ export {
     AppShell,
     Aside,
     AspectRatio,
-    Container,
     Button,
     ButtonGroup,
     Center,
+    Container,
     DateInput,
     DatePicker,
     DatePickerInput,
     DatesProvider,
+    Flex,
     Footer,
     Header,
+    Menu,
+    MenuDivider,
+    MenuDropdown,
+    MenuItem,
+    MenuLabel,
+    MenuTarget,
     Navbar,
     NavbarSection,
 };
