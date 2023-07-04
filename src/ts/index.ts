@@ -7,6 +7,7 @@ import Group from "./components/core/Group";
 import MediaQuery from "./components/core/MediaQuery";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Space from "./components/core/Space";
+import Stack from "./components/core/Stack";
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
@@ -66,4 +67,5 @@ export {
     NavbarSection,
     SimpleGrid,
     Space,
+    Stack,
 };
