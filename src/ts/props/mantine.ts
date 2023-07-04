@@ -216,7 +216,7 @@ export type TransitionProps = {
     mounted: boolean;
 };
 
-type PopoverBaseProps = {
+export type PopoverBaseProps = {
     /** Dropdown position relative to target */
     position?: FloatingPosition;
     /** Default Y axis or either (main, cross, alignment) X and Y axis space between target element and dropdown  */
@@ -274,8 +274,7 @@ export type PopoverProps = {
     id?: string;
     /** Determines whether dropdown and target element should have accessible roles, defaults to true */
     withRoles?: boolean;
-} & Omit<MantineStylesAPIProps, "sx"> &
-    PopoverBaseProps;
+} & PopoverBaseProps;
 
 //     type  ModalBaseSettings ={
 //     variant?: string;
