@@ -34,9 +34,13 @@ const DatePickerInput = (props: Props) => {
 
     const [date, setDate] = useState(toDates(value));
 
-    const onChange = (value: DateValue) => {
-        setProps({ value: toStrings(value) });
+    const onChange = (d: DateValue) => {
+        setDate(d);
     };
+    
+    useDidUpdate(() => {
+        setProps({ value: toStrings(date) });
+    }, [date]);
 
     useDidUpdate(() => {
         setDate(toDates(value));
