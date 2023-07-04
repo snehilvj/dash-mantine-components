@@ -15,6 +15,7 @@ import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
+import AspectRatio from "./components/core/AspectRatio";
 
 export {
     Accordion,
@@ -34,4 +35,5 @@ export {
     Header,
     Navbar,
     NavbarSection,
+    AspectRatio
 };
