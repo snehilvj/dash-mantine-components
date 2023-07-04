@@ -1,4 +1,6 @@
 import ActionIcon from "./components/core/ActionIcon";
+import AspectRatio from "./components/core/AspectRatio";
+import Center from "./components/core/Center";
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
@@ -15,7 +17,6 @@ import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
-import AspectRatio from "./components/core/AspectRatio";
 
 export {
     Accordion,
@@ -25,8 +26,10 @@ export {
     ActionIcon,
     AppShell,
     Aside,
+    AspectRatio,
     Button,
     ButtonGroup,
+    Center,
     DateInput,
     DatePicker,
     DatePickerInput,
@@ -35,5 +38,4 @@ export {
     Header,
     Navbar,
     NavbarSection,
-    AspectRatio
 };
