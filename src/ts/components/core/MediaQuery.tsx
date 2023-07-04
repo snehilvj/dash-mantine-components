@@ -25,9 +25,7 @@ type Props = {
         MantineStylesAPIProps;
 };
 
-/**
- * Apply styles to children if media query matches. For more information, see: https://mantine.dev/core/media-query/
- */
+/** Apply styles to children if media query matches */
 const MediaQuery = (props: Props) => {
     const { children, boxWrapperProps, ...other } = props;
     const boxProps = { style: { width: "fit-content" }, ...boxWrapperProps };
