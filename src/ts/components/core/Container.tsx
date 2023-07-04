@@ -1,6 +1,11 @@
 import { Container as MantineContainer } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
-import { MantineNumberSize, MantineSize, MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import {
+    MantineNumberSize,
+    MantineSize,
+    MantineStyleSystemProps,
+    MantineStylesAPIProps,
+} from "props/mantine";
 import React from "react";
 
 type Props = {
@@ -11,8 +16,10 @@ type Props = {
     /** Container sizes */
     sizes?: Record<MantineSize, number | string>;
     /** children */
-    children?: React.ReactNode
-} & DashBaseProps & MantineStylesAPIProps & MantineStyleSystemProps
+    children?: React.ReactNode;
+} & DashBaseProps &
+    MantineStylesAPIProps &
+    MantineStyleSystemProps;
 
 /**
  * Center content horizontally with predefined max-width. For more information, see: https://mantine.dev/core/container/
