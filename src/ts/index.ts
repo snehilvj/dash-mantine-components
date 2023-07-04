@@ -15,6 +15,8 @@ import Navbar from "./components/core/appshell/navbar/Navbar";
 import NavbarSection from "./components/core/appshell/navbar/NavbarSection";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
+import Col from "./components/core/grid/Col";
+import Grid from "./components/core/grid/Grid";
 import Menu from "./components/core/menu/Menu";
 import MenuDivider from "./components/core/menu/MenuDivider";
 import MenuDropdown from "./components/core/menu/MenuDropdown";
@@ -38,6 +40,7 @@ export {
     Button,
     ButtonGroup,
     Center,
+    Col,
     Container,
     DateInput,
     DatePicker,
@@ -45,6 +48,7 @@ export {
     DatesProvider,
     Flex,
     Footer,
+    Grid,
     Header,
     Menu,
     MenuDivider,

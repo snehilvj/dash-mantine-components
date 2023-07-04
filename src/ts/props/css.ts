@@ -125,6 +125,20 @@ export type JustifyContent =
     | "initial"
     | "inherit";
 
+export type AlignContent =
+    | "left"
+    | "right"
+    | "-moz-initial"
+    | "inherit"
+    | "initial"
+    | "revert"
+    | "unset"
+    | "center"
+    | "end"
+    | "start"
+    | "justify"
+    | "match-parent";
+
 export type AlignItems =
     | "normal"
     | "stretch"
@@ -156,3 +170,5 @@ export type TransitionProperty =
     | "string"
     | "initial"
     | "inherit";
+
+export type Order = number | "initial" | "inherit";
