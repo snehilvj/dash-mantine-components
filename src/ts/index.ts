@@ -17,6 +17,7 @@ import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
+import Container from "./components/core/Container";
 
 export {
     Accordion,
@@ -27,6 +28,7 @@ export {
     AppShell,
     Aside,
     AspectRatio,
+    Container,
     Button,
     ButtonGroup,
     Center,

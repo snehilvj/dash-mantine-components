@@ -21,7 +21,6 @@ import {
 } from "@mantine/core/lib/Floating/types";
 import { PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
-import { MantineTheme } from "@mantine/styles";
 import { VerticalSectionPosition } from "@mantine/core/lib/AppShell/VerticalSection/VerticalSection.styles";
 import {
     HorizontalSectionPosition,
@@ -158,7 +157,7 @@ export type LoaderProps = {
     /** Loader color from theme */
     color?: MantineColor;
     /** Loader appearance */
-    variant?: MantineTheme["loader"];
+    variant?: 'bars' | 'oval' | 'dots';
 };
 
 export type InputComponentProps = {
