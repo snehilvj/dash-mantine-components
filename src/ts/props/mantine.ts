@@ -157,7 +157,7 @@ export type LoaderProps = {
     /** Loader color from theme */
     color?: MantineColor;
     /** Loader appearance */
-    variant?: 'bars' | 'oval' | 'dots';
+    variant?: "bars" | "oval" | "dots";
 };
 
 export type InputComponentProps = {

@@ -18,9 +18,11 @@ import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
 import Container from "./components/core/Container";
+import Flex from "./components/core/Flex";
 
 export {
     Accordion,
+    Flex,
     AccordionControl,
     AccordionItem,
     AccordionPanel,

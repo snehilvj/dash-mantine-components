@@ -142,6 +142,14 @@ export type FlexWrap =
     | "initial"
     | "inherit";
 
+export type FlexDirection =
+    | "row"
+    | "row-reverse"
+    | "column"
+    | "column-reverse"
+    | "initial"
+    | "inherit";
+
 export type TransitionProperty =
     | "none"
     | "all"
