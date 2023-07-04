@@ -27,6 +27,10 @@ type Props = {
     target?: TargetProps;
     /** Whether to refresh the page */
     refresh?: boolean;
+    /** props to wrapper box component */
+    boxWrapperProps?: DashBaseProps &
+        MantineStyleSystemProps &
+        MantineStylesAPIProps;
 } & DashBaseProps &
     MantineStylesAPIProps &
     MantineStyleSystemProps;
@@ -41,8 +45,11 @@ const MenuItem = (props: Props) => {
         refresh,
         n_clicks,
         setProps,
+        boxWrapperProps,
         ...other
     } = props;
+
+    const boxProps = { style: { width: "fit-content" }, ...boxWrapperProps };
 
     const increment = () => {
         if (!disabled) {
@@ -63,13 +70,13 @@ const MenuItem = (props: Props) => {
                 target={target}
                 {...other}
             >
-                <Box style={{ width: "fit-content" }}>{children}</Box>
+                <Box {...boxProps}>{children}</Box>
             </Menu.Item>
         );
     } else {
         return (
             <Menu.Item onClick={increment} {...other}>
-                <Box style={{ width: "fit-content" }}>{children}</Box>
+                <Box {...boxProps}>{children}</Box>
             </Menu.Item>
         );
     }
