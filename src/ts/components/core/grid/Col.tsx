@@ -48,9 +48,7 @@ type Props = {
     MantineStylesAPIProps &
     MantineStyleSystemProps;
 
-/**
- * Inline or block code without syntax highlight. For more information, see: https://mantine.dev/core/code/
- */
+/** Flexbox grid system with variable amount of columns */
 const Col = (props: Props) => {
     const { children, setProps, ...other } = props;
 

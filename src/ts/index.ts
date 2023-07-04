@@ -3,6 +3,7 @@ import AspectRatio from "./components/core/AspectRatio";
 import Center from "./components/core/Center";
 import Container from "./components/core/Container";
 import Flex from "./components/core/Flex";
+import Group from "./components/core/Group";
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
@@ -49,6 +50,7 @@ export {
     Flex,
     Footer,
     Grid,
+    Group,
     Header,
     Menu,
     MenuDivider,
