@@ -1,7 +1,11 @@
 import { Box, Menu as MantineMenu } from "@mantine/core";
 import { MenuTriggerEvent } from "@mantine/core/lib/Menu/Menu.types";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, PopoverBaseProps } from "props/mantine";
+import {
+    MantineStyleSystemProps,
+    MantineStylesAPIProps,
+    PopoverBaseProps,
+} from "props/mantine";
 import React from "react";
 
 type Props = {
@@ -30,12 +34,15 @@ type Props = {
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
     /** props to wrapper box component */
-    boxWrapperProps?: DashBaseProps & MantineStylesAPIProps;
+    boxWrapperProps?: DashBaseProps &
+        MantineStyleSystemProps &
+        MantineStylesAPIProps;
 } & PopoverBaseProps;
 
 /** Combine a list of secondary actions into single interactive area */
 const Menu = (props: Props) => {
     const { children, boxWrapperProps, setProps, ...other } = props;
+    const boxProps = { style: { width: "fit-content" }, ...boxWrapperProps };
 
     return (
         <MantineMenu {...other}>
@@ -44,12 +51,7 @@ const Menu = (props: Props) => {
                 if (childType === "MenuTarget") {
                     return (
                         <MantineMenu.Target key={index}>
-                            <Box
-                                style={{ width: "fit-content" }}
-                                {...boxWrapperProps}
-                            >
-                                {child}
-                            </Box>
+                            <Box {...boxProps}>{child}</Box>
                         </MantineMenu.Target>
                     );
                 }
