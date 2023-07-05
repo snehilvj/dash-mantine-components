@@ -28,6 +28,7 @@ import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
+import Autocomplete from "./components/core/select/Autocomplete";
 import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
@@ -42,6 +43,7 @@ export {
     AppShell,
     Aside,
     AspectRatio,
+    Autocomplete,
     Button,
     ButtonGroup,
     Center,

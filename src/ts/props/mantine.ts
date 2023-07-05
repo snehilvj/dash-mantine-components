@@ -1,4 +1,16 @@
 import {
+    HorizontalSectionPosition,
+    HorizontalSectionWidth,
+} from "@mantine/core/lib/AppShell/HorizontalSection/HorizontalSection.styles";
+import { VerticalSectionPosition } from "@mantine/core/lib/AppShell/VerticalSection/VerticalSection.styles";
+import {
+    ArrowPosition,
+    FloatingAxesOffsets,
+    FloatingPosition,
+} from "@mantine/core/lib/Floating/types";
+import { PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
+import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
+import {
     BackgroundAttachment,
     BackgroundPosition,
     BackgroundRepeat,
@@ -14,18 +26,6 @@ import {
     TextTransform,
     TopLeftRightBottom,
 } from "./css";
-import {
-    ArrowPosition,
-    FloatingAxesOffsets,
-    FloatingPosition,
-} from "@mantine/core/lib/Floating/types";
-import { PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
-import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
-import { VerticalSectionPosition } from "@mantine/core/lib/AppShell/VerticalSection/VerticalSection.styles";
-import {
-    HorizontalSectionPosition,
-    HorizontalSectionWidth,
-} from "@mantine/core/lib/AppShell/HorizontalSection/HorizontalSection.styles";
 
 export type MantineSize = "xs" | "sm" | "md" | "lg" | "xl" | string;
 export type MantineNumberSize = MantineSize | number;
@@ -383,4 +383,37 @@ export type HorizontalSectionSharedProps = {
     hidden?: boolean;
     /** z-index */
     zIndex?: number;
+};
+
+type SelectItem = {
+    value: string;
+    label?: string;
+    selected?: boolean;
+    disabled?: boolean;
+    group?: string;
+};
+
+export type SelectSharedProps = {
+    /** Controlled input value */
+    value?: string;
+    /** Input size */
+    size?: MantineSize;
+    /** Props added to Transition component that used to animate dropdown presence, use to configure duration and animation type, { duration: 0, transition: 'fade' } by default */
+    transitionProps?: TransitionProps;
+    /** Dropdown shadow from theme or any value to set box-shadow */
+    shadow?: MantineShadow;
+    /** Initial dropdown opened state */
+    initiallyOpened?: boolean;
+    /** Whether to render the dropdown in a Portal */
+    withinPortal?: boolean;
+    /** Limit amount of items displayed at a time for searchable select */
+    limit?: number;
+    /** Nothing found label */
+    nothingFound?: React.ReactNode;
+    /** Dropdown z-index */
+    zIndex?: number;
+    /** Dropdown positioning behavior */
+    dropdownPosition?: "bottom" | "top" | "flip";
+    /** Whether to switch item order and keyboard navigation on dropdown position flip */
+    switchDirectionOnFlip?: boolean;
 };
