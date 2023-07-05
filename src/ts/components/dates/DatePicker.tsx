@@ -36,10 +36,6 @@ const DatePicker = (props: Props) => {
 
     const [date, setDate] = useState(toDates(value));
 
-    const onChange = (d: DateValue) => {
-        setDate(d);
-    };
-
     useDidUpdate(() => {
         setProps({ value: toStrings(date) });
     }, [date]);
@@ -54,7 +50,7 @@ const DatePicker = (props: Props) => {
 
     return (
         <MantineDatePicker
-            onChange={onChange}
+            onChange={setDate}
             value={date}
             minDate={stringToDayjs(minDate)}
             maxDate={stringToDayjs(maxDate)}
