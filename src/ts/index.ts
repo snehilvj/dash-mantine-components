@@ -20,6 +20,8 @@ import Navbar from "./components/core/appshell/navbar/Navbar";
 import NavbarSection from "./components/core/appshell/navbar/NavbarSection";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
+import Checkbox from "./components/core/checkbox/Checkbox";
+import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
 import Col from "./components/core/grid/Col";
 import Grid from "./components/core/grid/Grid";
 import Menu from "./components/core/menu/Menu";
@@ -47,6 +49,8 @@ export {
     Button,
     ButtonGroup,
     Center,
+    Checkbox,
+    CheckboxGroup,
     Col,
     Container,
     DateInput,
