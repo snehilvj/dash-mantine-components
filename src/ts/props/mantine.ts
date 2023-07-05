@@ -160,7 +160,28 @@ export type LoaderProps = {
     variant?: "bars" | "oval" | "dots";
 };
 
-export type InputComponentProps = {
+export type InputWrapperBaseProps = {
+    /** Input label, displayed before input */
+    label?: React.ReactNode;
+    /** Input description, displayed after label */
+    description?: React.ReactNode;
+    /** Displays error message after input */
+    error?: React.ReactNode;
+    /** Adds required attribute to the input and red asterisk on the right side of label */
+    required?: boolean;
+    /** Determines whether required asterisk should be rendered, overrides required prop, does not add required attribute to the input */
+    withAsterisk?: boolean;
+    /** Props spread to label element */
+    labelProps?: Record<string, any>;
+    /** Props spread to description element */
+    descriptionProps?: Record<string, any>;
+    /** Props spread to error element */
+    errorProps?: Record<string, any>;
+    /** Controls order of the Input.Wrapper elements */
+    inputWrapperOrder?: ("label" | "input" | "description" | "error")[];
+};
+
+export type InputSharedProps = {
     /** Adds icon on the left side of input */
     icon?: React.ReactNode;
     /** Width of icon section */
@@ -182,24 +203,9 @@ export type InputComponentProps = {
     /** Input size */
     size?: MantineSize;
     /** Input label, displayed before input */
-    label?: React.ReactNode;
-    /** Input description, displayed after label */
-    description?: React.ReactNode;
-    /** Displays error message after input */
-    error?: React.ReactNode;
-    /** Adds required attribute to the input and red asterisk on the right side of label */
-    required?: boolean;
-    /** Determines whether required asterisk should be rendered, overrides required prop, does not add required attribute to the input */
-    withAsterisk?: boolean;
-    /** Props spread to label element */
-    labelProps?: Record<string, any>;
-    /** Props spread to description element */
-    descriptionProps?: Record<string, any>;
-    /** Props spread to error element */
-    errorProps?: Record<string, any>;
-    /** Controls order of the Input.Wrapper elements */
-    inputWrapperOrder?: ("label" | "input" | "description" | "error")[];
 };
+
+export type InputComponentProps = InputSharedProps & InputWrapperBaseProps;
 
 export type TransitionProps = {
     /** If set element will not be unmounted from the DOM when it is hidden, display: none styles will be added instead */
