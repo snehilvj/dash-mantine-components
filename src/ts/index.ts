@@ -22,6 +22,8 @@ import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
+import Chip from "./components/core/chip/Chip";
+import ChipGroup from "./components/core/chip/ChipGroup";
 import Col from "./components/core/grid/Col";
 import Grid from "./components/core/grid/Grid";
 import Menu from "./components/core/menu/Menu";
@@ -51,6 +53,8 @@ export {
     Center,
     Checkbox,
     CheckboxGroup,
+    Chip,
+    ChipGroup,
     Col,
     Container,
     DateInput,
