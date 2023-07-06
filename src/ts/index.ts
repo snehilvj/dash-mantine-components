@@ -24,6 +24,8 @@ import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
 import Chip from "./components/core/chip/Chip";
 import ChipGroup from "./components/core/chip/ChipGroup";
+import ColorInput from "./components/core/colors/ColorInput";
+import ColorPicker from "./components/core/colors/ColorPicker";
 import Col from "./components/core/grid/Col";
 import Grid from "./components/core/grid/Grid";
 import Menu from "./components/core/menu/Menu";
@@ -56,6 +58,8 @@ export {
     Chip,
     ChipGroup,
     Col,
+    ColorInput,
+    ColorPicker,
     Container,
     DateInput,
     DatePicker,

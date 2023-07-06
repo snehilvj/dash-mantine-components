@@ -26,6 +26,7 @@ import {
     TextTransform,
     TopLeftRightBottom,
 } from "./css";
+import { ColorFormat } from "@mantine/core/lib/ColorPicker/types";
 
 export type MantineSize = "xs" | "sm" | "md" | "lg" | "xl" | string;
 export type MantineNumberSize = MantineSize | number;
@@ -422,4 +423,19 @@ export type SelectSharedProps = {
     dropdownPosition?: "bottom" | "top" | "flip";
     /** Whether to switch item order and keyboard navigation on dropdown position flip */
     switchDirectionOnFlip?: boolean;
+};
+
+export type ColorPickerBaseProps = {
+    /** Controlled component value */
+    value?: string;
+    /** Color format */
+    format?: ColorFormat;
+    /** Set to false to display swatches only */
+    withPicker?: boolean;
+    /** Predefined colors */
+    swatches?: string[];
+    /** Number of swatches displayed in one row */
+    swatchesPerRow?: number;
+    /** Predefined component size */
+    size?: MantineSize;
 };
