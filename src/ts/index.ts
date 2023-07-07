@@ -34,6 +34,8 @@ import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
+import Radio from "./components/core/radio/Radio";
+import RadioGroup from "./components/core/radio/RadioGroup";
 import Autocomplete from "./components/core/select/Autocomplete";
 import MultiSelect from "./components/core/select/MultiSelect";
 import JsonInput from "./components/core/textinput/JsonInput";
@@ -89,6 +91,8 @@ export {
     NumberInput,
     PasswordInput,
     PinInput,
+    Radio,
+    RadioGroup,
     SimpleGrid,
     Space,
     Stack,
