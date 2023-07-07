@@ -335,8 +335,6 @@ type SelectItem = {
 };
 
 export type SelectSharedProps = {
-    /** Controlled input value */
-    value?: string;
     /** Input size */
     size?: MantineSize;
     /** Props added to Transition component that used to animate dropdown presence, use to configure duration and animation type, { duration: 0, transition: 'fade' } by default */

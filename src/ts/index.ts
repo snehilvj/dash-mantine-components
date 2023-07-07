@@ -35,6 +35,7 @@ import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
 import Autocomplete from "./components/core/select/Autocomplete";
+import MultiSelect from "./components/core/select/MultiSelect";
 import JsonInput from "./components/core/textinput/JsonInput";
 import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
@@ -42,7 +43,8 @@ import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
 
 export {
-    Accordion, AccordionControl,
+    Accordion,
+    AccordionControl,
     AccordionItem,
     AccordionPanel,
     ActionIcon,
@@ -69,17 +71,19 @@ export {
     Footer,
     Grid,
     Group,
-    Header, JsonInput, MediaQuery,
+    Header,
+    JsonInput,
+    MediaQuery,
     Menu,
     MenuDivider,
     MenuDropdown,
     MenuItem,
     MenuLabel,
     MenuTarget,
+    MultiSelect,
     Navbar,
     NavbarSection,
     SimpleGrid,
     Space,
-    Stack
+    Stack,
 };
-
