@@ -10,6 +10,8 @@ import {
 import React, { useState } from "react";
 
 type Props = {
+    /** Controlled input value */
+    value?: string;
     /** suggestion data */
     data: string[];
     /** Maximum dropdown height */
