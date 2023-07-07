@@ -40,6 +40,7 @@ import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import Autocomplete from "./components/core/select/Autocomplete";
 import MultiSelect from "./components/core/select/MultiSelect";
+import Select from "./components/core/select/Select";
 import JsonInput from "./components/core/textinput/JsonInput";
 import NumberInput from "./components/core/textinput/NumberInput";
 import PasswordInput from "./components/core/textinput/PasswordInput";
@@ -97,6 +98,7 @@ export {
     RadioGroup,
     Rating,
     SegmentedControl,
+    Select,
     SimpleGrid,
     Space,
     Stack,
