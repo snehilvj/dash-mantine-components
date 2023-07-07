@@ -74,6 +74,8 @@ const DateInput = (props: Props) => {
 DateInput.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
+    debounce: 0,
+    n_submit: 0,
 };
 
 export default DateInput;
