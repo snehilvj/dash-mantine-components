@@ -18,6 +18,7 @@ import {
     Display,
     FontStyle,
     FontWeight,
+    HTMLInputTypeAttribute,
     LetterSpacing,
     LineHeight,
     Position,
@@ -380,6 +381,15 @@ export type TextareaProps = {
     /** Defined minRows in autosize variant and rows in regular variant */
     minRows?: number;
     /** Props passed to root element */
+    wrapperProps?: Record<string, any>;
+    /** Input size */
+    size?: MantineSize;
+};
+
+export type TextInputProps = {
+    /** Input element type */
+    type?: HTMLInputTypeAttribute;
+    /** Props passed to root element (InputWrapper component) */
     wrapperProps?: Record<string, any>;
     /** Input size */
     size?: MantineSize;

@@ -37,6 +37,8 @@ import MenuTarget from "./components/core/menu/MenuTarget";
 import Autocomplete from "./components/core/select/Autocomplete";
 import MultiSelect from "./components/core/select/MultiSelect";
 import JsonInput from "./components/core/textinput/JsonInput";
+import NumberInput from "./components/core/textinput/NumberInput";
+import PasswordInput from "./components/core/textinput/PasswordInput";
 import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
@@ -83,6 +85,8 @@ export {
     MultiSelect,
     Navbar,
     NavbarSection,
+    NumberInput,
+    PasswordInput,
     SimpleGrid,
     Space,
     Stack,
