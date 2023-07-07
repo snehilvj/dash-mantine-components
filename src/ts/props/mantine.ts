@@ -203,7 +203,10 @@ export type InputSharedProps = {
     disabled?: boolean;
     /** Input size */
     size?: MantineSize;
-    /** Input label, displayed before input */
+    /** Placeholder */
+    placeholder?: string;
+    /** Name prop */
+    name?: string;
 };
 
 export type InputComponentProps = InputSharedProps & InputWrapperBaseProps;
@@ -282,75 +285,6 @@ export type PopoverProps = {
     /** Determines whether dropdown and target element should have accessible roles, defaults to true */
     withRoles?: boolean;
 } & PopoverBaseProps;
-
-//     type  ModalBaseSettings ={
-//     variant?: string;
-//     classNames?: ClassNames<ModalBaseStylesNames>;
-//     styles?: Styles<ModalBaseStylesNames>;
-//     unstyled?: boolean;
-//     /** If set modal/drawer will not be unmounted from the DOM when it is hidden, display: none styles will be added instead */
-//     keepMounted?: boolean;
-//     /** Determines whether modal/drawer is opened */
-//     opened: boolean;
-//     /** Called when modal/drawer is closed */
-//     onClose(): void;
-//     /** Child component */
-//     children?: React.ReactNode;
-//     /** Determines whether the modal/drawer should be closed when user clicks on the overlay, true by default */
-//     closeOnClickOutside?: boolean;
-//     /** Props added to Transition component that used to animate overlay and body, use to configure duration and animation type, { duration: 200, transition: 'pop' } by default */
-//     transitionProps?: TransitionOverride;
-//     /** Determines whether component should be rendered inside Portal, true by default */
-//     withinPortal?: boolean;
-//     /** Target element or selector where Portal should be rendered, by default new element is created and appended to the document.body */
-//     target?: HTMLElement | string;
-//     /** Determines whether scroll should be locked when opened={true}, defaults to true */
-//     lockScroll?: boolean;
-//     /** Determines whether focus should be trapped, true by default */
-//     trapFocus?: boolean;
-//     /** z-index CSS property of root element, 200 by default */
-//     zIndex?: number;
-//     /** Key of theme.spacing or any valid CSS value to set content, header and footer padding, 'md' by default */
-//     padding?: MantineNumberSize;
-//     /** Id used to connect modal/drawer with body and title */
-//     id?: string;
-//     /** Determines whether focus should be returned to the last active element onClose is called, true by default */
-//     returnFocus?: boolean;
-//     /** Determines whether onClose should be called when user presses escape key, true by default */
-//     closeOnEscape?: boolean;
-//     /** Controls content width, 'md' by default */
-//     size?: MantineNumberSize;
-//     /** Key of theme.shadows or any valid css box-shadow value, 'xl' by default */
-//     shadow?: MantineShadow;
-// }
-
-//  type ModalRootProps =  {
-//     /** Top/bottom modal offset, 5vh by default */
-//     yOffset?: MantineNumberSize
-//     /** Left/right modal offset, 5vw by default */
-//     xOffset?: MantineNumberSize
-//     /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
-//     radius?: MantineNumberSize;
-//     /** Determines whether the modal should be centered vertically, false by default */
-//     centered?: boolean;
-//     /** Determines whether the modal should take the entire screen */
-//     fullScreen?: boolean;
-// }&ModalBaseSettings
-
-// export type  ModalProps = {
-//     /** Modal title */
-//     title?: React.ReactNode;
-//     /** Determines whether overlay should be rendered, true by default */
-//     withOverlay?: boolean;
-//     /** Props added to Overlay component, use configure opacity, background color, styles and other properties */
-//     overlayProps?: ModalBaseOverlayProps;
-//     /** Modal content */
-//     children?: React.ReactNode;
-//     /** Determines whether close button should be rendered, true by default */
-//     withCloseButton?: boolean;
-//     /** Props added to close button */
-//     closeButtonProps?: ModalBaseCloseButtonProps;
-// } & Omit<ModalRootProps, 'title'>
 
 export type ModalProps = {};
 
@@ -437,5 +371,18 @@ export type ColorPickerBaseProps = {
     /** Number of swatches displayed in one row */
     swatchesPerRow?: number;
     /** Predefined component size */
+    size?: MantineSize;
+};
+
+export type TextareaProps = {
+    /** If true textarea will grow with content until maxRows are reached  */
+    autosize?: boolean;
+    /** Defines maxRows in autosize variant, not applicable to regular variant */
+    maxRows?: number;
+    /** Defined minRows in autosize variant and rows in regular variant */
+    minRows?: number;
+    /** Props passed to root element */
+    wrapperProps?: Record<string, any>;
+    /** Input size */
     size?: MantineSize;
 };

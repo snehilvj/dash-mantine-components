@@ -29,7 +29,7 @@ type Props = {
     MantineStyleSystemProps &
     MantineStylesAPIProps;
 
-/** Add horizontal or vertical spacing from theme */
+/** Autocomplete user input with any list of options */
 const Autocomplete = (props: Props) => {
     const { setProps, data, n_submit, value, debounce, ...other } = props;
 
