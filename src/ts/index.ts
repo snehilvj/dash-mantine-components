@@ -6,6 +6,7 @@ import Flex from "./components/core/Flex";
 import Group from "./components/core/Group";
 import MediaQuery from "./components/core/MediaQuery";
 import Rating from "./components/core/Rating";
+import SegmentedControl from "./components/core/SegmentedControl";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Space from "./components/core/Space";
 import Stack from "./components/core/Stack";
@@ -95,6 +96,7 @@ export {
     Radio,
     RadioGroup,
     Rating,
+    SegmentedControl,
     SimpleGrid,
     Space,
     Stack,

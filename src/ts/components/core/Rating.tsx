@@ -56,7 +56,7 @@ const Rating = (props: Props) => {
 
 Rating.defaultProps = {
     value: 0,
-     persisted_props: ["value"],
+    persisted_props: ["value"],
     persistence_type: "local",
 };
 
