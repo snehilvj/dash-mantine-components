@@ -19,7 +19,7 @@ export type Props = {
     /** If set, first input is focused when component is mounted */
     autoFocus?: boolean;
     /** Value for controlled component */
-    value?: string ;
+    value?: string;
     /** Determines whether focus should be moved automatically to the next input once filled */
     manageFocus?: boolean;
     /** Determines whether autocomplete="one-time-code" attribute should be set on all inputs */
@@ -41,8 +41,8 @@ export type Props = {
 } & InputSharedProps &
     MantineStyleSystemProps &
     MantineStylesAPIProps &
-    DashBaseProps 
-    
+    DashBaseProps;
+
 /** Capture password from user with option to toggle visibility */
 const PinInput = (props: Props) => {
     const { setProps, value, valueOnComplete, ...other } = props;
