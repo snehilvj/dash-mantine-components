@@ -5,6 +5,7 @@ import Container from "./components/core/Container";
 import Flex from "./components/core/Flex";
 import Group from "./components/core/Group";
 import MediaQuery from "./components/core/MediaQuery";
+import Rating from "./components/core/Rating";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Space from "./components/core/Space";
 import Stack from "./components/core/Stack";
@@ -93,6 +94,7 @@ export {
     PinInput,
     Radio,
     RadioGroup,
+    Rating,
     SimpleGrid,
     Space,
     Stack,
