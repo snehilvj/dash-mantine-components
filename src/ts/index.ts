@@ -51,9 +51,11 @@ import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
 import RangeSlider from "./components/core/slider/RangeSlider";
+import Switch from "./components/core/Switch";
 
 export {
     Accordion,
+    Switch,
     RangeSlider,
     AccordionControl,
     AccordionItem,
