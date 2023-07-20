@@ -41,6 +41,7 @@ import RadioGroup from "./components/core/radio/RadioGroup";
 import Autocomplete from "./components/core/select/Autocomplete";
 import MultiSelect from "./components/core/select/MultiSelect";
 import Select from "./components/core/select/Select";
+import Slider from "./components/core/slider/Slider";
 import JsonInput from "./components/core/textinput/JsonInput";
 import NumberInput from "./components/core/textinput/NumberInput";
 import PasswordInput from "./components/core/textinput/PasswordInput";
@@ -100,6 +101,7 @@ export {
     SegmentedControl,
     Select,
     SimpleGrid,
+    Slider,
     Space,
     Stack,
 };
