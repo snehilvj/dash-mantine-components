@@ -50,9 +50,11 @@ import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
+import RangeSlider from "./components/core/slider/RangeSlider";
 
 export {
     Accordion,
+    RangeSlider,
     AccordionControl,
     AccordionItem,
     AccordionPanel,
