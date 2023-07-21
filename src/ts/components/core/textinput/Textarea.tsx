@@ -27,9 +27,7 @@ type Props = {
     DashBaseProps &
     PersistenceProps;
 
-/**
- * Capture string input from user. For more information, see: https://mantine.dev/core/text-input/
- */
+/** Capture string input from user */
 const Textarea = (props: Props) => {
     const {
         setProps,

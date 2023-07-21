@@ -36,9 +36,7 @@ type Props = {
     MantineStyleSystemProps &
     DashBaseProps;
 
-/**
- * Capture user feedback limited to small set of options. For more information, see: https://mantine.dev/core/switch/
- */
+/** Capture boolean input from user */
 const Switch = (props: Props) => {
     const {
         setProps,
