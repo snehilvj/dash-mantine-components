@@ -29,9 +29,7 @@ type Props = {
     MantineStylesAPIProps &
     MantineStyleSystemProps;
 
-/**
- * Center content horizontally with predefined max-width. For more information, see: https://mantine.dev/core/Flex/
- */
+/** Center content horizontally with predefined max-width */
 const Flex = (props: Props) => {
     const { children, setProps, ...other } = props;
 
