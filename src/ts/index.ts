@@ -1,5 +1,6 @@
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
+import Anchor from "./components/core/Anchor";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
 import ActionIcon from "./components/core/ActionIcon";
@@ -57,6 +58,7 @@ import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
 
 export {
+    Anchor,
     Accordion,
     AccordionControl,
     AccordionItem,

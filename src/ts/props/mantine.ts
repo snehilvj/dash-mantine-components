@@ -28,6 +28,7 @@ import {
     TopLeftRightBottom,
 } from "./css";
 import { ColorFormat } from "@mantine/core/lib/ColorPicker/types";
+import { MantineGradient } from "@mantine/core";
 
 export type MantineSize = "xs" | "sm" | "md" | "lg" | "xl" | string;
 export type MantineNumberSize = MantineSize | number;
@@ -393,4 +394,39 @@ export type TextInputProps = {
     wrapperProps?: Record<string, any>;
     /** Input size */
     size?: MantineSize;
+};
+
+export type TextProps = {
+    /** Text content */
+    children?: React.ReactNode;
+    /** Key of theme.fontSizes or any valid CSS value to set font-size */
+    size?: MantineNumberSize;
+    /** Key of theme.colors or any valid CSS color */
+    color?: "dimmed" | MantineColor;
+    /** Sets font-weight css property */
+    weight?: FontWeight;
+    /** Sets text-transform css property */
+    transform?: TextTransform;
+    /** Sets text-align css property */
+    align?: TextAlign;
+    /** Link or text variant */
+    variant?: "text" | "gradient";
+    /** CSS -webkit-line-clamp property */
+    lineClamp?: number;
+    /** CSS truncate overflowing text with an ellipsis */
+    truncate?: "end" | "start" | true;
+    /** Sets line-height to 1 for centering */
+    inline?: boolean;
+    /** Underline the text */
+    underline?: boolean;
+    /** Add strikethrough styles */
+    strikethrough?: boolean;
+    /** Adds font-style: italic style */
+    italic?: boolean;
+    /** Inherit font properties from parent element */
+    inherit?: boolean;
+    /** Controls gradient settings in gradient variant only */
+    gradient?: MantineGradient;
+    /** Shorthand for component="span" */
+    span?: boolean;
 };
