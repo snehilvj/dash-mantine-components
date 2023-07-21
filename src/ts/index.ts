@@ -27,6 +27,7 @@ import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
 import Chip from "./components/core/chip/Chip";
 import ChipGroup from "./components/core/chip/ChipGroup";
+import TextInput from "./components/core/textinput/TextInput";
 import ColorInput from "./components/core/colors/ColorInput";
 import ColorPicker from "./components/core/colors/ColorPicker";
 import Col from "./components/core/grid/Col";
@@ -55,6 +56,7 @@ import RangeSlider from "./components/core/slider/RangeSlider";
 import Switch from "./components/core/Switch";
 
 export {
+    TextInput,
     Textarea,
     Accordion,
     Switch,
