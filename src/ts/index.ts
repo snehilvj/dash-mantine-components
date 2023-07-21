@@ -7,6 +7,7 @@ import Group from "./components/core/Group";
 import MediaQuery from "./components/core/MediaQuery";
 import Rating from "./components/core/Rating";
 import SegmentedControl from "./components/core/SegmentedControl";
+import Textarea from "./components/core/textinput/Textarea";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Space from "./components/core/Space";
 import Stack from "./components/core/Stack";
@@ -54,6 +55,7 @@ import RangeSlider from "./components/core/slider/RangeSlider";
 import Switch from "./components/core/Switch";
 
 export {
+    Textarea,
     Accordion,
     Switch,
     RangeSlider,
