@@ -1,5 +1,6 @@
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
+import Burger from "./components/core/Burger";
 import Breadcrumbs from "./components/core/Breadcrumbs";
 import Anchor from "./components/core/Anchor";
 import AccordionItem from "./components/core/accordion/AccordionItem";
@@ -59,6 +60,7 @@ import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
 
 export {
+    Burger,
     Breadcrumbs,
     Anchor,
     Accordion,
