@@ -43,6 +43,7 @@ import NavLink from "./components/core/NavLink";
 import Navbar from "./components/core/appshell/navbar/Navbar";
 import NavbarSection from "./components/core/appshell/navbar/NavbarSection";
 import NumberInput from "./components/core/textinput/NumberInput";
+import Pagination from "./components/core/Pagination";
 import PasswordInput from "./components/core/textinput/PasswordInput";
 import PinInput from "./components/core/textinput/PinInput";
 import Radio from "./components/core/radio/Radio";
@@ -106,6 +107,7 @@ export {
     Navbar,
     NavbarSection,
     NumberInput,
+    Pagination,
     PasswordInput,
     PinInput,
     Radio,
