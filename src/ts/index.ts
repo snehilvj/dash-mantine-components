@@ -1,15 +1,15 @@
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
-import Burger from "./components/core/Burger";
-import Breadcrumbs from "./components/core/Breadcrumbs";
-import Anchor from "./components/core/Anchor";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
 import ActionIcon from "./components/core/ActionIcon";
+import Anchor from "./components/core/Anchor";
 import AppShell from "./components/core/appshell/AppShell";
 import Aside from "./components/core/appshell/Aside";
 import AspectRatio from "./components/core/AspectRatio";
 import Autocomplete from "./components/core/select/Autocomplete";
+import Breadcrumbs from "./components/core/Breadcrumbs";
+import Burger from "./components/core/Burger";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Center from "./components/core/Center";
@@ -39,6 +39,7 @@ import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
 import MultiSelect from "./components/core/select/MultiSelect";
+import NavLink from "./components/core/NavLink";
 import Navbar from "./components/core/appshell/navbar/Navbar";
 import NavbarSection from "./components/core/appshell/navbar/NavbarSection";
 import NumberInput from "./components/core/textinput/NumberInput";
@@ -60,18 +61,18 @@ import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
 
 export {
-    Burger,
-    Breadcrumbs,
-    Anchor,
     Accordion,
     AccordionControl,
     AccordionItem,
     AccordionPanel,
     ActionIcon,
+    Anchor,
     AppShell,
     Aside,
     AspectRatio,
     Autocomplete,
+    Breadcrumbs,
+    Burger,
     Button,
     ButtonGroup,
     Center,
@@ -101,6 +102,7 @@ export {
     MenuLabel,
     MenuTarget,
     MultiSelect,
+    NavLink,
     Navbar,
     NavbarSection,
     NumberInput,
