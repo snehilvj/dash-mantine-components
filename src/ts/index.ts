@@ -56,6 +56,9 @@ import SimpleGrid from "./components/core/SimpleGrid";
 import Slider from "./components/core/slider/Slider";
 import Space from "./components/core/Space";
 import Stack from "./components/core/Stack";
+import Stepper from "./components/core/stepper/Stepper";
+import StepperCompleted from "./components/core/stepper/StepperCompleted";
+import StepperStep from "./components/core/stepper/StepperStep";
 import Switch from "./components/core/Switch";
 import TextInput from "./components/core/textinput/TextInput";
 import Textarea from "./components/core/textinput/Textarea";
@@ -120,6 +123,9 @@ export {
     Slider,
     Space,
     Stack,
+    Stepper,
+    StepperCompleted,
+    StepperStep,
     Switch,
     TextInput,
     Textarea,
