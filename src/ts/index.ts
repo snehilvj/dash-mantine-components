@@ -1,4 +1,8 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Tabs from "./components/core/tabs/Tabs";
+import TabsPanel from "./components/core/tabs/TabsPanel";
+import TabsList from "./components/core/tabs/TabsList";
+import Tab from "./components/core/tabs/Tab";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
@@ -65,6 +69,10 @@ import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
 
 export {
+    Tabs,
+    TabsList,
+    TabsPanel,
+    Tab,
     Accordion,
     AccordionControl,
     AccordionItem,
