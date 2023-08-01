@@ -1,3 +1,5 @@
+import Avatar from "./components/core/avatar/Avatar";
+import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Accordion from "./components/core/accordion/Accordion";
 import Tabs from "./components/core/tabs/Tabs";
 import TabsPanel from "./components/core/tabs/TabsPanel";
@@ -69,6 +71,8 @@ import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
 
 export {
+    AvatarGroup,
+    Avatar,
     Tabs,
     TabsList,
     TabsPanel,
