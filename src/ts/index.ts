@@ -1,4 +1,5 @@
 import Avatar from "./components/core/avatar/Avatar";
+import BackgroundImage from "./components/core/image/BackgroundImage";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Accordion from "./components/core/accordion/Accordion";
 import Tabs from "./components/core/tabs/Tabs";
@@ -69,8 +70,11 @@ import Switch from "./components/core/Switch";
 import TextInput from "./components/core/textinput/TextInput";
 import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
+import Image from "./components/core/image/Image";
 
 export {
+    BackgroundImage,
+    Image,
     AvatarGroup,
     Avatar,
     Tabs,

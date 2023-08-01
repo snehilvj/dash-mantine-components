@@ -197,3 +197,5 @@ export type HTMLInputTypeAttribute =
     | "url"
     | "week"
     | string;
+
+export type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
