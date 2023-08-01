@@ -71,9 +71,11 @@ import TextInput from "./components/core/textinput/TextInput";
 import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
 import Image from "./components/core/image/Image";
+import Badge from "./components/core/Badge";
 
 export {
     BackgroundImage,
+    Badge,
     Image,
     AvatarGroup,
     Avatar,
