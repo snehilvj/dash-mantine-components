@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Spoiler from "./components/core/Spoiler";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
@@ -131,6 +132,7 @@ export {
     NavLink,
     Navbar,
     NavbarSection,
+    Spoiler,
     NumberInput,
     Pagination,
     PasswordInput,
