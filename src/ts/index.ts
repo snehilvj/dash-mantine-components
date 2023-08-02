@@ -1,11 +1,4 @@
-import Avatar from "./components/core/avatar/Avatar";
-import BackgroundImage from "./components/core/image/BackgroundImage";
-import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Accordion from "./components/core/accordion/Accordion";
-import Tabs from "./components/core/tabs/Tabs";
-import TabsPanel from "./components/core/tabs/TabsPanel";
-import TabsList from "./components/core/tabs/TabsList";
-import Tab from "./components/core/tabs/Tab";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
@@ -15,10 +8,16 @@ import AppShell from "./components/core/appshell/AppShell";
 import Aside from "./components/core/appshell/Aside";
 import AspectRatio from "./components/core/AspectRatio";
 import Autocomplete from "./components/core/select/Autocomplete";
+import Avatar from "./components/core/avatar/Avatar";
+import AvatarGroup from "./components/core/avatar/AvatarGroup";
+import BackgroundImage from "./components/core/image/BackgroundImage";
+import Badge from "./components/core/Badge";
 import Breadcrumbs from "./components/core/Breadcrumbs";
 import Burger from "./components/core/Burger";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
+import Card from "./components/core/card/Card";
+import CardSection from "./components/core/card/CardSection";
 import Center from "./components/core/Center";
 import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
@@ -37,7 +36,10 @@ import Footer from "./components/core/appshell/Footer";
 import Grid from "./components/core/grid/Grid";
 import Group from "./components/core/Group";
 import Header from "./components/core/appshell/Header";
+import Image from "./components/core/image/Image";
+import Indicator from "./components/core/Indicator";
 import JsonInput from "./components/core/textinput/JsonInput";
+import Kbd from "./components/core/Kbd";
 import MediaQuery from "./components/core/MediaQuery";
 import Menu from "./components/core/menu/Menu";
 import MenuDivider from "./components/core/menu/MenuDivider";
@@ -67,28 +69,15 @@ import Stepper from "./components/core/stepper/Stepper";
 import StepperCompleted from "./components/core/stepper/StepperCompleted";
 import StepperStep from "./components/core/stepper/StepperStep";
 import Switch from "./components/core/Switch";
+import Tab from "./components/core/tabs/Tab";
+import Tabs from "./components/core/tabs/Tabs";
+import TabsList from "./components/core/tabs/TabsList";
+import TabsPanel from "./components/core/tabs/TabsPanel";
 import TextInput from "./components/core/textinput/TextInput";
 import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
-import Image from "./components/core/image/Image";
-import Badge from "./components/core/Badge";
-import Card from "./components/core/card/Card";
-import CardSection from "./components/core/card/CardSection";
-import Indicator from "./components/core/Indicator";
 
 export {
-    BackgroundImage,
-    Indicator,
-    Card,
-    CardSection,
-    Badge,
-    Image,
-    AvatarGroup,
-    Avatar,
-    Tabs,
-    TabsList,
-    TabsPanel,
-    Tab,
     Accordion,
     AccordionControl,
     AccordionItem,
@@ -99,10 +88,16 @@ export {
     Aside,
     AspectRatio,
     Autocomplete,
+    Avatar,
+    AvatarGroup,
+    BackgroundImage,
+    Badge,
     Breadcrumbs,
     Burger,
     Button,
     ButtonGroup,
+    Card,
+    CardSection,
     Center,
     Checkbox,
     CheckboxGroup,
@@ -121,7 +116,10 @@ export {
     Grid,
     Group,
     Header,
+    Image,
+    Indicator,
     JsonInput,
+    Kbd,
     MediaQuery,
     Menu,
     MenuDivider,
@@ -151,6 +149,10 @@ export {
     StepperCompleted,
     StepperStep,
     Switch,
+    Tab,
+    Tabs,
+    TabsList,
+    TabsPanel,
     TextInput,
     Textarea,
     TransferList,
