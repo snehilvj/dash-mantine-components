@@ -1,6 +1,4 @@
 import Accordion from "./components/core/accordion/Accordion";
-import Spoiler from "./components/core/Spoiler";
-import ThemeIcon from "./components/core/ThemeIcon";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
@@ -66,6 +64,7 @@ import Select from "./components/core/select/Select";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Slider from "./components/core/slider/Slider";
 import Space from "./components/core/Space";
+import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
 import Stepper from "./components/core/stepper/Stepper";
 import StepperCompleted from "./components/core/stepper/StepperCompleted";
@@ -77,6 +76,9 @@ import TabsList from "./components/core/tabs/TabsList";
 import TabsPanel from "./components/core/tabs/TabsPanel";
 import TextInput from "./components/core/textinput/TextInput";
 import Textarea from "./components/core/textinput/Textarea";
+import ThemeIcon from "./components/core/ThemeIcon";
+import Timeline from "./components/core/timeline/Timeline";
+import TimelineItem from "./components/core/timeline/TimelineItem";
 import TransferList from "./components/core/TransferList";
 
 export {
@@ -133,7 +135,6 @@ export {
     NavLink,
     Navbar,
     NavbarSection,
-    Spoiler,
     NumberInput,
     Pagination,
     PasswordInput,
@@ -147,6 +148,7 @@ export {
     SimpleGrid,
     Slider,
     Space,
+    Spoiler,
     Stack,
     Stepper,
     StepperCompleted,
@@ -159,5 +161,7 @@ export {
     TextInput,
     Textarea,
     ThemeIcon,
+    Timeline,
+    TimelineItem,
     TransferList,
 };
