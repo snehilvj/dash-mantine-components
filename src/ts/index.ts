@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Tooltip from "./components/core/tooltip/Tooltip";
 import Modal from "./components/core/Modal";
 import LoadingOverlay from "./components/core/LoadingOverlay";
 import Popover from "./components/core/popover/Popover";
@@ -183,5 +184,6 @@ export {
     TransferList,
     Popover,
     PopoverDropdown,
+    Tooltip,
     PopoverTarget,
 };
