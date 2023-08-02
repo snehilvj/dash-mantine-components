@@ -12,6 +12,7 @@ import { PopoverMiddlewares } from "@mantine/core/lib/Popover/Popover.types";
 import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
 import {
     BackgroundAttachment,
+    BackgroundColor,
     BackgroundPosition,
     BackgroundRepeat,
     BackgroundSize,
@@ -228,6 +229,41 @@ export type TransitionProps = {
     mounted: boolean;
 };
 
+export type CloseButtonProps = {
+    /** Width and height of X icon */
+    iconSize?: number | string;
+    /** Icon */
+    children?: React.ReactNode;
+    /** Controls appearance, subtle by default */
+    variant?:
+    | "subtle"
+    | "filled"
+    | "outline"
+    | "light"
+    | "default"
+    | "transparent"
+    | "gradient";
+    /** Key of theme.colors */
+    color?: MantineColor;
+    /** Gradient input, only used when variant="gradient", theme.defaultGradient by default */
+    gradient?: MantineGradient;
+    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
+    radius?: MantineNumberSize;
+    /** Predefined button size or any valid CSS value to set width and height */
+    size?: MantineNumberSize;
+    /** Props added to Loader component (only visible when `loading` prop is set) */
+    loaderProps?: LoaderProps &
+    MantineStylesAPIProps &
+    MantineStyleSystemProps;
+    /** Indicates loading state */
+    loading?: boolean;
+    /** An integer that represents the number of times that this element has been clicked on */
+    n_clicks?: number;
+    /** Indicates disabled state */
+    disabled?: boolean;
+
+}
+
 export type PopoverBaseProps = {
     /** Dropdown position relative to target */
     position?: FloatingPosition;
@@ -287,6 +323,64 @@ export type PopoverProps = {
     /** Determines whether dropdown and target element should have accessible roles, defaults to true */
     withRoles?: boolean;
 } & PopoverBaseProps;
+
+export type ModalBaseSettings = {
+    /** If set modal/drawer will not be unmounted from the DOM when it is hidden, display: none styles will be added instead */
+    keepMounted?: boolean;
+    /** Determines whether modal/drawer is opened */
+    opened: boolean;
+    /** Child component */
+    children?: React.ReactNode;
+    /** Determines whether the modal/drawer should be closed when user clicks on the overlay, true by default */
+    closeOnClickOutside?: boolean;
+    /** Props added to Transition component that used to animate overlay and body, use to configure duration and animation type, { duration: 200, transition: 'pop' } by default */
+    transitionProps?: TransitionProps
+    /** Determines whether component should be rendered inside Portal, true by default */
+    withinPortal?: boolean;
+    /** Target element selector where Portal should be rendered, by default new element is created and appended to the document.body */
+    target?: string;
+    /** Determines whether scroll should be locked when opened={true}, defaults to true */
+    lockScroll?: boolean;
+    /** Determines whether focus should be trapped, true by default */
+    trapFocus?: boolean;
+    /** z-index CSS property of root element, 200 by default */
+    zIndex?: number;
+    /** Key of theme.spacing or any valid CSS value to set content, header and footer padding, 'md' by default */
+    padding?: MantineNumberSize;
+    /** Determines whether focus should be returned to the last active element onClose is called, true by default */
+    returnFocus?: boolean;
+    /** Determines whether onClose should be called when user presses escape key, true by default */
+    closeOnEscape?: boolean;
+    /** Controls content width, 'md' by default */
+    size?: MantineNumberSize;
+    /** Key of theme.shadows or any valid css box-shadow value, 'xl' by default */
+    shadow?: MantineShadow;
+}
+
+export type OverlayProps = {
+    variant?: string;
+    /** Overlay background-color opacity 0–1, disregarded when gradient prop is set, 0.6 by default */
+    opacity?: number;
+    /** Overlay background-color, #000 by default */
+    color?: BackgroundColor
+    /** Overlay background blur, 0 by default */
+    blur?: number | string;
+    /** Changes overlay to gradient, if set color prop is ignored */
+    gradient?: string;
+    /** Overlay z-index, 200 by default */
+    zIndex?: number
+    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
+    radius?: MantineNumberSize;
+    /** Determines whether content inside overlay should be vertically and horizontally centered, false by default */
+    center?: boolean;
+    /** Determines whether overlay should have fixed position instead of absolute, false by default */
+    fixed?: boolean;
+}
+
+export type ModalBaseOverlayProps = {
+    /** Props added to Transition component */
+    transitionProps?: TransitionProps
+} & OverlayProps
 
 export type ModalProps = {};
 
