@@ -55,6 +55,7 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Loader from "./components/core/Loader";
 import LoadingOverlay from "./components/core/LoadingOverlay";
+import MantineProvider from "./components/themeing/MantineProvider";
 import Mark from "./components/core/Mark";
 import MediaQuery from "./components/core/MediaQuery";
 import Menu from "./components/core/menu/Menu";
@@ -173,6 +174,7 @@ export {
     Loader,
     LoadingOverlay,
     Mark,
+    MantineProvider,
     MediaQuery,
     Menu,
     MenuDivider,
