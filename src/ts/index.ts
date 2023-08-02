@@ -1,5 +1,6 @@
 import Accordion from "./components/core/accordion/Accordion";
 import Spoiler from "./components/core/Spoiler";
+import ThemeIcon from "./components/core/ThemeIcon";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
@@ -157,5 +158,6 @@ export {
     TabsPanel,
     TextInput,
     Textarea,
+    ThemeIcon,
     TransferList,
 };
