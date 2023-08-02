@@ -92,9 +92,11 @@ import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Tooltip from "./components/core/tooltip/Tooltip";
 import TransferList from "./components/core/TransferList";
+import Blockquote from "./components/core/Blockquote";
 
 export {
     Accordion,
+    Blockquote,
     AccordionControl,
     AccordionItem,
     AccordionPanel,
