@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Prism from "./components/others/Prism";
 import ScrollArea from "./components/core/ScrollArea";
 import Paper from "./components/core/Paper";
 import Divider from "./components/core/Divider";
@@ -221,5 +222,6 @@ export {
     Divider,
     TransferList,
     Paper,
+    Prism,
     ScrollArea,
 };
