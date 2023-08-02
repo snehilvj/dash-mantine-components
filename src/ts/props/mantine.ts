@@ -236,13 +236,13 @@ export type CloseButtonProps = {
     children?: React.ReactNode;
     /** Controls appearance, subtle by default */
     variant?:
-    | "subtle"
-    | "filled"
-    | "outline"
-    | "light"
-    | "default"
-    | "transparent"
-    | "gradient";
+        | "subtle"
+        | "filled"
+        | "outline"
+        | "light"
+        | "default"
+        | "transparent"
+        | "gradient";
     /** Key of theme.colors */
     color?: MantineColor;
     /** Gradient input, only used when variant="gradient", theme.defaultGradient by default */
@@ -252,17 +252,14 @@ export type CloseButtonProps = {
     /** Predefined button size or any valid CSS value to set width and height */
     size?: MantineNumberSize;
     /** Props added to Loader component (only visible when `loading` prop is set) */
-    loaderProps?: LoaderProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    loaderProps?: LoaderProps & MantineStylesAPIProps & MantineStyleSystemProps;
     /** Indicates loading state */
     loading?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
     n_clicks?: number;
     /** Indicates disabled state */
     disabled?: boolean;
-
-}
+};
 
 export type PopoverBaseProps = {
     /** Dropdown position relative to target */
@@ -334,7 +331,7 @@ export type ModalBaseSettings = {
     /** Determines whether the modal/drawer should be closed when user clicks on the overlay, true by default */
     closeOnClickOutside?: boolean;
     /** Props added to Transition component that used to animate overlay and body, use to configure duration and animation type, { duration: 200, transition: 'pop' } by default */
-    transitionProps?: TransitionProps
+    transitionProps?: TransitionProps;
     /** Determines whether component should be rendered inside Portal, true by default */
     withinPortal?: boolean;
     /** Target element selector where Portal should be rendered, by default new element is created and appended to the document.body */
@@ -355,32 +352,32 @@ export type ModalBaseSettings = {
     size?: MantineNumberSize;
     /** Key of theme.shadows or any valid css box-shadow value, 'xl' by default */
     shadow?: MantineShadow;
-}
+};
 
 export type OverlayProps = {
     variant?: string;
     /** Overlay background-color opacity 0–1, disregarded when gradient prop is set, 0.6 by default */
     opacity?: number;
     /** Overlay background-color, #000 by default */
-    color?: BackgroundColor
+    color?: BackgroundColor;
     /** Overlay background blur, 0 by default */
     blur?: number | string;
     /** Changes overlay to gradient, if set color prop is ignored */
     gradient?: string;
     /** Overlay z-index, 200 by default */
-    zIndex?: number
+    zIndex?: number;
     /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
     radius?: MantineNumberSize;
     /** Determines whether content inside overlay should be vertically and horizontally centered, false by default */
     center?: boolean;
     /** Determines whether overlay should have fixed position instead of absolute, false by default */
     fixed?: boolean;
-}
+};
 
 export type ModalBaseOverlayProps = {
     /** Props added to Transition component */
-    transitionProps?: TransitionProps
-} & OverlayProps
+    transitionProps?: TransitionProps;
+} & OverlayProps;
 
 export type ModalProps = {};
 

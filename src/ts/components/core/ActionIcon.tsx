@@ -15,13 +15,13 @@ type Props = {
     children?: React.ReactNode;
     /** Controls appearance, subtle by default */
     variant?:
-    | "subtle"
-    | "filled"
-    | "outline"
-    | "light"
-    | "default"
-    | "transparent"
-    | "gradient";
+        | "subtle"
+        | "filled"
+        | "outline"
+        | "light"
+        | "default"
+        | "transparent"
+        | "gradient";
     /** Key of theme.colors */
     color?: MantineColor;
     /** Gradient input, only used when variant="gradient", theme.defaultGradient by default */
@@ -32,9 +32,9 @@ type Props = {
     size?: MantineNumberSize;
     /** Props added to Loader component (only visible when `loading` prop is set) */
     loaderProps?: LoaderProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+        DashBaseProps &
+        MantineStylesAPIProps &
+        MantineStyleSystemProps;
     /** Indicates loading state */
     loading?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
