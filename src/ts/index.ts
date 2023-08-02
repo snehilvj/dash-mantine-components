@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import ScrollArea from "./components/core/ScrollArea";
 import Paper from "./components/core/Paper";
 import Divider from "./components/core/Divider";
 import Skeleton from "./components/core/Skeleton";
@@ -219,5 +220,6 @@ export {
     RingProgress,
     Divider,
     TransferList,
-    Paper
+    Paper,
+    ScrollArea,
 };
