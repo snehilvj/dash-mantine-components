@@ -199,3 +199,5 @@ export type HTMLInputTypeAttribute =
     | string;
 
 export type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
+
+export type Margin = number | string | "auto" | "initial" | "inherit";

@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Modal from "./components/core/Modal";
 import LoadingOverlay from "./components/core/LoadingOverlay";
 import HoverCard from "./components/core/hovercard/HoverCard";
 import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
@@ -175,5 +176,6 @@ export {
     HoverCardDropdown,
     HoverCardTarget,
     HoverCard,
+    Modal,
     TransferList,
 };
