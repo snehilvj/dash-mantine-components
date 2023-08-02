@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Affix from "./components/core/Affix";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
@@ -163,5 +164,6 @@ export {
     ThemeIcon,
     Timeline,
     TimelineItem,
+    Affix,
     TransferList,
 };
