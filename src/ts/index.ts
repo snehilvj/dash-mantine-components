@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import LoadingOverlay from "./components/core/LoadingOverlay";
 import HoverCard from "./components/core/hovercard/HoverCard";
 import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
 import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
@@ -169,6 +170,7 @@ export {
     Timeline,
     TimelineItem,
     Affix,
+    LoadingOverlay,
     Drawer,
     HoverCardDropdown,
     HoverCardTarget,
