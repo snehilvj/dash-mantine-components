@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Alert from "./components/core/Alert";
 import Table from "./components/core/Table";
 import Title from "./components/core/Title";
 import Text from "./components/core/Text";
@@ -205,5 +206,6 @@ export {
     Mark,
     Table,
     Title,
+    Alert,
     TransferList,
 };
