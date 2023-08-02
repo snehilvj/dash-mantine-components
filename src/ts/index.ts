@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Loader from "./components/core/Loader";
 import Alert from "./components/core/Alert";
 import Table from "./components/core/Table";
 import Title from "./components/core/Title";
@@ -207,5 +208,6 @@ export {
     Table,
     Title,
     Alert,
+    Loader,
     TransferList,
 };
