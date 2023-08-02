@@ -22,6 +22,7 @@ import {
     HTMLInputTypeAttribute,
     LetterSpacing,
     LineHeight,
+    Margin,
     Position,
     TextAlign,
     TextDecoration,
@@ -354,6 +355,19 @@ export type ModalBaseSettings = {
     shadow?: MantineShadow;
 };
 
+export type ModalRootProps = {
+    /** Top/bottom modal offset, 5vh by default */
+    yOffset?: Margin;
+    /** Left/right modal offset, 5vw by default */
+    xOffset?: Margin;
+    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
+    radius?: MantineNumberSize;
+    /** Determines whether the modal should be centered vertically, false by default */
+    centered?: boolean;
+    /** Determines whether the modal should take the entire screen */
+    fullScreen?: boolean;
+} & ModalBaseSettings;
+
 export type OverlayProps = {
     variant?: string;
     /** Overlay background-color opacity 0–1, disregarded when gradient prop is set, 0.6 by default */
@@ -379,7 +393,20 @@ export type ModalBaseOverlayProps = {
     transitionProps?: TransitionProps;
 } & OverlayProps;
 
-export type ModalProps = {};
+export type ModalProps = {
+    /** Modal title */
+    title?: React.ReactNode;
+    /** Determines whether overlay should be rendered, true by default */
+    withOverlay?: boolean;
+    /** Props added to Overlay component, use configure opacity, background color, styles and other properties */
+    overlayProps?: ModalBaseOverlayProps;
+    /** Modal content */
+    children?: React.ReactNode;
+    /** Determines whether close button should be rendered, true by default */
+    withCloseButton?: boolean;
+    /** Props added to close button */
+    closeButtonProps?: CloseButtonProps;
+} & Omit<ModalRootProps, "title">;
 
 export type VerticalSectionSharedProps = {
     variant?: string;
