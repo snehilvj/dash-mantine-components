@@ -107,6 +107,7 @@ import Text from "./components/core/Text";
 import TextInput from "./components/core/textinput/TextInput";
 import Textarea from "./components/core/textinput/Textarea";
 import ThemeIcon from "./components/core/ThemeIcon";
+import TimeInput from "./components/dates/TimeInput";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Title from "./components/core/Title";
@@ -223,6 +224,7 @@ export {
     TextInput,
     Textarea,
     ThemeIcon,
+    TimeInput,
     Timeline,
     TimelineItem,
     Title,
