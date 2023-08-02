@@ -69,6 +69,8 @@ import PinInput from "./components/core/textinput/PinInput";
 import Popover from "./components/core/popover/Popover";
 import PopoverDropdown from "./components/core/popover/PopoverDropdown";
 import PopoverTarget from "./components/core/popover/PopoverTarget";
+import List from "./components/core/list/List";
+import ListItem from "./components/core/list/ListItem";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RangeSlider from "./components/core/slider/RangeSlider";
@@ -194,6 +196,8 @@ export {
     Tooltip,
     Code,
     Highlight,
+    List,
+    ListItem,
     Text,
     TransferList,
 };
