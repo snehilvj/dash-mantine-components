@@ -13,6 +13,7 @@ type Props = {
     variant?: "filled" | "light" | "gradient" | "outline";
     /** <img /> element attributes */
     imageProps?: Record<string, any>;
+    /** image source */
     src?: string;
     /** Image alt text or title for placeholder variant */
     alt?: string;
