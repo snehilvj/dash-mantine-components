@@ -72,9 +72,15 @@ import Textarea from "./components/core/textinput/Textarea";
 import TransferList from "./components/core/TransferList";
 import Image from "./components/core/image/Image";
 import Badge from "./components/core/Badge";
+import Card from "./components/core/card/Card";
+import CardSection from "./components/core/card/CardSection";
+import Indicator from "./components/core/Indicator";
 
 export {
     BackgroundImage,
+    Indicator,
+    Card,
+    CardSection,
     Badge,
     Image,
     AvatarGroup,
