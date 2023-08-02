@@ -1,4 +1,6 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Text from "./components/core/Text";
+import Highlight from "./components/core/Highlight";
 import Code from "./components/core/Code";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
@@ -191,5 +193,7 @@ export {
     TimelineItem,
     Tooltip,
     Code,
+    Highlight,
+    Text,
     TransferList,
 };
