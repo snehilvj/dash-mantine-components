@@ -1,18 +1,9 @@
 import Accordion from "./components/core/accordion/Accordion";
-import Tooltip from "./components/core/tooltip/Tooltip";
-import Modal from "./components/core/Modal";
-import LoadingOverlay from "./components/core/LoadingOverlay";
-import Popover from "./components/core/popover/Popover";
-import PopoverTarget from "./components/core/popover/PopoverTarget";
-import PopoverDropdown from "./components/core/popover/PopoverDropdown";
-import HoverCard from "./components/core/hovercard/HoverCard";
-import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
-import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
-import Affix from "./components/core/Affix";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
 import ActionIcon from "./components/core/ActionIcon";
+import Affix from "./components/core/Affix";
 import Anchor from "./components/core/Anchor";
 import AppShell from "./components/core/appshell/AppShell";
 import Aside from "./components/core/appshell/Aside";
@@ -41,15 +32,21 @@ import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DatePickerInput from "./components/dates/DatePickerInput";
 import DatesProvider from "./components/dates/DatesProvider";
+import Drawer from "./components/core/Drawer";
 import Flex from "./components/core/Flex";
+import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
 import Footer from "./components/core/appshell/Footer";
 import Grid from "./components/core/grid/Grid";
 import Group from "./components/core/Group";
 import Header from "./components/core/appshell/Header";
+import HoverCard from "./components/core/hovercard/HoverCard";
+import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
+import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
 import Image from "./components/core/image/Image";
 import Indicator from "./components/core/Indicator";
 import JsonInput from "./components/core/textinput/JsonInput";
 import Kbd from "./components/core/Kbd";
+import LoadingOverlay from "./components/core/LoadingOverlay";
 import MediaQuery from "./components/core/MediaQuery";
 import Menu from "./components/core/menu/Menu";
 import MenuDivider from "./components/core/menu/MenuDivider";
@@ -57,6 +54,7 @@ import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
+import Modal from "./components/core/Modal";
 import MultiSelect from "./components/core/select/MultiSelect";
 import NavLink from "./components/core/NavLink";
 import Navbar from "./components/core/appshell/navbar/Navbar";
@@ -64,8 +62,10 @@ import NavbarSection from "./components/core/appshell/navbar/NavbarSection";
 import NumberInput from "./components/core/textinput/NumberInput";
 import Pagination from "./components/core/Pagination";
 import PasswordInput from "./components/core/textinput/PasswordInput";
-import Drawer from "./components/core/Drawer";
 import PinInput from "./components/core/textinput/PinInput";
+import Popover from "./components/core/popover/Popover";
+import PopoverDropdown from "./components/core/popover/PopoverDropdown";
+import PopoverTarget from "./components/core/popover/PopoverTarget";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RangeSlider from "./components/core/slider/RangeSlider";
@@ -90,6 +90,7 @@ import Textarea from "./components/core/textinput/Textarea";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
+import Tooltip from "./components/core/tooltip/Tooltip";
 import TransferList from "./components/core/TransferList";
 
 export {
@@ -98,6 +99,7 @@ export {
     AccordionItem,
     AccordionPanel,
     ActionIcon,
+    Affix,
     Anchor,
     AppShell,
     Aside,
@@ -126,15 +128,21 @@ export {
     DatePicker,
     DatePickerInput,
     DatesProvider,
+    Drawer,
     Flex,
+    FloatingTooltip,
     Footer,
     Grid,
     Group,
     Header,
+    HoverCard,
+    HoverCardDropdown,
+    HoverCardTarget,
     Image,
     Indicator,
     JsonInput,
     Kbd,
+    LoadingOverlay,
     MediaQuery,
     Menu,
     MenuDivider,
@@ -142,6 +150,7 @@ export {
     MenuItem,
     MenuLabel,
     MenuTarget,
+    Modal,
     MultiSelect,
     NavLink,
     Navbar,
@@ -150,6 +159,9 @@ export {
     Pagination,
     PasswordInput,
     PinInput,
+    Popover,
+    PopoverDropdown,
+    PopoverTarget,
     Radio,
     RadioGroup,
     RangeSlider,
@@ -174,16 +186,6 @@ export {
     ThemeIcon,
     Timeline,
     TimelineItem,
-    Affix,
-    LoadingOverlay,
-    Drawer,
-    HoverCardDropdown,
-    HoverCardTarget,
-    HoverCard,
-    Modal,
-    TransferList,
-    Popover,
-    PopoverDropdown,
     Tooltip,
-    PopoverTarget,
+    TransferList,
 };
