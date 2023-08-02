@@ -201,3 +201,18 @@ export type HTMLInputTypeAttribute =
 export type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
 
 export type Margin = number | string | "auto" | "initial" | "inherit";
+
+export type ListStyle =
+    | "disc"
+    | "circle"
+    | "square"
+    | "decimal"
+    | "lower-roman"
+    | "upper-roman"
+    | "lower-greek"
+    | "lower-latin"
+    | "upper-latin"
+    | "lower-alpha"
+    | "upper-alpha"
+    | "none"
+    | "inherit";
