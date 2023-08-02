@@ -1,6 +1,9 @@
 import Accordion from "./components/core/accordion/Accordion";
 import Modal from "./components/core/Modal";
 import LoadingOverlay from "./components/core/LoadingOverlay";
+import Popover from "./components/core/popover/Popover";
+import PopoverTarget from "./components/core/popover/PopoverTarget";
+import PopoverDropdown from "./components/core/popover/PopoverDropdown";
 import HoverCard from "./components/core/hovercard/HoverCard";
 import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
 import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
@@ -178,4 +181,7 @@ export {
     HoverCard,
     Modal,
     TransferList,
+    Popover,
+    PopoverDropdown,
+    PopoverTarget,
 };
