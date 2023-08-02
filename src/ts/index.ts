@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Table from "./components/core/Table";
 import Text from "./components/core/Text";
 import Highlight from "./components/core/Highlight";
 import Code from "./components/core/Code";
@@ -201,5 +202,6 @@ export {
     ListItem,
     Text,
     Mark,
+    Table,
     TransferList,
 };
