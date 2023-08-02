@@ -1,4 +1,7 @@
 import Accordion from "./components/core/accordion/Accordion";
+import HoverCard from "./components/core/hovercard/HoverCard";
+import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
+import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
 import Affix from "./components/core/Affix";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
@@ -167,5 +170,8 @@ export {
     TimelineItem,
     Affix,
     Drawer,
+    HoverCardDropdown,
+    HoverCardTarget,
+    HoverCard,
     TransferList,
 };
