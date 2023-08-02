@@ -1,4 +1,5 @@
 import Accordion from "./components/core/accordion/Accordion";
+import Divider from "./components/core/Divider";
 import Skeleton from "./components/core/Skeleton";
 import RingProgress from "./components/core/RingProgress";
 import Progress from "./components/core/Progress";
@@ -215,5 +216,6 @@ export {
     Progress,
     Skeleton,
     RingProgress,
+    Divider,
     TransferList,
 };
