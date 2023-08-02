@@ -71,6 +71,7 @@ import PopoverDropdown from "./components/core/popover/PopoverDropdown";
 import PopoverTarget from "./components/core/popover/PopoverTarget";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
+import Mark from "./components/core/Mark";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RangeSlider from "./components/core/slider/RangeSlider";
@@ -199,5 +200,6 @@ export {
     List,
     ListItem,
     Text,
+    Mark,
     TransferList,
 };
