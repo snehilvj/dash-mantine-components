@@ -1,8 +1,11 @@
 import { Stack as MantineStack } from "@mantine/core";
-import { MantineNumberSize } from "@mantine/styles";
 import { AlignItems, JustifyContent } from "props/css";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import {
+    MantineStyleSystemProps,
+    MantineStylesAPIProps,
+    MantineNumberSize,
+} from "props/mantine";
 import React from "react";
 
 type Props = {

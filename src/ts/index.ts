@@ -15,6 +15,7 @@ import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import BackgroundImage from "./components/core/image/BackgroundImage";
 import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
+import Box from "./components/core/Box";
 import Breadcrumbs from "./components/core/Breadcrumbs";
 import Burger from "./components/core/Burger";
 import Button from "./components/core/button/Button";
@@ -133,6 +134,7 @@ export {
     BackgroundImage,
     Badge,
     Blockquote,
+    Box,
     Breadcrumbs,
     Burger,
     Button,
@@ -173,8 +175,8 @@ export {
     ListItem,
     Loader,
     LoadingOverlay,
-    Mark,
     MantineProvider,
+    Mark,
     MediaQuery,
     Menu,
     MenuDivider,

@@ -37,7 +37,8 @@ type Props = {
     boxWrapperProps?: DashBaseProps &
         MantineStyleSystemProps &
         MantineStylesAPIProps;
-} & PopoverBaseProps;
+} & PopoverBaseProps &
+    MantineStylesAPIProps;
 
 /** Combine a list of secondary actions into single interactive area */
 const Menu = (props: Props) => {
