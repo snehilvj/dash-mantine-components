@@ -1,5 +1,27 @@
 # Change Log
 
+# 0.13.0a1
+
+This release is based on Mantine v6.
+
+### Added
+
+* New components
+  * Autocomplete
+  * Box
+  * ColorInput
+  * Flex 
+  * Popover
+  * Rating
+
+### Changed
+
+Detailed changelog for Mantine v6 can be found here: https://mantine.dev/changelog/6-0-0/.
+
+### Fixed
+
+* Date components freezing the entire UI
+
 # 0.12.1
 
 ### Added

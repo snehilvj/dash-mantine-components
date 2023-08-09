@@ -94,7 +94,7 @@ type CalendarBaseProps = {
     ariaLabels?: CalendarAriaLabels;
 };
 
-export interface CalendarHeaderSettings {
+export type CalendarHeaderSettings = {
     /** Change next icon */
     nextIcon?: React.ReactNode;
     /** Change previous icon */

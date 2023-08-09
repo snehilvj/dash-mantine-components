@@ -150,8 +150,6 @@ export type MantineStylesAPIProps = {
     styles?: any;
     /** Remove all Mantine styling from the component */
     unstyled?: boolean;
-    /** custom variant if created using MantineProvider */
-    variant?: string;
     /** With sx you can add styles to component root element. If you need to customize styles of other elements within component use styles prop */
     sx?: any;
 };

@@ -47,13 +47,13 @@ app = Dash(__name__)
 
 app.layout = html.Div(
     [
-        dmc.DatePicker(
+        dmc.DatePickerInput(
             id="date-picker",
             label="Start Date",
             description="You can also provide a description",
             minDate=date(2020, 8, 5),
             value=None,
-            style={"width": 200},
+            w=200
         ),
         dmc.Space(h=10),
         dmc.Text(id="selected-date"),
