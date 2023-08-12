@@ -1,5 +1,18 @@
 # Change Log
 
+# 0.13.0a2
+
+### Added
+
+* New component:
+  * InputWrapper
+
+### Fixed
+
+* Missing input props from TimeInput 
+* Pass empty list as default prop for Select and MultiSelect 
+* Remove left over MantineProvider from Switch testing
+
 # 0.13.0a1
 
 This release is based on Mantine v6.

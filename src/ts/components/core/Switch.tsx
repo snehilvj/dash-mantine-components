@@ -51,12 +51,10 @@ const Switch = (props: Props) => {
     };
 
     return (
-        <MantineProvider withNormalizeCSS withGlobalStyles>
-            <MantineSwitch
-                onChange={(ev) => updateProps(ev.currentTarget.checked)}
-                {...other}
-            />
-        </MantineProvider>
+        <MantineSwitch
+            onChange={(ev) => updateProps(ev.currentTarget.checked)}
+            {...other}
+        />
     );
 };
 

@@ -98,6 +98,7 @@ const MultiSelect = (props: Props) => {
 MultiSelect.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
+    data: [],
 };
 
 export default MultiSelect;

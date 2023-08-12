@@ -50,6 +50,7 @@ import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
 import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
 import Image from "./components/core/image/Image";
 import Indicator from "./components/core/Indicator";
+import InputWrapper from "./components/core/InputWrapper";
 import JsonInput from "./components/core/textinput/JsonInput";
 import Kbd from "./components/core/Kbd";
 import List from "./components/core/list/List";
@@ -169,6 +170,7 @@ export {
     HoverCardTarget,
     Image,
     Indicator,
+    InputWrapper,
     JsonInput,
     Kbd,
     List,

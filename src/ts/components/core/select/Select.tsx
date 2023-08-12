@@ -94,6 +94,7 @@ const Select = (props: Props) => {
 Select.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
+    data: [],
 };
 
 export default Select;

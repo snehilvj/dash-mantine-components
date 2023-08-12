@@ -115,7 +115,7 @@ export type CalendarHeaderSettings = {
     withPrevious?: boolean;
     /** Component size */
     size?: MantineSize;
-}
+};
 
 type DecadeLevelSettings = DecadeLevelBaseSettings & CalendarHeaderSettings;
 type YearLevelSettings = YearLevelBaseSettings & CalendarHeaderSettings;

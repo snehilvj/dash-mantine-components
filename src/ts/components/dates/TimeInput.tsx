@@ -6,6 +6,7 @@ import {
     MantineStyleSystemProps,
     MantineStylesAPIProps,
     TextInputProps,
+    InputComponentProps,
 } from "props/mantine";
 
 type Props = {
@@ -18,6 +19,7 @@ type Props = {
     /** Debounce time in ms */
     debounce?: number;
 } & TextInputProps &
+    InputComponentProps &
     PersistenceProps &
     DashBaseProps &
     MantineStylesAPIProps &
