@@ -68,6 +68,7 @@ const MenuItem = (props: Props) => {
                 }
                 href={href}
                 target={target}
+                disabled={disabled}
                 {...other}
             >
                 <Box {...boxProps}>{children}</Box>
@@ -75,7 +76,7 @@ const MenuItem = (props: Props) => {
         );
     } else {
         return (
-            <Menu.Item onClick={increment} {...other}>
+            <Menu.Item onClick={increment} disabled={disabled} {...other}>
                 <Box {...boxProps}>{children}</Box>
             </Menu.Item>
         );
