@@ -144,7 +144,7 @@ export type MantineStyleSystemProps = {
 };
 
 export type MantineStylesAPIProps = {
-    /** add class names to Mantine components */
+    /** Adds class names to Mantine components */
     classNames?: object;
     /** Mantine styles API  */
     styles?: any;

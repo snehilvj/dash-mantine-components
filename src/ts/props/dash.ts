@@ -7,6 +7,10 @@ export type DashBaseProps = {
     id?: string;
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
+    /** Wild card data attributes */
+    "data-*"?: string;
+    /** Wild card aria attributes */
+    "aria-*"?: string;
 };
 
 export type PersistenceProps = {

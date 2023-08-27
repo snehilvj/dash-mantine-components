@@ -27,8 +27,6 @@ export type Props = {
     hoverOnSearchChange?: boolean;
     /** Allow creatable option  */
     creatable?: boolean;
-    /** Change dropdown component, can be used to add native scrollbars */
-    dropdownComponent?: any;
     /** Select highlighted item on blur */
     selectOnBlur?: boolean;
     /** Allow deselecting items on click */
