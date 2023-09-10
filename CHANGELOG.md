@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.13.0a3
+
+### Added
+
+* Wild card aria-* and data-* props to all components
+
 # 0.13.0a2
 
 ### Added
