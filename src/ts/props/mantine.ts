@@ -407,7 +407,6 @@ export type ModalProps = {
 } & Omit<ModalRootProps, "title">;
 
 export type VerticalSectionSharedProps = {
-    variant?: string;
     /** Section content */
     children: React.ReactNode;
     /** Component height with breakpoints */
@@ -423,7 +422,6 @@ export type VerticalSectionSharedProps = {
 };
 
 export type HorizontalSectionSharedProps = {
-    variant?: string;
     /** Component width with breakpoints */
     width?: HorizontalSectionWidth;
     /** Component height */

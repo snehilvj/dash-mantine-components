@@ -8,7 +8,6 @@ import {
 import { DashBaseProps } from "props/dash";
 
 type Props = {
-    variant?: string;
     /** Offset from mouse */
     offset?: number;
 } & DashBaseProps &

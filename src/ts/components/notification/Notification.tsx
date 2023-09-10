@@ -8,9 +8,9 @@ import {
     MantineColor,
     MantineSize,
     MantineStylesAPIProps,
+    MantineStyleSystemProps,
 } from "props/mantine";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps } from "@mantine/core";
 
 type Props = {
     /** Notification line or icon color */

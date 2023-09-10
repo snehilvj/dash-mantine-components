@@ -8,7 +8,6 @@ import {
 import React from "react";
 
 type Props = {
-    variant?: string;
     /** Determines how Navbar and Aside components are positioned relative to Header and Footer components */
     layout?: "default" | "alt";
     /** <Navbar /> component */
