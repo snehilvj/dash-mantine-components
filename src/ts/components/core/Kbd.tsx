@@ -11,7 +11,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
 }
 
-/** Display keyboard button or keys combination */
+/** Kbd */
 const Kbd = (props: Props) => {
     const { setProps, children, ...other } = props;
 

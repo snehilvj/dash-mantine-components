@@ -35,7 +35,7 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
     action: "show" | "update" | "hide" | "clean" | "cleanQueue";
 }
 
-/** Show dynamic notifications and alerts to user, part of notifications system */
+/** Notification */
 const Notification = (props: Props) => {
     const { action, setProps, ...others } = props;
 
