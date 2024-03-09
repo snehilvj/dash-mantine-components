@@ -6,6 +6,7 @@ import Highlight from "./components/core/Highlight";
 import Kbd from "./components/core/Kbd";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
+import Paper from "./components/core/Paper";
 import ScrollArea from "./components/core/ScrollArea";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
@@ -49,6 +50,7 @@ export {
     NavigationProgressProvider,
     Notification,
     NotificationProvider,
+    Paper,
     ScrollArea,
     Table,
     Text,
