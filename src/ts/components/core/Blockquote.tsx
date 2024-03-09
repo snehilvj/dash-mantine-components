@@ -1,26 +1,30 @@
-import React from "react";
-import { Blockquote as MantineBlockquote } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
 import {
+    Blockquote as MantineBlockquote,
     MantineColor,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    MantineRadius,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
+import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
 
-type Props = {
-    /** Icon color from theme */
-    color?: MantineColor;
-    /** Icon, defaults to quote icon */
+import React from "react";
+
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Blockquote icon, displayed on the top left */
     icon?: React.ReactNode;
-    /** Describe a reference to a cited quote */
+    /** Controls icon `width` and `height`, numbers are converted to rem, `40` by default */
+    iconSize?: number | string;
+    /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
+    color?: MantineColor;
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
+    radius?: MantineRadius;
+    /** Reference to a cited quote */
     cite?: React.ReactNode;
     /** Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Blockquote with optional cite */
+/** Blockquote */
 const Blockquote = (props: Props) => {
     const { children, setProps, ...other } = props;
 

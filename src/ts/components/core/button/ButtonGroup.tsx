@@ -1,24 +1,23 @@
 import { Button } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** dmc.Button components only */
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** `Button` components */
     children?: React.ReactNode;
-    /** Switch between vertical and horizontal orientation */
-    orientation?: "vertical" | "horizontal";
-    /** Child Button border width in px */
-    buttonBorderWidth?: number;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Orientation of the group, `horizontal` by default */
+    orientation?: "horizontal" | "vertical";
+    /** `border-width` of the child `Button` components. Numbers are converted to rem. Default value in `1`. */
+    borderWidth?: number | string;
+}
 
-/** Render button or link with button styles from mantine theme. */
+/** ButtonGroup */
 const ButtonGroup = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Button.Group {...other}>{children}</Button.Group>;
+    return <Button.Group {...others}>{children}</Button.Group>;
 };
 
 ButtonGroup.defaultProps = {};

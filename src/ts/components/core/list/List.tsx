@@ -1,32 +1,33 @@
-import React from "react";
-import { List as MantineList } from "@mantine/core";
-import { MantineNumberSize } from "@mantine/styles";
-import { ListStyle } from "props/css";
+import {
+    List as MantineList,
+    MantineSize,
+    MantineSpacing,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** dmc.ListItem components only */
+interface Props extends DashBaseProps, BoxProps, StylesApiProps {
+    /** `List.Item` components only */
     children?: React.ReactNode;
-    /** List type: ol or ul */
+    /** List type: `ol` or `ul`, `'unordered'` by default */
     type?: "ordered" | "unordered";
-    /** Include padding-left to offset list from main content */
+    /** Determines whether list items should be offset with padding, `false` by default */
     withPadding?: boolean;
-    /** Font size from theme or number to set value in px */
-    size?: MantineNumberSize;
-    /** Icon that should replace list item dot */
+    /** Controls `font-size` and `line-height`, `'md'` by default */
+    size?: MantineSize;
+    /** Icon that replaces list item dot */
     icon?: React.ReactNode;
-    /** Spacing between items from theme or number to set value in px */
-    spacing?: MantineNumberSize;
-    /** Center items with icon */
+    /** Key of `theme.spacing` or any valid CSS value to set spacing between items, `0` by default */
+    spacing?: MantineSpacing;
+    /** Determines whether items must be centered with their icon, `false` by default */
     center?: boolean;
-    /** List style */
-    listStyleType?: ListStyle;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Controls `list-style-type`, by default inferred from `type` */
+    listStyleType?: React.CSSProperties["listStyleType"];
+}
 
-/** Display ordered or unordered list */
+/** List */
 const List = (props: Props) => {
     const { setProps, children, ...other } = props;
 

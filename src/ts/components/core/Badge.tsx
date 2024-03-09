@@ -1,42 +1,39 @@
-import React from "react";
 import {
     Badge as MantineBadge,
-    BadgeVariant,
-    MantineGradient,
-} from "@mantine/core";
-import {
     MantineColor,
-    MantineNumberSize,
+    MantineGradient,
+    MantineRadius,
     MantineSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Key of theme.colors */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Controls `font-size`, `height` and horizontal `padding`, `'md'` by default */
+    size?: MantineSize | (string & {});
+    /** If set, badge `min-width` becomes equal to its `height` and horizontal padding is removed */
+    circle?: boolean;
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `'xl'` by default */
+    radius?: MantineRadius;
+    /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
-    /** Controls appearance */
-    variant?: BadgeVariant;
-    /** Controls gradient, applied to gradient variant only */
+    /** Gradient configuration used when `variant="gradient"`, default value is `theme.defaultGradient` */
     gradient?: MantineGradient;
-    /** Badge height and font size */
-    size?: MantineSize;
-    /** Key of theme.radius or any valid CSS value to set border-radius, "xl" by default */
-    radius?: MantineNumberSize;
-    /** Sets badge width to 100% of parent element, hides overflow text with text-overflow: ellipsis */
-    fullWidth?: boolean;
-    /** Section rendered on the left side of label */
+    /** Content displayed on the left side of the badge label */
     leftSection?: React.ReactNode;
-    /** Section rendered on the right side of label */
+    /** Content displayed on the right side of the badge label */
     rightSection?: React.ReactNode;
-    /** Badge label */
+    /** Determines whether Badge should take 100% of its parent width, `false` by default */
+    fullWidth?: boolean;
+    /** Main badge content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Determines whether text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
+}
 
-/** Render react node inside portal at fixed position */
+/** Badge */
 const Badge = (props: Props) => {
     const { children, setProps, ...other } = props;
 

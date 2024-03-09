@@ -1,24 +1,19 @@
-import React from "react";
-import { Code as MantineCode } from "@mantine/core";
-import {
-    MantineColor,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+import { Code as MantineCode, MantineColor } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Code content */
+interface Props extends DashBaseProps, BoxProps, StylesApiProps {
+    /** Content */
     children?: React.ReactNode;
-    /** Code color and background from theme, defaults to gray in light theme and to dark in dark theme */
+    /** Key of `theme.colors` or any valid CSS color, controls `background-color` of the code, by default value is calculated based on color scheme */
     color?: MantineColor;
-    /** True for code block, false for inline code */
+    /** If set code will be rendered inside `pre`, `false` by default */
     block?: boolean;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** Inline or block code without syntax highlight */
+/** Code */
 const Code = (props: Props) => {
     const { children, setProps, ...other } = props;
 
