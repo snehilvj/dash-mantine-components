@@ -1,10 +1,9 @@
-import { notifications } from "@mantine/notifications";
-import React, { useEffect } from "react";
-
 import { MantineColor, MantineRadius } from "@mantine/core";
+import { notifications } from "@mantine/notifications";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
+import React, { useEffect } from "react";
 
 interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
     /** Controls notification line or icon color, key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
@@ -31,16 +30,16 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
      *  number is auto close timeout in ms, overrides `autoClose` from `Notifications`
      * */
     autoClose?: boolean | number;
-    /** Action */
-    action: "show" | "update" | "hide" | "clean" | "cleanQueue";
+    /** intent */
+    intent: "show" | "update" | "hide" | "clean" | "cleanQueue";
 }
 
 /** Notification */
 const Notification = (props: Props) => {
-    const { action, setProps, ...others } = props;
+    const { intent, setProps, ...others } = props;
 
     useEffect(() => {
-        switch (action) {
+        switch (intent) {
             case "show":
                 notifications.show(others);
                 break;

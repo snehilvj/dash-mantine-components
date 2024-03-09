@@ -337,6 +337,13 @@
     "@mantine/store" "7.6.1"
     "react-transition-group" "4.4.5"
 
+"@mantine/nprogress@^7.6.1":
+  "integrity" "sha512-uSD9CJIQfDHRwjKvlgEsdP/dMhEcpKq3YNmnVfsvpcd8v2SY4lWCkT/x/gxyLZQ26UZbSL3peBc9yYozXBV+5w=="
+  "resolved" "https://registry.npmjs.org/@mantine/nprogress/-/nprogress-7.6.1.tgz"
+  "version" "7.6.1"
+  dependencies:
+    "@mantine/store" "7.6.1"
+
 "@mantine/spotlight@^7.5.2":
   "integrity" "sha512-o7ZvAmi8wW47z39zw9r3wQnGrZXa3wBAL0vEl3Vd9WIDu+WnFKSfxw7SW1ovEu6WWtjXkQM9rgyAP2YSNfo9Fw=="
   "resolved" "https://registry.npmjs.org/@mantine/spotlight/-/spotlight-7.6.1.tgz"
