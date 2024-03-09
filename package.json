@@ -1,6 +1,6 @@
 {
     "name": "dash_mantine_components",
-    "version": "0.13.0a4",
+    "version": "0.14.0",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
@@ -19,36 +19,39 @@
         "watch": "npm run build:js::dev -- --watch"
     },
     "devDependencies": {
-        "@types/ramda": "^0.28.15",
-        "@types/react": "^17.0.39",
-        "css-loader": "^6.7.1",
+        "@types/ramda": "^0.29.10",
+        "@types/react": "^18.2.55",
+        "css-loader": "^6.10.0",
         "npm-run-all": "^4.1.5",
-        "ramda": "^0.28.0",
-        "react": "16.13.0",
+        "ramda": "^0.29.1",
+        "react": "^18.2.0",
         "react-docgen": "^5.4.0",
-        "react-dom": "16.13.0",
-        "style-loader": "^3.3.1",
-        "ts-loader": "^9.3.1",
-        "typescript": "^4.8.4",
-        "webpack": "^5.73.0",
-        "webpack-cli": "^4.10.0"
+        "react-dom": "^18.2.0",
+        "style-loader": "^3.3.4",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.3.3",
+        "webpack": "^5.90.1",
+        "webpack-cli": "^5.1.4"
     },
     "peerDependencies": {
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0"
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "author": "Snehil Vijay <snehilvj@outlook.com>",
     "license": "MIT",
     "dependencies": {
-        "@emotion/react": "^11.11.1",
-        "@mantine/core": "^6.0.15",
-        "@mantine/dates": "^6.0.15",
-        "@mantine/hooks": "^6.0.15",
-        "@mantine/notifications": "^6.0.15",
-        "@mantine/prism": "^6.0.15",
-        "dash-extensions-js": "^0.0.8",
-        "dayjs": "^1.11.9",
-        "is-absolute-url": "^4.0.1"
+        "@mantine/carousel": "^7.5.2",
+        "@mantine/charts": "^7.5.2",
+        "@mantine/code-highlight": "^7.5.2",
+        "@mantine/core": "^7.5.2",
+        "@mantine/dates": "^7.5.2",
+        "@mantine/hooks": "^7.5.2",
+        "@mantine/notifications": "^7.5.2",
+        "@mantine/spotlight": "^7.5.2",
+        "dayjs": "^1.11.10",
+        "embla-carousel-react": "^7.1.0",
+        "is-absolute-url": "^4.0.1",
+        "recharts": "^2.12.0"
     },
     "files": [
         "/dash_mantine_components/*{.js,.map}",

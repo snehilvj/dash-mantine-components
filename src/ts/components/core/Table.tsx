@@ -1,40 +1,52 @@
-import React from "react";
-import { Table as MantineTable } from "@mantine/core";
 import {
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    MantineColor,
+    MantineSpacing,
+    Table as MantineTable,
+    TableData,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** If true every odd row of table will have gray background color */
-    striped?: boolean;
-    /** If true row will have hover color */
-    highlightOnHover?: boolean;
-    /** Table caption position */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Value of `table-layout` style, `auto` by default */
+    layout?: React.CSSProperties["tableLayout"];
+    /** Determines on which side `Table.Caption` is displayed, `bottom` by default */
     captionSide?: "top" | "bottom";
-    /** Horizontal cells spacing from theme.spacing or number to set value in px */
-    horizontalSpacing?: MantineNumberSize;
-    /** Vertical cells spacing from theme.spacing or number to set value in px */
-    verticalSpacing?: MantineNumberSize;
-    /** Sets font size of all text inside table */
-    fontSize?: MantineNumberSize;
-    /** Children, specifically an HTML representation of the table */
-    children?: React.ReactNode;
-    /** Add border to table */
-    withBorder?: boolean;
-    /** Add border to columns */
+    /** Color of table borders, key of `theme.colors` or any valid CSS color */
+    borderColor?: MantineColor;
+    /** Determines whether the table should have outer border, `false` by default */
+    withTableBorder?: boolean;
+    /** Determines whether the table should have borders between columns, `false` by default */
     withColumnBorders?: boolean;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Determines whether the table should have borders between rows, `true` by default */
+    withRowBorders?: boolean;
+    /** Horizontal cells spacing, key of `theme.spacing` or any valid CSS value for padding, numbers are converted to rem, default value is `xs` */
+    horizontalSpacing?: MantineSpacing;
+    /** Vertical cells spacing, key of `theme.spacing` or any valid CSS value for padding, numbers are converted to rem, default value is `xs` */
+    verticalSpacing?: MantineSpacing;
+    /** Determines whether every odd/even row background should be changed to `strippedColor`, if set to `true`, then `odd` value will be used, `false` by default  */
+    striped?: boolean | "odd" | "even";
+    /** Background color of striped rows, key of `theme.colors` or any valid CSS color */
+    stripedColor?: MantineColor;
+    /** Determines whether table rows background should change to `highlightOnHoverColor` when hovered, `false` by default */
+    highlightOnHover?: boolean;
+    /** Background color of table rows when hovered, key of `theme.colors` or any valid CSS color */
+    highlightOnHoverColor?: MantineColor;
+    /** Data that should be used to generate table, ignored if `children` prop is set */
+    data?: TableData;
+    /** Determines whether `Table.Thead` should be sticky, `false` by default */
+    stickyHeader?: boolean;
+    /** Offset from top at which `Table.Thead` should become sticky, `0` by default */
+    stickyHeaderOffset?: number | string;
+}
 
-/** A simple table component */
+/** Table */
 const Table = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { setProps, ...other } = props;
 
-    return <MantineTable {...other}>{children}</MantineTable>;
+    return <MantineTable {...other} />;
 };
 
 Table.defaultProps = {};

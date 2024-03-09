@@ -1,18 +1,14 @@
-import React from "react";
 import { Text as MantineText } from "@mantine/core";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    TextProps,
-} from "props/mantine";
 import { DashBaseProps } from "props/dash";
+import { TextProps } from "props/text";
+import React from "react";
 
-type Props = TextProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+interface Props extends TextProps, DashBaseProps {
+    /** Content */
+    children?: React.ReactNode;
+}
 
-/** Render text and links with theme styles */
+/** Text */
 const Text = (props: Props) => {
     const { children, setProps, ...other } = props;
 
