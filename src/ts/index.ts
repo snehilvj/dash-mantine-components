@@ -2,6 +2,7 @@ import Affix from "./components/core/Affix";
 import Anchor from "./components/core/Anchor";
 import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
+import Box from "./components/core/Box";
 import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
 import Divider from "./components/core/Divider";
@@ -35,6 +36,7 @@ export {
     Anchor,
     Badge,
     Blockquote,
+    Box,
     Button,
     ButtonGroup,
     Card,
