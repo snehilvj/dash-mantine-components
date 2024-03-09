@@ -30,7 +30,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     withinPortal?: boolean;
 }
 
-/** Mantine notifications system */
+/** NotificationProvider */
 const NotificationProvider = (props: Props) => {
     const { setProps, ...other } = props;
 
