@@ -3,6 +3,7 @@ import Anchor from "./components/core/Anchor";
 import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
 import Code from "./components/core/Code";
+import Collapse from "./components/core/Collapse";
 import Divider from "./components/core/Divider";
 import Highlight from "./components/core/Highlight";
 import Kbd from "./components/core/Kbd";
@@ -43,6 +44,7 @@ export {
     Code,
     CodeHighlight,
     CodeHighlightTabs,
+    Collapse,
     Divider,
     Highlight,
     Kbd,
