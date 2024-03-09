@@ -19,6 +19,7 @@
         "watch": "npm run build:js::dev -- --watch"
     },
     "devDependencies": {
+        "@braintree/sanitize-url": "^7.0.0",
         "@types/ramda": "^0.29.10",
         "@types/react": "^18.2.55",
         "css-loader": "^6.10.0",
