@@ -17,6 +17,8 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
 import CodeHighlightTabs from "./components/extensions/codehighlight/CodeHighlightTabs";
+import Notification from "./components/extensions/notifications/Notification";
+import NotificationProvider from "./components/extensions/notifications/NotificationProvider";
 
 export {
     Affix,
@@ -35,6 +37,8 @@ export {
     ListItem,
     MantineProvider,
     Mark,
+    Notification,
+    NotificationProvider,
     Table,
     Text,
     Title,
