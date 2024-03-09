@@ -9,6 +9,7 @@ import Mark from "./components/core/Mark";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
 import Title from "./components/core/Title";
+import VisuallyHidden from "./components/core/VisuallyHidden";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Card from "./components/core/card/Card";
@@ -50,4 +51,5 @@ export {
     Table,
     Text,
     Title,
+    VisuallyHidden,
 };
