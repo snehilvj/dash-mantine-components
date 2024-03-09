@@ -1,4 +1,5 @@
 import Affix from "./components/core/Affix";
+import Anchor from "./components/core/Anchor";
 import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
 import Code from "./components/core/Code";
@@ -29,6 +30,7 @@ import NavigationProgressProvider from "./components/extensions/nprogress/Naviga
 
 export {
     Affix,
+    Anchor,
     Badge,
     Blockquote,
     Button,
