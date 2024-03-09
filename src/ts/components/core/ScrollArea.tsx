@@ -26,7 +26,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
 }
 
-/** ScrollArea component */
+/** ScrollArea */
 const ScrollArea = (props: Props) => {
     const { setProps, children, ...other } = props;
 
