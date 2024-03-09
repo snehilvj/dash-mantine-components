@@ -21,6 +21,8 @@ import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
 import CodeHighlightTabs from "./components/extensions/codehighlight/CodeHighlightTabs";
 import Notification from "./components/extensions/notifications/Notification";
 import NotificationProvider from "./components/extensions/notifications/NotificationProvider";
+import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
+import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 
 export {
     Affix,
@@ -41,6 +43,8 @@ export {
     ListItem,
     MantineProvider,
     Mark,
+    NavigationProgress,
+    NavigationProgressProvider,
     Notification,
     NotificationProvider,
     Table,

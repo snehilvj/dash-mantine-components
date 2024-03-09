@@ -47,6 +47,7 @@
         "@mantine/dates": "^7.5.2",
         "@mantine/hooks": "^7.5.2",
         "@mantine/notifications": "^7.5.2",
+        "@mantine/nprogress": "^7.6.1",
         "@mantine/spotlight": "^7.5.2",
         "dayjs": "^1.11.10",
         "embla-carousel-react": "^7.1.0",
