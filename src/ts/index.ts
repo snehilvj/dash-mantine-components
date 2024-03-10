@@ -30,6 +30,7 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
+import DonutChart from "./components/extensions/charts/DonutChart";
 import PieChart from "./components/extensions/charts/PieChart";
 import RadarChart from "./components/extensions/charts/RadarChart";
 import Sparkline from "./components/extensions/charts/Sparkline";
@@ -60,6 +61,7 @@ export {
     CodeHighlightTabs,
     Collapse,
     Divider,
+    DonutChart,
     Highlight,
     Image,
     Indicator,
