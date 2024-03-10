@@ -24,6 +24,7 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 // import Timeline from "./components/core/timeline/Timeline";
 // import TimelineItem from "./components/core/timeline/TimelineItem";
+import Spoiler from "./components/core/Spoiler";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
@@ -63,6 +64,7 @@ export {
     NotificationProvider,
     Paper,
     ScrollArea,
+    Spoiler,
     Table,
     Text,
     ThemeIcon,
