@@ -31,6 +31,7 @@ import ListItem from "./components/core/list/ListItem";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import DonutChart from "./components/extensions/charts/DonutChart";
+import LineChart from "./components/extensions/charts/LineChart";
 import PieChart from "./components/extensions/charts/PieChart";
 import RadarChart from "./components/extensions/charts/RadarChart";
 import Sparkline from "./components/extensions/charts/Sparkline";
@@ -66,6 +67,7 @@ export {
     Image,
     Indicator,
     Kbd,
+    LineChart,
     List,
     ListItem,
     MantineProvider,
