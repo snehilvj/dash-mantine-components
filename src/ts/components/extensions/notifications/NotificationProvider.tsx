@@ -1,5 +1,4 @@
 import { Notifications } from "@mantine/notifications";
-import "@mantine/notifications/styles.css";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";

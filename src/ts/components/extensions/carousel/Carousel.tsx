@@ -1,5 +1,4 @@
 import { Carousel as MantineCarousel } from "@mantine/carousel";
-import "@mantine/carousel/styles.css";
 import { MantineSpacing, StyleProp } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";

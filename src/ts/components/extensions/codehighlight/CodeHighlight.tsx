@@ -1,5 +1,4 @@
 import { CodeHighlight as MantineCodeHighlight } from "@mantine/code-highlight";
-import "@mantine/code-highlight/styles.css";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
