@@ -7,27 +7,26 @@ import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
 import Divider from "./components/core/Divider";
 import Highlight from "./components/core/Highlight";
+import Indicator from "./components/core/Indicator";
 import Kbd from "./components/core/Kbd";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
+import NumberFormatter from "./components/core/NumberFormatter";
 import Paper from "./components/core/Paper";
 import ScrollArea from "./components/core/ScrollArea";
+import Spoiler from "./components/core/Spoiler";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
+import ThemeIcon from "./components/core/ThemeIcon";
 import Title from "./components/core/Title";
 import VisuallyHidden from "./components/core/VisuallyHidden";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
+import Image from "./components/core/image/Image";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
-// import Timeline from "./components/core/timeline/Timeline";
-// import TimelineItem from "./components/core/timeline/TimelineItem";
-import Indicator from "./components/core/Indicator";
-import NumberFormatter from "./components/core/NumberFormatter";
-import Spoiler from "./components/core/Spoiler";
-import ThemeIcon from "./components/core/ThemeIcon";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
@@ -36,6 +35,8 @@ import Notification from "./components/extensions/notifications/Notification";
 import NotificationProvider from "./components/extensions/notifications/NotificationProvider";
 import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
+// import Timeline from "./components/core/timeline/Timeline";
+// import TimelineItem from "./components/core/timeline/TimelineItem";
 
 export {
     Affix,
@@ -55,6 +56,7 @@ export {
     Collapse,
     Divider,
     Highlight,
+    Image,
     Indicator,
     Kbd,
     List,
@@ -72,8 +74,6 @@ export {
     Table,
     Text,
     ThemeIcon,
-    // Timeline,
-    // TimelineItem,
     Title,
     VisuallyHidden,
 };
