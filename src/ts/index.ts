@@ -24,6 +24,7 @@ import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
+import BackgroundImage from "./components/core/image/BackgroundImage";
 import Image from "./components/core/image/Image";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
@@ -41,6 +42,7 @@ import NavigationProgressProvider from "./components/extensions/nprogress/Naviga
 export {
     Affix,
     Anchor,
+    BackgroundImage,
     Badge,
     Blockquote,
     Box,
