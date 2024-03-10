@@ -22,6 +22,8 @@ import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
+// import Timeline from "./components/core/timeline/Timeline";
+// import TimelineItem from "./components/core/timeline/TimelineItem";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
@@ -62,6 +64,8 @@ export {
     ScrollArea,
     Table,
     Text,
+    // Timeline,
+    // TimelineItem,
     Title,
     VisuallyHidden,
 };
