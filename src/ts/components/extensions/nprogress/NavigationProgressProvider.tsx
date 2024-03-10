@@ -1,6 +1,5 @@
 import { MantineColor } from "@mantine/core";
 import { NavigationProgress } from "@mantine/nprogress";
-import "@mantine/nprogress/styles.css";
 import { DashBaseProps } from "props/dash";
 import React from "react";
 

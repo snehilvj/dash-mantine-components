@@ -30,6 +30,7 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
+import RadarChart from "./components/extensions/charts/RadarChart";
 import Sparkline from "./components/extensions/charts/Sparkline";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
 import CodeHighlightTabs from "./components/extensions/codehighlight/CodeHighlightTabs";
@@ -72,6 +73,7 @@ export {
     NotificationProvider,
     NumberFormatter,
     Paper,
+    RadarChart,
     ScrollArea,
     Sparkline,
     Spoiler,
