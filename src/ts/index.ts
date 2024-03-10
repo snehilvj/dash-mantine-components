@@ -30,6 +30,7 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
+import AreaChart from "./components/extensions/charts/AreaChart";
 import BarChart from "./components/extensions/charts/BarChart";
 import DonutChart from "./components/extensions/charts/DonutChart";
 import LineChart from "./components/extensions/charts/LineChart";
@@ -48,6 +49,7 @@ import NavigationProgressProvider from "./components/extensions/nprogress/Naviga
 export {
     Affix,
     Anchor,
+    AreaChart,
     BackgroundImage,
     Badge,
     BarChart,
