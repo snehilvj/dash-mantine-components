@@ -24,6 +24,7 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 // import Timeline from "./components/core/timeline/Timeline";
 // import TimelineItem from "./components/core/timeline/TimelineItem";
+import Indicator from "./components/core/Indicator";
 import NumberFormatter from "./components/core/NumberFormatter";
 import Spoiler from "./components/core/Spoiler";
 import ThemeIcon from "./components/core/ThemeIcon";
@@ -54,6 +55,7 @@ export {
     Collapse,
     Divider,
     Highlight,
+    Indicator,
     Kbd,
     List,
     ListItem,
