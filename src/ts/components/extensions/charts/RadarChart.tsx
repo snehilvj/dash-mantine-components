@@ -4,68 +4,7 @@ import { MantineColor } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { ReactElement } from "react";
-import {
-    AxisDomain,
-    AxisType,
-    ScaleType,
-    TickItem,
-} from "recharts/types/util/types";
-
-interface PolarGridProps {
-    cx?: number;
-    cy?: number;
-    innerRadius?: number;
-    outerRadius?: number;
-    polarAngles?: number[];
-    polarRadius?: number[];
-    gridType?: "polygon" | "circle";
-    radialLines?: boolean;
-}
-
-interface BaseAxisProps {
-    type?: "number" | "category";
-    dataKey?: string | number;
-    hide?: boolean;
-    scale?: ScaleType;
-    tick?: boolean;
-    tickCount?: number;
-    axisLine?: boolean;
-    tickLine?: boolean;
-    tickSize?: number;
-    allowDataOverflow?: boolean;
-    allowDuplicatedCategory?: boolean;
-    allowDecimals?: boolean;
-    domain?: AxisDomain;
-    includeHidden?: boolean;
-    name?: string;
-    unit?: string | number;
-    axisType?: AxisType;
-    range?: Array<number>;
-    AxisComp?: any;
-    label?: string | number | ReactElement | object;
-    className?: string;
-}
-
-interface PolarRadiusAxisProps extends Omit<BaseAxisProps, "unit"> {
-    cx?: number;
-    cy?: number;
-    radiusAxisId?: string | number;
-    angle?: number;
-    orientation?: "left" | "right" | "middle";
-    ticks?: TickItem[];
-    reversed?: boolean;
-}
-
-interface PolarAngleAxisProps extends BaseAxisProps {
-    angleAxisId?: string | number;
-    cx?: number;
-    cy?: number;
-    radius?: number;
-    axisLineType?: "polygon" | "circle";
-    ticks?: TickItem[];
-    orientation?: "inner" | "outer";
-}
+import React from "react";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used in the chart */
@@ -87,11 +26,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Props passed down to recharts RadarChart component */
     radarChartProps?: object;
     /** Props passed down to recharts PolarGrid component */
-    polarGridProps?: PolarGridProps;
+    polarGridProps?: object;
     /** Props passed down to recharts PolarAngleAxis component */
-    polarAngleAxisProps?: PolarAngleAxisProps;
+    polarAngleAxisProps?: object;
     /** Props passed down to recharts PolarRadiusAxis component */
-    polarRadiusAxisProps?: PolarRadiusAxisProps;
+    polarRadiusAxisProps?: object;
     /** Additional components that are rendered inside recharts `RadarChart` component */
     children?: React.ReactNode;
 }
