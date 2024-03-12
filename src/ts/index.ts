@@ -20,6 +20,8 @@ import Text from "./components/core/Text";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Title from "./components/core/Title";
 import VisuallyHidden from "./components/core/VisuallyHidden";
+import Avatar from "./components/core/avatar/Avatar";
+import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Card from "./components/core/card/Card";
@@ -50,6 +52,8 @@ export {
     Affix,
     Anchor,
     AreaChart,
+    Avatar,
+    AvatarGroup,
     BackgroundImage,
     Badge,
     BarChart,
