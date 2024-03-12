@@ -20,6 +20,10 @@ import Text from "./components/core/Text";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Title from "./components/core/Title";
 import VisuallyHidden from "./components/core/VisuallyHidden";
+import Accordion from "./components/core/accordion/Accordion";
+import AccordionControl from "./components/core/accordion/AccordionControl";
+import AccordionItem from "./components/core/accordion/AccordionItem";
+import AccordionPanel from "./components/core/accordion/AccordionPanel";
 import Avatar from "./components/core/avatar/Avatar";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Button from "./components/core/button/Button";
@@ -49,6 +53,10 @@ import NavigationProgressProvider from "./components/extensions/nprogress/Naviga
 // import TimelineItem from "./components/core/timeline/TimelineItem";
 
 export {
+    Accordion,
+    AccordionControl,
+    AccordionItem,
+    AccordionPanel,
     Affix,
     Anchor,
     AreaChart,
