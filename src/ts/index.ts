@@ -45,6 +45,8 @@ import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
+import Checkbox from "./components/core/checkbox/Checkbox";
+import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
 import Grid from "./components/core/grid/Grid";
 import GridCol from "./components/core/grid/GridCol";
 import BackgroundImage from "./components/core/image/BackgroundImage";
@@ -99,6 +101,8 @@ export {
     Carousel,
     CarouselSlide,
     Center,
+    Checkbox,
+    CheckboxGroup,
     Code,
     CodeHighlight,
     CodeHighlightTabs,
