@@ -19,6 +19,7 @@ import NumberFormatter from "./components/core/NumberFormatter";
 import Paper from "./components/core/Paper";
 import ScrollArea from "./components/core/ScrollArea";
 import Spoiler from "./components/core/Spoiler";
+import Stack from "./components/core/Stack";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
 import ThemeIcon from "./components/core/ThemeIcon";
@@ -121,6 +122,7 @@ export {
     ScrollArea,
     Sparkline,
     Spoiler,
+    Stack,
     Table,
     Text,
     ThemeIcon,
