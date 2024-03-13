@@ -7,6 +7,7 @@ import Box from "./components/core/Box";
 import Center from "./components/core/Center";
 import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
+import Container from "./components/core/Container";
 import Divider from "./components/core/Divider";
 import Highlight from "./components/core/Highlight";
 import Indicator from "./components/core/Indicator";
@@ -95,6 +96,7 @@ export {
     CodeHighlight,
     CodeHighlightTabs,
     Collapse,
+    Container,
     Divider,
     DonutChart,
     Highlight,
