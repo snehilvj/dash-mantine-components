@@ -9,6 +9,7 @@ import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
 import Container from "./components/core/Container";
 import Divider from "./components/core/Divider";
+import Flex from "./components/core/Flex";
 import Highlight from "./components/core/Highlight";
 import Indicator from "./components/core/Indicator";
 import Kbd from "./components/core/Kbd";
@@ -99,6 +100,7 @@ export {
     Container,
     Divider,
     DonutChart,
+    Flex,
     Highlight,
     Image,
     Indicator,
