@@ -42,6 +42,8 @@ import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
+import Grid from "./components/core/grid/Grid";
+import GridCol from "./components/core/grid/GridCol";
 import BackgroundImage from "./components/core/image/BackgroundImage";
 import Image from "./components/core/image/Image";
 import List from "./components/core/list/List";
@@ -102,6 +104,8 @@ export {
     Divider,
     DonutChart,
     Flex,
+    Grid,
+    GridCol,
     Highlight,
     Image,
     Indicator,
