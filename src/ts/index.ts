@@ -4,6 +4,7 @@ import AspectRatio from "./components/core/AspectRatio";
 import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
 import Box from "./components/core/Box";
+import Center from "./components/core/Center";
 import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
 import Divider from "./components/core/Divider";
@@ -89,6 +90,7 @@ export {
     CardSection,
     Carousel,
     CarouselSlide,
+    Center,
     Code,
     CodeHighlight,
     CodeHighlightTabs,
