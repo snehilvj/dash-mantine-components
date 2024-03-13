@@ -20,6 +20,7 @@ import NumberFormatter from "./components/core/NumberFormatter";
 import Paper from "./components/core/Paper";
 import ScrollArea from "./components/core/ScrollArea";
 import SimpleGrid from "./components/core/SimpleGrid";
+import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
 import Table from "./components/core/Table";
@@ -128,6 +129,7 @@ export {
     RadarChart,
     ScrollArea,
     SimpleGrid,
+    Space,
     Sparkline,
     Spoiler,
     Stack,
