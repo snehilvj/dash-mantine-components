@@ -24,6 +24,13 @@ import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
 import AccordionItem from "./components/core/accordion/AccordionItem";
 import AccordionPanel from "./components/core/accordion/AccordionPanel";
+import AppShell from "./components/core/appshell/AppShell";
+import AppShellAside from "./components/core/appshell/AppShellAside";
+import AppShellFooter from "./components/core/appshell/AppShellFooter";
+import AppShellHeader from "./components/core/appshell/AppShellHeader";
+import AppShellMain from "./components/core/appshell/AppShellMain";
+import AppShellNavbar from "./components/core/appshell/AppShellNavbar";
+import AppShellSection from "./components/core/appshell/AppShellSection";
 import Avatar from "./components/core/avatar/Avatar";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
 import Button from "./components/core/button/Button";
@@ -59,6 +66,13 @@ export {
     AccordionPanel,
     Affix,
     Anchor,
+    AppShell,
+    AppShellAside,
+    AppShellFooter,
+    AppShellHeader,
+    AppShellMain,
+    AppShellNavbar,
+    AppShellSection,
     AreaChart,
     Avatar,
     AvatarGroup,
