@@ -1,5 +1,6 @@
 import Affix from "./components/core/Affix";
 import Anchor from "./components/core/Anchor";
+import AspectRatio from "./components/core/AspectRatio";
 import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
 import Box from "./components/core/Box";
@@ -74,6 +75,7 @@ export {
     AppShellNavbar,
     AppShellSection,
     AreaChart,
+    AspectRatio,
     Avatar,
     AvatarGroup,
     BackgroundImage,
