@@ -9,6 +9,7 @@ import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
 import Container from "./components/core/Container";
 import Divider from "./components/core/Divider";
+import Fieldset from "./components/core/Fieldset";
 import Flex from "./components/core/Flex";
 import Group from "./components/core/Group";
 import Highlight from "./components/core/Highlight";
@@ -117,6 +118,7 @@ export {
     Container,
     Divider,
     DonutChart,
+    Fieldset,
     Flex,
     Grid,
     GridCol,
