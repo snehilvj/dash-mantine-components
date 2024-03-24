@@ -64,6 +64,10 @@ export interface __InputProps {
     pointer?: boolean;
     /** Determines whether the input should have red border and red text color when the `error` prop is set, `true` by default */
     withErrorStyles?: boolean;
+    /** Placeholder */
+    placeholder?: string;
+    /** Name prop */
+    name?: string;
 }
 
 export interface InputProps extends BoxProps, __InputProps, StylesApiProps {
