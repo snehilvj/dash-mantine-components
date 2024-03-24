@@ -19,6 +19,7 @@ import Kbd from "./components/core/Kbd";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
 import NumberFormatter from "./components/core/NumberFormatter";
+import NumberInput from "./components/core/NumberInput";
 import Paper from "./components/core/Paper";
 import ScrollArea from "./components/core/ScrollArea";
 import SimpleGrid from "./components/core/SimpleGrid";
@@ -139,6 +140,7 @@ export {
     Notification,
     NotificationProvider,
     NumberFormatter,
+    NumberInput,
     Paper,
     PieChart,
     RadarChart,
