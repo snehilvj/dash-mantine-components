@@ -4,7 +4,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { TextareaProps } from "props/text";
 import React, { useState } from "react";
 
-export interface Props extends TextareaProps, DashBaseProps, PersistenceProps {
+interface Props extends TextareaProps, DashBaseProps, PersistenceProps {
     /** Value for controlled component */
     value?: string;
     /** Determines whether the value should be formatted on blur, `false` by default */
