@@ -5,11 +5,15 @@ import {
 } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
+import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
     /** Value for controlled component */
     value?: number;
     /** Icon displayed when the symbol is empty */

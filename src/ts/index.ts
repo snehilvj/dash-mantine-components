@@ -21,6 +21,7 @@ import NumberFormatter from "./components/core/NumberFormatter";
 import Paper from "./components/core/Paper";
 import Rating from "./components/core/Rating";
 import ScrollArea from "./components/core/ScrollArea";
+import SegmentedControl from "./components/core/SegmentedControl";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
@@ -155,6 +156,7 @@ export {
     RadioGroup,
     Rating,
     ScrollArea,
+    SegmentedControl,
     SimpleGrid,
     Space,
     Sparkline,
