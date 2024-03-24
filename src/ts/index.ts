@@ -61,6 +61,8 @@ import PasswordInput from "./components/core/input/PasswordInput";
 import PinInput from "./components/core/input/PinInput";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
+import Radio from "./components/core/radio/Radio";
+import RadioGroup from "./components/core/radio/RadioGroup";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import AreaChart from "./components/extensions/charts/AreaChart";
@@ -148,6 +150,8 @@ export {
     PieChart,
     PinInput,
     RadarChart,
+    Radio,
+    RadioGroup,
     ScrollArea,
     SimpleGrid,
     Space,
