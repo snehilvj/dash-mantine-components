@@ -19,6 +19,7 @@ import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
 import NumberFormatter from "./components/core/NumberFormatter";
 import Paper from "./components/core/Paper";
+import Rating from "./components/core/Rating";
 import ScrollArea from "./components/core/ScrollArea";
 import SimpleGrid from "./components/core/SimpleGrid";
 import Space from "./components/core/Space";
@@ -152,6 +153,7 @@ export {
     RadarChart,
     Radio,
     RadioGroup,
+    Rating,
     ScrollArea,
     SimpleGrid,
     Space,
