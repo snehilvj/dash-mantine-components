@@ -47,6 +47,7 @@ import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
 import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
+import Chip from "./components/core/chip/Chip";
 import Grid from "./components/core/grid/Grid";
 import GridCol from "./components/core/grid/GridCol";
 import BackgroundImage from "./components/core/image/BackgroundImage";
@@ -68,6 +69,7 @@ import Notification from "./components/extensions/notifications/Notification";
 import NotificationProvider from "./components/extensions/notifications/NotificationProvider";
 import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
+// import ChipGroup from "./components/core/chip/ChipGroup";
 // import Timeline from "./components/core/timeline/Timeline";
 // import TimelineItem from "./components/core/timeline/TimelineItem";
 
@@ -103,6 +105,7 @@ export {
     Center,
     Checkbox,
     CheckboxGroup,
+    Chip,
     Code,
     CodeHighlight,
     CodeHighlightTabs,
