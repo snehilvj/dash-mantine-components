@@ -65,6 +65,8 @@ import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
+import RangeSlider from "./components/core/slider/RangeSlider";
+import Slider from "./components/core/slider/Slider";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import AreaChart from "./components/extensions/charts/AreaChart";
@@ -154,10 +156,12 @@ export {
     RadarChart,
     Radio,
     RadioGroup,
+    RangeSlider,
     Rating,
     ScrollArea,
     SegmentedControl,
     SimpleGrid,
+    Slider,
     Space,
     Sparkline,
     Spoiler,
