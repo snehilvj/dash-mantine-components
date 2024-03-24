@@ -58,6 +58,7 @@ import Image from "./components/core/image/Image";
 import JsonInput from "./components/core/input/JsonInput";
 import NumberInput from "./components/core/input/NumberInput";
 import PasswordInput from "./components/core/input/PasswordInput";
+import PinInput from "./components/core/input/PinInput";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Carousel from "./components/extensions/carousel/Carousel";
@@ -145,6 +146,7 @@ export {
     Paper,
     PasswordInput,
     PieChart,
+    PinInput,
     RadarChart,
     ScrollArea,
     SimpleGrid,
