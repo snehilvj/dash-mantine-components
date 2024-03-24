@@ -1,5 +1,6 @@
 import { MantineGradient, MantineSize } from "@mantine/core";
 import { BoxProps } from "./box";
+import { __BaseInputProps } from "./input";
 import { StylesApiProps } from "./styles";
 
 type TextTruncate = "end" | "start" | boolean;
@@ -19,4 +20,18 @@ export interface TextProps extends BoxProps, StylesApiProps {
     gradient?: MantineGradient;
     /** Shorthand for `component="span"`, `false` by default, default root element is `p` */
     span?: boolean;
+}
+
+export interface TextareaProps
+    extends BoxProps,
+        __BaseInputProps,
+        StylesApiProps {
+    /** Determines whether the textarea height should grow with its content, `false` by default */
+    autosize?: boolean;
+    /** Maximum rows for autosize textarea to grow, ignored if `autosize` prop is not set */
+    maxRows?: number;
+    /** Minimum rows of autosize textarea, ignored if `autosize` prop is not set */
+    minRows?: number;
+    /** Controls `resize` CSS property, `'none'` by default */
+    resize?: React.CSSProperties["resize"];
 }

@@ -14,6 +14,7 @@ import Flex from "./components/core/Flex";
 import Group from "./components/core/Group";
 import Highlight from "./components/core/Highlight";
 import Indicator from "./components/core/Indicator";
+import JsonInput from "./components/core/JsonInput";
 import Kbd from "./components/core/Kbd";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
@@ -126,6 +127,7 @@ export {
     Highlight,
     Image,
     Indicator,
+    JsonInput,
     Kbd,
     LineChart,
     List,
