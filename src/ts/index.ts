@@ -25,6 +25,7 @@ import Mark from "./components/core/Mark";
 import Modal from "./components/core/Modal";
 import NavLink from "./components/core/NavLink";
 import NumberFormatter from "./components/core/NumberFormatter";
+import Overlay from "./components/core/Overlay";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
 import Rating from "./components/core/Rating";
@@ -202,6 +203,7 @@ export {
     NotificationProvider,
     NumberFormatter,
     NumberInput,
+    Overlay,
     Pagination,
     Paper,
     PasswordInput,
