@@ -15,9 +15,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Container */
 const Container = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineContainer {...other}>{children}</MantineContainer>;
+    return <MantineContainer {...others}>{children}</MantineContainer>;
 };
 
 Container.defaultProps = {};

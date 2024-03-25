@@ -20,7 +20,7 @@ interface Props extends Omit<TextProps, "span">, DashBaseProps {
 
 /** Anchor */
 const Anchor = (props: Props) => {
-    const { href, target, refresh, children, setProps, ...other } = props;
+    const { href, target, refresh, children, setProps, ...others } = props;
 
     const sanitizedHref = useMemo(() => sanitizeUrl(href), [href]);
 
@@ -31,7 +31,7 @@ const Anchor = (props: Props) => {
             }
             href={sanitizedHref}
             target={target}
-            {...other}
+            {...others}
         >
             {children}
         </MantineAnchor>

@@ -14,7 +14,7 @@ const ColorPicker = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const [color, setColor] = useState(value);
@@ -27,7 +27,7 @@ const ColorPicker = (props: Props) => {
         setColor(value);
     }, [value]);
 
-    return <MantineColorPicker value={color} onChange={setColor} {...other} />;
+    return <MantineColorPicker value={color} onChange={setColor} {...others} />;
 };
 
 ColorPicker.defaultProps = {

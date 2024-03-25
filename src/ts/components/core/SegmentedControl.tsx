@@ -52,14 +52,14 @@ const SegmentedControl = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string) => {
         setProps({ value });
     };
 
-    return <MantineSegmentedControl onChange={onChange} {...other} />;
+    return <MantineSegmentedControl onChange={onChange} {...others} />;
 };
 
 SegmentedControl.defaultProps = {

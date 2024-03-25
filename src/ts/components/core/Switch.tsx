@@ -49,7 +49,7 @@ const Switch = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const updateProps = (checked: boolean) => {
@@ -59,7 +59,7 @@ const Switch = (props: Props) => {
     return (
         <MantineSwitch
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
-            {...other}
+            {...others}
         />
     );
 };

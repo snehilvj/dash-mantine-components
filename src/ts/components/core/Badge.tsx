@@ -35,9 +35,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Badge */
 const Badge = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineBadge {...other}>{children}</MantineBadge>;
+    return <MantineBadge {...others}>{children}</MantineBadge>;
 };
 
 Badge.defaultProps = {};

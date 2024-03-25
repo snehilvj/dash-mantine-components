@@ -49,7 +49,7 @@ const Tabs = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string) => {
@@ -57,7 +57,7 @@ const Tabs = (props: Props) => {
     };
 
     return (
-        <MantineTabs onChange={onChange} {...other}>
+        <MantineTabs onChange={onChange} {...others}>
             {children}
         </MantineTabs>
     );

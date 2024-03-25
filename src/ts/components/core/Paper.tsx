@@ -15,9 +15,9 @@ interface Props
 
 /** Paper */
 const Paper = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantinePaper {...other}>{children}</MantinePaper>;
+    return <MantinePaper {...others}>{children}</MantinePaper>;
 };
 
 Paper.defaultProps = {};

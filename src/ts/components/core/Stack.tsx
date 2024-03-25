@@ -17,9 +17,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Stack */
 const Stack = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineStack {...other}>{children}</MantineStack>;
+    return <MantineStack {...others}>{children}</MantineStack>;
 };
 
 Stack.defaultProps = {};

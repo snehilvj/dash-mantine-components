@@ -48,7 +48,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** Stepper */
 const Stepper = (props: Props) => {
-    const { setProps, active, children, ...other } = props;
+    const { setProps, active, children, ...others } = props;
 
     const [act, setAct] = useState(active);
 
@@ -57,7 +57,7 @@ const Stepper = (props: Props) => {
     }, [active]);
 
     return (
-        <MantineStepper active={act} {...other}>
+        <MantineStepper active={act} {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "StepperCompleted") {

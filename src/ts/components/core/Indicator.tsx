@@ -40,9 +40,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Indicator */
 const Indicator = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineIndicator {...other}>{children} </MantineIndicator>;
+    return <MantineIndicator {...others}>{children} </MantineIndicator>;
 };
 
 Indicator.defaultProps = {};

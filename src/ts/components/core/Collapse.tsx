@@ -18,9 +18,9 @@ interface Props extends BoxProps, DashBaseProps {
 
 /** Collapse */
 const Collapse = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineCollapse {...other} />;
+    return <MantineCollapse {...others} />;
 };
 
 Collapse.defaultProps = {};

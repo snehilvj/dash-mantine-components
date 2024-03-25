@@ -7,7 +7,7 @@ interface Props {
 
 /** StepperCompleted */
 const StepperCompleted = (props: Props) => {
-    const { children, ...other } = props;
+    const { children, ...others } = props;
 
     return <>{children}</>;
 };

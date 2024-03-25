@@ -25,9 +25,9 @@ interface Props extends DashBaseProps {
 
 /** NumberFormatter */
 const NumberFormatter = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineNumberFormatter {...other} />;
+    return <MantineNumberFormatter {...others} />;
 };
 
 NumberFormatter.defaultProps = {};

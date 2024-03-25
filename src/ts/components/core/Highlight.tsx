@@ -16,9 +16,9 @@ interface Props extends DashBaseProps, TextProps {
 
 /** Highlight */
 const Highlight = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineHighlight {...other}>{children}</MantineHighlight>;
+    return <MantineHighlight {...others}>{children}</MantineHighlight>;
 };
 
 Highlight.defaultProps = {};

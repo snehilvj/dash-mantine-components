@@ -22,7 +22,7 @@ const Textarea = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const [val, setVal] = useState(value);
@@ -38,7 +38,7 @@ const Textarea = (props: Props) => {
 
     return (
         <MantineTextarea
-            {...other}
+            {...others}
             value={val}
             wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}

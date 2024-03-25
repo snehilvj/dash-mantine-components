@@ -47,14 +47,14 @@ const Pagination = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: number) => {
         setProps({ value });
     };
 
-    return <MantinePagination {...other} onChange={onChange} />;
+    return <MantinePagination {...others} onChange={onChange} />;
 };
 
 Pagination.defaultProps = {

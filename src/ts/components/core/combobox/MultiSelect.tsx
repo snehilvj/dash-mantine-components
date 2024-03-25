@@ -43,7 +43,7 @@ interface Props
 
 /** MultiSelect */
 const MultiSelect = (props: Props) => {
-    const { setProps, data, searchValue, value, ...other } = props;
+    const { setProps, data, searchValue, value, ...others } = props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -77,7 +77,7 @@ const MultiSelect = (props: Props) => {
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
-            {...other}
+            {...others}
         />
     );
 };

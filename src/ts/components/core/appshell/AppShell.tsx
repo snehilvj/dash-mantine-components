@@ -43,9 +43,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShell */
 const AppShell = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineAppShell {...other}>{children}</MantineAppShell>;
+    return <MantineAppShell {...others}>{children}</MantineAppShell>;
 };
 
 AppShell.defaultProps = {};

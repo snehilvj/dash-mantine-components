@@ -21,9 +21,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Spoiler */
 const Spoiler = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
-    return <MantineSpoiler {...other}>{children}</MantineSpoiler>;
+    return <MantineSpoiler {...others}>{children}</MantineSpoiler>;
 };
 
 Spoiler.defaultProps = {};

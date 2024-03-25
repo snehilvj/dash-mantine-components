@@ -11,9 +11,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** VisuallyHidden */
 const VisuallyHidden = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineVisuallyHidden {...other}>{children}</MantineVisuallyHidden>;
+    return (
+        <MantineVisuallyHidden {...others}>{children}</MantineVisuallyHidden>
+    );
 };
 
 VisuallyHidden.defaultProps = {};

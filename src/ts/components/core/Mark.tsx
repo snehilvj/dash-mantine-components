@@ -13,9 +13,9 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 
 /** Mark */
 const Mark = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineMark {...other}>{children}</MantineMark>;
+    return <MantineMark {...others}>{children}</MantineMark>;
 };
 
 Mark.defaultProps = {};

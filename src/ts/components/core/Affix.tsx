@@ -15,9 +15,9 @@ interface Props
 
 /** Affix */
 const Affix = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineAffix {...other}>{children}</MantineAffix>;
+    return <MantineAffix {...others}>{children}</MantineAffix>;
 };
 
 Affix.defaultProps = {};

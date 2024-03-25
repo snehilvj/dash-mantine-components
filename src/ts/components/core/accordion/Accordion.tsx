@@ -49,7 +49,7 @@ const Accordion = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string | string[]) => {
@@ -57,7 +57,7 @@ const Accordion = (props: Props) => {
     };
 
     return (
-        <MantineAccordion onChange={onChange} {...other}>
+        <MantineAccordion onChange={onChange} {...others}>
             {children}
         </MantineAccordion>
     );

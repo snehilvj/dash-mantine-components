@@ -45,13 +45,13 @@ const Radio = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     return (
         <MantineRadio
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
-            {...other}
+            {...others}
         />
     );
 };

@@ -28,9 +28,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** ScrollArea */
 const ScrollArea = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
-    return <MantineScrollArea {...other}>{children}</MantineScrollArea>;
+    return <MantineScrollArea {...others}>{children}</MantineScrollArea>;
 };
 
 ScrollArea.defaultProps = {};

@@ -13,9 +13,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Kbd */
 const Kbd = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
-    return <MantineKbd {...other}>{children}</MantineKbd>;
+    return <MantineKbd {...others}>{children}</MantineKbd>;
 };
 
 Kbd.defaultProps = {};

@@ -19,11 +19,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** BackgroundImage  */
 const BackgroundImage = (props: Props) => {
-    const { setProps, children, src, ...other } = props;
+    const { setProps, children, src, ...others } = props;
     const sanitizedSrc = useMemo(() => sanitizeUrl(src), [src]);
 
     return (
-        <MantineBackgroundImage src={sanitizedSrc} {...other}>
+        <MantineBackgroundImage src={sanitizedSrc} {...others}>
             {children}
         </MantineBackgroundImage>
     );

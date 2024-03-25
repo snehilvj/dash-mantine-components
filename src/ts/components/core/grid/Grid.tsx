@@ -23,9 +23,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Grid */
 const Grid = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineGrid {...other}>{children}</MantineGrid>;
+    return <MantineGrid {...others}>{children}</MantineGrid>;
 };
 
 Grid.defaultProps = {};

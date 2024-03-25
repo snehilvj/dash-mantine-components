@@ -23,9 +23,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Divider */
 const Divider = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineDivider {...other} />;
+    return <MantineDivider {...others} />;
 };
 
 Divider.defaultProps = {};

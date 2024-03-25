@@ -31,9 +31,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** NotificationProvider */
 const NotificationProvider = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <Notifications {...other} />;
+    return <Notifications {...others} />;
 };
 
 NotificationProvider.defaultProps = {};

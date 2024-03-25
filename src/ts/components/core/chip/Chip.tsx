@@ -48,7 +48,7 @@ const Chip = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (checked: boolean) => {
@@ -56,7 +56,7 @@ const Chip = (props: Props) => {
     };
 
     return (
-        <MantineChip onChange={onChange} {...other}>
+        <MantineChip onChange={onChange} {...others}>
             {children}
         </MantineChip>
     );

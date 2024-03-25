@@ -39,9 +39,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CodeHighlightTabs */
 const CodeHighlightTabs = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineCodeHighlightTabs {...other} />;
+    return <MantineCodeHighlightTabs {...others} />;
 };
 
 CodeHighlightTabs.defaultProps = {};

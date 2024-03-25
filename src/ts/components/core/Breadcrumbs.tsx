@@ -18,9 +18,9 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Breadcrumbs */
 const Breadcrumbs = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineBreadcrumbs {...other}>{children}</MantineBreadcrumbs>;
+    return <MantineBreadcrumbs {...others}>{children}</MantineBreadcrumbs>;
 };
 
 Breadcrumbs.defaultProps = {};

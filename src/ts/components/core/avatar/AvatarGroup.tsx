@@ -13,9 +13,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AvatarGroup */
 const AvatarGroup = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Avatar.Group {...other}>{children}</Avatar.Group>;
+    return <Avatar.Group {...others}>{children}</Avatar.Group>;
 };
 
 AvatarGroup.defaultProps = {};

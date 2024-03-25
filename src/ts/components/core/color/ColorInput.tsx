@@ -14,7 +14,7 @@ const ColorInput = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const [color, setColor] = useState(value);
@@ -27,7 +27,7 @@ const ColorInput = (props: Props) => {
         setColor(value);
     }, [value]);
 
-    return <MantineColorInput value={color} onChange={setColor} {...other} />;
+    return <MantineColorInput value={color} onChange={setColor} {...others} />;
 };
 
 ColorInput.defaultProps = {

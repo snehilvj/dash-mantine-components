@@ -67,12 +67,12 @@ interface Props
 
 /** PinInput */
 const PinInput = (props: Props) => {
-    const { setProps, value, ...other } = props;
+    const { setProps, value, ...others } = props;
 
     return (
         <MantinePinInput
             onComplete={(value) => setProps({ value })}
-            {...other}
+            {...others}
         />
     );
 };

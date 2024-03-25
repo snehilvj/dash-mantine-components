@@ -10,9 +10,9 @@ interface Props extends TextProps, DashBaseProps {
 
 /** Text */
 const Text = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineText {...other}>{children}</MantineText>;
+    return <MantineText {...others}>{children}</MantineText>;
 };
 
 Text.defaultProps = {};

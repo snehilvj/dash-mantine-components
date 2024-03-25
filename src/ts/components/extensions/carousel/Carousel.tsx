@@ -56,11 +56,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineCarousel {...other}>{children} </MantineCarousel>;
+    return <MantineCarousel {...others}>{children} </MantineCarousel>;
 };
 
-Carousel.defaultPtops = {};
+Carousel.defaultProps = {};
 
 export default Carousel;
