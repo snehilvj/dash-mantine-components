@@ -1,4 +1,4 @@
-import { MantineRadius, Timeline } from "@mantine/core";
+import { MantineRadius } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
@@ -21,7 +21,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 const TimelineItem = (props: Props) => {
     const { children, setProps, ...others } = props;
 
-    return <Timeline.Item {...others}>{children}</Timeline.Item>;
+    return <>{children}</>;
 };
 
 TimelineItem.defaultProps = {};
