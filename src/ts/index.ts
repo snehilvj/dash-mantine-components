@@ -17,6 +17,7 @@ import Group from "./components/core/Group";
 import Highlight from "./components/core/Highlight";
 import Indicator from "./components/core/Indicator";
 import Kbd from "./components/core/Kbd";
+import Loader from "./components/core/Loader";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
 import NavLink from "./components/core/NavLink";
@@ -166,6 +167,7 @@ export {
     LineChart,
     List,
     ListItem,
+    Loader,
     MantineProvider,
     Mark,
     MultiSelect,
