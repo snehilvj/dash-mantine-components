@@ -3,11 +3,10 @@ import {
     Divider as MantineDivider,
     MantineSize,
 } from "@mantine/core";
-import React from "react";
-
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
+import React from "react";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.colors` or any valid CSS color value, by default value depends on color scheme */
