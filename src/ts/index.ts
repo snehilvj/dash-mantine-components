@@ -4,6 +4,7 @@ import AspectRatio from "./components/core/AspectRatio";
 import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
 import Box from "./components/core/Box";
+import Breadcrumbs from "./components/core/Breadcrumbs";
 import Center from "./components/core/Center";
 import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
@@ -121,6 +122,7 @@ export {
     BarChart,
     Blockquote,
     Box,
+    Breadcrumbs,
     Button,
     ButtonGroup,
     Card,
