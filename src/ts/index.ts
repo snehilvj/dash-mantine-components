@@ -25,6 +25,7 @@ import NumberFormatter from "./components/core/NumberFormatter";
 import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
 import Rating from "./components/core/Rating";
+import RingProgress from "./components/core/RingProgress";
 import ScrollArea from "./components/core/ScrollArea";
 import SegmentedControl from "./components/core/SegmentedControl";
 import SimpleGrid from "./components/core/SimpleGrid";
@@ -77,6 +78,10 @@ import PinInput from "./components/core/input/PinInput";
 import TextInput from "./components/core/input/TextInput";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
+import Progress from "./components/core/progress/Progress";
+import ProgressLabel from "./components/core/progress/ProgressLabel";
+import ProgressRoot from "./components/core/progress/ProgressRoot";
+import ProgressSection from "./components/core/progress/ProgressSection";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RangeSlider from "./components/core/slider/RangeSlider";
@@ -183,11 +188,16 @@ export {
     PasswordInput,
     PieChart,
     PinInput,
+    Progress,
+    ProgressLabel,
+    ProgressRoot,
+    ProgressSection,
     RadarChart,
     Radio,
     RadioGroup,
     RangeSlider,
     Rating,
+    RingProgress,
     ScrollArea,
     SegmentedControl,
     Select,
