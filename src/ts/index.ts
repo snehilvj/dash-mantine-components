@@ -22,6 +22,7 @@ import Loader from "./components/core/Loader";
 import LoadingOverlay from "./components/core/LoadingOverlay";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
+import Modal from "./components/core/Modal";
 import NavLink from "./components/core/NavLink";
 import NumberFormatter from "./components/core/NumberFormatter";
 import Pagination from "./components/core/Pagination";
@@ -192,6 +193,7 @@ export {
     MenuItem,
     MenuLabel,
     MenuTarget,
+    Modal,
     MultiSelect,
     NavLink,
     NavigationProgress,
