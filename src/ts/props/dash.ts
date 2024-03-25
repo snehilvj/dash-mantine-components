@@ -7,6 +7,8 @@ export interface DashBaseProps {
     "data-*"?: string;
     /** Wild card aria attributes */
     "aria-*"?: string;
+    /** tab-index */
+    tabIndex?: number;
 }
 
 export interface PersistenceProps {
