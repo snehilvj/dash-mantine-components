@@ -1,4 +1,5 @@
 import Affix from "./components/core/Affix";
+import Alert from "./components/core/Alert";
 import Anchor from "./components/core/Anchor";
 import AspectRatio from "./components/core/AspectRatio";
 import Badge from "./components/core/Badge";
@@ -113,6 +114,7 @@ export {
     ActionIcon,
     ActionIconGroup,
     Affix,
+    Alert,
     Anchor,
     AppShell,
     AppShellAside,

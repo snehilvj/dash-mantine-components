@@ -52,7 +52,7 @@ const Autocomplete = (props: Props) => {
             data={options}
             onChange={setAutocomplete}
             value={autocomplete}
-            {....others}
+            {...others}
         />
     );
 };
