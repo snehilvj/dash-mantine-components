@@ -63,6 +63,7 @@ import JsonInput from "./components/core/input/JsonInput";
 import NumberInput from "./components/core/input/NumberInput";
 import PasswordInput from "./components/core/input/PasswordInput";
 import PinInput from "./components/core/input/PinInput";
+import TextInput from "./components/core/input/TextInput";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
 import Radio from "./components/core/radio/Radio";
@@ -171,6 +172,7 @@ export {
     Switch,
     Table,
     Text,
+    TextInput,
     Textarea,
     ThemeIcon,
     Title,
