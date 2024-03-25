@@ -82,6 +82,10 @@ import Slider from "./components/core/slider/Slider";
 import Stepper from "./components/core/stepper/Stepper";
 import StepperCompleted from "./components/core/stepper/StepperCompleted";
 import StepperStep from "./components/core/stepper/StepperStep";
+import Tabs from "./components/core/tabs/Tabs";
+import TabsList from "./components/core/tabs/TabsList";
+import TabsPanel from "./components/core/tabs/TabsPanel";
+import TabsTab from "./components/core/tabs/TabsTab";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Carousel from "./components/extensions/carousel/Carousel";
@@ -194,6 +198,10 @@ export {
     StepperStep,
     Switch,
     Table,
+    Tabs,
+    TabsList,
+    TabsPanel,
+    TabsTab,
     Text,
     TextInput,
     Textarea,
