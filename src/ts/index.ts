@@ -50,6 +50,7 @@ import ActionIcon from "./components/core/button/ActionIcon";
 import ActionIconGroup from "./components/core/button/ActionIconGroup";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
+import UnstyledButton from "./components/core/button/UnstyledButton";
 import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
 import Checkbox from "./components/core/checkbox/Checkbox";
@@ -186,5 +187,6 @@ export {
     Textarea,
     ThemeIcon,
     Title,
+    UnstyledButton,
     VisuallyHidden,
 };
