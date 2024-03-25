@@ -35,7 +35,7 @@ interface Props extends ModalBaseProps, StylesApiProps, DashBaseProps {
 
 /** Modal */
 const Modal = (props: Props) => {
-    const { children, setProps, opened, ...other } = props;
+    const { children, setProps, opened, ...others } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const Modal = (props: Props) => {
     };
 
     return (
-        <MantineModal opened={open} onClose={onClose} {...other}>
+        <MantineModal opened={open} onClose={onClose} {...others}>
             {children}
         </MantineModal>
     );
