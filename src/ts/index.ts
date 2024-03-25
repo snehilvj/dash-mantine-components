@@ -18,6 +18,7 @@ import Indicator from "./components/core/Indicator";
 import Kbd from "./components/core/Kbd";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
+import NavLink from "./components/core/NavLink";
 import NumberFormatter from "./components/core/NumberFormatter";
 import Paper from "./components/core/Paper";
 import Rating from "./components/core/Rating";
@@ -158,6 +159,7 @@ export {
     MantineProvider,
     Mark,
     MultiSelect,
+    NavLink,
     NavigationProgress,
     NavigationProgressProvider,
     Notification,
