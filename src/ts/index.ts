@@ -74,6 +74,9 @@ import MultiSelect from "./components/core/combobox/MultiSelect";
 import Select from "./components/core/combobox/Select";
 import Grid from "./components/core/grid/Grid";
 import GridCol from "./components/core/grid/GridCol";
+import HoverCard from "./components/core/hovercard/HoverCard";
+import HoverCardDropdown from "./components/core/hovercard/HoverCardDropdown";
+import HoverCardTarget from "./components/core/hovercard/HoverCardTarget";
 import BackgroundImage from "./components/core/image/BackgroundImage";
 import Image from "./components/core/image/Image";
 import JsonInput from "./components/core/input/JsonInput";
@@ -182,6 +185,9 @@ export {
     GridCol,
     Group,
     Highlight,
+    HoverCard,
+    HoverCardDropdown,
+    HoverCardTarget,
     Image,
     Indicator,
     JsonInput,
