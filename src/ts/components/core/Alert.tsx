@@ -33,7 +33,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Alert */
 const Alert = (props: Props) => {
-    const { children, setProps, duration, hide, ...other } = props;
+    const { children, setProps, duration, hide, ...others } = props;
     const ref = useRef(null);
 
     useEffect(() => {
@@ -52,7 +52,7 @@ const Alert = (props: Props) => {
     };
 
     return hide ? null : (
-        <MantineAlert {...other} onClose={onClose}>
+        <MantineAlert {...others} onClose={onClose}>
             {children}
         </MantineAlert>
     );
