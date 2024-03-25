@@ -20,6 +20,7 @@ import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
 import NavLink from "./components/core/NavLink";
 import NumberFormatter from "./components/core/NumberFormatter";
+import Pagination from "./components/core/Pagination";
 import Paper from "./components/core/Paper";
 import Rating from "./components/core/Rating";
 import ScrollArea from "./components/core/ScrollArea";
@@ -166,6 +167,7 @@ export {
     NotificationProvider,
     NumberFormatter,
     NumberInput,
+    Pagination,
     Paper,
     PasswordInput,
     PieChart,
