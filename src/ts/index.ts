@@ -19,6 +19,7 @@ import Highlight from "./components/core/Highlight";
 import Indicator from "./components/core/Indicator";
 import Kbd from "./components/core/Kbd";
 import Loader from "./components/core/Loader";
+import LoadingOverlay from "./components/core/LoadingOverlay";
 import MantineProvider from "./components/core/MantineProvider";
 import Mark from "./components/core/Mark";
 import NavLink from "./components/core/NavLink";
@@ -176,6 +177,7 @@ export {
     List,
     ListItem,
     Loader,
+    LoadingOverlay,
     MantineProvider,
     Mark,
     MultiSelect,
