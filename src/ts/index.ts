@@ -46,6 +46,8 @@ import AppShellNavbar from "./components/core/appshell/AppShellNavbar";
 import AppShellSection from "./components/core/appshell/AppShellSection";
 import Avatar from "./components/core/avatar/Avatar";
 import AvatarGroup from "./components/core/avatar/AvatarGroup";
+import ActionIcon from "./components/core/button/ActionIcon";
+import ActionIconGroup from "./components/core/button/ActionIconGroup";
 import Button from "./components/core/button/Button";
 import ButtonGroup from "./components/core/button/ButtonGroup";
 import Card from "./components/core/card/Card";
@@ -97,6 +99,8 @@ export {
     AccordionControl,
     AccordionItem,
     AccordionPanel,
+    ActionIcon,
+    ActionIconGroup,
     Affix,
     Anchor,
     AppShell,
