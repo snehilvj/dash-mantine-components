@@ -106,6 +106,7 @@ import TabsPanel from "./components/core/tabs/TabsPanel";
 import TabsTab from "./components/core/tabs/TabsTab";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
+import Tooltip from "./components/core/tooltip/Tooltip";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import AreaChart from "./components/extensions/charts/AreaChart";
@@ -245,6 +246,7 @@ export {
     Timeline,
     TimelineItem,
     Title,
+    Tooltip,
     UnstyledButton,
     VisuallyHidden,
 };
