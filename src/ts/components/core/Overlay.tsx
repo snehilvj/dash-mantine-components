@@ -7,9 +7,9 @@ interface Props extends OverlayProps, DashBaseProps {}
 
 /** Overlay */
 const Overlay = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineOverlay {...other} />;
+    return <MantineOverlay {...others} />;
 };
 
 Overlay.defaultProps = {};

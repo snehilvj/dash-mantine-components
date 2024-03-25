@@ -38,7 +38,7 @@ const MenuItem = (props: Props) => {
         refresh,
         n_clicks,
         setProps,
-        ...other
+        ...others
     } = props;
 
     const increment = () => {
@@ -58,14 +58,14 @@ const MenuItem = (props: Props) => {
                 }
                 href={href}
                 target={target}
-                {...other}
+                {...others}
             >
                 {children}
             </Menu.Item>
         );
     } else {
         return (
-            <Menu.Item onClick={increment} {...other}>
+            <Menu.Item onClick={increment} {...others}>
                 {children}
             </Menu.Item>
         );

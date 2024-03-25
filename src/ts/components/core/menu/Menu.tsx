@@ -42,11 +42,11 @@ interface Props extends __PopoverProps, StylesApiProps {
 
 /** Menu */
 const Menu = (props: Props) => {
-    const { children, setProps, boxWrapperProps, ...other } = props;
+    const { children, setProps, boxWrapperProps, ...others } = props;
     const boxProps = { w: "fit-content", ...boxWrapperProps };
 
     return (
-        <MantineMenu {...other}>
+        <MantineMenu {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "MenuTarget") {
