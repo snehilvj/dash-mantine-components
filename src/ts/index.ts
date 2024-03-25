@@ -79,6 +79,11 @@ import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RangeSlider from "./components/core/slider/RangeSlider";
 import Slider from "./components/core/slider/Slider";
+import Stepper from "./components/core/stepper/Stepper";
+import StepperCompleted from "./components/core/stepper/StepperCompleted";
+import StepperStep from "./components/core/stepper/StepperStep";
+import Timeline from "./components/core/timeline/Timeline";
+import TimelineItem from "./components/core/timeline/TimelineItem";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import AreaChart from "./components/extensions/charts/AreaChart";
@@ -95,8 +100,6 @@ import NotificationProvider from "./components/extensions/notifications/Notifica
 import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 // import ChipGroup from "./components/core/chip/ChipGroup";
-// import Timeline from "./components/core/timeline/Timeline";
-// import TimelineItem from "./components/core/timeline/TimelineItem";
 
 export {
     Accordion,
@@ -186,12 +189,17 @@ export {
     Sparkline,
     Spoiler,
     Stack,
+    Stepper,
+    StepperCompleted,
+    StepperStep,
     Switch,
     Table,
     Text,
     TextInput,
     Textarea,
     ThemeIcon,
+    Timeline,
+    TimelineItem,
     Title,
     UnstyledButton,
     VisuallyHidden,
