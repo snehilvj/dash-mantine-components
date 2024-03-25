@@ -11,6 +11,7 @@ import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
 import Container from "./components/core/Container";
 import Divider from "./components/core/Divider";
+import Drawer from "./components/core/Drawer";
 import Fieldset from "./components/core/Fieldset";
 import Flex from "./components/core/Flex";
 import Group from "./components/core/Group";
@@ -160,6 +161,7 @@ export {
     Container,
     Divider,
     DonutChart,
+    Drawer,
     Fieldset,
     Flex,
     Grid,
