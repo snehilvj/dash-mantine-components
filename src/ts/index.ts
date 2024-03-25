@@ -26,6 +26,7 @@ import SimpleGrid from "./components/core/SimpleGrid";
 import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
+import Switch from "./components/core/Switch";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
 import ThemeIcon from "./components/core/ThemeIcon";
@@ -166,6 +167,7 @@ export {
     Sparkline,
     Spoiler,
     Stack,
+    Switch,
     Table,
     Text,
     ThemeIcon,

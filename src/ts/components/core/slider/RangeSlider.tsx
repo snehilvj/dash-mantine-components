@@ -33,8 +33,6 @@ interface Props
     precision?: number;
     /** Controlled component value */
     value?: RangeSliderValue;
-    /** Uncontrolled component default value */
-    defaultValue?: RangeSliderValue;
     /** Hidden input name, use with uncontrolled component */
     name?: string;
     /** Marks displayed on the track */
@@ -43,7 +41,7 @@ interface Props
         label?: React.ReactNode;
     }[];
     /** Function to generate label or any react node to render instead, set to null to disable label */
-    label?: React.ReactNode | ((value: number) => React.ReactNode);
+    label?: React.ReactNode;
     /** Props passed down to the `Transition` component, `{ transition: 'fade', duration: 0 }` by default */
     labelTransitionProps?: TransitionOverride;
     /** Determines whether the label should be visible when the slider is not being dragged or hovered, `false` by default */
