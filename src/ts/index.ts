@@ -89,6 +89,9 @@ import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
+import Popover from "./components/core/popover/Popover";
+import PopoverDropdown from "./components/core/popover/PopoverDropdown";
+import PopoverTarget from "./components/core/popover/PopoverTarget";
 import Progress from "./components/core/progress/Progress";
 import ProgressLabel from "./components/core/progress/ProgressLabel";
 import ProgressRoot from "./components/core/progress/ProgressRoot";
@@ -211,6 +214,9 @@ export {
     PasswordInput,
     PieChart,
     PinInput,
+    Popover,
+    PopoverDropdown,
+    PopoverTarget,
     Progress,
     ProgressLabel,
     ProgressRoot,
