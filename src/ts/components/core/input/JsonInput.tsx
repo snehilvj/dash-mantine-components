@@ -19,7 +19,7 @@ interface Props extends TextareaProps, DashBaseProps, PersistenceProps {
 
 /** JsonInput */
 const JsonInput = (props: Props) => {
-    const { setProps, value, n_submit, debounce, ...other } = props;
+    const { setProps, value, n_submit, debounce, ...others } = props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -44,7 +44,7 @@ const JsonInput = (props: Props) => {
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}
-            {...other}
+            {...others}
         />
     );
 };

@@ -11,11 +11,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CarouselSlide */
 const CarouselSlide = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Carousel.Slide {...other}>{children} </Carousel.Slide>;
+    return <Carousel.Slide {...others}>{children} </Carousel.Slide>;
 };
 
-CarouselSlide.defaultPtops = {};
+CarouselSlide.defaultProps = {};
 
 export default CarouselSlide;

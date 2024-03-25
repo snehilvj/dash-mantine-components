@@ -15,9 +15,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShellNavbar */
 const AppShellNavbar = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <AppShell.Navbar {...other}>{children}</AppShell.Navbar>;
+    return <AppShell.Navbar {...others}>{children}</AppShell.Navbar>;
 };
 
 AppShellNavbar.defaultProps = {};

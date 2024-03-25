@@ -41,7 +41,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** StepperStep */
 const StepperStep = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
     return <>{children}</>;
 };

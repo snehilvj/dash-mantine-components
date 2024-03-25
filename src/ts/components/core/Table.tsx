@@ -44,9 +44,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Table */
 const Table = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineTable {...other} />;
+    return <MantineTable {...others} />;
 };
 
 Table.defaultProps = {};

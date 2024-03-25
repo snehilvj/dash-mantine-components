@@ -13,9 +13,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AspectRatio */
 const AspectRatio = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineAspectRatio {...other}>{children}</MantineAspectRatio>;
+    return <MantineAspectRatio {...others}>{children}</MantineAspectRatio>;
 };
 
 AspectRatio.defaultProps = {};

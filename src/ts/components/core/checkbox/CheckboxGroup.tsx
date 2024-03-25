@@ -31,7 +31,7 @@ const CheckboxGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string[]) => {
@@ -39,7 +39,7 @@ const CheckboxGroup = (props: Props) => {
     };
 
     return (
-        <Checkbox.Group onChange={onChange} {...other}>
+        <Checkbox.Group onChange={onChange} {...others}>
             {children}
         </Checkbox.Group>
     );

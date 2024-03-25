@@ -19,9 +19,9 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** Title */
 const Title = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineTitle {...other}>{children}</MantineTitle>;
+    return <MantineTitle {...others}>{children}</MantineTitle>;
 };
 
 Title.defaultProps = {};

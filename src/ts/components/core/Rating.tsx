@@ -38,7 +38,7 @@ interface Props
 
 /** Rating */
 const Rating = (props: Props) => {
-    const { setProps, value, ...other } = props;
+    const { setProps, value, ...others } = props;
 
     const [val, setVal] = useState(value);
 
@@ -50,7 +50,7 @@ const Rating = (props: Props) => {
         setVal(value);
     }, [value]);
 
-    return <MantineRating value={val} onChange={setVal} {...other} />;
+    return <MantineRating value={val} onChange={setVal} {...others} />;
 };
 
 Rating.defaultProps = {

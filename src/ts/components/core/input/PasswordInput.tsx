@@ -26,7 +26,7 @@ interface Props
 
 /** PasswordInput */
 const PasswordInput = (props: Props) => {
-    const { setProps, value, n_submit, debounce, ...other } = props;
+    const { setProps, value, n_submit, debounce, ...others } = props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -51,7 +51,7 @@ const PasswordInput = (props: Props) => {
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
             onKeyDown={handleKeyDown}
-            {...other}
+            {...others}
         />
     );
 };

@@ -15,9 +15,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShellAside */
 const AppShellAside = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <AppShell.Aside {...other}>{children}</AppShell.Aside>;
+    return <AppShell.Aside {...others}>{children}</AppShell.Aside>;
 };
 
 AppShellAside.defaultProps = {};

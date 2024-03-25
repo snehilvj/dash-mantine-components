@@ -13,9 +13,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AccordionItem */
 const AccordionItem = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Accordion.Item {...other}>{children}</Accordion.Item>;
+    return <Accordion.Item {...others}>{children}</Accordion.Item>;
 };
 
 AccordionItem.defaultProps = {};

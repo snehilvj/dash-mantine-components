@@ -56,7 +56,7 @@ const NavLink = (props: Props) => {
         n_clicks,
         children,
         setProps,
-        ...other
+        ...others
     } = props;
 
     const onChange = (state: boolean) => {
@@ -82,7 +82,7 @@ const NavLink = (props: Props) => {
                 target={target}
                 onChange={onChange}
                 disabled={disabled}
-                {...other}
+                {...others}
             >
                 {children}
             </MantineNavLink>
@@ -93,7 +93,7 @@ const NavLink = (props: Props) => {
                 disabled={disabled}
                 onChange={onChange}
                 onClick={increment}
-                {...other}
+                {...others}
             >
                 {children}
             </MantineNavLink>

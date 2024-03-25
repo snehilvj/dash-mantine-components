@@ -18,9 +18,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** GridCol */
 const GridCol = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Grid.Col {...other}>{children}</Grid.Col>;
+    return <Grid.Col {...others}>{children}</Grid.Col>;
 };
 
 GridCol.defaultProps = {};

@@ -23,9 +23,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Group */
 const Group = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineGroup {...other}>{children}</MantineGroup>;
+    return <MantineGroup {...others}>{children}</MantineGroup>;
 };
 
 Group.defaultProps = {};

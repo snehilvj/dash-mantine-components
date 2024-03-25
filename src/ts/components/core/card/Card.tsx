@@ -24,9 +24,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Card */
 const Card = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineCard {...other}>{children}</MantineCard>;
+    return <MantineCard {...others}>{children}</MantineCard>;
 };
 
 Card.defaultProps = {};

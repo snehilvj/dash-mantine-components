@@ -36,7 +36,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** ActionIcon */
 const ActionIcon = (props: Props) => {
-    const { children, setProps, disabled, n_clicks, ...other } = props;
+    const { children, setProps, disabled, n_clicks, ...others } = props;
 
     const increment = () => {
         if (!disabled) {
@@ -47,7 +47,7 @@ const ActionIcon = (props: Props) => {
     };
 
     return (
-        <MantineActionIcon disabled={disabled} onClick={increment} {...other}>
+        <MantineActionIcon disabled={disabled} onClick={increment} {...others}>
             {children}
         </MantineActionIcon>
     );

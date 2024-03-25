@@ -64,7 +64,7 @@ interface Props
 
 /** NumberInput */
 const NumberInput = (props: Props) => {
-    const { setProps, value, n_submit, debounce, ...other } = props;
+    const { setProps, value, n_submit, debounce, ...others } = props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -89,7 +89,7 @@ const NumberInput = (props: Props) => {
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}
-            {...other}
+            {...others}
         />
     );
 };

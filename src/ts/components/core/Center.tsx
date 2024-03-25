@@ -11,9 +11,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Center */
 const Center = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineCenter {...other}>{children}</MantineCenter>;
+    return <MantineCenter {...others}>{children}</MantineCenter>;
 };
 
 Center.defaultProps = {};

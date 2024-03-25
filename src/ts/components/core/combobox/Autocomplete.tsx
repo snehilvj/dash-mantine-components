@@ -25,7 +25,7 @@ interface Props
 
 /** Autocomplete */
 const Autocomplete = (props: Props) => {
-    const { setProps, data, value, ...other } = props;
+    const { setProps, data, value, ...others } = props;
 
     const [autocomplete, setAutocomplete] = useState(value);
     const [options, setOptions] = useState(data);
@@ -52,7 +52,7 @@ const Autocomplete = (props: Props) => {
             data={options}
             onChange={setAutocomplete}
             value={autocomplete}
-            {...other}
+            {....others}
         />
     );
 };

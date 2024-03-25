@@ -26,9 +26,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Blockquote */
 const Blockquote = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineBlockquote {...other}>{children}</MantineBlockquote>;
+    return <MantineBlockquote {...others}>{children}</MantineBlockquote>;
 };
 
 Blockquote.defaultProps = {};

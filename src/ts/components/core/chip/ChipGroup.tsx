@@ -18,7 +18,7 @@ const ChipGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const [val, setVal] = useState(value);
@@ -33,7 +33,7 @@ const ChipGroup = (props: Props) => {
     // }, [value]);
 
     return (
-        <Chip.Group multiple value={val} onChange={setVal} {...other}>
+        <Chip.Group multiple value={val} onChange={setVal} {...others}>
             {children}
         </Chip.Group>
     );

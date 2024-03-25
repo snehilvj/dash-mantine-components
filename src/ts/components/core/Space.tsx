@@ -10,9 +10,9 @@ interface Props extends BoxProps, DashBaseProps {
 
 /** Space */
 const Space = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineSpace {...other}>{children}</MantineSpace>;
+    return <MantineSpace {...others}>{children}</MantineSpace>;
 };
 
 Space.defaultProps = {};

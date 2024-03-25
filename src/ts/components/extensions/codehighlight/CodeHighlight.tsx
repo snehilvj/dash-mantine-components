@@ -21,9 +21,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CodeHighlight */
 const CodeHighlight = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineCodeHighlight {...other} />;
+    return <MantineCodeHighlight {...others} />;
 };
 
 CodeHighlight.defaultProps = {};

@@ -27,7 +27,7 @@ const RadioGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string) => {
@@ -35,7 +35,7 @@ const RadioGroup = (props: Props) => {
     };
 
     return (
-        <Radio.Group onChange={onChange} value={value} {...other}>
+        <Radio.Group onChange={onChange} value={value} {...others}>
             {children}
         </Radio.Group>
     );

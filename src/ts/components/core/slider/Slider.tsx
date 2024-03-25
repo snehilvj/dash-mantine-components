@@ -70,7 +70,7 @@ const Slider = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const [val, setVal] = useState(value);
@@ -87,7 +87,7 @@ const Slider = (props: Props) => {
 
     return (
         <MantineSlider
-            {...other}
+            {...others}
             value={val}
             onChange={setVal}
             onChangeEnd={(value) => {

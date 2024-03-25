@@ -15,9 +15,9 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CardSection */
 const CardSection = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Card.Section {...other}>{children}</Card.Section>;
+    return <Card.Section {...others}>{children}</Card.Section>;
 };
 
 CardSection.defaultProps = {};

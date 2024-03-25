@@ -25,9 +25,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Flex */
 const Flex = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineFlex {...other}>{children}</MantineFlex>;
+    return <MantineFlex {...others}>{children}</MantineFlex>;
 };
 
 Flex.defaultProps = {};

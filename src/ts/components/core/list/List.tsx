@@ -29,9 +29,9 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 
 /** List */
 const List = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
-    return <MantineList {...other}>{children}</MantineList>;
+    return <MantineList {...others}>{children}</MantineList>;
 };
 
 List.defaultProps = {};

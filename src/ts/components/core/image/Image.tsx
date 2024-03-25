@@ -20,10 +20,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Image  */
 const Image = (props: Props) => {
-    const { setProps, src, ...other } = props;
+    const { setProps, src, ...others } = props;
     const sanitizedSrc = useMemo(() => sanitizeUrl(src), [src]);
 
-    return <MantineImage src={sanitizedSrc} {...other} />;
+    return <MantineImage src={sanitizedSrc} {...others} />;
 };
 
 Image.defaultProps = {};

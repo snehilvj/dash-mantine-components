@@ -34,11 +34,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Avatar */
 const Avatar = (props: Props) => {
-    const { children, src, setProps, ...other } = props;
+    const { children, src, setProps, ...others } = props;
     const sanitizedSrc = useMemo(() => sanitizeUrl(src), [src]);
 
     return (
-        <MantineAvatar src={sanitizedSrc} {...other}>
+        <MantineAvatar src={sanitizedSrc} {...others}>
             {children}
         </MantineAvatar>
     );

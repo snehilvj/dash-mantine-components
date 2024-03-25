@@ -15,9 +15,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShellFooter */
 const AppShellFooter = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <AppShell.Footer {...other}>{children}</AppShell.Footer>;
+    return <AppShell.Footer {...others}>{children}</AppShell.Footer>;
 };
 
 AppShellFooter.defaultProps = {};
