@@ -55,6 +55,8 @@ import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
 import Chip from "./components/core/chip/Chip";
 import ColorInput from "./components/core/color/ColorInput";
 import ColorPicker from "./components/core/color/ColorPicker";
+import MultiSelect from "./components/core/combobox/MultiSelect";
+import Select from "./components/core/combobox/Select";
 import Grid from "./components/core/grid/Grid";
 import GridCol from "./components/core/grid/GridCol";
 import BackgroundImage from "./components/core/image/BackgroundImage";
@@ -146,6 +148,7 @@ export {
     ListItem,
     MantineProvider,
     Mark,
+    MultiSelect,
     NavigationProgress,
     NavigationProgressProvider,
     Notification,
@@ -163,6 +166,7 @@ export {
     Rating,
     ScrollArea,
     SegmentedControl,
+    Select,
     SimpleGrid,
     Slider,
     Space,
