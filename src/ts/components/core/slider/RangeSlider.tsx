@@ -3,7 +3,6 @@ import {
     MantineRadius,
     RangeSlider as MantineRangeSlider,
     MantineSize,
-    RangeSliderValue,
     TransitionOverride,
 } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
@@ -32,7 +31,7 @@ interface Props
     /** Number of significant digits after the decimal point */
     precision?: number;
     /** Controlled component value */
-    value?: RangeSliderValue;
+    value?: [number, number];
     /** Hidden input name, use with uncontrolled component */
     name?: string;
     /** Marks displayed on the track */
