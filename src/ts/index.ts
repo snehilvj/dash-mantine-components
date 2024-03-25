@@ -29,6 +29,7 @@ import RingProgress from "./components/core/RingProgress";
 import ScrollArea from "./components/core/ScrollArea";
 import SegmentedControl from "./components/core/SegmentedControl";
 import SimpleGrid from "./components/core/SimpleGrid";
+import Skeleton from "./components/core/Skeleton";
 import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
@@ -202,6 +203,7 @@ export {
     SegmentedControl,
     Select,
     SimpleGrid,
+    Skeleton,
     Slider,
     Space,
     Sparkline,
