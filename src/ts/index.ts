@@ -29,6 +29,7 @@ import Stack from "./components/core/Stack";
 import Switch from "./components/core/Switch";
 import Table from "./components/core/Table";
 import Text from "./components/core/Text";
+import Textarea from "./components/core/Textarea";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Title from "./components/core/Title";
 import VisuallyHidden from "./components/core/VisuallyHidden";
@@ -170,6 +171,7 @@ export {
     Switch,
     Table,
     Text,
+    Textarea,
     ThemeIcon,
     Title,
     VisuallyHidden,
