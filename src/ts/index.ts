@@ -55,6 +55,7 @@ import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
 import Chip from "./components/core/chip/Chip";
 import ColorInput from "./components/core/color/ColorInput";
 import ColorPicker from "./components/core/color/ColorPicker";
+import Autocomplete from "./components/core/combobox/Autocomplete";
 import MultiSelect from "./components/core/combobox/MultiSelect";
 import Select from "./components/core/combobox/Select";
 import Grid from "./components/core/grid/Grid";
@@ -107,6 +108,7 @@ export {
     AppShellSection,
     AreaChart,
     AspectRatio,
+    Autocomplete,
     Avatar,
     AvatarGroup,
     BackgroundImage,
