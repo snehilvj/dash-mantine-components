@@ -81,6 +81,12 @@ import PinInput from "./components/core/input/PinInput";
 import TextInput from "./components/core/input/TextInput";
 import List from "./components/core/list/List";
 import ListItem from "./components/core/list/ListItem";
+import Menu from "./components/core/menu/Menu";
+import MenuDivider from "./components/core/menu/MenuDivider";
+import MenuDropdown from "./components/core/menu/MenuDropdown";
+import MenuItem from "./components/core/menu/MenuItem";
+import MenuLabel from "./components/core/menu/MenuLabel";
+import MenuTarget from "./components/core/menu/MenuTarget";
 import Progress from "./components/core/progress/Progress";
 import ProgressLabel from "./components/core/progress/ProgressLabel";
 import ProgressRoot from "./components/core/progress/ProgressRoot";
@@ -180,6 +186,12 @@ export {
     LoadingOverlay,
     MantineProvider,
     Mark,
+    Menu,
+    MenuDivider,
+    MenuDropdown,
+    MenuItem,
+    MenuLabel,
+    MenuTarget,
     MultiSelect,
     NavLink,
     NavigationProgress,
