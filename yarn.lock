@@ -293,28 +293,28 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@mantine/carousel@^7.5.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/carousel/-/carousel-7.6.2.tgz"
-  integrity sha512-Iy0ffVyJz+5zNhiNhVALhXne0reQ/PhF7BFmyLDj/LKBrJG9aPNDiYZehOUeBOuXHsdhX5yIb/kuEKxd+3fMlA==
+"@mantine/carousel@^7.6.2":
+  "integrity" "sha512-Iy0ffVyJz+5zNhiNhVALhXne0reQ/PhF7BFmyLDj/LKBrJG9aPNDiYZehOUeBOuXHsdhX5yIb/kuEKxd+3fMlA=="
+  "resolved" "https://registry.npmjs.org/@mantine/carousel/-/carousel-7.6.2.tgz"
+  "version" "7.6.2"
 
-"@mantine/charts@^7.5.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/charts/-/charts-7.6.2.tgz"
-  integrity sha512-03XZ+kPfZHOsq5hPT/ONEgO2U8YjQoRZ0uNYfcYGXdhsSW0IzR9oA+BYOyR0NSfu0OLlG6loRfJc3gvA34AjTQ==
+"@mantine/charts@^7.6.2":
+  "integrity" "sha512-03XZ+kPfZHOsq5hPT/ONEgO2U8YjQoRZ0uNYfcYGXdhsSW0IzR9oA+BYOyR0NSfu0OLlG6loRfJc3gvA34AjTQ=="
+  "resolved" "https://registry.npmjs.org/@mantine/charts/-/charts-7.6.2.tgz"
+  "version" "7.6.2"
 
-"@mantine/code-highlight@^7.5.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/code-highlight/-/code-highlight-7.6.2.tgz"
-  integrity sha512-5JrCpONCdgrBfASQS5a7ZFrLD9e4uvjJDET10UX6ZS4dMPRqZZCYweJFUwaxhvRoIctpQeN5+Fuh95PVcZ5NXw==
+"@mantine/code-highlight@^7.6.2":
+  "integrity" "sha512-5JrCpONCdgrBfASQS5a7ZFrLD9e4uvjJDET10UX6ZS4dMPRqZZCYweJFUwaxhvRoIctpQeN5+Fuh95PVcZ5NXw=="
+  "resolved" "https://registry.npmjs.org/@mantine/code-highlight/-/code-highlight-7.6.2.tgz"
+  "version" "7.6.2"
   dependencies:
     clsx "2.1.0"
     highlight.js "^11.9.0"
 
-"@mantine/core@^7.5.2", "@mantine/core@7.6.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/core/-/core-7.6.2.tgz"
-  integrity sha512-qmZhmQVc7ZZ8EKKhPkGuZbfBnLXR0xE45ikxfx+1E6/8hLY5Ypr4nWqh5Pk6p3b+K71yYnBqlbNXbtHLQH0h3g==
+"@mantine/core@^7.6.2", "@mantine/core@7.6.2":
+  "integrity" "sha512-qmZhmQVc7ZZ8EKKhPkGuZbfBnLXR0xE45ikxfx+1E6/8hLY5Ypr4nWqh5Pk6p3b+K71yYnBqlbNXbtHLQH0h3g=="
+  "resolved" "https://registry.npmjs.org/@mantine/core/-/core-7.6.2.tgz"
+  "version" "7.6.2"
   dependencies:
     "@floating-ui/react" "^0.26.9"
     clsx "2.1.0"
@@ -323,22 +323,22 @@
     react-textarea-autosize "8.5.3"
     type-fest "^4.12.0"
 
-"@mantine/dates@^7.5.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/dates/-/dates-7.6.2.tgz"
-  integrity sha512-0J7V06HSl0pYgCW4xqj02gilrGvCL9pTDENGCn+RruSfafJrWDB43C1/q5FFNOvj3pNGDMepCQbB2IM7nlucTw==
+"@mantine/dates@^7.6.2":
+  "integrity" "sha512-0J7V06HSl0pYgCW4xqj02gilrGvCL9pTDENGCn+RruSfafJrWDB43C1/q5FFNOvj3pNGDMepCQbB2IM7nlucTw=="
+  "resolved" "https://registry.npmjs.org/@mantine/dates/-/dates-7.6.2.tgz"
+  "version" "7.6.2"
   dependencies:
     clsx "2.1.0"
 
-"@mantine/hooks@^7.5.2", "@mantine/hooks@7.6.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/hooks/-/hooks-7.6.2.tgz"
-  integrity sha512-ZrOgrZHoIGCDKrr2/9njDgK0al+jjusYQFlmR0YyEFyRtgY6eNSI4zuYLcAPx1haHmUm5RsLBrqY6Iy/TLdGXA==
+"@mantine/hooks@^7.6.2", "@mantine/hooks@7.6.2":
+  "integrity" "sha512-ZrOgrZHoIGCDKrr2/9njDgK0al+jjusYQFlmR0YyEFyRtgY6eNSI4zuYLcAPx1haHmUm5RsLBrqY6Iy/TLdGXA=="
+  "resolved" "https://registry.npmjs.org/@mantine/hooks/-/hooks-7.6.2.tgz"
+  "version" "7.6.2"
 
-"@mantine/notifications@^7.5.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/notifications/-/notifications-7.6.2.tgz"
-  integrity sha512-vLs6Y5nnxHipGkA5TSsxgjeus0N9uS+0+E9KZ5OG5QEtz7BdOsKPtNmytsQzBN8P8fjttFImhhoSUOLpYv0xtA==
+"@mantine/notifications@^7.6.2":
+  "integrity" "sha512-vLs6Y5nnxHipGkA5TSsxgjeus0N9uS+0+E9KZ5OG5QEtz7BdOsKPtNmytsQzBN8P8fjttFImhhoSUOLpYv0xtA=="
+  "resolved" "https://registry.npmjs.org/@mantine/notifications/-/notifications-7.6.2.tgz"
+  "version" "7.6.2"
   dependencies:
     "@mantine/store" "7.6.2"
     react-transition-group "4.4.5"
@@ -350,10 +350,10 @@
   dependencies:
     "@mantine/store" "7.6.2"
 
-"@mantine/spotlight@^7.5.2":
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/@mantine/spotlight/-/spotlight-7.6.2.tgz"
-  integrity sha512-66VOzAe5M6jUBGt/Z2eWMdCJP+r9NpuUsoI0I5rjDfMDWyUAZOX6a/FS2CzTfDyAmnMGVwWqJZw+DCftIKOMVQ==
+"@mantine/spotlight@^7.6.2":
+  "integrity" "sha512-66VOzAe5M6jUBGt/Z2eWMdCJP+r9NpuUsoI0I5rjDfMDWyUAZOX6a/FS2CzTfDyAmnMGVwWqJZw+DCftIKOMVQ=="
+  "resolved" "https://registry.npmjs.org/@mantine/spotlight/-/spotlight-7.6.2.tgz"
+  "version" "7.6.2"
   dependencies:
     "@mantine/store" "7.6.2"
 
