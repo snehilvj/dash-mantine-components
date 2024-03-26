@@ -120,6 +120,7 @@ import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
 import Tooltip from "./components/core/tooltip/Tooltip";
 import TooltipFloating from "./components/core/tooltip/TooltipFloating";
+import DatesProvider from "./components/dates/DatesProvider";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
@@ -176,6 +177,7 @@ export {
     ColorInput,
     ColorPicker,
     Container,
+    DatesProvider,
     Divider,
     DonutChart,
     Drawer,
