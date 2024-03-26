@@ -42,4 +42,8 @@ export interface GridChartBaseProps {
     gridColor?: MantineColor;
     /** Chart orientation, `'horizontal'` by default */
     orientation?: "horizontal" | "vertical";
+    /** A label to display below the x-axis */
+    xAxisLabel?: string;
+    /** A label to display next to the y-axis */
+    yAxisLabel?: string;
 }

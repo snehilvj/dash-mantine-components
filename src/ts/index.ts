@@ -4,6 +4,7 @@ import DonutChart from "./components/charts/DonutChart";
 import LineChart from "./components/charts/LineChart";
 import PieChart from "./components/charts/PieChart";
 import RadarChart from "./components/charts/RadarChart";
+import ScatterChart from "./components/charts/ScatterChart";
 import Sparkline from "./components/charts/Sparkline";
 import Affix from "./components/core/Affix";
 import Alert from "./components/core/Alert";
@@ -233,6 +234,7 @@ export {
     RangeSlider,
     Rating,
     RingProgress,
+    ScatterChart,
     ScrollArea,
     SegmentedControl,
     Select,
@@ -262,5 +264,6 @@ export {
     Tooltip,
     TooltipFloating,
     UnstyledButton,
-    VisuallyHidden,
+    VisuallyHidden
 };
+
