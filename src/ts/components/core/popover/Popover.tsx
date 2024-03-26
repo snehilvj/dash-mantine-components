@@ -11,11 +11,11 @@ interface Props extends PopoverProps, DashBaseProps {
 
 /** Popover */
 const Popover = (props: Props) => {
-    const { children, setProps, boxWrapperProps, ...other } = props;
+    const { children, setProps, boxWrapperProps, ...others } = props;
     const boxProps = { w: "fit-content", ...boxWrapperProps };
 
     return (
-        <MantinePopover {...other}>
+        <MantinePopover {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "PopoverTarget") {
