@@ -8,6 +8,7 @@ pkgs.mkShellNoCC {
     python39
     python39Packages.pip
     nodejs
+    just
   ];
 
   REACT_VERSION = "18.2.0";
