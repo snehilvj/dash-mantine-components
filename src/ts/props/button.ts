@@ -1,4 +1,5 @@
 import { MantineRadius, MantineSize } from "@mantine/core";
+import React from "react";
 
 export interface __CloseButtonProps {
     /** Controls width and height of the button. Numbers are converted to rem. `'md'` by default. */

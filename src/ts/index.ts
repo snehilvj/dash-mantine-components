@@ -122,6 +122,7 @@ import TimelineItem from "./components/core/timeline/TimelineItem";
 import Tooltip from "./components/core/tooltip/Tooltip";
 import TooltipFloating from "./components/core/tooltip/TooltipFloating";
 import DateInput from "./components/dates/DateInput";
+import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
@@ -180,6 +181,7 @@ export {
     ColorPicker,
     Container,
     DateInput,
+    DateTimePicker,
     DatesProvider,
     Divider,
     DonutChart,
@@ -268,6 +270,5 @@ export {
     Tooltip,
     TooltipFloating,
     UnstyledButton,
-    VisuallyHidden
+    VisuallyHidden,
 };
-

@@ -1,5 +1,10 @@
 import { MantineSize } from "@mantine/core";
-import { CalendarAriaLabels, DayOfWeek } from "@mantine/dates";
+import { CalendarAriaLabels, CalendarLevel, DayOfWeek } from "@mantine/dates";
+import { BoxProps } from "./box";
+import { __BaseInputProps } from "./input";
+import { ModalProps } from "./modal";
+import { PopoverProps } from "./popover";
+import { StylesApiProps } from "./styles";
 
 interface CalendarHeaderSettings {
     /** Change next icon */
@@ -103,3 +108,55 @@ interface MonthLevelBaseSettings extends MonthSettings {
 export interface MonthLevelSettings
     extends MonthLevelBaseSettings,
         CalendarHeaderSettings {}
+
+export interface DateInputSharedProps extends Omit<__BaseInputProps, "size"> {
+    /** Determines whether dropdown should be closed when date is selected, not applicable when type="multiple", true by default */
+    closeOnChange?: boolean;
+    /** Type of dropdown, defaults to popover */
+    dropdownType?: "popover" | "modal";
+    /** Props passed down to Popover component */
+    popoverProps?: Partial<Omit<PopoverProps, "children">>;
+    /** Props passed down to Modal component */
+    modalProps?: Partial<Omit<ModalProps, "children">>;
+    /** Determines whether input value can be cleared, adds clear button to right section, false by default */
+    clearable?: boolean;
+    /** Props passed down to clear button */
+    clearButtonProps?: object;
+    /** Determines whether the user can modify the value */
+    readOnly?: boolean;
+    /** Determines whether dates value should be sorted before onChange call, only applicable when type="multiple", true by default */
+    sortDates?: boolean;
+    /** Separator between range value */
+    labelSeparator?: string;
+    /** Input placeholder */
+    placeholder?: string;
+}
+
+type OmittedSettings =
+    | "onNext"
+    | "onPrevious"
+    | "onLevelClick"
+    | "withNext"
+    | "withPrevious"
+    | "nextDisabled"
+    | "previousDisabled";
+
+export interface CalendarSettings
+    extends Omit<DecadeLevelSettings, OmittedSettings>,
+        Omit<YearLevelSettings, OmittedSettings>,
+        Omit<MonthLevelSettings, OmittedSettings> {
+    /** Current level displayed to the user (decade, year, month), used for controlled component */
+    level?: CalendarLevel;
+}
+
+export interface TimeInputProps
+    extends BoxProps,
+        __BaseInputProps,
+        StylesApiProps {
+    /** Determines whether seconds input should be rendered */
+    withSeconds?: boolean;
+    /** Minimum possible string time, if withSeconds is true, time should be in format HH:mm:ss, otherwise HH:mm */
+    minTime?: string;
+    /** Maximum possible string time, if withSeconds is true, time should be in format HH:mm:ss, otherwise HH:mm */
+    maxTime?: string;
+}

@@ -12,7 +12,7 @@ import { __BaseInputProps } from "props/input";
 import { PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
-import { dayjsToString, isDisabled, stringToDayjs } from "../../utils/dates";
+import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
 
 interface Props
     extends DashBaseProps,
@@ -68,15 +68,15 @@ const DateInput = (props: Props) => {
         ...others
     } = props;
 
-    const [date, setDate] = useState(stringToDayjs(value));
+    const [date, setDate] = useState(stringToDate(value));
     const [debounced] = useDebouncedValue(date, debounce);
 
     useDidUpdate(() => {
-        setProps({ value: dayjsToString(date) });
+        setProps({ value: dateToString(date) });
     }, [debounced]);
 
     useDidUpdate(() => {
-        setDate(stringToDayjs(value));
+        setDate(stringToDate(value));
     }, [value]);
 
     const handleKeyDown = (ev) => {
@@ -95,8 +95,8 @@ const DateInput = (props: Props) => {
             onKeyDown={handleKeyDown}
             onChange={setDate}
             value={date}
-            minDate={stringToDayjs(minDate)}
-            maxDate={stringToDayjs(maxDate)}
+            minDate={stringToDate(minDate)}
+            maxDate={stringToDate(maxDate)}
             excludeDate={isExcluded}
             {...others}
         />
