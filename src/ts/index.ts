@@ -45,7 +45,6 @@ import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
 import Switch from "./components/core/Switch";
-import Table from "./components/core/Table";
 import Text from "./components/core/Text";
 import Textarea from "./components/core/Textarea";
 import ThemeIcon from "./components/core/ThemeIcon";
@@ -113,6 +112,14 @@ import Slider from "./components/core/slider/Slider";
 import Stepper from "./components/core/stepper/Stepper";
 import StepperCompleted from "./components/core/stepper/StepperCompleted";
 import StepperStep from "./components/core/stepper/StepperStep";
+import Table from "./components/core/table/Table";
+import TableCaption from "./components/core/table/TableCaption";
+import TableTbody from "./components/core/table/TableTbody";
+import TableTd from "./components/core/table/TableTd";
+import TableTfoot from "./components/core/table/TableTfoot";
+import TableTh from "./components/core/table/TableTh";
+import TableThead from "./components/core/table/TableThead";
+import TableTr from "./components/core/table/TableTr";
 import Tabs from "./components/core/tabs/Tabs";
 import TabsList from "./components/core/tabs/TabsList";
 import TabsPanel from "./components/core/tabs/TabsPanel";
@@ -259,6 +266,13 @@ export {
     StepperStep,
     Switch,
     Table,
+    TableCaption,
+    TableTbody,
+    TableTd,
+    TableTfoot,
+    TableTh,
+    TableThead,
+    TableTr,
     Tabs,
     TabsList,
     TabsPanel,
