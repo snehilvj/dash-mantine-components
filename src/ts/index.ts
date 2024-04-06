@@ -125,6 +125,7 @@ import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
+import TimeInput from "./components/dates/TimeInput";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
@@ -266,6 +267,7 @@ export {
     TextInput,
     Textarea,
     ThemeIcon,
+    TimeInput,
     Timeline,
     TimelineItem,
     Title,
