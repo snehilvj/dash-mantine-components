@@ -1,5 +1,10 @@
 import { MantineSize } from "@mantine/core";
-import { CalendarAriaLabels, CalendarLevel, DayOfWeek } from "@mantine/dates";
+import {
+    CalendarAriaLabels,
+    CalendarLevel,
+    DatePickerType,
+    DayOfWeek,
+} from "@mantine/dates";
 import { BoxProps } from "./box";
 import { __BaseInputProps } from "./input";
 import { ModalProps } from "./modal";
@@ -159,4 +164,28 @@ export interface TimeInputProps
     minTime?: string;
     /** Maximum possible string time, if withSeconds is true, time should be in format HH:mm:ss, otherwise HH:mm */
     maxTime?: string;
+}
+
+interface PickerBaseProps {
+    /** Picker type: range, multiple or default */
+    type?: DatePickerType;
+    /** Value for controlled component */
+    value?: string | string[] | [string, string] | null;
+    /** Determines whether user can deselect the date by clicking on selected item, applicable only when type="default" */
+    allowDeselect?: boolean;
+    /** Determines whether single year can be selected as range, applicable only when type="range" */
+    allowSingleDateInRange?: boolean;
+}
+
+export interface DatePickerBaseProps
+    extends PickerBaseProps,
+        DecadeLevelBaseSettings,
+        YearLevelBaseSettings,
+        MonthLevelBaseSettings,
+        CalendarBaseProps,
+        CalendarSettings {
+    /** Max level that user can go up to (decade, year, month), defaults to decade */
+    maxLevel?: CalendarLevel;
+    /** Current level displayed to the user (decade, year, month), used for controlled component */
+    level?: CalendarLevel;
 }

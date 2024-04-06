@@ -122,6 +122,7 @@ import TimelineItem from "./components/core/timeline/TimelineItem";
 import Tooltip from "./components/core/tooltip/Tooltip";
 import TooltipFloating from "./components/core/tooltip/TooltipFloating";
 import DateInput from "./components/dates/DateInput";
+import DatePicker from "./components/dates/DatePicker";
 import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
 import Carousel from "./components/extensions/carousel/Carousel";
@@ -181,6 +182,7 @@ export {
     ColorPicker,
     Container,
     DateInput,
+    DatePicker,
     DateTimePicker,
     DatesProvider,
     Divider,
