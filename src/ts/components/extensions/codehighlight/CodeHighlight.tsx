@@ -8,7 +8,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight */
     code: string;
     /** Code language, `'tsx'` by default */
-    language?: string;
+    language: string;
     /** Determines whether copy button should be displayed, `true` by default */
     withCopyButton?: boolean;
     /** Copy tooltip label, `'Copy code'` by default */

@@ -11,8 +11,6 @@ import React from "react";
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight with meta data (file name and icon) */
     code: CodeHighlightTabsCode | CodeHighlightTabsCode[];
-    /** Default active tab index */
-    defaultActiveTab?: number;
     /** Index of controlled active tab state */
     activeTab?: number;
     /** Determines whether header with file names and copy button should be rendered, `true` by default */
@@ -25,8 +23,6 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     maxCollapsedHeight?: React.CSSProperties["maxHeight"];
     /** Controlled expanded state */
     expanded?: boolean;
-    /** Uncontrolled expanded state initial value */
-    defaultExpanded?: boolean;
     /** Expand button label and tooltip, `'Expand code'` by default */
     expandCodeLabel?: string;
     /** Collapse button label and tooltip, `'Collapse code'` by default */
