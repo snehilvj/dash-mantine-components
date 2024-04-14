@@ -4,10 +4,10 @@
 
 ### Changed
 
-Updated to use latest Mantine - v7
-Detailed changelog for Mantine v6 can be found here: https://mantine.dev/changelog/7-0-0/.
-Added a bunch of new components like nprogress, charts, carousel, etc.
-Fixed issues revealed in process of developing 0.13 series based on Mantine v6.
+- Updated to use latest Mantine - v7
+- Detailed changelog for Mantine v7 can be found here: https://mantine.dev/changelog/7-0-0/.
+- Added a bunch of new components like nprogress, charts, carousel, etc.
+- Fixed issues revealed in process of developing 0.13 series based on Mantine v6.
 
 # 0.13.0a3
 
