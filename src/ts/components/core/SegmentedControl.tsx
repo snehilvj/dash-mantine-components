@@ -5,6 +5,7 @@ import {
     MantineSize,
     SegmentedControlItem,
 } from "@mantine/core";
+import { renderDashComponent } from "dash-extensions-js";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
@@ -48,6 +49,7 @@ interface Props
 /** SegmentedControl */
 const SegmentedControl = (props: Props) => {
     const {
+        data,
         setProps,
         persistence,
         persisted_props,
@@ -55,11 +57,30 @@ const SegmentedControl = (props: Props) => {
         ...others
     } = props;
 
+    const renderedData = [];
+    data.forEach((item, index) => {
+        if (typeof item === "string") {
+            renderedData.push(item);
+        } else {
+            const rItem = {
+                value: item["value"],
+                label: renderDashComponent(item["label"]),
+            };
+            renderedData.push(rItem);
+        }
+    });
+
     const onChange = (value: string) => {
         setProps({ value });
     };
 
-    return <MantineSegmentedControl onChange={onChange} {...others} />;
+    return (
+        <MantineSegmentedControl
+            data={renderedData}
+            onChange={onChange}
+            {...others}
+        />
+    );
 };
 
 SegmentedControl.defaultProps = {
