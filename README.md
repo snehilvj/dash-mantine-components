@@ -12,7 +12,7 @@
     <img src="https://static.pepy.tech/personalized-badge/dash-mantine-components?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads">
 </p>
 
-Dash Mantine Components is an extensive (70+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
+Dash Mantine Components is an extensive (90+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 
 [Documentation](https://dash-mantine-components.com)
 
@@ -22,10 +22,10 @@ Dash Mantine Components is an extensive (70+) Dash components library based on [
 
 ### Table of contents
 
-- [Installation](#installation)
-- [Quickstart](#quickstart)
-- [Sponsors](#sponsors)
-- [Contributing](#contributing)
+-   [Installation](#installation)
+-   [Quickstart](#quickstart)
+-   [Sponsors](#sponsors)
+-   [Contributing](#contributing)
 
 ## Installation
 
@@ -47,7 +47,7 @@ app = Dash(__name__)
 
 app.layout = html.Div(
     [
-        dmc.DatePickerInput(
+        dmc.DatePicker(
             id="date-picker",
             label="Start Date",
             description="You can also provide a description",
@@ -78,10 +78,7 @@ if __name__ == "__main__":
 
 Thanks to the following people for supporting my efforts on dash-mantine-components.
 
-1. [ASCEND.IO](https://www.ascend.io)
 2. [Ann Marie Ward](https://github.com/AnnMarieW)
-3. [Rick Ahlf](https://www.linkedin.com/in/rickahlf/)
-4. [josca42](https://github.com/josca42)
 
 ## Contributing
 
@@ -106,4 +103,3 @@ Thanks to the following people for supporting my efforts on dash-mantine-compone
 5. Build the components with the command: `npm run build`.
 
 6. Raise a PR, including an example to reproduce the changes contributed by the PR.
-
