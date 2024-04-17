@@ -7,8 +7,6 @@ export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     children: React.ReactNode;
     /** Tooltip position relative to target element (`Tooltip` component) or mouse (`Tooltip.Floating` component) */
     position?: FloatingPosition;
-    /** Key of the prop that can be used to access element ref, `ref` by default */
-    refProp?: string;
     /** Tooltip content */
     label: React.ReactNode;
     /** Determines whether tooltip should be rendered within `Portal`, `true` by default */

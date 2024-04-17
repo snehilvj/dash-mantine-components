@@ -1,19 +1,26 @@
 # Change Log
 
+# 0.14.1
+
+### Changed
+
+-   Corrected prop structure of few components
+
 # 0.14.0
 
 ### Changed
 
-- Updated to use latest Mantine - v7
-- Detailed changelog for Mantine v7 can be found here: https://mantine.dev/changelog/7-0-0/.
-- Added a bunch of new components like nprogress, charts, carousel, etc.
-- Fixed issues revealed in process of developing 0.13 series based on Mantine v6.
+-   BREAKING CHANGE!!
+-   Updated to use latest Mantine - v7
+-   Detailed changelog for Mantine v7 can be found here: <https://mantine.dev/changelog/7-0-0/>.
+-   Added a bunch of new components like nprogress, charts, carousel, etc.
+-   Fixed issues revealed in process of developing 0.13 series based on Mantine v6.
 
 # 0.13.0a3
 
 ### Added
 
--   Wild card aria-_ and data-_ props to all components
+-   Wild card aria-_and data-_ props to all components
 
 # 0.13.0a2
 
@@ -44,7 +51,7 @@ This release is based on Mantine v6.
 
 ### Changed
 
-Detailed changelog for Mantine v6 can be found here: https://mantine.dev/changelog/6-0-0/.
+Detailed changelog for Mantine v6 can be found here: <https://mantine.dev/changelog/6-0-0/>.
 
 ### Fixed
 
