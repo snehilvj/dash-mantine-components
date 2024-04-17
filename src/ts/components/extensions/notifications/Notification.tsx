@@ -30,16 +30,16 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
      *  number is auto close timeout in ms, overrides `autoClose` from `Notifications`
      * */
     autoClose?: boolean | number;
-    /** intent */
-    intent: "show" | "update" | "hide" | "clean" | "cleanQueue";
+    /** action */
+    action: "show" | "update" | "hide" | "clean" | "cleanQueue";
 }
 
 /** Notification */
 const Notification = (props: Props) => {
-    const { intent, setProps, ...others } = props;
+    const { action, setProps, ...others } = props;
 
     useEffect(() => {
-        switch (intent) {
+        switch (action) {
             case "show":
                 notifications.show(others);
                 break;

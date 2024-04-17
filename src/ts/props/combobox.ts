@@ -20,8 +20,6 @@ export interface ComboboxLikeProps {
     data?: ComboboxData;
     /** Controlled dropdown opened state */
     dropdownOpened?: boolean;
-    /** Uncontrolled dropdown initial opened state */
-    defaultDropdownOpened?: boolean;
     /** Determines whether the first option should be selected when value changes, `false` by default */
     selectFirstOptionOnChange?: boolean;
     /** Props passed down to `Combobox` component */

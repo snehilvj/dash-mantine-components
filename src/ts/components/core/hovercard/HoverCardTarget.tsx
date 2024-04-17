@@ -1,11 +1,11 @@
 import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+interface Props {
     /** Content */
     children: React.ReactNode;
+    /** Target box wrapper props */
+    boxWrapperProps?: BoxProps;
 }
 
 /** HoverCardTarget */

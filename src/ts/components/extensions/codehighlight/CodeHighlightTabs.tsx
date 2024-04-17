@@ -3,6 +3,7 @@ import {
     CodeHighlightTabs as MantineCodeHighlightTabs,
 } from "@mantine/code-highlight";
 import "@mantine/code-highlight/styles.css";
+import { renderDashComponents } from "dash-extensions-js";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
@@ -35,9 +36,17 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CodeHighlightTabs */
 const CodeHighlightTabs = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, code, ...others } = props;
+    const renderedCode = [];
+    if (Array.isArray(code)) {
+        code.forEach((item, index) => {
+            renderedCode.push(renderDashComponents(item, ["icon"]));
+        });
+    } else {
+        renderedCode.push(renderDashComponents(code, ["icon"]));
+    }
 
-    return <MantineCodeHighlightTabs {...others} />;
+    return <MantineCodeHighlightTabs code={renderedCode} {...others} />;
 };
 
 CodeHighlightTabs.defaultProps = {};

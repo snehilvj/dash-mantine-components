@@ -2,8 +2,8 @@ import { nprogress } from "@mantine/nprogress";
 import { useEffect } from "react";
 
 interface Props {
-    /** intent */
-    intent:
+    /** action */
+    action:
         | "start"
         | "stop"
         | "increment"
@@ -17,18 +17,18 @@ interface Props {
 
 /** NavigationProgress */
 const NavigationProgress = (props: Props) => {
-    const { intent, value } = props;
+    const { action, value } = props;
 
     window["np"] = nprogress;
 
     useEffect(() => {
-        switch (intent) {
+        switch (action) {
             case "set":
                 nprogress.set(value);
                 break;
 
             default:
-                nprogress[intent]();
+                nprogress[action]();
                 break;
         }
     }, [props]);

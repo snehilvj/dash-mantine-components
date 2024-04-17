@@ -1,5 +1,4 @@
 import { Box, Menu as MantineMenu } from "@mantine/core";
-import { BoxProps } from "props/box";
 import { __PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React from "react";
@@ -32,8 +31,6 @@ interface Props extends __PopoverProps, StylesApiProps {
     clickOutsideEvents?: string[];
     /** Set the `tabindex` on all menu items. Defaults to -1 */
     menuItemTabIndex?: -1 | 0;
-    /** Target box wrapper props */
-    boxWrapperProps?: BoxProps;
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
     /** Update props to trigger callbacks. */
@@ -42,14 +39,15 @@ interface Props extends __PopoverProps, StylesApiProps {
 
 /** Menu */
 const Menu = (props: Props) => {
-    const { children, setProps, boxWrapperProps, ...others } = props;
-    const boxProps = { w: "fit-content", ...boxWrapperProps };
+    const { children, setProps, ...others } = props;
 
     return (
         <MantineMenu {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "MenuTarget") {
+                    const { boxWrapperProps } = child.props;
+                    const boxProps = { w: "fit-content", ...boxWrapperProps };
                     return (
                         <MantineMenu.Target key={index}>
                             <Box {...boxProps}>{child}</Box>
