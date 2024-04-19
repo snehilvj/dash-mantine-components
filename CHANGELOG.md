@@ -1,5 +1,12 @@
 # Change Log
 
+# 0.14.2
+
+### Added
+
+-   Burger component
+-   Click callback in chart components by subscribing to `clickData` property. This feature might change in future.
+
 # 0.14.1
 
 ### Changed

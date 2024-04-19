@@ -43,9 +43,12 @@ from dash.exceptions import PreventUpdate
 
 import dash_mantine_components as dmc
 
-app = Dash(__name__)
+stylesheets = ["https://unpkg.com/@mantine/dates@7/styles.css"]
+dash._dash_renderer._set_react_version('18.2.0')
 
-app.layout = html.Div(
+app = Dash(__name__, external_stylesheets=stylesheets)
+
+app.layout = dmc.MantineProvider(
     [
         dmc.DatePicker(
             id="date-picker",
