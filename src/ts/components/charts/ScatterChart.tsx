@@ -1,18 +1,17 @@
 import { ScatterChart as MantineScatterChart } from "@mantine/charts";
-import {
-    ScatterChartSeries
-} from "@mantine/charts/lib/ScatterChart/ScatterChart";
+import { ScatterChartSeries } from "@mantine/charts/lib/ScatterChart/ScatterChart";
 import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getScatterClickData, isEventValid } from "../../utils/charts";
 
 interface Props
     extends BoxProps,
-    Omit<GridChartBaseProps, 'dataKey' | 'data' | 'unit'>,
-    StylesApiProps,
-    DashBaseProps {
+        Omit<GridChartBaseProps, "dataKey" | "data" | "unit">,
+        StylesApiProps,
+        DashBaseProps {
     /** Keys that should be used to retrieve data from the data array on x and y axis */
     dataKey: {
         x: string;
@@ -31,16 +30,26 @@ interface Props
         y?: string;
     };
     /** Props passed down to recharts `ScatterChart` component */
-    scatterChartProps?: object
+    scatterChartProps?: object;
     /** Props passed down to recharts `Scatter` component */
-    scatterProps?: object
+    scatterProps?: object;
+    /** Click data */
+    clickData?: Record<string, any>;
 }
 
 /** ScatterChart */
 const ScatterChart = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, clickData, scatterProps, ...others } = props;
 
-    return <MantineScatterChart {...others} />;
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ clickData: getScatterClickData(ev) });
+        }
+    };
+
+    const newProps = { ...scatterProps, onClick };
+
+    return <MantineScatterChart scatterProps={newProps} {...others} />;
 };
 
 ScatterChart.defaultProps = {};

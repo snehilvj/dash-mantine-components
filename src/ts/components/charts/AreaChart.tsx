@@ -10,6 +10,7 @@ import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getClickData, isEventValid } from "../../utils/charts";
 
 interface Props
     extends BoxProps,
@@ -46,13 +47,23 @@ interface Props
     connectNulls?: boolean;
     /** Additional components that are rendered inside recharts `AreaChart` component */
     children?: React.ReactNode;
+    /** Click data */
+    clickData?: Record<string, any>;
 }
 
 /** AreaChart */
 const AreaChart = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, clickData, areaChartProps, ...others } = props;
 
-    return <MantineAreaChart {...others} />;
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ clickData: getClickData(ev) });
+        }
+    };
+
+    const newProps = { ...areaChartProps, onClick };
+
+    return <MantineAreaChart areaChartProps={newProps} {...others} />;
 };
 
 AreaChart.defaultProps = {};

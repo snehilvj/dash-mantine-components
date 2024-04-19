@@ -9,6 +9,7 @@ import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getClickData, isEventValid } from "../../utils/charts";
 
 interface Props
     extends BoxProps,
@@ -29,13 +30,23 @@ interface Props
     barChartProps?: object;
     /** Additional components that are rendered inside recharts `BarChart` component */
     children?: React.ReactNode;
+    /** Click data */
+    clickData?: Record<string, any>;
 }
 
 /** BarChart */
 const BarChart = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, clickData, barChartProps, ...others } = props;
 
-    return <MantineBarChart {...others} />;
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ clickData: getClickData(ev) });
+        }
+    };
+
+    const newProps = { ...barChartProps, onClick };
+
+    return <MantineBarChart barChartProps={newProps} {...others} />;
 };
 
 BarChart.defaultProps = {};

@@ -5,6 +5,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getPieClickData, isEventValid } from "../../utils/charts";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render chart */
@@ -45,13 +46,23 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     labelsPosition?: "inside" | "outside";
     /** Type of labels to display, `'value'` by default */
     labelsType?: "value" | "percent";
+    /** Click data */
+    clickData?: Record<string, any>;
 }
 
 /** PieChart */
 const PieChart = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, clickData, pieProps, ...others } = props;
 
-    return <MantinePieChart {...others} />;
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ clickData: getPieClickData(ev) });
+        }
+    };
+
+    const newProps = { ...pieProps, onClick };
+
+    return <MantinePieChart pieProps={newProps} {...others} />;
 };
 
 PieChart.defaultProps = {};

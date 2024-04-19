@@ -5,6 +5,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getPieClickData, isEventValid } from "../../utils/charts";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render chart */
@@ -45,13 +46,23 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
     /** Props passed down to recharts `PieChart` component */
     pieChartProps?: object;
+    /** Click data */
+    clickData?: Record<string, any>;
 }
 
 /** DonutChart */
 const DonutChart = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, clickData, pieProps, ...others } = props;
 
-    return <MantineDonutChart {...others} />;
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ clickData: getPieClickData(ev) });
+        }
+    };
+
+    const newProps = { ...pieProps, onClick };
+
+    return <MantineDonutChart pieProps={newProps} {...others} />;
 };
 
 DonutChart.defaultProps = {};

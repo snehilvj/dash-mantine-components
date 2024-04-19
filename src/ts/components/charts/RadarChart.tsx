@@ -5,6 +5,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getClickData, isEventValid } from "../../utils/charts";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used in the chart */
@@ -33,13 +34,23 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     polarRadiusAxisProps?: object;
     /** Additional components that are rendered inside recharts `RadarChart` component */
     children?: React.ReactNode;
+    /** Click data */
+    clickData?: Record<string, any>;
 }
 
 /** RadarChart */
 const RadarChart = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, clickData, radarChartProps, ...others } = props;
 
-    return <MantineRadarChart {...others} />;
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ clickData: getClickData(ev) });
+        }
+    };
+
+    const newProps = { ...radarChartProps, onClick };
+
+    return <MantineRadarChart radarChartProps={newProps} {...others} />;
 };
 
 RadarChart.defaultProps = {};

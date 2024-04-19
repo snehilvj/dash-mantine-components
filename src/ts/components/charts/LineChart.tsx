@@ -8,6 +8,7 @@ import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getClickData, isEventValid } from "../../utils/charts";
 
 interface Props
     extends BoxProps,
@@ -36,13 +37,23 @@ interface Props
     connectNulls?: boolean;
     /** Additional components that are rendered inside recharts `AreaChart` component */
     children?: React.ReactNode;
+    /** Click data */
+    clickData?: Record<string, any>;
 }
 
 /** LineChart */
 const LineChart = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, clickData, lineChartProps, ...others } = props;
 
-    return <MantineLineChart {...others} />;
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ clickData: getClickData(ev) });
+        }
+    };
+
+    const newProps = { ...lineChartProps, onClick };
+
+    return <MantineLineChart lineChartProps={newProps} {...others} />;
 };
 
 LineChart.defaultProps = {};
