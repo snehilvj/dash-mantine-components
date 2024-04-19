@@ -14,6 +14,7 @@ import Badge from "./components/core/Badge";
 import Blockquote from "./components/core/Blockquote";
 import Box from "./components/core/Box";
 import Breadcrumbs from "./components/core/Breadcrumbs";
+import Burger from "./components/core/Burger";
 import Center from "./components/core/Center";
 import Code from "./components/core/Code";
 import Collapse from "./components/core/Collapse";
@@ -172,6 +173,7 @@ export {
     Blockquote,
     Box,
     Breadcrumbs,
+    Burger,
     Button,
     ButtonGroup,
     Card,
