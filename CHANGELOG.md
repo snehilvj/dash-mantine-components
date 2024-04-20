@@ -7,6 +7,10 @@
 -   Burger component
 -   Click callback in chart components by subscribing to `clickData` property. This feature might change in future.
 
+### Changed
+
+-   TooltipFloating has been renamed to FloatingTooltip as its not a compound component.
+
 # 0.14.1
 
 ### Changed

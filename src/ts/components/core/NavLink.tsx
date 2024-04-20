@@ -4,12 +4,16 @@ import {
     MantineSize,
 } from "@mantine/core";
 import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
+import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { MouseEvent } from "react";
 import { TargetProps, onClick } from "../../utils/anchor";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
     /** Main link label */
     label?: React.ReactNode;
     /** Link description, displayed below the label */
@@ -55,6 +59,9 @@ const NavLink = (props: Props) => {
         refresh,
         n_clicks,
         children,
+        persistence,
+        persisted_props,
+        persistence_type,
         setProps,
         ...others
     } = props;
@@ -103,6 +110,8 @@ const NavLink = (props: Props) => {
 
 NavLink.defaultProps = {
     n_clicks: 0,
+    persisted_props: ["opened"],
+    persistence_type: "local",
 };
 
 export default NavLink;

@@ -127,8 +127,8 @@ import TabsPanel from "./components/core/tabs/TabsPanel";
 import TabsTab from "./components/core/tabs/TabsTab";
 import Timeline from "./components/core/timeline/Timeline";
 import TimelineItem from "./components/core/timeline/TimelineItem";
+import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
 import Tooltip from "./components/core/tooltip/Tooltip";
-import TooltipFloating from "./components/core/tooltip/TooltipFloating";
 import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DateTimePicker from "./components/dates/DateTimePicker";
@@ -200,6 +200,7 @@ export {
     Drawer,
     Fieldset,
     Flex,
+    FloatingTooltip,
     Grid,
     GridCol,
     Group,
@@ -288,7 +289,6 @@ export {
     TimelineItem,
     Title,
     Tooltip,
-    TooltipFloating,
     UnstyledButton,
     VisuallyHidden,
 };

@@ -1,4 +1,4 @@
-import { Box, TooltipFloating as MantineTooltipFloating } from "@mantine/core";
+import { Box, Tooltip } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { TooltipBaseProps } from "props/tooltip";
@@ -11,18 +11,18 @@ interface Props extends TooltipBaseProps, DashBaseProps {
     boxWrapperProps?: BoxProps;
 }
 
-/** TooltipFloating */
-const TooltipFloating = (props: Props) => {
+/** FloatingTooltip */
+const FloatingTooltip = (props: Props) => {
     const { children, boxWrapperProps, setProps, ...others } = props;
     const boxProps = { w: "fit-content", ...boxWrapperProps };
 
     return (
-        <MantineTooltipFloating {...others}>
+        <Tooltip.Floating {...others}>
             <Box {...boxProps}>{children}</Box>
-        </MantineTooltipFloating>
+        </Tooltip.Floating>
     );
 };
 
-TooltipFloating.defaultProps = {};
+FloatingTooltip.defaultProps = {};
 
-export default TooltipFloating;
+export default FloatingTooltip;
