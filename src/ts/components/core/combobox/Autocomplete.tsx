@@ -7,6 +7,7 @@ import { BoxProps } from "props/box";
 import { ComboboxLikeProps } from "props/combobox";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
+import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 
@@ -21,6 +22,8 @@ interface Props
     data?: ComboboxStringData;
     /** Controlled component value */
     value?: string;
+    /** Props passed down to the underlying `ScrollArea` component in the dropdown */
+    scrollAreaProps?: ScrollAreaProps;
 }
 
 /** Autocomplete */

@@ -1,9 +1,8 @@
-import { ScrollArea as MantineScrollArea } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { ScrollAreaProps } from "props/scrollarea";
+import { BoxProps } from "props/box";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-interface Props extends ScrollAreaProps, DashBaseProps {
+export interface ScrollAreaProps extends BoxProps, StylesApiProps {
     /** Scrollbar size, any valid CSS value for width/height, numbers are converted to rem, default value is 0.75rem */
     scrollbarSize?: number | string;
     /**
@@ -24,14 +23,3 @@ interface Props extends ScrollAreaProps, DashBaseProps {
     /** Content */
     children?: React.ReactNode;
 }
-
-/** ScrollArea */
-const ScrollArea = (props: Props) => {
-    const { setProps, children, ...others } = props;
-
-    return <MantineScrollArea {...others}>{children}</MantineScrollArea>;
-};
-
-ScrollArea.defaultProps = {};
-
-export default ScrollArea;
