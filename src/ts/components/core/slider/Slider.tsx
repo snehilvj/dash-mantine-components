@@ -3,12 +3,12 @@ import {
     MantineRadius,
     MantineSize,
     Slider as MantineSlider,
-    TransitionOverride,
 } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
+import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
 
 interface Props
@@ -42,7 +42,7 @@ interface Props
     /** Function to generate label or any react node to render instead, set to null to disable label */
     label?: React.ReactNode;
     /** Props passed down to the `Transition` component, `{ transition: 'fade', duration: 0 }` by default */
-    labelTransitionProps?: TransitionOverride;
+    labelTransitionProps?: TransitionProps;
     /** Determines whether the label should be visible when the slider is not being dragged or hovered, `false` by default */
     labelAlwaysOn?: boolean;
     /** Thumb `aria-label` */

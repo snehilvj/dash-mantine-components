@@ -4,11 +4,11 @@ import {
     FloatingAxesOffsets,
     FloatingStrategy,
     Tooltip as MantineTooltip,
-    TransitionOverride,
 } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { TooltipBaseProps } from "props/tooltip";
+import { TransitionProps } from "props/transition";
 import React from "react";
 
 interface Props extends TooltipBaseProps, DashBaseProps {
@@ -31,7 +31,7 @@ interface Props extends TooltipBaseProps, DashBaseProps {
     /** Arrow position relative to the tooltip, `side` by default */
     arrowPosition?: ArrowPosition;
     /** Props passed down to the `Transition` component that used to animate tooltip presence, use to configure duration and animation type, `{ duration: 100, transition: 'fade' }` by default */
-    transitionProps?: TransitionOverride;
+    transitionProps?: TransitionProps;
     /** Determines which events will be used to show tooltip, `{ hover: true, focus: false, touch: false }` by default */
     events?: {
         hover: boolean;

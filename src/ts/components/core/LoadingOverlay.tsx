@@ -1,17 +1,15 @@
-import {
-    LoadingOverlay as MantineLoadingOverlay,
-    TransitionOverride,
-} from "@mantine/core";
+import { LoadingOverlay as MantineLoadingOverlay } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { LoaderProps } from "props/loader";
 import { OverlayProps } from "props/overlay";
 import { StylesApiProps } from "props/styles";
+import { TransitionProps } from "props/transition";
 import React from "react";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Props passed down to `Transition` component, `{ transition: 'fade', duration: 0 }` by default */
-    transitionProps?: TransitionOverride;
+    transitionProps?: TransitionProps;
     /** Props passed down to `Loader` component */
     loaderProps?: LoaderProps;
     /** Props passed down to `Overlay` component */

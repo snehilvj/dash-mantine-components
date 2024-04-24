@@ -6,10 +6,10 @@ import {
     MantineRadius,
     MantineShadow,
     PopoverWidth,
-    TransitionOverride,
 } from "@mantine/core";
 import { PopoverMiddlewares } from "@mantine/core/lib/components/Popover/Popover.types";
 import { StylesApiProps } from "./styles";
+import { TransitionProps } from "./transition";
 
 export interface __PopoverProps {
     /** Dropdown position relative to the target element, `'bottom'` by default */
@@ -21,7 +21,7 @@ export interface __PopoverProps {
     /** If set dropdown will not be unmounted from the DOM when it is hidden, `display: none` styles will be added instead */
     keepMounted?: boolean;
     /** Props passed down to the `Transition` component that used to animate dropdown presence, use to configure duration and animation type, `{ duration: 150, transition: 'fade' }` by default */
-    transitionProps?: TransitionOverride;
+    transitionProps?: TransitionProps;
     /** Dropdown width, or `'target'` to make dropdown width the same as target element, `'max-content'` by default */
     width?: PopoverWidth;
     /** Floating ui middlewares to configure position handling, `{ flip: true, shift: true, inline: false }` by default */

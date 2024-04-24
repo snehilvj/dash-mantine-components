@@ -3,11 +3,11 @@ import {
     MantineShadow,
     MantineSize,
     MantineSpacing,
-    TransitionOverride,
 } from "@mantine/core";
 import { BoxProps } from "./box";
 import { __CloseButtonProps } from "./button";
 import { OverlayProps } from "./overlay";
+import { TransitionProps } from "./transition";
 
 export interface ModalBaseProps extends BoxProps {
     /** If set modal/drawer will not be unmounted from the DOM when it is hidden, `display: none` styles will be added instead, `false` by default */
@@ -27,7 +27,7 @@ export interface ModalBaseProps extends BoxProps {
     /** Determines whether the modal/drawer should be closed when user clicks on the overlay, `true` by default */
     closeOnClickOutside?: boolean;
     /** Props added to the `Transition` component that used to animate overlay and body, use to configure duration and animation type, `{ duration: 200, transition: 'pop' }` by default */
-    transitionProps?: TransitionOverride;
+    transitionProps?: TransitionProps;
     /** Determines whether `onClose` should be called when user presses the escape key, `true` by default */
     closeOnEscape?: boolean;
     /** Determines whether focus should be returned to the last active element when `onClose` is called, `true` by default */
@@ -47,7 +47,7 @@ export interface ModalBaseProps extends BoxProps {
 export interface ModalBaseOverlayProps
     extends Omit<OverlayProps, "styles" | "classNames" | "variant" | "vars"> {
     /** Props passed down to the `Transition` component */
-    transitionProps?: TransitionOverride;
+    transitionProps?: TransitionProps;
 }
 
 export interface ModalBaseCloseButtonProps
