@@ -81,7 +81,8 @@ if __name__ == "__main__":
 
 Thanks to the following people for supporting my efforts on dash-mantine-components.
 
-2. [Ann Marie Ward](https://github.com/AnnMarieW)
+1. [Ann Marie Ward](https://github.com/AnnMarieW)
+2. [Arne Petter](https://github.com/apdcode)
 
 ## Contributing
 
