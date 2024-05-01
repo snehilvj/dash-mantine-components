@@ -1,5 +1,15 @@
 # Change Log
 
+# 0.14.3
+
+### Added
+
+-   TagsInput component
+
+### Changed
+
+-   Corrected transition props.
+
 # 0.14.2
 
 ### Added
