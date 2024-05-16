@@ -189,3 +189,22 @@ export interface DatePickerBaseProps
     /** Current level displayed to the user (decade, year, month), used for controlled component */
     level?: CalendarLevel;
 }
+
+export interface MonthPickerBaseProps
+    extends PickerBaseProps,
+        DecadeLevelBaseSettings,
+        YearLevelBaseSettings,
+        CalendarBaseProps,
+        CalendarSettings {
+    /** Max level that user can go up to (decade, year), defaults to decade */
+    maxLevel?: "year" | "decade";
+    /** Current level displayed to the user (decade, year), used for controlled component */
+    level?: "year" | "decade";
+}
+
+export interface YearPickerBaseProps
+    extends PickerBaseProps,
+        DecadeLevelBaseSettings,
+        CalendarBaseProps,
+        CalendarSettings {
+}
