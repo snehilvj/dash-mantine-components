@@ -1,38 +1,38 @@
-import React from "react";
-import { RingProgress as MantineRingProgress } from "@mantine/core";
 import {
     MantineColor,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    RingProgress as MantineRingProgress,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
+interface RingProgressSection {
+    value: number;
+    color: MantineColor;
+    tooltip?: React.ReactNode;
+}
+
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Label displayed in the center of the ring */
     label?: React.ReactNode;
     /** Ring thickness */
     thickness?: number;
-    /** Width and height of the progress ring in px */
+    /** Width and height of the progress ring */
     size?: number;
     /** Sets whether the edges of the progress circle are rounded */
     roundCaps?: boolean;
     /** Ring sections */
-    sections: {
-        value: number;
-        color: MantineColor;
-        tooltip?: React.ReactNode;
-    }[];
+    sections: RingProgressSection[];
     /** Color of the root section, key of theme.colors or CSS color value */
     rootColor?: MantineColor;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Give user feedback for status of the task with circle diagram */
+/** RingProgress */
 const RingProgress = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineRingProgress {...other} />;
+    return <MantineRingProgress {...others} />;
 };
 
 RingProgress.defaultProps = {};

@@ -1,30 +1,24 @@
-import React from "react";
-import { Highlight as MantineHighlight } from "@mantine/core";
-import { MantineColor } from "@mantine/styles";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    TextProps,
-} from "props/mantine";
+import { MantineColor, Highlight as MantineHighlight } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
+import { TextProps } from "props/text";
+import React from "react";
 
-type Props = {
+interface Props extends DashBaseProps, TextProps {
+    /** Substring or an array of substrings to highlight in `children` */
+    highlight: string | string[];
+    /** Key of `theme.colors` or any valid CSS color, passed to `Mark` component `color` prop, `yellow` by default */
+    color?: MantineColor | string;
+    /** Styles applied to `mark` elements */
+    highlightStyles?: React.CSSProperties;
     /** Content */
     children?: string;
-    /** Substring or an array of substrings to highlight in children */
-    highlight: string | string[];
-    /** Color from theme that is used for highlighting */
-    highlightColor?: MantineColor;
-} & TextProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Highlight given part of a string with mark tag */
+/** Highlight */
 const Highlight = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineHighlight {...other}>{children}</MantineHighlight>;
+    return <MantineHighlight {...others}>{children}</MantineHighlight>;
 };
 
 Highlight.defaultProps = {};

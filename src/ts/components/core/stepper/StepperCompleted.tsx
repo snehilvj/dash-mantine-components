@@ -1,13 +1,13 @@
 import React from "react";
 
-type Props = {
-    /** StepperCompleted content */
+interface Props {
+    /* Content */
     children?: React.ReactNode;
-};
+}
 
-/** Display content divided into a steps sequence */
+/** StepperCompleted */
 const StepperCompleted = (props: Props) => {
-    const { children } = props;
+    const { children, ...others } = props;
 
     return <>{children}</>;
 };

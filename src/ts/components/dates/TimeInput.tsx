@@ -1,58 +1,64 @@
-import React, { useState, useEffect } from "react";
 import { TimeInput as MantineTimeInput } from "@mantine/dates";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
+import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import {
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-    TextInputProps,
-    InputComponentProps,
-} from "props/mantine";
+import { TimeInputProps } from "props/dates";
+import { __BaseInputProps } from "props/input";
+import { StylesApiProps } from "props/styles";
+import React, { useState } from "react";
 
-type Props = {
-    /** Controlled input value */
+interface Props
+    extends DashBaseProps,
+        PersistenceProps,
+        TimeInputProps,
+        BoxProps,
+        Omit<__BaseInputProps, "size">,
+        StylesApiProps {
+    /** Value for controlled component */
     value?: string;
-    /** Display seconds input */
-    withSeconds?: boolean;
     /** An integer that represents the number of times that this element has been submitted */
     n_submit?: number;
     /** Debounce time in ms */
     debounce?: number;
-} & TextInputProps &
-    InputComponentProps &
-    PersistenceProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Capture time input from user */
+/** TimeInput */
 const TimeInput = (props: Props) => {
     const {
         setProps,
+        n_submit,
         value,
         debounce,
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
-    const [val, setVal] = useState(value);
-    const [debounced] = useDebouncedValue(val, debounce);
+    const [time, setTime] = useState(value);
+    const [debounced] = useDebouncedValue(time, debounce);
 
-    useEffect(() => {
+    useDidUpdate(() => {
         setProps({ value: debounced });
     }, [debounced]);
 
     useDidUpdate(() => {
-        setVal(value);
+        setTime(value);
     }, [value]);
+
+    const handleKeyDown = (ev) => {
+        if (ev.key === "Enter") {
+            setProps({ n_submit: n_submit + 1 });
+        }
+    };
 
     return (
         <MantineTimeInput
-            onChange={(ev) => setVal(ev.currentTarget.value)}
-            value={val}
-            {...other}
+            wrapperProps={{ autoComplete: "off" }}
+            onKeyDown={handleKeyDown}
+            onChange={(ev) => setTime(ev.currentTarget.value)}
+            value={time}
+            {...others}
         />
     );
 };
@@ -62,6 +68,7 @@ TimeInput.defaultProps = {
     persistence_type: "local",
     debounce: 0,
     n_submit: 0,
+    value: "",
 };
 
 export default TimeInput;

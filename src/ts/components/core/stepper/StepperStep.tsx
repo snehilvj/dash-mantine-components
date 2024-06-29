@@ -1,17 +1,17 @@
+import { MantineColor } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import {
-    MantineStylesAPIProps,
-    MantineColor,
-    MantineNumberSize,
-    MantineSize,
-    MantineStyleSystemProps,
-} from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Step color from theme.colors */
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** Step index, controlled by Stepper component **/
+    step?: number;
+    /** Step state, controlled by Stepper component */
+    state?: "stepInactive" | "stepProgress" | "stepCompleted";
+    /** Key of `theme.colors`, by default controlled by Stepper component */
     color?: MantineColor;
-    /** Should icon be displayed */
+    /** Determines whether the icon should be displayed */
     withIcon?: boolean;
     /** Step icon, defaults to step index + 1 when rendered within Stepper */
     icon?: React.ReactNode;
@@ -23,27 +23,25 @@ type Props = {
     label?: React.ReactNode;
     /** Step description */
     description?: React.ReactNode;
-    /** Icon wrapper size in px */
+    /** Icon wrapper size */
     iconSize?: number;
-    /** Icon position relative to step body */
+    /** Icon position relative to step body, controlled by Stepper component */
     iconPosition?: "right" | "left";
-    /** Component size */
-    size?: MantineSize;
-    /** Radius from theme.radius, or number to set border-radius in px */
-    radius?: MantineNumberSize;
-    /** Indicates loading state on step */
+    /** Indicates loading state of the step */
     loading?: boolean;
+    /** Set to false to disable clicks on step */
+    allowStepClick?: boolean;
+    /** Should step selection be allowed */
+    allowStepSelect?: boolean;
     /** Component orientation */
     orientation?: "vertical" | "horizontal";
-    /** StepperStep content */
+    /* Content */
     children?: React.ReactNode;
-} & MantineStyleSystemProps &
-    MantineStylesAPIProps &
-    DashBaseProps;
+}
 
-/** Display content divided into a steps sequence */
+/** StepperStep */
 const StepperStep = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { children, setProps, ...others } = props;
 
     return <>{children}</>;
 };

@@ -1,25 +1,23 @@
-import React from "react";
 import { Tabs } from "@mantine/core";
-import { TabsPosition } from "@mantine/core/lib/Tabs/Tabs.types";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** dmc.Tab components */
-    children?: React.ReactNode;
-    /** Determines whether tabs should take the whole space */
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** `Tabs.Tab` components */
+    children: React.ReactNode;
+    /** Determines whether tabs should take all available space, `false` by default */
     grow?: boolean;
-    /** Tabs alignment */
-    position?: TabsPosition;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Tabs alignment, `flex-start` by default */
+    justify?: React.CSSProperties["justifyContent"];
+}
 
-/** Switch between different views */
+/** TabsList */
 const TabsList = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Tabs.List {...other}>{children}</Tabs.List>;
+    return <Tabs.List {...others}>{children}</Tabs.List>;
 };
 
 TabsList.defaultProps = {};

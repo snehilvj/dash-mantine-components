@@ -1,31 +1,23 @@
-import { Container as MantineContainer } from "@mantine/core";
+import { Container as MantineContainer, MantineSize } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import {
-    MantineNumberSize,
-    MantineSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Predefined container max-width or number for max-width */
-    size?: MantineNumberSize;
-    /** If fluid is set to true, size prop is ignored and Container can expand to 100% of width */
-    fluid?: boolean;
-    /** Container sizes */
-    sizes?: Record<MantineSize, number | string>;
-    /** children */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Sets `max-width` of the container, value is not responsive – it is the same for all screen sizes. Numbers are converted to rem. Ignored when `fluid` prop is set. `'md'` by default */
+    size?: MantineSize | (string & {}) | number;
+    /** Determines whether the container should take 100% of its parent width. If set, `size` prop is ignored. `false` by default. */
+    fluid?: boolean;
+}
 
-/** Center content horizontally with predefined max-width */
+/** Container */
 const Container = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineContainer {...other}>{children}</MantineContainer>;
+    return <MantineContainer {...others}>{children}</MantineContainer>;
 };
 
 Container.defaultProps = {};

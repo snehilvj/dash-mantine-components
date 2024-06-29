@@ -1,26 +1,21 @@
-import React from "react";
-import { Avatar } from "@mantine/core";
-import {
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+import { Avatar, MantineSpacing } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Avatar components */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Negative space between Avatar components, `'sm'` by default */
+    spacing?: MantineSpacing;
+    /** <Avatar /> components */
     children?: React.ReactNode;
-    /** Negative space between Avatars */
-    spacing?: MantineNumberSize;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** Display user profile image, initials or fallback icon */
+/** AvatarGroup */
 const AvatarGroup = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Avatar.Group {...other}>{children}</Avatar.Group>;
+    return <Avatar.Group {...others}>{children}</Avatar.Group>;
 };
 
 AvatarGroup.defaultProps = {};

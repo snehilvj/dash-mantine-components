@@ -1,21 +1,23 @@
+import { Card } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Card children */
-    children?: React.ReactNode;
-    /** Determines whether section should have border */
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Determines whether the section should have a border, `false` by default */
     withBorder?: boolean;
-    /** Determines whether section from inherit padding from Card */
+    /** Determines whether the section should inherit padding from the parent `Card`, `false` by default */
     inheritPadding?: boolean;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Content */
+    children?: React.ReactNode;
+}
 
-/** Renders white or dark background depending on color scheme */
+/** CardSection */
 const CardSection = (props: Props) => {
-    return <> {props.children}</>;
+    const { children, setProps, ...others } = props;
+
+    return <Card.Section {...others}>{children}</Card.Section>;
 };
 
 CardSection.defaultProps = {};

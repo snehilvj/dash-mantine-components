@@ -1,55 +1,56 @@
-import React, { MouseEvent } from "react";
-import { NavLink as MantineNavLink } from "@mantine/core";
-import { DashBaseProps, PersistenceProps } from "props/dash";
 import {
     MantineColor,
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
-import { TargetProps } from "props/html";
-import { onClick } from "../../utils/anchor";
+    NavLink as MantineNavLink,
+    MantineSize,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
+import { DashBaseProps, PersistenceProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React, { MouseEvent } from "react";
+import { TargetProps, onClick } from "../../utils/anchor";
 
-type Props = {
-    /** Main link content */
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
+    /** Main link label */
     label?: React.ReactNode;
-    /** Secondary link description */
+    /** Link description, displayed below the label */
     description?: React.ReactNode;
-    /** Icon displayed on the left side of the label */
-    icon?: React.ReactNode;
+    /** Section displayed on the left side of the label */
+    leftSection?: React.ReactNode;
     /** Section displayed on the right side of the label */
     rightSection?: React.ReactNode;
-    /** Determines whether link should have active styles */
+    /** Determines whether the link should have active styles, `false` by default */
     active?: boolean;
-    /** Key of theme.colors, active link color */
+    /** Key of `theme.colors` of any valid CSS color to control active styles, `theme.primaryColor` by default */
     color?: MantineColor;
-    /** Active link variant */
-    variant?: "filled" | "light" | "subtle";
-    /** If prop is set then label and description will not wrap on the next line */
-    noWrap?: boolean;
-    /** Child links */
-    children?: React.ReactNode;
-    /** If set to true, right section will not rotate when collapse is opened */
-    disableRightSectionRotation?: boolean;
-    /** Key of theme.spacing or number to set collapsed links padding-left in px */
-    childrenOffset?: MantineNumberSize;
-    /** Controlled nested items collapse state */
-    opened?: boolean;
-    /** Adds disabled styles to root element */
-    disabled?: boolean;
-    /** An integer that represents the number of times that this element has been clicked on */
-    n_clicks?: number;
-    /** Target */
-    target?: TargetProps;
     /** href */
     href?: string;
+    /** Target */
+    target?: TargetProps;
+    /** If set, label and description will not wrap to the next line, `false` by default */
+    noWrap?: boolean;
+    /** Child `NavLink` components */
+    children?: React.ReactNode;
+    /** Controlled nested items collapse state */
+    opened?: boolean;
+    /** If set, right section will not be rotated when collapse is opened, `false` by default */
+    disableRightSectionRotation?: boolean;
+    /** Key of `theme.spacing` or any valid CSS value to set collapsed links `padding-left`, `'lg'` by default */
+    childrenOffset?: MantineSize | (string & {}) | number;
+    /** If set, disabled styles will be added to the root element, `false` by default */
+    disabled?: boolean;
+    /** Determines whether button text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
+    /** An integer that represents the number of times that this element has been clicked on */
+    n_clicks?: number;
     /** Whether to refresh the page */
     refresh?: boolean;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** Navigation link */
+/** NavLink */
 const NavLink = (props: Props) => {
     const {
         disabled,
@@ -58,8 +59,11 @@ const NavLink = (props: Props) => {
         refresh,
         n_clicks,
         children,
+        persistence,
+        persisted_props,
+        persistence_type,
         setProps,
-        ...other
+        ...others
     } = props;
 
     const onChange = (state: boolean) => {
@@ -85,7 +89,7 @@ const NavLink = (props: Props) => {
                 target={target}
                 onChange={onChange}
                 disabled={disabled}
-                {...other}
+                {...others}
             >
                 {children}
             </MantineNavLink>
@@ -96,7 +100,7 @@ const NavLink = (props: Props) => {
                 disabled={disabled}
                 onChange={onChange}
                 onClick={increment}
-                {...other}
+                {...others}
             >
                 {children}
             </MantineNavLink>
@@ -106,6 +110,8 @@ const NavLink = (props: Props) => {
 
 NavLink.defaultProps = {
     n_clicks: 0,
+    persisted_props: ["opened"],
+    persistence_type: "local",
 };
 
 export default NavLink;

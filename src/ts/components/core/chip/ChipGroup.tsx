@@ -1,42 +1,39 @@
 import { Chip } from "@mantine/core";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import {
-    InputWrapperBaseProps,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
-import React from "react";
+import React, { useState } from "react";
 
-type Props = {
-    /** Allow multiple values to be selected at a time */
-    multiple?: boolean;
+interface Props extends DashBaseProps, PersistenceProps {
     /** Controlled component value */
-    value?: string | string[];
-    /** dmc.Chip components */
+    value?: string[];
+    /** `Chip` components and any other elements */
     children?: React.ReactNode;
-} & PersistenceProps &
-    InputWrapperBaseProps &
-    DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** Pick one or multiple values with inline controls */
+/** ChipGroup */
 const ChipGroup = (props: Props) => {
     const {
         children,
+        value,
         setProps,
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
-    const onChange = (value: string[]) => {
-        setProps({ value });
-    };
+    const [val, setVal] = useState(value);
+
+    // const onChange = (value: string[]) => {
+    //     setVal(value);
+    //     setProps({ value });
+    // };
+
+    // useEffect(() => {
+    //     setVal(value);
+    // }, [value]);
 
     return (
-        <Chip.Group onChange={onChange} {...other}>
+        <Chip.Group multiple value={val} onChange={setVal} {...others}>
             {children}
         </Chip.Group>
     );
@@ -45,6 +42,7 @@ const ChipGroup = (props: Props) => {
 ChipGroup.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
+    value: [],
 };
 
 export default ChipGroup;

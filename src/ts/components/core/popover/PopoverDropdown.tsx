@@ -1,24 +1,19 @@
-import React from "react";
-import { Popover, Box } from "@mantine/core";
+import { Popover } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Popover dropdown content */
-    children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** Content */
+    children: React.ReactNode;
+}
 
-/** Display popover section relative to given target element */
+/** PopoverDropdown */
 const PopoverDropdown = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return (
-        <Popover.Dropdown {...other}>
-            <Box style={{ width: "fit-content" }}>{children}</Box>
-        </Popover.Dropdown>
-    );
+    return <Popover.Dropdown {...others}>{children}</Popover.Dropdown>;
 };
 
 PopoverDropdown.defaultProps = {};

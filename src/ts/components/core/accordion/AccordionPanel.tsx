@@ -1,20 +1,19 @@
 import { Accordion } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** AccordionPanel content */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Divide content into collapsible sections. */
+/** AccordionPanel */
 const AccordionPanel = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Accordion.Panel {...other}>{children}</Accordion.Panel>;
+    return <Accordion.Panel {...others}>{children}</Accordion.Panel>;
 };
 
 AccordionPanel.defaultProps = {};

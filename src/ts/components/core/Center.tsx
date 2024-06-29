@@ -1,20 +1,19 @@
 import { Center as MantineCenter } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Content that should be centered vertically and horizontally */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Centers content vertically and horizontally */
+/** Center */
 const Center = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineCenter {...other}>{children}</MantineCenter>;
+    return <MantineCenter {...others}>{children}</MantineCenter>;
 };
 
 Center.defaultProps = {};

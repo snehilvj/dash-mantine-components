@@ -1,26 +1,21 @@
-import React from "react";
-import { Mark as MantineMark } from "@mantine/core";
-import {
-    MantineColor,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+import { MantineColor, Mark as MantineMark } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
+interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Content */
     children?: string;
-    /** Background color from theme.colors */
+    /** Key of `theme.colors` or any valid CSS color, `yellow` by default */
     color?: MantineColor;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Highlight part of the text */
+/** Mark */
 const Mark = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineMark {...other}>{children}</MantineMark>;
+    return <MantineMark {...others}>{children}</MantineMark>;
 };
 
 Mark.defaultProps = {};

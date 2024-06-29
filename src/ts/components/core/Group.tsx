@@ -1,35 +1,31 @@
-import { GroupPosition, Group as MantineGroup } from "@mantine/core";
-import { AlignItems } from "props/css";
+import { Group as MantineGroup, MantineSpacing } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import {
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-    MantineNumberSize,
-} from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Children */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-    /** Defines justify-content property */
-    position?: GroupPosition;
-    /** Defined flex-wrap property */
-    noWrap?: boolean;
-    /** Defines flex-grow property for each element, true -> 1, false -> 0 */
+    /** Controls `justify-content` CSS property, `'flex-start'` by default */
+    justify?: React.CSSProperties["justifyContent"];
+    /** Controls `align-items` CSS property, `'center'` by default */
+    align?: React.CSSProperties["alignItems"];
+    /** Controls `flex-wrap` CSS property, `'wrap'` by default */
+    wrap?: React.CSSProperties["flexWrap"];
+    /** Key of `theme.spacing` or any valid CSS value for `gap`, numbers are converted to rem, `'md'` by default */
+    gap?: MantineSpacing;
+    /** Determines whether each child element should have `flex-grow: 1` style, `false` by default */
     grow?: boolean;
-    /** Space between elements */
-    spacing?: MantineNumberSize;
-    /** Defines align-items css property */
-    align?: AlignItems;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Determines whether children should take only dedicated amount of space (`max-width` style is set based on the number of children), `true` by default */
+    preventGrowOverflow?: boolean;
+}
 
-/** Compose elements and components in horizontal flex container */
+/** Group */
 const Group = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineGroup {...other}>{children}</MantineGroup>;
+    return <MantineGroup {...others}>{children}</MantineGroup>;
 };
 
 Group.defaultProps = {};

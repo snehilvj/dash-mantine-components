@@ -1,55 +1,53 @@
 import { Box, Menu as MantineMenu } from "@mantine/core";
-import { MenuTriggerEvent } from "@mantine/core/lib/Menu/Menu.types";
-import { DashBaseProps } from "props/dash";
-import {
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-    PopoverBaseProps,
-} from "props/mantine";
+import { __PopoverProps } from "props/popover";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
+interface Props extends __PopoverProps, StylesApiProps {
+    variant?: string;
     /** Menu content */
     children?: React.ReactNode;
     /** Controlled menu opened state */
     opened?: boolean;
+    /** Uncontrolled menu initial opened state */
+    defaultOpened?: boolean;
+    /** Determines whether dropdown should trap focus of keyboard events */
+    trapFocus?: boolean;
     /** Determines whether Menu should be closed when item is clicked */
     closeOnItemClick?: boolean;
     /** Determines whether arrow key presses should loop though items (first to last and last to first) */
     loop?: boolean;
-    /** Determines whether dropdown should be closed when Escape key is pressed, defaults to true */
+    /** Determines whether dropdown should be closed when Escape key is pressed */
     closeOnEscape?: boolean;
     /** Event which should open menu */
-    trigger?: MenuTriggerEvent;
+    trigger?: "click" | "hover" | "click-hover";
     /** Open delay in ms, applicable only to trigger="hover" variant */
     openDelay?: number;
     /** Close delay in ms, applicable only to trigger="hover" variant */
     closeDelay?: number;
-    /** Determines whether dropdown should be closed on outside clicks, default to true */
+    /** Determines whether dropdown should be closed on outside clicks */
     closeOnClickOutside?: boolean;
     /** Events that trigger outside clicks */
     clickOutsideEvents?: string[];
-    /** id base to create accessibility connections */
+    /** Set the `tabindex` on all menu items. Defaults to -1 */
+    menuItemTabIndex?: -1 | 0;
+    /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
-    /** props to wrapper box component */
-    boxWrapperProps?: DashBaseProps &
-        MantineStyleSystemProps &
-        MantineStylesAPIProps;
-} & PopoverBaseProps &
-    MantineStylesAPIProps;
+}
 
-/** Combine a list of secondary actions into single interactive area */
+/** Menu */
 const Menu = (props: Props) => {
-    const { children, boxWrapperProps, setProps, ...other } = props;
-    const boxProps = { style: { width: "fit-content" }, ...boxWrapperProps };
+    const { children, setProps, ...others } = props;
 
     return (
-        <MantineMenu {...other}>
+        <MantineMenu {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "MenuTarget") {
+                    const { boxWrapperProps } = child.props;
+                    const boxProps = { w: "fit-content", ...boxWrapperProps };
                     return (
                         <MantineMenu.Target key={index}>
                             <Box {...boxProps}>{child}</Box>

@@ -1,20 +1,18 @@
 import { Box as MantineBox } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
 import React from "react";
 
-type Props = {
-    /** Children */
+interface Props extends BoxProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Add inline styles to any element or component using sx */
+/** Box */
 const Box = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineBox {...other}>{children}</MantineBox>;
+    return <MantineBox {...others}>{children}</MantineBox>;
 };
 
 Box.defaultProps = {};

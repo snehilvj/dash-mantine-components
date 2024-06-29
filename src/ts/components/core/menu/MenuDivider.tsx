@@ -1,15 +1,16 @@
 import { Menu } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = DashBaseProps & MantineStylesAPIProps & MantineStyleSystemProps;
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {}
 
-/** Combine a list of secondary actions into single interactive area */
+/** MenuDivider */
 const MenuDivider = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <Menu.Divider {...other} />;
+    return <Menu.Divider {...others} />;
 };
 
 MenuDivider.defaultProps = {};

@@ -1,62 +1,86 @@
 import {
+    MantineColor,
+    MantineRadius,
     SegmentedControl as MantineSegmentedControl,
+    MantineSize,
     SegmentedControlItem,
 } from "@mantine/core";
+import { renderDashComponent } from "dash-extensions-js";
+import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import {
-    MantineColor,
-    MantineNumberSize,
-    MantineSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-export type Props = {
-    /** Segments to render */
-    data: string[] | SegmentedControlItem[];
-    /** Current selected value */
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
+    /** Data based on which controls are rendered */
+    data: (string | SegmentedControlItem)[];
+    /** Controlled component value */
     value?: string;
-    /** Disabled input state */
+    /** Determines whether the component is disabled */
     disabled?: boolean;
-    /** Name of the radio group, default to random id */
+    /** Name of the radio group, by default random name is generated */
     name?: string;
-    /** True if component should have 100% width */
+    /** Determines whether the component should take 100% width of its parent, `false` by default */
     fullWidth?: boolean;
-    /** Active control color from theme.colors, defaults to white in light color scheme and theme.colors.dark[9] in dark */
+    /** Key of `theme.colors` or any valid CSS color, changes color of indicator, by default color is based on current color scheme */
     color?: MantineColor;
-    /** Controls font-size, paddings and height */
-    size?: MantineSize;
-    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
-    radius?: MantineNumberSize;
-    /** Transition duration in ms, set to 0 to turn off transitions */
+    /** Controls `font-size`, `padding` and `height` properties, `'sm'` by default */
+    size?: MantineSize | (string & {});
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `theme.defaultRadius` by default */
+    radius?: MantineRadius;
+    /** Indicator `transition-duration` in ms, set `0` to turn off transitions, `200` by default */
     transitionDuration?: number;
-    /** Transition timing function for all transitions, defaults to theme.transitionTimingFunction */
+    /** Indicator `transition-timing-function` property, `ease` by default */
     transitionTimingFunction?: string;
-    /** The orientation of the component */
+    /** Determines in which orientation component id displayed, `'horizontal'` by default */
     orientation?: "vertical" | "horizontal";
-    /** Determines whether the user can change value */
+    /** Determines whether the value can be changed */
     readOnly?: boolean;
-} & PersistenceProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Determines whether text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
+    /** Determines whether there should be borders between items, `true` by default */
+    withItemsBorders?: boolean;
+}
 
-/** A linear set of two or more segments */
+/** SegmentedControl */
 const SegmentedControl = (props: Props) => {
     const {
+        data,
         setProps,
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
+
+    const renderedData = [];
+    data.forEach((item, index) => {
+        if (typeof item === "string") {
+            renderedData.push(item);
+        } else {
+            const rItem = {
+                value: item["value"],
+                label: renderDashComponent(item["label"]),
+            };
+            renderedData.push(rItem);
+        }
+    });
 
     const onChange = (value: string) => {
         setProps({ value });
     };
 
-    return <MantineSegmentedControl onChange={onChange} {...other} />;
+    return (
+        <MantineSegmentedControl
+            data={renderedData}
+            onChange={onChange}
+            {...others}
+        />
+    );
 };
 
 SegmentedControl.defaultProps = {

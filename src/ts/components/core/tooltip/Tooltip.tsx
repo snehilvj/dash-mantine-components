@@ -1,59 +1,63 @@
-import React from "react";
-import { Tooltip as MantineTooltip, Box } from "@mantine/core";
 import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    TooltipBaseProps,
-    TransitionProps,
-} from "props/mantine";
+    ArrowPosition,
+    Box,
+    FloatingAxesOffsets,
+    FloatingStrategy,
+    Tooltip as MantineTooltip,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { ArrowPosition } from "@mantine/core/lib/Floating";
+import { TooltipBaseProps } from "props/tooltip";
+import { TransitionProps } from "props/transition";
+import React from "react";
 
-type Props = {
+interface Props extends TooltipBaseProps, DashBaseProps {
     /** Open delay in ms */
     openDelay?: number;
-    /** Close delay in ms */
+    /** Close delay in ms, `0` by default */
     closeDelay?: number;
-    /** Controls opened state */
+    /** Controlled opened state */
     opened?: boolean;
-    /** Space between target element and tooltip */
-    offset?: number;
-    /** Determines whether component should have an arrow */
+    /** Space between target element and tooltip in px, `5` by default */
+    offset?: number | FloatingAxesOffsets;
+    /** Determines whether the tooltip should have an arrow, `false` by default */
     withArrow?: boolean;
-    /** Arrow size */
+    /** Arrow size in px, `4` by default */
     arrowSize?: number;
-    /** Arrow offset */
+    /** Arrow offset in px, `5` by default */
     arrowOffset?: number;
-    /** Arrow radius */
+    /** Arrow `border-radius` in px, `0` by default */
     arrowRadius?: number;
-    /** Arrow position **/
+    /** Arrow position relative to the tooltip, `side` by default */
     arrowPosition?: ArrowPosition;
-    /** Props added to Transition component that used to animate tooltip presence, use to configure duration and animation type, { duration: 100, transition: 'fade' } by default */
+    /** Props passed down to the `Transition` component that used to animate tooltip presence, use to configure duration and animation type, `{ duration: 100, transition: 'fade' }` by default */
     transitionProps?: TransitionProps;
-    /** Determines which events will be used to show tooltip */
+    /** Determines which events will be used to show tooltip, `{ hover: true, focus: false, touch: false }` by default */
     events?: {
         hover: boolean;
         focus: boolean;
         touch: boolean;
     };
-    /** useEffect dependencies to force update tooltip position */
+    /** `useEffect` dependencies to force update tooltip position */
     positionDependencies?: any[];
-    /** Set if tooltip is attached to an inline element */
+    /** Must be set if the tooltip target is an inline element */
     inline?: boolean;
-    /** If set tooltip will not be unmounted from the DOM when it is hidden, display: none styles will be added instead */
+    /** If set, the tooltip will not be unmounted from the DOM when it is hidden, `display: none` styles will be applied instead */
     keepMounted?: boolean;
-} & DashBaseProps &
-    TooltipBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Changes floating ui [position strategy](https://floating-ui.com/docs/usefloating#strategy), `'absolute'` by default */
+    floatingStrategy?: FloatingStrategy;
+    /** Target box wrapper props */
+    boxWrapperProps?: BoxProps;
+}
 
-/** Renders tooltip at given element on mouse over or any other event */
+/** Tooltip */
 const Tooltip = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, boxWrapperProps, setProps, ...others } = props;
+    const boxProps = { w: "fit-content", ...boxWrapperProps };
 
     return (
-        <MantineTooltip {...other}>
-            <Box style={{ width: "fit-content" }}>{children}</Box>
+        <MantineTooltip {...others}>
+            <Box {...boxProps}>{children}</Box>
         </MantineTooltip>
     );
 };

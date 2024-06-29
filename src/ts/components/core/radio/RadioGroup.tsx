@@ -1,31 +1,24 @@
-import { Radio } from "@mantine/core";
+import { MantineSize, Radio } from "@mantine/core";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import {
-    InputWrapperBaseProps,
-    MantineSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+import { InputWrapperProps } from "props/input";
 import React from "react";
 
-type Props = {
-    /** dmc.Radio components */
-    children?: React.ReactNode;
-    /** Value of currently selected radio */
+interface Props extends InputWrapperProps, DashBaseProps, PersistenceProps {
+    /** `Radio` components and any other elements */
+    children: React.ReactNode;
+    /** Controlled component value */
     value?: string;
-    /** Predefined label fontSize, radio width, height and border-radius */
-    size?: MantineSize;
-    /** Props spread to root element */
+    /** Props passed down to the `Input.Wrapper` */
     wrapperProps?: Record<string, any>;
-    /** Name attribute of radio inputs */
+    /** Controls size of the `Input.Wrapper`, `'sm'` by default */
+    size?: MantineSize;
+    /** `name` attribute of child radio inputs. By default, `name` is generated randomly. */
     name?: string;
-} & InputWrapperBaseProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps &
-    PersistenceProps;
+    /** If set, value cannot be changed */
+    readOnly?: boolean;
+}
 
-/** Capture boolean input from user */
+/** RadioGroup */
 const RadioGroup = (props: Props) => {
     const {
         children,
@@ -34,7 +27,7 @@ const RadioGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string) => {
@@ -42,7 +35,7 @@ const RadioGroup = (props: Props) => {
     };
 
     return (
-        <Radio.Group onChange={onChange} value={value} {...other}>
+        <Radio.Group onChange={onChange} value={value} {...others}>
             {children}
         </Radio.Group>
     );

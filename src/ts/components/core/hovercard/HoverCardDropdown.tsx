@@ -1,24 +1,19 @@
-import React from "react";
-import { HoverCard, Box } from "@mantine/core";
+import { HoverCard } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** HoverCard dropdown content */
-    children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** Content */
+    children: React.ReactNode;
+}
 
-/** Display popover section when target element is hovered */
+/** HoverCardDropdown */
 const HoverCardDropdown = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return (
-        <HoverCard.Dropdown {...other}>
-            <Box style={{ width: "fit-content" }}>{children}</Box>
-        </HoverCard.Dropdown>
-    );
+    return <HoverCard.Dropdown {...others}>{children}</HoverCard.Dropdown>;
 };
 
 HoverCardDropdown.defaultProps = {};

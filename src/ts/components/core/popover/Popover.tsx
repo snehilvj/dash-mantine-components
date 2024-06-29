@@ -1,29 +1,24 @@
-import React from "react";
-import { Popover as MantinePopover, Box } from "@mantine/core";
+import { Box, Popover as MantinePopover } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    PopoverProps,
-} from "props/mantine";
+import { PopoverProps } from "props/popover";
+import React from "react";
 
-type Props = PopoverProps &
-    DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+interface Props extends PopoverProps, DashBaseProps {}
 
-/** Display popover section relative to given target element */
+/** Popover */
 const Popover = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
     return (
-        <MantinePopover {...other}>
+        <MantinePopover {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "PopoverTarget") {
+                    const { boxWrapperProps } = child.props;
+                    const boxProps = { w: "fit-content", ...boxWrapperProps };
                     return (
                         <MantinePopover.Target key={index}>
-                            <Box style={{ width: "fit-content" }}>{child}</Box>
+                            <Box {...boxProps}>{child}</Box>
                         </MantinePopover.Target>
                     );
                 }

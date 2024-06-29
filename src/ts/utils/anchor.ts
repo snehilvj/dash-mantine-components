@@ -1,7 +1,8 @@
 import isAbsoluteUrl from "is-absolute-url";
-import { TargetProps } from "props/html";
 import { isNil } from "ramda";
 import { MouseEvent } from "react";
+
+export type TargetProps = "_blank" | "_self";
 
 /*
  * event polyfill for IE

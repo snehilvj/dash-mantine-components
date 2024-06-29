@@ -1,26 +1,21 @@
-import React from "react";
-import { Kbd as MantineKbd } from "@mantine/core";
-import {
-    MantineSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+import { Kbd as MantineKbd, MantineSize } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Controls component size, 'sm' by default */
-    size?: MantineSize;
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Controls font-size and padding, `'sm'` by default */
+    size?: MantineSize | (string & {});
     /** Keyboard key */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Display keyboard button or keys combination */
+/** Kbd */
 const Kbd = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
-    return <MantineKbd {...other}>{children}</MantineKbd>;
+    return <MantineKbd {...others}>{children}</MantineKbd>;
 };
 
 Kbd.defaultProps = {};

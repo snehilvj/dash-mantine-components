@@ -1,11 +1,14 @@
+import { BoxProps } from "props/box";
 import React from "react";
 
-type Props = {
-    /** Menu target */
-    children?: React.ReactNode;
-};
+interface Props {
+    /** Content */
+    children: React.ReactNode;
+    /** Target box wrapper props */
+    boxWrapperProps?: BoxProps;
+}
 
-/** Combine a list of secondary actions into single interactive area */
+/** MenuTarget */
 const MenuTarget = (props: Props) => {
     const { children } = props;
 

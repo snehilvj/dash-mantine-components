@@ -1,23 +1,22 @@
-import { Box, Menu } from "@mantine/core";
-import { MantineColor } from "@mantine/styles";
+import { MantineColor, Menu } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { TargetProps } from "props/html";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React, { MouseEvent } from "react";
-import { onClick } from "../../../utils/anchor";
+import { TargetProps, onClick } from "../../../utils/anchor";
 
-type Props = {
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Item label */
     children?: React.ReactNode;
-    /** Key of theme.colors */
+    /** Key of `theme.colors` or any valid CSS color */
     color?: MantineColor;
-    /** Determines whether menu should be closed when item is clicked, overrides closeOnItemClick prop on Menu component */
+    /** Determines whether the menu should be closed when the item is clicked, overrides `closeOnItemClick` prop on the `Menu` component */
     closeMenuOnClick?: boolean;
-    /** Icon rendered on the left side of the label */
-    icon?: React.ReactNode;
-    /** Section rendered on the right side of the label */
+    /** Section displayed on the left side of the label */
+    leftSection?: React.ReactNode;
+    /** Section displayed on the right side of the label */
     rightSection?: React.ReactNode;
-    /** Is item disabled */
+    /** Disables item */
     disabled?: boolean;
     /** href if MenuItem is supposed to be used as a link */
     href?: string;
@@ -27,15 +26,9 @@ type Props = {
     target?: TargetProps;
     /** Whether to refresh the page */
     refresh?: boolean;
-    /** props to wrapper box component */
-    boxWrapperProps?: DashBaseProps &
-        MantineStyleSystemProps &
-        MantineStylesAPIProps;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Combine a list of secondary actions into single interactive area */
+/** MenuItem */
 const MenuItem = (props: Props) => {
     const {
         children,
@@ -45,11 +38,8 @@ const MenuItem = (props: Props) => {
         refresh,
         n_clicks,
         setProps,
-        boxWrapperProps,
-        ...other
+        ...others
     } = props;
-
-    const boxProps = { style: { width: "fit-content" }, ...boxWrapperProps };
 
     const increment = () => {
         if (!disabled) {
@@ -69,15 +59,15 @@ const MenuItem = (props: Props) => {
                 href={href}
                 target={target}
                 disabled={disabled}
-                {...other}
+                {...others}
             >
-                <Box {...boxProps}>{children}</Box>
+                {children}
             </Menu.Item>
         );
     } else {
         return (
-            <Menu.Item onClick={increment} disabled={disabled} {...other}>
-                <Box {...boxProps}>{children}</Box>
+            <Menu.Item onClick={increment} disabled={disabled} {...others}>
+                {children}
             </Menu.Item>
         );
     }

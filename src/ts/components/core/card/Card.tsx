@@ -1,48 +1,32 @@
-import React from "react";
-import { Card as MantineCard, CardSection } from "@mantine/core";
 import {
-    MantineNumberSize,
+    Card as MantineCard,
+    MantineRadius,
     MantineShadow,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    MantineSpacing,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Key of `theme.shadows` or any valid CSS value to set `box-shadow`, `none` by default */
     shadow?: MantineShadow;
-    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
-    radius?: MantineNumberSize;
-    /** Adds border styles */
+    /** Key of `theme.radius` or any valid CSS value to set border-radius, numbers are converted to rem, `theme.defaultRadius` by default */
+    radius?: MantineRadius;
+    /** Determines whether the card should have border, border color depends on color scheme, `false` by default */
     withBorder?: boolean;
-    /** Card children */
+    /** Controls `padding`, key of `theme.spacing` or any valid CSS value, `'md'` by default */
+    padding?: MantineSpacing;
+    /** Card content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Renders white or dark background depending on color scheme */
+/** Card */
 const Card = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return (
-        <MantineCard {...other}>
-            {React.Children.map(children, (child: any, index) => {
-                const childProps = child.props._dashprivate_layout.props;
-                const childType = child.props._dashprivate_layout.type;
-
-                if (childType === "CardSection") {
-                    return (
-                        <CardSection {...childProps} key={index}>
-                            {child}
-                        </CardSection>
-                    );
-                } else {
-                    return child;
-                }
-            })}
-        </MantineCard>
-    );
+    return <MantineCard {...others}>{children}</MantineCard>;
 };
 
 Card.defaultProps = {};

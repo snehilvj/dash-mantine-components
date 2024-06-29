@@ -1,22 +1,15 @@
-import React from "react";
 import { Loader as MantineLoader } from "@mantine/core";
-import {
-    LoaderProps,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
 import { DashBaseProps } from "props/dash";
+import { LoaderProps } from "props/loader";
+import React from "react";
 
-type Props = LoaderProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+interface Props extends LoaderProps, DashBaseProps {}
 
-/** Indicate loading state */
+/** Loader */
 const Loader = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineLoader {...other} />;
+    return <MantineLoader {...others} />;
 };
 
 Loader.defaultProps = {};

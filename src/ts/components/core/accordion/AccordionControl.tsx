@@ -1,26 +1,25 @@
 import { Accordion } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Disables control button */
     disabled?: boolean;
     /** Custom chevron icon */
     chevron?: React.ReactNode;
     /** Control label */
     children?: React.ReactNode;
-    /** Icon rendered next to label */
+    /** Icon displayed next to the label */
     icon?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Divide content into collapsible sections. */
+/** AccordionControl */
 const AccordionControl = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Accordion.Control {...other}>{children}</Accordion.Control>;
+    return <Accordion.Control {...others}>{children}</Accordion.Control>;
 };
 
 AccordionControl.defaultProps = {};

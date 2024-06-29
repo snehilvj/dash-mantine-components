@@ -1,52 +1,47 @@
-import React from "react";
-import { Tabs as MantineTabs } from "@mantine/core";
-import {
-    TabsOrientation,
-    TabsPlacement,
-    TabsValue,
-    TabsVariant,
-} from "@mantine/core/lib/Tabs/Tabs.types";
 import {
     MantineColor,
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    MantineRadius,
+    Tabs as MantineTabs,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
+interface Props
+    extends BoxProps,
+        DashBaseProps,
+        StylesApiProps,
+        PersistenceProps {
     /** Value for controlled component */
-    value?: TabsValue;
-    /** Tabs orientation, vertical or horizontal */
-    orientation?: TabsOrientation;
-    /** Tabs.List placement relative to Tabs.Panel, applicable only for orientation="vertical", left by default */
-    placement?: TabsPlacement;
-    /** Base id, used to generate ids that connect labels with controls, by default generated randomly */
+    value?: string | null;
+    /** Tabs orientation, `'horizontal'` by default */
+    orientation?: "vertical" | "horizontal";
+    /** `Tabs.List` placement relative to `Tabs.Panel`, applicable only when `orientation="vertical"`, `'left'` by default */
+    placement?: "left" | "right";
+    /** Base id, used to generate ids to connect labels with controls, generated randomly by default */
     id?: string;
-    /** Determines whether arrow key presses should loop though items (first to last and last to first) */
+    /** Determines whether arrow key presses should loop though items (first to last and last to first), `true` by default */
     loop?: boolean;
-    /** Determines whether tab should be activated with arrow key press, defaults to true */
+    /** Determines whether tab should be activated with arrow key press, `true` by default */
     activateTabWithKeyboard?: boolean;
-    /** Determines whether tab can be deactivated, defaults to false */
+    /** Determines whether tab can be deactivated, `false` by default */
     allowTabDeactivation?: boolean;
     /** Tabs content */
     children: React.ReactNode;
-    /** Controls component visuals */
-    variant?: TabsVariant;
-    /** Key of theme.colors */
+    /** Changes colors of `Tabs.Tab` components when variant is `pills` or `default`, does nothing for other variants */
     color?: MantineColor;
-    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
-    radius?: MantineNumberSize;
-    /** Determines whether tabs should have inverted styles */
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
+    radius?: MantineRadius;
+    /** Determines whether tabs should have inverted styles, `false` by default */
     inverted?: boolean;
-    /** If set to false, Tabs.Panel content will not stay mounted when tab is not active */
+    /** If set to `false`, `Tabs.Panel` content will be unmounted when the associated tab is not active, `true` by default */
     keepMounted?: boolean;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps &
-    PersistenceProps;
+    /** Determines whether active item text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. Only applicable when `variant="pills"` */
+    autoContrast?: boolean;
+}
 
-/** Switch between different views */
+/** Tabs */
 const Tabs = (props: Props) => {
     const {
         children,
@@ -54,15 +49,15 @@ const Tabs = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
-    const onTabChange = (value: string) => {
+    const onChange = (value: string) => {
         setProps({ value });
     };
 
     return (
-        <MantineTabs onTabChange={onTabChange} {...other}>
+        <MantineTabs onChange={onChange} {...others}>
             {children}
         </MantineTabs>
     );

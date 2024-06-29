@@ -1,61 +1,81 @@
-import { DateValue, DatePicker as MantineDatePicker } from "@mantine/dates";
-import { useDidUpdate } from "@mantine/hooks";
+import { DatePickerInput } from "@mantine/dates";
+import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
+import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import { DatePickerProps } from "props/dates";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { DateInputSharedProps, DatePickerBaseProps } from "props/dates";
+import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import {
     isDisabled,
-    stringToDayjs,
+    stringToDate,
     toDates,
     toStrings,
 } from "../../utils/dates";
 
-type Props = {
+interface Props
+    extends DashBaseProps,
+        PersistenceProps,
+        BoxProps,
+        DateInputSharedProps,
+        DatePickerBaseProps,
+        StylesApiProps {
+    /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
+    valueFormat?: string;
     /** Specifies days that should be disabled */
     disabledDates?: string[];
-} & DatePickerProps &
-    DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps &
-    PersistenceProps;
+    /** An integer that represents the number of times that this element has been submitted */
+    n_submit?: number;
+    /** Debounce time in ms */
+    debounce?: number;
+}
 
-/** Inline date, multiple dates and dates range picker. */
+/** DatePicker */
 const DatePicker = (props: Props) => {
     const {
         setProps,
+        n_submit,
         value,
+        debounce,
         minDate,
         maxDate,
         disabledDates,
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const [date, setDate] = useState(toDates(value));
+    const [debounced] = useDebouncedValue(date, debounce);
 
     useDidUpdate(() => {
         setProps({ value: toStrings(date) });
-    }, [date]);
+    }, [debounced]);
 
     useDidUpdate(() => {
         setDate(toDates(value));
     }, [value]);
+
+    const handleKeyDown = (ev) => {
+        if (ev.key === "Enter") {
+            setProps({ n_submit: n_submit + 1 });
+        }
+    };
 
     const isExcluded = (date: Date) => {
         return isDisabled(date, disabledDates || []);
     };
 
     return (
-        <MantineDatePicker
+        <DatePickerInput
+            wrapperProps={{ autoComplete: "off" }}
+            onKeyDown={handleKeyDown}
             onChange={setDate}
             value={date}
-            minDate={stringToDayjs(minDate)}
-            maxDate={stringToDayjs(maxDate)}
+            minDate={stringToDate(minDate)}
+            maxDate={stringToDate(maxDate)}
             excludeDate={isExcluded}
-            {...other}
+            {...others}
         />
     );
 };
@@ -63,6 +83,8 @@ const DatePicker = (props: Props) => {
 DatePicker.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
+    debounce: 0,
+    n_submit: 0,
 };
 
 export default DatePicker;

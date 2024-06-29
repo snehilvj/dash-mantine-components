@@ -1,45 +1,44 @@
-import { Rating as MantineRating } from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { DashBaseProps, PersistenceProps } from "props/dash";
 import {
     MantineColor,
+    Rating as MantineRating,
     MantineSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+} from "@mantine/core";
+import { useDidUpdate } from "@mantine/hooks";
+import { BoxProps } from "props/box";
+import { DashBaseProps, PersistenceProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 
-export type Props = {
-    /** Default value for uncontrolled component */
-    defaultValue?: number;
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
     /** Value for controlled component */
     value?: number;
-    /** The icon that is displayed when symbol is empty */
+    /** Icon displayed when the symbol is empty */
     emptySymbol?: React.ReactNode;
-    /** This icon that is displayed when symbol is full */
+    /** Icon displayed when the symbol is full */
     fullSymbol?: React.ReactNode;
-    /** Number of fractions each item can be divided into, 1 by default */
+    /** Number of fractions each item can be divided into, `1` by default */
     fractions?: number;
-    /** Controls component size */
-    size?: MantineSize;
-    /** Number of controls that should be rendered */
+    /** Controls component size, `'sm'` by default */
+    size?: MantineSize | number | (string & {});
+    /** Number of controls, `5` by default */
     count?: number;
-    /** Name of rating, should be unique within the page */
+    /** `name` attribute passed down to all inputs. By default, `name` is generated randomly. */
     name?: string;
-    /** If true, you won't be able to interact */
+    /** If set, the user cannot interact with the component, `false` by default */
     readOnly?: boolean;
-    /** If true, only the selected symbol will change to full symbol */
+    /** If set, only the selected symbol changes to full symbol when selected, `false` by default */
     highlightSelectedOnly?: boolean;
-    /** Key of theme.colors or any CSS color value, yellow by default */
+    /** Key of `theme.colors` or any CSS color value, `'yellow'` by default */
     color?: MantineColor;
-} & PersistenceProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps &
-    DashBaseProps;
+}
 
-/** Capture password from user with option to toggle visibility */
+/** Rating */
 const Rating = (props: Props) => {
-    const { setProps, value, ...other } = props;
+    const { setProps, value, ...others } = props;
 
     const [val, setVal] = useState(value);
 
@@ -51,7 +50,7 @@ const Rating = (props: Props) => {
         setVal(value);
     }, [value]);
 
-    return <MantineRating value={val} onChange={setVal} {...other} />;
+    return <MantineRating value={val} onChange={setVal} {...others} />;
 };
 
 Rating.defaultProps = {

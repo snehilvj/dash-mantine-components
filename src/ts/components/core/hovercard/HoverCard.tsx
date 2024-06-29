@@ -1,36 +1,29 @@
-import React from "react";
-import { HoverCard as MantineHoverCard, Box } from "@mantine/core";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    PopoverBaseProps,
-} from "props/mantine";
+import { Box, HoverCard as MantineHoverCard } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
+import { PopoverProps } from "props/popover";
+import React from "react";
 
-type Props = {
-    /** HoverCard content */
-    children?: React.ReactNode;
+interface Props extends Omit<PopoverProps, "opened">, DashBaseProps {
     /** Open delay in ms */
     openDelay?: number;
     /** Close delay in ms */
     closeDelay?: number;
-} & PopoverBaseProps &
-    DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** Display popover section when target element is hovered */
+/** HoverCard */
 const HoverCard = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
     return (
-        <MantineHoverCard {...other}>
+        <MantineHoverCard {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "HoverCardTarget") {
+                    const { boxWrapperProps } = child.props;
+                    const boxProps = { w: "fit-content", ...boxWrapperProps };
                     return (
                         <MantineHoverCard.Target key={index}>
-                            <Box style={{ width: "fit-content" }}>{child}</Box>
+                            <Box {...boxProps}>{child}</Box>
                         </MantineHoverCard.Target>
                     );
                 }

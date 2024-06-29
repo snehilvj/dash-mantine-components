@@ -1,31 +1,25 @@
-import { Stack as MantineStack } from "@mantine/core";
-import { AlignItems, JustifyContent } from "props/css";
+import { MantineSpacing, Stack as MantineStack } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import {
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-    MantineNumberSize,
-} from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Children */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-    /** Key of theme.spacing or any valid CSS value to set gap */
-    spacing?: MantineNumberSize;
-    /** align-items CSS property */
-    align?: AlignItems;
-    /** justify-content CSS property */
-    justify?: JustifyContent;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Key of `theme.spacing` or any valid CSS value to set `gap` property, numbers are converted to rem, `'md'` by default */
+    gap?: MantineSpacing;
+    /** Controls `align-items` CSS property, `'stretch'` by default */
+    align?: React.CSSProperties["alignItems"];
+    /** Controls `justify-content` CSS property, `'flex-start'` by default */
+    justify?: React.CSSProperties["justifyContent"];
+}
 
-/** Compose elements and components in vertical flex container */
+/** Stack */
 const Stack = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineStack {...other}>{children}</MantineStack>;
+    return <MantineStack {...others}>{children}</MantineStack>;
 };
 
 Stack.defaultProps = {};

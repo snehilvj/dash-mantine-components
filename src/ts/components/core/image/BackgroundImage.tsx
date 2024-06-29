@@ -1,29 +1,31 @@
-import React from "react";
-import { BackgroundImage as MantineBackgroundImage } from "@mantine/core";
+import { sanitizeUrl } from "@braintree/sanitize-url";
 import {
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    BackgroundImage as MantineBackgroundImage,
+    MantineRadius,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React, { useMemo } from "react";
 
-type Props = {
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Key of `theme.radius` or any valid CSS value to set border-radius, numbers are converted to rem, `0` by default */
+    radius?: MantineRadius;
     /** Image url */
     src: string;
-    /** Key of theme.radius or number to set border-radius in px */
-    radius?: MantineNumberSize;
     /** Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Use when you need to display image behind any content */
+/** BackgroundImage  */
 const BackgroundImage = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { setProps, children, src, ...others } = props;
+    const sanitizedSrc = useMemo(() => sanitizeUrl(src), [src]);
 
     return (
-        <MantineBackgroundImage {...other}>{children}</MantineBackgroundImage>
+        <MantineBackgroundImage src={sanitizedSrc} {...others}>
+            {children}
+        </MantineBackgroundImage>
     );
 };
 

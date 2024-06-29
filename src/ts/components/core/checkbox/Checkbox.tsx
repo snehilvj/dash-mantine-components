@@ -1,57 +1,63 @@
-import { Checkbox as MantineCheckbox } from "@mantine/core";
-import { DashBaseProps, PersistenceProps } from "props/dash";
 import {
+    Checkbox as MantineCheckbox,
     MantineColor,
-    MantineNumberSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+    MantineRadius,
+    MantineSize,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
+import { DashBaseProps, PersistenceProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Key of theme.colors */
-    color?: MantineColor;
-    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
-    radius?: MantineNumberSize;
-    /** Controls label font-size and checkbox width and height */
-    size?: MantineNumberSize;
-    /** Checkbox label */
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
+    /** Content of the `label` associated with the checkbox */
     label?: React.ReactNode;
-    /** Props added to the root element */
+    /** Key of `theme.colors` or any valid CSS color to set input background color in checked state, `theme.primaryColor` by default */
+    color?: MantineColor;
+    /** Controls size of the component, `'sm'` by default */
+    size?: MantineSize | (string & {});
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius,` `theme.defaultRadius` by default */
+    radius?: MantineRadius;
+    /** Props passed down to the root element */
     wrapperProps?: Record<string, any>;
-    /** Transition duration in ms */
-    transitionDuration?: number;
-    /** Position of the label */
+    /** Position of the label relative to the input, `'right'` by default */
     labelPosition?: "left" | "right";
-    /** Description, displayed after the label */
+    /** Description displayed below the label */
     description?: React.ReactNode;
-    /** Error message displayed after the input */
+    /** Error message displayed below the label */
     error?: React.ReactNode;
-    /** State of check box */
-    checked?: boolean;
+    /** Indeterminate state of the checkbox. If set, `checked` prop is ignored. */
+    indeterminate?: boolean;
+    /** Key of `theme.colors` or any valid CSS color to set icon color, by default value depends on `theme.autoContrast` */
+    iconColor?: MantineColor;
+    /** Determines whether icon color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
     /** To be used with checkbox group */
     value?: string;
+    /** State of check box */
+    checked?: boolean;
     /** Whether component is disabled */
     disabled?: boolean;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps &
-    PersistenceProps;
+}
 
-/** Capture boolean input from user */
+/** Checkbox */
 const Checkbox = (props: Props) => {
     const {
         setProps,
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     return (
         <MantineCheckbox
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
-            {...other}
+            {...others}
         />
     );
 };
@@ -59,6 +65,7 @@ const Checkbox = (props: Props) => {
 Checkbox.defaultProps = {
     persisted_props: ["checked"],
     persistence_type: "local",
+    checked: false,
 };
 
 export default Checkbox;

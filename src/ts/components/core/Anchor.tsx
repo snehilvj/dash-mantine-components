@@ -1,38 +1,37 @@
-import React, { MouseEvent } from "react";
+import { sanitizeUrl } from "@braintree/sanitize-url";
 import { Anchor as MantineAnchor } from "@mantine/core";
-import { TargetProps } from "props/html";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    TextProps,
-} from "props/mantine";
 import { DashBaseProps } from "props/dash";
-import { onClick } from "../../utils/anchor";
+import { TextProps } from "props/text";
+import React, { MouseEvent, useMemo } from "react";
+import { TargetProps, onClick } from "../../utils/anchor";
 
-type Props = {
+interface Props extends Omit<TextProps, "span">, DashBaseProps {
+    /** Content */
+    children?: React.ReactNode;
     /** Target */
     target?: TargetProps;
     /** href */
     href: string;
     /** Whether to refresh the page */
     refresh?: boolean;
-} & TextProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Determines in which cases link should have `text-decoration: underline` styles, `hover` by default */
+    underline?: "always" | "hover" | "never";
+}
 
-/** Display links with theme styles */
+/** Anchor */
 const Anchor = (props: Props) => {
-    const { href, target, refresh, children, setProps, ...other } = props;
+    const { href, target, refresh, children, setProps, ...others } = props;
+
+    const sanitizedHref = useMemo(() => sanitizeUrl(href), [href]);
 
     return (
         <MantineAnchor
             onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
-                onClick(ev, href, target, refresh)
+                onClick(ev, sanitizedHref, target, refresh)
             }
-            href={href}
+            href={sanitizedHref}
             target={target}
-            {...other}
+            {...others}
         >
             {children}
         </MantineAnchor>

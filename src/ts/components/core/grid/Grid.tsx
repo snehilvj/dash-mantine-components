@@ -1,42 +1,31 @@
-import { Grid as MantineGrid } from "@mantine/core";
-import { MantineNumberSize } from "@mantine/styles";
-import { AlignContent, JustifyContent } from "props/css";
+import { Grid as MantineGrid, MantineSpacing, StyleProp } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /**dmc.Col components only */
-    children: React.ReactNode;
-    /** Spacing between columns, key of theme.spacing or number for value */
-    gutter?: MantineNumberSize;
-    /** Gutter when screen size is larger than theme.breakpoints.xs */
-    gutterXs?: MantineNumberSize;
-    /** Gutter when screen size is larger than theme.breakpoints.sm */
-    gutterSm?: MantineNumberSize;
-    /** Gutter when screen size is larger than theme.breakpoints.md */
-    gutterMd?: MantineNumberSize;
-    /** Gutter when screen size is larger than theme.breakpoints.lg */
-    gutterLg?: MantineNumberSize;
-    /** Gutter when screen size is larger than theme.breakpoints.xl */
-    gutterXl?: MantineNumberSize;
-    /** Should columns in the last row take 100% of grid width */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
+    children?: React.ReactNode;
+    /** Gutter between columns, key of `theme.spacing` or any valid CSS value, `'md'` by default */
+    gutter?: StyleProp<MantineSpacing>;
+    /** Determines whether columns in the last row should expand to fill all available space, `false` by default */
     grow?: boolean;
-    /** Set grid justify-content property */
-    justify?: JustifyContent;
-    /** Set grid align-content property */
-    align?: AlignContent;
-    /** Amount of columns in each row */
+    /** Sets `justify-content`, `flex-start` by default */
+    justify?: React.CSSProperties["justifyContent"];
+    /** Sets `align-items`, `stretch` by default */
+    align?: React.CSSProperties["alignItems"];
+    /** Number of columns in each row, `12` by default */
     columns?: number;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Sets `overflow` CSS property on the root element, `'visible'` by default */
+    overflow?: React.CSSProperties["overflow"];
+}
 
-/** Flexbox grid system with variable amount of columns */
+/** Grid */
 const Grid = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineGrid {...other}>{children}</MantineGrid>;
+    return <MantineGrid {...others}>{children}</MantineGrid>;
 };
 
 Grid.defaultProps = {};

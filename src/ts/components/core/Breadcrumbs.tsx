@@ -1,22 +1,26 @@
-import React from "react";
-import { Breadcrumbs as MantineBreadcrumbs } from "@mantine/core";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import {
+    Breadcrumbs as MantineBreadcrumbs,
+    MantineSpacing,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Separator between breadcrumbs */
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Separator between children, `'/'` by default */
     separator?: React.ReactNode;
-    /** React nodes that should be separated */
-    children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Controls spacing between separator and breadcrumb, `'xs'` by default */
+    separatorMargin?: MantineSpacing;
+    /** React nodes that should be separated with `separator` */
+    children: React.ReactNode;
+}
 
-/** Separate list of react nodes with given separator */
+/** Breadcrumbs */
 const Breadcrumbs = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineBreadcrumbs {...other}>{children}</MantineBreadcrumbs>;
+    return <MantineBreadcrumbs {...others}>{children}</MantineBreadcrumbs>;
 };
 
 Breadcrumbs.defaultProps = {};

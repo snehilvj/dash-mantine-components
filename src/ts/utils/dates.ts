@@ -1,38 +1,41 @@
+import { DateValue } from "@mantine/dates";
 import dayjs from "dayjs";
 import { map } from "ramda";
-import { DateValueType } from "../props/dates";
-import { DateValue } from "@mantine/dates";
-import { useState } from "react";
 
 // convert to dayjs Date
-export const stringToDayjs = (d: string | null): DateValue => {
+export const stringToDate = (d: string | null): DateValue => {
     return d && dayjs(d).toDate();
 };
 
 // convert to date string for dash
-export const dayjsToString = (d: DateValue) => {
-    return d ? dayjs(d).format("YYYY-MM-DD") : undefined;
+export const dateToString = (d: DateValue) => {
+    return d ? dayjs(d).format("YYYY-MM-DD") : null;
+};
+
+// convert to datetime string for dash
+export const datetimeToString = (d: DateValue) => {
+    return d ? dayjs(d).format("YYYY-MM-DD HH:mm:ss") : null;
 };
 
 // is the date in the list of disabled dates
 export const isDisabled = (date: Date, disabledDates: string[]) => {
-    return disabledDates.includes(dayjsToString(date));
+    return disabledDates.includes(dateToString(date));
 };
 
-// date string(s) to DateValueType
-export const toDates = (value: string | string[] | null): DateValueType => {
+// date string(s) to date
+export const toDates = (value: string | string[] | null) => {
     if (Array.isArray(value)) {
-        return map(stringToDayjs, value);
+        return map(stringToDate, value);
     } else {
-        return stringToDayjs(value);
+        return stringToDate(value);
     }
 };
 
-// DateValueType to date string(s)
-export const toStrings = (value: DateValueType) => {
+// date to date string(s)
+export const toStrings = (value: Date | Date[]) => {
     if (Array.isArray(value)) {
-        return map(dayjsToString, value);
+        return map(dateToString, value);
     } else {
-        return dayjsToString(value);
+        return dateToString(value);
     }
 };

@@ -1,43 +1,29 @@
-import React from "react";
-import { Image as MantineImage } from "@mantine/core";
-import { ObjectFit } from "props/css";
-import {
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+import { sanitizeUrl } from "@braintree/sanitize-url";
+import { Image as MantineImage, MantineRadius } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React, { useMemo } from "react";
 
-type Props = {
-    /** Image src */
-    src?: string | null;
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `0` by default */
+    radius?: MantineRadius;
+    /** Controls `object-fit` style, `'cover'` by default */
+    fit?: React.CSSProperties["objectFit"];
+    /** Image url that will be used as a fallback in case `src` prop is not set or image cannot be loaded */
+    fallbackSrc?: string;
+    /** Image url */
+    src?: any;
     /** Image alt text, used as title for placeholder if image was not loaded */
     alt?: string;
-    /** Image object-fit property */
-    fit?: ObjectFit;
-    /** Image width, defaults to 100%, cannot exceed 100% */
-    width?: number | string;
-    /** Image height, defaults to original image height adjusted to given width */
-    height?: number | string;
-    /** Key of theme.radius or any valid CSS value to set border-radius, 0 by default */
-    radius?: MantineNumberSize;
-    /** Enable placeholder when image is loading and when image fails to load */
-    withPlaceholder?: boolean;
-    /** Customize placeholder content */
-    placeholder?: React.ReactNode;
-    /** Props spread to img element */
-    imageProps?: object;
-    /** Image figcaption, displayed below image */
-    caption?: React.ReactNode;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** Image with optional placeholder for loading and error state */
+/** Image  */
 const Image = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, src, ...others } = props;
+    const sanitizedSrc = useMemo(() => sanitizeUrl(src), [src]);
 
-    return <MantineImage {...other} />;
+    return <MantineImage src={sanitizedSrc} {...others} />;
 };
 
 Image.defaultProps = {};

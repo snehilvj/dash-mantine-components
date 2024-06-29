@@ -1,69 +1,67 @@
-import { Slider as MantineSlider } from "@mantine/core";
-import { MantineTransitionName } from "@mantine/core/lib/Transition/transitions";
-import { useDidUpdate } from "@mantine/hooks";
-import { DashBaseProps, PersistenceProps } from "props/dash";
 import {
     MantineColor,
-    MantineNumberSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+    MantineRadius,
+    MantineSize,
+    Slider as MantineSlider,
+} from "@mantine/core";
+import { useDidUpdate } from "@mantine/hooks";
+import { BoxProps } from "props/box";
+import { DashBaseProps, PersistenceProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
 
-type Props = {
-    /** Color from theme.colors */
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
+    /** Key of `theme.colors` or any valid CSS color, controls color of track and thumb, `theme.primaryColor` by default */
     color?: MantineColor;
-    /** Key of theme.radius or any valid CSS value to set border-radius, "xl" by default */
-    radius?: MantineNumberSize;
-    /** Controls size of track and thumb */
-    size?: MantineNumberSize;
-    /** Minimal possible value */
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `'xl'` by default */
+    radius?: MantineRadius;
+    /** Controls size of the track, `'md'` by default */
+    size?: MantineSize | (string & {}) | number;
+    /** Minimal possible value, `0` by default */
     min?: number;
-    /** Maximum possible value */
+    /** Maximum possible value, `100` by default */
     max?: number;
-    /** Number by which value will be incremented/decremented with thumb drag and arrows */
+    /** Number by which value will be incremented/decremented with thumb drag and arrows, `1` by default */
     step?: number;
-    /** Amount of digits after the decimal point */
+    /** Number of significant digits after the decimal point */
     precision?: number;
-    /** Current value for controlled slider */
+    /** Controlled component value */
     value?: number;
-    /** Hidden input name, use with uncontrolled variant */
+    /** Hidden input name, use with uncontrolled component */
     name?: string;
-    /** Marks which will be placed on the track */
+    /** Marks displayed on the track */
     marks?: {
         value: number;
         label?: React.ReactNode;
     }[];
     /** Function to generate label or any react node to render instead, set to null to disable label */
     label?: React.ReactNode;
-    /** Label appear/disappear transition */
-    labelTransition?: MantineTransitionName;
-    /** Label appear/disappear transition duration in ms */
-    labelTransitionDuration?: number;
-    /** Label appear/disappear transition timing function, defaults to theme.transitionRimingFunction */
-    labelTransitionTimingFunction?: string;
-    /** If true label will be not be hidden when user stops dragging */
+    /** Props passed down to the `Transition` component, `{ transition: 'fade', duration: 0 }` by default */
+    labelTransitionProps?: TransitionProps;
+    /** Determines whether the label should be visible when the slider is not being dragged or hovered, `false` by default */
     labelAlwaysOn?: boolean;
-    /** Thumb aria-label */
+    /** Thumb `aria-label` */
     thumbLabel?: string;
-    /** If true slider label will appear on hover */
+    /** Determines whether the label should be displayed when the slider is hovered, `true` by default */
     showLabelOnHover?: boolean;
-    /** Thumb children, can be used to add icon */
+    /** Content rendered inside thumb */
     thumbChildren?: React.ReactNode;
     /** Disables slider */
     disabled?: boolean;
-    /** Thumb width and height */
-    thumbSize?: number;
-    /** Allows the track to be inverted */
+    /** Thumb `width` and `height`, by default value is computed based on `size` prop */
+    thumbSize?: number | string;
+    /** Determines whether track value representation should be inverted, `false` by default */
     inverted?: boolean;
     /** Determines when the component should update its value property. If mouseup (the default) then the slider will only trigger its value when the user has finished dragging the slider. If drag, then the slider will update its value continuously as it is being dragged. */
     updatemode: "mouseup" | "drag";
-} & PersistenceProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps &
-    DashBaseProps;
+}
 
-/** Capture user feedback from a range of values */
+/** Slider */
 const Slider = (props: Props) => {
     const {
         setProps,
@@ -72,7 +70,7 @@ const Slider = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const [val, setVal] = useState(value);
@@ -89,7 +87,7 @@ const Slider = (props: Props) => {
 
     return (
         <MantineSlider
-            {...other}
+            {...others}
             value={val}
             onChange={setVal}
             onChangeEnd={(value) => {

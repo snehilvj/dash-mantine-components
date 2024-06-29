@@ -1,13 +1,18 @@
+import { BoxProps } from "props/box";
 import React from "react";
 
-type Props = {
-    /** Popover target */
-    children?: React.ReactNode;
-};
+interface Props {
+    /** Content */
+    children: React.ReactNode;
+    /** Target box wrapper props */
+    boxWrapperProps?: BoxProps;
+}
 
-/** Display popover section relative to given target element */
+/** PopoverTarget */
 const PopoverTarget = (props: Props) => {
-    return <>{props.children}</>;
+    const { children } = props;
+
+    return <>{children}</>;
 };
 
 PopoverTarget.defaultProps = {};

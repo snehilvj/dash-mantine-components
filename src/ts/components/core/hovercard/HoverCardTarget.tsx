@@ -1,13 +1,18 @@
+import { BoxProps } from "props/box";
 import React from "react";
 
-type Props = {
-    /** HoverCard target */
-    children?: React.ReactNode;
-};
+interface Props {
+    /** Content */
+    children: React.ReactNode;
+    /** Target box wrapper props */
+    boxWrapperProps?: BoxProps;
+}
 
-/** Display popover section when target element is hovered */
+/** HoverCardTarget */
 const HoverCardTarget = (props: Props) => {
-    return <>{props.children}</>;
+    const { children } = props;
+
+    return <>{children}</>;
 };
 
 HoverCardTarget.defaultProps = {};

@@ -1,22 +1,21 @@
 import { Accordion } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Value that is used to manage accordion state */
     value: string;
-    /** AccordionItem content */
+    /** Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Divide content into collapsible sections. */
+/** AccordionItem */
 const AccordionItem = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <Accordion.Item {...other}>{children}</Accordion.Item>;
+    return <Accordion.Item {...others}>{children}</Accordion.Item>;
 };
 
 AccordionItem.defaultProps = {};

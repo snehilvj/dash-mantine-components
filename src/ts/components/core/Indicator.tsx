@@ -1,48 +1,48 @@
-import React from "react";
-import { Indicator as MantineIndicator } from "@mantine/core";
-import { IndicatorPosition } from "@mantine/core/lib/Indicator/Indicator.types";
 import {
     MantineColor,
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    Indicator as MantineIndicator,
+    MantineRadius,
+} from "@mantine/core";
+import { IndicatorPosition } from "@mantine/core/lib/components/Indicator/Indicator.types";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Indicator z-index */
-    zIndex?: number;
-    /** Element that should have an indicator */
-    children: React.ReactNode;
-    /** Indicator position relative to child element */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Indicator position relative to the target element, `'top-end'` by default */
     position?: IndicatorPosition;
-    /** Changes position offset, usually used when element has border-radius */
+    /** Indicator offset relative to the target element, usually used for elements with border-radius, equals to `size` by default */
     offset?: number;
-    /** Determines whether indicator container should be an inline element */
+    /** Determines whether the indicator container should be an inline element, `false` by default */
     inline?: boolean;
-    /** Indicator width and height */
+    /** Indicator width and height, `10` by default */
     size?: number | string;
-    /** Indicator label */
+    /** Label rendered inside the indicator, for example, notification count */
     label?: React.ReactNode;
-    /** Key of theme.radius or any valid CSS value to set border-radius, 1000rem by default */
-    radius?: MantineNumberSize;
-    /** Color from theme.colors or any other valid CSS color value */
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `100` by default */
+    radius?: MantineRadius;
+    /** Key of `theme.colors` or any valid CSS color value, `theme.primaryColor` by default */
     color?: MantineColor;
-    /** Determines whether indicator should have border */
+    /** Determines whether the indicator should have a border (color of the border is the same as the body element), `false` by default */
     withBorder?: boolean;
-    /** When component is disabled it renders children without indicator */
+    /** When Indicator is disabled it renders children only */
     disabled?: boolean;
-    /** Indicator processing animation */
+    /** Determines whether the indicator should have processing animation, `false` by default */
     processing?: boolean;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Indicator z-index, `200` by default */
+    zIndex?: string | number;
+    /** Determines whether text color should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
+    /** Content */
+    children?: React.ReactNode;
+}
 
-/** Display element at the corner of another element */
+/** Indicator */
 const Indicator = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineIndicator {...other}>{children} </MantineIndicator>;
+    return <MantineIndicator {...others}>{children} </MantineIndicator>;
 };
 
 Indicator.defaultProps = {};

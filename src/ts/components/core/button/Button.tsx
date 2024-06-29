@@ -1,68 +1,50 @@
-import { Button as MantineButton } from "@mantine/core";
-import { MantineGradient } from "@mantine/styles";
-import { DashBaseProps } from "props/dash";
 import {
-    LoaderProps,
+    Button as MantineButton,
     MantineColor,
-    MantineNumberSize,
+    MantineGradient,
+    MantineRadius,
     MantineSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+} from "@mantine/core";
+import { BoxProps } from "props/box";
+import { DashBaseProps } from "props/dash";
+import { LoaderProps } from "props/loader";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Predefined button size */
-    size?: MantineSize;
-    /** Button type attribute */
-    type?: "submit" | "button" | "reset";
-    /** Button color from theme */
+interface Props extends DashBaseProps, BoxProps, StylesApiProps {
+    /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
+    size?: MantineSize | `compact-${MantineSize}` | (string & {});
+    /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
-    /** Adds icon before button label  */
-    leftIcon?: React.ReactNode;
-    /** Adds icon after button label  */
-    rightIcon?: React.ReactNode;
-    /** Sets button width to 100% of parent element */
+    /** Sets `justify-content` of `inner` element, can be used to change distribution of sections and label, `'center'` by default */
+    justify?: React.CSSProperties["justifyContent"];
+    /** Content displayed on the left side of the button label */
+    leftSection?: React.ReactNode;
+    /** Content displayed on the right side of the button label */
+    rightSection?: React.ReactNode;
+    /** Determines whether button should take 100% width of its parent container, `false` by default */
     fullWidth?: boolean;
-    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
-    radius?: MantineNumberSize;
-    /** Controls button appearance */
-    variant?:
-        | "filled"
-        | "outline"
-        | "light"
-        | "white"
-        | "default"
-        | "subtle"
-        | "gradient";
-    /** Controls gradient settings in gradient variant only */
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
+    radius?: MantineRadius;
+    /** Gradient configuration used when `variant="gradient"`, default value is `theme.defaultGradient` */
     gradient?: MantineGradient;
-    /** Set text-transform to uppercase */
-    uppercase?: boolean;
-    /** Reduces vertical and horizontal spacing */
-    compact?: boolean;
-    /** Indicate loading state */
-    loading?: boolean;
-    /** Props spread to Loader component */
-    loaderProps?: LoaderProps &
-        DashBaseProps &
-        MantineStylesAPIProps &
-        MantineStyleSystemProps;
-    /** Loader position relative to button label */
-    loaderPosition?: "left" | "right" | "center";
-    /** Button label */
-    children?: React.ReactNode;
-    /** Disabled state */
+    /** Indicates disabled state */
     disabled?: boolean;
+    /** Button content */
+    children?: React.ReactNode;
+    /** Determines whether the `Loader` component should be displayed over the button */
+    loading?: boolean;
+    /** Props added to the `Loader` component (only visible when `loading` prop is set) */
+    loaderProps?: LoaderProps;
+    /** Determines whether button text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
     n_clicks?: number;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+}
 
-/** Render button or link with button styles from mantine theme. */
+/** Button */
 const Button = (props: Props) => {
-    const { children, setProps, disabled, n_clicks, ...other } = props;
+    const { children, setProps, disabled, n_clicks, ...others } = props;
 
     const increment = () => {
         if (!disabled) {
@@ -73,7 +55,7 @@ const Button = (props: Props) => {
     };
 
     return (
-        <MantineButton onClick={increment} disabled={disabled} {...other}>
+        <MantineButton onClick={increment} disabled={disabled} {...others}>
             {children}
         </MantineButton>
     );

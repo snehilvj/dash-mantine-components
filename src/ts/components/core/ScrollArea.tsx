@@ -1,30 +1,35 @@
-import React from "react";
 import { ScrollArea as MantineScrollArea } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { ScrollAreaProps } from "props/scrollarea";
+import React from "react";
 
-type Props = {
-    /** Scrollbar size */
+interface Props extends ScrollAreaProps, DashBaseProps {
+    /** Scrollbar size, any valid CSS value for width/height, numbers are converted to rem, default value is 0.75rem */
     scrollbarSize?: number | string;
-    /** Scrollbars type */
+    /**
+     * Defines scrollbars behavior, `hover` by default
+     * - `hover` – scrollbars are visible when mouse is over the scroll area
+     * - `scroll` – scrollbars are visible when the scroll area is scrolled
+     * - `always` – scrollbars are always visible
+     * - `never` – scrollbars are always hidden
+     * - `auto` – similar to `overflow: auto` – scrollbars are always visible when the content is overflowing
+     * */
     type?: "auto" | "always" | "scroll" | "hover" | "never";
-    /** Scroll hide delay in ms, for scroll and hover types only */
+    /** Scroll hide delay in ms, applicable only when type is set to `hover` or `scroll`, `1000` by default */
     scrollHideDelay?: number;
-    /** Reading direction of the scroll area */
-    dir?: "ltr" | "rtl";
-    /** Should scrollbars be offset with padding */
-    offsetScrollbars?: boolean;
-    /** Content of the scroll area */
+    /** Axis at which scrollbars must be rendered, `'xy'` by default */
+    scrollbars?: "x" | "y" | "xy" | false;
+    /** Determines whether scrollbars should be offset with padding on given axis, `false` by default */
+    offsetScrollbars?: boolean | "x" | "y";
+    /** Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** A port of the ScrollArea component */
+/** ScrollArea */
 const ScrollArea = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
-    return <MantineScrollArea {...other}>{children}</MantineScrollArea>;
+    return <MantineScrollArea {...others}>{children}</MantineScrollArea>;
 };
 
 ScrollArea.defaultProps = {};

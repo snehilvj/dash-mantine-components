@@ -1,39 +1,35 @@
-import React from "react";
-import {
-    MantineGradient,
-    ThemeIcon as MantineThemeIcon,
-    ThemeIconVariant,
-} from "@mantine/core";
 import {
     MantineColor,
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    MantineGradient,
+    MantineRadius,
+    MantineSize,
+    ThemeIcon as MantineThemeIcon,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Icon */
-    children: React.ReactNode;
-    /** Width and height of theme icon */
-    size?: MantineNumberSize;
-    /** Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default */
-    radius?: MantineNumberSize;
-    /** Icon color from theme */
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** Controls width and height of the button. Numbers are converted to rem. `'md'` by default. */
+    size?: MantineSize | (string & {}) | number;
+    /** Key of `theme.colors` or any valid CSS color. Default value is `theme.primaryColor`.  */
     color?: MantineColor;
-    /** Controls appearance */
-    variant?: ThemeIconVariant;
-    /** Controls gradient settings in gradient variant only */
+    /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
+    radius?: MantineRadius;
+    /** Gradient data used when `variant="gradient"`, default value is `theme.defaultGradient` */
     gradient?: MantineGradient;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Icon displayed inside the component */
+    children?: React.ReactNode;
+    /** Determines whether button text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
+}
 
-/** Render icon inside element with theme colors */
+/** ThemeIcon */
 const ThemeIcon = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineThemeIcon {...other}>{children}</MantineThemeIcon>;
+    return <MantineThemeIcon {...others}>{children}</MantineThemeIcon>;
 };
 
 ThemeIcon.defaultProps = {};

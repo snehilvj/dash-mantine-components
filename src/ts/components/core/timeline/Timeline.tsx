@@ -1,42 +1,42 @@
-import React from "react";
-import { Timeline as MantineTimeline } from "@mantine/core";
-import { renderDashComponents } from "dash-extensions-js";
-import { omit } from "ramda";
 import {
     MantineColor,
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    MantineRadius,
+    Timeline as MantineTimeline,
+} from "@mantine/core";
+import { renderDashComponents } from "dash-extensions-js";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import { omit } from "ramda";
+import React from "react";
 
-type Props = {
-    /** dmc.TimelineItem components only */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** `Timeline.Item` components */
     children?: React.ReactNode;
     /** Index of active element */
     active?: number;
-    /** Active color from theme */
+    /** Key of `theme.colors` or any valid CSS color to control active item colors, `theme.primaryColor` by default */
     color?: MantineColor;
-    /** Key of theme.radius or any valid CSS value to set border-radius, "xl" by default */
-    radius?: MantineNumberSize;
-    /** Bullet size */
+    /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `'xl'` by default */
+    radius?: MantineRadius;
+    /** Controls size of the bullet, `20` by default */
     bulletSize?: number | string;
-    /** Timeline alignment */
+    /** Controls how the content is positioned relative to the bullet, `'left'` by default */
     align?: "right" | "left";
-    /** Line width */
+    /** Control width of the line */
     lineWidth?: number | string;
-    /** Reverse active direction without reversing items */
+    /** Determines whether the active items direction should be reversed without reversing items order, `false` by default */
     reverseActive?: boolean;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Determines whether icon color should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
+}
 
-/** Display list of events in chronological order */
+/** Timeline */
 const Timeline = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
     return (
-        <MantineTimeline {...other}>
+        <MantineTimeline {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 const renderedProps = renderDashComponents(

@@ -1,38 +1,37 @@
-import { Checkbox } from "@mantine/core";
+import { Checkbox, MantineSize } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import {
-    InputWrapperBaseProps,
-    MantineSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+import { InputWrapperProps } from "props/input";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Chexkbox components */
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps,
+        InputWrapperProps {
+    /** `Checkbox` components and any other elements */
     children: React.ReactNode;
-    /** Value of selected checkboxes, use for controlled components */
+    /** Controlled component value */
     value?: string[];
-    /** Controls label font-size and checkbox width and height */
-    size?: MantineSize;
-    /** Props added to Input.Wrapper component (root element) */
+    /** Props passed down to the root element (`Input.Wrapper` component) */
     wrapperProps?: Record<string, any>;
-} & InputWrapperBaseProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps &
-    PersistenceProps;
+    /** Controls size of the `Input.Wrapper`, `'sm'` by default */
+    size?: MantineSize | (string & {});
+    /** If set, value cannot be changed */
+    readOnly?: boolean;
+}
 
-/** Capture boolean input from user */
+/** CheckboxGroup */
 const CheckboxGroup = (props: Props) => {
     const {
         children,
-        value,
         setProps,
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string[]) => {
@@ -40,7 +39,7 @@ const CheckboxGroup = (props: Props) => {
     };
 
     return (
-        <Checkbox.Group onChange={onChange} value={value} {...other}>
+        <Checkbox.Group onChange={onChange} {...others}>
             {children}
         </Checkbox.Group>
     );
@@ -49,6 +48,7 @@ const CheckboxGroup = (props: Props) => {
 CheckboxGroup.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
+    value: [],
 };
 
 export default CheckboxGroup;

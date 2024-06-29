@@ -1,24 +1,19 @@
-import { Box, Menu } from "@mantine/core";
+import { Menu } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Menu dropdown content */
-    children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** Content */
+    children: React.ReactNode;
+}
 
-/** Combine a list of secondary actions into single interactive area */
+/** MenuDropdown */
 const MenuDropdown = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return (
-        <Menu.Dropdown {...other}>
-            <Box style={{ width: "fit-content" }}>{children}</Box>
-        </Menu.Dropdown>
-    );
+    return <Menu.Dropdown {...others}>{children}</Menu.Dropdown>;
 };
 
 MenuDropdown.defaultProps = {};

@@ -1,28 +1,27 @@
-import React from "react";
-import { Title as MantineTitle, TitleOrder } from "@mantine/core";
-import { TitleSize } from "@mantine/core/lib/Title/Title";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    TextProps,
-} from "props/mantine";
+import { Title as MantineTitle, TitleOrder, TitleSize } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Defines component and styles which will be used */
+interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+    /** Determines which tag will be used (h1-h6), controls `font-size` style if `size` prop is not set, `1` by default */
     order?: TitleOrder;
-    /** Title font-size: h1-h6 or any valid CSS font-size value */
+    /** Changes title size, if not set, then size is controlled by `order` prop */
     size?: TitleSize;
-} & Omit<TextProps, "size"> &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Number of lines after which Text will be truncated */
+    lineClamp?: number;
+    /** Controls `text-wrap` property, `'wrap'` by default */
+    textWrap?: "wrap" | "nowrap" | "balance" | "pretty" | "stable";
+    /** Content */
+    children?: React.ReactNode;
+}
 
-/** Render icon inside element with theme colors */
+/** Title */
 const Title = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineTitle {...other}>{children}</MantineTitle>;
+    return <MantineTitle {...others}>{children}</MantineTitle>;
 };
 
 Title.defaultProps = {};

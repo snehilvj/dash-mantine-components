@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from "react";
 import { Modal as MantineModal } from "@mantine/core";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    ModalProps,
-} from "props/mantine";
 import { DashBaseProps } from "props/dash";
+import { ModalProps } from "props/modal";
+import { StylesApiProps } from "props/styles";
+import React, { useEffect, useState } from "react";
 
-type Props = ModalProps &
-    DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+interface Props extends ModalProps, StylesApiProps, DashBaseProps {}
 
-/** Modal with optional header */
+/** Modal */
 const Modal = (props: Props) => {
-    const { children, setProps, opened, ...other } = props;
+    const { children, setProps, opened, ...others } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -27,7 +21,7 @@ const Modal = (props: Props) => {
     };
 
     return (
-        <MantineModal opened={open} onClose={onClose} {...other}>
+        <MantineModal opened={open} onClose={onClose} {...others}>
             {children}
         </MantineModal>
     );

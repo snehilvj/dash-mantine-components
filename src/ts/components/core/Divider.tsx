@@ -1,37 +1,31 @@
-import React from "react";
-import { Divider as MantineDivider } from "@mantine/core";
 import {
     MantineColor,
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    Divider as MantineDivider,
+    MantineSize,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Props added to the label element */
-    labelProps?: Record<string, any>;
-    /** Line color from theme, defaults to gray in light color scheme and to dark in dark color scheme */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /** Key of `theme.colors` or any valid CSS color value, by default value depends on color scheme */
     color?: MantineColor;
-    /** Line orientation */
-    orientation?: "horizontal" | "vertical";
-    /** Sets height in horizontal orientation and width in vertical */
-    size?: MantineNumberSize;
-    /** Adds text after line in horizontal orientation */
+    /** Controls width/height (depends on orientation), `'xs'` by default */
+    size?: MantineSize | number | (string & {});
+    /** Divider label, visible only when `orientation` is `horizontal` */
     label?: React.ReactNode;
-    /** Label position */
+    /** Controls label position, `'left'` by default */
     labelPosition?: "left" | "center" | "right";
-    /** Divider borderStyle */
-    variant?: "solid" | "dashed" | "dotted";
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Controls orientation, `'horizontal'` by default */
+    orientation?: "horizontal" | "vertical";
+}
 
-/** Horizontal line with optional label or vertical divider */
+/** Divider */
 const Divider = (props: Props) => {
-    const { setProps, ...other } = props;
+    const { setProps, ...others } = props;
 
-    return <MantineDivider {...other} />;
+    return <MantineDivider {...others} />;
 };
 
 Divider.defaultProps = {};

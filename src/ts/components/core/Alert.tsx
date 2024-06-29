@@ -1,42 +1,39 @@
-import React, { useRef, useEffect } from "react";
-import { Alert as MantineAlert } from "@mantine/core";
-import { AlertVariant } from "@mantine/core/lib/Alert/Alert.styles";
 import {
+    Alert as MantineAlert,
     MantineColor,
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    MantineRadius,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React, { useEffect, useRef } from "react";
 
-type Props = {
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
+    children?: React.ReactNode;
+    /** Key of `theme.radius` or any valid CSS value to set border-radius, `theme.defaultRadius` by default */
+    radius?: MantineRadius;
+    /** Key of `theme.colors` or any valid CSS color, default value is `theme.primaryColor`  */
+    color?: MantineColor;
     /** Alert title */
     title?: React.ReactNode;
-    /** Controls Alert background, color and border styles, defaults to light */
-    variant?: AlertVariant;
-    /** Alert message */
-    children?: React.ReactNode;
-    /** Color from theme.colors */
-    color?: MantineColor;
-    /** Icon displayed next to title */
+    /** Icon displayed next to the title */
     icon?: React.ReactNode;
-    /** True to display close button */
+    /** Determines whether close button should be displayed, `false` by default */
     withCloseButton?: boolean;
-    /** Radius from theme.radius, or number to set border-radius in px, defaults to theme.defaultRadius */
-    radius?: MantineNumberSize;
+    /** Close button `aria-label` */
+    closeButtonLabel?: string;
+    /** Determines whether text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    autoContrast?: boolean;
     /** Duration in milliseconds after which the Alert dismisses itself. */
     duration?: number;
     /** Whether to hide the alert */
     hide?: boolean;
-    /** Close button aria-label */
-    closeButtonLabel?: string;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+}
 
-/** Attract user attention with important static message */
+/** Alert */
 const Alert = (props: Props) => {
-    const { children, setProps, duration, hide, ...other } = props;
+    const { children, setProps, duration, hide, ...others } = props;
     const ref = useRef(null);
 
     useEffect(() => {
@@ -55,7 +52,7 @@ const Alert = (props: Props) => {
     };
 
     return hide ? null : (
-        <MantineAlert {...other} onClose={onClose}>
+        <MantineAlert {...others} onClose={onClose}>
             {children}
         </MantineAlert>
     );

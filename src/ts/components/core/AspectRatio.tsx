@@ -1,22 +1,21 @@
 import { AspectRatio as MantineAspectRatio } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStyleSystemProps, MantineStylesAPIProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Aspect ratio, e.g. 16 / 9, 4 / 3, 1920 / 1080 */
-    ratio: number;
-    /** content */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Aspect ratio, e.g. `16 / 9`, `4 / 3`, `1920 / 1080`, `1` by default */
+    ratio?: number;
+}
 
-/** Maintain responsive consistent width/height ratio */
+/** AspectRatio */
 const AspectRatio = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineAspectRatio {...other}>{children}</MantineAspectRatio>;
+    return <MantineAspectRatio {...others}>{children}</MantineAspectRatio>;
 };
 
 AspectRatio.defaultProps = {};

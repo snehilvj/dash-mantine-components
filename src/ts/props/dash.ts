@@ -1,15 +1,17 @@
-export type DashBaseProps = {
-    /** Often used with CSS to style elements with common properties */
-    className?: string;
-    /** Inline style */
-    style?: any;
+export interface DashBaseProps {
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
-};
+    /** Wild card data attributes */
+    "data-*"?: string;
+    /** Wild card aria attributes */
+    "aria-*"?: string;
+    /** tab-index */
+    tabIndex?: number;
+}
 
-export type PersistenceProps = {
+export interface PersistenceProps {
     /**
      * Used to allow user interactions in this component to be persisted when
      * the component - or the page - is refreshed. If `persisted` is truthy and
@@ -32,9 +34,9 @@ export type PersistenceProps = {
      * session: window.sessionStorage, data is cleared once the browser quit.
      */
     persistence_type?: "local" | "session" | "memory";
-};
+}
 
-export type LoadingStateProps = {
+export interface LoadingStateProps {
     /** Object that holds the loading state object coming from dash-renderer */
     loading_state?: {
         /** Determines if the component is loading or not */
@@ -44,4 +46,4 @@ export type LoadingStateProps = {
         /** Holds the name of the component that is loading */
         component_name: string;
     };
-};
+}

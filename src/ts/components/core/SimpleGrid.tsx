@@ -1,33 +1,29 @@
-import { SimpleGrid as MantineSimpleGrid } from "@mantine/core";
-import { SimpleGridBreakpoint } from "@mantine/core/lib/SimpleGrid/SimpleGrid.styles";
-import { DashBaseProps } from "props/dash";
 import {
-    MantineNumberSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+    SimpleGrid as MantineSimpleGrid,
+    MantineSpacing,
+    StyleProp,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
+import { DashBaseProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** Breakpoints data to change items per row and spacing based on max-width */
-    breakpoints?: SimpleGridBreakpoint[];
-    /** Default amount of columns, used when none of breakpoints can be applied  */
-    cols?: number;
-    /** Spacing between columns, used when none of breakpoints can be applied */
-    spacing?: MantineNumberSize;
-    /** Vertical spacing between columns, used when none of breakpoints can be applied  */
-    verticalSpacing?: MantineNumberSize;
-    /** Content */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Number of columns, `1` by default */
+    cols?: StyleProp<number>;
+    /** Spacing between columns, `'md'` by default */
+    spacing?: StyleProp<MantineSpacing>;
+    /** Spacing between rows, `'md'` by default */
+    verticalSpacing?: StyleProp<MantineSpacing>;
+}
 
-/** Responsive grid where each item takes equal amount of space */
+/** SimpleGrid */
 const SimpleGrid = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineSimpleGrid {...other}>{children}</MantineSimpleGrid>;
+    return <MantineSimpleGrid {...others}>{children}</MantineSimpleGrid>;
 };
 
 SimpleGrid.defaultProps = {};

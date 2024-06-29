@@ -1,48 +1,47 @@
-import React from "react";
-import { Accordion as MantineAccordion } from "@mantine/core";
 import {
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-    MantineNumberSize,
-} from "props/mantine";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import {
-    AccordionChevronPosition,
     AccordionHeadingOrder,
     AccordionVariant,
-} from "@mantine/core/lib/Accordion/Accordion.types";
+    Accordion as MantineAccordion,
+    MantineRadius,
+} from "@mantine/core";
+import { AccordionChevronPosition } from "@mantine/core/lib/components/Accordion/Accordion.types";
+import { BoxProps } from "props/box";
+import { DashBaseProps, PersistenceProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** Determines whether arrow key presses should loop though items (first to last and last to first) */
-    loop?: boolean;
-    /** Accordion content */
-    children: React.ReactNode;
-    /** Determines whether multiple items can be opened at a time */
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
+    /** Determines whether multiple items can be opened at a time, `false` by default */
     multiple?: boolean;
     /** Value for controlled component */
     value?: string | string[];
-    /** Transition duration in ms, set 0 to disable transitions */
+    /** Determines whether arrow key presses should loop though items (first to last and last to first), `true` by default */
+    loop?: boolean;
+    /** Transition duration in ms, `200` by default */
     transitionDuration?: number;
-    /** Determines whether chevron rotation should be disabled */
+    /** Determines whether chevron rotation should be disabled, `false` by default */
     disableChevronRotation?: boolean;
-    /** Determines position of the chevron */
+    /** Position of the chevron relative to the item label, `right` by default */
     chevronPosition?: AccordionChevronPosition;
-    /** Chevron size */
+    /** Size of the chevron icon container, `24` by default */
     chevronSize?: number | string;
     /** Heading order, has no effect on visuals */
     order?: AccordionHeadingOrder;
-    /** Replaces chevron on all items */
+    /** Custom chevron icon that will be used in all items */
     chevron?: React.ReactNode;
     /** Controls visuals */
     variant?: AccordionVariant;
-    /** Key of theme.radius or any valid CSS value to set border-radius, ignored when variant="default" */
-    radius?: MantineNumberSize;
-} & DashBaseProps &
-    PersistenceProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
+    radius?: MantineRadius;
+    /** Accordion content */
+    children: React.ReactNode;
+}
 
-/** Divide content into collapsible sections. */
+/** Accordion */
 const Accordion = (props: Props) => {
     const {
         children,
@@ -50,7 +49,7 @@ const Accordion = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onChange = (value: string | string[]) => {
@@ -58,7 +57,7 @@ const Accordion = (props: Props) => {
     };
 
     return (
-        <MantineAccordion onChange={onChange} {...other}>
+        <MantineAccordion onChange={onChange} {...others}>
             {children}
         </MantineAccordion>
     );

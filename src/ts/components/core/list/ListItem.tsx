@@ -1,22 +1,21 @@
-import React from "react";
 import { List } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { MantineStylesAPIProps, MantineStyleSystemProps } from "props/mantine";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type Props = {
-    /** ListItem content */
-    children?: React.ReactNode;
-    /** Icon to replace bullet */
+interface Props extends DashBaseProps, BoxProps, StylesApiProps {
+    /** Icon to replace item bullet */
     icon?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** Content */
+    children?: React.ReactNode;
+}
 
-/** Display ordered or unordered list */
+/** ListItem */
 const ListItem = (props: Props) => {
-    const { setProps, children, ...other } = props;
+    const { setProps, children, ...others } = props;
 
-    return <List.Item {...other}>{children}</List.Item>;
+    return <List.Item {...others}>{children}</List.Item>;
 };
 
 ListItem.defaultProps = {};

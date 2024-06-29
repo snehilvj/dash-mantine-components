@@ -1,28 +1,24 @@
-import React from "react";
-import { Tooltip, Box } from "@mantine/core";
-import {
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-    TooltipBaseProps,
-} from "props/mantine";
+import { Box, Tooltip } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
+import { TooltipBaseProps } from "props/tooltip";
+import React from "react";
 
-type Props = {
-    variant?: string;
-    /** Offset from mouse */
+interface Props extends TooltipBaseProps, DashBaseProps {
+    /** Offset from mouse in px, `10` by default */
     offset?: number;
-} & DashBaseProps &
-    TooltipBaseProps &
-    MantineStyleSystemProps &
-    MantineStylesAPIProps;
+    /** Target box wrapper props */
+    boxWrapperProps?: BoxProps;
+}
 
-/** Renders tooltip at given element on mouse over or any other event */
+/** FloatingTooltip */
 const FloatingTooltip = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, boxWrapperProps, setProps, ...others } = props;
+    const boxProps = { w: "fit-content", ...boxWrapperProps };
 
     return (
-        <Tooltip.Floating {...other}>
-            <Box style={{ width: "fit-content" }}>{children}</Box>
+        <Tooltip.Floating {...others}>
+            <Box {...boxProps}>{children}</Box>
         </Tooltip.Floating>
     );
 };

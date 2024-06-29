@@ -1,39 +1,33 @@
-import { Flex as MantineFlex } from "@mantine/core";
-import { AlignItems, FlexDirection, FlexWrap, JustifyContent } from "props/css";
+import { Flex as MantineFlex, MantineSize, StyleProp } from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import {
-    MantineNumberSize,
-    MantineStyleSystemProps,
-    MantineStylesAPIProps,
-} from "props/mantine";
+import { StylesApiProps } from "props/styles";
 import React from "react";
 
-type Props = {
-    /** gap CSS property */
-    gap?: MantineNumberSize;
-    /** row-gap CSS property */
-    rowGap?: MantineNumberSize;
-    /** column-gap CSS property */
-    columnGap?: MantineNumberSize;
-    /** align-items CSS property */
-    align?: AlignItems;
-    /** justify-content CSS property */
-    justify?: JustifyContent;
-    /** flex-wrap CSS property */
-    wrap?: FlexWrap;
-    /** flex-direction CSS property */
-    direction?: FlexDirection;
-    /** content */
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+    /* Content */
     children?: React.ReactNode;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps;
+    /** `gap` CSS property */
+    gap?: StyleProp<MantineSize | (string & {}) | number>;
+    /** `row-gap` CSS property */
+    rowGap?: StyleProp<MantineSize | (string & {}) | number>;
+    /** `column-gap` CSS property */
+    columnGap?: StyleProp<MantineSize | (string & {}) | number>;
+    /** `align-items` CSS property */
+    align?: StyleProp<React.CSSProperties["alignItems"]>;
+    /** `justify-content` CSS property */
+    justify?: StyleProp<React.CSSProperties["justifyContent"]>;
+    /** `flex-wrap` CSS property */
+    wrap?: StyleProp<React.CSSProperties["flexWrap"]>;
+    /** `flex-direction` CSS property */
+    direction?: StyleProp<React.CSSProperties["flexDirection"]>;
+}
 
-/** Center content horizontally with predefined max-width */
+/** Flex */
 const Flex = (props: Props) => {
-    const { children, setProps, ...other } = props;
+    const { children, setProps, ...others } = props;
 
-    return <MantineFlex {...other}>{children}</MantineFlex>;
+    return <MantineFlex {...others}>{children}</MantineFlex>;
 };
 
 Flex.defaultProps = {};

@@ -1,39 +1,39 @@
-import React from "react";
-import { Burger as MantineBurger } from "@mantine/core";
 import {
-    MantineNumberSize,
-    MantineStylesAPIProps,
-    MantineStyleSystemProps,
-} from "props/mantine";
+    Burger as MantineBurger,
+    MantineColor,
+    MantineSize,
+} from "@mantine/core";
+import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
+import { StylesApiProps } from "props/styles";
+import React from "react";
 
-type BurgerProps = {
-    /** Burger state: true for cross, false for burger */
-    opened: boolean;
-    /** Burger color value, not connected to theme.colors, defaults to theme.black with light color scheme and theme.white with dark */
-    color?: string;
-    /** Predefined burger size or number to set width and height in px */
-    size?: MantineNumberSize;
-    /** Transition duration in ms */
+interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
+    /** Controls burger `width` and `height`, numbers are converted to rem, `'md'` by default */
+    size?: MantineSize | (string & {}) | number;
+    /** Key of `theme.colors` of any valid CSS value, by default `theme.white` in dark color scheme and `theme.black` in light */
+    color?: MantineColor;
+    /** State of the burger, when `true` burger is transformed into X, `false` by default */
+    opened?: boolean;
+    /** `transition-duration` property value in ms, `300` by default */
     transitionDuration?: number;
-    /** Set title prop to make Burger visible to screen readers */
-    title?: string;
-} & DashBaseProps &
-    MantineStylesAPIProps &
-    MantineStyleSystemProps &
-    PersistenceProps;
+    /** `transition-timing-function` property value, `'ease'` by default  */
+    transitionTimingFunction?: string;
+}
 
-/**
- * Display burger-style menu button. For more information, see: https://mantine.dev/core/burger/
- */
-const Burger = (props: BurgerProps) => {
+/** Burger */
+const Burger = (props: Props) => {
     const {
         setProps,
         opened,
         persistence,
         persisted_props,
         persistence_type,
-        ...other
+        ...others
     } = props;
 
     const onClick = () => {
@@ -42,7 +42,7 @@ const Burger = (props: BurgerProps) => {
         });
     };
 
-    return <MantineBurger onClick={onClick} opened={opened} {...other} />;
+    return <MantineBurger onClick={onClick} opened={opened} {...others} />;
 };
 
 Burger.defaultProps = {
