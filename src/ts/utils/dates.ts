@@ -14,7 +14,7 @@ export const dateToString = (d: DateValue) => {
 
 // convert to datetime string for dash
 export const datetimeToString = (d: DateValue) => {
-    return d ? dayjs(d).format("YYYY-MM-DD hh:mm:ss") : null;
+    return d ? dayjs(d).format("YYYY-MM-DD HH:mm:ss") : null;
 };
 
 // is the date in the list of disabled dates
