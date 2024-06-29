@@ -1,5 +1,15 @@
 # Change Log
 
+# 0.14.4
+
+### Fixed
+
+-   Time parsing in DateTimePicker. #273
+
+### Changed
+
+-   Upgrade to latest Mantine (7.11.0)
+
 # 0.14.3
 
 ### Added
