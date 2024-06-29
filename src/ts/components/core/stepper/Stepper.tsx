@@ -56,8 +56,12 @@ const Stepper = (props: Props) => {
         setAct(active);
     }, [active]);
 
+    useDidUpdate(() => {
+        setProps({ active: act });
+    }, [act]);
+
     return (
-        <MantineStepper active={act} {...others}>
+        <MantineStepper active={act} onStepClick={setAct} {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "StepperCompleted") {
