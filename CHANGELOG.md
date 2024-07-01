@@ -5,6 +5,11 @@
 ### Fixed
 
 -   Time parsing in DateTimePicker. #273
+-   Show MenuItem as disabled when argument is set to True #202
+
+### Added
+
+-   Add readOnly prop to input components. #252
 
 ### Changed
 
