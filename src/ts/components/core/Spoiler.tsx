@@ -1,8 +1,9 @@
 import { Spoiler as MantineSpoiler } from "@mantine/core";
+import { useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useState } from "react";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Maximum height of the visible content, when this point is reached spoiler appears, `100` by default */
@@ -17,15 +18,37 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     transitionDuration?: number;
     /** Content */
     children?: React.ReactNode;
+    /** Controlled expanded state value */
+    expanded?: boolean;
 }
 
 /** Spoiler */
 const Spoiler = (props: Props) => {
-    const { setProps, children, ...others } = props;
+    const { setProps, expanded, children, ...others } = props;
 
-    return <MantineSpoiler {...others}>{children}</MantineSpoiler>;
+    const [opened, setOpened] = useState(expanded);
+
+    useDidUpdate(() => {
+        setProps({ expanded: opened });
+    }, [opened]);
+
+    useDidUpdate(() => {
+        setOpened(expanded);
+    }, [expanded]);
+
+    return (
+        <MantineSpoiler
+            expanded={opened}
+            onExpandedChange={setOpened}
+            {...others}
+        >
+            {children}
+        </MantineSpoiler>
+    );
 };
 
-Spoiler.defaultProps = {};
+Spoiler.defaultProps = {
+    expanded: false,
+};
 
 export default Spoiler;

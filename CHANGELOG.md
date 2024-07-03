@@ -5,12 +5,13 @@
 ### Fixed
 
 -   Time parsing in DateTimePicker. #273
--   Show MenuItem as disabled when argument is set to True #202
--   Update selection when options are changed in combobox components - Select, MultiSelect and TagsInput #201
+-   Show MenuItem as disabled when argument is set to True. #202
+-   Update selection when options are changed in combobox components - Select, MultiSelect and TagsInput. #201
 
 ### Added
 
 -   Add readOnly prop to input components. #252
+-   Ability to control Spoiler state. #277
 
 ### Changed
 
