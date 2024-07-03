@@ -8,6 +8,7 @@ import { __BaseInputProps } from "props/input";
 import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
+import { filterSelected } from "../../../utils/combobox";
 
 interface Props
     extends BoxProps,
@@ -54,6 +55,8 @@ const MultiSelect = (props: Props) => {
 
     useDidUpdate(() => {
         setOptions(data);
+        const filteredSelected = filterSelected(data, selected);
+        setSelected(filteredSelected);
     }, [data]);
 
     useDidUpdate(() => {
