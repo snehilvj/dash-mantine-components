@@ -4,6 +4,7 @@
 
 ### Fixed
 
+-   Image and BackgroundImage supports base64 encoded images #282
 -   Time parsing in DateTimePicker. #273
 -   Show MenuItem as disabled when argument is set to True. #202
 -   Update selection when options are changed in combobox components - Select, MultiSelect and TagsInput. #201
