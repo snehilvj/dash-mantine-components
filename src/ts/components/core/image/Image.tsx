@@ -1,4 +1,3 @@
-import { sanitizeUrl } from "@braintree/sanitize-url";
 import { Image as MantineImage, MantineRadius } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
@@ -20,10 +19,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Image  */
 const Image = (props: Props) => {
-    const { setProps, src, ...others } = props;
-    const sanitizedSrc = useMemo(() => sanitizeUrl(src), [src]);
+    const { setProps, ...others } = props;
 
-    return <MantineImage src={sanitizedSrc} {...others} />;
+    return <MantineImage {...others} />;
 };
 
 Image.defaultProps = {};
