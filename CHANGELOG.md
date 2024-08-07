@@ -13,6 +13,7 @@
 
 -   Add readOnly prop to input components. #252
 -   Ability to control Spoiler state. #277
+-   Expose stylesheet links at dmc.styles.\*
 
 ### Changed
 
