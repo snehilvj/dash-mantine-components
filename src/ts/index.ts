@@ -134,6 +134,8 @@ import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
 import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
+import MonthPicker from "./components/dates/MonthPicker";
+import YearPicker from "./components/dates/YearPicker";
 import TimeInput from "./components/dates/TimeInput";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
@@ -227,6 +229,7 @@ export {
     MenuLabel,
     MenuTarget,
     Modal,
+    MonthPicker,
     MultiSelect,
     NavLink,
     NavigationProgress,
@@ -293,4 +296,5 @@ export {
     Tooltip,
     UnstyledButton,
     VisuallyHidden,
+    YearPicker
 };
