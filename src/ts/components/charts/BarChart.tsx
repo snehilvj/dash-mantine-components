@@ -28,6 +28,8 @@ interface Props
     cursorFill?: MantineColor;
     /** Props passed down to recharts `BarChart` component */
     barChartProps?: object;
+    /** Props passed down to recharts `Bar` component */
+    barProps?: object;
     /** Additional components that are rendered inside recharts `BarChart` component */
     children?: React.ReactNode;
     /** Click data */
@@ -46,7 +48,7 @@ const BarChart = (props: Props) => {
 
     const newProps = { ...barChartProps, onClick };
 
-    return <MantineBarChart barChartProps={newProps} {...others} />;
+    return <MantineBarChart barChartProps={newProps}  {...others} />;
 };
 
 BarChart.defaultProps = {};
