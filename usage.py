@@ -18,11 +18,10 @@ barProps_figure = dmc.BarChart(
     h=300,
     dataKey="month",
     data=data,
-  #  orientation="vertical",
+    orientation="vertical",
     yAxisProps={"width": 80},
     barProps= {"radius": 50},
     series=[{"name": "Smartphones", "color": "violet.6"}],
-    withBarValueLabel=True,
 )
 
 withBarValueLabel_figure = dmc.BarChart(
@@ -43,7 +42,8 @@ withBarValueLabel_figure = dmc.BarChart(
         {"name": "Laptops", "color": "blue.6"},
         {"name": "Tablets", "color": "teal.6"},
     ],
-    withBarValueLabel=True
+    withBarValueLabel=True,
+    mt=50
 )
 
 app.layout = dmc.MantineProvider([
