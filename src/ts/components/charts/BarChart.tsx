@@ -34,6 +34,10 @@ interface Props
     children?: React.ReactNode;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Determines whether a label with bar value should be displayed on top of each bar,
+     incompatible with type="stacked" and type="percent", false by default */
+    withBarValueLabel?: boolean;
+
 }
 
 /** BarChart */
@@ -51,6 +55,8 @@ const BarChart = (props: Props) => {
     return <MantineBarChart barChartProps={newProps}  {...others} />;
 };
 
-BarChart.defaultProps = {};
+BarChart.defaultProps = {
+    withBarValueLabel: false
+};
 
 export default BarChart;

@@ -14,19 +14,42 @@ data = [
 ]
 
 
-component = dmc.BarChart(
+barProps_figure = dmc.BarChart(
     h=300,
     dataKey="month",
     data=data,
-    orientation="vertical",
+  #  orientation="vertical",
     yAxisProps={"width": 80},
     barProps= {"radius": 50},
     series=[{"name": "Smartphones", "color": "violet.6"}],
+    withBarValueLabel=True,
 )
 
-app.layout = dmc.MantineProvider(
-    component
+withBarValueLabel_figure = dmc.BarChart(
+    h=300,
+    dataKey="month",
+    data=data,
+    withTooltip=False,
+    referenceLines=[
+        {
+            "y": 130,
+            "color": "red.5",
+            "label": "Profit reached",
+            "labelPosition": "insideTopRight",
+        }
+    ],
+    series=[
+        {"name": "Smartphones", "color": "violet.6"},
+        {"name": "Laptops", "color": "blue.6"},
+        {"name": "Tablets", "color": "teal.6"},
+    ],
+    withBarValueLabel=True
 )
+
+app.layout = dmc.MantineProvider([
+    barProps_figure,
+    withBarValueLabel_figure
+])
 
 if __name__ == "__main__":
     app.run(debug=True)
