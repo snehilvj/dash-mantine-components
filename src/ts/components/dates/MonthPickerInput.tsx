@@ -29,7 +29,7 @@ interface Props
     debounce?: number;
 }
 
-/** DatePicker */
+/** MonthPickerInput */
 const MonthPickerInput = (props: Props) => {
     const {
         setProps,
