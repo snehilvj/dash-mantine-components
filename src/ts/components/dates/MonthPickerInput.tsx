@@ -1,4 +1,4 @@
-import { MonthPickerInput } from "@mantine/dates";
+import { MonthPickerInput as MantineMonthPickerInput} from "@mantine/dates";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
@@ -30,7 +30,7 @@ interface Props
 }
 
 /** DatePicker */
-const MonthPicker = (props: Props) => {
+const MonthPickerInput = (props: Props) => {
     const {
         setProps,
         n_submit,
@@ -67,10 +67,8 @@ const MonthPicker = (props: Props) => {
         return isDisabled(date, disabledDates || []);
     };
 
-    console.log(type)
-
     return (
-        <MonthPickerInput
+        <MantineMonthPickerInput
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}
@@ -83,11 +81,11 @@ const MonthPicker = (props: Props) => {
     );
 };
 
-MonthPicker.defaultProps = {
+MonthPickerInput.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
     debounce: 0,
     n_submit: 0,
 };
 
-export default MonthPicker;
+export default MonthPickerInput;

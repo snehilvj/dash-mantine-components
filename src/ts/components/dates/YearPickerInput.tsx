@@ -1,4 +1,4 @@
-import { YearPickerInput } from "@mantine/dates";
+import { YearPickerInput  as MantineYearPickerInput } from "@mantine/dates";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
@@ -30,7 +30,7 @@ interface Props
 }
 
 /** DatePicker */
-const YearPicker = (props: Props) => {
+const YearPickerInput = (props: Props) => {
     const {
         setProps,
         n_submit,
@@ -67,10 +67,8 @@ const YearPicker = (props: Props) => {
         return isDisabled(date, disabledDates || []);
     };
 
-    console.log(type)
-
     return (
-        <YearPickerInput
+        <MantineYearPickerInput
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}
@@ -83,11 +81,11 @@ const YearPicker = (props: Props) => {
     );
 };
 
-YearPicker.defaultProps = {
+YearPickerInput.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
     debounce: 0,
     n_submit: 0,
 };
 
-export default YearPicker;
+export default YearPickerInput;
