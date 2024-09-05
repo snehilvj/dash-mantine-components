@@ -1,6 +1,6 @@
 {
     "name": "dash_mantine_components",
-    "version": "0.14.3",
+    "version": "0.14.4",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
@@ -31,7 +31,7 @@
         "react-dom": "^18.2.0",
         "style-loader": "^3.3.4",
         "ts-loader": "^9.5.1",
-        "typescript": "^5.3.3",
+        "typescript": "5.4.5",
         "webpack": "^5.90.1",
         "webpack-cli": "^5.1.4"
     },
