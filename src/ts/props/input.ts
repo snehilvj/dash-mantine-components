@@ -84,4 +84,6 @@ export interface __BaseInputProps
         Omit<__InputProps, "wrapperProps"> {
     /** Props passed down to the root element */
     wrapperProps?: Record<string, any>;
+    /** Readonly */
+    readOnly?: boolean;
 }

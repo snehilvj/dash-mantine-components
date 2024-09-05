@@ -38,6 +38,7 @@ pip install dash-mantine-components
 ```python
 from datetime import date
 
+import dash
 from dash import Dash, Input, Output, callback, html
 from dash.exceptions import PreventUpdate
 

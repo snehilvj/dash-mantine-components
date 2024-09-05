@@ -58,6 +58,7 @@ const MenuItem = (props: Props) => {
                 }
                 href={href}
                 target={target}
+                disabled={disabled}
                 {...others}
             >
                 {children}
@@ -65,7 +66,7 @@ const MenuItem = (props: Props) => {
         );
     } else {
         return (
-            <Menu.Item onClick={increment} {...others}>
+            <Menu.Item onClick={increment} disabled={disabled} {...others}>
                 {children}
             </Menu.Item>
         );

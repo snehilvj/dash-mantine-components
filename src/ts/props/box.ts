@@ -1,6 +1,6 @@
 import { BoxProps as MantineBoxProps } from "@mantine/core";
 
-export type BoxProps = Omit<MantineBoxProps, "__vars">;
+export type BoxProps = Omit<MantineBoxProps, "__vars" | "__size">;
 
 export interface BoxComponentProps extends BoxProps {
     /** Variant passed from parent component, sets `data-variant` */

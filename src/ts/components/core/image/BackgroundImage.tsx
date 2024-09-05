@@ -1,4 +1,3 @@
-import { sanitizeUrl } from "@braintree/sanitize-url";
 import {
     BackgroundImage as MantineBackgroundImage,
     MantineRadius,
@@ -19,13 +18,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** BackgroundImage  */
 const BackgroundImage = (props: Props) => {
-    const { setProps, children, src, ...others } = props;
-    const sanitizedSrc = useMemo(() => sanitizeUrl(src), [src]);
+    const { setProps, children, ...others } = props;
 
     return (
-        <MantineBackgroundImage src={sanitizedSrc} {...others}>
-            {children}
-        </MantineBackgroundImage>
+        <MantineBackgroundImage {...others}>{children}</MantineBackgroundImage>
     );
 };
 
