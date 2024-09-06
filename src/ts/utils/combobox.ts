@@ -1,5 +1,5 @@
 export const filterSelected = (options, values) => {
-    if (options.length === 0 || values.length === 0) return [];
+    if (!options || !values || options.length === 0 || values.length === 0) return [];
 
     const extractValues = (optionList) => {
         let extractedValues = [];

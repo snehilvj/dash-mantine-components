@@ -43,7 +43,7 @@ app.layout = dmc.MantineProvider(
                 label="Select Category",
                 id="n_search_in_category",
                 data=["A", "B", "C", "D"],
-                value=[],
+            #    value=[],   Checking for value is none closes PR 
             ),
             dmc.Text("STEP 2 Verify that all the dropdowns below update the values correctly regardless of the format of the `data`.", my=20),
             dmc.MultiSelect(
@@ -53,7 +53,7 @@ app.layout = dmc.MantineProvider(
                 clearable=True,
                 label="1. Data is array of strings",
                 id="n_search_in_types",
-                value=[],
+               # value=[],
                 mb=60,
             ),
             dmc.MultiSelect(
@@ -63,7 +63,7 @@ app.layout = dmc.MantineProvider(
                 clearable=True,
                 label="2. Data is dict with labels and values",
                 id="n_search_in_types_dict",
-                value=[],
+              #  value=[],
                 mb=60,
             ),
             dmc.MultiSelect(
@@ -73,7 +73,7 @@ app.layout = dmc.MantineProvider(
                 clearable=True,
                 label="3a. Data is dict with group and items keys, where items is array of strings",
                 id="n_search_in_types_groups",
-                value=[],
+             #   value=[],
                 mb=60,
             ),
             dmc.MultiSelect(
@@ -83,7 +83,7 @@ app.layout = dmc.MantineProvider(
                 clearable=True,
                 label="3b. Data is dict with group and items keys, where items is a dict with labels and values",
                 id="n_search_in_types_groups_3b",
-                value=[],
+              #  value=[],
                 mb=60,
             ),
         ], mb=200
@@ -97,6 +97,8 @@ app.layout = dmc.MantineProvider(
     Input("n_search_in_category", "value"),
 )
 def add_types_in_search(category_id):
+    if category_id is None:
+        return dash.no_update
     return [i for i in all_types_list if i[0] in category_id]
 
 
@@ -106,6 +108,8 @@ def add_types_in_search(category_id):
     Input("n_search_in_category", "value"),
 )
 def add_types_in_search(category_id):
+    if category_id is None:
+        return dash.no_update
     return [item for L in category_id for item in all_types_label_value[L]]
 
 
@@ -114,6 +118,8 @@ def add_types_in_search(category_id):
     Output("n_search_in_types_groups", "data"), Input("n_search_in_category", "value")
 )
 def add_types_in_search(category_id):
+    if category_id is None:
+        return dash.no_update
     return [{"group": L, "items": all_types[L]} for L in category_id]
 
 
@@ -123,6 +129,8 @@ def add_types_in_search(category_id):
     Input("n_search_in_category", "value"),
 )
 def add_types_in_search(category_id):
+    if category_id is None:
+        return dash.no_update
     return [{"group": L, "items": all_types_label_value[L]} for L in category_id]
 
 
