@@ -1,9 +1,13 @@
 # Change Log
 
+# 0.14.5 UNRELEASED
 
-### Unreleased
+### Added
 
--   Add MonthPickerInput & YearPickerInput
+- New components
+  - MonthPickerInput
+  - YearPickerInput
+- `barProps` and `withValueLabels` for the BarCharts #300
 
 # 0.14.4
 
