@@ -1,13 +1,16 @@
-import { Avatar, MantineSpacing } from "@mantine/core";
+import { Avatar, AvatarGroupFactory, MantineSpacing } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesAPIProps<AvatarGroupFactory["stylesNames"]>,
+        DashBaseProps {
     /** Negative space between Avatar components, `'sm'` by default */
     spacing?: MantineSpacing;
-    /** <Avatar /> components */
+    /** dmc.Avatar components */
     children?: React.ReactNode;
 }
 
