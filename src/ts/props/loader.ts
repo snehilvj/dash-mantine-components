@@ -1,8 +1,10 @@
-import { MantineColor, MantineSize } from "@mantine/core";
+import { LoaderFactory, MantineColor, MantineSize } from "@mantine/core";
 import { BoxProps } from "./box";
-import { StylesApiProps } from "./styles";
+import { StylesAPIProps } from "./styles";
 
-export interface LoaderProps extends BoxProps, StylesApiProps {
+export interface LoaderProps
+    extends BoxProps,
+        StylesAPIProps<LoaderFactory["stylesNames"]> {
     /** Controls `width` and `height` of the loader. `Loader` has predefined `xs`-`xl` values. Numbers are converted to rem. Default value is `'md'` */
     size?: MantineSize | (string & {}) | number;
     /** Key of `theme.colors` or any valid CSS color, default value is `theme.primaryColor`  */

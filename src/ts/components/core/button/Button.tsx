@@ -1,4 +1,5 @@
 import {
+    ButtonFactory,
     Button as MantineButton,
     MantineColor,
     MantineGradient,
@@ -8,10 +9,13 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { LoaderProps } from "props/loader";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends DashBaseProps, BoxProps, StylesApiProps {
+interface Props
+    extends DashBaseProps,
+        BoxProps,
+        StylesAPIProps<ButtonFactory["stylesNames"], ButtonFactory["variant"]> {
     /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
     size?: MantineSize | `compact-${MantineSize}` | (string & {});
     /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */

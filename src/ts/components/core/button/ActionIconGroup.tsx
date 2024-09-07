@@ -1,10 +1,13 @@
-import { ActionIcon } from "@mantine/core";
+import { ActionIcon, ActionIconGroupFactory } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+interface Props
+    extends BoxProps,
+        DashBaseProps,
+        StylesAPIProps<ActionIconGroupFactory["stylesNames"]> {
     /** `ActionIcon` components only */
     children?: React.ReactNode;
     /** Controls group orientation, `'horizontal'` by default */

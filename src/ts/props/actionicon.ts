@@ -1,4 +1,5 @@
 import {
+    ActionIconFactory,
     MantineColor,
     MantineGradient,
     MantineRadius,
@@ -6,10 +7,15 @@ import {
 } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { LoaderProps } from "props/loader";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-export interface ActionIconProps extends BoxProps, StylesApiProps {
+export interface ActionIconProps
+    extends BoxProps,
+        StylesAPIProps<
+            ActionIconFactory["stylesNames"],
+            ActionIconFactory["variant"]
+        > {
     /** Determines whether `Loader` component should be displayed instead of the `children`, `false` by default */
     loading?: boolean;
     /** Props added to the `Loader` component (only visible when `loading` prop is set) */

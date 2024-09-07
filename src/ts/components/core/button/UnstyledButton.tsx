@@ -1,13 +1,16 @@
-import { UnstyledButton as MantineUnstyledButton } from "@mantine/core";
+import {
+    UnstyledButton as MantineUnstyledButton,
+    UnstyledButtonFactory,
+} from "@mantine/core";
 import { BoxComponentProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
 export interface Props
     extends Omit<BoxComponentProps, "vars" | "variant">,
         DashBaseProps,
-        StylesApiProps {
+        StylesAPIProps<UnstyledButtonFactory["stylesNames"]> {
     /** Button content */
     children?: React.ReactNode;
     /** An integer that represents the number of times that this element has been clicked on */

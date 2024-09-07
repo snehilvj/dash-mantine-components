@@ -1,10 +1,13 @@
-import { Button } from "@mantine/core";
+import { Button, ButtonGroupFactory } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, DashBaseProps, StylesApiProps {
+interface Props
+    extends BoxProps,
+        DashBaseProps,
+        StylesAPIProps<ButtonGroupFactory["stylesNames"]> {
     /** `Button` components */
     children?: React.ReactNode;
     /** Orientation of the group, `horizontal` by default */
