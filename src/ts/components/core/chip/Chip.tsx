@@ -1,4 +1,5 @@
 import {
+    ChipFactory,
     Chip as MantineChip,
     MantineColor,
     MantineRadius,
@@ -6,12 +7,12 @@ import {
 } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
 interface Props
     extends BoxProps,
-        StylesApiProps,
+        StylesAPIProps<ChipFactory["stylesNames"], ChipFactory["variant"]>,
         DashBaseProps,
         PersistenceProps {
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `'xl'` by default */
@@ -26,8 +27,6 @@ interface Props
     checked?: boolean;
     /** Controls components colors based on `variant` prop. Key of `theme.colors` or any valid CSS color. `theme.primaryColor` by default */
     color?: MantineColor;
-    /** Static id to connect input with the label, by default `id` is randomly generated */
-    id?: string;
     /** Props passed down to the root element */
     wrapperProps?: Record<string, any>;
     /** Any element or component to replace default icon */
