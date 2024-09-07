@@ -1,4 +1,5 @@
 import {
+    CardFactory,
     Card as MantineCard,
     MantineRadius,
     MantineShadow,
@@ -6,10 +7,13 @@ import {
 } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesAPIProps<CardFactory["stylesNames"]>,
+        DashBaseProps {
     /** Key of `theme.shadows` or any valid CSS value to set `box-shadow`, `none` by default */
     shadow?: MantineShadow;
     /** Key of `theme.radius` or any valid CSS value to set border-radius, numbers are converted to rem, `theme.defaultRadius` by default */

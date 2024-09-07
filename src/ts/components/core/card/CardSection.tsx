@@ -1,10 +1,14 @@
 import { Card } from "@mantine/core";
+import { CardSectionFactory } from "@mantine/core/lib/components/Card/CardSection/CardSection";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+export interface Props
+    extends BoxProps,
+        StylesAPIProps<CardSectionFactory["stylesNames"]>,
+        DashBaseProps {
     /** Determines whether the section should have a border, `false` by default */
     withBorder?: boolean;
     /** Determines whether the section should inherit padding from the parent `Card`, `false` by default */
