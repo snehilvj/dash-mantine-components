@@ -5,9 +5,9 @@
 ### Added
 
 - New components
-  - MonthPickerInput
-  - YearPickerInput
-- `barProps` and `withValueLabels` for the BarCharts #300
+    - MonthPickerInput
+    - YearPickerInput
+    - CheckboxIndicator
 
 # 0.14.4
 

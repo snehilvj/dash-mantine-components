@@ -72,6 +72,7 @@ import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
 import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
+import CheckboxIndicator from "./components/core/checkbox/CheckboxIndicator";
 import Chip from "./components/core/chip/Chip";
 import ColorInput from "./components/core/color/ColorInput";
 import ColorPicker from "./components/core/color/ColorPicker";
@@ -135,8 +136,8 @@ import DatePicker from "./components/dates/DatePicker";
 import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
 import MonthPickerInput from "./components/dates/MonthPickerInput";
-import YearPickerInput from "./components/dates/YearPickerInput";
 import TimeInput from "./components/dates/TimeInput";
+import YearPickerInput from "./components/dates/YearPickerInput";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
@@ -186,6 +187,7 @@ export {
     Center,
     Checkbox,
     CheckboxGroup,
+    CheckboxIndicator,
     Chip,
     Code,
     CodeHighlight,
@@ -296,5 +298,5 @@ export {
     Tooltip,
     UnstyledButton,
     VisuallyHidden,
-    YearPickerInput
+    YearPickerInput,
 };

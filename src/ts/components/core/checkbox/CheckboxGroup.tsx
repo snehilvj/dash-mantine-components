@@ -1,13 +1,13 @@
-import { Checkbox, MantineSize } from "@mantine/core";
+import { Checkbox, CheckboxGroupFactory, MantineSize } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { InputWrapperProps } from "props/input";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
 interface Props
     extends BoxProps,
-        StylesApiProps,
+        StylesAPIProps<CheckboxGroupFactory["stylesNames"]>,
         DashBaseProps,
         PersistenceProps,
         InputWrapperProps {
