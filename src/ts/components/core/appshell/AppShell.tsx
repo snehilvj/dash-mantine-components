@@ -1,5 +1,6 @@
 import {
     AppShellAsideConfiguration,
+    AppShellFactory,
     AppShellFooterConfiguration,
     AppShellHeaderConfiguration,
     AppShellNavbarConfiguration,
@@ -9,10 +10,13 @@ import {
 } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesAPIProps<AppShellFactory["stylesNames"]>,
+        DashBaseProps {
     /** Determines whether associated components should have a border, `true` by default */
     withBorder?: boolean;
     /** Controls padding of the main section, `0` by default. !important!: use `padding` prop instead of `p`. */

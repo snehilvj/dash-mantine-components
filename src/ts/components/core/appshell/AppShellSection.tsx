@@ -1,10 +1,14 @@
 import { AppShell } from "@mantine/core";
+import { AppShellSectionFactory } from "@mantine/core/lib/components/AppShell/AppShellSection/AppShellSection";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesAPIProps<AppShellSectionFactory["stylesNames"]>,
+        DashBaseProps {
     /** Determines whether the section should take all available space, `false` by default */
     grow?: boolean;
     /** Content */
