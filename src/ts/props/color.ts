@@ -1,9 +1,13 @@
-import { MantineSize } from "@mantine/core";
+import {
+    ColorInputFactory,
+    ColorPickerFactory,
+    MantineSize,
+} from "@mantine/core";
 import { ColorFormat } from "@mantine/core/lib/components/ColorPicker/ColorPicker.types";
 import { BoxProps } from "./box";
 import { __BaseInputProps } from "./input";
 import { PopoverProps } from "./popover";
-import { StylesApiProps } from "./styles";
+import { StylesAPIProps } from "./styles";
 
 export interface __ColorPickerProps {
     /** Controlled component value */
@@ -23,7 +27,7 @@ export interface __ColorPickerProps {
 export interface ColorPickerProps
     extends BoxProps,
         __ColorPickerProps,
-        StylesApiProps {
+        StylesAPIProps<ColorPickerFactory["stylesNames"]> {
     /** Determines whether the component should take 100% width of its container, `false` by default */
     fullWidth?: boolean;
     /** Determines whether interactive elements (sliders thumbs and swatches) should be focusable, `true` by default */
@@ -40,7 +44,10 @@ export interface ColorInputProps
     extends BoxProps,
         __BaseInputProps,
         __ColorPickerProps,
-        StylesApiProps {
+        StylesAPIProps<
+            ColorInputFactory["stylesNames"],
+            ColorInputFactory["variant"]
+        > {
     /** If input is not allowed, the user can only pick value with color picker and swatches, `false` by default */
     disallowInput?: boolean;
     /** Determines whether the input value should be reset to the last known valid value when the input loses focus, `true` by default */
