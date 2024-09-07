@@ -1,10 +1,14 @@
 import { Accordion } from "@mantine/core";
+import { AccordionItemFactory } from "@mantine/core/lib/components/Accordion/AccordionItem/AccordionItem";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesAPIProps<AccordionItemFactory["stylesNames"]>,
+        DashBaseProps {
     /** Value that is used to manage accordion state */
     value: string;
     /** Content */

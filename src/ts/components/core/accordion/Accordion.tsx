@@ -1,24 +1,29 @@
 import {
+    AccordionFactory,
     AccordionHeadingOrder,
-    AccordionVariant,
     Accordion as MantineAccordion,
     MantineRadius,
 } from "@mantine/core";
 import { AccordionChevronPosition } from "@mantine/core/lib/components/Accordion/Accordion.types";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
+
+type Value = string | string[];
 
 interface Props
     extends BoxProps,
-        StylesApiProps,
         DashBaseProps,
-        PersistenceProps {
+        PersistenceProps,
+        StylesAPIProps<
+            AccordionFactory["stylesNames"],
+            AccordionFactory["variant"]
+        > {
     /** Determines whether multiple items can be opened at a time, `false` by default */
     multiple?: boolean;
     /** Value for controlled component */
-    value?: string | string[];
+    value?: Value;
     /** Determines whether arrow key presses should loop though items (first to last and last to first), `true` by default */
     loop?: boolean;
     /** Transition duration in ms, `200` by default */
@@ -33,8 +38,6 @@ interface Props
     order?: AccordionHeadingOrder;
     /** Custom chevron icon that will be used in all items */
     chevron?: React.ReactNode;
-    /** Controls visuals */
-    variant?: AccordionVariant;
     /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
     radius?: MantineRadius;
     /** Accordion content */
@@ -52,7 +55,7 @@ const Accordion = (props: Props) => {
         ...others
     } = props;
 
-    const onChange = (value: string | string[]) => {
+    const onChange = (value: Value) => {
         setProps({ value });
     };
 

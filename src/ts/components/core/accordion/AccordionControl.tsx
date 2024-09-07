@@ -1,10 +1,14 @@
 import { Accordion } from "@mantine/core";
+import { AccordionControlFactory } from "@mantine/core/lib/components/Accordion/AccordionControl/AccordionControl";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { StylesAPIProps } from "props/styles";
 import React from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props
+    extends BoxProps,
+        StylesAPIProps<AccordionControlFactory["stylesNames"]>,
+        DashBaseProps {
     /** Disables control button */
     disabled?: boolean;
     /** Custom chevron icon */
