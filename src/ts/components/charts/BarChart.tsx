@@ -28,10 +28,16 @@ interface Props
     cursorFill?: MantineColor;
     /** Props passed down to recharts `BarChart` component */
     barChartProps?: object;
+    /** Props passed down to recharts `Bar` component */
+    barProps?: object;
     /** Additional components that are rendered inside recharts `BarChart` component */
     children?: React.ReactNode;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Determines whether a label with bar value should be displayed on top of each bar,
+     incompatible with type="stacked" and type="percent", false by default */
+    withBarValueLabel?: boolean;
+
 }
 
 /** BarChart */
@@ -46,9 +52,11 @@ const BarChart = (props: Props) => {
 
     const newProps = { ...barChartProps, onClick };
 
-    return <MantineBarChart barChartProps={newProps} {...others} />;
+    return <MantineBarChart barChartProps={newProps}  {...others} />;
 };
 
-BarChart.defaultProps = {};
+BarChart.defaultProps = {
+    withBarValueLabel: false
+};
 
 export default BarChart;

@@ -1,5 +1,10 @@
 # Change Log
 
+# 0.14.5 UNRELEASED
+
+### Added
+- `barProps` and `withValueLabels` for the BarCharts #300
+
 # 0.14.4
 
 ### Fixed
