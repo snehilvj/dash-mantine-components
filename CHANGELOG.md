@@ -2,6 +2,10 @@
 
 # 0.14.5 UNRELEASED
 
+### Fixed
+
+- `boxWrapperProps` in the `MenuTarget` component #309
+
 ### Added
 
 - New components
