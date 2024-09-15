@@ -2,6 +2,13 @@
 
 # 0.14.5 UNRELEASED
 
+### Fixed
+
+- for Date components:
+  - enable date parsing based on the valueFormat
+  - locale now works with persistence and on first render
+  - This PR #314 is based on #265 - Thanks for your contribution @albavilanova
+
 ### Added
 
 - New components
