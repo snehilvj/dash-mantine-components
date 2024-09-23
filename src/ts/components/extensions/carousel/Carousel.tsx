@@ -5,7 +5,6 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { AutoplayOptions } from "./autoplayOptions";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
@@ -55,56 +54,19 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether arrow key should switch slides, `true` by default */
     withKeyboardEvents?: boolean;
     /** Enables autoplay with optional configuration */
-    autoplay?: boolean | AutoplayOptions;
+    autoplay?: boolean | Record<string, any>;
 }
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, setProps, autoplay, ...others } = props;
+  const { children, setProps, autoplay, ...others } = props;
 
-    // Default autoplay options
-    const defaultAutoplayOptions: AutoplayOptions = {
-        delay: 2000, // Default delay of 2000ms
-        jump: false,
-        playOnInit: true,
-        stopOnInteraction: true,
-        stopOnMouseEnter: false,
-        stopOnFocusIn: true,
-        stopOnLastSnap: false,
-        rootNode: null,
-    };
+  // Initialize the autoplay plugin if autoplay is true or an object, otherwise null
+  const autoplayRef = useRef(
+    autoplay ? Autoplay(typeof autoplay === "object" ? autoplay : {}) : null
+  );
 
-    // Merge default options with user-provided autoplay options
-    const autoplayOptions = {
-        ...defaultAutoplayOptions,
-        ...(typeof autoplay === "object" ? autoplay : {}),
-    };
-
-    // Ref for the autoplay plugin
-    const autoplayRef = useRef(
-        autoplay
-            ? Autoplay(autoplayOptions)
-            : Autoplay({ delay: 2000 }) // Default delay if autoplay is true and no options are passed
-    );
-
-    return (
-        <MantineCarousel
-            {...others}
-            plugins={autoplay ? [autoplayRef.current] : []}
-            onMouseEnter={
-                autoplay && autoplayOptions.stopOnMouseEnter
-                    ? autoplayRef.current.stop
-                    : undefined
-            }
-            onMouseLeave={
-                autoplay && autoplayOptions.stopOnMouseEnter
-                    ? autoplayRef.current.reset
-                    : undefined
-            }
-        >
-            {children}
-        </MantineCarousel>
-    );
+  return <MantineCarousel {...others} plugins={autoplayRef.current ? [autoplayRef.current] : []}>{children}</MantineCarousel>;
 };
 
 Carousel.defaultProps = {};
