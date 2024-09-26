@@ -4,10 +4,12 @@
 
 ### Added
 
+- Added `disabled` prop to `Fieldset` component #306
 - New components
   - MonthPickerInput
   - YearPickerInput
-- `barProps` and `withValueLabels` for the BarCharts #300
+- Added `barProps` and `withValueLabels` for the BarCharts #300
+
 
 # 0.14.4
 
