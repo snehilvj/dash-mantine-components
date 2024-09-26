@@ -44,10 +44,9 @@ from dash.exceptions import PreventUpdate
 
 import dash_mantine_components as dmc
 
-stylesheets = ["https://unpkg.com/@mantine/dates@7/styles.css"]
 dash._dash_renderer._set_react_version('18.2.0')
 
-app = Dash(__name__, external_stylesheets=stylesheets)
+app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
 app.layout = dmc.MantineProvider(
     [
@@ -108,3 +107,10 @@ Thanks to the following people for supporting my efforts on dash-mantine-compone
 5. Build the components with the command: `npm run build`.
 
 6. Raise a PR, including an example to reproduce the changes contributed by the PR.
+
+7. Unless you have changed dependencies, please do not include `package-lock.json`  or `yarn.lock` files. 
+
+## Contributing to the Docs
+
+We :heart: contributions to our documentation! It's a fantastic opportunity for first-time contributors since the
+project is simply a Dash app built with `dash-mantine-components`. For more details, check out the [dmc-docs GitHub.](https://github.com/snehilvj/dmc-docs)
