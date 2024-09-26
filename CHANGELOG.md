@@ -2,6 +2,9 @@
 
 # 0.14.5 UNRELEASED
 
+### Fixed
+- Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317
+
 ### Added
 
 - Added `disabled` prop to `Fieldset` component #306
