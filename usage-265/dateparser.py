@@ -27,12 +27,20 @@ date_picker2 = dmc.DateInput(
     placeholder = "Date input DD/MM/YYYY HH:mm:ss"
 )
 
+date_picker3 = dmc.DateInput(
+            id="dateinput2",
+            label="Enter a date",
+            description="You can type a date or select from the calendar",
+            w=300,
+        )
+
 app.layout = dmc.MantineProvider(dmc.Box([
     dmc.Text("Issue #308 and #249 - ability to enter date and time according to valueFormat"),
     dmc.Text("Note - The entire date needs to be entered before the parser works correctly"),
     dmc.Text("Note - the DateProvider is not necessary", pb=20),
     date_picker,
-    date_picker2
+    date_picker2,
+    date_picker3
 ],p=20))
 
 if __name__ == "__main__":

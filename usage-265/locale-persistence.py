@@ -17,7 +17,8 @@ date_picker = dmc.DateInput(
     valueFormat="YYYY-MM-DD",
     label = "Date input YYYY-MM-DD",
     placeholder = "Date input YYYY-MM-DD",
-    persistence=True
+    persistence=True,
+    value="2022-01-01"
 )
 
 app.layout = dmc.MantineProvider([
