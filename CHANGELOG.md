@@ -4,6 +4,7 @@
 
 ### Fixed
 - Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317
+- Changed `in` prop name to `opened` in dmc.Collapse #311
 
 ### Added
 
