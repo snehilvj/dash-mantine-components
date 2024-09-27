@@ -1,6 +1,6 @@
 # Change Log
 
-# 0.14.5 UNRELEASED
+# 0.14.5 
 
 ### Fixed
 
@@ -9,18 +9,22 @@
   - locale now works with persistence and on first render
   - This PR #314 is based on #265 - Thanks for your contribution @albavilanova  
  
-- `boxWrapperProps` in the `MenuTarget` component #309
-- Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317
-- Changed `in` prop name to `opened` in dmc.Collapse #311
+- Fixed `boxWrapperProps` in the `MenuTarget` component #309 by  @datenzauberai 
+- Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317 by @AnnMarieW
+- Changed `in` prop name to `opened` in dmc.Collapse #311 by @AnnMarieW
 
 ### Added
 
-- Added `disabled` prop to `Fieldset` component #306
-- New components
+- Added `disabled` prop to `Fieldset` component #306 by @AnnMarieW
+- New components  #266 by @stpnvkirill
   - MonthPickerInput
   - YearPickerInput
-- Added `barProps` and `withValueLabels` for the BarCharts #300
+- Added `barProps` and `withValueLabels` for the BarCharts #300 by @AnnMarieW
 
+
+### Changed
+
+-   Upgrade to latest Mantine (7.13.0)
 
 # 0.14.4
 
