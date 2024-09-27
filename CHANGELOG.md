@@ -4,6 +4,11 @@
 
 ### Fixed
 
+- for Date components:
+  - enable date parsing based on the valueFormat
+  - locale now works with persistence and on first render
+  - This PR #314 is based on #265 - Thanks for your contribution @albavilanova  
+ 
 - `boxWrapperProps` in the `MenuTarget` component #309
 - Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317
 - Changed `in` prop name to `opened` in dmc.Collapse #311
