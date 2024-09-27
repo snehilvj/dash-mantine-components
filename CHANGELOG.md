@@ -1,6 +1,6 @@
 # Change Log
 
-# 0.14.5 UNRELEASED
+# 0.14.5 
 
 ### Fixed
 
@@ -9,7 +9,7 @@
   - locale now works with persistence and on first render
   - This PR #314 is based on #265 - Thanks for your contribution @albavilanova  
  
-- `boxWrapperProps` in the `MenuTarget` component #309 by  @datenzauberai 
+- Fixed `boxWrapperProps` in the `MenuTarget` component #309 by  @datenzauberai 
 - Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317 by @AnnMarieW
 - Changed `in` prop name to `opened` in dmc.Collapse #311 by @AnnMarieW
 
