@@ -12,7 +12,7 @@
 - Fixed `boxWrapperProps` in the `MenuTarget` component #309 by  @datenzauberai 
 - Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317 by @AnnMarieW
 - Changed `in` prop name to `opened` in dmc.Collapse #311 by @AnnMarieW
-- When updating the `data` in a `Select` component in a callback, the value now correctly reflects only valid options. #301 by @AnnMarieW.
+- When updating the `data` in a `Select` or `MultiSelect` component in a callback, the value now correctly reflects only valid options. #301 #324 by @AnnMarieW.
 
 ### Added
 

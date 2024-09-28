@@ -56,7 +56,7 @@ const MultiSelect = (props: Props) => {
     useDidUpdate(() => {
         setOptions(data);
         const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected);
+        setSelected(filteredSelected ?? []);
     }, [data]);
 
     useDidUpdate(() => {
@@ -68,7 +68,7 @@ const MultiSelect = (props: Props) => {
     }, [selected]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        setSelected(value ?? [])
     }, [value]);
 
     useDidUpdate(() => {
@@ -92,6 +92,7 @@ MultiSelect.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
     data: [],
+    value: [],
 };
 
 export default MultiSelect;
