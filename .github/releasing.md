@@ -13,13 +13,6 @@
 
 On the Master branch:
 
-Add tag
-```
-$ git tag -a 0.14.5 -m "version 0.14.5"
-$ git push origin tag 0.14.5
-```
-
-
 1. Clean up dist - removes old and temp tarballs:
 ```
 $ rm -rf dist
@@ -34,13 +27,15 @@ $ rm -rf dist
 ```
 pip install dash-mantine-components-0.14.5.tar.gz
 ```
+4. Prepare release on the GitHub UI - For more information see [Managing Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 
-4. Publish on PyPI
+
+5. Publish on PyPI
 ```
 $ twine upload dist/*
 ```
 
-5. Publish on NPM 
+6. Publish on NPM 
 ```
 $ npm publish
 ```
