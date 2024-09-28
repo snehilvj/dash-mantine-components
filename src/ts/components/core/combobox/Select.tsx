@@ -8,7 +8,7 @@ import { __BaseInputProps } from "props/input";
 import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
-import { isInOption } from "../../../utils/combobox";
+import { filterSelected } from "../../../utils/combobox";
 
 interface Props
     extends BoxProps,
@@ -51,9 +51,8 @@ const Select = (props: Props) => {
 
     useDidUpdate(() => {
         setOptions(data);
-        if (!isInOption(data, selected)) {
-            setSelected(null);
-        }
+        const filteredSelected = filterSelected(data, selected);
+        setSelected(filteredSelected);
     }, [data]);
 
     useDidUpdate(() => {
