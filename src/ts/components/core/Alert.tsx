@@ -33,7 +33,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Alert */
 const Alert = (props: Props) => {
-    const { children, setProps, duration, hide, ...others } = props;
+    const { children, setProps, loading_state, duration, hide, ...others } = props;
     const ref = useRef(null);
 
     useEffect(() => {
@@ -52,7 +52,13 @@ const Alert = (props: Props) => {
     };
 
     return hide ? null : (
-        <MantineAlert {...others} onClose={onClose}>
+        <MantineAlert
+            {...others}
+            onClose={onClose}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+        >
             {children}
         </MantineAlert>
     );

@@ -1,14 +1,13 @@
 import { Skeleton as MantineSkeleton } from "@mantine/core";
 import { BoxProps } from "props/box";
-import { DashBaseProps, LoadingStateProps } from "props/dash";
+import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 
 interface Props
     extends BoxProps,
         StylesApiProps,
-        DashBaseProps,
-        LoadingStateProps {
+        DashBaseProps {
     /** Determines whether Skeleton overlay should be displayed, `true` by default */
     visible?: boolean;
     /** Skeleton `height`, numbers are converted to rem, `auto` by default */

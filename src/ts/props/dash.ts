@@ -9,6 +9,14 @@ export interface DashBaseProps {
     "aria-*"?: string;
     /** tab-index */
     tabIndex?: number;
+    loading_state?: {
+        /** Determines if the component is loading or not */
+        is_loading: boolean;
+        /** Holds which property is loading */
+        prop_name: string;
+        /** Holds the name of the component that is loading */
+        component_name: string;
+    };
 }
 
 export interface PersistenceProps {
@@ -34,16 +42,4 @@ export interface PersistenceProps {
      * session: window.sessionStorage, data is cleared once the browser quit.
      */
     persistence_type?: "local" | "session" | "memory";
-}
-
-export interface LoadingStateProps {
-    /** Object that holds the loading state object coming from dash-renderer */
-    loading_state?: {
-        /** Determines if the component is loading or not */
-        is_loading: boolean;
-        /** Holds which property is loading */
-        prop_name: string;
-        /** Holds the name of the component that is loading */
-        component_name: string;
-    };
 }
