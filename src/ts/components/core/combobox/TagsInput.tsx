@@ -46,7 +46,8 @@ interface Props
 
 /** TagsInput */
 const TagsInput = (props: Props) => {
-    const { setProps, data, searchValue, value, ...others } = props;
+    const { setProps, loading_state, data, searchValue, value, ...others } =
+        props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -76,6 +77,9 @@ const TagsInput = (props: Props) => {
 
     return (
         <MantineTagsInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             data={options}
             onChange={setSelected}
