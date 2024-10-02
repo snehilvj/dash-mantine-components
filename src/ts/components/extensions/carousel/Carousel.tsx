@@ -61,12 +61,14 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 const Carousel = (props: Props) => {
   const { children, setProps, autoplay, ...others } = props;
 
-  // Initialize the autoplay plugin if autoplay is true or an object, otherwise null
-  const autoplayRef = useRef(
-    autoplay ? Autoplay(typeof autoplay === "object" ? autoplay : {}) : null
-  );
+  const autoplayPlugin =
+    autoplay === true
+      ? Autoplay({ delay: 4000 })
+      : typeof autoplay === "object"
+      ? Autoplay(autoplay)  
+      : null;
 
-  return <MantineCarousel {...others} plugins={autoplayRef.current ? [autoplayRef.current] : []}>{children}</MantineCarousel>;
+  return <MantineCarousel {...others} plugins={autoplayPlugin ? [autoplayPlugin] : []}>{children}</MantineCarousel>;
 };
 
 Carousel.defaultProps = {};
