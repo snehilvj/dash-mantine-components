@@ -12,10 +12,15 @@ interface Props extends Omit<PopoverProps, "opened">, DashBaseProps {
 
 /** HoverCard */
 const HoverCard = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
     return (
-        <MantineHoverCard {...others}>
+        <MantineHoverCard
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "HoverCardTarget") {
