@@ -45,6 +45,7 @@ const Chip = (props: Props) => {
     const {
         children,
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
