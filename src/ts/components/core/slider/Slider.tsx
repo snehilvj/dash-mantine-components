@@ -65,6 +65,7 @@ interface Props
 const Slider = (props: Props) => {
     const {
         setProps,
+        loading_state,
         updatemode,
         value,
         persistence,
@@ -87,6 +88,9 @@ const Slider = (props: Props) => {
 
     return (
         <MantineSlider
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             {...others}
             value={val}
             onChange={setVal}
