@@ -43,9 +43,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShell */
 const AppShell = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineAppShell {...others}>{children}</MantineAppShell>;
+    return (
+        <MantineAppShell
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineAppShell>
+    );
 };
 
 AppShell.defaultProps = {};
