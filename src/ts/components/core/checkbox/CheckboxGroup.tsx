@@ -28,6 +28,7 @@ const CheckboxGroup = (props: Props) => {
     const {
         children,
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -39,7 +40,13 @@ const CheckboxGroup = (props: Props) => {
     };
 
     return (
-        <Checkbox.Group onChange={onChange} {...others}>
+        <Checkbox.Group
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            onChange={onChange}
+            {...others}
+        >
             {children}
         </Checkbox.Group>
     );
