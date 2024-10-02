@@ -10,6 +10,7 @@ interface Props extends ColorInputProps, PersistenceProps, DashBaseProps {}
 const ColorInput = (props: Props) => {
     const {
         setProps,
+        loading_state,
         value,
         persistence,
         persisted_props,
@@ -27,7 +28,16 @@ const ColorInput = (props: Props) => {
         setColor(value);
     }, [value]);
 
-    return <MantineColorInput value={color} onChange={setColor} {...others} />;
+    return (
+        <MantineColorInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            value={color}
+            onChange={setColor}
+            {...others}
+        />
+    );
 };
 
 ColorInput.defaultProps = {
