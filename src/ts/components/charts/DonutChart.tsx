@@ -52,7 +52,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** DonutChart */
 const DonutChart = (props: Props) => {
-    const { setProps, clickData, pieProps, ...others } = props;
+    const { setProps, loading_state, clickData, pieProps, ...others } = props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -62,7 +62,15 @@ const DonutChart = (props: Props) => {
 
     const newProps = { ...pieProps, onClick };
 
-    return <MantineDonutChart pieProps={newProps} {...others} />;
+    return (
+        <MantineDonutChart
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            pieProps={newProps}
+            {...others}
+        />
+    );
 };
 
 DonutChart.defaultProps = {};

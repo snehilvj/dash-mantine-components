@@ -39,7 +39,8 @@ interface Props
 
 /** ScatterChart */
 const ScatterChart = (props: Props) => {
-    const { setProps, clickData, scatterProps, ...others } = props;
+    const { setProps, loading_state, clickData, scatterProps, ...others } =
+        props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -49,7 +50,15 @@ const ScatterChart = (props: Props) => {
 
     const newProps = { ...scatterProps, onClick };
 
-    return <MantineScatterChart scatterProps={newProps} {...others} />;
+    return (
+        <MantineScatterChart
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            scatterProps={newProps}
+            {...others}
+        />
+    );
 };
 
 ScatterChart.defaultProps = {};
