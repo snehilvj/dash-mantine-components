@@ -64,7 +64,8 @@ interface Props
 
 /** NumberInput */
 const NumberInput = (props: Props) => {
-    const { setProps, value, n_submit, debounce, ...others } = props;
+    const { setProps, loading_state, value, n_submit, debounce, ...others } =
+        props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -85,6 +86,9 @@ const NumberInput = (props: Props) => {
 
     return (
         <MantineNumberInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             onChange={setVal}
             value={val}

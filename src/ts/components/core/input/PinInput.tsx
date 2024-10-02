@@ -67,10 +67,13 @@ interface Props
 
 /** PinInput */
 const PinInput = (props: Props) => {
-    const { setProps, value, ...others } = props;
+    const { setProps, loading_state, value, ...others } = props;
 
     return (
         <MantinePinInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             onComplete={(value) => setProps({ value })}
             {...others}
         />
