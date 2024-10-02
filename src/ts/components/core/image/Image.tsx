@@ -19,9 +19,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Image  */
 const Image = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <MantineImage {...others} />;
+    return (
+        <MantineImage
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 Image.defaultProps = {};
