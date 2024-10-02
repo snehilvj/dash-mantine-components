@@ -39,17 +39,25 @@ interface Props extends __PopoverProps, StylesApiProps {
 
 /** Menu */
 const Menu = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
     return (
-        <MantineMenu {...others}>
+        <MantineMenu
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
             {React.Children.map(children, (child: any, index) => {
-                const {type: childType, props: childProps} = child.props._dashprivate_layout;
+                const { type: childType, props: childProps } =
+                    child.props._dashprivate_layout;
                 if (childType === "MenuTarget") {
                     const { boxWrapperProps } = childProps;
                     return (
                         <MantineMenu.Target key={index}>
-                            <Box w="fit-content" {...boxWrapperProps}>{child}</Box>
+                            <Box w="fit-content" {...boxWrapperProps}>
+                                {child}
+                            </Box>
                         </MantineMenu.Target>
                     );
                 }
