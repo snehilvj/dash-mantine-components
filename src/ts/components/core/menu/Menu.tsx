@@ -39,13 +39,10 @@ interface Props extends __PopoverProps, StylesApiProps {
 
 /** Menu */
 const Menu = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
+    const { children, setProps, ...others } = props;
 
     return (
         <MantineMenu
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
