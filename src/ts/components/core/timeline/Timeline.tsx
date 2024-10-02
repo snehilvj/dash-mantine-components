@@ -33,10 +33,15 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Timeline */
 const Timeline = (props: Props) => {
-    const { setProps, children, ...others } = props;
+    const { setProps, loading_state, children, ...others } = props;
 
     return (
-        <MantineTimeline {...others}>
+        <MantineTimeline
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
             {React.Children.map(children, (child: any, index) => {
                 const childProps = child.props._dashprivate_layout.props;
                 const renderedProps = renderDashComponents(

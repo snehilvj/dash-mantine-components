@@ -52,11 +52,17 @@ interface Props extends TooltipBaseProps, DashBaseProps {
 
 /** Tooltip */
 const Tooltip = (props: Props) => {
-    const { children, boxWrapperProps, setProps, ...others } = props;
+    const { children, boxWrapperProps, setProps, loading_state, ...others } =
+        props;
     const boxProps = { w: "fit-content", ...boxWrapperProps };
 
     return (
-        <MantineTooltip {...others}>
+        <MantineTooltip
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
             <Box {...boxProps}>{children}</Box>
         </MantineTooltip>
     );
