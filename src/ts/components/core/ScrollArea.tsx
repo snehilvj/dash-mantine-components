@@ -27,9 +27,18 @@ interface Props extends ScrollAreaProps, DashBaseProps {
 
 /** ScrollArea */
 const ScrollArea = (props: Props) => {
-    const { setProps, children, ...others } = props;
+    const { setProps, loading_state, children, ...others } = props;
 
-    return <MantineScrollArea {...others}>{children}</MantineScrollArea>;
+    return (
+        <MantineScrollArea
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineScrollArea>
+    );
 };
 
 ScrollArea.defaultProps = {};

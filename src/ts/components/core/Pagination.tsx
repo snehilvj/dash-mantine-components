@@ -44,6 +44,7 @@ interface Props
 const Pagination = (props: Props) => {
     const {
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -54,7 +55,15 @@ const Pagination = (props: Props) => {
         setProps({ value });
     };
 
-    return <MantinePagination {...others} onChange={onChange} />;
+    return (
+        <MantinePagination
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+            onChange={onChange}
+        />
+    );
 };
 
 Pagination.defaultProps = {

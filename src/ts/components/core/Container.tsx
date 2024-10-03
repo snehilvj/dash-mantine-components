@@ -15,9 +15,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Container */
 const Container = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineContainer {...others}>{children}</MantineContainer>;
+    return (
+        <MantineContainer
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineContainer>
+    );
 };
 
 Container.defaultProps = {};

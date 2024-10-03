@@ -22,9 +22,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** LoadingOverlay */
 const LoadingOverlay = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <MantineLoadingOverlay {...others} />;
+    return (
+        <MantineLoadingOverlay
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 LoadingOverlay.defaultProps = {};

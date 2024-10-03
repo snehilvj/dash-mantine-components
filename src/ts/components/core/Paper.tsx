@@ -15,9 +15,18 @@ interface Props
 
 /** Paper */
 const Paper = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantinePaper {...others}>{children}</MantinePaper>;
+    return (
+        <MantinePaper
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantinePaper>
+    );
 };
 
 Paper.defaultProps = {};

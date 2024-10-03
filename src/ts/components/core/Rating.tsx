@@ -38,7 +38,7 @@ interface Props
 
 /** Rating */
 const Rating = (props: Props) => {
-    const { setProps, value, ...others } = props;
+    const { setProps, loading_state, value, ...others } = props;
 
     const [val, setVal] = useState(value);
 
@@ -50,7 +50,16 @@ const Rating = (props: Props) => {
         setVal(value);
     }, [value]);
 
-    return <MantineRating value={val} onChange={setVal} {...others} />;
+    return (
+        <MantineRating
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            value={val}
+            onChange={setVal}
+            {...others}
+        />
+    );
 };
 
 Rating.defaultProps = {

@@ -4,10 +4,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 
-interface Props
-    extends BoxProps,
-        StylesApiProps,
-        DashBaseProps {
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether Skeleton overlay should be displayed, `true` by default */
     visible?: boolean;
     /** Skeleton `height`, numbers are converted to rem, `auto` by default */

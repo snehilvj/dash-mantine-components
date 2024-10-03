@@ -47,7 +47,8 @@ interface Props
 
 /** MultiSelect */
 const MultiSelect = (props: Props) => {
-    const { setProps, loading_state, data, searchValue, value, ...others } = props;
+    const { setProps, loading_state, data, searchValue, value, ...others } =
+        props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);

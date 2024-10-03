@@ -46,6 +46,7 @@ interface Props
 const Switch = (props: Props) => {
     const {
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -58,6 +59,9 @@ const Switch = (props: Props) => {
 
     return (
         <MantineSwitch
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
             {...others}
         />

@@ -21,9 +21,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** SimpleGrid */
 const SimpleGrid = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineSimpleGrid {...others}>{children}</MantineSimpleGrid>;
+    return (
+        <MantineSimpleGrid
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineSimpleGrid>
+    );
 };
 
 SimpleGrid.defaultProps = {};

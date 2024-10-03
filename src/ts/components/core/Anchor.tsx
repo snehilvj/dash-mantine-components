@@ -20,12 +20,23 @@ interface Props extends Omit<TextProps, "span">, DashBaseProps {
 
 /** Anchor */
 const Anchor = (props: Props) => {
-    const { href, target, refresh, children, setProps, ...others } = props;
+    const {
+        href,
+        target,
+        refresh,
+        children,
+        setProps,
+        loading_state,
+        ...others
+    } = props;
 
     const sanitizedHref = useMemo(() => sanitizeUrl(href), [href]);
 
     return (
         <MantineAnchor
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                 onClick(ev, sanitizedHref, target, refresh)
             }

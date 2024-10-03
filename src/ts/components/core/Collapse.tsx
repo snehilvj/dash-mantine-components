@@ -18,10 +18,18 @@ interface Props extends BoxProps, DashBaseProps {
 
 /** Collapse */
 const Collapse = (props: Props) => {
-    const { setProps, opened, ...others } = props;
-    return <MantineCollapse in={opened} {...others} />;
+    const { setProps, loading_state, opened, ...others } = props;
+    return (
+        <MantineCollapse
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            in={opened}
+            {...others}
+        />
+    );
 };
 
-Collapse.defaultProps = {opened: false};
+Collapse.defaultProps = { opened: false };
 
 export default Collapse;

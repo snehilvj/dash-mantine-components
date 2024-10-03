@@ -16,9 +16,18 @@ interface Props extends DashBaseProps, TextProps {
 
 /** Highlight */
 const Highlight = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineHighlight {...others}>{children}</MantineHighlight>;
+    return (
+        <MantineHighlight
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineHighlight>
+    );
 };
 
 Highlight.defaultProps = {};

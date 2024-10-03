@@ -42,9 +42,7 @@ const Menu = (props: Props) => {
     const { children, setProps, ...others } = props;
 
     return (
-        <MantineMenu
-            {...others}
-        >
+        <MantineMenu {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const { type: childType, props: childProps } =
                     child.props._dashprivate_layout;

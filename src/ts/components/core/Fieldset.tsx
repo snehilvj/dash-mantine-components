@@ -17,9 +17,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Fieldset */
 const Fieldset = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineFieldset {...others}>{children}</MantineFieldset>;
+    return (
+        <MantineFieldset
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineFieldset>
+    );
 };
 
 Fieldset.defaultProps = {};

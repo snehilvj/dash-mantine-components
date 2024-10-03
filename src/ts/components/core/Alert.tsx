@@ -33,7 +33,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Alert */
 const Alert = (props: Props) => {
-    const { children, setProps, loading_state, duration, hide, ...others } = props;
+    const { children, setProps, loading_state, duration, hide, ...others } =
+        props;
     const ref = useRef(null);
 
     useEffect(() => {
