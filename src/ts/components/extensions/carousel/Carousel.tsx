@@ -3,7 +3,7 @@ import { MantineSpacing, StyleProp } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useRef } from "react";
+import React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
@@ -63,7 +63,7 @@ const Carousel = (props: Props) => {
 
   const autoplayPlugin =
     autoplay === true
-      ? Autoplay({ delay: 4000 })
+      ? Autoplay()
       : typeof autoplay === "object"
       ? Autoplay(autoplay)  
       : null;
