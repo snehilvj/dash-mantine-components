@@ -55,7 +55,7 @@ const TagsInput = (props: Props) => {
     useDidUpdate(() => {
         setOptions(data);
         const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected);
+        setSelected(filteredSelected ?? []);
     }, [data]);
 
     useDidUpdate(() => {
@@ -67,7 +67,7 @@ const TagsInput = (props: Props) => {
     }, [selected]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        setSelected(value ?? []);
     }, [value]);
 
     useDidUpdate(() => {
@@ -91,6 +91,7 @@ TagsInput.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
     data: [],
+    value: [],
 };
 
 export default TagsInput;

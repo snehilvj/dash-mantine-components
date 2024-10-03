@@ -4,6 +4,9 @@ import {
 } from "@mantine/dates";
 import dayjs from "dayjs";
 import React, { useEffect } from "react";
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+const REGISTERED = {}
 
 interface Props extends DatesProviderProps {
     /** Unique ID to identify this component in Dash callbacks. */
@@ -17,12 +20,13 @@ const DatesProvider = (props: Props) => {
     const { settings, children, setProps, ...others } = props;
     const { locale } = settings;
 
-    useEffect(() => {
+    if (!REGISTERED[locale]) {
+        REGISTERED[locale] = true;
         const localeObject = window[`dayjs_locale_${locale}`];
         if (localeObject) {
             dayjs.locale(locale, localeObject);
         }
-    }, [locale]);
+    }
 
     return (
         <MantineDatesProvider settings={settings} {...others}>

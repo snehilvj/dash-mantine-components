@@ -13,6 +13,9 @@ import { PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
+import dayjs from "dayjs";
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat);
 
 interface Props
     extends DashBaseProps,
