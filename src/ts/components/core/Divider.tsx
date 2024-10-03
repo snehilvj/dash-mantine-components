@@ -27,9 +27,6 @@ const Divider = (props: Props) => {
 
     return (
         <MantineDivider
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             {...others}
         />
     );

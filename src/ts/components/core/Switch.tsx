@@ -59,9 +59,6 @@ const Switch = (props: Props) => {
 
     return (
         <MantineSwitch
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
             {...others}
         />

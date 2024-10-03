@@ -34,9 +34,6 @@ const RingProgress = (props: Props) => {
 
     return (
         <MantineRingProgress
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             {...others}
         />
     );

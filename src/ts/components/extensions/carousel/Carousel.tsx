@@ -56,9 +56,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineCarousel {...others}>{children} </MantineCarousel>;
+    return (
+        <MantineCarousel
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}{" "}
+        </MantineCarousel>
+    );
 };
 
 Carousel.defaultProps = {};

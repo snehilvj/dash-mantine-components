@@ -36,7 +36,7 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
 
 /** Notification */
 const Notification = (props: Props) => {
-    const { action, setProps, ...others } = props;
+    const { action, setProps, loading_state, ...others } = props;
 
     useEffect(() => {
         switch (action) {

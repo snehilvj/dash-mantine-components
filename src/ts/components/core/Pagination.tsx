@@ -57,9 +57,6 @@ const Pagination = (props: Props) => {
 
     return (
         <MantinePagination
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             {...others}
             onChange={onChange}
         />

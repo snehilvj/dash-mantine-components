@@ -52,9 +52,6 @@ const Rating = (props: Props) => {
 
     return (
         <MantineRating
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             value={val}
             onChange={setVal}
             {...others}
