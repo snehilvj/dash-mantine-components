@@ -45,7 +45,6 @@ const Chip = (props: Props) => {
     const {
         children,
         setProps,
-        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -57,13 +56,7 @@ const Chip = (props: Props) => {
     };
 
     return (
-        <MantineChip
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
-            onChange={onChange}
-            {...others}
-        >
+        <MantineChip onChange={onChange} {...others}>
             {children}
         </MantineChip>
     );
