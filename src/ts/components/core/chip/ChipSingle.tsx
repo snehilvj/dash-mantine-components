@@ -40,11 +40,8 @@ interface Props
     value?: string;
 }
 
-/**
-Chip for use with the ChipGroup.
-Must not set the `checked` prop because it conflicts with setting the value on the ChipGroup
- **/
-const Chip = (props: Props) => {
+/** ChipSingle - use as a stand-alone chip only.  Use Chip with ChipGroup */
+const ChipSingle = (props: Props) => {
     const {
         children,
         setProps,
@@ -55,12 +52,20 @@ const Chip = (props: Props) => {
         ...others
     } = props;
 
-    return <MantineChip {...others}>{children}</MantineChip>;
+    return (
+        <MantineChip
+            checked={checked}
+            onChange={() => setProps({ checked: !checked })}
+            {...others}
+        >
+            {children}
+        </MantineChip>
+    );
 };
 
-Chip.defaultProps = {
+ChipSingle.defaultProps = {
     persisted_props: ["checked"],
     persistence_type: "local",
 };
 
-export default Chip;
+export default ChipSingle;
