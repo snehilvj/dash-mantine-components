@@ -14,7 +14,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
 import dayjs from "dayjs";
-import customParseFormat from 'dayjs/plugin/customParseFormat';
+import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
 
 interface Props
@@ -59,6 +59,7 @@ interface Props
 const DateInput = (props: Props) => {
     const {
         setProps,
+        loading_state,
         n_submit,
         value,
         debounce,
@@ -94,6 +95,9 @@ const DateInput = (props: Props) => {
 
     return (
         <MantineDateInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}

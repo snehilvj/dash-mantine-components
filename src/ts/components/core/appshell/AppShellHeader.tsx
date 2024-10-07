@@ -15,9 +15,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShellHeader */
 const AppShellHeader = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <AppShell.Header {...others}>{children}</AppShell.Header>;
+    return (
+        <AppShell.Header
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </AppShell.Header>
+    );
 };
 
 AppShellHeader.defaultProps = {};

@@ -26,7 +26,8 @@ interface Props
 
 /** PasswordInput */
 const PasswordInput = (props: Props) => {
-    const { setProps, value, n_submit, debounce, ...others } = props;
+    const { setProps, loading_state, value, n_submit, debounce, ...others } =
+        props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -47,6 +48,9 @@ const PasswordInput = (props: Props) => {
 
     return (
         <MantinePasswordInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}

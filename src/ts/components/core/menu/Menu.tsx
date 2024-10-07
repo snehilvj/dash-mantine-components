@@ -44,12 +44,15 @@ const Menu = (props: Props) => {
     return (
         <MantineMenu {...others}>
             {React.Children.map(children, (child: any, index) => {
-                const {type: childType, props: childProps} = child.props._dashprivate_layout;
+                const { type: childType, props: childProps } =
+                    child.props._dashprivate_layout;
                 if (childType === "MenuTarget") {
                     const { boxWrapperProps } = childProps;
                     return (
                         <MantineMenu.Target key={index}>
-                            <Box w="fit-content" {...boxWrapperProps}>{child}</Box>
+                            <Box w="fit-content" {...boxWrapperProps}>
+                                {child}
+                            </Box>
                         </MantineMenu.Target>
                     );
                 }

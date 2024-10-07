@@ -15,9 +15,18 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** ActionIconGroup */
 const ActionIconGroup = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <ActionIcon.Group {...others}>{children}</ActionIcon.Group>;
+    return (
+        <ActionIcon.Group
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </ActionIcon.Group>
+    );
 };
 
 ActionIconGroup.defaultProps = {};

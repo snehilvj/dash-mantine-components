@@ -4,9 +4,9 @@ import {
 } from "@mantine/dates";
 import dayjs from "dayjs";
 import React, { useEffect } from "react";
-import customParseFormat from 'dayjs/plugin/customParseFormat';
+import customParseFormat from "dayjs/plugin/customParseFormat";
 
-const REGISTERED = {}
+const REGISTERED = {};
 
 interface Props extends DatesProviderProps {
     /** Unique ID to identify this component in Dash callbacks. */

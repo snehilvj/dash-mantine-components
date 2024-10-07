@@ -15,9 +15,18 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** TabsList */
 const TabsList = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <Tabs.List {...others}>{children}</Tabs.List>;
+    return (
+        <Tabs.List
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </Tabs.List>
+    );
 };
 
 TabsList.defaultProps = {};

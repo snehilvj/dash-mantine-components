@@ -13,9 +13,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AccordionItem */
 const AccordionItem = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <Accordion.Item {...others}>{children}</Accordion.Item>;
+    return (
+        <Accordion.Item
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </Accordion.Item>
+    );
 };
 
 AccordionItem.defaultProps = {};

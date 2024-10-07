@@ -43,7 +43,8 @@ interface Props
 
 /** LineChart */
 const LineChart = (props: Props) => {
-    const { setProps, clickData, lineChartProps, ...others } = props;
+    const { setProps, loading_state, clickData, lineChartProps, ...others } =
+        props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -53,7 +54,15 @@ const LineChart = (props: Props) => {
 
     const newProps = { ...lineChartProps, onClick };
 
-    return <MantineLineChart lineChartProps={newProps} {...others} />;
+    return (
+        <MantineLineChart
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            lineChartProps={newProps}
+            {...others}
+        />
+    );
 };
 
 LineChart.defaultProps = {};

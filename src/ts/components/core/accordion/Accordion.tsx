@@ -46,6 +46,7 @@ const Accordion = (props: Props) => {
     const {
         children,
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -57,7 +58,13 @@ const Accordion = (props: Props) => {
     };
 
     return (
-        <MantineAccordion onChange={onChange} {...others}>
+        <MantineAccordion
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            onChange={onChange}
+            {...others}
+        >
             {children}
         </MantineAccordion>
     );

@@ -25,9 +25,18 @@ interface Props
 
 /** TabsTab */
 const TabsTab = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <Tabs.Tab {...others}>{children}</Tabs.Tab>;
+    return (
+        <Tabs.Tab
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </Tabs.Tab>
+    );
 };
 
 TabsTab.defaultProps = {};

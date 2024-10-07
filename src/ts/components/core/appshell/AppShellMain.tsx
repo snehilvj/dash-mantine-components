@@ -11,9 +11,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShellMain */
 const AppShellMain = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <AppShell.Main {...others}>{children}</AppShell.Main>;
+    return (
+        <AppShell.Main
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </AppShell.Main>
+    );
 };
 
 AppShellMain.defaultProps = {};

@@ -21,9 +21,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** ProgressSection */
 const ProgressSection = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <Progress.Section {...others} />;
+    return (
+        <Progress.Section
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 ProgressSection.defaultProps = {};

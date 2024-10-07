@@ -11,9 +11,18 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** HoverCardDropdown */
 const HoverCardDropdown = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <HoverCard.Dropdown {...others}>{children}</HoverCard.Dropdown>;
+    return (
+        <HoverCard.Dropdown
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </HoverCard.Dropdown>
+    );
 };
 
 HoverCardDropdown.defaultProps = {};

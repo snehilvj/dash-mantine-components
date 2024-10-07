@@ -53,7 +53,7 @@ interface Props
 
 /** AreaChart */
 const AreaChart = (props: Props) => {
-    const { setProps, clickData, areaChartProps, ...others } = props;
+    const { setProps, loading_state, clickData, areaChartProps, ...others } = props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -63,8 +63,14 @@ const AreaChart = (props: Props) => {
 
     const newProps = { ...areaChartProps, onClick };
 
-    return <MantineAreaChart areaChartProps={newProps} {...others} />;
-};
+    return (
+      <MantineAreaChart
+        data-dash-is-loading={(loading_state && loading_state.is_loading) || undefined}
+        areaChartProps={newProps}
+        {...others}
+      />
+    );
+}
 
 AreaChart.defaultProps = {};
 

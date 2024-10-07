@@ -28,7 +28,7 @@ interface Props
 
 /** Autocomplete */
 const Autocomplete = (props: Props) => {
-    const { setProps, data, value, ...others } = props;
+    const { setProps, loading_state, data, value, ...others } = props;
 
     const [autocomplete, setAutocomplete] = useState(value);
     const [options, setOptions] = useState(data);
@@ -51,6 +51,9 @@ const Autocomplete = (props: Props) => {
 
     return (
         <MantineAutocomplete
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             data={options}
             onChange={setAutocomplete}

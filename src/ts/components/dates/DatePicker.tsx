@@ -33,6 +33,7 @@ interface Props
 const DatePicker = (props: Props) => {
     const {
         setProps,
+        loading_state,
         n_submit,
         value,
         debounce,
@@ -68,6 +69,9 @@ const DatePicker = (props: Props) => {
 
     return (
         <DatePickerInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}

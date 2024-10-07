@@ -18,9 +18,18 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Breadcrumbs */
 const Breadcrumbs = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineBreadcrumbs {...others}>{children}</MantineBreadcrumbs>;
+    return (
+        <MantineBreadcrumbs
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineBreadcrumbs>
+    );
 };
 
 Breadcrumbs.defaultProps = {};

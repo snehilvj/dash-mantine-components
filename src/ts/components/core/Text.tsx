@@ -10,9 +10,18 @@ interface Props extends TextProps, DashBaseProps {
 
 /** Text */
 const Text = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineText {...others}>{children}</MantineText>;
+    return (
+        <MantineText
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineText>
+    );
 };
 
 Text.defaultProps = {};

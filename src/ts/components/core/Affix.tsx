@@ -15,9 +15,18 @@ interface Props
 
 /** Affix */
 const Affix = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineAffix {...others}>{children}</MantineAffix>;
+    return (
+        <MantineAffix
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineAffix>
+    );
 };
 
 Affix.defaultProps = {};

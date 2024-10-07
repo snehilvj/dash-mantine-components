@@ -15,9 +15,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShellNavbar */
 const AppShellNavbar = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <AppShell.Navbar {...others}>{children}</AppShell.Navbar>;
+    return (
+        <AppShell.Navbar
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </AppShell.Navbar>
+    );
 };
 
 AppShellNavbar.defaultProps = {};

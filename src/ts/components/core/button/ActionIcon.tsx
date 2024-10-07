@@ -10,7 +10,8 @@ interface Props extends ActionIconProps, DashBaseProps {
 
 /** ActionIcon */
 const ActionIcon = (props: Props) => {
-    const { children, setProps, disabled, n_clicks, ...others } = props;
+    const { children, setProps, loading_state, disabled, n_clicks, ...others } =
+        props;
 
     const increment = () => {
         if (!disabled) {
@@ -21,7 +22,14 @@ const ActionIcon = (props: Props) => {
     };
 
     return (
-        <MantineActionIcon disabled={disabled} onClick={increment} {...others}>
+        <MantineActionIcon
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            disabled={disabled}
+            onClick={increment}
+            {...others}
+        >
             {children}
         </MantineActionIcon>
     );

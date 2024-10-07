@@ -40,7 +40,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** RadarChart */
 const RadarChart = (props: Props) => {
-    const { setProps, clickData, radarChartProps, ...others } = props;
+    const { setProps, loading_state, clickData, radarChartProps, ...others } =
+        props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -50,7 +51,15 @@ const RadarChart = (props: Props) => {
 
     const newProps = { ...radarChartProps, onClick };
 
-    return <MantineRadarChart radarChartProps={newProps} {...others} />;
+    return (
+        <MantineRadarChart
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            radarChartProps={newProps}
+            {...others}
+        />
+    );
 };
 
 RadarChart.defaultProps = {};

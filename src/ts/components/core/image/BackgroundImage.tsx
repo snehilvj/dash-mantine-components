@@ -18,10 +18,17 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** BackgroundImage  */
 const BackgroundImage = (props: Props) => {
-    const { setProps, children, ...others } = props;
+    const { setProps, loading_state, children, ...others } = props;
 
     return (
-        <MantineBackgroundImage {...others}>{children}</MantineBackgroundImage>
+        <MantineBackgroundImage
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineBackgroundImage>
     );
 };
 
