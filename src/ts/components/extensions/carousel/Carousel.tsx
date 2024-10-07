@@ -4,6 +4,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
@@ -52,13 +53,22 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     containScroll?: "trimSnaps" | "keepSnaps" | "";
     /** Determines whether arrow key should switch slides, `true` by default */
     withKeyboardEvents?: boolean;
+    /** Enables autoplay with optional configuration */
+    autoplay?: boolean | Record<string, any>;
 }
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, setProps, ...others } = props;
+  const { children, setProps, autoplay, ...others } = props;
 
-    return <MantineCarousel {...others}>{children} </MantineCarousel>;
+  const autoplayPlugin =
+    autoplay === true
+      ? Autoplay()
+      : autoplay && typeof autoplay === "object"
+      ? Autoplay(autoplay)  
+      : null;
+
+  return <MantineCarousel {...others} plugins={autoplayPlugin ? [autoplayPlugin] : []}>{children}</MantineCarousel>;
 };
 
 Carousel.defaultProps = {};
