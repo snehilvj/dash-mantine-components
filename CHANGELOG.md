@@ -6,6 +6,12 @@
 
 - Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
 
+### Fixed
+
+- Excluded the `loading_state` prop from being passed to the DOM.   Added `data-dash-is-loading` attribute to
+components during callback execution, allowing custom CSS styling for loading states. #325 by @AnnMarieW
+
+
 # 0.14.5 
 
 ### Fixed
