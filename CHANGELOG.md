@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.14.6 UNRELEASED
+
+### Added
+
+- Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
+
 # 0.14.5 
 
 ### Fixed
