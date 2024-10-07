@@ -64,7 +64,7 @@ const Carousel = (props: Props) => {
   const autoplayPlugin =
     autoplay === true
       ? Autoplay()
-      : typeof autoplay === "object"
+      : autoplay && typeof autoplay === "object"
       ? Autoplay(autoplay)  
       : null;
 
