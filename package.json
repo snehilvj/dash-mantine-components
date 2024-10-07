@@ -52,11 +52,11 @@
         "@mantine/nprogress": "7.13.0",
         "@mantine/spotlight": "7.13.0",
         "dayjs": "^1.11.10",
+	"embla-carousel-autoplay": "^7.1.0",
         "embla-carousel-react": "^7.1.0",
         "is-absolute-url": "^4.0.1",
         "jsonpath": "^1.1.1",
-        "recharts": "^2.12.0",
-	"embla-carousel-autoplay": "^7.1.0"
+        "recharts": "^2.12.0"
     },
     "files": [
         "/dash_mantine_components/*{.js,.map}",
