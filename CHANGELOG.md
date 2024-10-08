@@ -5,6 +5,7 @@
 ### Added
 
 - Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
+- Added Chip and ChipGroup components #327 by @AnnMarieW
 
 ### Fixed
 
