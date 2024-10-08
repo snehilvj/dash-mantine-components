@@ -16,6 +16,7 @@ chip_group = dmc.ChipGroup(
     multiple=True
 )
 
+
 with_callback = dmc.Box([
         dmc.Text("Single Chip can be set at a time"),
         dmc.Text("Set chip with toggle button or clicking on chip"),
@@ -24,9 +25,9 @@ with_callback = dmc.Box([
         dmc.Text(id="chip-group-container"),
     ], p=20)
 
-app.layout = dmc.MantineProvider(
-    with_callback
-)
+app.layout = dmc.MantineProvider([
+    with_callback,
+])
 
 @app.callback(
     Output("chip-group", "value"),

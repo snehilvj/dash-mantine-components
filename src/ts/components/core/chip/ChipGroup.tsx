@@ -21,6 +21,7 @@ const ChipGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        loading_state,
         ...others
     } = props;
     const [val, setVal] = useState(value);
@@ -34,7 +35,14 @@ const ChipGroup = (props: Props) => {
     }, [val]);
 
     return (
-        <Chip.Group value={val} onChange={setVal} {...others}>
+        <Chip.Group
+            value={val}
+            onChange={setVal}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
             {children}
         </Chip.Group>
     );

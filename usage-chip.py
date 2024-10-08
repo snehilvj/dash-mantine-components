@@ -10,23 +10,24 @@ app = Dash(external_stylesheets=dmc.styles.ALL)
 with_callback =  dmc.Box([
         dmc.Text("Set chip with toggle button or clicking on chip", m="sm"),
         dmc.Button("toggle", id="btn-chip", n_clicks=0, mb="sm"),
-        dmc.ChipSingle("awesome chip", checked=True, id="chip"),
+        dmc.Chip("awesome chip", checked=True, id="chip", controlled=True),
         dmc.Text(id="chip-container"),
     ], p=20)
 
-icon = dmc.ChipSingle("Forbidden", icon=DashIconify(icon="bi-x-circle"), color="red", checked=True, m="sm")
+icon = dmc.Chip("Forbidden", icon=DashIconify(icon="bi-x-circle"), color="red", checked=True, m="sm", controlled=True)
 
 
 tooltip = dmc.Tooltip(
     label="chip tooltip",
   #  refProp="rootRef",  Need to update Tootlip to add this prop but still works ok
-    children=dmc.ChipSingle("chip with tooltip")
+    children=dmc.Chip("chip with tooltip", controlled=True)
 )
 
-add_props_to_root = dmc.ChipSingle(
+add_props_to_root = dmc.Chip(
     "Chip with props added to root" ,
     wrapperProps={'data-testid': 'wrapper'},
     checked=True,
+    controlled=True
 )
 
 
