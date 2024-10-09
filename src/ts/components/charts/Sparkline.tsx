@@ -28,9 +28,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Sparkline */
 const Sparkline = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <MantineSparkline {...others} />;
+    return (
+        <MantineSparkline
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 Sparkline.defaultProps = {};

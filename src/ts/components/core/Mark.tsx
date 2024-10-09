@@ -13,9 +13,18 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 
 /** Mark */
 const Mark = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineMark {...others}>{children}</MantineMark>;
+    return (
+        <MantineMark
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineMark>
+    );
 };
 
 Mark.defaultProps = {};

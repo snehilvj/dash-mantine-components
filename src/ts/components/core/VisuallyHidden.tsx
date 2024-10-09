@@ -11,10 +11,17 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** VisuallyHidden */
 const VisuallyHidden = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
     return (
-        <MantineVisuallyHidden {...others}>{children}</MantineVisuallyHidden>
+        <MantineVisuallyHidden
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineVisuallyHidden>
     );
 };
 

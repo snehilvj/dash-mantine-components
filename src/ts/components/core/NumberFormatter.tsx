@@ -25,9 +25,16 @@ interface Props extends DashBaseProps {
 
 /** NumberFormatter */
 const NumberFormatter = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <MantineNumberFormatter {...others} />;
+    return (
+        <MantineNumberFormatter
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 NumberFormatter.defaultProps = {};

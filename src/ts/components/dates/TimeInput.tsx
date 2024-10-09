@@ -26,6 +26,7 @@ interface Props
 const TimeInput = (props: Props) => {
     const {
         setProps,
+        loading_state,
         n_submit,
         value,
         debounce,
@@ -54,6 +55,9 @@ const TimeInput = (props: Props) => {
 
     return (
         <MantineTimeInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={(ev) => setTime(ev.currentTarget.value)}

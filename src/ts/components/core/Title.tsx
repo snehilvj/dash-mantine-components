@@ -19,9 +19,18 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** Title */
 const Title = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineTitle {...others}>{children}</MantineTitle>;
+    return (
+        <MantineTitle
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineTitle>
+    );
 };
 
 Title.defaultProps = {};

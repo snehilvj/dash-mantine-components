@@ -7,9 +7,16 @@ interface Props extends OverlayProps, DashBaseProps {}
 
 /** Overlay */
 const Overlay = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <MantineOverlay {...others} />;
+    return (
+        <MantineOverlay
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 Overlay.defaultProps = {};

@@ -17,6 +17,7 @@ interface Props extends TextareaProps, DashBaseProps, PersistenceProps {
 const Textarea = (props: Props) => {
     const {
         setProps,
+        loading_state,
         value,
         debounce,
         persistence,
@@ -38,6 +39,9 @@ const Textarea = (props: Props) => {
 
     return (
         <MantineTextarea
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             {...others}
             value={val}
             wrapperProps={{ autoComplete: "off" }}

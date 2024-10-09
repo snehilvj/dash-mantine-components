@@ -47,7 +47,8 @@ interface Props
 
 /** MultiSelect */
 const MultiSelect = (props: Props) => {
-    const { setProps, data, searchValue, value, ...others } = props;
+    const { setProps, loading_state, data, searchValue, value, ...others } =
+        props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -56,7 +57,7 @@ const MultiSelect = (props: Props) => {
     useDidUpdate(() => {
         setOptions(data);
         const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected);
+        setSelected(filteredSelected ?? []);
     }, [data]);
 
     useDidUpdate(() => {
@@ -68,7 +69,7 @@ const MultiSelect = (props: Props) => {
     }, [selected]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        setSelected(value ?? []);
     }, [value]);
 
     useDidUpdate(() => {
@@ -77,6 +78,9 @@ const MultiSelect = (props: Props) => {
 
     return (
         <MantineMultiSelect
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             data={options}
             onChange={setSelected}
@@ -92,6 +96,7 @@ MultiSelect.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
     data: [],
+    value: [],
 };
 
 export default MultiSelect;

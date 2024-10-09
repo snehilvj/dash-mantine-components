@@ -33,7 +33,7 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
 
 /** Drawer */
 const Drawer = (props: Props) => {
-    const { setProps, opened, children, ...others } = props;
+    const { setProps, loading_state, opened, children, ...others } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -46,7 +46,14 @@ const Drawer = (props: Props) => {
     };
 
     return (
-        <MantineDrawer opened={open} onClose={onClose} {...others}>
+        <MantineDrawer
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            opened={open}
+            onClose={onClose}
+            {...others}
+        >
             {children}
         </MantineDrawer>
     );

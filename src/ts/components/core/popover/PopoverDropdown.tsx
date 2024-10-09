@@ -11,9 +11,18 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** PopoverDropdown */
 const PopoverDropdown = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <Popover.Dropdown {...others}>{children}</Popover.Dropdown>;
+    return (
+        <Popover.Dropdown
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </Popover.Dropdown>
+    );
 };
 
 PopoverDropdown.defaultProps = {};

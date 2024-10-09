@@ -46,9 +46,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Table */
 const Table = (props: Props) => {
-    const { setProps, children, ...others } = props;
+    const { setProps, loading_state, children, ...others } = props;
 
-    return <MantineTable {...others}>{children}</MantineTable>;
+    return (
+        <MantineTable
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineTable>
+    );
 };
 
 Table.defaultProps = {};

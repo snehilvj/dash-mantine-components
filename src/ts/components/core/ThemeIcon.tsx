@@ -27,9 +27,15 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** ThemeIcon */
 const ThemeIcon = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineThemeIcon {...others}>{children}</MantineThemeIcon>;
+    return (
+        <MantineThemeIcon
+            {...others}
+        >
+            {children}
+        </MantineThemeIcon>
+    );
 };
 
 ThemeIcon.defaultProps = {};

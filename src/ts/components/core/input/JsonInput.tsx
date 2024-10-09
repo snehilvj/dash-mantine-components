@@ -19,7 +19,8 @@ interface Props extends TextareaProps, DashBaseProps, PersistenceProps {
 
 /** JsonInput */
 const JsonInput = (props: Props) => {
-    const { setProps, value, n_submit, debounce, ...others } = props;
+    const { setProps, loading_state, value, n_submit, debounce, ...others } =
+        props;
 
     const [val, setVal] = useState(value);
     const [debounced] = useDebouncedValue(val, debounce);
@@ -40,6 +41,9 @@ const JsonInput = (props: Props) => {
 
     return (
         <MantineJsonInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             onChange={setVal}
             value={val}

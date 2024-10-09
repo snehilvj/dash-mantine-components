@@ -17,9 +17,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Stack */
 const Stack = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineStack {...others}>{children}</MantineStack>;
+    return (
+        <MantineStack
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineStack>
+    );
 };
 
 Stack.defaultProps = {};

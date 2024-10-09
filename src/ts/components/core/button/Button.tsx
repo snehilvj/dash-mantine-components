@@ -44,7 +44,8 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 
 /** Button */
 const Button = (props: Props) => {
-    const { children, setProps, disabled, n_clicks, ...others } = props;
+    const { children, setProps, loading_state, disabled, n_clicks, ...others } =
+        props;
 
     const increment = () => {
         if (!disabled) {
@@ -55,7 +56,14 @@ const Button = (props: Props) => {
     };
 
     return (
-        <MantineButton onClick={increment} disabled={disabled} {...others}>
+        <MantineButton
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            onClick={increment}
+            disabled={disabled}
+            {...others}
+        >
             {children}
         </MantineButton>
     );

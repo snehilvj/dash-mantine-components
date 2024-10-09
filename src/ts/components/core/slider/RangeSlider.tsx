@@ -71,6 +71,7 @@ interface Props
 const RangeSlider = (props: Props) => {
     const {
         setProps,
+        loading_state,
         updatemode,
         value,
         persistence,
@@ -93,6 +94,9 @@ const RangeSlider = (props: Props) => {
 
     return (
         <MantineRangeSlider
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             {...others}
             value={val}
             onChange={setVal}

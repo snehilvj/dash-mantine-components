@@ -24,6 +24,7 @@ const RadioGroup = (props: Props) => {
         children,
         value,
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -35,7 +36,14 @@ const RadioGroup = (props: Props) => {
     };
 
     return (
-        <Radio.Group onChange={onChange} value={value} {...others}>
+        <Radio.Group
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            onChange={onChange}
+            value={value}
+            {...others}
+        >
             {children}
         </Radio.Group>
     );
