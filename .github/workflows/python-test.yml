@@ -41,8 +41,7 @@ jobs:
           uv pip install wheel
           uv pip install ".[dev]"
           echo "Using React version ${{ matrix.react-version }}"
-          npm ci
-          npm install react@${{ matrix.react-version }} react-dom@${{ matrix.react-version }}
+          npm ci         
           npm i
           npm run build
         timeout-minutes: 20
