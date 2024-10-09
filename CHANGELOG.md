@@ -4,7 +4,8 @@
 
 ### Added
 
-- Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
+- Added `autoplay` prop to the `Carousel` component #316 by @mmarfat
+- Added GitHub actions workflow for automated tests on PRs by @BSd3v
 
 ### Fixed
 

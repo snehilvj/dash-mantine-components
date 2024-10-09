@@ -1,0 +1,54 @@
+name: Run tests
+
+on:
+  push:
+    branches: [master]
+    tags:
+      - v*
+  pull_request:
+    branches: [master]
+
+jobs:
+  test-react:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        react-version: ["18.2.0"]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.12
+      - name: 'Setup Chrome and chromedriver'
+        uses: nanasess/setup-chromedriver@v2
+
+      - name: 'Setup chromedriver environment'
+        run: |
+            export DISPLAY=:99
+            chromedriver --url-base=/wd/hub &
+      - name: Start XVFB
+        run: Xvfb :99 &
+
+      - name: Setup uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv venv
+
+      - name: Install package
+        run: |
+          source .venv/bin/activate
+          uv pip install --upgrade pip
+          uv pip install wheel
+          uv pip install ".[dev]"
+          echo "Using React version ${{ matrix.react-version }}"
+          npm ci
+          npm install react@${{ matrix.react-version }} react-dom@${{ matrix.react-version }}
+          npm i
+          npm run build
+        timeout-minutes: 20
+      - run: npm run lint
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          pytest --headless
+
