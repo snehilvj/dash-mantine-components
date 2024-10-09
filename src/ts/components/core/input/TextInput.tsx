@@ -24,6 +24,7 @@ interface Props
 const TextInput = (props: Props) => {
     const {
         setProps,
+        loading_state,
         value,
         debounce,
         persistence,
@@ -45,6 +46,9 @@ const TextInput = (props: Props) => {
 
     return (
         <MantineTextInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             {...others}
             value={val}
             wrapperProps={{ autoComplete: "off" }}

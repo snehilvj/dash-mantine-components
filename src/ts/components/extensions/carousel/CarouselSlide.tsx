@@ -11,9 +11,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CarouselSlide */
 const CarouselSlide = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <Carousel.Slide {...others}>{children} </Carousel.Slide>;
+    return (
+        <Carousel.Slide
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}{" "}
+        </Carousel.Slide>
+    );
 };
 
 CarouselSlide.defaultProps = {};

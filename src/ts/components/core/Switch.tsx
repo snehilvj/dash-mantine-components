@@ -46,6 +46,7 @@ interface Props
 const Switch = (props: Props) => {
     const {
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,

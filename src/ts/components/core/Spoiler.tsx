@@ -24,7 +24,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Spoiler */
 const Spoiler = (props: Props) => {
-    const { setProps, expanded, children, ...others } = props;
+    const { setProps, loading_state, expanded, children, ...others } = props;
 
     const [opened, setOpened] = useState(expanded);
 
@@ -38,6 +38,9 @@ const Spoiler = (props: Props) => {
 
     return (
         <MantineSpoiler
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             expanded={opened}
             onExpandedChange={setOpened}
             {...others}

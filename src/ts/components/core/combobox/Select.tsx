@@ -8,7 +8,7 @@ import { __BaseInputProps } from "props/input";
 import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
-import { isInOption } from "../../../utils/combobox";
+import { filterSelected } from "../../../utils/combobox";
 
 interface Props
     extends BoxProps,
@@ -43,7 +43,8 @@ interface Props
 
 /** Select */
 const Select = (props: Props) => {
-    const { setProps, data, searchValue, value, ...others } = props;
+    const { setProps, loading_state, data, searchValue, value, ...others } =
+        props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -51,9 +52,8 @@ const Select = (props: Props) => {
 
     useDidUpdate(() => {
         setOptions(data);
-        if (!isInOption(data, selected)) {
-            setSelected(null);
-        }
+        const filteredSelected = filterSelected(data, selected);
+        setSelected(filteredSelected);
     }, [data]);
 
     useDidUpdate(() => {
@@ -74,6 +74,9 @@ const Select = (props: Props) => {
 
     return (
         <MantineSelect
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             data={options}
             onChange={setSelected}

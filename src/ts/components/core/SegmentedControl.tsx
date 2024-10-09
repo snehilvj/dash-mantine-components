@@ -51,6 +51,7 @@ const SegmentedControl = (props: Props) => {
     const {
         data,
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -76,6 +77,9 @@ const SegmentedControl = (props: Props) => {
 
     return (
         <MantineSegmentedControl
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             data={renderedData}
             onChange={onChange}
             {...others}

@@ -15,9 +15,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** AppShellFooter */
 const AppShellFooter = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <AppShell.Footer {...others}>{children}</AppShell.Footer>;
+    return (
+        <AppShell.Footer
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </AppShell.Footer>
+    );
 };
 
 AppShellFooter.defaultProps = {};

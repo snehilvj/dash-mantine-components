@@ -25,9 +25,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Flex */
 const Flex = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineFlex {...others}>{children}</MantineFlex>;
+    return (
+        <MantineFlex
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineFlex>
+    );
 };
 
 Flex.defaultProps = {};

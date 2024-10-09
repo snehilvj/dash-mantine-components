@@ -42,6 +42,7 @@ interface Props
 const Radio = (props: Props) => {
     const {
         setProps,
+        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -50,6 +51,9 @@ const Radio = (props: Props) => {
 
     return (
         <MantineRadio
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
             {...others}
         />

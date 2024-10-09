@@ -20,9 +20,16 @@ export interface Props
 
 /** Progress */
 const Progress = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <MantineProgress {...others} />;
+    return (
+        <MantineProgress
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 Progress.defaultProps = {};

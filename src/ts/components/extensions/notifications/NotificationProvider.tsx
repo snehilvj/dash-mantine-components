@@ -31,9 +31,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** NotificationProvider */
 const NotificationProvider = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <Notifications {...others} />;
+    return (
+        <Notifications
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 NotificationProvider.defaultProps = {};

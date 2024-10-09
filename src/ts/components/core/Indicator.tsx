@@ -40,9 +40,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Indicator */
 const Indicator = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineIndicator {...others}>{children} </MantineIndicator>;
+    return (
+        <MantineIndicator
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}{" "}
+        </MantineIndicator>
+    );
 };
 
 Indicator.defaultProps = {};

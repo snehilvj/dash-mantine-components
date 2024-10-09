@@ -37,12 +37,12 @@ interface Props
     /** Determines whether a label with bar value should be displayed on top of each bar,
      incompatible with type="stacked" and type="percent", false by default */
     withBarValueLabel?: boolean;
-
 }
 
 /** BarChart */
 const BarChart = (props: Props) => {
-    const { setProps, clickData, barChartProps, ...others } = props;
+    const { setProps, loading_state, clickData, barChartProps, ...others } =
+        props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -52,11 +52,19 @@ const BarChart = (props: Props) => {
 
     const newProps = { ...barChartProps, onClick };
 
-    return <MantineBarChart barChartProps={newProps}  {...others} />;
+    return (
+        <MantineBarChart
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            barChartProps={newProps}
+            {...others}
+        />
+    );
 };
 
 BarChart.defaultProps = {
-    withBarValueLabel: false
+    withBarValueLabel: false,
 };
 
 export default BarChart;

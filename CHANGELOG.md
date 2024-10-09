@@ -1,13 +1,43 @@
 # Change Log
 
-# 0.14.5 UNRELEASED
+# 0.14.6 UNRELEASED
 
 ### Added
 
-- New components
+- Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
+
+### Fixed
+
+- Excluded the `loading_state` prop from being passed to the DOM.   Added `data-dash-is-loading` attribute to
+components during callback execution, allowing custom CSS styling for loading states. #325 by @AnnMarieW
+
+
+# 0.14.5 
+
+### Fixed
+
+- for Date components:
+  - enable date parsing based on the valueFormat
+  - locale now works with persistence and on first render
+  - This PR #314 is based on #265 - Thanks for your contribution @albavilanova  
+ 
+- Fixed `boxWrapperProps` in the `MenuTarget` component #309 by  @datenzauberai 
+- Ensure that Mantine and stylesheet versions match to the exact version rather than the major version. #317 by @AnnMarieW
+- Changed `in` prop name to `opened` in dmc.Collapse #311 by @AnnMarieW
+- When updating the `data` in a `Select` or `MultiSelect` component in a callback, the value now correctly reflects only valid options. #301 #324 by @AnnMarieW.
+
+### Added
+
+- Added `disabled` prop to `Fieldset` component #306 by @AnnMarieW
+- New components  #266 by @stpnvkirill
   - MonthPickerInput
   - YearPickerInput
-- `barProps` and `withValueLabels` for the BarCharts #300
+- Added `barProps` and `withValueLabels` for the BarCharts #300 by @AnnMarieW
+
+
+### Changed
+
+-   Upgrade to latest Mantine (7.13.0)
 
 # 0.14.4
 

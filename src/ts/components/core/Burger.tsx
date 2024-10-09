@@ -29,6 +29,7 @@ interface Props
 const Burger = (props: Props) => {
     const {
         setProps,
+        loading_state,
         opened,
         persistence,
         persisted_props,
@@ -42,7 +43,16 @@ const Burger = (props: Props) => {
         });
     };
 
-    return <MantineBurger onClick={onClick} opened={opened} {...others} />;
+    return (
+        <MantineBurger
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            onClick={onClick}
+            opened={opened}
+            {...others}
+        />
+    );
 };
 
 Burger.defaultProps = {

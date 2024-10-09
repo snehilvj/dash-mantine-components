@@ -46,7 +46,8 @@ interface Props
 
 /** TagsInput */
 const TagsInput = (props: Props) => {
-    const { setProps, data, searchValue, value, ...others } = props;
+    const { setProps, loading_state, data, searchValue, value, ...others } =
+        props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -55,7 +56,7 @@ const TagsInput = (props: Props) => {
     useDidUpdate(() => {
         setOptions(data);
         const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected);
+        setSelected(filteredSelected ?? []);
     }, [data]);
 
     useDidUpdate(() => {
@@ -67,7 +68,7 @@ const TagsInput = (props: Props) => {
     }, [selected]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        setSelected(value ?? []);
     }, [value]);
 
     useDidUpdate(() => {
@@ -76,6 +77,9 @@ const TagsInput = (props: Props) => {
 
     return (
         <MantineTagsInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             data={options}
             onChange={setSelected}
@@ -91,6 +95,7 @@ TagsInput.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
     data: [],
+    value: [],
 };
 
 export default TagsInput;

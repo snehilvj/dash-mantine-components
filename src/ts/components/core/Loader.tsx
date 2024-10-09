@@ -7,9 +7,16 @@ interface Props extends LoaderProps, DashBaseProps {}
 
 /** Loader */
 const Loader = (props: Props) => {
-    const { setProps, ...others } = props;
+    const { setProps, loading_state, ...others } = props;
 
-    return <MantineLoader {...others} />;
+    return (
+        <MantineLoader
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        />
+    );
 };
 
 Loader.defaultProps = {};

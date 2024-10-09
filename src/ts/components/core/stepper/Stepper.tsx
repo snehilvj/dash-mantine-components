@@ -48,7 +48,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** Stepper */
 const Stepper = (props: Props) => {
-    const { setProps, active, children, ...others } = props;
+    const { setProps, loading_state, active, children, ...others } = props;
 
     const [act, setAct] = useState(active);
 
@@ -57,7 +57,13 @@ const Stepper = (props: Props) => {
     }, [active]);
 
     return (
-        <MantineStepper active={act} {...others}>
+        <MantineStepper
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            active={act}
+            {...others}
+        >
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
                 if (childType === "StepperCompleted") {

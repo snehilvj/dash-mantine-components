@@ -1,4 +1,4 @@
-import { MonthPickerInput as MantineMonthPickerInput} from "@mantine/dates";
+import { MonthPickerInput as MantineMonthPickerInput } from "@mantine/dates";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
@@ -33,6 +33,7 @@ interface Props
 const MonthPickerInput = (props: Props) => {
     const {
         setProps,
+        loading_state,
         n_submit,
         value,
         type,
@@ -69,6 +70,9 @@ const MonthPickerInput = (props: Props) => {
 
     return (
         <MantineMonthPickerInput
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}

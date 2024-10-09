@@ -24,9 +24,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Card */
 const Card = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineCard {...others}>{children}</MantineCard>;
+    return (
+        <MantineCard
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineCard>
+    );
 };
 
 Card.defaultProps = {};

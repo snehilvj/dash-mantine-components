@@ -11,9 +11,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Center */
 const Center = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <MantineCenter {...others}>{children}</MantineCenter>;
+    return (
+        <MantineCenter
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineCenter>
+    );
 };
 
 Center.defaultProps = {};

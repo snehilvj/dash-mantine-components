@@ -11,9 +11,18 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** MenuLabel */
 const MenuLabel = (props: Props) => {
-    const { children, setProps, ...others } = props;
+    const { children, setProps, loading_state, ...others } = props;
 
-    return <Menu.Label {...others}>{children}</Menu.Label>;
+    return (
+        <Menu.Label
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </Menu.Label>
+    );
 };
 
 MenuLabel.defaultProps = {};

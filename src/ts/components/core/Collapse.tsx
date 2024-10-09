@@ -5,7 +5,7 @@ import React from "react";
 
 interface Props extends BoxProps, DashBaseProps {
     /** Opened state */
-    in: boolean;
+    opened?: boolean;
     /** Transition duration in ms, `200` by default */
     transitionDuration?: number;
     /** Transition timing function, default value is `ease` */
@@ -18,11 +18,18 @@ interface Props extends BoxProps, DashBaseProps {
 
 /** Collapse */
 const Collapse = (props: Props) => {
-    const { setProps, ...others } = props;
-
-    return <MantineCollapse {...others} />;
+    const { setProps, loading_state, opened, ...others } = props;
+    return (
+        <MantineCollapse
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            in={opened}
+            {...others}
+        />
+    );
 };
 
-Collapse.defaultProps = {};
+Collapse.defaultProps = { opened: false };
 
 export default Collapse;
