@@ -1,0 +1,5 @@
+dash[ci,dev,testing]>=2.0
+pyyaml>=5.0
+pytest<8.1.0
+wheel
+selenium<4.3.0
