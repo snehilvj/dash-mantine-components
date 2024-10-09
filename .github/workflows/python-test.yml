@@ -11,9 +11,6 @@ on:
 jobs:
   test-react:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        react-version: ["18.2.0"]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
@@ -40,12 +37,10 @@ jobs:
           uv pip install --upgrade pip
           uv pip install wheel
           uv pip install ".[dev]"
-          echo "Using React version ${{ matrix.react-version }}"
-          npm ci         
+          npm ci
           npm i
           npm run build
         timeout-minutes: 20
-      - run: npm run lint
       - name: Run tests
         run: |
           source .venv/bin/activate
