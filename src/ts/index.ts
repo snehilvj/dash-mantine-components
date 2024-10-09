@@ -147,7 +147,6 @@ import NavigationProgress from "./components/extensions/nprogress/NavigationProg
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 import MantineProvider from "./components/styles/MantineProvider";
 import ChipGroup from "./components/core/chip/ChipGroup";
-import ChipSingle from "./components/core/chip/ChipSingle";
 
 export {
     Accordion,
@@ -189,7 +188,6 @@ export {
     CheckboxGroup,
     Chip,
     ChipGroup,
-    ChipSingle,
     Code,
     CodeHighlight,
     CodeHighlightTabs,
