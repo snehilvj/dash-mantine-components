@@ -3,3 +3,5 @@ pyyaml>=5.0
 pytest<8.1.0
 wheel
 selenium<4.3.0
+black
+build

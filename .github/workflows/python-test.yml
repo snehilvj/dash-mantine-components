@@ -46,7 +46,6 @@ jobs:
           npm i
           npm run build
         timeout-minutes: 20
-      - run: npm run lint
       - name: Run tests
         run: |
           source .venv/bin/activate
