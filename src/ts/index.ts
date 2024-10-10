@@ -146,7 +146,7 @@ import NotificationProvider from "./components/extensions/notifications/Notifica
 import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 import MantineProvider from "./components/styles/MantineProvider";
-// import ChipGroup from "./components/core/chip/ChipGroup";
+import ChipGroup from "./components/core/chip/ChipGroup";
 
 export {
     Accordion,
@@ -187,6 +187,7 @@ export {
     Checkbox,
     CheckboxGroup,
     Chip,
+    ChipGroup,
     Code,
     CodeHighlight,
     CodeHighlightTabs,

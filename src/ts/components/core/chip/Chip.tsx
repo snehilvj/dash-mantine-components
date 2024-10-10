@@ -38,9 +38,14 @@ interface Props
     disabled?: boolean;
     /** To be used with chip group */
     value?: string;
+    /** Set to True when using as a single chip (not in a chip group).  Default is False */
+    controlled?: boolean;
 }
 
-/** Chip */
+/**
+Chip for use with the ChipGroup.
+Must not set the `checked` prop because it conflicts with setting the value on the ChipGroup
+ **/
 const Chip = (props: Props) => {
     const {
         children,
@@ -48,23 +53,46 @@ const Chip = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        checked,
+        controlled,
+        loading_state,
         ...others
     } = props;
 
     const onChange = (checked: boolean) => {
         setProps({ checked });
     };
-
-    return (
-        <MantineChip onChange={onChange} {...others}>
-            {children}
-        </MantineChip>
-    );
+    if (controlled) {
+        return (
+            <MantineChip
+                checked={checked}
+                onChange={onChange}
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                }
+                {...others}
+            >
+                {children}
+            </MantineChip>
+        );
+    } else {
+        return (
+            <MantineChip
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                }
+                {...others}
+            >
+                {children}
+            </MantineChip>
+        );
+    }
 };
 
 Chip.defaultProps = {
     persisted_props: ["checked"],
     persistence_type: "local",
+    controlled: false,
 };
 
 export default Chip;

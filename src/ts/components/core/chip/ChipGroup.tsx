@@ -1,10 +1,13 @@
 import { Chip } from "@mantine/core";
+import { useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import React, { useState } from "react";
 
 interface Props extends DashBaseProps, PersistenceProps {
-    /** Controlled component value */
-    value?: string[];
+    /** Determines whether it is allowed to select multiple values, `false` by default */
+    multiple?: boolean;
+    /** When using multiple=true, value must be a list */
+    value?: string[] | string | null;
     /** `Chip` components and any other elements */
     children?: React.ReactNode;
 }
@@ -18,22 +21,28 @@ const ChipGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        loading_state,
         ...others
     } = props;
-
     const [val, setVal] = useState(value);
 
-    // const onChange = (value: string[]) => {
-    //     setVal(value);
-    //     setProps({ value });
-    // };
+    useDidUpdate(() => {
+        setVal(value);
+    }, [value]);
 
-    // useEffect(() => {
-    //     setVal(value);
-    // }, [value]);
+    useDidUpdate(() => {
+        setProps({ value: val });
+    }, [val]);
 
     return (
-        <Chip.Group multiple value={val} onChange={setVal} {...others}>
+        <Chip.Group
+            value={val}
+            onChange={setVal}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
             {children}
         </Chip.Group>
     );
@@ -42,7 +51,6 @@ const ChipGroup = (props: Props) => {
 ChipGroup.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
-    value: [],
 };
 
 export default ChipGroup;
