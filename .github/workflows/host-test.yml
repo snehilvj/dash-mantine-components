@@ -71,7 +71,7 @@ jobs:
           echo "artifact_id=$artifact_id" >> $GITHUB_ENV
 
       - name: Get download URL
-        run: echo "artifact_url=https://github.com/${{ github.repository }}/suites/${{ github.run_id }}/artifacts/${{ env.artifact_id }}" >> $GITHUB_ENV
+        run: echo "artifact_url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }}" >> $GITHUB_ENV
 
       - name: Post Link
         env:
