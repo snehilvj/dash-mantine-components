@@ -1,17 +1,25 @@
-name: Run tests
+name: Host Test App
 
 on:
   workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'Pull Request Number'
+        required: true
+        type: string
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request != null
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: refs/pull/${{ github.event.inputs.pr_number }}/merge
+
       - uses: actions/setup-python@v3
         with:
           python-version: 3.12
+
       - name: 'Setup Chrome and chromedriver'
         uses: nanasess/setup-chromedriver@v2
 
@@ -54,7 +62,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ github.event.inputs.pr_number }}
           ARTIFACT_URL: ${{env.artifact_url}}
         run: python tmp_deploy.py
-
