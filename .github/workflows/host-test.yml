@@ -1,16 +1,12 @@
 name: Run tests
 
 on:
-  push:
-    branches: [master]
-    tags:
-      - v*
-  pull_request:
-    branches: [master]
+  workflow_dispatch:
 
 jobs:
-  test-react:
+  deploy:
     runs-on: ubuntu-latest
+    if: github.event.pull_request != null
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
@@ -31,19 +27,34 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
           uv venv
 
-      - name: Install package
+      - name: Install package and Build
         run: |
           source .venv/bin/activate
           uv pip install --upgrade pip
           uv pip install wheel
           uv pip install ".[dev]"
+          uv pip install PyGithub
           npm ci
           npm i
           npm run build
+          npm run dist
         timeout-minutes: 20
-      - name: Run tests
-        run: |
-          source .venv/bin/activate
-          uv pip install -e .
-          pytest --headless
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-artifact
+          path: dist/*.tar.gz
+
+      - name: Get download URL
+        id: artifact
+        run: echo "artifact_url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" >> $GITHUB_ENV
+
+      - name: Post Link
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          ARTIFACT_URL: ${{env.artifact_url}}
+        run: python tmp_deploy.py
 
