@@ -42,7 +42,7 @@ for f in os.listdir(dist_path):
             latest_time = modified_time
             latest_tar_gz = file_path
 
-reqs['content'] += f'\n{os.environ.get("ARTIFACT_URL")}'
+reqs['content'] += f'\n{os.getenv("ARTIFACT_URL")}'
 files.append(reqs)
 
 def generate_link(files, code):
