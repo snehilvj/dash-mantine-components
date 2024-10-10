@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist-artifact
-          path: dist/dash_mantine_components-${{ env.version }}.tar.gz  # Use the extracted version
+          path: dist/dash_mantine_components-${{ env.version }}-py3-none-any.whl  # Use the extracted version
 
       - name: Get Artifact ID
         id: get_artifact_id
@@ -81,7 +81,7 @@ jobs:
           ARTIFACT_URL: ${{ env.artifact_url }}
           ARTIFACT_ID: ${{ env.artifact_id }}
           GITHUB_OWNER: snehilvj
-          FILE_FULLNAME: dash_mantine_components-${{ env.version }}.tar.gz
+          FILE_FULLNAME: dash_mantine_components-${{ env.version }}-py3-none-any.whl
           PACKAGE_NAME: dash_mantine_components
         run: |
           source .venv/bin/activate
