@@ -42,11 +42,11 @@ for f in os.listdir(dist_path):
             latest_time = modified_time
             latest_tar_gz = file_path
 
-reqs['content'] += f'\n{os.environ.get("ARTIFACT_URL")}'
-files.append(reqs)
+reqs['content'] += f'\n{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_OWNER")}/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
 
 def generate_link(files, code):
     json_object = {
+        "requirements": reqs['content'],
         "code": code,
         "files": files,
     }
