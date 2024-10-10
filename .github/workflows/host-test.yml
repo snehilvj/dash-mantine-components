@@ -82,6 +82,7 @@ jobs:
           ARTIFACT_ID: ${{ env.artifact_id }}
           GITHUB_OWNER: snehilvj
           FILE_FULLNAME: dash_mantine_components-${{ env.version }}.tar.gz
+          PACKAGE_NAME: dash_mantine_components
         run: |
           source .venv/bin/activate
           python tmp_deploy.py
