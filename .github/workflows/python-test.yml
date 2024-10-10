@@ -44,5 +44,6 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
+          uv pip install -e .
           pytest --headless
 
