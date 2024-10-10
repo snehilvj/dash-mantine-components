@@ -79,7 +79,7 @@ def post_comment(link):
     pull_request = repo.get_pull(PR_NUMBER)
 
     # Add a comment to the pull request
-    comment_body = f"Generated link: {link}"
+    comment_body = f"Generated link: [{REPO_NAME}-{PR_NUMBER}]({link})"
     pull_request.create_issue_comment(comment_body)
 
     print("Comment added to the pull request.")
