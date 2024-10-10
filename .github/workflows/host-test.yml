@@ -56,5 +56,5 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           ARTIFACT_URL: ${{env.artifact_url}}
-        run: python deploy_branch.py
+        run: python tmp_deploy.py
 
