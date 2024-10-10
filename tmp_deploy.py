@@ -29,20 +29,11 @@ for f in os.listdir('PRs'):
                 'content': file.read()
             }
 
-# Find the last modified tar.gz file in the 'dist' directory
-dist_path = 'dist'
-latest_tar_gz = None
-latest_time = 0
-
-for f in os.listdir(dist_path):
-    if f.endswith('.tar.gz'):
-        file_path = os.path.join(dist_path, f)
-        modified_time = os.path.getmtime(file_path)
-        if modified_time > latest_time:
-            latest_time = modified_time
-            latest_tar_gz = file_path
-
-reqs['content'] += f'\n{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_OWNER")}/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
+new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_OWNER")}/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
+if os.getenv("PACKAGE_NAME") in reqs['content']:
+    reqs['content'] = reqs['content'].replace(os.getenv("PACKAGE_NAME"), new_package)
+else:
+    reqs['content'] += f'\n{new_package}'
 
 def generate_link(files, code):
     json_object = {
