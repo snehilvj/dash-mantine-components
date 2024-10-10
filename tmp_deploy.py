@@ -29,7 +29,7 @@ for f in os.listdir('PRs'):
                 'content': file.read()
             }
 
-new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_OWNER")}/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
+new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
 if os.getenv("PACKAGE_NAME") in reqs['content']:
     reqs['content'] = reqs['content'].replace(os.getenv("PACKAGE_NAME"), new_package)
 else:
