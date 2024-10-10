@@ -64,4 +64,6 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.inputs.pr_number }}
           ARTIFACT_URL: ${{env.artifact_url}}
-        run: python tmp_deploy.py
+        run: |
+          source .venv/bin/activate
+          python tmp_deploy.py
