@@ -48,22 +48,37 @@ jobs:
           npm run dist
         timeout-minutes: 20
 
+      - name: Extract Version
+        id: extract_version
+        run: |
+          version=$(jq -r '.version' package.json)
+          echo "version=$version" >> $GITHUB_ENV
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: dist-artifact
-          path: dist/*.tar.gz
+          path: dist/dash_mantine_components-${{ env.version }}.tar.gz  # Use the extracted version
+
+      - name: Get Artifact ID
+        id: get_artifact_id
+        run: |
+          artifact_id=$(curl -s \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts \
+            | jq -r '.artifacts[0].id')
+          echo "artifact_id=$artifact_id" >> $GITHUB_ENV
 
       - name: Get download URL
-        id: artifact
-        run: echo "artifact_url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" >> $GITHUB_ENV
+        run: echo "artifact_url=https://github.com/${{ github.repository }}/suites/${{ github.run_id }}/artifacts/${{ env.artifact_id }}" >> $GITHUB_ENV
 
       - name: Post Link
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.inputs.pr_number }}
-          ARTIFACT_URL: ${{env.artifact_url}}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          ARTIFACT_URL: ${{ env.artifact_url }}
         run: |
           source .venv/bin/activate
           python tmp_deploy.py
