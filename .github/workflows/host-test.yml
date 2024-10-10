@@ -1,0 +1,60 @@
+name: Run tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request != null
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.12
+      - name: 'Setup Chrome and chromedriver'
+        uses: nanasess/setup-chromedriver@v2
+
+      - name: 'Setup chromedriver environment'
+        run: |
+            export DISPLAY=:99
+            chromedriver --url-base=/wd/hub &
+      - name: Start XVFB
+        run: Xvfb :99 &
+
+      - name: Setup uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv venv
+
+      - name: Install package and Build
+        run: |
+          source .venv/bin/activate
+          uv pip install --upgrade pip
+          uv pip install wheel
+          uv pip install ".[dev]"
+          uv pip install PyGithub
+          npm ci
+          npm i
+          npm run build
+          npm run dist
+        timeout-minutes: 20
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-artifact
+          path: dist/*.tar.gz
+
+      - name: Get download URL
+        id: artifact
+        run: echo "artifact_url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" >> $GITHUB_ENV
+
+      - name: Post Link
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          ARTIFACT_URL: ${{env.artifact_url}}
+        run: python deploy_test.py
+
