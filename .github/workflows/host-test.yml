@@ -79,6 +79,10 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.inputs.pr_number }}
           ARTIFACT_URL: ${{ env.artifact_url }}
+          ARTIFACT_ID: ${{ env.artifact_id }}
+          GITHUB_OWNER: snehilvj
+          FILE_FULLNAME: dash_mantine_components-${{ env.version }}.tar.gz
+          PACKAGE_NAME: dash_mantine_components
         run: |
           source .venv/bin/activate
           python tmp_deploy.py
