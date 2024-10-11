@@ -9,26 +9,27 @@ from datetime import datetime
 files = []
 code = ''
 reqs = {}
-for f in os.listdir('PRs'):
-    file_path = os.path.join('PRs', f)
-    if f not in ['app.py','requirements.txt']:
-        with open(file_path, 'rb') as file:
+for root, dirs, filenames in os.walk('PRs'):
+    for f in filenames:
+        file_path = os.path.join(root, f)
+        if f not in ['app.py', 'requirements.txt']:
+            with open(file_path, 'rb') as file:
                 files.append(
                     {
-                        "name": f,
+                        "name": os.path.relpath(file_path, 'PRs'),
                         "content": base64.b64encode(file.read()).decode("utf8"),
                         "encoding": "base64"
                     }
                 )
-    elif f == 'app.py':
-        with open(file_path, 'r') as file:
-            code = file.read()
-    else:
-        with open(file_path, 'r') as file:
-            reqs = {
-                'name': f,
-                'content': file.read()
-            }
+        elif f == 'app.py':
+            with open(file_path, 'r') as file:
+                code = file.read()
+        elif f == 'requirements.txt':
+            with open(file_path, 'r') as file:
+                reqs = {
+                    'name': os.path.relpath(file_path, 'PRs'),
+                    'content': file.read()
+                }
 
 new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
 if os.getenv("PACKAGE_NAME") in reqs['content']:
