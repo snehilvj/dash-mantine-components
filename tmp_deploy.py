@@ -13,7 +13,7 @@ PR_NUMBER = int(os.getenv('PR_NUMBER'))
 files = []
 code = ''
 reqs = {}
-for root, dirs, filenames in os.walk(f'PRs/{PR_NUMBER}'):
+for root, dirs, filenames in os.walk(f'PRs'):
     for f in filenames:
         file_path = os.path.join(root, f)
         if f not in ['app.py', 'requirements.txt']:
