@@ -42,10 +42,7 @@ interface Props
     controlled?: boolean;
 }
 
-/**
-Chip for use with the ChipGroup.
-Must not set the `checked` prop because it conflicts with setting the value on the ChipGroup
- **/
+/** Chip for use with the ChipGroup. */
 const Chip = (props: Props) => {
     const {
         children,
