@@ -75,7 +75,7 @@ def post_comment(link):
     bot_comment = None
 
     for comment in comments:
-        if comment.user.login == g.get_user().login and "Test Environment for " in comment.body:
+        if comment.user.login == "github-actions" and "Test Environment for " in comment.body:
             bot_comment = comment
             break
 
@@ -111,9 +111,9 @@ def create_deployment_message(link):
     # Update the deployment status
     deployment.create_status(
         state='success',
-        target_url=link,
+        target_url='https://py.cafe/',
         description='Deployment to staging succeeded!',
-        environment_url='https://py.cafe/',
+        environment_url=link,
         auto_inactive=True
     )
 
