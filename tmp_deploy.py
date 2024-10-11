@@ -75,7 +75,7 @@ def post_comment(link):
     bot_comment = None
 
     for comment in comments:
-        if comment.user.login == "github-actions" and "Test Environment for " in comment.body:
+        if comment.body.startswith("Test Environment for ["):
             bot_comment = comment
             break
 
