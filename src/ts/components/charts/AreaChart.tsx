@@ -37,6 +37,8 @@ interface Props
     strokeWidth?: number;
     /** Props passed down to recharts `AreaChart` component */
     areaChartProps?: object;
+    /** Props passed down to recharts `Area` component */
+    areaProps?: object;
     /** Controls fill opacity of all areas, `0.2` by default */
     fillOpacity?: number;
     /** A tuple of colors used when `type="split"` is set, ignored in all other cases. A tuple may include theme colors reference or any valid CSS colors `['green.7', 'red.7']` by default. */
@@ -49,6 +51,8 @@ interface Props
     children?: React.ReactNode;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Determines whether each point should have associated label, False by default  */
+    withPointLabels?: boolean;
 }
 
 /** AreaChart */
