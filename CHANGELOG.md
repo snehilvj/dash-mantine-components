@@ -4,10 +4,9 @@
 
 ### Added
 
-
 - Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
 - Added the `ChipGroup` component and updated `Chip` to work with it. #327 by @AnnMarieW and @BSd3v
-Note: `Chip` was available before but not documented. If you used `Chip` in dmc>=0.14.0 to dmc<=0.14.5, you’ll now need to add `controlled=True` for it to work properly on its own.
+Note: `Chip` was available before but not documented. If you used `Chip` in dmc<=0.14.5, you’ll now need to add `controlled=True` for it to work properly on its own.
 - Added GitHub actions workflow for automated tests on PRs by @BSd3v
 
 
@@ -16,6 +15,9 @@ Note: `Chip` was available before but not documented. If you used `Chip` in dmc>
 - Excluded the `loading_state` prop from being passed to the DOM.   Added `data-dash-is-loading` attribute to
 components during callback execution, allowing custom CSS styling for loading states. #325 by @AnnMarieW
 
+### Changed
+
+- Reduced the package size by minifying the metadata.json file #345 by @AnnMarieW
 
 # 0.14.5 
 

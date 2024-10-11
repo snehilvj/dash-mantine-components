@@ -18,9 +18,9 @@ On the Master branch:
 $ rm -rf dist
 ```
 
-2. Build source distribution
+2. Build source distribution.  Note this will also minify the metadata.json file which reduces the package size
 ```
- $ python3 -m build --sdist --wheel
+npm run dist
 
 ```
 3. Test your tarball by copying it into a new environment and installing it locally, for example:
