@@ -16,6 +16,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     dataKey: string;
     /** Controls color of the grid lines. By default, color depends on the color scheme. */
     gridColor?: MantineColor;
+    /** Props passed down to recharts Legend component */
+    legendProps?: object;
     /** Controls color of all text elements. By default, color depends on the color scheme. */
     textColor?: MantineColor;
     /** Determines whether PolarGrid component should be displayed, `true` by default. */
@@ -26,6 +28,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     withPolarRadiusAxis?: boolean;
     /** Props passed down to recharts RadarChart component */
     radarChartProps?: object;
+    /** Props passed down to recharts Radar component in a dict */
+    radarProps?: any;
     /** Props passed down to recharts PolarGrid component */
     polarGridProps?: object;
     /** Props passed down to recharts PolarAngleAxis component */
