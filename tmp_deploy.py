@@ -6,10 +6,14 @@ import os
 from github import Github
 from datetime import datetime
 
+GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+REPO_NAME = os.getenv('GITHUB_REPOSITORY')
+PR_NUMBER = int(os.getenv('PR_NUMBER'))
+
 files = []
 code = ''
 reqs = {}
-for root, dirs, filenames in os.walk('PRs'):
+for root, dirs, filenames in os.walk(f'PRs/{PR_NUMBER}'):
     for f in filenames:
         file_path = os.path.join(root, f)
         if f not in ['app.py', 'requirements.txt']:
@@ -54,10 +58,6 @@ def generate_link(files, code):
 
 # Generate the link
 link = generate_link(files, code)
-
-GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-REPO_NAME = os.getenv('GITHUB_REPOSITORY')
-PR_NUMBER = int(os.getenv('PR_NUMBER'))
 
 # Initialize Github object
 g = Github(GITHUB_TOKEN)
