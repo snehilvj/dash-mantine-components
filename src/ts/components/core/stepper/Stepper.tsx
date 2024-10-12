@@ -62,7 +62,7 @@ const Stepper = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             active={act}
-            onStepClick={setAct}
+            onStepClick={(a) => setProps({active: a})}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
