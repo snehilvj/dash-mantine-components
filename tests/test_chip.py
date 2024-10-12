@@ -32,7 +32,7 @@ def chipgroup_app(**kwargs):
     return app
 
 
-def test_001cg_chip_group(dash_duo):
+def test_001ch_chip_group(dash_duo):
 
     app = chipgroup_app()
     dash_duo.start_server(app)
@@ -51,7 +51,7 @@ def test_001cg_chip_group(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: option2")
 
 
-def test_002cg_chip_group_deselectable(dash_duo):
+def test_002ch_chip_group_deselectable(dash_duo):
 
     app = chipgroup_app(deselectable=True)
     dash_duo.start_server(app)
@@ -66,7 +66,7 @@ def test_002cg_chip_group_deselectable(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: None")
 
 
-def test_003cg_chip_group_deselectable_multiple(dash_duo):
+def test_003ch_chip_group_deselectable_multiple(dash_duo):
 
     app = chipgroup_app(deselectable=True, multiple=True)
     dash_duo.start_server(app)
@@ -84,3 +84,17 @@ def test_003cg_chip_group_deselectable_multiple(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: ['option1']")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: []")
+
+
+def test_004ch_single_chip(dash_duo):
+
+    app = Dash(__name__)
+
+    app.layout = dmc.MantineProvider(dmc.Chip("Radio a", value="a", id="a"))
+
+    dash_duo.start_server(app)
+
+    # Wait for the app to load
+    dash_duo.wait_for_element("#a")
+
+    assert not dash_duo.get_logs()

@@ -32,7 +32,7 @@ def radiogroup_app(**kwargs):
     return app
 
 
-def test_001rg_radio_group(dash_duo):
+def test_001ra_radio_group(dash_duo):
 
     app = radiogroup_app()
     dash_duo.start_server(app)
@@ -51,7 +51,7 @@ def test_001rg_radio_group(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: option2")
 
 
-def test_002rg_radio_group_deselectable(dash_duo):
+def test_002ra_radio_group_deselectable(dash_duo):
 
     app = radiogroup_app(deselectable=True)
     dash_duo.start_server(app)
@@ -64,3 +64,17 @@ def test_002rg_radio_group_deselectable(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: option1")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: None")
+
+
+def test_003ra_single_radio(dash_duo):
+
+    app = Dash(__name__)
+
+    app.layout = dmc.MantineProvider(dmc.Radio(label="Radio a", value="a", id="a"))
+
+    dash_duo.start_server(app)
+
+    # Wait for the app to load
+    dash_duo.wait_for_element("#a")
+
+    assert not dash_duo.get_logs()

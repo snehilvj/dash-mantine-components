@@ -50,7 +50,7 @@ const Radio = (props: Props) => {
         ...others
     } = props;
 
-    const { radioOnClick } = React.useContext(RadioGroupContext);
+    const { radioOnClick } = React.useContext(RadioGroupContext) || {};
 
     return (
         <MantineRadio

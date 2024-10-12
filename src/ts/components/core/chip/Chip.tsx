@@ -61,7 +61,7 @@ const Chip = (props: Props) => {
         setProps({ checked });
     };
 
-    const { chipOnClick } = React.useContext(ChipGroupContext);
+    const { chipOnClick } = React.useContext(ChipGroupContext) || {};
 
     if (controlled) {
         return (
