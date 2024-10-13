@@ -23,7 +23,7 @@ def test_001po_popover(dash_duo):
         Input('popover', 'opened')
     )
     def update_output(opened):
-        return opened
+        return str(opened)
 
     dash_duo.start_server(app)
 
