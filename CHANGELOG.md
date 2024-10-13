@@ -18,6 +18,7 @@ components during callback execution, allowing custom CSS styling for loading st
 ### Changed
 
 - Reduced the package size by minifying the metadata.json file #345 by @AnnMarieW
+- Stepper component can be stepped through by clicking on steps buttons #352
 
 # 0.14.5 
 
