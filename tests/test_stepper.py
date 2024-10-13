@@ -27,12 +27,6 @@ def test_001_st_stepper(dash_duo):
     )
 
     clientside_callback(
-        """(value) => `Selected: ${value}`""",
-        Output("output", "children"),
-        Input("multi-select", "value")
-    )
-    
-    clientside_callback(
         """(n, active) => n ? Math.max(active - 1, 0) : active""",
         Output("stepper", "active", allow_duplicate=True),
         Input("previous-button", "n_clicks"),
