@@ -50,6 +50,8 @@ def test_001ra_radio_group(dash_duo):
     option2.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: option2")
 
+    assert dash_duo.get_logs() == []
+
 
 def test_002ra_radio_group_deselectable(dash_duo):
 
@@ -65,6 +67,8 @@ def test_002ra_radio_group_deselectable(dash_duo):
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: None")
 
+    assert dash_duo.get_logs() == []
+
 
 def test_003ra_single_radio(dash_duo):
 
@@ -77,4 +81,4 @@ def test_003ra_single_radio(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("#a")
 
-    assert not dash_duo.get_logs()
+    assert dash_duo.get_logs() == []
