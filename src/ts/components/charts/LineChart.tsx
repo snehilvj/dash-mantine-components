@@ -33,12 +33,16 @@ interface Props
     strokeWidth?: number;
     /** Props passed down to recharts `LineChart` component */
     lineChartProps?: any;
+    /** Props passed down to recharts `Line` component */
+    lineProps?: any;
     /** Determines whether points with `null` values should be connected, `true` by default */
     connectNulls?: boolean;
     /** Additional components that are rendered inside recharts `AreaChart` component */
     children?: React.ReactNode;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Determines whether each point should have associated label, False by default  */
+    withPointLabels?: boolean;
 }
 
 /** LineChart */

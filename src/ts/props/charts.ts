@@ -46,4 +46,10 @@ export interface GridChartBaseProps {
     xAxisLabel?: string;
     /** A label to display next to the y-axis */
     yAxisLabel?: string;
+    /** Determines whether additional y-axis should be displayed on the right side of the chart, false by default*/
+    withRightYAxis?: boolean;
+    /** Props passed down to the YAxis recharts component rendered on the right side */
+    rightYAxisProps?: any;
+    /** Props passed down to the YAxis recharts component rendered on the right side */
+    rightYAxisLabel?: any;
 }
