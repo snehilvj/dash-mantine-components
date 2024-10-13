@@ -24,6 +24,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     strokeWidth?: number;
     /** If set, `color` prop is ignored and chart color is determined by the difference between first and last value. */
     trendColors?: SparklineTrendColors;
+    /** Props passed down to recharts `Area` component */
+    areaProps?: object;
+    /** Determines whether points with `null` values should be connected, `true` by default */
+    connectNulls?: boolean;
 }
 
 /** Sparkline */
