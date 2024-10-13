@@ -51,7 +51,7 @@ def test_001_st_stepper(dash_duo):
     dash_duo.start_server(app)
 
     # Wait for the app to load
-    dash_duo.wait_for_element("#stepper")
+    dash_duo.wait_for_text_to_equal("div.mantine-Stepper-content", "Step 1")
 
     step_buttons = dash_duo.find_elements("button.mantine-Stepper-step")
 
@@ -64,3 +64,5 @@ def test_001_st_stepper(dash_duo):
 
     dash_duo.find_element("#next-button").click()
     dash_duo.wait_for_text_to_equal("div.mantine-Stepper-content", "Step 3")
+
+    assert dash_duo.get_logs() == []
