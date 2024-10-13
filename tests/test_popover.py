@@ -28,7 +28,7 @@ def test_001po_popover(dash_duo):
     dash_duo.start_server(app)
 
     # Wait for the app to load
-    dash_duo.wait_for_element("#popover")
+    dash_duo.wait_for_text_to_equal("#output", "False")
 
     popover_btn = dash_duo.find_element("#btn")
     popover_btn.click()
