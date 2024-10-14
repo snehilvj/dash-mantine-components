@@ -3,12 +3,14 @@ import { MantineSpacing, StyleProp } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
     children?: React.ReactNode;
+    /** The index of the current slide. Read only.  Use initialSlide to set the current slide */
+    active?: number;
     /** Controls size of the next and previous controls, `26` by default */
     controlSize?: React.CSSProperties["width"];
     /** Controls position of the next and previous controls, key of `theme.spacing` or any valid CSS value, `'sm'` by default */
@@ -59,14 +61,18 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, setProps, loading_state, autoplay, ...others } = props;
+    const { children, active, initialSlide, setProps, loading_state, autoplay, ...others } = props;
 
     const autoplayPlugin =
         autoplay === true
             ? Autoplay()
             : autoplay && typeof autoplay === "object"
               ? Autoplay(autoplay)
-              : null;
+               : null;
+
+      useEffect(() => {
+         setProps({active: initialSlide})
+     }, [initialSlide]);
 
     return (
         <MantineCarousel
@@ -75,12 +81,17 @@ const Carousel = (props: Props) => {
             }
             {...others}
             plugins={autoplayPlugin ? [autoplayPlugin] : []}
+            onSlideChange={(a) => setProps({ active: a ?? initialSlide })}
+            initialSlide={initialSlide}
         >
             {children}
         </MantineCarousel>
     );
 };
 
-Carousel.defaultProps = {};
+Carousel.defaultProps = {
+    initialSlide:0,
+    active:0
+};
 
 export default Carousel;
