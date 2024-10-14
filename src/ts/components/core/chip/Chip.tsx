@@ -60,9 +60,11 @@ const Chip = (props: Props) => {
 
     const { chipOnClick } = React.useContext(ChipGroupContext) || {};
 
+    console.log("chipOnClick", chipOnClick)
+
     return (
         <MantineChip
-            checked={checked}
+            checked={chipOnClick ? undefined : checked}
             onChange={onChange}
             onClick={chipOnClick}
             data-dash-is-loading={
