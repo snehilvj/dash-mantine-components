@@ -54,22 +54,24 @@ const Chip = (props: Props) => {
         ...others
     } = props;
 
-    const onChange = (checked: boolean) => {
-        setProps({ checked });
-    };
+    // Fetch ChipGroupContext and check if the chip is part of a group
+    const chipGroupContext = React.useContext(ChipGroupContext);
+    const hasChipGroup = !!chipGroupContext;
 
-    const { chipOnClick } = React.useContext(ChipGroupContext) || {};
+    // Change handler
+    const onChange = (checked: boolean) => setProps({ checked });
 
-    console.log("chipOnClick", chipOnClick)
+    // Build eventProps conditionally
+    const eventProps = hasChipGroup
+        ? { onClick: chipGroupContext?.chipOnClick }
+        : { checked, onChange };
 
     return (
         <MantineChip
-            checked={chipOnClick ? undefined : checked}
-            onChange={onChange}
-            onClick={chipOnClick}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
+            {...eventProps}  // Spread eventProps (onClick or checked/onChange)
             {...others}
         >
             {children}
