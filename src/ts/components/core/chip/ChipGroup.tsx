@@ -2,6 +2,7 @@ import { Chip } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import React, { useState } from "react";
+import ChipGroupContext from "./ChipGroupContext";
 
 interface Props extends DashBaseProps, PersistenceProps {
     /** Determines whether it is allowed to select multiple values, `false` by default */
@@ -10,6 +11,8 @@ interface Props extends DashBaseProps, PersistenceProps {
     value?: string[] | string | null;
     /** `Chip` components and any other elements */
     children?: React.ReactNode;
+    /** Allow to deselect Chip in Radio mode */
+    deselectable?: boolean;
 }
 
 /** ChipGroup */
@@ -22,6 +25,7 @@ const ChipGroup = (props: Props) => {
         persisted_props,
         persistence_type,
         loading_state,
+        deselectable,
         ...others
     } = props;
     const [val, setVal] = useState(value);
@@ -34,6 +38,12 @@ const ChipGroup = (props: Props) => {
         setProps({ value: val });
     }, [val]);
 
+    const handleChipClick = (event: React.MouseEvent<HTMLInputElement>) => {
+        if (event.currentTarget.value === value) {
+          setVal(null);
+        }
+      };
+
     return (
         <Chip.Group
             value={val}
@@ -43,7 +53,9 @@ const ChipGroup = (props: Props) => {
             }
             {...others}
         >
-            {children}
+            <ChipGroupContext.Provider value={{ chipOnClick: deselectable ? handleChipClick : null }}>
+                {children}
+            </ChipGroupContext.Provider>
         </Chip.Group>
     );
 };
