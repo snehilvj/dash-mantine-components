@@ -8,7 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
-import ChipGroupContext from "./ChipGroupContext"
+import ChipGroupContext from "./ChipGroupContext";
 
 interface Props
     extends BoxProps,
@@ -39,8 +39,6 @@ interface Props
     disabled?: boolean;
     /** To be used with chip group */
     value?: string;
-    /** Set to True when using as a single chip (not in a chip group).  Default is False */
-    controlled?: boolean;
 }
 
 /** Chip for use with the ChipGroup. */
@@ -52,7 +50,6 @@ const Chip = (props: Props) => {
         persisted_props,
         persistence_type,
         checked,
-        controlled,
         loading_state,
         ...others
     } = props;
@@ -63,39 +60,24 @@ const Chip = (props: Props) => {
 
     const { chipOnClick } = React.useContext(ChipGroupContext) || {};
 
-    if (controlled) {
-        return (
-            <MantineChip
-                checked={checked}
-                onChange={onChange}
-                onClick={chipOnClick}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
-                {...others}
-            >
-                {children}
-            </MantineChip>
-        );
-    } else {
-        return (
-            <MantineChip
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
-                onClick={chipOnClick}
-                {...others}
-            >
-                {children}
-            </MantineChip>
-        );
-    }
+    return (
+        <MantineChip
+            checked={checked}
+            onChange={onChange}
+            onClick={chipOnClick}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...others}
+        >
+            {children}
+        </MantineChip>
+    );
 };
 
 Chip.defaultProps = {
     persisted_props: ["checked"],
     persistence_type: "local",
-    controlled: false,
 };
 
 export default Chip;
