@@ -17,12 +17,12 @@ Note: `Chip` was available before but not documented. If you used `Chip` in dmc<
 
 - Excluded the `loading_state` prop from being passed to the DOM.   Added `data-dash-is-loading` attribute to
 components during callback execution, allowing custom CSS styling for loading states. #325 by @AnnMarieW
-- Enabled the `opened` prop to trigger callback #353 by @AnnMarieW
+- Enabled the `opened` prop to trigger callback in the Popover component #353 by @AnnMarieW
 
 
 ### Changed
 
-- Reduced the package size by minifying the metadata.json file #345 by @AnnMarieW
+- Reduced the package size by excluding the metadata.json file #357 by @AnnMarieW
 - Stepper component can be stepped through by clicking on steps buttons #352
 
 # 0.14.5 
