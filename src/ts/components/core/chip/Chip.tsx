@@ -58,10 +58,11 @@ const Chip = (props: Props) => {
     const chipGroupContext = React.useContext(ChipGroupContext);
     const hasChipGroup = !!chipGroupContext;
 
-    // Change handler
     const onChange = (checked: boolean) => setProps({ checked });
 
-    // Build eventProps conditionally
+    // If the chip is part of a group, it is controlled by the ChipGroup context and
+    // only requires the onClick handler. Stand-alone chips are controlled components
+    // and need both the checked and onChange props to manage their own state.
     const eventProps = hasChipGroup
         ? { onClick: chipGroupContext?.chipOnClick }
         : { checked, onChange };
@@ -71,7 +72,7 @@ const Chip = (props: Props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            {...eventProps}  // Spread eventProps (onClick or checked/onChange)
+            {...eventProps}
             {...others}
         >
             {children}
