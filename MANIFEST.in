@@ -4,3 +4,6 @@ prune tests
 include README.md
 include LICENSE
 include package.json
+include requires-install.txt
+include requires-dev.txt
+exclude dash_mantine_components/metadata.json

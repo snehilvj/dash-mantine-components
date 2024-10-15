@@ -18,7 +18,7 @@ On the Master branch:
 $ rm -rf dist
 ```
 
-2. Build source distribution.  Note this will also minify the metadata.json file which reduces the package size
+2. Build source distribution.  Note this will exclude metadata.json file which reduces the package size
 ```
 npm run dist
 
