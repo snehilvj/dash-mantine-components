@@ -8,6 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import ChipGroupContext from "./ChipGroupContext"
 
 interface Props
     extends BoxProps,
@@ -59,11 +60,15 @@ const Chip = (props: Props) => {
     const onChange = (checked: boolean) => {
         setProps({ checked });
     };
+
+    const { chipOnClick } = React.useContext(ChipGroupContext) || {};
+
     if (controlled) {
         return (
             <MantineChip
                 checked={checked}
                 onChange={onChange}
+                onClick={chipOnClick}
                 data-dash-is-loading={
                     (loading_state && loading_state.is_loading) || undefined
                 }
@@ -78,6 +83,7 @@ const Chip = (props: Props) => {
                 data-dash-is-loading={
                     (loading_state && loading_state.is_loading) || undefined
                 }
+                onClick={chipOnClick}
                 {...others}
             >
                 {children}

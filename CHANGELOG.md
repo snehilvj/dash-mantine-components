@@ -9,12 +9,16 @@
 Note: `Chip` was available before but not documented. If you used `Chip` in dmc<=0.14.5, you’ll now need to add `controlled=True` for it to work properly on its own.
 - Added GitHub actions workflow for automated tests on PRs #333 by @BSd3v
 - Added new and missing props to the charts #349 by @AnnMarieW
+- RadioGroup and ChipGroup (in single mode) now have a `deselectable` argument to allow resetting the radio value #351
+
 
 
 ### Fixed
 
 - Excluded the `loading_state` prop from being passed to the DOM.   Added `data-dash-is-loading` attribute to
 components during callback execution, allowing custom CSS styling for loading states. #325 by @AnnMarieW
+- Enabled the `opened` prop to trigger callback #353 by @AnnMarieW
+
 
 ### Changed
 

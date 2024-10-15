@@ -5,25 +5,34 @@ import React from "react";
 
 interface Props extends PopoverProps, DashBaseProps {}
 
-/** Popover */
+/** Popover Component */
 const Popover = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
+    const { children, opened, setProps, loading_state, ...others } = props;
 
     return (
         <MantinePopover
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
+            opened={opened}
+            onClose={() => setProps({ opened: false })}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
                 const childType = child.props._dashprivate_layout.type;
+
                 if (childType === "PopoverTarget") {
                     const { boxWrapperProps } = child.props;
                     const boxProps = { w: "fit-content", ...boxWrapperProps };
+
                     return (
                         <MantinePopover.Target key={index}>
-                            <Box {...boxProps}>{child}</Box>
+                            <Box
+                                onClick={() => setProps({ opened: !opened })}
+                                {...boxProps}
+                            >
+                                {child}
+                            </Box>
                         </MantinePopover.Target>
                     );
                 }
@@ -33,6 +42,8 @@ const Popover = (props: Props) => {
     );
 };
 
-Popover.defaultProps = {};
+Popover.defaultProps = {
+    opened: false,
+};
 
 export default Popover;
