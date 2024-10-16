@@ -3,7 +3,7 @@ import { MantineSpacing, StyleProp } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {

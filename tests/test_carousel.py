@@ -13,7 +13,7 @@ def test_001po_popover(dash_duo):
             dmc.CarouselSlide(dmc.Center("Slide-2", bg="blue", c="white", p=60)),
         ],
         id="carousel",
-        autoplay={"delay": 500, "stopOnMouseEnter": True, "stopOnInteraction": False, "stopOnLastSnap": True},
+        autoplay={"delay": 500, "stopOnMouseEnter": True, "stopOnLastSnap": True},
     )
 
     app.layout = dmc.MantineProvider(
