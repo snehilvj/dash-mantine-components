@@ -14,18 +14,11 @@
 
 Dash Mantine Components is an extensive (90+) Dash components library based on [Mantine](https://mantine.dev/) React Components Library. It makes it easier to create good quality dashboards with very well designed components out of the box.
 
-[Documentation](https://dash-mantine-components.com)
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/snehilvj/dash-mantine-components/master/assets/datepicker.gif">
 </p>
 
-### Table of contents
-
--   [Installation](#installation)
--   [Quickstart](#quickstart)
--   [Sponsors](#sponsors)
--   [Contributing](#contributing)
 
 ## Installation
 
@@ -77,40 +70,32 @@ if __name__ == "__main__":
     app.run_server(debug=True)
 ```
 
-## Sponsors
+## 📚 Documentation 
 
-Thanks to the following people for supporting my efforts on dash-mantine-components.
+For detailed information on how to use this project, check out the [Documentation](https://dash-mantine-components.com). You'll find guides, API references, and examples to help you get started!
 
-1. [Ann Marie Ward](https://github.com/AnnMarieW)
-2. [Arne Petter](https://github.com/apdcode)
+If you’d like to support this project and help ensure its continued success, consider [becoming a sponsor](https://github.com/sponsors/snehilvj). Your support
+is greatly appreciated and helps keep the project growing and thriving!
 
-## Contributing
+## 🛠️ Contributing
 
-1. Join our [Discord](https://discord.gg/KuJkh4Pyq5) community.
+We welcome all contributions! Feel free to open issues for any bugs or feature requests, and don't hesitate to
+comment on existing issues or pull requests. PRs are encouraged! For more details, please check out our [Contributing Guide.](https://github.com/snehilvj/dash-mantine-components/blob/master/CONTRIBUTING.md)
 
-2. Install virtual environment:
+Join our [Discord](https://discord.gg/KuJkh4Pyq5) to connect with other contributors, or visit the [Plotly Dash Community Forum](https://community.plotly.com/)
+for discussions and support.
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-    ```
 
-3. Install npm dependencies
-
-    ```bash
-    npm install
-    ```
-
-4. Add your new component in `src/lib/components`. Make sure to include it in the `src/lib/index.js` as well.
-
-5. Build the components with the command: `npm run build`.
-
-6. Raise a PR, including an example to reproduce the changes contributed by the PR.
-
-7. Unless you have changed dependencies, please do not include `package-lock.json`  or `yarn.lock` files. 
-
-## Contributing to the Docs
+## 📝 Contributing to the Docs
 
 We :heart: contributions to our documentation! It's a fantastic opportunity for first-time contributors since the
 project is simply a Dash app built with `dash-mantine-components`. For more details, check out the [dmc-docs GitHub.](https://github.com/snehilvj/dmc-docs)
+
+
+## 💖 Sponsors
+
+A huge thank you to our current sponsors for supporting this project! 🙏 Your contributions help drive development and improvements.
+
+## ⭐️ Support by Starring the Project
+If you find this project helpful, consider giving it a star on GitHub! ⭐️ It helps others discover the project and
+motivates us to keep improving it. Your support is greatly appreciated!
