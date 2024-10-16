@@ -8,7 +8,8 @@
 - Added the `ChipGroup` component and updated `Chip` to work with it. #327 and #355 by @AnnMarieW and @BSd3v
 - Added GitHub actions workflow for automated tests on PRs #333 by @BSd3v
 - Added new and missing props to the charts #349 by @AnnMarieW
-- RadioGroup and ChipGroup (in single mode) now have a `deselectable` argument to allow resetting the radio value #351 by @RenaudLN
+- Added `active` prop to Carousel, allowing callbacks to be triggered based on the currently displayed slide. #354 by @AnnMarieW
+- RadioGroup and ChipGroup (in single mode) now have a `deselectable` argument to allow resetting the radio value #351 by @RenaudL
 
 
 
