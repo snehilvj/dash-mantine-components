@@ -74,9 +74,6 @@ if __name__ == "__main__":
 
 For detailed information on how to use this project, check out the [Documentation](https://dash-mantine-components.com). You'll find guides, API references, and examples to help you get started!
 
-If you’d like to support this project and help ensure its continued success, consider [becoming a sponsor](https://github.com/sponsors/snehilvj). Your support
-is greatly appreciated and helps keep the project growing and thriving!
-
 ## 🛠️ Contributing
 
 We welcome all contributions! Feel free to open issues for any bugs or feature requests, and don't hesitate to
@@ -95,6 +92,10 @@ project is simply a Dash app built with `dash-mantine-components`. For more deta
 ## 💖 Sponsors
 
 A huge thank you to our current sponsors for supporting this project! 🙏 Your contributions help drive development and improvements.
+
+If you’d like to support this project and help ensure its continued success, consider [becoming a sponsor](https://github.com/sponsors/snehilvj). Your support
+is greatly appreciated and helps keep the project growing and thriving!
+
 
 ## ⭐️ Support by Starring the Project
 If you find this project helpful, consider giving it a star on GitHub! ⭐️ It helps others discover the project and
