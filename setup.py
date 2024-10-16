@@ -3,7 +3,7 @@ import io
 from setuptools import setup
 
 
-with open("dash_mantine_components/package-info.json") as f:
+with open("package.json") as f:
     package = json.load(f)
 
 package_name = package["name"].replace(" ", "_").replace("-", "_")
