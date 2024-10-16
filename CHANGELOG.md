@@ -1,29 +1,28 @@
 # Change Log
 
-# 0.14.6 UNRELEASED
+# 0.14.6 
 
 ### Added
 
 - Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
 - Added the `ChipGroup` component and updated `Chip` to work with it. #327 and #355 by @AnnMarieW and @BSd3v
 - Added GitHub actions workflow for automated tests on PRs #333 by @BSd3v
-- Added new and missing props to the charts #349 by @AnnMarieW
+- Added new and missing props to the charts.  Enables figure animation, right Y axis and more!  #349 by @AnnMarieW
 - Added `active` prop to Carousel, allowing callbacks to be triggered based on the currently displayed slide. #354 by @AnnMarieW
 - RadioGroup and ChipGroup (in single mode) now have a `deselectable` argument to allow resetting the radio value #351 by @RenaudL
-
-
 
 ### Fixed
 
 - Excluded the `loading_state` prop from being passed to the DOM.   Added `data-dash-is-loading` attribute to
 components during callback execution, allowing custom CSS styling for loading states. #325 by @AnnMarieW
 - Enabled the `opened` prop to trigger callback in the Popover component #353 by @AnnMarieW
-
+- Stepper component can be stepped through by clicking on steps buttons #352  by @RenaudL
 
 ### Changed
 
-- Reduced the package size by excluding the metadata.json file #357 by @AnnMarieW
-- Stepper component can be stepped through by clicking on steps buttons #352
+- Reduced the package size by excluding the 5MB metadata.json file #357 by @AnnMarieW
+- Upgraded to latest Mantine (7.13.2)
+
 
 # 0.14.5 
 

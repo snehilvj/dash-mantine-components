@@ -3,8 +3,9 @@
 ### Before release:
 
 - [ ] Update Mantine dependency in `package.json`
-- [ ] Update Mantine dependancy for optional stylesheets in `styles.py`
+- [ ] Update Mantine dependency for optional stylesheets in `styles.py`
 - [ ] Remove usage/demo apps used for testing
+- [ ] `npm install` to install the new dependencies
 - [ ] `npm run build` and push updated `package-lock.json`
 - [ ] Review and update changelog - include PR numbers and contributor's GitHub username
 
@@ -27,8 +28,11 @@ npm run dist
 ```
 pip install dash-mantine-components-0.14.5.tar.gz
 ```
-4. Prepare release on the GitHub UI - For more information see [Managing Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 
+4. Run the docs with the new release locally
+
+4. Prepare release on the GitHub UI - For more information see [Managing Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+4. When in doubt, do an alpha release first
 
 5. Publish on PyPI
 ```
