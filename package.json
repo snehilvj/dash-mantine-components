@@ -17,7 +17,7 @@
         "build:backends": "dash-generate-components ./src/ts/components dash_mantine_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
         "build": "npm run build:js && npm run build:backends",
         "watch": "npm run build:js::dev -- --watch",
-        "dist": "python minify_metadata.py && python setup.py sdist bdist_wheel"
+        "dist": "python setup.py sdist bdist_wheel"
     },
     "devDependencies": {
         "@braintree/sanitize-url": "^7.0.0",
