@@ -1,5 +1,10 @@
 # Change Log
 
+# Unreleased
+
+### Changed
+- Reduced the Highlight component file size. #366 by @AnnMarieW
+
 # 0.14.6 
 
 ### Added
