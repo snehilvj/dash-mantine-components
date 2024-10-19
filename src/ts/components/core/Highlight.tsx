@@ -9,7 +9,7 @@ interface Props extends DashBaseProps, TextProps {
     /** Key of `theme.colors` or any valid CSS color, passed to `Mark` component `color` prop, `yellow` by default */
     color?: MantineColor | string;
     /** Styles applied to `mark` elements */
-    highlightStyles?: React.CSSProperties;
+    highlightStyles?: {};
     /** Content */
     children?: string;
 }
