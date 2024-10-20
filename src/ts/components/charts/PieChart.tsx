@@ -1,11 +1,15 @@
 import { PieChart as MantinePieChart } from "@mantine/charts";
-import { PieChartCell } from "@mantine/charts/lib/PieChart/PieChart";
+import { PieChartCell as MantinePieChartCell } from "@mantine/charts/lib/PieChart/PieChart";
 import { MantineColor } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useState } from "react";
 import { getPieClickData, isEventValid } from "../../utils/charts";
+
+interface PieChartCell extends MantinePieChartCell {
+    inactiveColor?: string;
+}
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render chart */
@@ -48,11 +52,17 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     labelsType?: "value" | "percent";
     /** Click data */
     clickData?: Record<string, any>;
+    /** Hover data */
+    hoverData?: Record<string, any>; 
+    /**Determines whether a hovered series is highlighted. True by default.Requires defining an inactive color in the data*/
+    highlightHover?: boolean  
 }
 
 /** PieChart */
 const PieChart = (props: Props) => {
-    const { setProps, loading_state, clickData, pieProps, ...others } = props;
+    const { setProps, loading_state, clickData, hoverData, pieProps, data: initialData, highlightHover, ...others } = props;
+
+    const [data, setData] = useState<PieChartCell[]>(initialData); // Use initialSeries to set the initial state
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -60,7 +70,32 @@ const PieChart = (props: Props) => {
         }
     };
 
-    const newProps = { ...pieProps, onClick };
+    const onMouseOver = (ev) => {
+        if (isEventValid(ev)) {
+            const pieClickData = getPieClickData(ev)
+
+            // Update the series with inactiveColor for the hovered item
+            const updatedData = initialData.map(item => {
+                if (item.name !== pieClickData.name) {
+                    // Set the series color to its inactiveColor
+                    return (highlightHover && item.inactiveColor)
+                        ? { ...item, color: item.inactiveColor }
+                        : item;
+                }
+                return item;
+            });
+            
+            setData(updatedData); // Update the local series state 
+            setProps({ hoverData: pieClickData });
+        }
+    };
+
+    const onMouseOut = () => {
+        // Reset the series back to the original colors
+        setData(initialData);
+    };
+
+    const newProps = { ...pieProps, onClick, onMouseOver, onMouseOut};
 
     return (
         <MantinePieChart
@@ -68,11 +103,14 @@ const PieChart = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             pieProps={newProps}
+            data={data}
             {...others}
         />
     );
 };
 
-PieChart.defaultProps = {};
+PieChart.defaultProps = {
+    highlightHover: true
+};
 
 export default PieChart;

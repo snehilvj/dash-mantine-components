@@ -7,8 +7,9 @@ import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useState } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
+
 
 interface Props
     extends BoxProps,
@@ -39,12 +40,24 @@ interface Props
     children?: React.ReactNode;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Hover data */
+    hoverData?: Record<string, any>;
+    /** Name of the series that was clicked */
+    clickSeriesName?: Record<string, any>;
+    /** Name of the series that is hovered*/
+    hoverSeriesName?: Record<string, any>;
+    /** Props passed down to recharts `Line` component */
+    lineProps?: object;
+    /**Determines whether a hovered series is highlighted. True by default. Mirrors the behaviour when hovering about chart legend items*/
+    highlightHover?: boolean
 }
 
 /** LineChart */
 const LineChart = (props: Props) => {
-    const { setProps, loading_state, clickData, lineChartProps, ...others } =
-        props;
+    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, lineChartProps, lineProps,  ...others } = props;
+
+    const [highlightedArea, setHighlightedArea] = useState(null);  
+    const shouldHighlight = highlightHover && highlightedArea !== null;  
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
@@ -52,7 +65,55 @@ const LineChart = (props: Props) => {
         }
     };
 
-    const newProps = { ...lineChartProps, onClick };
+    const onMouseOver = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ hoverData: getClickData(ev) });
+        }
+    };  
+
+    const handleSeriesClick= (ev) => {
+        console.log(ev)
+        if (isEventValid(ev)) {
+            setProps({ clickSeriesName: ev["name"] })
+        }
+    };
+
+    const handleSeriesHover = (ev) => {
+        
+        if (isEventValid(ev)) {
+            const hoveredSeriesName = ev["name"];
+            setHighlightedArea(hoveredSeriesName);
+            setProps({ hoverSeriesName: hoveredSeriesName });
+        } 
+    }; 
+
+    const handleSeriesHoverEnd = () => {
+        setHighlightedArea(null); // Reset highlighted area
+    };
+
+    const linePropsFunction = (item) => {
+        const dimmed = shouldHighlight && highlightedArea !== item.name;
+        
+        const returnProps : any = {        
+            ...lineProps, 
+            onClick: handleSeriesClick,
+            onMouseOver: handleSeriesHover,
+            onMouseOut: handleSeriesHoverEnd,            
+        };
+        
+        /**if not dimmed, default behavior of Opacity will be triggered, including Hover over chart legend (BarChart.mjs)
+            fillOpacity: dimmed ? 0.1 : fillOpacity,
+            strokeOpacity: dimmed ? 0.2 : 0,
+        */
+        if (dimmed) {
+            returnProps.fillOpacity = 0.1;
+            returnProps.strokeOpacity = 0.2;
+        }
+        
+        return returnProps;
+    };
+
+    const newProps = { ...lineChartProps, onClick, onMouseOver };
 
     return (
         <MantineLineChart
@@ -60,11 +121,15 @@ const LineChart = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             lineChartProps={newProps}
+            series={series}
+            lineProps={linePropsFunction}
             {...others}
         />
     );
 };
 
-LineChart.defaultProps = {};
+LineChart.defaultProps = {
+    highlightHover: true,
+};
 
 export default LineChart;

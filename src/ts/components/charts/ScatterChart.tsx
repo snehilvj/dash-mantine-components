@@ -35,11 +35,13 @@ interface Props
     scatterProps?: object;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Hover data */
+    hoverData?: Record<string, any>; 
 }
 
 /** ScatterChart */
 const ScatterChart = (props: Props) => {
-    const { setProps, loading_state, clickData, scatterProps, ...others } =
+    const { setProps, loading_state, clickData, hoverData, scatterProps, ...others } =
         props;
 
     const onClick = (ev) => {
@@ -48,7 +50,13 @@ const ScatterChart = (props: Props) => {
         }
     };
 
-    const newProps = { ...scatterProps, onClick };
+    const onMouseOver= (ev) => {
+        if (isEventValid(ev)) {
+            setProps({ hoverData: getScatterClickData(ev) });
+        }
+    };
+
+    const newProps = { ...scatterProps, onClick, onMouseOver};
 
     return (
         <MantineScatterChart
