@@ -8,6 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import ChipGroupContext from "./ChipGroupContext";
 
 interface Props
     extends BoxProps,
@@ -38,8 +39,6 @@ interface Props
     disabled?: boolean;
     /** To be used with chip group */
     value?: string;
-    /** Set to True when using as a single chip (not in a chip group).  Default is False */
-    controlled?: boolean;
 }
 
 /** Chip for use with the ChipGroup. */
@@ -51,45 +50,39 @@ const Chip = (props: Props) => {
         persisted_props,
         persistence_type,
         checked,
-        controlled,
         loading_state,
         ...others
     } = props;
 
-    const onChange = (checked: boolean) => {
-        setProps({ checked });
-    };
-    if (controlled) {
-        return (
-            <MantineChip
-                checked={checked}
-                onChange={onChange}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
-                {...others}
-            >
-                {children}
-            </MantineChip>
-        );
-    } else {
-        return (
-            <MantineChip
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
-                {...others}
-            >
-                {children}
-            </MantineChip>
-        );
-    }
+    // Fetch ChipGroupContext and check if the chip is part of a group
+    const chipGroupContext = React.useContext(ChipGroupContext);
+    const hasChipGroup = !!chipGroupContext;
+
+    const onChange = (checked: boolean) => setProps({ checked });
+
+    // If the chip is part of a group, it is controlled by the ChipGroup context and
+    // only requires the onClick handler. Stand-alone chips are controlled components
+    // and need both the checked and onChange props to manage their own state.
+    const eventProps = hasChipGroup
+        ? { onClick: chipGroupContext?.chipOnClick }
+        : { checked, onChange };
+
+    return (
+        <MantineChip
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }
+            {...eventProps}
+            {...others}
+        >
+            {children}
+        </MantineChip>
+    );
 };
 
 Chip.defaultProps = {
     persisted_props: ["checked"],
     persistence_type: "local",
-    controlled: false,
 };
 
 export default Chip;

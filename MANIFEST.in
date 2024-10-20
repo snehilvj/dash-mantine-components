@@ -1,6 +1,9 @@
-recursive-include dash_mantine_components/** *.js *.css *.json *.html
+recursive-include dash_mantine_components/** *.js *.css  *.html
 include dash_mantine_components/theme/*
 prune tests
 include README.md
 include LICENSE
+include requires-install.txt
+include requires-dev.txt
+include dash_mantine_components/package-info.json
 include package.json

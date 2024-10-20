@@ -34,6 +34,8 @@ interface Props
     strokeWidth?: number;
     /** Props passed down to recharts `LineChart` component */
     lineChartProps?: any;
+    /** Props passed down to recharts `Line` component */
+    lineProps?: any;
     /** Determines whether points with `null` values should be connected, `true` by default */
     connectNulls?: boolean;
     /** Additional components that are rendered inside recharts `AreaChart` component */
@@ -50,6 +52,8 @@ interface Props
     lineProps?: object;
     /**Determines whether a hovered series is highlighted. True by default. Mirrors the behaviour when hovering about chart legend items*/
     highlightHover?: boolean
+    /** Determines whether each point should have associated label, False by default  */
+    withPointLabels?: boolean;
 }
 
 /** LineChart */

@@ -37,6 +37,8 @@ interface Props
     clickData?: Record<string, any>;
     /** Hover data */
     hoverData?: Record<string, any>; 
+    /** If set, displays labels next to points for the given axis  */
+    pointLabels?: "x" | "y";
 }
 
 /** ScatterChart */

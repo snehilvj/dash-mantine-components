@@ -1,6 +1,6 @@
 {
     "name": "dash_mantine_components",
-    "version": "0.14.5",
+    "version": "0.14.6",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
@@ -17,7 +17,7 @@
         "build:backends": "dash-generate-components ./src/ts/components dash_mantine_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
         "build": "npm run build:js && npm run build:backends",
         "watch": "npm run build:js::dev -- --watch",
-        "dist": "python minify_metadata.py && python setup.py sdist bdist_wheel"
+        "dist": "python setup.py sdist bdist_wheel"
     },
     "devDependencies": {
         "@braintree/sanitize-url": "^7.0.0",
@@ -43,17 +43,17 @@
     "author": "Snehil Vijay <snehilvj@outlook.com>",
     "license": "MIT",
     "dependencies": {
-        "@mantine/carousel": "7.13.0",
-        "@mantine/charts": "7.13.0",
-        "@mantine/code-highlight": "7.13.0",
-        "@mantine/core": "7.13.0",
-        "@mantine/dates": "7.13.0",
-        "@mantine/hooks": "7.13.0",
-        "@mantine/notifications": "7.13.0",
-        "@mantine/nprogress": "7.13.0",
-        "@mantine/spotlight": "7.13.0",
+        "@mantine/carousel": "7.13.2",
+        "@mantine/charts": "7.13.2",
+        "@mantine/code-highlight": "7.13.2",
+        "@mantine/core": "7.13.2",
+        "@mantine/dates": "7.13.2",
+        "@mantine/hooks": "7.13.2",
+        "@mantine/notifications": "7.13.2",
+        "@mantine/nprogress": "7.13.2",
+        "@mantine/spotlight": "7.13.2",
         "dayjs": "^1.11.10",
-	"embla-carousel-autoplay": "^7.1.0",
+        "embla-carousel-autoplay": "^7.1.0",
         "embla-carousel-react": "^7.1.0",
         "is-absolute-url": "^4.0.1",
         "jsonpath": "^1.1.1",
@@ -61,7 +61,6 @@
     },
     "files": [
         "/dash_mantine_components/*{.js,.map}",
-        "/dash_mantine_components/metadata.json",
         "LICENSE"
     ]
 }

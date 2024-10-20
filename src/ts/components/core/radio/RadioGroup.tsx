@@ -2,6 +2,7 @@ import { MantineSize, Radio } from "@mantine/core";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { InputWrapperProps } from "props/input";
 import React from "react";
+import RadioGroupContext from "./RadioGroupContext";
 
 interface Props extends InputWrapperProps, DashBaseProps, PersistenceProps {
     /** `Radio` components and any other elements */
@@ -16,6 +17,8 @@ interface Props extends InputWrapperProps, DashBaseProps, PersistenceProps {
     name?: string;
     /** If set, value cannot be changed */
     readOnly?: boolean;
+    /** Allow to deselect Chip in Radio mode */
+    deselectable?: boolean;
 }
 
 /** RadioGroup */
@@ -28,12 +31,19 @@ const RadioGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        deselectable,
         ...others
     } = props;
 
     const onChange = (value: string) => {
         setProps({ value });
     };
+
+    const handleRadioClick = (event: React.MouseEvent<HTMLInputElement>) => {
+        if (event.currentTarget.value === value) {
+            setProps({ value: null });
+        }
+      };
 
     return (
         <Radio.Group
@@ -44,7 +54,9 @@ const RadioGroup = (props: Props) => {
             value={value}
             {...others}
         >
-            {children}
+            <RadioGroupContext.Provider value={{radioOnClick: deselectable ? handleRadioClick : null}}>
+                {children}
+            </RadioGroupContext.Provider>
         </Radio.Group>
     );
 };
