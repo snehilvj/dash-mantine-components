@@ -48,8 +48,6 @@ interface Props
     clickSeriesName?: Record<string, any>;
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
-    /** Props passed down to recharts `Line` component */
-    lineProps?: object;
     /**Determines whether a hovered series is highlighted. True by default. Mirrors the behaviour when hovering about chart legend items*/
     highlightHover?: boolean
     /** Determines whether each point should have associated label, False by default  */

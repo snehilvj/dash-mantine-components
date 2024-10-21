@@ -39,8 +39,6 @@ interface Props
     areaChartProps?: object;
     /** Props passed down to recharts `Area` component */
     areaProps?: object;
-    /** Props passed down to recharts `Area` component */
-    areaProps?: object;
     /** Controls fill opacity of all areas, `0.2` by default */    
     fillOpacity?: number;
     /** A tuple of colors used when `type="split"` is set, ignored in all other cases. A tuple may include theme colors reference or any valid CSS colors `['green.7', 'red.7']` by default. */
@@ -51,8 +49,16 @@ interface Props
     connectNulls?: boolean;
     /** Additional components that are rendered inside recharts `AreaChart` component */
     children?: React.ReactNode;
-    /** Click data */
+    /** Click data */    
     clickData?: Record<string, any>;
+    /** Hover data */
+    hoverData?: Record<string, any>;
+    /** Name of the series that was clicked */
+    clickSeriesName?: Record<string, any>;
+    /** Name of the series that is hovered*/
+    hoverSeriesName?: Record<string, any>;
+    /**Determines whether a hovered series is highlighted. True by default. Mirrors the behaviour when hovering about chart legend items*/
+    highlightHover?: boolean
 }
 
 /** AreaChart */
