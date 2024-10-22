@@ -1,15 +1,11 @@
 import { DonutChart as MantineDonutChart } from "@mantine/charts";
-import { DonutChartCell as MantineDonutChartCell} from "@mantine/charts/lib/DonutChart/DonutChart";
+import { DonutChartCell } from "@mantine/charts/lib/DonutChart/DonutChart";
 import { MantineColor } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { getPieClickData, isEventValid } from "../../utils/charts";
-
-interface DonutChartCell extends MantineDonutChartCell {
-    inactiveColor?: string;
-}
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render chart */
@@ -53,66 +49,36 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Click data */
     clickData?: Record<string, any>;    
     /** Hover data */
-    hoverData?: Record<string, any>;    
-    /**Determines whether a hovered series is highlighted. True by default.Requires defining an inactive color in the data*/
-    highlightHover?: boolean
+    hoverData?: Record<string, any>;        
 }
 
 /** DonutChart */
 const DonutChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, pieProps, data: initialData, highlightHover, ...others } = props;
-
-    const [data, setData] = useState<DonutChartCell[]>(initialData); // Use initialSeries to set the initial state
+    const { setProps, loading_state, clickData, hoverData, pieProps, ...others } = props;   
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ 
-                clickData: getPieClickData(ev) });
+            setProps({ clickData: getPieClickData(ev) });
         }
     };
 
     const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            const pieClickData = getPieClickData(ev)
-
-            // Update the series with inactiveColor for the hovered item
-            const updatedData = initialData.map(item => {
-                if (item.name !== pieClickData.name) {
-                    // Set the series color to its inactiveColor                    
-                    return (highlightHover && item.inactiveColor)
-                        ? { ...item, color: item.inactiveColor }
-                        : item;
-                }
-                return item;
-            });
-            
-            setData(updatedData); // Update the local series state 
-            setProps({ hoverData: pieClickData });
+        if (isEventValid(ev)) {   
+            setProps({ hoverData: getPieClickData(ev) });
         }
-    };
-    
+    };    
 
-    const onMouseOut = () => {
-        // Reset the series back to the original colors
-        setData(initialData);
-    };
-
-    const newProps = { ...pieProps, onClick, onMouseOver, onMouseOut };
+    const newProps = { ...pieProps, onClick, onMouseOver};
 
     return (
         <MantineDonutChart
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
-            }
-            data={data}
+            }           
             pieProps={newProps}
             {...others}
         />
     );
-};
-
-DonutChart.defaultProps = {
-    highlightHover: true
 };
 
 export default DonutChart;

@@ -9,7 +9,7 @@ import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
 
 interface Props
@@ -57,7 +57,7 @@ interface Props
     clickSeriesName?: Record<string, any>;
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
-    /**Determines whether a hovered series is highlighted. True by default. Mirrors the behaviour when hovering about chart legend items*/
+    /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
     highlightHover?: boolean
 }
 
@@ -66,35 +66,46 @@ const AreaChart = (props: Props) => {
     const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, areaChartProps, areaProps, ...others } = props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);  
-    const shouldHighlight = highlightHover && highlightedArea !== null;    
+    const shouldHighlight = highlightHover && highlightedArea !== null; 
+    
+    const seriesName = useRef(null);
 
-
-    const onClick = (ev) => {
+    const onClick = (ev) => {               
         if (isEventValid(ev)) {
-            setProps({ clickData: getClickData(ev) });
+            setProps({ 
+                clickSeriesName: seriesName.current,
+                clickData: getClickData(ev) 
+            });
         }
+        seriesName.current = null;        
     };
 
-    const onMouseOver = (ev) => {       
+    const onMouseOver = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ hoverData: getClickData(ev) });
+            setProps({
+                hoverSeriesName: seriesName.current,
+                hoverData: getClickData(ev) 
+            });
         }
+        seriesName.current = null;
+        
     };  
 
-    const handleSeriesClick= (ev) => {        
+    const handleSeriesClick= (ev) => { 
         if (isEventValid(ev)) {
-            setProps({ clickSeriesName: ev["name"] })
-        }
-    };
+            seriesName.current = ev["name"]; 
+        }       
+    };  
 
-    const handleSeriesHover = (ev) => {
-        
-        if (isEventValid(ev)) {
+    const handleSeriesHover = (ev) => {        
+        if (isEventValid(ev)) {            
             const hoveredSeriesName = ev["name"];
+
+            seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
-            setProps({ hoverSeriesName: hoveredSeriesName });
         } 
     }; 
+   
 
     const handleSeriesHoverEnd = () => {
         setHighlightedArea(null); // Reset highlighted area
@@ -136,7 +147,7 @@ const AreaChart = (props: Props) => {
 }
 
 AreaChart.defaultProps = {
-    highlightHover: true,
+    highlightHover: false,
 };
 
 export default AreaChart;

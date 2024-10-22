@@ -7,7 +7,7 @@ import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
 
 
@@ -48,7 +48,7 @@ interface Props
     clickSeriesName?: Record<string, any>;
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
-    /**Determines whether a hovered series is highlighted. True by default. Mirrors the behaviour when hovering about chart legend items*/
+    /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
     highlightHover?: boolean
     /** Determines whether each point should have associated label, False by default  */
     withPointLabels?: boolean;
@@ -59,35 +59,44 @@ const LineChart = (props: Props) => {
     const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, lineChartProps, lineProps,  ...others } = props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);  
-    const shouldHighlight = highlightHover && highlightedArea !== null;  
+    const shouldHighlight = highlightHover && highlightedArea !== null; 
+    
+    const seriesName = useRef(null);
 
-    const onClick = (ev) => {
+    const onClick = (ev) => {        
         if (isEventValid(ev)) {
-            setProps({ clickData: getClickData(ev) });
+            setProps({ 
+                clickSeriesName: seriesName.current,
+                clickData: getClickData(ev) 
+            });
         }
+        seriesName.current = null;  
     };
 
     const onMouseOver = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ hoverData: getClickData(ev) });
+            setProps({
+                hoverSeriesName: seriesName.current,
+                hoverData: getClickData(ev) 
+            });
         }
-    };  
-
-    const handleSeriesClick= (ev) => {
-        console.log(ev)
-        if (isEventValid(ev)) {
-            setProps({ clickSeriesName: ev["name"] })
-        }
+        seriesName.current = null; 
+    }; 
+    
+    const handleSeriesClick= (ev) => {  
+        if (isEventValid(ev)) {                  
+            seriesName.current = ev["name"];            
+        }       
     };
 
-    const handleSeriesHover = (ev) => {
-        
-        if (isEventValid(ev)) {
+    const handleSeriesHover = (ev) => {        
+        if (isEventValid(ev)) {          
             const hoveredSeriesName = ev["name"];
-            setHighlightedArea(hoveredSeriesName);
-            setProps({ hoverSeriesName: hoveredSeriesName });
+            seriesName.current = hoveredSeriesName;
+            setHighlightedArea(hoveredSeriesName);                    
         } 
-    }; 
+    };  
+   
 
     const handleSeriesHoverEnd = () => {
         setHighlightedArea(null); // Reset highlighted area
@@ -131,7 +140,7 @@ const LineChart = (props: Props) => {
 };
 
 LineChart.defaultProps = {
-    highlightHover: true,
+    highlightHover: false,
 };
 
 export default LineChart;

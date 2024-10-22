@@ -8,7 +8,7 @@ import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
 
 interface Props
@@ -43,7 +43,7 @@ interface Props
     /** Determines whether a label with bar value should be displayed on top of each bar,
      incompatible with type="stacked" and type="percent", false by default */
     withBarValueLabel?: boolean;
-    /**Determines whether a hovered series is highlighted. True by default. Mirrors the behaviour when hovering about chart legend items*/
+    /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
     highlightHover?: boolean
 }
 
@@ -54,35 +54,42 @@ const BarChart = (props: Props) => {
         highlightHover, ...others } =  props;
         
     const [highlightedArea, setHighlightedArea] = useState(null);  
-    const shouldHighlight = highlightHover && highlightedArea !== null;    
-
+    const shouldHighlight = highlightHover && highlightedArea !== null;
+    
+    const seriesName = useRef(null);
+    
     const onClick = (ev) => {           
-        if (isEventValid(ev)) {
-            setProps({ clickData: getClickData(ev) });
+        if (isEventValid(ev)) {             
+            setProps({                 
+                clickSeriesName: seriesName.current,
+                clickData: getClickData(ev),
+            });            
         }
+        seriesName.current = null;       
     };
 
     const onMouseOver = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ hoverData: getClickData(ev) });
+            setProps({
+                hoverSeriesName: seriesName.current,
+                hoverData: getClickData(ev)
+            });
         }
-
-        
+        seriesName.current = null; 
     };  
+    
 
-    const handleSeriesClick= (ev) => {
-        if (isEventValid(ev)) {
-            setProps({ clickSeriesName: ev.tooltipPayload[0]["name"] })
-        }
-       
+    const handleSeriesClick= (ev) => {  
+        if (isEventValid(ev)) {                  
+            seriesName.current = ev.tooltipPayload[0]["name"];                      
+        }       
     };    
 
-    const handleSeriesHover = (ev) => {
-        
-        if (isEventValid(ev)) {
+    const handleSeriesHover = (ev) => {        
+        if (isEventValid(ev)) {            
             const hoveredSeriesName = ev.tooltipPayload[0]["name"];
-            setHighlightedArea(hoveredSeriesName);
-            setProps({ hoverSeriesName: hoveredSeriesName });
+            seriesName.current = hoveredSeriesName
+            setHighlightedArea(hoveredSeriesName);                  
         } 
     }; 
 
@@ -110,8 +117,8 @@ const BarChart = (props: Props) => {
         }
         
         return returnProps
-    };
-    
+    };   
+  
     const newProps = { ...barChartProps, onClick, onMouseOver };
 
     return (
@@ -130,7 +137,7 @@ const BarChart = (props: Props) => {
 
 BarChart.defaultProps = {
     withBarValueLabel: false,
-    highlightHover: true,
+    highlightHover: false,
 };
 
 

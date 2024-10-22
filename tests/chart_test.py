@@ -1,11 +1,9 @@
-from dash import callback, dcc, Input, Output, html, MATCH
+from dash import callback, dcc, Input, Output, html, MATCH, Dash, _dash_renderer
+from random import randint
 
 import dash_mantine_components as dmc
 
 
-
-
-from dash import Dash, _dash_renderer
 _dash_renderer._set_react_version("18.2.0")
 
 data = [
@@ -43,15 +41,30 @@ barChart = dmc.BarChart(
     h=300,
     dataKey="month",
     data=data,
-    withLegend=True,
-    highlightHover=True,   
-    #type="stacked",
+    withLegend=True,   
+    highlightHover=True, 
+    barProps={"isAnimationActive": True},
+    type="stacked",
     series=[
         {"name": "Smartphones", "color": "violet.6", "inactiveColor": "violet.1"},
         {"name": "Laptops", "color": "blue.6", "inactiveColor": "blue.1"},
         {"name": "Tablets", "color": "teal.6", "inactiveColor": "teal.1"},
     ],
 )
+
+@callback(
+    Output({"type": "chart", "index": "bar"}, "data"), Input("btn-barchart-animation", "n_clicks")
+)
+def update(n):
+    return [
+        {
+            "month": month,
+            "Smartphones": randint(50, 300),
+            "Laptops": randint(30, 200),
+            "Tablets": randint(20, 150),
+        }
+        for month in ["January", "February", "March", "April", "May", "June"]
+    ]
 
 
 
@@ -169,15 +182,51 @@ scatterChart = dmc.ScatterChart(
     yAxisLabel="BMI",
 )
 
-data_donut = [
-  { "name": "USA", "value": 400, "color": "indigo.6", "inactiveColor": "indigo.1" },
-  { "name": "India", "value": 300, "color": "yellow.6", "inactiveColor": "yellow.1" },
-  { "name": "Japan", "value": 100, "color": "teal.6", "inactiveColor": "teal.1" },
-  { "name": "Other", "value": 200, "color": "gray.6", "inactiveColor": "gray.1" }
-]
 
-donutChart = dmc.DonutChart(id={"type": "chart", "index": "donut"}, data=data_donut, withTooltip=False, highlightHover=False),
-pieChart = dmc.PieChart(id={"type": "chart", "index": "pie"}, data=data_donut)
+
+
+
+
+def get_data(values):
+    return [
+        {"name": "A", "value": values[0], "color": "indigo.6"},
+        {"name": "B", "value": values[1], "color": "yellow.6"},
+        {"name": "C", "value": values[2], "color": "teal.6"},
+        {"name": "D", "value": values[3], "color": "gray.6"},
+    ]
+
+donutChart = dmc.DonutChart(
+    id={"type": "chart", "index": "donut"},
+    pieProps={"isAnimationActive": True},
+    data=get_data([100, 0, 0, 0])
+)
+
+
+pieChart = dmc.PieChart(
+    id={"type": "chart", "index": "pie"}, 
+    pieProps={"isAnimationActive": True},
+    data=get_data([100, 0, 0, 0])
+)
+
+@callback(
+    Output({"type": "chart", "index": "donut"}, "data"),
+    Input("btn-donutchart-animation", "n_clicks")
+)
+def update(n):
+    if n % 2 == 0:
+        return get_data([400, 300, 600, 100])
+    return get_data([100, 0, 0, 0])
+
+
+
+@callback(
+    Output({"type": "chart", "index": "pie"}, "data"),
+    Input("btn-piechart-animation", "n_clicks")
+)
+def update(n):
+    if n % 2 == 0:
+        return get_data([400, 300, 600, 100])
+    return get_data([100, 0, 0, 0])
     
 compositeChart =  dmc.CompositeChart(               
     id={"type": "chart", "index": "composite"},
@@ -195,11 +244,20 @@ compositeChart =  dmc.CompositeChart(
 def create_chart(chart_type):
 
     if chart_type == "bar":
-        chart = barChart
+        chart = [
+             dmc.Button("Update Chart", id="btn-barchart-animation"),
+             barChart
+        ]
     elif chart_type == "donut":
-        chart = donutChart
+        chart = [
+            dmc.Button("Update Chart", id="btn-donutchart-animation", n_clicks=0, mb="md"),
+            donutChart
+        ]
     elif chart_type == "pie":
-        chart = pieChart
+        chart = [
+            dmc.Button("Update Chart", id="btn-piechart-animation", n_clicks=0, mb="md"),
+            pieChart
+        ]
     elif chart_type == "line":
         chart = lineChart
     elif chart_type == "bubble":

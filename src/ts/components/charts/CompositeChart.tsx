@@ -7,7 +7,7 @@ import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
 
 interface Props
@@ -44,38 +44,55 @@ interface Props
     clickSeriesName?: Record<string, any>;
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
+    /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
+    highlightHover?: boolean
 }
 
 /** CompositeChart */
 const CompositeChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, hoverSeriesName, clickSeriesName, composedChartProps, barProps, lineProps, areaProps, ...others } =
+    const { setProps, loading_state, clickData, hoverData, highlightHover, hoverSeriesName, clickSeriesName, composedChartProps, barProps, lineProps, areaProps, ...others } =
         props;
 
-    const onClick = (ev) => {        
+    const [highlightedArea, setHighlightedArea] = useState(null);  
+    const shouldHighlight = highlightHover && highlightedArea !== null;
+
+    const seriesName = useRef(null);
+
+    const onClick = (ev) => {               
         if (isEventValid(ev)) {
-            setProps({ clickData: getClickData(ev) });
+            setProps({                 
+                clickSeriesName: seriesName.current,
+                clickData: getClickData(ev),
+            });
         }
+        seriesName.current = null;   
     };
 
     const onMouseOver = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ hoverData: getClickData(ev) });
+            setProps({
+                hoverSeriesName: seriesName.current,
+                hoverData: getClickData(ev) 
+            });
         }
-    };
+        seriesName.current = null;
+    }; 
+  
+    
+    const handleSeriesClick= (ev) => {          
+        if (isEventValid(ev)) {                  
+            seriesName.current = ev.tooltipPayload?.[0]?.name ?? ev.name;                      
+        }       
+    }; 
 
-    const handleSeriesClick= (ev) => {        
-        if (isEventValid(ev)) {
-            setProps({ clickSeriesName: ev.tooltipPayload?.[0]?.name ?? ev.name })
-        }
-    };
-
-    const handleSeriesHover = (ev) => {
-        
-        if (isEventValid(ev)) {
-            const hoveredSeriesName = ev.tooltipPayload?.[0]?.name ?? ev.name;          
-            setProps({ hoverSeriesName: hoveredSeriesName });
+    const handleSeriesHover = (ev) => {        
+        if (isEventValid(ev)) {            
+            const hoveredSeriesName = ev.tooltipPayload?.[0]?.name ?? ev.name;  
+            seriesName.current = hoveredSeriesName
+            setHighlightedArea(hoveredSeriesName);                     
         } 
     }; 
+   
 
     const propsFunction = (item: any, chartType: "bar" | "area" | "line") => {      
         let chartProps : object;
@@ -117,10 +134,8 @@ const CompositeChart = (props: Props) => {
 
 CompositeChart.defaultProps = {
     withPointLabels: false,
-};
-
-CompositeChart.defaultProps = {
     withBarValueLabel: false,
+    highlightHover: false
 };
 
 export default CompositeChart;
