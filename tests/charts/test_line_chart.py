@@ -50,7 +50,7 @@ def test_001li_linechart(dash_duo):
     dash_duo.start_server(app)
 
     # Wait for the app to load
-    dash_duo.wait_for_text_to_equal("#clickdata-linechart", None)
+    dash_duo.wait_for_text_to_equal("#clickdata-linechart", "None")
 
     dash_duo.find_elements("g .recharts-dot recharts-line-dot")[0].click()
 
