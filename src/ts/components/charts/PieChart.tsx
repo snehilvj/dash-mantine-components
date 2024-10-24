@@ -4,7 +4,7 @@ import { MantineColor } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useState } from "react";
 import { getPieClickData, isEventValid } from "../../utils/charts";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
@@ -48,31 +48,38 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     labelsType?: "value" | "percent";
     /** Click data */
     clickData?: Record<string, any>;
+    /** Hover data */
+    hoverData?: Record<string, any>;    
 }
 
 /** PieChart */
 const PieChart = (props: Props) => {
-    const { setProps, loading_state, clickData, pieProps, ...others } = props;
+    const { setProps, loading_state, clickData, hoverData, pieProps, ...others } = props;   
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
             setProps({ clickData: getPieClickData(ev) });
         }
     };
+    
+    const onMouseOver = (ev) => {
+        if (isEventValid(ev)) {    
+            setProps({ hoverData: getPieClickData(ev) });
+        }
+    };
 
-    const newProps = { ...pieProps, onClick };
+    const newProps = { ...pieProps, onClick, onMouseOver};
 
     return (
         <MantinePieChart
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            pieProps={newProps}
+            pieProps={newProps}            
             {...others}
         />
     );
 };
 
-PieChart.defaultProps = {};
 
 export default PieChart;
