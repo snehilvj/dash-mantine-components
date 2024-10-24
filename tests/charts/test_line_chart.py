@@ -1,4 +1,4 @@
-from dash import Dash,  Output, Input, _dash_renderer, callback
+from dash import Dash, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 import json
 
