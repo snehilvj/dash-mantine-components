@@ -8,27 +8,28 @@ def chipgroup_app(**kwargs):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(
-        html.Div([
-            dmc.ChipGroup(
-                id="chip-group",
-                children=dmc.Group([
-                    dmc.Chip(value="option1", children="Option 1"),
-                    dmc.Chip(value="option2", children="Option 2"),
-                    dmc.Chip(value="option3", children="Option 3"),
-                ]),
-                **kwargs,
-            ),
-            html.Div(id="output")
-        ])
+        html.Div(
+            [
+                dmc.ChipGroup(
+                    id="chip-group",
+                    children=dmc.Group(
+                        [
+                            dmc.Chip(value="option1", children="Option 1"),
+                            dmc.Chip(value="option2", children="Option 2"),
+                            dmc.Chip(value="option3", children="Option 3"),
+                        ]
+                    ),
+                    **kwargs,
+                ),
+                html.Div(id="output"),
+            ]
+        )
     )
 
-    @app.callback(
-        Output("output", "children"),
-        Input("chip-group", "value")
-    )
+    @app.callback(Output("output", "children"), Input("chip-group", "value"))
     def update_output(selected_values):
-        return f'Selected: {selected_values}'
-    
+        return f"Selected: {selected_values}"
+
     return app
 
 
@@ -40,8 +41,12 @@ def test_001ch_chip_group(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div.mantine-Group-root")
 
-    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath("./..")
-    option2 = dash_duo.find_element("input[value='option2']").find_element_by_xpath("./..")
+    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath(
+        "./.."
+    )
+    option2 = dash_duo.find_element("input[value='option2']").find_element_by_xpath(
+        "./.."
+    )
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: option1")
     option2.click()
@@ -61,7 +66,9 @@ def test_002ch_chip_group_deselectable(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div.mantine-Group-root")
 
-    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath("./..")
+    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath(
+        "./.."
+    )
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: option1")
     option1.click()
@@ -78,8 +85,12 @@ def test_003ch_chip_group_deselectable_multiple(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div.mantine-Group-root")
 
-    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath("./..")
-    option2 = dash_duo.find_element("input[value='option2']").find_element_by_xpath("./..")
+    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath(
+        "./.."
+    )
+    option2 = dash_duo.find_element("input[value='option2']").find_element_by_xpath(
+        "./.."
+    )
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: ['option1']")
     option2.click()

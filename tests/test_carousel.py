@@ -3,7 +3,8 @@ import dash_mantine_components as dmc
 
 _dash_renderer._set_react_version("18.2.0")
 
-def test_001po_popover(dash_duo):
+
+def test_001ca_carousel(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     component = dmc.Carousel(
@@ -16,17 +17,9 @@ def test_001po_popover(dash_duo):
         autoplay={"delay": 500, "stopOnMouseEnter": True, "stopOnLastSnap": True},
     )
 
-    app.layout = dmc.MantineProvider(
-        html.Div([
-            component,
-            html.Div(id='output')
-        ])
-    )
+    app.layout = dmc.MantineProvider(html.Div([component, html.Div(id="output")]))
 
-    @app.callback(
-        Output('output', 'children'),
-        Input('carousel', 'active')
-    )
+    @app.callback(Output("output", "children"), Input("carousel", "active"))
     def update_output(n):
         return f"slide index {n}"
 

@@ -3,25 +3,27 @@ import dash_mantine_components as dmc
 
 _dash_renderer._set_react_version("18.2.0")
 
+
 def test_001po_popover(dash_duo):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(
-        html.Div([
-            dmc.Popover(
-                [dmc.PopoverTarget(dmc.Button("Toggle Popover", id="btn")),
-                dmc.PopoverDropdown(dmc.Text("This popover is opened"))],
-                id='popover',
-                opened=False
-            ),
-            html.Div(id='output')
-        ])
+        html.Div(
+            [
+                dmc.Popover(
+                    [
+                        dmc.PopoverTarget(dmc.Button("Toggle Popover", id="btn")),
+                        dmc.PopoverDropdown(dmc.Text("This popover is opened")),
+                    ],
+                    id="popover",
+                    opened=False,
+                ),
+                html.Div(id="output"),
+            ]
+        )
     )
 
-    @app.callback(
-        Output('output', 'children'),
-        Input('popover', 'opened')
-    )
+    @app.callback(Output("output", "children"), Input("popover", "opened"))
     def update_output(opened):
         return str(opened)
 
@@ -33,7 +35,7 @@ def test_001po_popover(dash_duo):
     popover_btn = dash_duo.find_element("#btn")
     popover_btn.click()
 
-       # Verify the output
+    # Verify the output
     dash_duo.wait_for_text_to_equal("#output", "True")
 
     popover_btn.click()

@@ -4,26 +4,30 @@ import dash_mantine_components as dmc
 _dash_renderer._set_react_version("18.2.0")
 
 
-def test_001_st_stepper(dash_duo):
+def test_001st_stepper(dash_duo):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(
-        html.Div([
-            dmc.Stepper(
-                id="stepper",
-                active=0,
-                children=[
-                    dmc.StepperStep(children="Step 1", label="Step 1"),
-                    dmc.StepperStep(children="Step 2", label="Step 2"),
-                    dmc.StepperStep(children="Step 3", label="Step 3"),
-                ],
-            ),
-            dmc.Group([
-                dmc.Button("Previous", id="previous-button"),
-                dmc.Button("Next", id="next-button"),
-            ]),
-            html.Div(id="output")
-        ])
+        html.Div(
+            [
+                dmc.Stepper(
+                    id="stepper",
+                    active=0,
+                    children=[
+                        dmc.StepperStep(children="Step 1", label="Step 1"),
+                        dmc.StepperStep(children="Step 2", label="Step 2"),
+                        dmc.StepperStep(children="Step 3", label="Step 3"),
+                    ],
+                ),
+                dmc.Group(
+                    [
+                        dmc.Button("Previous", id="previous-button"),
+                        dmc.Button("Next", id="next-button"),
+                    ]
+                ),
+                html.Div(id="output"),
+            ]
+        )
     )
 
     clientside_callback(
