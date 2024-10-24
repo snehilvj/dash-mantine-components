@@ -1,5 +1,6 @@
-from dash import Dash, html, Output, Input, _dash_renderer, callback
+from dash import Dash,  Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
+import json
 
 _dash_renderer._set_react_version("18.2.0")
 
@@ -30,34 +31,35 @@ component = dmc.Group(
 )
 
 
-
 def test_001li_linechart(dash_duo):
-    app = Dash(__name__)
+    app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
-    app.layout = dmc.MantineProvider(
-       component
-    )
+    app.layout = dmc.MantineProvider(component)
 
     @callback(
         Output("clickdata-linechart", "children"),
         Input("figure-linechart", "clickData"),
     )
     def update(clickdata):
-        return str(clickdata)
-
-
+        return json.dumps(clickdata)
 
     dash_duo.start_server(app)
 
     # Wait for the app to load
-    dash_duo.wait_for_text_to_equal("#clickdata-linechart", "None")
+    dash_duo.wait_for_text_to_equal("#clickdata-linechart", "null")
 
-    dash_duo.find_elements("g .recharts-dot recharts-line-dot")[0].click()
+    # Target the circle elements inside the g.recharts-line-dots group
+    dots = dash_duo.find_elements(
+        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    )
 
-    expected_output = {'date': 'Mar 22', 'Apples': 2890, 'Oranges': 2338, 'Tomatoes': 2452}
+    assert len(dots) > 0, "No dots found in the chart"
+    dots[0].click()
 
-    # Verify the output
-    dash_duo.wait_for_text_to_equal("#clickdata-lincechart", expected_output)
+    expected_output = (
+        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+    )
 
+    dash_duo.wait_for_text_to_equal("#clickdata-linechart", expected_output)
 
     assert dash_duo.get_logs() == []
