@@ -8,8 +8,8 @@ interface Props extends DashBaseProps, TextProps {
     highlight: string | string[];
     /** Key of `theme.colors` or any valid CSS color, passed to `Mark` component `color` prop, `yellow` by default */
     color?: MantineColor | string;
-    /** Styles applied to `mark` elements */
-    highlightStyles?: React.CSSProperties;
+    /** Styles applied to `mark` elements.  Note CSS properties are camelCase,  for example `highlightStyles={"backgroundColor": "blue"}` */
+    highlightStyles?: {};
     /** Content */
     children?: string;
 }
