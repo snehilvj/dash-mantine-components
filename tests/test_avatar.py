@@ -13,4 +13,7 @@ def test_001av_avatar(dash_duo):
 
     dash_duo.start_server(app)
 
+    # Wait for the app to load
+    dash_duo.wait_for_text_to_equal("#avatar", "MK")
+
     assert dash_duo.get_logs() == []
