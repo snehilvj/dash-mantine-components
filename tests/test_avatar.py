@@ -6,7 +6,8 @@ _dash_renderer._set_react_version("18.2.0")
 def test_001av_avatar(dash_duo):
     app = Dash(__name__)
 
-    avatar = dmc.Avatar("MK")
+    avatar = dmc.Avatar("MK", id="avatar")
+
 
     app.layout = dmc.MantineProvider(html.Div([avatar]))
 
