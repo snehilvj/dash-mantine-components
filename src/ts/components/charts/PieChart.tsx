@@ -49,22 +49,34 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Click data */
     clickData?: Record<string, any>;
     /** Hover data */
-    hoverData?: Record<string, any>;    
+    hoverData?: Record<string, any>;
+    /** Name of the series that was clicked */
+    clickSeriesName?: Record<string, any>;
+    /** Name of the series that is hovered*/
+    hoverSeriesName?: Record<string, any>;
 }
 
 /** PieChart */
 const PieChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, pieProps, ...others } = props;   
+    const { setProps, loading_state, clickData, hoverData,  clickSeriesName, hoverSeriesName, pieProps, ...others } = props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ clickData: getPieClickData(ev) });
+            const clickdata = getPieClickData(ev)
+            setProps({
+                clickData: clickdata,
+                clickSeriesName: clickdata["name"]
+            });
         }
     };
-    
+
     const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {    
-            setProps({ hoverData: getPieClickData(ev) });
+        if (isEventValid(ev)) {
+            const hoverdata = getPieClickData(ev)
+            setProps({
+                hoverData: hoverdata,
+                hoverSeriesName: hoverdata["name"]
+            });
         }
     };
 
@@ -75,7 +87,7 @@ const PieChart = (props: Props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            pieProps={newProps}            
+            pieProps={newProps}
             {...others}
         />
     );

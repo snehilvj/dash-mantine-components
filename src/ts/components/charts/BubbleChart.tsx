@@ -10,13 +10,12 @@ import { getScatterClickData, isEventValid } from "../../utils/charts";
 
 interface Props
     extends BoxProps,
-        Omit<GridChartBaseProps, "dataKey" | "data" | "unit">,
         StylesApiProps,
         DashBaseProps {
     /** Chart data */
     data: Record<string, any>[];
     /** Data keys for x, y and z axis */
-    dataKey: BubbleChartDataKey;    
+    dataKey: BubbleChartDataKey;
     /** Z axis range */
     range: [number, number];
     /** Color of the chart items. Key of `theme.colors` or any valid CSS color, `blue.6` by default. */
@@ -38,11 +37,13 @@ interface Props
     /** Chart label displayed next to the x axis */
     label?: string;
     /** Determines whether the tooltip should be displayed, `true` by default */
-    withTooltip?: boolean;    
+    withTooltip?: boolean;
     /** Click data */
     clickData?: Record<string, any>;
     /** Hover data */
     hoverData?: Record<string, any>;
+    /** Function to format z axis values */
+    valueFormatter?: (value: number) => string;
 }
 
 

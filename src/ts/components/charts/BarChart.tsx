@@ -23,7 +23,7 @@ interface Props
     /** Controls how bars are positioned relative to each other, `'default'` by default */
     type?: BarChartType;
     /** Controls fill opacity of all bars, `1` by default */
-    fillOpacity?: number;    
+    fillOpacity?: number;
     /** Fill of hovered bar section, by default value is based on color scheme */
     cursorFill?: MantineColor;
     /** Props passed down to recharts `BarChart` component */
@@ -33,7 +33,7 @@ interface Props
     /** Additional components that are rendered inside recharts `BarChart` component */
     children?: React.ReactNode;
     /** Click data */
-    clickData?: Record<string, any>;   
+    clickData?: Record<string, any>;
     /** Hover data */
     hoverData?: Record<string, any>;
     /** Name of the series that was clicked */
@@ -50,22 +50,22 @@ interface Props
 /** BarChart */
 const BarChart = (props: Props) => {
     const {
-        setProps, loading_state, clickData, hoverData, barChartProps, clickSeriesName, hoverSeriesName, barProps, 
+        setProps, loading_state, clickData, hoverData, barChartProps, clickSeriesName, hoverSeriesName, barProps,
         highlightHover, ...others } =  props;
-        
-    const [highlightedArea, setHighlightedArea] = useState(null);  
+
+    const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
-    
+
     const seriesName = useRef(null);
-    
-    const onClick = (ev) => {           
-        if (isEventValid(ev)) {             
-            setProps({                 
+
+    const onClick = (ev) => {
+        if (isEventValid(ev)) {
+            setProps({
                 clickSeriesName: seriesName.current,
                 clickData: getClickData(ev),
-            });            
+            });
         }
-        seriesName.current = null;       
+        seriesName.current = null;
     };
 
     const onMouseOver = (ev) => {
@@ -75,38 +75,38 @@ const BarChart = (props: Props) => {
                 hoverData: getClickData(ev)
             });
         }
-        seriesName.current = null; 
-    };  
-    
+        seriesName.current = null;
+    };
 
-    const handleSeriesClick= (ev) => {  
-        if (isEventValid(ev)) {                  
-            seriesName.current = ev.tooltipPayload[0]["name"];                      
-        }       
-    };    
 
-    const handleSeriesHover = (ev) => {        
-        if (isEventValid(ev)) {            
+    const handleSeriesClick= (ev) => {
+        if (isEventValid(ev)) {
+            seriesName.current = ev.tooltipPayload[0]["name"];
+        }
+    };
+
+    const handleSeriesHover = (ev) => {
+        if (isEventValid(ev)) {
             const hoveredSeriesName = ev.tooltipPayload[0]["name"];
             seriesName.current = hoveredSeriesName
-            setHighlightedArea(hoveredSeriesName);                  
-        } 
-    }; 
+            setHighlightedArea(hoveredSeriesName);
+        }
+    };
 
     const handleSeriesHoverEnd = () => {
         setHighlightedArea(null); // Reset highlighted area
-    };  
-    
+    };
+
     const barPropsFunction = (item) => {
         const dimmed = shouldHighlight && highlightedArea !== item.name;
-        
-        const returnProps : any = {        
-            ...barProps, 
+
+        const returnProps : any = {
+            ...barProps,
             onClick: handleSeriesClick,
             onMouseOver: handleSeriesHover,
-            onMouseOut: handleSeriesHoverEnd,            
+            onMouseOut: handleSeriesHoverEnd,
         };
-        
+
         /**if not dimmed, default behavior of Opacity will be triggered, including Hover over chart legend (BarChart.mjs)
             fillOpacity: dimmed ? 0.1 : fillOpacity,
             strokeOpacity: dimmed ? 0.2 : 0,
@@ -115,10 +115,10 @@ const BarChart = (props: Props) => {
             returnProps.fillOpacity = 0.1
             returnProps.strokeOpacity = 0.2
         }
-        
+
         return returnProps
-    };   
-  
+    };
+
     const newProps = { ...barChartProps, onClick, onMouseOver };
 
     return (
@@ -126,11 +126,11 @@ const BarChart = (props: Props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            barChartProps={newProps}   
+            barChartProps={newProps}
             barProps={barPropsFunction}
             {...others}
         />
-           
+
     );
 };
 

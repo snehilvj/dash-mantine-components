@@ -1,5 +1,6 @@
 from dash import callback, dcc, Input, Output, html, MATCH, Dash, _dash_renderer
 from random import randint
+import json
 
 import dash_mantine_components as dmc
 
@@ -33,38 +34,31 @@ bubbleChart = dmc.BubbleChart(
     range=[16, 225],
     label="Sales/hour",
     color="lime.6",
-    dataKey={ "x": 'hour', "y": 'index', "z": 'value' }
+    dataKey={ "x": 'hour', "y": 'index', "z": 'value' },
 )
+
+barchart_data = [
+    {"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452},
+    {"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402},
+    {"date": "Mar 24", "Apples": 3322, "Oranges": 986, "Tomatoes": 1821},
+    {"date": "Mar 25", "Apples": 3470, "Oranges": 2108, "Tomatoes": 2809},
+    {"date": "Mar 26", "Apples": 3129, "Oranges": 1726, "Tomatoes": 2290},
+]
 
 barChart = dmc.BarChart(
     id={"type": "chart", "index": "bar"},
     h=300,
-    dataKey="month",
-    data=data,
-    withLegend=True,   
-    highlightHover=True, 
-    barProps={"isAnimationActive": True},
+    dataKey="date",
+    data=barchart_data,
+    withLegend=True,
     type="stacked",
     series=[
-        {"name": "Smartphones", "color": "violet.6", "inactiveColor": "violet.1"},
-        {"name": "Laptops", "color": "blue.6", "inactiveColor": "blue.1"},
-        {"name": "Tablets", "color": "teal.6", "inactiveColor": "teal.1"},
+        {"name": "Apples", "color": "indigo.6"},
+        {"name": "Oranges", "color": "blue.6"},
+        {"name": "Tomatoes", "color": "teal.6"},
     ],
+    highlightHover=True
 )
-
-@callback(
-    Output({"type": "chart", "index": "bar"}, "data"), Input("btn-barchart-animation", "n_clicks")
-)
-def update(n):
-    return [
-        {
-            "month": month,
-            "Smartphones": randint(50, 300),
-            "Laptops": randint(30, 200),
-            "Tablets": randint(20, 150),
-        }
-        for month in ["January", "February", "March", "April", "May", "June"]
-    ]
 
 
 
@@ -203,7 +197,7 @@ donutChart = dmc.DonutChart(
 
 
 pieChart = dmc.PieChart(
-    id={"type": "chart", "index": "pie"}, 
+    id={"type": "chart", "index": "pie"},
     pieProps={"isAnimationActive": True},
     data=get_data([100, 0, 0, 0])
 )
@@ -227,12 +221,12 @@ def update(n):
     if n % 2 == 0:
         return get_data([400, 300, 600, 100])
     return get_data([100, 0, 0, 0])
-    
-compositeChart =  dmc.CompositeChart(               
+
+compositeChart =  dmc.CompositeChart(
     id={"type": "chart", "index": "composite"},
     h=300,
     dataKey="month",
-    data=data,                    
+    data=data,
     series=[
         {"name": "Smartphones", "color": "violet.6", "type": "bar"},
         {"name": "Laptops", "color": "blue.6", "type": "line"},
@@ -245,7 +239,6 @@ def create_chart(chart_type):
 
     if chart_type == "bar":
         chart = [
-             dmc.Button("Update Chart", id="btn-barchart-animation"),
              barChart
         ]
     elif chart_type == "donut":
@@ -306,26 +299,26 @@ def create_chart(chart_type):
                 dmc.GridCol(
                     span=10,
                     children=dmc.Text(id={"type": "output_hoverSeriesName", "index": chart_type})
-                ),               
+                ),
             ]
         )
     )
 app = Dash(external_stylesheets=dmc.styles.ALL)
 
-app.layout = dmc.MantineProvider(     
+app.layout = dmc.MantineProvider(
      children=[
         dmc.Tabs(
             [
                 dmc.TabsList(
                     [
-                        dmc.TabsTab("Area", value="tab_area"),                        
-                        dmc.TabsTab("Bar", value="tab_bar"),   
+                        dmc.TabsTab("Area", value="tab_area"),
+                        dmc.TabsTab("Bar", value="tab_bar"),
                         dmc.TabsTab("Bubble", value="tab_bubble"),
-                        dmc.TabsTab("Composite", value="tab_composite"),                     
-                        dmc.TabsTab("Donut", value="tab_donut"),     
-                        dmc.TabsTab("Line", value="tab_line"),     
-                        dmc.TabsTab("Pie", value="tab_pie"),                                 
-                        dmc.TabsTab("Scatter", value="tab_scatter"),                             
+                        dmc.TabsTab("Composite", value="tab_composite"),
+                        dmc.TabsTab("Donut", value="tab_donut"),
+                        dmc.TabsTab("Line", value="tab_line"),
+                        dmc.TabsTab("Pie", value="tab_pie"),
+                        dmc.TabsTab("Scatter", value="tab_scatter"),
                     ]
                 ),
                 dmc.TabsPanel(create_chart("area"), value="tab_area"),
@@ -335,43 +328,38 @@ app.layout = dmc.MantineProvider(
                 dmc.TabsPanel(create_chart("donut"), value="tab_donut"),
                 dmc.TabsPanel(create_chart("line"), value="tab_line"),
                 dmc.TabsPanel(create_chart("pie"), value="tab_pie"),
-                dmc.TabsPanel(create_chart("scatter"), value="tab_scatter"),                
+                dmc.TabsPanel(create_chart("scatter"), value="tab_scatter"),
             ],
             color="red",
             orientation="vertical",
         )
-         
+
      ],
  )
- 
+
 @callback(
     Output({"type": "output_hoverSeriesName", "index": MATCH}, "children"),
     Input({"type": "chart", "index": MATCH}, "hoverSeriesName"),
 )
-def update_hoverSeriesName(data): 
-    return str(data)       
+def update_hoverSeriesName(data):
+    return str(data)
 
 @callback(
     Output({"type": "output_hoverData", "index": MATCH}, "children"),
     Input({"type": "chart", "index": MATCH}, "hoverData"),
 )
-def update_hoverData(data): 
-    return str(data)  
+def update_hoverData(data):
+    return str(data)
 
 @callback(
     Output({"type": "output_clickSeriesName", "index": MATCH}, "children"),
-    Input({"type": "chart", "index": MATCH}, "clickSeriesName"),
-)
-def update_clickSeriesName(data): 
-    return str(data)  
-
-@callback(
     Output({"type": "output_clickData", "index": MATCH}, "children"),
+    Input({"type": "chart", "index": MATCH}, "clickSeriesName"),
     Input({"type": "chart", "index": MATCH}, "clickData"),
 )
-def update_clickData(data): 
-    return str(data)  
-    
+def update_clickSeriesName(clickSeries, clickData):
+    return (clickSeries, json.dumps(clickData))
+
 
 if __name__ == "__main__":
     app.run(debug=True)

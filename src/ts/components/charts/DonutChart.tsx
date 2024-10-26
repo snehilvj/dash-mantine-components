@@ -45,28 +45,40 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Additional elements rendered inside `PieChart` component */
     children?: React.ReactNode;
     /** Props passed down to recharts `PieChart` component */
-    pieChartProps?: object;    
+    pieChartProps?: object;
     /** Click data */
-    clickData?: Record<string, any>;    
+    clickData?: Record<string, any>;
     /** Hover data */
-    hoverData?: Record<string, any>;        
+    hoverData?: Record<string, any>;
+    /** Name of the series that was clicked */
+    clickSeriesName?: Record<string, any>;
+    /** Name of the series that is hovered*/
+    hoverSeriesName?: Record<string, any>;
 }
 
 /** DonutChart */
 const DonutChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, pieProps, ...others } = props;   
+    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, pieProps, ...others } = props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ clickData: getPieClickData(ev) });
+            const clickdata = getPieClickData(ev)
+            setProps({
+                clickData: clickdata,
+                clickSeriesName: clickdata["name"]
+            });
         }
     };
 
     const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {   
-            setProps({ hoverData: getPieClickData(ev) });
+        if (isEventValid(ev)) {
+            const hoverdata = getPieClickData(ev)
+            setProps({
+                hoverData: hoverdata,
+                hoverSeriesName: hoverdata["name"]
+            });
         }
-    };    
+    };
 
     const newProps = { ...pieProps, onClick, onMouseOver};
 
@@ -74,7 +86,7 @@ const DonutChart = (props: Props) => {
         <MantineDonutChart
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
-            }           
+            }
             pieProps={newProps}
             {...others}
         />
