@@ -1,3 +1,4 @@
+from selenium.webdriver import ActionChains
 from dash import Dash, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 import json
@@ -15,7 +16,7 @@ data = [
 component = dmc.Group(
     [
         dmc.LineChart(
-            id="figure-linechart",
+            id="figure",
             h=300,
             dataKey="date",
             data=data,
@@ -26,7 +27,8 @@ component = dmc.Group(
                 {"name": "Tomatoes", "color": "teal.6"},
             ],
         ),
-        dmc.Text(id="clickdata-linechart"),
+        dmc.Text(id="data"),
+        dmc.Text(id="name"),
     ]
 )
 
@@ -37,16 +39,57 @@ def test_001li_linechart(dash_duo):
     app.layout = dmc.MantineProvider(component)
 
     @callback(
-        Output("clickdata-linechart", "children"),
-        Input("figure-linechart", "clickData"),
+        Output("data", "children"),
+        Output("name", "children"),
+        Input("figure", "clickData"),
+        Input("figure", "clickSeriesName"),
     )
-    def update(clickdata):
-        return json.dumps(clickdata)
+    def update(clickdata, name):
+        return json.dumps(clickdata), str(name)
 
     dash_duo.start_server(app)
 
     # Wait for the app to load
-    dash_duo.wait_for_text_to_equal("#clickdata-linechart", "null")
+    dash_duo.wait_for_text_to_equal("#data", "null")
+
+    # Target the circle elements inside the g.recharts-line-dots group
+    dots = dash_duo.find_elements(
+        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    )
+
+
+    assert len(dots) > 0, "No dots found in the chart"
+    actions = ActionChains(dash_duo.driver)
+    actions.move_to_element(dots[0]).click().perform()
+
+    expected_output = (
+        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+    )
+
+    dash_duo.wait_for_text_to_equal("#data", expected_output)
+    dash_duo.wait_for_text_to_equal("#name", "Apples")
+
+    assert dash_duo.get_logs() == []
+
+
+def test_002li_linechart(dash_duo):
+    app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
+
+    app.layout = dmc.MantineProvider(component)
+
+    @callback(
+        Output("data", "children"),
+        Output("name", "children"),
+        Input("figure", "hoverData"),
+        Input("figure", "hoverSeriesName"),
+    )
+    def update(hoverdata, hovername):
+        return json.dumps(hoverdata), str(hovername)
+
+    dash_duo.start_server(app)
+
+    # Wait for the app to load
+    dash_duo.wait_for_text_to_equal("#data", "null")
 
     # Target the circle elements inside the g.recharts-line-dots group
     dots = dash_duo.find_elements(
@@ -54,12 +97,14 @@ def test_001li_linechart(dash_duo):
     )
 
     assert len(dots) > 0, "No dots found in the chart"
-    dots[0].click()
+    actions = ActionChains(dash_duo.driver)
+    actions.move_to_element(dots[0]).perform()
 
     expected_output = (
         '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
     )
 
-    dash_duo.wait_for_text_to_equal("#clickdata-linechart", expected_output)
+    dash_duo.wait_for_text_to_equal("#data", expected_output)
+    dash_duo.wait_for_text_to_equal("#name", "Apples")
 
     assert dash_duo.get_logs() == []
