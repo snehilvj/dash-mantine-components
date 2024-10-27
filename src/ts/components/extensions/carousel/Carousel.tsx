@@ -5,6 +5,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
