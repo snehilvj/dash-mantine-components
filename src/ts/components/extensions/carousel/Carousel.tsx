@@ -75,9 +75,9 @@ const Carousel = (props: Props) => {
     
     const autoScrollPlugin = 
         autoScroll === true
-            ? Autoplay()
+            ? AutoScroll()
             : autoScroll && typeof autoScroll === "object"
-              ? Autoplay(autoScroll)
+              ? AutoScroll(autoScroll)
               : null;
 
       useEffect(() => {
