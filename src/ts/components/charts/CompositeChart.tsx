@@ -127,15 +127,15 @@ const CompositeChart = (props: Props) => {
 
 
     const propsFunction = (item: any, chartType: "bar" | "area" | "line") => {
-        let chartProps : any
+        let chartProps : any = null;
         const dimmed = shouldHighlight && highlightedArea !== item.name;
 
         if (chartType === "bar") {
-            chartProps = barProps;
+            chartProps = barProps ?? {};
         } else if (chartType === "area") {
-            chartProps = areaProps;
+            chartProps = areaProps ?? {};
         } else if (chartType === "line") {
-            chartProps = lineProps;
+            chartProps = lineProps ?? {};
         }
 
         if (dimmed) {
