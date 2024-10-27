@@ -8,27 +8,28 @@ def radiogroup_app(**kwargs):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(
-        html.Div([
-            dmc.RadioGroup(
-                id="radio-group",
-                children=dmc.Group([
-                    dmc.Radio(value="option1", label="Option 1"),
-                    dmc.Radio(value="option2", label="Option 2"),
-                    dmc.Radio(value="option3", label="Option 3"),
-                ]),
-                **kwargs,
-            ),
-            html.Div(id="output")
-        ])
+        html.Div(
+            [
+                dmc.RadioGroup(
+                    id="radio-group",
+                    children=dmc.Group(
+                        [
+                            dmc.Radio(value="option1", label="Option 1"),
+                            dmc.Radio(value="option2", label="Option 2"),
+                            dmc.Radio(value="option3", label="Option 3"),
+                        ]
+                    ),
+                    **kwargs,
+                ),
+                html.Div(id="output"),
+            ]
+        )
     )
 
-    @app.callback(
-        Output("output", "children"),
-        Input("radio-group", "value")
-    )
+    @app.callback(Output("output", "children"), Input("radio-group", "value"))
     def update_output(selected_values):
-        return f'Selected: {selected_values}'
-    
+        return f"Selected: {selected_values}"
+
     return app
 
 

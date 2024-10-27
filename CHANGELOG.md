@@ -1,5 +1,13 @@
 # Change Log
 
+# Unreleased
+
+### Changed
+- Reduced the Highlight component file size. #366 by @AnnMarieW
+
+### Fixed
+- Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
+
 # 0.14.6 
 
 ### Added
