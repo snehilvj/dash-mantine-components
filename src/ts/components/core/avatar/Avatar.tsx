@@ -1,4 +1,3 @@
-import { sanitizeUrl } from "@braintree/sanitize-url";
 import {
     Avatar as MantineAvatar,
     MantineColor,
@@ -34,15 +33,13 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Avatar */
 const Avatar = (props: Props) => {
-    const { children, src, setProps, loading_state, ...others } = props;
-    const sanitizedSrc = useMemo(() => (src ? sanitizeUrl(src) : undefined), [src]);
+    const { children, setProps, loading_state, ...others } = props;
 
     return (
         <MantineAvatar
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            src={sanitizedSrc}
             {...others}
         >
             {children}
