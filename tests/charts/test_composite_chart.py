@@ -65,22 +65,22 @@ def test_001co_composite(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the bars
-    bars = dash_duo.find_elements(
-        ".recharts-layer.recharts-bar-rectangle"
+    # Target the areas
+    areas = dash_duo.find_elements(
+        ".recharts-curve.recharts-area-area"
     )
 
 
-    assert len(bars) > 0, "No areas found in the chart"
+    assert len(areas) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(bars[0]).click().perform()
+    actions.move_to_element(areas[0]).click().perform()
 
     expected_output = (
-         '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+         '{"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Tomatoes")
+    dash_duo.wait_for_text_to_equal("#name", "Oranges")
 
     assert dash_duo.get_logs() == []
 
@@ -104,20 +104,20 @@ def test_002co_compositechart(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the bars
-    bars = dash_duo.find_elements(
-        ".recharts-layer.recharts-bar-rectangle"
+    # Target the areas
+    areas = dash_duo.find_elements(
+        ".recharts-curve.recharts-area-area"
     )
 
-    assert len(bars) > 0, "No areas found in the chart"
+    assert len(areas) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(bars[0]).perform()
+    actions.move_to_element(areas[0]).click().perform()
 
     expected_output = (
-        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+        '{"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Tomatoes")
+    dash_duo.wait_for_text_to_equal("#name", "Oranges")
 
     assert dash_duo.get_logs() == []
