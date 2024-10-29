@@ -9,8 +9,12 @@ interface Props extends TextareaProps, DashBaseProps, PersistenceProps {
     value?: string;
     /** Spell check property */
     spellCheck?: boolean;
-    /** Debounce time in ms */
-    debounce?: number;
+     /** An integer that represents the number of times that this element has lost focus */
+    n_blur?: number;
+    /** (boolean | number; default False): If True, changes to input will be sent back to the Dash server only when losing focus. If it's False, it will send the value back on every change. If a number, it will not send anything back to the Dash server until the user has stopped typing for that number of milliseconds. */
+    debounce?: boolean | number;
+    /** (string; default "off") Enables the browser to attempt autocompletion, based on user history.  */
+    autoComplete?: string;
 }
 
 /** Textarea */
@@ -20,6 +24,7 @@ const Textarea = (props: Props) => {
         loading_state,
         value,
         debounce,
+        n_blur,
         persistence,
         persisted_props,
         persistence_type,
@@ -27,15 +32,24 @@ const Textarea = (props: Props) => {
     } = props;
 
     const [val, setVal] = useState(value);
-    const [debounced] = useDebouncedValue(val, debounce);
+    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const [debounced] = useDebouncedValue(val, debounceValue);
 
-    useEffect(() => {
-        setProps({ value: debounced });
+    useDidUpdate(() => {
+        if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
     }, [debounced]);
 
     useDidUpdate(() => {
         setVal(value);
     }, [value]);
+
+    const handleBlur = () => {
+        if (debounce === true) {
+            setProps({ n_blur: n_blur + 1, value: val });
+        }
+    };
 
     return (
         <MantineTextarea
@@ -44,17 +58,19 @@ const Textarea = (props: Props) => {
             }
             {...others}
             value={val}
-            wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}
+            onBlur={handleBlur}
         />
     );
 };
 
 Textarea.defaultProps = {
+    debounce: false,
     value: "",
-    debounce: 0,
     persisted_props: ["value"],
     persistence_type: "local",
+    n_blur: 0,
+    autoComplete: "off"
 };
 
 export default Textarea;
