@@ -44,3 +44,14 @@ export interface PersistenceProps {
      */
     persistence_type?: "local" | "session" | "memory";
 }
+
+export interface DebounceProps {
+    /** An integer that represents the number of times that this element has lost focus */
+    n_blur?: number;
+    /** An integer that represents the number of times that this element has been submitted */
+    n_submit?: number;
+    /** (boolean | number; default False): If True, changes to input will be sent back to the Dash server only on enter or when losing focus. If it's False, it will send the value back on every change. If a number, it will not send anything back to the Dash server until the user has stopped typing for that number of milliseconds. */
+    debounce?: boolean | number;
+    /** (string; default "off") Enables the browser to attempt autocompletion, based on user history.  */
+    autoComplete?: string;
+}
