@@ -1,20 +1,14 @@
 import { Textarea as MantineTextarea } from "@mantine/core";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { DashBaseProps, PersistenceProps } from "props/dash";
+import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { TextareaProps } from "props/text";
 import React, { useEffect, useState } from "react";
 
-interface Props extends TextareaProps, DashBaseProps, PersistenceProps {
+interface Props extends TextareaProps, DashBaseProps, DebounceProps, PersistenceProps {
     /** Content */
     value?: string;
     /** Spell check property */
     spellCheck?: boolean;
-     /** An integer that represents the number of times that this element has lost focus */
-    n_blur?: number;
-    /** (boolean | number; default False): If True, changes to input will be sent back to the Dash server only when losing focus. If it's False, it will send the value back on every change. If a number, it will not send anything back to the Dash server until the user has stopped typing for that number of milliseconds. */
-    debounce?: boolean | number;
-    /** (string; default "off") Enables the browser to attempt autocompletion, based on user history.  */
-    autoComplete?: string;
 }
 
 /** Textarea */
@@ -25,6 +19,7 @@ const Textarea = (props: Props) => {
         value,
         debounce,
         n_blur,
+        n_submit,
         persistence,
         persisted_props,
         persistence_type,
@@ -45,6 +40,12 @@ const Textarea = (props: Props) => {
         setVal(value);
     }, [value]);
 
+    const handleKeyDown = (ev) => {
+        if (ev.key === "Enter" && debounce === true) {
+            setProps({ n_submit: n_submit + 1, value: val });
+        }
+    };
+
     const handleBlur = () => {
         if (debounce === true) {
             setProps({ n_blur: n_blur + 1, value: val });
@@ -60,6 +61,7 @@ const Textarea = (props: Props) => {
             value={val}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
         />
     );
 };
@@ -70,6 +72,7 @@ Textarea.defaultProps = {
     persisted_props: ["value"],
     persistence_type: "local",
     n_blur: 0,
+    n_submit: 0,
     autoComplete: "off"
 };
 
