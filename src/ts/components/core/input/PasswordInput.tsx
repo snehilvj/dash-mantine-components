@@ -1,7 +1,7 @@
 import { PasswordInput as MantinePasswordInput } from "@mantine/core";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
+import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
@@ -11,6 +11,7 @@ interface Props
         __BaseInputProps,
         StylesApiProps,
         DashBaseProps,
+        DebounceProps,
         PersistenceProps {
     /** Props passed down to the visibility toggle button */
     visibilityToggleButtonProps?: Record<string, any>;
@@ -18,22 +19,21 @@ interface Props
     visible?: boolean;
     /** Input value for controlled component */
     value?: string;
-    /** An integer that represents the number of times that this element has been submitted */
-    n_submit?: number;
-    /** Debounce time in ms */
-    debounce?: number;
 }
 
 /** PasswordInput */
 const PasswordInput = (props: Props) => {
-    const { setProps, loading_state, value, n_submit, debounce, ...others } =
+    const { setProps, loading_state, value, n_submit, n_blur, debounce, ...others } =
         props;
 
     const [val, setVal] = useState(value);
-    const [debounced] = useDebouncedValue(val, debounce);
+    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const [debounced] = useDebouncedValue(val, debounceValue);
 
     useDidUpdate(() => {
-        setProps({ value: debounced });
+        if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
     }, [debounced]);
 
     useDidUpdate(() => {
@@ -41,8 +41,14 @@ const PasswordInput = (props: Props) => {
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
-            setProps({ n_submit: n_submit + 1 });
+        if (ev.key === "Enter" && debounce === true) {
+            setProps({ n_submit: n_submit + 1, value: val });
+        }
+    };
+
+    const handleBlur = () => {
+        if (debounce === true) {
+            setProps({ n_blur: n_blur + 1, value: val });
         }
     };
 
@@ -51,21 +57,23 @@ const PasswordInput = (props: Props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            wrapperProps={{ autoComplete: "off" }}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
             onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             {...others}
         />
     );
 };
 
 PasswordInput.defaultProps = {
-    debounce: 0,
+    debounce: false,
     value: "",
     persisted_props: ["value"],
     persistence_type: "local",
     n_submit: 0,
+    n_blur: 0,
+    autoComplete: "off"
 };
 
 export default PasswordInput;

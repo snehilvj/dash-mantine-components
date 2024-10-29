@@ -8,19 +8,19 @@ _dash_renderer._set_react_version("18.2.0")
 
 
 debounce = dmc.Stack([
-    dmc.Textarea(
+    dmc.PasswordInput(
         id="debounce-true",
         debounce=True,
     ),
     dmc.Box(id="out-true"),
 
-    dmc.Textarea(
+    dmc.PasswordInput(
         id="debounce-false",
         debounce=False,
     ),
     dmc.Box(id="out-false"),
 
-    dmc.Textarea(
+    dmc.PasswordInput(
         id="debounce-2000",
         debounce=2000,
     ),
@@ -28,7 +28,7 @@ debounce = dmc.Stack([
 ])
 
 
-def test_001te_textarea(dash_duo):
+def test_001pa_passwordinput(dash_duo):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(debounce)
@@ -43,6 +43,9 @@ def test_001te_textarea(dash_duo):
     )
     def update(d_true, d_false, d_2000):
         return d_true, d_false, d_2000
+
+
+
 
     dash_duo.start_server(app)
     # debounce=True
