@@ -8,35 +8,34 @@ import dash_mantine_components as dmc
 
 _dash_renderer._set_react_version("18.2.0")
 
-debounce = dmc.Stack([
-    dmc.Box(id="out-true"),
-    dmc.MultiSelect(
-        id="debounce-true",
-        data=["a", "b", "c"],
-        value=["a"],
-        debounce=True,
-    ),
+debounce = dmc.Stack(
+    [
+        dmc.Box(id="out-true"),
+        dmc.MultiSelect(
+            id="debounce-true",
+            data=["a", "b", "c"],
+            value=["a"],
+            debounce=True,
+        ),
+        dmc.Box(id="out-false"),
+        dmc.MultiSelect(
+            id="debounce-false",
+            data=["d", "e", "f"],
+            value=["d"],
+            debounce=False,
+        ),
+        dmc.Box(id="out-2000"),
+        dmc.MultiSelect(
+            id="debounce-2000",
+            data=["g", "h", "i"],
+            value=["g"],
+            debounce=2000,
+        ),
+    ]
+)
 
-    dmc.Box(id="out-false"),
-    dmc.MultiSelect(
-        id="debounce-false",
-        data=["d", "e", "f"],
-        value=["d"],
-        debounce=False,
-    ),
 
-    dmc.Box(id="out-2000"),
-    dmc.MultiSelect(
-        id="debounce-2000",
-        data=["g", "h", "i"],
-        value=["g"],
-        debounce=2000,
-    ),
-
-])
-
-
-def test_001mu_multiselect(dash_duo):
+def test_001mu_multi_select_debounce(dash_duo):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(debounce)
@@ -47,13 +46,10 @@ def test_001mu_multiselect(dash_duo):
         Output("out-2000", "children"),
         Input("debounce-true", "value"),
         Input("debounce-false", "value"),
-        Input("debounce-2000", "value")
+        Input("debounce-2000", "value"),
     )
     def update(d_true, d_false, d_2000):
         return json.dumps(d_true), json.dumps(d_false), json.dumps(d_2000)
-
-
-
 
     dash_duo.start_server(app)
     # debounce=True
@@ -78,7 +74,6 @@ def test_001mu_multiselect(dash_duo):
     # verify the output has been updated after input loses focus
     dash_duo.wait_for_text_to_equal("#out-true", '["a", "b"]')
 
-
     # debounce=False
     # focus the select input
     elem = dash_duo.find_element("#debounce-false")
@@ -101,7 +96,7 @@ def test_001mu_multiselect(dash_duo):
     options[7].click()
 
     with pytest.raises(TimeoutException):
-        dash_duo.wait_for_text_to_equal("#out-2000",  '["g", "h"]', timeout=1)
+        dash_duo.wait_for_text_to_equal("#out-2000", '["g", "h"]', timeout=1)
 
     # but do expect that it is eventually called
     dash_duo.wait_for_text_to_equal("#out-2000", '["g", "h"]')
