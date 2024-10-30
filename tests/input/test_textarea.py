@@ -7,25 +7,25 @@ import dash_mantine_components as dmc
 _dash_renderer._set_react_version("18.2.0")
 
 
-debounce = dmc.Stack([
-    dmc.Textarea(
-        id="debounce-true",
-        debounce=True,
-    ),
-    dmc.Box(id="out-true"),
-
-    dmc.Textarea(
-        id="debounce-false",
-        debounce=False,
-    ),
-    dmc.Box(id="out-false"),
-
-    dmc.Textarea(
-        id="debounce-2000",
-        debounce=2000,
-    ),
-    dmc.Box(id="out-2000")
-])
+debounce = dmc.Stack(
+    [
+        dmc.Textarea(
+            id="debounce-true",
+            debounce=True,
+        ),
+        dmc.Box(id="out-true"),
+        dmc.Textarea(
+            id="debounce-false",
+            debounce=False,
+        ),
+        dmc.Box(id="out-false"),
+        dmc.Textarea(
+            id="debounce-2000",
+            debounce=2000,
+        ),
+        dmc.Box(id="out-2000"),
+    ]
+)
 
 
 def test_001te_textarea(dash_duo):
@@ -39,7 +39,7 @@ def test_001te_textarea(dash_duo):
         Output("out-2000", "children"),
         Input("debounce-true", "value"),
         Input("debounce-false", "value"),
-        Input("debounce-2000", "value")
+        Input("debounce-2000", "value"),
     )
     def update(d_true, d_false, d_2000):
         return d_true, d_false, d_2000

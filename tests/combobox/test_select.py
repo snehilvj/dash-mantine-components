@@ -7,31 +7,31 @@ import dash_mantine_components as dmc
 _dash_renderer._set_react_version("18.2.0")
 
 
-debounce = dmc.Stack([
-    dmc.Select(
-        id="debounce-true",
-        data=["a", "b", "c"],
-        value="a",
-        debounce=True,
-    ),
-    dmc.Box(id="out-true"),
-
-    dmc.Select(
-        id="debounce-false",
-        data=["d", "e", "f"],
-        value="d",
-        debounce=False,
-    ),
-    dmc.Box(id="out-false"),
-
-    dmc.Select(
-        id="debounce-2000",
-        data=["g", "h", "i"],
-        value="g",
-        debounce=2000,
-    ),
-    dmc.Box(id="out-2000")
-])
+debounce = dmc.Stack(
+    [
+        dmc.Select(
+            id="debounce-true",
+            data=["a", "b", "c"],
+            value="a",
+            debounce=True,
+        ),
+        dmc.Box(id="out-true"),
+        dmc.Select(
+            id="debounce-false",
+            data=["d", "e", "f"],
+            value="d",
+            debounce=False,
+        ),
+        dmc.Box(id="out-false"),
+        dmc.Select(
+            id="debounce-2000",
+            data=["g", "h", "i"],
+            value="g",
+            debounce=2000,
+        ),
+        dmc.Box(id="out-2000"),
+    ]
+)
 
 
 def test_001se_select(dash_duo):
@@ -45,13 +45,10 @@ def test_001se_select(dash_duo):
         Output("out-2000", "children"),
         Input("debounce-true", "value"),
         Input("debounce-false", "value"),
-        Input("debounce-2000", "value")
+        Input("debounce-2000", "value"),
     )
     def update(d_true, d_false, d_2000):
         return d_true, d_false, d_2000
-
-
-
 
     dash_duo.start_server(app)
     # debounce=True
@@ -75,7 +72,6 @@ def test_001se_select(dash_duo):
     # verify the output has been updated after input loses focus
     dash_duo.wait_for_text_to_equal("#out-true", "b")
 
-
     # debounce=False
     # focus the select input
     elem = dash_duo.find_element("#debounce-false")
@@ -84,7 +80,6 @@ def test_001se_select(dash_duo):
     options[4].click()
     # verify the output has  been updated because debounce=False
     dash_duo.wait_for_text_to_equal("#out-false", "e")
-
 
     # debounce is an number
     # expect that a long debounce does not call back in a short amount of time
