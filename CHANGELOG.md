@@ -7,6 +7,7 @@
 
 ### Fixed
 - Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
+- Enable base64 images in Avatar #379 by @AnnMarieW
 
 # 0.14.6 
 
