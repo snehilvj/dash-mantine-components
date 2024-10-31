@@ -77,3 +77,45 @@ def test_001te_textinput(dash_duo):
     dash_duo.wait_for_text_to_equal("#out-2000", "x")
 
     assert dash_duo.get_logs() == []
+
+
+# test for n_submit and n_blur
+def test_002te_textinput(dash_duo):
+    app = Dash(__name__)
+
+    app.layout = dmc.MantineProvider(
+        html.Div(
+            [
+                dmc.TextInput(id="text-input", n_submit=0, n_blur=0),
+                html.Div(id="output"),
+            ]
+        )
+    )
+
+    @app.callback(
+        Output("output", "children"),
+        Input("text-input", "n_submit"),
+        Input("text-input", "n_blur")
+    )
+    def update_output(submit, blur):
+        return f"n_submit: {submit} n_blur: {blur}"
+
+    dash_duo.start_server(app)
+
+    # Wait for the app to load
+    dash_duo.wait_for_text_to_equal("#output", "n_submit: 0 n_blur: 0")
+
+    elem = dash_duo.find_element("#text-input")
+    elem.send_keys("x")
+    elem.send_keys(Keys.ENTER)
+    # verify the output has not been updated because debounce=True
+    dash_duo.wait_for_text_to_equal("#output",  "n_submit: 1 n_blur: 0")
+
+    elem = dash_duo.find_element("#text-input")
+    elem.send_keys("x")
+    elem.send_keys(Keys.TAB)
+    # verify the output has not been updated because debounce=True
+    dash_duo.wait_for_text_to_equal("#output", "n_submit: 1 n_blur: 1")
+
+    assert dash_duo.get_logs() == []
+
