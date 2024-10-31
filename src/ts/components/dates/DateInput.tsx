@@ -86,16 +86,21 @@ const DateInput = (props: Props) => {
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter" && debounce === true) {
-            setProps({ n_submit: n_submit + 1, value: dateToString(date) });
+        if (ev.key === "Enter") {
+            setProps({
+                n_submit: n_submit + 1,
+                ...(debounce === true && { value: dateToString(date) }),
+            });
         }
     };
 
     const handleBlur = () => {
-        if (debounce === true) {
-            setProps({ n_blur: n_blur + 1, value: dateToString(date) });
-        }
+        setProps({
+            n_blur: n_blur + 1,
+            ...(debounce === true && { value: dateToString(date) })
+        });
     };
+
 
     const isExcluded = (date: Date) => {
         return isDisabled(date, disabledDates || []);

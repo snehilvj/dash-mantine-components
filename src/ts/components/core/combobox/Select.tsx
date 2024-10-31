@@ -65,15 +65,19 @@ const Select = (props: Props) => {
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter" && debounce === true) {
-            setProps({ n_submit: n_submit + 1, value: selected });
+        if (ev.key === "Enter") {
+            setProps({
+                n_submit: n_submit + 1,
+                ...(debounce === true && { value: selected }),
+            });
         }
     };
 
     const handleBlur = () => {
-        if (debounce === true) {
-            setProps({ n_blur: n_blur + 1, value: selected });
-        }
+        setProps({
+            n_blur: n_blur + 1,
+            ...(debounce === true && { value: selected })
+        });
     };
 
 
