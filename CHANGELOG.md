@@ -2,8 +2,12 @@
 
 # Unreleased
 
+### Added
+
+- Added `autoScroll` prop to the `Carousel` component #373 by @mmarfat 
+
 ### Changed
-- Reduced the Highlight component file size. #366 by @AnnMarieW
+- Reduced the Highlight component file size  #366 by @AnnMarieW
 
 ### Fixed
 - Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
