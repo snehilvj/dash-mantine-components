@@ -1,5 +1,5 @@
 import { MultiSelect as MantineMultiSelect } from "@mantine/core";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
+import { useDebouncedValue, useDidUpdate, useFocusWithin } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { __CloseButtonProps } from "props/button";
 import { ComboboxLikeProps } from "props/combobox";
@@ -54,6 +54,7 @@ const MultiSelect = (props: Props) => {
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
     const [searchVal, setSearchVal] = useState(searchValue);
+    const { ref, focused } = useFocusWithin()
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(selected, debounceValue);
@@ -65,8 +66,16 @@ const MultiSelect = (props: Props) => {
     }, [debounced]);
 
     useDidUpdate(() => {
-        setSelected(value ?? []);
-    }, [value]);
+        // Update the value prop if an item is removed by clicking the "x" on the pill,
+        // even if the input is not focused at the time
+        if (!focused) {
+            setProps({ value: selected})
+        }
+    }, [selected]);
+
+    useDidUpdate(() => {
+            setSelected(value ?? []);
+        }, [value]);
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
@@ -99,19 +108,21 @@ const MultiSelect = (props: Props) => {
     }, [searchVal]);
 
     return (
-        <MantineMultiSelect
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            data={options}
-            onChange={setSelected}
-            value={selected}
-            searchValue={searchVal}
-            onSearchChange={setSearchVal}
-            {...others}
-        />
+        <div ref={ref}>
+            <MantineMultiSelect
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                }
+                onKeyDown={handleKeyDown}
+                onBlur={handleBlur}
+                data={options}
+                onChange={setSelected}
+                value={selected}
+                searchValue={searchVal}
+                onSearchChange={setSearchVal}
+                {...others}
+            />
+        </div>
     );
 };
 
