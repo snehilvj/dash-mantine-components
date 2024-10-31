@@ -43,7 +43,8 @@ def test_002ca_carousel(dash_duo):
             dmc.CarouselSlide(dmc.Center("Slide-2", bg="blue", c="white", p=60)),
         ],
         id="carousel",
-        autoScroll={"startDelay": 500, "stopOnMouseEnter": True},
+        loop=True,
+        autoScroll={"speed":50},
     )
 
     app.layout = dmc.MantineProvider(html.Div([component, html.Div(id="output")]))
