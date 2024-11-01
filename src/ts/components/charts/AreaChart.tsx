@@ -49,6 +49,8 @@ interface Props
     connectNulls?: boolean;
     /** Additional components that are rendered inside recharts `AreaChart` component */
     children?: React.ReactNode;
+    /** Determines whether each point should have associated label, False by default  */
+    withPointLabels?: boolean;
     /** Click data */
     clickData?: Record<string, any>;
     /** Hover data */
