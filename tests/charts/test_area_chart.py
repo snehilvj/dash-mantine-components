@@ -15,7 +15,7 @@ data = [
 
 component = dmc.Group(
     [
-        dmc.LineChart(
+        dmc.AreaChart(
             id="figure",
             h=300,
             dataKey="date",
@@ -33,7 +33,7 @@ component = dmc.Group(
 )
 
 
-def test_001li_linechart(dash_duo):
+def test_001ar_areachart(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(component)
@@ -52,27 +52,27 @@ def test_001li_linechart(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the circle elements inside the g.recharts-line-dots group
-    dots = dash_duo.find_elements(
-        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    # Target the areas
+    areas = dash_duo.find_elements(
+        ".recharts-curve.recharts-area-area"
     )
 
 
-    assert len(dots) > 0, "No dots found in the chart"
+    assert len(areas) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(dots[0]).click().perform()
+    actions.move_to_element(areas[0]).click().perform()
 
     expected_output = (
-        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+        '{"date": "Mar 24", "Apples": 3322, "Oranges": 986, "Tomatoes": 1821}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Apples")
+    dash_duo.wait_for_text_to_equal("#name", "Tomatoes")
 
     assert dash_duo.get_logs() == []
 
 
-def test_002li_linechart(dash_duo):
+def test_002ar_areachart(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(component)
@@ -91,20 +91,20 @@ def test_002li_linechart(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the circle elements inside the g.recharts-line-dots group
-    dots = dash_duo.find_elements(
-        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    # Target the areas
+    areas = dash_duo.find_elements(
+        ".recharts-curve.recharts-area-area"
     )
 
-    assert len(dots) > 0, "No dots found in the chart"
+    assert len(areas) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(dots[0]).perform()
+    actions.move_to_element(areas[0]).perform()
 
     expected_output = (
-        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+        '{"date": "Mar 24", "Apples": 3322, "Oranges": 986, "Tomatoes": 1821}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Apples")
+    dash_duo.wait_for_text_to_equal("#name", "Tomatoes")
 
     assert dash_duo.get_logs() == []

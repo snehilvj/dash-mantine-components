@@ -1,5 +1,7 @@
 import AreaChart from "./components/charts/AreaChart";
 import BarChart from "./components/charts/BarChart";
+import BubbleChart from "./components/charts/BubbleChart";
+import CompositeChart from "./components/charts/CompositeChart";
 import DonutChart from "./components/charts/DonutChart";
 import LineChart from "./components/charts/LineChart";
 import PieChart from "./components/charts/PieChart";
@@ -176,6 +178,7 @@ export {
     Blockquote,
     Box,
     Breadcrumbs,
+    BubbleChart,
     Burger,
     Button,
     ButtonGroup,
@@ -194,6 +197,7 @@ export {
     Collapse,
     ColorInput,
     ColorPicker,
+    CompositeChart,
     Container,
     DateInput,
     DatePicker,

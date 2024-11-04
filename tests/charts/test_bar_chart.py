@@ -6,26 +6,29 @@ import json
 _dash_renderer._set_react_version("18.2.0")
 
 data = [
-    {"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452},
-    {"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402},
-    {"date": "Mar 24", "Apples": 3322, "Oranges": 986, "Tomatoes": 1821},
-    {"date": "Mar 25", "Apples": 3470, "Oranges": 2108, "Tomatoes": 2809},
-    {"date": "Mar 26", "Apples": 3129, "Oranges": 1726, "Tomatoes": 2290},
+    {"month": "January", "Smartphones": 1200, "Laptops": 900, "Tablets": 200},
+    {"month": "February", "Smartphones": 1900, "Laptops": 1200, "Tablets": 400},
+    {"month": "March", "Smartphones": 400, "Laptops": 1000, "Tablets": 200},
+    {"month": "April", "Smartphones": 1000, "Laptops": 200, "Tablets": 800},
+    {"month": "May", "Smartphones": 800, "Laptops": 1400, "Tablets": 1200},
+    {"month": "June", "Smartphones": 750, "Laptops": 600, "Tablets": 1000}
 ]
 
 component = dmc.Group(
     [
-        dmc.LineChart(
+        dmc.BarChart(
             id="figure",
             h=300,
-            dataKey="date",
+            dataKey="month",
             data=data,
-            withLegend=True,
+            type="stacked",
             series=[
-                {"name": "Apples", "color": "indigo.6"},
-                {"name": "Oranges", "color": "blue.6"},
-                {"name": "Tomatoes", "color": "teal.6"},
+                {"name": "Smartphones", "color": "violet.6"},
+                {"name": "Laptops", "color": "blue.6"},
+                {"name": "Tablets", "color": "teal.6"},
             ],
+            withLegend=True,
+            withTooltip=False,
         ),
         dmc.Text(id="data"),
         dmc.Text(id="name"),
@@ -33,7 +36,7 @@ component = dmc.Group(
 )
 
 
-def test_001li_linechart(dash_duo):
+def test_001ba_barchart(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(component)
@@ -52,27 +55,27 @@ def test_001li_linechart(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the circle elements inside the g.recharts-line-dots group
-    dots = dash_duo.find_elements(
-        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    # Target the bars
+    bars = dash_duo.find_elements(
+        ".recharts-layer.recharts-bar-rectangle"
     )
 
 
-    assert len(dots) > 0, "No dots found in the chart"
+    assert len(bars) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(dots[0]).click().perform()
+    actions.move_to_element(bars[0]).click().perform()
 
     expected_output = (
-        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+         '{"month": "January", "Smartphones": 1200, "Laptops": 900, "Tablets": 200}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Apples")
+    dash_duo.wait_for_text_to_equal("#name", "Smartphones")
 
     assert dash_duo.get_logs() == []
 
 
-def test_002li_linechart(dash_duo):
+def test_002ba_barchart(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(component)
@@ -91,20 +94,20 @@ def test_002li_linechart(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the circle elements inside the g.recharts-line-dots group
-    dots = dash_duo.find_elements(
-        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    # Target the bars
+    bars = dash_duo.find_elements(
+        ".recharts-layer.recharts-bar-rectangle"
     )
 
-    assert len(dots) > 0, "No dots found in the chart"
+    assert len(bars) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(dots[0]).perform()
+    actions.move_to_element(bars[0]).perform()
 
     expected_output = (
-        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+        '{"month": "January", "Smartphones": 1200, "Laptops": 900, "Tablets": 200}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Apples")
+    dash_duo.wait_for_text_to_equal("#name", "Smartphones")
 
     assert dash_duo.get_logs() == []

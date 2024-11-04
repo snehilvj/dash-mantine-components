@@ -35,22 +35,42 @@ interface Props
     scatterProps?: object;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Hover data */
+    hoverData?: Record<string, any>;
     /** If set, displays labels next to points for the given axis  */
     pointLabels?: "x" | "y";
+    /** Name of the series that was clicked */
+    clickSeriesName?: Record<string, any>;
+    /** Name of the series that is hovered*/
+    hoverSeriesName?: Record<string, any>;
 }
 
 /** ScatterChart */
 const ScatterChart = (props: Props) => {
-    const { setProps, loading_state, clickData, scatterProps, ...others } =
+    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, scatterProps, ...others } =
         props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ clickData: getScatterClickData(ev) });
+            const clickdata = getScatterClickData(ev)
+            setProps({
+                clickData: clickdata,
+                clickSeriesName: clickdata["name"]
+            });
         }
     };
 
-    const newProps = { ...scatterProps, onClick };
+    const onMouseOver= (ev) => {
+        if (isEventValid(ev)) {
+            const clickdata = getScatterClickData(ev)
+            setProps({
+                hoverData: clickdata,
+                hoverSeriesName: clickdata["name"]
+             });
+        }
+    };
+
+    const newProps = { ...scatterProps, onClick, onMouseOver};
 
     return (
         <MantineScatterChart

@@ -6,26 +6,39 @@ import json
 _dash_renderer._set_react_version("18.2.0")
 
 data = [
-    {"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452},
-    {"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402},
-    {"date": "Mar 24", "Apples": 3322, "Oranges": 986, "Tomatoes": 1821},
-    {"date": "Mar 25", "Apples": 3470, "Oranges": 2108, "Tomatoes": 2809},
-    {"date": "Mar 26", "Apples": 3129, "Oranges": 1726, "Tomatoes": 2290},
+    {
+        "date": "Mar 22",
+        "Apples": 2890,
+        "Oranges": 2338,
+        "Tomatoes": 2452,
+    },
+    {
+        "date": "Mar 23",
+        "Apples": 2756,
+        "Oranges": 2103,
+        "Tomatoes": 2402,
+    },
+    {
+        "date": "Mar 24",
+        "Apples": 3322,
+        "Oranges": 986,
+        "Tomatoes": 1821,
+    },
 ]
-
 component = dmc.Group(
     [
-        dmc.LineChart(
+        dmc.CompositeChart(
             id="figure",
             h=300,
-            dataKey="date",
             data=data,
+            dataKey="date",
             withLegend=True,
+            maxBarWidth=30,
             series=[
-                {"name": "Apples", "color": "indigo.6"},
-                {"name": "Oranges", "color": "blue.6"},
-                {"name": "Tomatoes", "color": "teal.6"},
-            ],
+                {"name": "Tomatoes", "color": "rgba(18, 120, 255, 0.2)", "type": "bar"},
+                {"name": "Apples", "color": "red.8", "type": "line"},
+                {"name": "Oranges", "color": "yellow.8", "type": "area"},
+            ]
         ),
         dmc.Text(id="data"),
         dmc.Text(id="name"),
@@ -33,7 +46,7 @@ component = dmc.Group(
 )
 
 
-def test_001li_linechart(dash_duo):
+def test_001co_composite(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(component)
@@ -52,27 +65,27 @@ def test_001li_linechart(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the circle elements inside the g.recharts-line-dots group
-    dots = dash_duo.find_elements(
-        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    # Target the areas
+    areas = dash_duo.find_elements(
+        ".recharts-curve.recharts-area-area"
     )
 
 
-    assert len(dots) > 0, "No dots found in the chart"
+    assert len(areas) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(dots[0]).click().perform()
+    actions.move_to_element(areas[0]).click().perform()
 
     expected_output = (
-        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+         '{"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Apples")
+    dash_duo.wait_for_text_to_equal("#name", "Oranges")
 
     assert dash_duo.get_logs() == []
 
 
-def test_002li_linechart(dash_duo):
+def test_002co_compositechart(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(component)
@@ -91,20 +104,20 @@ def test_002li_linechart(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the circle elements inside the g.recharts-line-dots group
-    dots = dash_duo.find_elements(
-        "g.recharts-line-dots circle.recharts-dot.recharts-line-dot"
+    # Target the areas
+    areas = dash_duo.find_elements(
+        ".recharts-curve.recharts-area-area"
     )
 
-    assert len(dots) > 0, "No dots found in the chart"
+    assert len(areas) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(dots[0]).perform()
+    actions.move_to_element(areas[0]).click().perform()
 
     expected_output = (
-        '{"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452}'
+        '{"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
-    dash_duo.wait_for_text_to_equal("#name", "Apples")
+    dash_duo.wait_for_text_to_equal("#name", "Oranges")
 
     assert dash_duo.get_logs() == []
