@@ -4,6 +4,7 @@
 
 - [ ] Update Mantine dependency in `package.json`
 - [ ] Update Mantine dependency for optional stylesheets in `styles.py`
+- [ ] Update other dependencies - see notes section below for details
 - [ ] Remove usage/demo apps used for testing
 - [ ] `npm install` to install the new dependencies
 - [ ] `npm run build` and push updated `package-lock.json`
@@ -52,3 +53,12 @@ $ npm publish
  - [ ] Make announcement on Plotly forum and dmc Discord
  
  
+### Updating other dependencies
+My notes from a discussion with alexj
+
+Anything that’s not a major should be safe to just bump. The ones to pay attention to:
+- rect* -  since these all are going to be provided by Dash in actual use anyway, best to pin to  what Dash uses.
+- ramda - sometimes makes breaking changes in “major” releases so it’s worth looking at their changelog and seeing if we’re using anything they changed.
+- types/ramda - just match ramda
+- style-loader and css-loader - these are used together within the webpack config. IIRC these particular upgrades don’t require any changes to the config for our normal usage, so most likely it’ll just work. If the bundle builds without errors you’re fine, otherwise need to look at the docs for these packages.
+- typescript - even if it's not a major bump, sometimes they tighten up their error checking in minor releases so the bundle fails to build and something about type annotations needs to be updated
