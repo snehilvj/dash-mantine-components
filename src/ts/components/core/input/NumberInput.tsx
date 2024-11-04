@@ -61,7 +61,18 @@ interface Props
 
 /** NumberInput */
 const NumberInput = (props: Props) => {
-    const { setProps, loading_state, value, n_submit, n_blur, debounce, ...others } = props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        loading_state,
+        value,
+        n_submit,
+        n_blur,
+        debounce,
+        ...others
+    } = props;
 
     const [val, setVal] = useState(value);
 

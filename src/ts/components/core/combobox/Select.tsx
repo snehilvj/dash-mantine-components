@@ -44,8 +44,20 @@ interface Props
 
 /** Select */
 const Select = (props: Props) => {
-    const { setProps, loading_state, debounce, n_submit, n_blur, data, searchValue, value, ...others } =
-        props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        loading_state,
+        debounce,
+        n_submit,
+        n_blur,
+        data,
+        searchValue,
+        value,
+        ...others
+    } = props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
