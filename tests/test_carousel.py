@@ -32,3 +32,34 @@ def test_001ca_carousel(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "slide index 2")
 
     assert dash_duo.get_logs() == []
+
+def test_002ca_carousel(dash_duo):
+    app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
+
+    component = dmc.Carousel(
+        [
+            dmc.CarouselSlide(dmc.Center("Slide-0", bg="blue", c="white", p=60)),
+            dmc.CarouselSlide(dmc.Center("Slide-1", bg="blue", c="white", p=60)),
+            dmc.CarouselSlide(dmc.Center("Slide-2", bg="blue", c="white", p=60)),
+        ],
+        id="carousel",
+        loop=True,
+        autoScroll={"speed":50},
+    )
+
+    app.layout = dmc.MantineProvider(html.Div([component, html.Div(id="output")]))
+
+    @app.callback(Output("output", "children"), Input("carousel", "active"))
+    def update_output(n):
+        return f"slide index {n}"
+
+    dash_duo.start_server(app)
+
+    # Wait for the app to load
+    dash_duo.wait_for_text_to_equal("#output", "slide index 0")
+    # autoscroll should loop at least once
+    dash_duo.wait_for_text_to_equal("#output", "slide index 1")
+    dash_duo.wait_for_text_to_equal("#output", "slide index 2")
+    dash_duo.wait_for_text_to_equal("#output", "slide index 0")
+
+    assert dash_duo.get_logs() == []

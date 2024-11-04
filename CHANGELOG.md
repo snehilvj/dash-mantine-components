@@ -2,11 +2,18 @@
 
 # Unreleased
 
+### Added
+
+- Added `autoScroll` prop to the `Carousel` component #373 by @mmarfat 
+- Added `withLegend` to `RadarChart`, and `maxBarWidth`, `minBarSize` to `BarChart`. #395 by @AnnMarieW
+
 ### Changed
-- Reduced the Highlight component file size. #366 by @AnnMarieW
+- Reduced the Highlight component file size  #366 by @AnnMarieW
 
 ### Fixed
 - Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
+- Enable base64 images in Avatar #379 by @AnnMarieW
+- Fixed boxWrapperProps in the Hovercard #389 by @AnnMarieW
 
 # 0.14.6 
 

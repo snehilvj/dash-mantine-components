@@ -5,6 +5,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
@@ -57,11 +58,13 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     withKeyboardEvents?: boolean;
     /** Enables autoplay with optional configuration */
     autoplay?: boolean | Record<string, any>;
+    /** Enables autoScroll with optional configuration */
+    autoScroll?: boolean | Record<string, any>;
 }
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, active, initialSlide, setProps, loading_state, autoplay, ...others } = props;
+    const { children, active, initialSlide, setProps, loading_state, autoplay, autoScroll, ...others } = props;
 
     const autoplayPlugin =
         autoplay === true
@@ -69,6 +72,13 @@ const Carousel = (props: Props) => {
             : autoplay && typeof autoplay === "object"
               ? Autoplay(autoplay)
                : null;
+    
+    const autoScrollPlugin = 
+        autoScroll === true
+            ? AutoScroll()
+            : autoScroll && typeof autoScroll === "object"
+              ? AutoScroll(autoScroll)
+              : null;
 
       useEffect(() => {
          setProps({active: initialSlide})
@@ -80,7 +90,7 @@ const Carousel = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             {...others}
-            plugins={autoplayPlugin ? [autoplayPlugin] : []}
+            plugins={[autoplayPlugin, autoScrollPlugin].filter(Boolean)}
             onSlideChange={(a) => setProps({ active: a ?? initialSlide })}
             initialSlide={initialSlide}
         >

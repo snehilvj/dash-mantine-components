@@ -45,6 +45,11 @@ interface Props
     withBarValueLabel?: boolean;
     /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
     highlightHover?: boolean
+    /** Sets minimum height of the bar in px, `0` by default */
+    minBarSize?: number;
+    /** Maximum bar width in px */
+    maxBarWidth?: number;
+
 }
 
 /** BarChart */
