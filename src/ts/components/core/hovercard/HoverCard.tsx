@@ -22,13 +22,12 @@ const HoverCard = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childType = child.props._dashprivate_layout.type;
+                const {type: childType, props: childProps} = child.props._dashprivate_layout;
                 if (childType === "HoverCardTarget") {
-                    const { boxWrapperProps } = child.props;
-                    const boxProps = { w: "fit-content", ...boxWrapperProps };
+                    const { boxWrapperProps } = childProps;
                     return (
                         <MantineHoverCard.Target key={index}>
-                            <Box {...boxProps}>{child}</Box>
+                            <Box w="fit-content" {...boxWrapperProps}>{child}</Box>
                         </MantineHoverCard.Target>
                     );
                 }
