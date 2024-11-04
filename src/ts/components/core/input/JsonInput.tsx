@@ -11,6 +11,8 @@ interface Props extends TextareaProps, DashBaseProps, DebounceProps, Persistence
     formatOnBlur?: boolean;
     /** Error message displayed when value is not valid JSON */
     validationError?: React.ReactNode;
+    /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
+    autoComplete?: string;
 }
 
 /** JsonInput */

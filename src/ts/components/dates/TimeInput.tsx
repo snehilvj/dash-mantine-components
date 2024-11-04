@@ -87,7 +87,6 @@ TimeInput.defaultProps = {
     n_submit: 0,
     n_blur: 0,
     value: "",
-    autoComplete: "off"
 };
 
 export default TimeInput;

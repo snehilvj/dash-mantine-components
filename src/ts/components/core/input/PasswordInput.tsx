@@ -87,7 +87,6 @@ PasswordInput.defaultProps = {
     persistence_type: "local",
     n_submit: 0,
     n_blur: 0,
-    autoComplete: "off"
 };
 
 export default PasswordInput;

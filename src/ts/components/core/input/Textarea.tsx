@@ -9,6 +9,8 @@ interface Props extends TextareaProps, DashBaseProps, DebounceProps, Persistence
     value?: string;
     /** Spell check property */
     spellCheck?: boolean;
+    /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
+    autoComplete?: string;
 }
 
 /** Textarea */

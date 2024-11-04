@@ -57,6 +57,8 @@ interface Props
     stepHoldInterval?: number | ((stepCount: number) => number);
     /** Initial delay in milliseconds before stepping the value. */
     stepHoldDelay?: number;
+    /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
+    autoComplete?: string;
 }
 
 /** NumberInput */
