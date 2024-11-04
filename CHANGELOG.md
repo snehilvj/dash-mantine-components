@@ -1,14 +1,21 @@
 # Change Log
 
-# Unreleased
+# 0.14.6 
 
 ### Added
 
-- Added `autoScroll` prop to the `Carousel` component #373 by @mmarfat 
+- Added `autoScroll` prop to the `Carousel` component,  enabling smooth scrolling like a stock ticker. #373 by @mmarfat 
 - Added `withLegend` to `RadarChart`, and `maxBarWidth`, `minBarSize` to `BarChart`. #395 by @AnnMarieW
+- New chart types: `CompositeChart` and `BubbleChart` #368 by @michaelw88
+- New props for charts: (Included in #368 by  @michaelw88)
+  - added `hoverData`, `hoverSeriesName`, `clickSeriesName` and `highlightHover` props to `AreaChart`, `LineChart`, `BarChart`, and `CompositeChart`
+  - added `hoverData`, `hoverSeriesName`, `clickSeriesName` to `PieChart`,   `DonutChart`, `ScatterChart`
+- New props for triggering dash callbacks on input components: `n_submit` `n_blur` #383 by @AnnMarieW 
+
 
 ### Changed
 - Reduced the Highlight component file size  #366 by @AnnMarieW
+- The `debounce` prop on  input components can now be `True` `False` or `number` of ms delay before updating.  When True, the value will update on enter or on blur. #383 by @AnnMarieW
 
 ### Fixed
 - Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
