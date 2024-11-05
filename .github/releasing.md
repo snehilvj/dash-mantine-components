@@ -47,7 +47,7 @@ $ npm publish
 
 
 ### After release:
-
+ - [ ] check for any added props or significant changes from the Mantine changelog.  Open issues for any missing features.
  - [ ] Update dmc-docs.  When the version changes, be sure to run `poetry update` and push the new `poetry.lock` file. The docs deploy automatically on Render
  - [ ] Include new contributors in the docs
  - [ ] Make announcement on Plotly forum and dmc Discord
