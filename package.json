@@ -51,7 +51,6 @@
         "@mantine/hooks": "7.13.4",
         "@mantine/notifications": "7.13.4",
         "@mantine/nprogress": "7.13.4",
-        "@mantine/spotlight": "7.13.4",
         "dayjs": "^1.11.10",
         "embla-carousel-autoplay": "^8.3.0",
         "embla-carousel-react": "^8.3.0",
