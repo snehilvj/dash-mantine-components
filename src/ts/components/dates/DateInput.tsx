@@ -1,5 +1,5 @@
 import { CalendarLevel, DateInput as MantineDateInput } from "@mantine/dates";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
+import { useDebouncedValue, useDidUpdate, useFocusWithin } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import {
@@ -77,11 +77,22 @@ const DateInput = (props: Props) => {
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(date, debounceValue);
 
+    const { ref, focused } = useFocusWithin();
+
     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
             setProps({ value: dateToString(date) });
         }
     }, [debounced]);
+
+    useDidUpdate(() => {
+        // Ensure the value prop is updated when the date is cleared by clicking the "X" button,
+        // even if the input does not have focus.
+        if (!focused) {
+            setProps({ value: dateToString(date)})
+        }
+    }, [date]);
+
 
     useDidUpdate(() => {
         setDate(stringToDate(value));
@@ -109,19 +120,21 @@ const DateInput = (props: Props) => {
     };
 
     return (
-        <MantineDateInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
-            onBlur={handleBlur}
-            onKeyDown={handleKeyDown}
-            onChange={setDate}
-            value={date}
-            minDate={stringToDate(minDate)}
-            maxDate={stringToDate(maxDate)}
-            excludeDate={isExcluded}
-            {...others}
-        />
+        <div ref={ref}>
+            <MantineDateInput
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                }
+                onBlur={handleBlur}
+                onKeyDown={handleKeyDown}
+                onChange={setDate}
+                value={date}
+                minDate={stringToDate(minDate)}
+                maxDate={stringToDate(maxDate)}
+                excludeDate={isExcluded}
+                {...others}
+            />
+        </div>
     );
 };
 
