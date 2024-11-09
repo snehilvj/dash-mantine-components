@@ -50,6 +50,8 @@ interface Props
     level?: CalendarLevel;
     /** Specifies days that should be disabled */
     disabledDates?: string[];
+    /** Determines whether today should be highlighted with a border, false by default */
+    highlightToday?: boolean;
 }
 
 /** DateInput */
