@@ -112,6 +112,7 @@ DatePicker.defaultProps = {
     persistence_type: 'local',
     debounce: 0,
     n_submit: 0,
+    type: 'default',
 };
 
 export default DatePicker;

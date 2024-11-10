@@ -83,15 +83,13 @@ const DateInput = (props: Props) => {
         if (typeof debounce === 'number' || debounce === false) {
             setProps({ value: dateToString(date) });
         }
-    }, [debounced]);
 
-    useDidUpdate(() => {
         // Ensure the value prop is updated when the date is cleared by clicking the "X" button,
         // even if the input does not have focus.
-        if (!focused) {
+        if (!focused && debounce === true) {
             setProps({ value: dateToString(date)})
         }
-    }, [date]);
+    }, [debounced]);
 
 
     useDidUpdate(() => {
