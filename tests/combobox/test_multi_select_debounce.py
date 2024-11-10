@@ -139,3 +139,44 @@ def test_002mu_multi_select_debounce(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: []")
 
     assert dash_duo.get_logs() == []
+
+
+def test_003mu_multi_select_debounce(dash_duo):
+    app = Dash(__name__)
+
+    app.layout = dmc.MantineProvider(
+        html.Div(
+            [
+                dmc.MultiSelect(
+                    id="multi-select",
+                    data=["a", "b"],
+                    value=["a"],
+                    debounce=2000
+                ),
+                html.Div(id="output"),
+            ]
+        )
+    )
+
+    @app.callback(Output("output", "children"), Input("multi-select", "value"))
+    def update_output(selected_values):
+        return f"Selected: {selected_values}"
+
+    dash_duo.start_server(app)
+
+    # Wait for the app to load
+    dash_duo.wait_for_text_to_equal("#output", "Selected: ['a']")
+
+    # delete selected item by clicking on the pill
+    button = dash_duo.find_element("button.mantine-Pill-remove")
+    button.click()
+
+    # Verify the value updates after debounce time when the input is not focused
+    with pytest.raises(TimeoutException):
+        dash_duo.wait_for_text_to_equal("#output", '["a"]', timeout=1)
+
+    # but do expect that it is eventually called
+    dash_duo.wait_for_text_to_equal("#output", "Selected: []")
+
+    assert dash_duo.get_logs() == []
+
