@@ -1,5 +1,15 @@
 # Change Log
 
+# Unreleased
+
+### Added 
+
+- New additons to Date components #405 by @AnnMarieW
+  - `DatePicker` - The `debounce` prop can now be `True` `False` or `number` of ms delay before updating.  When True, the value updates on blur. 
+  - Added missing `highlightToday` prop on all Date components with calendars.
+  - `DateInput` updates properly now when clearable=True 
+
+
 # 0.14.7
 
 ### Added
