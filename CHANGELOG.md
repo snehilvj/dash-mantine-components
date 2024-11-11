@@ -1,5 +1,11 @@
 # Change Log
 
+# Unreleased
+
+### Added
+
+- Enabled custom icons in `Checkbox` Added `icon` and `indeterminateIcon` props #408 by @snehilvj 
+
 # 0.14.7
 
 ### Added
