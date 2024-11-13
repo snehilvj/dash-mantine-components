@@ -173,7 +173,7 @@ def test_003mu_multi_select_debounce(dash_duo):
 
     # Verify the value updates after debounce time when the input is not focused
     with pytest.raises(TimeoutException):
-        dash_duo.wait_for_text_to_equal("#output", '["a"]', timeout=1)
+        dash_duo.wait_for_text_to_equal("#output", "Selected: []", timeout=1)
 
     # but do expect that it is eventually called
     dash_duo.wait_for_text_to_equal("#output", "Selected: []")
