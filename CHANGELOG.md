@@ -1,5 +1,11 @@
 # Change Log
 
+# Unreleased
+
+### Fixed
+-  In MultiSelect, enable the debounce to work when deleting items when the dropdown is closed when debounce is a number. #407 by @AnnMarieW
+
+
 # 0.14.7
 
 ### Added
