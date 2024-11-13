@@ -72,9 +72,6 @@ const Select = (props: Props) => {
         }
     }, [debounced]);
 
-    useDidUpdate(() => {
-        setSelected(value);
-    }, [value]);
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
@@ -98,6 +95,10 @@ const Select = (props: Props) => {
         const filteredSelected = filterSelected(data, selected);
         setSelected(filteredSelected);
     }, [data]);
+
+    useDidUpdate(() => {
+        setSelected(value);
+    }, [value]);
 
     useDidUpdate(() => {
         setProps({ data: options });
