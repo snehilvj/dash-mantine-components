@@ -14,7 +14,7 @@ def make_app(**kwargs):
     debounce = dmc.Stack(
         [
             dmc.Box(id="out-true"),
-            dmc.DatePicker(
+            dmc.DatePickerInput(
                 label="debounce=True",
                 id="debounce-true",
                 debounce=True,
@@ -23,7 +23,7 @@ def make_app(**kwargs):
                 **kwargs
             ),
             dmc.Box(id="out-false"),
-            dmc.DatePicker(
+            dmc.DatePickerInput(
                 label="debounce=False",
                 id="debounce-false",
                 debounce=False,
@@ -32,7 +32,7 @@ def make_app(**kwargs):
                 **kwargs
             ),
             dmc.Box(id="out-2000"),
-            dmc.DatePicker(
+            dmc.DatePickerInput(
                 label="debounce=2000",
                 id="debounce-2000",
                 debounce=2000,
@@ -60,7 +60,7 @@ def make_app(**kwargs):
 
 
 # type=default (select one date)
-def test_001dp_datepicker(dash_duo):
+def test_001dp_DatePickerInput(dash_duo):
 
     app = make_app()
 
@@ -123,7 +123,7 @@ def test_001dp_datepicker(dash_duo):
     assert dash_duo.get_logs() == []
 
 # type=range
-def test_002dp_datepicker(dash_duo):
+def test_002dp_DatePickerInput(dash_duo):
     app = make_app(type="range")
 
     dash_duo.start_server(app)
