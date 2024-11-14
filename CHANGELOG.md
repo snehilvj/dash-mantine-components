@@ -6,6 +6,11 @@
 
 - Enabled custom icons in `Checkbox` Added `icon` and `indeterminateIcon` props #408 by @snehilvj 
 
+### Fixed
+-  In MultiSelect, enable the debounce to work when deleting items when the dropdown is closed when debounce is a number. #407 by @AnnMarieW
+-  In MultiSelect and Select, fixed regression where it was not possible to update both the value and data in the same callback #412
+
+
 # 0.14.7
 
 ### Added
