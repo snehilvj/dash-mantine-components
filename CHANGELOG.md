@@ -2,12 +2,19 @@
 
 # Unreleased
 
+### Added
+
 - New additons to Date components #405 by @AnnMarieW
   - `DatePicker` - The `debounce` prop can now be `True` `False` or `number` of ms delay before updating.  When True, the value updates on blur. 
   - Added missing `highlightToday` prop on all Date components with calendars.
   - `DateInput` updates properly now when clearable=True 
 
 - Enabled custom icons in `Checkbox` Added `icon` and `indeterminateIcon` props #408 by @snehilvj 
+
+### Changed
+- **Breaking Change:** Renamed `DatePicker` to `DatePickerInput` so component names are aligned with the upstream Mantine library.  #414 by @AnnMarieW
+
+
 
 ### Fixed
 -  In MultiSelect, enable the debounce to work when deleting items when the dropdown is closed when debounce is a number. #407 by @AnnMarieW
