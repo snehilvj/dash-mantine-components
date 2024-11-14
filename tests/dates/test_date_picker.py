@@ -1,5 +1,7 @@
+import pytest
 import time
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
 from dash import Dash, html,  Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 
@@ -173,8 +175,8 @@ def test_002dp_datepicker(dash_duo):
     picker_elem3.send_keys(Keys.TAB, Keys.TAB, Keys.ENTER, Keys.ARROW_DOWN, Keys.ENTER, Keys.ESCAPE)
 
     # initially no change
-    time.sleep(.5)
-    dash_duo.wait_for_text_to_equal("#out-2000", "None", timeout=1)
+    with pytest.raises(TimeoutException):
+        dash_duo.wait_for_text_to_equal("#out-2000", "['2024-10-01', '2024-10-08']", timeout=1)
 
     # but do expect that it is eventually called
     dash_duo.wait_for_text_to_equal("#out-2000", "['2024-10-01', '2024-10-08']")
