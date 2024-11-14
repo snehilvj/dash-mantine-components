@@ -134,6 +134,7 @@ import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
 import Tooltip from "./components/core/tooltip/Tooltip";
 import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
+import DatePickerInput from "./components/dates/DatePickerInput";
 import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
 import MonthPickerInput from "./components/dates/MonthPickerInput";
@@ -201,6 +202,7 @@ export {
     Container,
     DateInput,
     DatePicker,
+    DatePickerInput,
     DateTimePicker,
     DatesProvider,
     Divider,
