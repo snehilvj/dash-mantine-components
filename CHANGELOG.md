@@ -17,7 +17,7 @@
 -  In MultiSelect and Select, fixed regression where it was not possible to update both the value and data in the same callback #412
 
 ### Changed
-- Upgraded to latest Mantine (7.14.0)
+- Upgraded to latest Mantine (7.14.1)
 
 # 0.14.7
 
