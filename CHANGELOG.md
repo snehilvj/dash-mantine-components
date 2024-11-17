@@ -35,7 +35,7 @@
 - Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
 - Enable base64 images in Avatar #379 by @AnnMarieW
 - Fixed boxWrapperProps in the Hovercard #389 by @AnnMarieW
-- Fixed React key warning in Tooltip component by adding a  key to the wrapper Box element #418 by @AnnMarieW
+- Fixed React key warning in Tooltip component by adding a key to the wrapper Box element #418 by @AnnMarieW
 
 # 0.14.6 
 
