@@ -25,6 +25,7 @@
   - added `hoverData`, `hoverSeriesName`, `clickSeriesName` and `highlightHover` props to `AreaChart`, `LineChart`, `BarChart`, and `CompositeChart`
   - added `hoverData`, `hoverSeriesName`, `clickSeriesName` to `PieChart`,   `DonutChart`, `ScatterChart`
 - New props for triggering dash callbacks on input components: `n_submit` `n_blur` #383 by @AnnMarieW 
+- Added `position` prop to `Notification #419 by @AnnMarieW
 
 
 ### Changed
