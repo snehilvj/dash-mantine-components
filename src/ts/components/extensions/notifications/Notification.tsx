@@ -32,6 +32,9 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
     autoClose?: boolean | number;
     /** action */
     action: "show" | "update" | "hide" | "clean" | "cleanQueue";
+    /** Position on the screen to display the notification.  */
+    position?: 'top-left' |  'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
+
 }
 
 /** Notification */
