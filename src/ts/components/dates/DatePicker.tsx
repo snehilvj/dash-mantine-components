@@ -1,94 +1,33 @@
-import { DatePickerInput } from "@mantine/dates";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { DateInputSharedProps, DatePickerBaseProps } from "props/dates";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import {
-    isDisabled,
-    stringToDate,
-    toDates,
-    toStrings,
-} from "../../utils/dates";
+// DatePicker placeholder - name changed to DatePickerInput
 
-interface Props
-    extends DashBaseProps,
-        PersistenceProps,
-        BoxProps,
-        DateInputSharedProps,
-        DatePickerBaseProps,
-        StylesApiProps {
-    /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
+// Need to define all the props from the old DatePicker component otherwise Dash will throw a TypeError for unexpected keywords
+import { useDebouncedValue, useDidUpdate, useFocusWithin } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { DateInputSharedProps, DatePickerBaseProps } from 'props/dates';
+import { StylesApiProps } from 'props/styles';
+
+interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputSharedProps, DatePickerBaseProps, StylesApiProps {
+    /** Dayjs format to display input value, "MMMM D, YYYY" by default */
     valueFormat?: string;
     /** Specifies days that should be disabled */
     disabledDates?: string[];
+    /** Determines whether today should be highlighted with a border, false by default */
+    highlightToday?: boolean;
     /** An integer that represents the number of times that this element has been submitted */
     n_submit?: number;
-    /** Debounce time in ms */
-    debounce?: number;
+    /**
+     * (boolean | number; default False): If True, changes to input will be sent back to the Dash server only on enter or when losing focus.
+     * If it's False, it will send the value back on every change. If a number, it will not send anything back to the Dash server until
+     * the user has stopped typing for that number of milliseconds.
+     */
+    debounce?: boolean | number;
 }
 
-/** DatePicker */
-const DatePicker = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        n_submit,
-        value,
-        debounce,
-        minDate,
-        maxDate,
-        disabledDates,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
-
-    const [date, setDate] = useState(toDates(value));
-    const [debounced] = useDebouncedValue(date, debounce);
-
-    useDidUpdate(() => {
-        setProps({ value: toStrings(date) });
-    }, [debounced]);
-
-    useDidUpdate(() => {
-        setDate(toDates(value));
-    }, [value]);
-
-    const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
-            setProps({ n_submit: n_submit + 1 });
-        }
-    };
-
-    const isExcluded = (date: Date) => {
-        return isDisabled(date, disabledDates || []);
-    };
-
-    return (
-        <DatePickerInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
-            wrapperProps={{ autoComplete: "off" }}
-            onKeyDown={handleKeyDown}
-            onChange={setDate}
-            value={date}
-            minDate={stringToDate(minDate)}
-            maxDate={stringToDate(maxDate)}
-            excludeDate={isExcluded}
-            {...others}
-        />
+const DatePicker = ( props: Props) => {
+    throw new Error(
+        "The 'DatePicker' component has been renamed to 'DatePickerInput'. Please update your app to use 'DatePickerInput' instead."
     );
-};
-
-DatePicker.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: 0,
-    n_submit: 0,
 };
 
 export default DatePicker;

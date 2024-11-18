@@ -54,7 +54,7 @@ interface Props extends TooltipBaseProps, DashBaseProps {
 const Tooltip = (props: Props) => {
     const { children, boxWrapperProps, setProps, loading_state, ...others } =
         props;
-    const boxProps = { w: "fit-content", ...boxWrapperProps };
+    const boxProps = { w: "fit-content", key: "tooltip-target", ...boxWrapperProps };
 
     return (
         <MantineTooltip

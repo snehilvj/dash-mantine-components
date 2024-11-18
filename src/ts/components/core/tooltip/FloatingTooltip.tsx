@@ -15,7 +15,7 @@ interface Props extends TooltipBaseProps, DashBaseProps {
 const FloatingTooltip = (props: Props) => {
     const { children, boxWrapperProps, setProps, loading_state, ...others } =
         props;
-    const boxProps = { w: "fit-content", ...boxWrapperProps };
+    const boxProps = { w: "fit-content", key: "tooltip-target", ...boxWrapperProps };
 
     return (
         <Tooltip.Floating

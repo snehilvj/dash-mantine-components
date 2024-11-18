@@ -1,5 +1,29 @@
 # Change Log
 
+# Unreleased
+
+### Added
+
+- New additons to Date components #405 by @AnnMarieW
+  - `DatePicker` - The `debounce` prop can now be `True` `False` or `number` of ms delay before updating.  When True, the value updates on blur. 
+  - Added missing `highlightToday` prop on all Date components with calendars.
+  - `DateInput` updates properly now when clearable=True 
+
+- Enabled custom icons in `Checkbox` Added `icon` and `indeterminateIcon` props #408 by @snehilvj 
+- New props: `barLabelColor` for the `BarChart` and `restrictToMarks` for the `Slider` #416 by @AnnMarieW
+
+### Changed
+- **Breaking Change:** Renamed `DatePicker` to `DatePickerInput` so component names are aligned with the upstream Mantine library.  #414 by @AnnMarieW
+
+
+
+### Fixed
+-  In MultiSelect, enable the debounce to work when deleting items when the dropdown is closed when debounce is a number. #407 by @AnnMarieW
+-  In MultiSelect and Select, fixed regression where it was not possible to update both the value and data in the same callback #412
+
+### Changed
+- Upgraded to latest Mantine (7.14.1)
+
 # 0.14.7
 
 ### Added
@@ -11,16 +35,19 @@
   - added `hoverData`, `hoverSeriesName`, `clickSeriesName` and `highlightHover` props to `AreaChart`, `LineChart`, `BarChart`, and `CompositeChart`
   - added `hoverData`, `hoverSeriesName`, `clickSeriesName` to `PieChart`,   `DonutChart`, `ScatterChart`
 - New props for triggering dash callbacks on input components: `n_submit` `n_blur` #383 by @AnnMarieW 
+- Added `position` prop to `Notification #419 by @AnnMarieW
 
 
 ### Changed
 - Reduced the Highlight component file size  #366 by @AnnMarieW
 - The `debounce` prop on  input components can now be `True` `False` or `number` of ms delay before updating.  When True, the value will update on enter or on blur. #383 by @AnnMarieW
+- Upgraded to latest Mantine (7.13.3)
 
 ### Fixed
 - Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
 - Enable base64 images in Avatar #379 by @AnnMarieW
 - Fixed boxWrapperProps in the Hovercard #389 by @AnnMarieW
+- Fixed React key warning in Tooltip component by adding a key to the wrapper Box element #418 by @AnnMarieW
 
 # 0.14.6 
 

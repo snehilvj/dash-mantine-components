@@ -49,7 +49,8 @@ interface Props
     minBarSize?: number;
     /** Maximum bar width in px */
     maxBarWidth?: number;
-
+    /** Controls color of the bar label, by default the value is determined by the chart orientation */
+    barLabelColor?: MantineColor;
 }
 
 /** BarChart */

@@ -42,6 +42,10 @@ interface Props
     checked?: boolean;
     /** Whether component is disabled */
     disabled?: boolean;
+    /** Icon */
+    icon?: React.ReactNode;
+    /** Indeterminate icon */
+    indeterminateIcon?: React.ReactNode;
 }
 
 /** Checkbox */
@@ -52,8 +56,16 @@ const Checkbox = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        icon,
+        indeterminateIcon,
         ...others
     } = props;
+
+    const iconFunc = ({ indeterminate, ...others }) => {
+        const selected: any = indeterminate ? indeterminateIcon : icon;
+        Object.assign(selected.props._dashprivate_layout.props, others);
+        return selected;
+    };
 
     return (
         <MantineCheckbox
@@ -61,6 +73,7 @@ const Checkbox = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
+            icon={icon || indeterminateIcon ? iconFunc : undefined}
             {...others}
         />
     );

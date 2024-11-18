@@ -75,19 +75,14 @@ const MultiSelect = (props: Props) => {
         if (typeof debounce === 'number' || debounce === false) {
             setProps({ value: debounced });
         }
-    }, [debounced]);
 
-    useDidUpdate(() => {
         // Update the value prop if an item is removed by clicking the "x" on the pill,
         // even if the input is not focused at the time
-        if (!focused) {
-            setProps({ value: selected})
+        if (!focused && debounce === true) {
+            setProps({ value: debounced})
         }
-    }, [selected]);
+    }, [debounced]);
 
-    useDidUpdate(() => {
-            setSelected(value ?? []);
-        }, [value]);
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
@@ -110,6 +105,10 @@ const MultiSelect = (props: Props) => {
         const filteredSelected = filterSelected(data, selected);
         setSelected(filteredSelected ?? []);
     }, [data]);
+
+    useDidUpdate(() => {
+        setSelected(value ?? []);
+    }, [value]);
 
     useDidUpdate(() => {
         setProps({ data: options });
