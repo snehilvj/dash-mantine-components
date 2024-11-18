@@ -7,3 +7,4 @@ include requires-install.txt
 include requires-dev.txt
 include dash_mantine_components/package-info.json
 include package.json
+exclude dash_mantine_components/metadata.json
