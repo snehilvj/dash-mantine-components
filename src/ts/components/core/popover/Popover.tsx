@@ -15,7 +15,7 @@ const Popover = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             opened={opened}
-            onClose={() => setProps({ opened: false })}
+            onChange={(_opened) => !_opened && setProps({ opened: false })}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
