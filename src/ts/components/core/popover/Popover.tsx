@@ -5,7 +5,7 @@ import React from "react";
 
 interface Props extends PopoverProps, DashBaseProps {}
 
-/** Popover Component */
+/** The Popover component can be used to display additional content in a dropdown element, triggered by a user interaction with a target element. */
 const Popover = (props: Props) => {
     const { children, opened, setProps, loading_state, ...others } = props;
 
@@ -15,7 +15,7 @@ const Popover = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             opened={opened}
-            onClose={() => setProps({ opened: false })}
+            onChange={(_opened) => !_opened && setProps({ opened: false })}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
