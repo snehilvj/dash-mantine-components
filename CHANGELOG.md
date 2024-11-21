@@ -17,6 +17,7 @@
 - Enabled custom icons in `Checkbox` Added `icon` and `indeterminateIcon` props #408 by @snehilvj 
 - New props: `barLabelColor` for the `BarChart` and `restrictToMarks` for the `Slider` #416 by @AnnMarieW
 - Added `position` prop to `Notification #419 by @AnnMarieW
+- Added `disabled` prop to `Radio`  #425  by @namakshenas
 
 ### Fixed
 -  In MultiSelect, enable the debounce to work when deleting items when the dropdown is closed when debounce is a number. #407 by @AnnMarieW
