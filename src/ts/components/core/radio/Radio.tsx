@@ -35,9 +35,9 @@ interface Props
     iconColor?: MantineColor;
     /** Determines whether icon color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
     autoContrast?: boolean;
-    /** To be used with Radio group */
-    disabled?: boolean;
     /** Determines whether Radio disabled and non-selectable */
+    disabled?: boolean;
+    /** To be used with Radio group */
     value?: string;
 }
 
