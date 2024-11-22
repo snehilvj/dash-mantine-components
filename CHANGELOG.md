@@ -4,6 +4,11 @@
 ### Added
 - Added `disabled` prop to `Radio`  #425  by @namakshenas 
 
+# Unreleased
+
+### Fixed
+- Fixed closing of Popovers when clicking outside. #423 by @magicmq
+
 # 0.15.0
 
 ### Changed
