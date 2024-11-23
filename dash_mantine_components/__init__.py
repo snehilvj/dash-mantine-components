@@ -12,6 +12,7 @@ from . import styles
 from ._imports_ import *
 from ._imports_ import __all__
 from .theme import DEFAULT_THEME
+from .figure_templates import create_mantine_figure_templates
 
 if not hasattr(_dash, "__plotly_dash") and not hasattr(_dash, "development"):
     print(
