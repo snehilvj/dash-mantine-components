@@ -27,7 +27,7 @@ interface Props
     transitionTimingFunction?: string;
 }
 
-/** Burger */
+/** The Burger component renders a customizable hamburger menu button which can toggle between open and closed states. */
 const Burger = (props: Props) => {
     const {
         setProps,
