@@ -17,6 +17,8 @@ interface Props
     size?: MantineSize | (string & {}) | number;
     /** Key of `theme.colors` of any valid CSS value, by default `theme.white` in dark color scheme and `theme.black` in light */
     color?: MantineColor;
+    /** Height of the burger lines */
+    lineSize?: MantineSize | (string & {}) | number;
     /** State of the burger, when `true` burger is transformed into X, `false` by default */
     opened?: boolean;
     /** `transition-duration` property value in ms, `300` by default */
