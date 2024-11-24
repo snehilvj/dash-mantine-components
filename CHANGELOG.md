@@ -4,6 +4,7 @@
 ### Added
 
 - Added `disabled` prop to `Radio`  #425  by @namakshenas
+- Added `lineSize` prop to `Burger`  #425  by @ChinoUkaegbu
 
 ### Fixed
 - Fixed closing of Popovers when clicking outside. #423 by @magicmq
