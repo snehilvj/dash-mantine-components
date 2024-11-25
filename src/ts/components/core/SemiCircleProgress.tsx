@@ -39,7 +39,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
       labelPosition?: 'center' | 'bottom';
 }
 
-/** RingProgress */
+/** Use to represents progress with semi circle diagram */
 const SemiCircleProgress = (props: Props) => {
     const { setProps, loading_state, ...others } = props;
 
