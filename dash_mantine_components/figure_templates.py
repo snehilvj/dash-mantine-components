@@ -1,4 +1,4 @@
-import dash_mantine_components as dmc
+from .theme import DEFAULT_THEME
 import plotly.graph_objects as go
 import plotly.io as pio
 import copy
@@ -10,8 +10,8 @@ def create_mantine_figure_templates():
     registers templates with plotly.io.templates as "mantine_light" and "mantine_dark"
     """
 
-    colors = dmc.DEFAULT_THEME["colors"]
-    font_family = dmc.DEFAULT_THEME["fontFamily"]
+    colors = DEFAULT_THEME["colors"]
+    font_family = DEFAULT_THEME["fontFamily"]
     # pallet generated from https://www.learnui.design/tools/data-color-picker.html#palette
     custom_colorscale = [
         "#1864ab",  # blue[9]
