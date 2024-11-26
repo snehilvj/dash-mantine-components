@@ -65,4 +65,4 @@ for _component in __all__:
     setattr(locals()[_component], "_css_dist", _css_dist)
 
 
-__all__ += [DEFAULT_THEME, styles]
+__all__ += [DEFAULT_THEME, styles, create_mantine_figure_templates]

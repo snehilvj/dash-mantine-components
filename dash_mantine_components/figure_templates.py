@@ -4,10 +4,26 @@ import plotly.io as pio
 import copy
 
 
-def create_mantine_figure_templates():
+def create_mantine_figure_templates(default=None):
+
     """
-    Create Mantine-styled Plotly templates for both light and dark modes.
-    registers templates with plotly.io.templates as "mantine_light" and "mantine_dark"
+    Create and register Plotly figure templates styled to match the Mantine default theme.
+
+    This function generates two custom Plotly templates:
+    - "mantine_light" for light mode
+    - "mantine_dark" for dark mode
+
+    Templates are registered with `plotly.io.templates`, allowing you to apply them to Plotly figures
+    using the template names "mantine_light" or "mantine_dark". These templates include Mantine-inspired
+    color palettes, background colors, and other layout customizations.
+
+    Parameters:
+    - default (str): The default template to apply globally. Must be either "mantine_light" or "mantine_dark".
+                      If not set, the default Plotly template remains unchanged.
+
+    Returns:
+    - None: The templates are registered and optionally set as the default, but no value is returned.
+
     """
 
     colors = DEFAULT_THEME["colors"]
@@ -87,8 +103,8 @@ def create_mantine_figure_templates():
     pio.templates["mantine_light"] = make_template("light")
     pio.templates["mantine_dark"] = make_template("dark")
 
+    # set the default
+    if default in ["mantine_light", "mantine_dark"]:
+        pio.templates.default = default
+
     return None
-
-
-# Create and register templates
-create_mantine_figure_templates()
