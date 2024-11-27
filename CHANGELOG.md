@@ -4,7 +4,7 @@
 ### Added
 
 - Added `disabled` prop to `Radio`  #425  by @namakshenas
-- Added the `create_mantine_figure_templates()` function which creates Mantine-styled Plotly figure templates for
+- Added the `add_figure_templates()` function which creates Mantine-styled Plotly figure templates for
 both light and dark modes using the default Mantine theme.  It registers the templates with plotly.io.templates as
 "mantine_light" and "mantine_dark", and optionally sets one of the themes as a default. #431 by @AnnMarie
 

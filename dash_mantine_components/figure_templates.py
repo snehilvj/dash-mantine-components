@@ -4,7 +4,7 @@ import plotly.io as pio
 import copy
 
 
-def create_mantine_figure_templates(default=None):
+def add_figure_templates(default=None):
 
     """
     Create and register Plotly figure templates styled to match the Mantine default theme.

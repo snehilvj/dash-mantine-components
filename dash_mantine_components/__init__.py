@@ -12,7 +12,7 @@ from . import styles
 from ._imports_ import *
 from ._imports_ import __all__
 from .theme import DEFAULT_THEME
-from .figure_templates import create_mantine_figure_templates
+from .figure_templates import add_figure_templates
 
 if not hasattr(_dash, "__plotly_dash") and not hasattr(_dash, "development"):
     print(
@@ -65,4 +65,4 @@ for _component in __all__:
     setattr(locals()[_component], "_css_dist", _css_dist)
 
 
-__all__ += [DEFAULT_THEME, styles, create_mantine_figure_templates]
+__all__ += [DEFAULT_THEME, styles, add_figure_templates]
