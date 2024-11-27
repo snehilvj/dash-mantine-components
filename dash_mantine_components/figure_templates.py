@@ -106,5 +106,7 @@ def create_mantine_figure_templates(default=None):
     # set the default
     if default in ["mantine_light", "mantine_dark"]:
         pio.templates.default = default
+    elif default:
+        raise ValueError(f"unrecognized {default=}, allowed values are 'mantine_light' and 'mantine_dark'")
 
     return None
