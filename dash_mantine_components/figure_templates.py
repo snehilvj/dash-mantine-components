@@ -47,7 +47,7 @@ def add_figure_templates(default=None):
                 colors[color][6]
                 for color in ["blue", "red", "green", "violet", "orange", "cyan", "pink", "yellow"]
             ],
-            "paper_bgcolor": "#f8f9fa",
+            "paper_bgcolor":  "#ffffff",  # mantine background color
             "plot_bgcolor": "#ffffff",
             "gridcolor": "#dee2e6",
         },
@@ -56,8 +56,8 @@ def add_figure_templates(default=None):
                 colors[color][8]
                 for color in ["blue", "red", "green", "violet", "orange", "cyan", "pink", "yellow"]
             ],
-            "paper_bgcolor": "#1a1b1e",
-            "plot_bgcolor": "#25262b",
+            "paper_bgcolor":  colors["dark"][7], # mantine background color
+            "plot_bgcolor":  colors["dark"][7],
             "gridcolor": "#343a40",
         }
     }
