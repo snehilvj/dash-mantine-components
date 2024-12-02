@@ -42,7 +42,7 @@ interface Props
     hideWithOnePage?: boolean;
 }
 
-/** Pagination */
+/** Use the Pagination component to display active page and navigate between multiple pages */
 const Pagination = (props: Props) => {
     const {
         setProps,
