@@ -15,8 +15,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     size?: MantineSize | (string & {}) | number;
     /** Key of `theme.radius` or any valid CSS value to set border-radius, `'100%'` by default */
     radius?: MantineRadius;
-    /** Key of `theme.colors` or any valid CSS color, default value is `theme.primaryColor`  */
-    color?: MantineColor;
+    /** Key of `theme.colors` or any valid CSS color, default value is `theme.primaryColor`.  Set to "initials to auto generate color based on `name`"  */
+    color?: MantineColor  | "initials";
     /** Gradient configuration used when `variant="gradient"`, default value is `theme.defaultGradient` */
     gradient?: MantineGradient;
     /** Image url, if the image cannot be loaded or `src={null}`, then placeholder is displayed instead */
@@ -29,9 +29,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
     /** Determines whether text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
     autoContrast?: boolean;
+    /** Name of the user. When src is not set, used to display initials and to generate color when color="initials" is set.  */
+    name?: string;
 }
 
-/** Avatar */
+/** use the Avatar component to display user profile image, initials or fallback icon */
 const Avatar = (props: Props) => {
     const { children, setProps, loading_state, ...others } = props;
 
