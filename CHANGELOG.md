@@ -4,6 +4,7 @@
 ### Added
 
 - Added `disabled` prop to `Radio`  #425  by @namakshenas
+- Added `type` prop to `SimpleGrid`  #433  by @namakshenas
 
 ### Fixed
 - Fixed closing of Popovers when clicking outside. #423 by @magicmq
