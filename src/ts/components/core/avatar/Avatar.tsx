@@ -15,7 +15,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     size?: MantineSize | (string & {}) | number;
     /** Key of `theme.radius` or any valid CSS value to set border-radius, `'100%'` by default */
     radius?: MantineRadius;
-    /** Key of `theme.colors` or any valid CSS color, default value is `theme.primaryColor`.  Set to "initials to auto generate color based on `name`"  */
+    /** Key of `theme.colors` or any valid CSS color, default value is `theme.primaryColor`.  Set to "initials" to auto generate color based on `name`  */
     color?: MantineColor  | "initials";
     /** Gradient configuration used when `variant="gradient"`, default value is `theme.defaultGradient` */
     gradient?: MantineGradient;
