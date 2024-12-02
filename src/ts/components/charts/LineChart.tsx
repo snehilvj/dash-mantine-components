@@ -2,6 +2,8 @@ import { LineChart as MantineLineChart } from "@mantine/charts";
 import {
     LineChartCurveType,
     LineChartSeries,
+    LineChartGradientStop,
+    LineChartType,
 } from "@mantine/charts/lib/LineChart/LineChart";
 import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
@@ -52,10 +54,13 @@ interface Props
     highlightHover?: boolean
     /** Determines whether each point should have associated label, False by default  */
     withPointLabels?: boolean;
-    
+     /** Data used to generate gradient stops, [{ offset: 0, color: 'red' }, { offset: 100, color: 'blue' }] by default */
+    gradientStops?: LineChartGradientStop[];
+    /** Controls styles of the line 'default' | 'gradient'.   'default' by default */
+    type?: LineChartType;
 }
 
-/** LineChart */
+/** Mantine-themed line chart built on top of the Recharts library, */
 const LineChart = (props: Props) => {
     const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, lineChartProps, activeDotProps, lineProps, ...others } = props;
 
