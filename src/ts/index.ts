@@ -112,6 +112,7 @@ import ProgressSection from "./components/core/progress/ProgressSection";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RangeSlider from "./components/core/slider/RangeSlider";
+import SemiCircleProgress from "./components/core/SemiCircleProgress";
 import Slider from "./components/core/slider/Slider";
 import Stepper from "./components/core/stepper/Stepper";
 import StepperCompleted from "./components/core/stepper/StepperCompleted";
@@ -264,6 +265,7 @@ export {
     RangeSlider,
     Rating,
     RingProgress,
+    SemiCircleProgress,
     ScatterChart,
     ScrollArea,
     SegmentedControl,
