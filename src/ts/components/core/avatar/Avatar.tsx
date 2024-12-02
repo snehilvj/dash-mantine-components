@@ -33,7 +33,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     name?: string;
 }
 
-/** use the Avatar component to display user profile image, initials or fallback icon */
+/** Use the Avatar component to display user profile image, initials or fallback icon */
 const Avatar = (props: Props) => {
     const { children, setProps, loading_state, ...others } = props;
 
