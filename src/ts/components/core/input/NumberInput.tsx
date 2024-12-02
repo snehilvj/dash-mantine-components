@@ -59,9 +59,14 @@ interface Props
     stepHoldDelay?: number;
     /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
     autoComplete?: string;
+    /** Determines whether up/down keyboard events should be handled to increment/decrement value, true by default*/
+    withKeyboardEvents?: boolean;
+    /** Sets disabled attribute on the input element */
+    disabled?: boolean;
+
 }
 
-/** NumberInput */
+/** The NumberInput component allows users to input numeric values  */
 const NumberInput = (props: Props) => {
     const {
         setProps,
