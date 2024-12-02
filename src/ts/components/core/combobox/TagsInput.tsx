@@ -42,9 +42,11 @@ interface Props
     hiddenInputValuesDivider?: string;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+    /** Determines whether the value typed in by the user but not submitted should be accepted when the input is blurred, true by default */
+    acceptValueOnBlur?: boolean;
 }
 
-/** TagsInput */
+/** TagsInput captures a list of values from user with free input and suggestions */
 const TagsInput = (props: Props) => {
     const { setProps, loading_state, data, searchValue, value, ...others } =
         props;
@@ -80,7 +82,6 @@ const TagsInput = (props: Props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            wrapperProps={{ autoComplete: "off" }}
             data={options}
             onChange={setSelected}
             value={selected}

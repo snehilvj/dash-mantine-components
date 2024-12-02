@@ -4,6 +4,7 @@
 ### Added
 
 - Added `disabled` prop to `Radio`  #425  by @namakshenas
+- Added various props: `acceptValueOnBlur` to `TagsInput`, `gradient` to `LineChart`, `hideWithOnePage` to `Pagination`, `name` to `Avatar`, and `disabled` to `NumberInput`. #440 by @AnnMarieW
 - Added `SemiCircleProgress` component #434 by @AnnMarieW
 
 ### Fixed
