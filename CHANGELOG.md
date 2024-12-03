@@ -18,6 +18,9 @@ both light and dark modes using the default Mantine theme.  It registers the tem
 - Fixed closing of Popovers when clicking outside. #423 by @magicmq
 
 
+### Changed
+- Upgraded to latest Mantine (7.14.3), which also fixes issues #413 and #439
+
 # 0.15.0
 
 ### Changed
