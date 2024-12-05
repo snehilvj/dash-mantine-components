@@ -106,7 +106,6 @@ const MultiSelect = (props: Props) => {
     };
 
     const handleSearchChange = (newSearchVal) => {
-        setSearchVal(newSearchVal);
         setProps({ searchValue: newSearchVal });
     };
 
