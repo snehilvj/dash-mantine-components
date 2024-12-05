@@ -4,6 +4,7 @@
 ### Added
 
 - Added `disabled` prop to `Radio`  #425  by @namakshenas
+- Added `lineSize` prop to `Burger`  #432  by @ChinoUkaegbu
 
 - Added the `add_figure_templates()` function which creates Mantine-styled Plotly figure templates for
 both light and dark modes using the default Mantine theme.  It registers the templates with plotly.io.templates as

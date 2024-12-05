@@ -43,7 +43,7 @@ app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
 app.layout = dmc.MantineProvider(
     [
-        dmc.DatePicker(
+        dmc.DatePickerInput(
             id="date-picker",
             label="Start Date",
             description="You can also provide a description",
