@@ -57,7 +57,7 @@ def test_001mu_multi_select(dash_duo):
 
     assert dash_duo.get_logs() == []
 
-# ensure both data and value can be updated in a callback
+# ensure  data and value and SearchValue can be updated in a callback
 def test_002mu_multi_select(dash_duo):
 
     app = Dash(__name__)
@@ -75,26 +75,28 @@ def test_002mu_multi_select(dash_duo):
     @app.callback(
         Output("select", "data"),
         Output("select", "value"),
+        Output("select", "searchValue"),
         Input("update-select", "n_clicks"),
         prevent_initial_call=True
     )
     def update_select(_):
-        return ["a", "b", "c"], ["b"]
+        return ["a", "b", "c"], ["b"], "a"
 
     @app.callback(
         Output("out", "children"),
-        Input("select", "value")
+        Input("select", "value"),
+        Input("select", "searchValue")
     )
-    def update(v):
-        return str(v)
+    def update(val, search):
+        return f"{val=} {search=}"
 
 
     dash_duo.start_server(app)
     # Wait for the app to load
-    dash_duo.wait_for_text_to_equal("#out", "None" )
+    dash_duo.wait_for_text_to_equal("#out", "val=None search=None" )
 
     dash_duo.find_element("#update-select").click()
 
-    dash_duo.wait_for_text_to_equal("#out", "['b']")
+    dash_duo.wait_for_text_to_equal("#out", "val=['b'] search='a'")
 
     assert dash_duo.get_logs() == []

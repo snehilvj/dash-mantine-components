@@ -17,6 +17,7 @@ both light and dark modes using the default Mantine theme.  It registers the tem
 
 ### Fixed
 - Fixed closing of Popovers when clicking outside. #423 by @magicmq
+- Enabled `searchValue` in the `MultiSelect` component to be updated in a callback #441 by @AnnMarieW
 
 
 # 0.15.0

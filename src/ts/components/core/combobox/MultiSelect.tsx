@@ -58,31 +58,28 @@ const MultiSelect = (props: Props) => {
         n_submit,
         n_blur,
         data,
-        searchValue,
         value,
         ...others
     } = props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
-    const [searchVal, setSearchVal] = useState(searchValue);
-    const { ref, focused } = useFocusWithin()
+    const { ref, focused } = useFocusWithin();
 
-    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const debounceValue = typeof debounce === "number" ? debounce : 0;
     const [debounced] = useDebouncedValue(selected, debounceValue);
 
     useDidUpdate(() => {
-        if (typeof debounce === 'number' || debounce === false) {
+        if (typeof debounce === "number" || debounce === false) {
             setProps({ value: debounced });
         }
 
         // Update the value prop if an item is removed by clicking the "x" on the pill,
         // even if the input is not focused at the time
         if (!focused && debounce === true) {
-            setProps({ value: debounced})
+            setProps({ value: debounced });
         }
     }, [debounced]);
-
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
@@ -96,8 +93,12 @@ const MultiSelect = (props: Props) => {
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: selected })
+            ...(debounce === true && { value: selected }),
         });
+    };
+
+    const handleSearchChange = (newSearchVal) => {
+        setProps({ searchValue: newSearchVal });
     };
 
     useDidUpdate(() => {
@@ -114,10 +115,6 @@ const MultiSelect = (props: Props) => {
         setProps({ data: options });
     }, [options]);
 
-    useDidUpdate(() => {
-        setProps({ searchValue: searchVal });
-    }, [searchVal]);
-
     return (
         <div ref={ref}>
             <MantineMultiSelect
@@ -129,8 +126,7 @@ const MultiSelect = (props: Props) => {
                 data={options}
                 onChange={setSelected}
                 value={selected}
-                searchValue={searchVal}
-                onSearchChange={setSearchVal}
+                onSearchChange={handleSearchChange}
                 {...others}
             />
         </div>
