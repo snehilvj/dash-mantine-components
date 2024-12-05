@@ -58,14 +58,12 @@ const MultiSelect = (props: Props) => {
         n_submit,
         n_blur,
         data,
-        searchValue,
         value,
         ...others
     } = props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
-    const [searchVal, setSearchVal] = useState(searchValue);
     const { ref, focused } = useFocusWithin();
 
     const debounceValue = typeof debounce === "number" ? debounce : 0;
@@ -82,12 +80,6 @@ const MultiSelect = (props: Props) => {
             setProps({ value: debounced });
         }
     }, [debounced]);
-
-    useDidUpdate(() => {
-        if (searchValue !== searchVal) {
-            setSearchVal(searchValue);
-        }
-    }, [searchValue]);
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
@@ -134,7 +126,6 @@ const MultiSelect = (props: Props) => {
                 data={options}
                 onChange={setSelected}
                 value={selected}
-                searchValue={searchVal}
                 onSearchChange={handleSearchChange}
                 {...others}
             />
