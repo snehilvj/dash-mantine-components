@@ -151,6 +151,7 @@ import NavigationProgress from "./components/extensions/nprogress/NavigationProg
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 import MantineProvider from "./components/styles/MantineProvider";
 import ChipGroup from "./components/core/chip/ChipGroup";
+import ColorSchemeSwitch from "./components/styles/ColorSchemeSwitch";
 
 export {
     Accordion,
@@ -199,6 +200,7 @@ export {
     Collapse,
     ColorInput,
     ColorPicker,
+    ColorSchemeSwitch,
     CompositeChart,
     Container,
     DateInput,
