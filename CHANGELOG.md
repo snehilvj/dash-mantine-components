@@ -1,18 +1,20 @@
 # Change Log
-# Unreleased
+
+# 0.15.1
 
 ### Added
 
 - Added `disabled` prop to `Radio`  #425  by @namakshenas
 - Added `lineSize` prop to `Burger`  #432  by @ChinoUkaegbu
+- Added `SemiCircleProgress` component #434 by @AnnMarieW
 
 - Added the `add_figure_templates()` function which creates Mantine-styled Plotly figure templates for
 both light and dark modes using the default Mantine theme.  It registers the templates with plotly.io.templates as
 "mantine_light" and "mantine_dark", and optionally sets one of the themes as a default. #431 by @AnnMarie
 
-- Added various props: `acceptValueOnBlur` to `TagsInput`, `gradient` to `LineChart`, `hideWithOnePage` to `Pagination`, `name` to `Avatar`, and `disabled` to `NumberInput`. #440 by @AnnMarieW
+- Added various props: `acceptValueOnBlur` to `TagsInput`, `gradient` to `LineChart`, `hideWithOnePage` to `Pagination`,
+`name` to `Avatar`, and `disabled` to `NumberInput`. #440 by @AnnMarieW
 
-- Added `SemiCircleProgress` component #434 by @AnnMarieW
 
 
 ### Fixed
