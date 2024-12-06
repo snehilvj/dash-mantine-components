@@ -20,6 +20,9 @@ both light and dark modes using the default Mantine theme.  It registers the tem
 - Enabled `searchValue` in the `MultiSelect` component to be updated in a callback #441 by @AnnMarieW
 
 
+### Changed
+- Upgraded to latest Mantine (7.14.3), which also fixes issues #413 and #439
+
 # 0.15.0
 
 ### Changed
