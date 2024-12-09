@@ -46,7 +46,7 @@ interface Props
     withItemsBorders?: boolean;
 }
 
-/** SegmentedControl */
+/** SegmentedControl is a horizontal selector for choosing one option from multiple segments */
 const SegmentedControl = (props: Props) => {
     const {
         data,
