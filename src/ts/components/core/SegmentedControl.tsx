@@ -46,7 +46,7 @@ interface Props
     withItemsBorders?: boolean;
 }
 
-/** SegmentedControl */
+/** SegmentedControl is a horizontal selector for choosing one option from multiple segments */
 const SegmentedControl = (props: Props) => {
     const {
         data,
@@ -66,6 +66,7 @@ const SegmentedControl = (props: Props) => {
             const rItem = {
                 value: item["value"],
                 label: renderDashComponent(item["label"]),
+                disabled: item["disabled"],
             };
             renderedData.push(rItem);
         }
