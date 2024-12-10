@@ -35,7 +35,7 @@ for root, dirs, filenames in os.walk(f"PRs"):
                     "content": file.read(),
                 }
 
-new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_REPOSITORY")}/pull/{PR_NUMBER}/{os.getenv("WORKFLOW_NAME")}/{os.getenv("ARTIFACT_NAME")}/{os.getenv("FILE_FULLNAME")}'
+new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
 if os.getenv("PACKAGE_NAME") in reqs["content"]:
     reqs["content"] = reqs["content"].replace(os.getenv("PACKAGE_NAME"), new_package)
 else:
