@@ -4,40 +4,47 @@ import base64
 from urllib.parse import quote, urlencode
 import os
 from github import Github
+from datetime import datetime
+
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+REPO_NAME = os.getenv("GITHUB_REPOSITORY")
+PR_NUMBER = int(os.getenv("PR_NUMBER"))
 
 files = []
-code = ''
+code = ""
 reqs = {}
-for f in os.listdir('PRs'):
-    file_path = os.path.join('PRs', f)
-    if f not in ['app.py','requirements.txt']:
-        with open(file_path, 'rb') as file:
+for root, dirs, filenames in os.walk(f"PRs"):
+    for f in filenames:
+        file_path = os.path.join(root, f)
+        if f not in ["app.py", "requirements.txt"]:
+            with open(file_path, "rb") as file:
                 files.append(
                     {
-                        "name": f,
+                        "name": os.path.relpath(file_path, "PRs"),
                         "content": base64.b64encode(file.read()).decode("utf8"),
-                        "encoding": "base64"
+                        "encoding": "base64",
                     }
                 )
-    elif f == 'app.py':
-        with open(file_path, 'r') as file:
-            code = file.read()
-    else:
-        with open(file_path, 'r') as file:
-            reqs = {
-                'name': f,
-                'content': file.read()
-            }
+        elif f == "app.py":
+            with open(file_path, "r") as file:
+                code = file.read()
+        elif f == "requirements.txt":
+            with open(file_path, "r") as file:
+                reqs = {
+                    "name": os.path.relpath(file_path, "PRs"),
+                    "content": file.read(),
+                }
 
-new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_REPOSITORY")}/{os.getenv("ARTIFACT_ID")}/{os.getenv("FILE_FULLNAME")}'
-if os.getenv("PACKAGE_NAME") in reqs['content']:
-    reqs['content'] = reqs['content'].replace(os.getenv("PACKAGE_NAME"), new_package)
+new_package = f'{os.getenv("PACKAGE_NAME")} @ https://py.cafe/gh/artifact/{os.getenv("GITHUB_REPOSITORY")}/pull/{PR_NUMBER}/{os.getenv("WORKFLOW_NAME")}/{os.getenv("ARTIFACT_NAME")}/{os.getenv("FILE_FULLNAME")}'
+if os.getenv("PACKAGE_NAME") in reqs["content"]:
+    reqs["content"] = reqs["content"].replace(os.getenv("PACKAGE_NAME"), new_package)
 else:
-    reqs['content'] += f'\n{new_package}'
+    reqs["content"] += f"\n{new_package}"
+
 
 def generate_link(files, code):
     json_object = {
-        "requirements": reqs['content'],
+        "requirements": reqs["content"],
         "code": code,
         "files": files,
     }
@@ -50,30 +57,72 @@ def generate_link(files, code):
     type = "dash"  # replace by dash, or streamlit
     return f"{base_url}/snippet/{type}/v1?{query}"
 
+
 # Generate the link
 link = generate_link(files, code)
 
+# Initialize Github object
+g = Github(GITHUB_TOKEN)
+
+# Get the repository
+repo = g.get_repo(REPO_NAME)
+
+# Get the pull request
+pull_request = repo.get_pull(PR_NUMBER)
+
+
 # Post the link as a comment on the pull request
 def post_comment(link):
-    # Get environment variables
-    GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-    REPO_NAME = os.getenv('GITHUB_REPOSITORY')
-    PR_NUMBER = int(os.getenv('PR_NUMBER'))
+    # Find existing comments by the bot
+    comments = pull_request.get_issue_comments()
+    bot_comment = None
 
-    # Initialize Github object
-    g = Github(GITHUB_TOKEN)
+    for comment in comments:
+        if comment.body.startswith("Test Environment for ["):
+            bot_comment = comment
+            break
 
-    # Get the repository
-    repo = g.get_repo(REPO_NAME)
+    # Get current UTC datetime
+    current_utc_time = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
-    # Get the pull request
-    pull_request = repo.get_pull(PR_NUMBER)
+    # Define the comment body with datetime
+    comment_body = f"Test Environment for [{REPO_NAME}-{PR_NUMBER}]({link})\nUpdated on: {current_utc_time}"
 
-    # Add a comment to the pull request
-    comment_body = f"Generated link: [{REPO_NAME}-{PR_NUMBER}]({link})"
-    pull_request.create_issue_comment(comment_body)
+    # Update the existing comment or create a new one
+    if bot_comment:
+        bot_comment.edit(comment_body)
+        print("Comment updated on the pull request.")
+    else:
+        pull_request.create_issue_comment(comment_body)
+        print("Comment added to the pull request.")
 
-    print("Comment added to the pull request.")
 
-# Call the function to post the comment
+# Create deployment message for a status
+def create_deployment_message(link):
+    # Create a deployment
+    deployment = repo.create_deployment(
+        ref=pull_request.head.sha,
+        task="deploy",
+        auto_merge=False,
+        required_contexts=[],
+        payload={},
+        environment="staging",
+        description=f"Deploying PR #{PR_NUMBER} to PyCafe",
+        transient_environment=True,
+        production_environment=False,
+    )
+
+    # Update the deployment status
+    deployment.create_status(
+        state="success",
+        target_url="https://py.cafe/",
+        description="Deployment to staging succeeded!",
+        environment_url=link,
+        auto_inactive=True,
+    )
+
+    print(f"Deployment message added to PR #{PR_NUMBER}")
+
+
 post_comment(link)
+create_deployment_message(link)
