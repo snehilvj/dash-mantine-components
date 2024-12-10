@@ -75,8 +75,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.inputs.pr_number }}
-          WORKFLOW_NAME: Host%20Test%20App
-          ARTIFACT_NAME: dist-artifact
+          ARTIFACT_ID: ${{ env.artifact_id }}
           GITHUB_OWNER: snehilvj
           FILE_FULLNAME: dash_mantine_components-${{ env.version }}-py3-none-any.whl
           PACKAGE_NAME: dash_mantine_components
