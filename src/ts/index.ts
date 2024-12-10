@@ -1,5 +1,7 @@
 import AreaChart from "./components/charts/AreaChart";
 import BarChart from "./components/charts/BarChart";
+import BubbleChart from "./components/charts/BubbleChart";
+import CompositeChart from "./components/charts/CompositeChart";
 import DonutChart from "./components/charts/DonutChart";
 import LineChart from "./components/charts/LineChart";
 import PieChart from "./components/charts/PieChart";
@@ -110,6 +112,7 @@ import ProgressSection from "./components/core/progress/ProgressSection";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
 import RangeSlider from "./components/core/slider/RangeSlider";
+import SemiCircleProgress from "./components/core/SemiCircleProgress";
 import Slider from "./components/core/slider/Slider";
 import Stepper from "./components/core/stepper/Stepper";
 import StepperCompleted from "./components/core/stepper/StepperCompleted";
@@ -132,6 +135,7 @@ import FloatingTooltip from "./components/core/tooltip/FloatingTooltip";
 import Tooltip from "./components/core/tooltip/Tooltip";
 import DateInput from "./components/dates/DateInput";
 import DatePicker from "./components/dates/DatePicker";
+import DatePickerInput from "./components/dates/DatePickerInput";
 import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
 import MonthPickerInput from "./components/dates/MonthPickerInput";
@@ -176,6 +180,7 @@ export {
     Blockquote,
     Box,
     Breadcrumbs,
+    BubbleChart,
     Burger,
     Button,
     ButtonGroup,
@@ -194,9 +199,11 @@ export {
     Collapse,
     ColorInput,
     ColorPicker,
+    CompositeChart,
     Container,
     DateInput,
     DatePicker,
+    DatePickerInput,
     DateTimePicker,
     DatesProvider,
     Divider,
@@ -258,6 +265,7 @@ export {
     RangeSlider,
     Rating,
     RingProgress,
+    SemiCircleProgress,
     ScatterChart,
     ScrollArea,
     SegmentedControl,

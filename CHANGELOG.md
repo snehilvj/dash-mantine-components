@@ -1,23 +1,101 @@
 # Change Log
 
-# 0.14.6 UNRELEASED
+# 0.15.1
+
+### Added
+
+- Added `disabled` prop to `Radio`  #425  by @namakshenas
+- Added `lineSize` prop to `Burger`  #432  by @ChinoUkaegbu
+- Added `SemiCircleProgress` component #434 by @AnnMarieW
+
+- Added the `add_figure_templates()` function which creates Mantine-styled Plotly figure templates for
+both light and dark modes using the default Mantine theme.  It registers the templates with plotly.io.templates as
+"mantine_light" and "mantine_dark", and optionally sets one of the themes as a default. #431 by @AnnMarie
+
+- Added various props: `acceptValueOnBlur` to `TagsInput`, `gradient` to `LineChart`, `hideWithOnePage` to `Pagination`,
+`name` to `Avatar`, and `disabled` to `NumberInput`. #440 by @AnnMarieW
+
+
+
+### Fixed
+- Fixed closing of Popovers when clicking outside. #423 by @magicmq
+- Enabled `searchValue` in the `MultiSelect` component to be updated in a callback #441 by @AnnMarieW
+
+
+### Changed
+- Upgraded to latest Mantine (7.14.3), which also fixes issues #413 and #439
+
+# 0.15.0
+
+### Changed
+- **Breaking Change:** Renamed `DatePicker` to `DatePickerInput` so component names are aligned with the upstream Mantine library.  #414 by @AnnMarieW
+- Upgraded to latest Mantine (7.14.1)
+
+
+### Added
+
+- New additions to Date components #405 by @AnnMarieW
+  - `DatePicker` - The `debounce` prop can now be `True` `False` or `number` of ms delay before updating.  When True, the value updates on blur. 
+  - Added missing `highlightToday` prop on all Date components with calendars.
+  - `DateInput` updates properly now when clearable=True 
+
+- Enabled custom icons in `Checkbox` Added `icon` and `indeterminateIcon` props #408 by @snehilvj 
+- New props: `barLabelColor` for the `BarChart` and `restrictToMarks` for the `Slider` #416 by @AnnMarieW
+- Added `position` prop to `Notification #419 by @AnnMarieW
+
+### Fixed
+-  In MultiSelect, enable the debounce to work when deleting items when the dropdown is closed when debounce is a number. #407 by @AnnMarieW
+-  In MultiSelect and Select, fixed regression where it was not possible to update both the value and data in the same callback #412
+-  Fixed console warning in Tooltip component by adding a key to the wrapper Box element #418 by @AnnMarieW
+
+
+# 0.14.7
+
+### Added
+
+- Added `autoScroll` prop to the `Carousel` component,  enabling smooth scrolling like a stock ticker. #373 by @mmarfat 
+- Added `withLegend` to `RadarChart`, and `maxBarWidth`, `minBarSize` to `BarChart`. #395 by @AnnMarieW
+- New chart types: `CompositeChart` and `BubbleChart` #368 by @michaelw88
+- New props for charts: (Included in #368 by  @michaelw88)
+  - added `hoverData`, `hoverSeriesName`, `clickSeriesName` and `highlightHover` props to `AreaChart`, `LineChart`, `BarChart`, and `CompositeChart`
+  - added `hoverData`, `hoverSeriesName`, `clickSeriesName` to `PieChart`,   `DonutChart`, `ScatterChart`
+- New props for triggering dash callbacks on input components: `n_submit` `n_blur` #383 by @AnnMarieW 
+
+
+
+### Changed
+- Reduced the Highlight component file size  #366 by @AnnMarieW
+- The `debounce` prop on  input components can now be `True` `False` or `number` of ms delay before updating.  When True, the value will update on enter or on blur. #383 by @AnnMarieW
+- Upgraded to latest Mantine (7.13.3)
+
+### Fixed
+- Prevent loading from empty `src` in `Avatar`. #372 by @mmarfat
+- Enable base64 images in Avatar #379 by @AnnMarieW
+- Fixed boxWrapperProps in the Hovercard #389 by @AnnMarieW
+
+# 0.14.6 
 
 ### Added
 
 - Added `autoplay` prop to the `Carousel` component #316 by @mmarfat 
-- Added the `ChipGroup` component and updated `Chip` to work with it. #327 by @AnnMarieW and @BSd3v
-Note: `Chip` was available before but not documented. If you used `Chip` in dmc<=0.14.5, you’ll now need to add `controlled=True` for it to work properly on its own.
-- Added GitHub actions workflow for automated tests on PRs by @BSd3v
-
+- Added the `ChipGroup` component and updated `Chip` to work with it. #327 and #355 by @AnnMarieW and @BSd3v
+- Added GitHub actions workflow for automated tests on PRs #333 by @BSd3v
+- Added new and missing props to the charts.  Enables figure animation, right Y axis and more!  #349 by @AnnMarieW
+- Added `active` prop to Carousel, allowing callbacks to be triggered based on the currently displayed slide. #354 by @AnnMarieW
+- RadioGroup and ChipGroup (in single mode) now have a `deselectable` argument to allow resetting the radio value #351 by @RenaudL
 
 ### Fixed
 
 - Excluded the `loading_state` prop from being passed to the DOM.   Added `data-dash-is-loading` attribute to
 components during callback execution, allowing custom CSS styling for loading states. #325 by @AnnMarieW
+- Enabled the `opened` prop to trigger callback in the Popover component #353 by @AnnMarieW
+- Stepper component can be stepped through by clicking on steps buttons #352  by @RenaudL
 
 ### Changed
 
-- Reduced the package size by minifying the metadata.json file #345 by @AnnMarieW
+- Reduced the package size by excluding the 5MB metadata.json file #357 by @AnnMarieW
+- Upgraded to latest Mantine (7.13.2)
+
 
 # 0.14.5 
 

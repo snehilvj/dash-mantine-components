@@ -1,7 +1,7 @@
 import { NumberInput as MantineNumberInput } from "@mantine/core";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
+import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
@@ -11,6 +11,7 @@ interface Props
         __BaseInputProps,
         StylesApiProps,
         DashBaseProps,
+        DebounceProps,
         PersistenceProps {
     /** Controlled component value */
     value?: number | string;
@@ -56,22 +57,37 @@ interface Props
     stepHoldInterval?: number | ((stepCount: number) => number);
     /** Initial delay in milliseconds before stepping the value. */
     stepHoldDelay?: number;
-    /** An integer that represents the number of times that this element has been submitted */
-    n_submit?: number;
-    /** Debounce time in ms */
-    debounce?: number;
+    /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
+    autoComplete?: string;
+    /** Sets disabled attribute on the input element */
+    disabled?: boolean;
+
 }
 
-/** NumberInput */
+/** The NumberInput component allows users to input numeric values  */
 const NumberInput = (props: Props) => {
-    const { setProps, loading_state, value, n_submit, debounce, ...others } =
-        props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        loading_state,
+        value,
+        n_submit,
+        n_blur,
+        debounce,
+        ...others
+    } = props;
 
     const [val, setVal] = useState(value);
-    const [debounced] = useDebouncedValue(val, debounce);
+
+    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const [debounced] = useDebouncedValue(val, debounceValue);
 
     useDidUpdate(() => {
-        setProps({ value: debounced });
+        if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
     }, [debounced]);
 
     useDidUpdate(() => {
@@ -80,8 +96,18 @@ const NumberInput = (props: Props) => {
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
-            setProps({ n_submit: n_submit + 1 });
+            setProps({
+                n_submit: n_submit + 1,
+                ...(debounce === true && { value: val }),
+            });
         }
+    };
+
+    const handleBlur = () => {
+        setProps({
+            n_blur: n_blur + 1,
+            ...(debounce === true && { value: val })
+        });
     };
 
     return (
@@ -89,21 +115,24 @@ const NumberInput = (props: Props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            wrapperProps={{ autoComplete: "off" }}
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             {...others}
         />
     );
 };
 
+
 NumberInput.defaultProps = {
-    debounce: 0,
+    debounce: false,
     value: "",
     persisted_props: ["value"],
     persistence_type: "local",
     n_submit: 0,
+    n_blur: 0,
+    autoComplete: "off"
 };
 
 export default NumberInput;

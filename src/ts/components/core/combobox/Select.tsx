@@ -1,9 +1,9 @@
 import { Select as MantineSelect } from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
+import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { __CloseButtonProps } from "props/button";
 import { ComboboxLikeProps } from "props/combobox";
-import { DashBaseProps, PersistenceProps } from "props/dash";
+import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
 import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
@@ -16,6 +16,7 @@ interface Props
         ComboboxLikeProps,
         StylesApiProps,
         DashBaseProps,
+        DebounceProps,
         PersistenceProps {
     /** Controlled component value */
     value?: string | null;
@@ -43,12 +44,51 @@ interface Props
 
 /** Select */
 const Select = (props: Props) => {
-    const { setProps, loading_state, data, searchValue, value, ...others } =
-        props;
+    const {
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        loading_state,
+        debounce,
+        n_submit,
+        n_blur,
+        data,
+        searchValue,
+        value,
+        ...others
+    } = props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
     const [searchVal, setSearchVal] = useState(searchValue);
+
+    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const [debounced] = useDebouncedValue(selected, debounceValue);
+
+    useDidUpdate(() => {
+        if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
+    }, [debounced]);
+
+
+    const handleKeyDown = (ev) => {
+        if (ev.key === "Enter") {
+            setProps({
+                n_submit: n_submit + 1,
+                ...(debounce === true && { value: selected }),
+            });
+        }
+    };
+
+    const handleBlur = () => {
+        setProps({
+            n_blur: n_blur + 1,
+            ...(debounce === true && { value: selected })
+        });
+    };
+
 
     useDidUpdate(() => {
         setOptions(data);
@@ -57,16 +97,12 @@ const Select = (props: Props) => {
     }, [data]);
 
     useDidUpdate(() => {
-        setProps({ data: options });
-    }, [options]);
-
-    useDidUpdate(() => {
-        setProps({ value: selected });
-    }, [selected]);
-
-    useDidUpdate(() => {
         setSelected(value);
     }, [value]);
+
+    useDidUpdate(() => {
+        setProps({ data: options });
+    }, [options]);
 
     useDidUpdate(() => {
         setProps({ searchValue: searchVal });
@@ -77,7 +113,8 @@ const Select = (props: Props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
-            wrapperProps={{ autoComplete: "off" }}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             data={options}
             onChange={setSelected}
             value={selected}
@@ -89,8 +126,11 @@ const Select = (props: Props) => {
 };
 
 Select.defaultProps = {
+    debounce: false,
     persisted_props: ["value"],
     persistence_type: "local",
+    n_submit: 0,
+    n_blur: 0,
     data: [],
 };
 

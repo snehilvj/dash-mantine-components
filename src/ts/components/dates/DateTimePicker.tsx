@@ -40,6 +40,8 @@ interface Props
     n_submit?: number;
     /** Debounce time in ms */
     debounce?: number;
+    /** Determines whether today should be highlighted with a border, false by default */
+    highlightToday?: boolean;
 }
 
 /** DateTimePicker */

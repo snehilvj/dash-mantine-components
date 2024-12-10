@@ -4,7 +4,7 @@ import { MantineColor } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useState } from "react";
 import { getPieClickData, isEventValid } from "../../utils/charts";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
@@ -48,19 +48,39 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     pieChartProps?: object;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Hover data */
+    hoverData?: Record<string, any>;
+    /** Name of the series that was clicked */
+    clickSeriesName?: Record<string, any>;
+    /** Name of the series that is hovered*/
+    hoverSeriesName?: Record<string, any>;
 }
 
 /** DonutChart */
 const DonutChart = (props: Props) => {
-    const { setProps, loading_state, clickData, pieProps, ...others } = props;
+    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, pieProps, ...others } = props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
-            setProps({ clickData: getPieClickData(ev) });
+            const clickdata = getPieClickData(ev)
+            setProps({
+                clickData: clickdata,
+                clickSeriesName: clickdata["name"]
+            });
         }
     };
 
-    const newProps = { ...pieProps, onClick };
+    const onMouseOver = (ev) => {
+        if (isEventValid(ev)) {
+            const hoverdata = getPieClickData(ev)
+            setProps({
+                hoverData: hoverdata,
+                hoverSeriesName: hoverdata["name"]
+            });
+        }
+    };
+
+    const newProps = { ...pieProps, onClick, onMouseOver};
 
     return (
         <MantineDonutChart
@@ -72,7 +92,5 @@ const DonutChart = (props: Props) => {
         />
     );
 };
-
-DonutChart.defaultProps = {};
 
 export default DonutChart;

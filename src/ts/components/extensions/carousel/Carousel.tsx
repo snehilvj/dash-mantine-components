@@ -3,12 +3,15 @@ import { MantineSpacing, StyleProp } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
     children?: React.ReactNode;
+    /** The index of the current slide. Read only.  Use initialSlide to set the current slide */
+    active?: number;
     /** Controls size of the next and previous controls, `26` by default */
     controlSize?: React.CSSProperties["width"];
     /** Controls position of the next and previous controls, key of `theme.spacing` or any valid CSS value, `'sm'` by default */
@@ -55,18 +58,31 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     withKeyboardEvents?: boolean;
     /** Enables autoplay with optional configuration */
     autoplay?: boolean | Record<string, any>;
+    /** Enables autoScroll with optional configuration */
+    autoScroll?: boolean | Record<string, any>;
 }
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, setProps, loading_state, autoplay, ...others } = props;
+    const { children, active, initialSlide, setProps, loading_state, autoplay, autoScroll, ...others } = props;
 
     const autoplayPlugin =
         autoplay === true
             ? Autoplay()
             : autoplay && typeof autoplay === "object"
               ? Autoplay(autoplay)
+               : null;
+    
+    const autoScrollPlugin = 
+        autoScroll === true
+            ? AutoScroll()
+            : autoScroll && typeof autoScroll === "object"
+              ? AutoScroll(autoScroll)
               : null;
+
+      useEffect(() => {
+         setProps({active: initialSlide})
+     }, [initialSlide]);
 
     return (
         <MantineCarousel
@@ -74,13 +90,18 @@ const Carousel = (props: Props) => {
                 (loading_state && loading_state.is_loading) || undefined
             }
             {...others}
-            plugins={autoplayPlugin ? [autoplayPlugin] : []}
+            plugins={[autoplayPlugin, autoScrollPlugin].filter(Boolean)}
+            onSlideChange={(a) => setProps({ active: a ?? initialSlide })}
+            initialSlide={initialSlide}
         >
             {children}
         </MantineCarousel>
     );
 };
 
-Carousel.defaultProps = {};
+Carousel.defaultProps = {
+    initialSlide:0,
+    active:0
+};
 
 export default Carousel;

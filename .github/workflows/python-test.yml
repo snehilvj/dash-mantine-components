@@ -36,8 +36,7 @@ jobs:
           source .venv/bin/activate
           uv pip install --upgrade pip
           uv pip install wheel
-          uv pip install ".[dev]"
-          npm ci
+          uv pip install ".[dev]"         
           npm i
           npm run build
         timeout-minutes: 20

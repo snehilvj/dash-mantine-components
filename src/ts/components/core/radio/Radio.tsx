@@ -8,6 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import RadioGroupContext from "./RadioGroupContext";
 
 interface Props
     extends BoxProps,
@@ -34,6 +35,8 @@ interface Props
     iconColor?: MantineColor;
     /** Determines whether icon color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
     autoContrast?: boolean;
+    /** Determines whether Radio disabled and non-selectable */
+    disabled?: boolean;
     /** To be used with Radio group */
     value?: string;
 }
@@ -49,12 +52,15 @@ const Radio = (props: Props) => {
         ...others
     } = props;
 
+    const { radioOnClick } = React.useContext(RadioGroupContext) || {};
+
     return (
         <MantineRadio
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
+            onClick={radioOnClick}
             {...others}
         />
     );

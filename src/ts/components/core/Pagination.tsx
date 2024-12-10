@@ -38,9 +38,11 @@ interface Props
     radius?: MantineRadius;
     /** Determines whether active item text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
     autoContrast?: boolean;
+    /** Determines whether the pagination should be hidden when only one page is available (total=1), False by default */
+    hideWithOnePage?: boolean;
 }
 
-/** Pagination */
+/** Use the Pagination component to display active page and navigate between multiple pages */
 const Pagination = (props: Props) => {
     const {
         setProps,
