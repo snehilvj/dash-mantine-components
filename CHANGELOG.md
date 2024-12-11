@@ -1,5 +1,10 @@
 # Change Log
 
+# Unreleased
+
+### Added
+- Added `disabled` prop for individual options on a `SegmentedControl`  #451  by @petefine 
+
 # 0.15.1
 
 ### Added
