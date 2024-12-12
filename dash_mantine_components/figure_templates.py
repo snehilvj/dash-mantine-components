@@ -50,6 +50,9 @@ def add_figure_templates(default=None):
             "paper_bgcolor":  "#ffffff",  # mantine background color
             "plot_bgcolor": "#ffffff",
             "gridcolor": "#dee2e6",
+            "button_bg": colors["gray"][5],
+            "button_active": colors["gray"][6],
+            "button_text": "white"
         },
         "dark": {
             "colorway": [
@@ -59,6 +62,9 @@ def add_figure_templates(default=None):
             "paper_bgcolor":  colors["dark"][7], # mantine background color
             "plot_bgcolor":  colors["dark"][7],
             "gridcolor": "#343a40",
+            "button_bg": colors["gray"][7],
+            "button_active": colors["gray"][6],
+            "button_text": "white"
         }
     }
 
@@ -83,6 +89,11 @@ def add_figure_templates(default=None):
             axis.gridcolor = theme_config["gridcolor"]
             axis.gridwidth = 0.5
             axis.zerolinecolor = theme_config["gridcolor"]
+
+        # Range selector buttons settings
+        layout.xaxis.rangeselector.font.color = theme_config["button_text"]
+        layout.xaxis.rangeselector.activecolor = theme_config["button_active"]
+        layout.xaxis.rangeselector.bgcolor = theme_config["button_bg"]
 
         # Geo settings
         layout.geo.bgcolor = theme_config["plot_bgcolor"]
