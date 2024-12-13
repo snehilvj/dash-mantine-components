@@ -43,7 +43,8 @@ const Timeline = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childProps = child.props._dashprivate_layout.props;
+                const childProps = window.dash_clientside.get_props(child.props.componentPath)
+
                 const renderedProps = renderDashComponents(
                     omit(["children"], childProps),
                     ["title", "bullet"]
