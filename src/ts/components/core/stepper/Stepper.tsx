@@ -66,7 +66,7 @@ const Stepper = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childType = child.props._dashprivate_layout.type;
+                const childType = window.dash_clientside.get_layout(child.props.componentPath).type
                 if (childType === "StepperCompleted") {
                     return (
                         <MantineStepper.Completed>
@@ -74,7 +74,7 @@ const Stepper = (props: Props) => {
                         </MantineStepper.Completed>
                     );
                 } else {
-                    const childProps = child.props._dashprivate_layout.props;
+                    const childProps = window.dash_clientside.get_layout(child.props.componentPath).props
                     const renderedProps = renderDashComponents(
                         omit(["children"], childProps),
                         [
