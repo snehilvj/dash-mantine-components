@@ -19,17 +19,17 @@ const Popover = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childType = child.props._dashprivate_layout.type;
+                const {type: childType, props: childProps} =
+                    window.dash_clientside.get_layout(child.props.componentPath);
 
                 if (childType === "PopoverTarget") {
-                    const { boxWrapperProps } = child.props;
-                    const boxProps = { w: "fit-content", ...boxWrapperProps };
+                    const { boxWrapperProps } = childProps;
 
                     return (
                         <MantinePopover.Target key={index}>
                             <Box
+                                w="fit-content" {...boxWrapperProps}
                                 onClick={() => setProps({ opened: !opened })}
-                                {...boxProps}
                             >
                                 {child}
                             </Box>

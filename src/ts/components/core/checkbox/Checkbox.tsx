@@ -48,7 +48,7 @@ interface Props
     indeterminateIcon?: React.ReactNode;
 }
 
-/** Checkbox */
+/** Use Checkbox to capture boolean input from user */
 const Checkbox = (props: Props) => {
     const {
         setProps,
@@ -63,8 +63,7 @@ const Checkbox = (props: Props) => {
 
     const iconFunc = ({ indeterminate, ...others }) => {
         const selected: any = indeterminate ? indeterminateIcon : icon;
-        Object.assign(selected.props._dashprivate_layout.props, others);
-        return selected;
+        return React.cloneElement(selected, {extras: others});
     };
 
     return (

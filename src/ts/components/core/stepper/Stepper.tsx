@@ -46,7 +46,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     children?: React.ReactNode;
 }
 
-/** Stepper */
+/** Use Stepper to display content divided into a steps sequence */
 const Stepper = (props: Props) => {
     const { setProps, loading_state, active, children, ...others } = props;
 
@@ -66,7 +66,7 @@ const Stepper = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childType = child.props._dashprivate_layout.type;
+                const {type: childType, props: childProps} = window.dash_clientside.get_layout(child.props.componentPath);
                 if (childType === "StepperCompleted") {
                     return (
                         <MantineStepper.Completed>
@@ -74,7 +74,6 @@ const Stepper = (props: Props) => {
                         </MantineStepper.Completed>
                     );
                 } else {
-                    const childProps = child.props._dashprivate_layout.props;
                     const renderedProps = renderDashComponents(
                         omit(["children"], childProps),
                         [

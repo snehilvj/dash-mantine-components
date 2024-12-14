@@ -37,15 +37,15 @@ interface Props extends __PopoverProps, StylesApiProps {
     setProps: (props: Record<string, any>) => void;
 }
 
-/** Menu */
+/** Use Menu to combine a list of secondary actions into single interactive area */
 const Menu = (props: Props) => {
     const { children, setProps, ...others } = props;
 
     return (
         <MantineMenu {...others}>
             {React.Children.map(children, (child: any, index) => {
-                const { type: childType, props: childProps } =
-                    child.props._dashprivate_layout;
+                const {type: childType, props: childProps} =
+                    window.dash_clientside.get_layout(child.props.componentPath);
                 if (childType === "MenuTarget") {
                     const { boxWrapperProps } = childProps;
                     return (

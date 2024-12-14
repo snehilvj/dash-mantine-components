@@ -31,7 +31,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     autoContrast?: boolean;
 }
 
-/** Timeline */
+/** Use the Timeline and TimelineItem components to display a list of events in chronological order. */
 const Timeline = (props: Props) => {
     const { setProps, loading_state, children, ...others } = props;
 
@@ -43,7 +43,8 @@ const Timeline = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childProps = child.props._dashprivate_layout.props;
+                const childProps = window.dash_clientside.get_layout(child.props.componentPath).props
+
                 const renderedProps = renderDashComponents(
                     omit(["children"], childProps),
                     ["title", "bullet"]

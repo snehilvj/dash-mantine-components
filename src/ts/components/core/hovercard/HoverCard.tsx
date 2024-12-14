@@ -10,7 +10,7 @@ interface Props extends Omit<PopoverProps, "opened">, DashBaseProps {
     closeDelay?: number;
 }
 
-/** HoverCard */
+/** Use HoverCard to display popover section when target element is hovered */
 const HoverCard = (props: Props) => {
     const { children, setProps, loading_state, ...others } = props;
 
@@ -22,7 +22,7 @@ const HoverCard = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const {type: childType, props: childProps} = child.props._dashprivate_layout;
+                const {type: childType, props: childProps} = window.dash_clientside.get_layout(child.props.componentPath);
                 if (childType === "HoverCardTarget") {
                     const { boxWrapperProps } = childProps;
                     return (
