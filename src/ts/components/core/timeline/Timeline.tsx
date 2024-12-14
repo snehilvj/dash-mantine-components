@@ -31,7 +31,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     autoContrast?: boolean;
 }
 
-/** Timeline */
+/** Use the Timeline and TimelineItem components to display a list of events in chronological order. */
 const Timeline = (props: Props) => {
     const { setProps, loading_state, children, ...others } = props;
 

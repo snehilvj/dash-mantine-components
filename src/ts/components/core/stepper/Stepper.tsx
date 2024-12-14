@@ -46,7 +46,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     children?: React.ReactNode;
 }
 
-/** Stepper */
+/** Use Stepper to display content divided into a steps sequence */
 const Stepper = (props: Props) => {
     const { setProps, loading_state, active, children, ...others } = props;
 

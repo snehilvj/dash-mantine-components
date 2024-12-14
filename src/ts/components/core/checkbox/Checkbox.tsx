@@ -48,7 +48,7 @@ interface Props
     indeterminateIcon?: React.ReactNode;
 }
 
-/** Checkbox */
+/** Use Checkbox to capture boolean input from user */
 const Checkbox = (props: Props) => {
     const {
         setProps,
