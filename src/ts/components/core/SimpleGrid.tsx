@@ -17,6 +17,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     spacing?: StyleProp<MantineSpacing>;
     /** Spacing between rows, `'md'` by default */
     verticalSpacing?: StyleProp<MantineSpacing>;
+    /** Determines typeof of queries that are used for responsive styles, 'media' by default */
+    type?: "media" | "container";
 }
 
 /** SimpleGrid */
