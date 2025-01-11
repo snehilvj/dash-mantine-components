@@ -6,6 +6,7 @@
 - Added `disabled` prop for individual options on a `SegmentedControl`  #451  by @petefine 
 - Added `type` prop for `SimpleGrid` #472 by @namakshenas
 - Added `type` prop and `breakpoints` prop for `Grid` #473 by @namakshenas
+- Added `inline` prop to `Center` and `allowedInitialsColors` to `Avatar` #478 by @AnnMarieW
 
 ### Fixed
 - Styled the figure buttons in the "mantine_light" and "mantine_dark" Plotly figure templates.  #456 by @AnnMarieW
