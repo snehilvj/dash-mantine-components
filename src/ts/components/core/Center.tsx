@@ -11,7 +11,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     inline?: boolean;
 }
 
-/** Center */
+/** Centers content vertically and horizontally */
 const Center = (props: Props) => {
     const { children, setProps, loading_state, ...others } = props;
 
