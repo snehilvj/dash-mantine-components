@@ -7,6 +7,8 @@ import React from "react";
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
     children?: React.ReactNode;
+    /** Determines whether `inline-flex` should be used instead of `flex`, `false` by default */
+    inline?: boolean;
 }
 
 /** Center */
