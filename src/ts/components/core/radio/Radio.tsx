@@ -45,7 +45,6 @@ interface Props
 const Radio = (props: Props) => {
     const {
         setProps,
-        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -53,12 +52,12 @@ const Radio = (props: Props) => {
     } = props;
 
     const { radioOnClick } = React.useContext(RadioGroupContext) || {};
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
 
     return (
         <MantineRadio
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
             onClick={radioOnClick}
             {...others}

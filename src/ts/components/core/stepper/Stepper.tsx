@@ -48,7 +48,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** Use Stepper to display content divided into a steps sequence */
 const Stepper = (props: Props) => {
-    const { setProps, loading_state, active, children, ...others } = props;
+    const { setProps, active, children, ...others } = props;
 
     const [act, setAct] = useState(active);
 
@@ -56,11 +56,12 @@ const Stepper = (props: Props) => {
         setAct(active);
     }, [active]);
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineStepper
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             active={act}
             onStepClick={(a) => setProps({active: a})}
             {...others}

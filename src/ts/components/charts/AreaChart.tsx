@@ -65,7 +65,7 @@ interface Props
 
 /** AreaChart */
 const AreaChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, areaChartProps, activeDotProps, areaProps, ...others } = props;
+    const { setProps, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, areaChartProps, activeDotProps, areaProps, ...others } = props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -151,9 +151,12 @@ const AreaChart = (props: Props) => {
 
     const newProps = { ...areaChartProps, onClick, onMouseOver };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
       <MantineAreaChart
-        data-dash-is-loading={(loading_state && loading_state.is_loading) || undefined}
+        data-dash-is-loading={loading || undefined}
         areaChartProps={newProps}
         series={series}
         activeDotProps={{

@@ -28,7 +28,6 @@ const PasswordInput = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        loading_state,
         value,
         n_submit,
         n_blur,
@@ -66,11 +65,12 @@ const PasswordInput = (props: Props) => {
         });
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantinePasswordInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
             onKeyDown={handleKeyDown}

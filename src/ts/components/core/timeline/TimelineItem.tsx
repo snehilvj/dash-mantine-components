@@ -19,7 +19,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** TimelineItem */
 const TimelineItem = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
+    const { children, setProps, ...others } = props;
 
     return <>{children}</>;
 };

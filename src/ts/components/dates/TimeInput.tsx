@@ -24,7 +24,6 @@ interface Props
 const TimeInput = (props: Props) => {
     const {
         setProps,
-        loading_state,
         n_submit,
         n_blur,
         value,
@@ -66,11 +65,12 @@ const TimeInput = (props: Props) => {
         });
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineTimeInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             onChange={(ev) => setTime(ev.currentTarget.value)}

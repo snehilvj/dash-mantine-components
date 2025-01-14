@@ -49,7 +49,6 @@ const Select = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        loading_state,
         debounce,
         n_submit,
         n_blur,
@@ -108,11 +107,12 @@ const Select = (props: Props) => {
         setProps({ searchValue: searchVal });
     }, [searchVal]);
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineSelect
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             data={options}

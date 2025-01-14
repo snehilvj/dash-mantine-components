@@ -49,7 +49,7 @@ interface Props
 
 /** ScatterChart */
 const BubbleChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, scatterProps, ...others } =
+    const { setProps,  clickData, hoverData, scatterProps, ...others } =
         props;
 
     const onClick = (ev) => {
@@ -66,11 +66,12 @@ const BubbleChart = (props: Props) => {
 
     const newProps = { ...scatterProps, onClick, onMouseOver};
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineBubbleChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             scatterProps={newProps}
             {...others}
         />

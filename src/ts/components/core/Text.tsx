@@ -8,15 +8,16 @@ interface Props extends TextProps, DashBaseProps {
     children?: React.ReactNode;
 }
 
-/** Text */
+/** Captures string input from user */
 const Text = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
+    const { children, setProps, ...others } = props;
+
+    const ctx = (window as any).dash_component_api.useDashContext()
+    const loading = ctx.useLoading();
 
     return (
         <MantineText
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+             data-dash-is-loading={loading || undefined}
             {...others}
         >
             {children}

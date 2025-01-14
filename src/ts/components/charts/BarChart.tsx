@@ -56,7 +56,7 @@ interface Props
 /** BarChart */
 const BarChart = (props: Props) => {
     const {
-        setProps, loading_state, clickData, hoverData, barChartProps, clickSeriesName, hoverSeriesName, barProps,
+        setProps,  clickData, hoverData, barChartProps, clickSeriesName, hoverSeriesName, barProps,
         highlightHover, ...others } =  props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -127,11 +127,12 @@ const BarChart = (props: Props) => {
 
     const newProps = { ...barChartProps, onClick, onMouseOver };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineBarChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             barChartProps={newProps}
             barProps={barPropsFunction}
             {...others}

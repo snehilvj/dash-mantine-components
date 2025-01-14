@@ -47,7 +47,7 @@ interface Props
 
 /** ScatterChart */
 const ScatterChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, scatterProps, ...others } =
+    const { setProps,  clickData, hoverData, clickSeriesName, hoverSeriesName, scatterProps, ...others } =
         props;
 
     const onClick = (ev) => {
@@ -72,11 +72,12 @@ const ScatterChart = (props: Props) => {
 
     const newProps = { ...scatterProps, onClick, onMouseOver};
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineScatterChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             scatterProps={newProps}
             {...others}
         />

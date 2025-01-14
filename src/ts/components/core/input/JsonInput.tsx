@@ -22,7 +22,6 @@ const JsonInput = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        loading_state,
         value,
         n_submit,
         n_blur,
@@ -60,11 +59,12 @@ const JsonInput = (props: Props) => {
         });
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineJsonInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}

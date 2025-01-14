@@ -12,13 +12,13 @@ interface Props extends Omit<PopoverProps, "opened">, DashBaseProps {
 
 /** Use HoverCard to display popover section when target element is hovered */
 const HoverCard = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
+    const { children, setProps, ...others } = props;
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
 
     return (
         <MantineHoverCard
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {

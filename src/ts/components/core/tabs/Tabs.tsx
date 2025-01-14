@@ -46,7 +46,6 @@ const Tabs = (props: Props) => {
     const {
         children,
         setProps,
-        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -56,12 +55,12 @@ const Tabs = (props: Props) => {
     const onChange = (value: string) => {
         setProps({ value });
     };
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
 
     return (
         <MantineTabs
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onChange={onChange}
             {...others}
         >

@@ -38,7 +38,6 @@ const MenuItem = (props: Props) => {
         refresh,
         n_clicks,
         setProps,
-        loading_state,
         ...others
     } = props;
 
@@ -50,12 +49,13 @@ const MenuItem = (props: Props) => {
         }
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     if (href) {
         return (
             <Menu.Item
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={loading || undefined}
                 component="a"
                 onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                     onClick(ev, href, target, refresh)
@@ -71,9 +71,7 @@ const MenuItem = (props: Props) => {
     } else {
         return (
             <Menu.Item
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={loading || undefined}
                 onClick={increment}
                 disabled={disabled}
                 {...others}

@@ -64,7 +64,7 @@ interface Props
 
 /** CompositeChart */
 const CompositeChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, highlightHover, hoverSeriesName, clickSeriesName, composedChartProps, barProps, lineProps, areaProps, activeDotProps, ...others } =
+    const { setProps,  clickData, hoverData, highlightHover, hoverSeriesName, clickSeriesName, composedChartProps, barProps, lineProps, areaProps, activeDotProps, ...others } =
         props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -157,11 +157,13 @@ const CompositeChart = (props: Props) => {
 
     const newProps = { ...composedChartProps, onClick, onMouseOver};
 
+
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineCompositeChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             composedChartProps={newProps}
             barProps={(item) => propsFunction(item, 'bar')}   // Pass the chart type as 'bar'
             lineProps={(item) => propsFunction(item, 'line')}  // Pass the chart type as 'line'

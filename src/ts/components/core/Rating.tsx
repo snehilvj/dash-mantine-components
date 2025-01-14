@@ -38,7 +38,7 @@ interface Props
 
 /** Rating */
 const Rating = (props: Props) => {
-    const { setProps, loading_state, value, ...others } = props;
+    const { setProps, value, ...others } = props;
 
     const [val, setVal] = useState(value);
 

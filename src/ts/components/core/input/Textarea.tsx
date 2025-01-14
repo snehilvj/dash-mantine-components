@@ -17,7 +17,6 @@ interface Props extends TextareaProps, DashBaseProps, DebounceProps, Persistence
 const Textarea = (props: Props) => {
     const {
         setProps,
-        loading_state,
         value,
         debounce,
         n_blur,
@@ -58,11 +57,12 @@ const Textarea = (props: Props) => {
         });
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineTextarea
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             {...others}
             value={val}
             onChange={(ev) => setVal(ev.currentTarget.value)}

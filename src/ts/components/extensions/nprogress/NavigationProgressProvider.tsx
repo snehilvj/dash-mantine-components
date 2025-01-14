@@ -20,7 +20,7 @@ interface Props extends DashBaseProps {
 
 /** NavigationProgressProvider */
 const NavigationProgressProvider = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
+    const { setProps, ...others } = props;
 
     return <NavigationProgress {...others} />;
 };

@@ -23,7 +23,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Divider */
 const Divider = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
+    const { setProps, ...others } = props;
 
     return (
         <MantineDivider

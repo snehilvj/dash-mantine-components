@@ -33,7 +33,6 @@ interface Props
 const MonthPickerInput = (props: Props) => {
     const {
         setProps,
-        loading_state,
         n_submit,
         value,
         type,
@@ -68,11 +67,12 @@ const MonthPickerInput = (props: Props) => {
         return isDisabled(date, disabledDates || []);
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineMonthPickerInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}

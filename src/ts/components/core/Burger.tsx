@@ -31,7 +31,6 @@ interface Props
 const Burger = (props: Props) => {
     const {
         setProps,
-        loading_state,
         opened,
         persistence,
         persisted_props,
@@ -45,11 +44,12 @@ const Burger = (props: Props) => {
         });
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineBurger
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onClick={onClick}
             opened={opened}
             {...others}

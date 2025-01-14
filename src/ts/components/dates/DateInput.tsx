@@ -58,7 +58,6 @@ interface Props
 const DateInput = (props: Props) => {
     const {
         setProps,
-        loading_state,
         n_submit,
         n_blur,
         value,
@@ -117,12 +116,13 @@ const DateInput = (props: Props) => {
         return isDisabled(date, disabledDates || []);
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <div ref={ref}>
             <MantineDateInput
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={loading || undefined }
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}

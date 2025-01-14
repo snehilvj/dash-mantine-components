@@ -36,7 +36,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CodeHighlightTabs */
 const CodeHighlightTabs = (props: Props) => {
-    const { setProps, loading_state, code, ...others } = props;
+    const { setProps,  code, ...others } = props;
     const renderedCode = [];
     if (Array.isArray(code)) {
         code.forEach((item, index) => {
@@ -46,11 +46,12 @@ const CodeHighlightTabs = (props: Props) => {
         renderedCode.push(renderDashComponents(code, ["icon"]));
     }
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineCodeHighlightTabs
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             code={renderedCode}
             {...others}
         />

@@ -10,13 +10,9 @@ interface Props extends BoxProps, DashBaseProps {
 
 /** Space */
 const Space = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
-
+    const { children, setProps, ...others } = props;
     return (
         <MantineSpace
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             {...others}
         >
             {children}

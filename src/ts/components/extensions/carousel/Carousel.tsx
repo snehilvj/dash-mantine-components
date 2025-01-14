@@ -64,7 +64,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, active, initialSlide, setProps, loading_state, autoplay, autoScroll, ...others } = props;
+    const { children, active, initialSlide, setProps, autoplay, autoScroll, ...others } = props;
 
     const autoplayPlugin =
         autoplay === true
@@ -84,11 +84,12 @@ const Carousel = (props: Props) => {
          setProps({active: initialSlide})
      }, [initialSlide]);
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineCarousel
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             {...others}
             plugins={[autoplayPlugin, autoScrollPlugin].filter(Boolean)}
             onSlideChange={(a) => setProps({ active: a ?? initialSlide })}

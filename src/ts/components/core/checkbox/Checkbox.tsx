@@ -52,7 +52,6 @@ interface Props
 const Checkbox = (props: Props) => {
     const {
         setProps,
-        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -66,11 +65,12 @@ const Checkbox = (props: Props) => {
         return React.cloneElement(selected, {extras: others});
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineCheckbox
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
             icon={icon || indeterminateIcon ? iconFunc : undefined}
             {...others}

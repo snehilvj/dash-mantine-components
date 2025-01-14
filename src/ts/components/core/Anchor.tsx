@@ -26,17 +26,17 @@ const Anchor = (props: Props) => {
         refresh,
         children,
         setProps,
-        loading_state,
         ...others
     } = props;
 
     const sanitizedHref = useMemo(() => sanitizeUrl(href), [href]);
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineAnchor
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                 onClick(ev, sanitizedHref, target, refresh)
             }

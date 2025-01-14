@@ -48,8 +48,7 @@ interface Props
 
 /** TagsInput captures a list of values from user with free input and suggestions */
 const TagsInput = (props: Props) => {
-    const { setProps, loading_state, data, searchValue, value, ...others } =
-        props;
+    const { setProps, data, searchValue, value, ...others } = props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -77,11 +76,12 @@ const TagsInput = (props: Props) => {
         setProps({ searchValue: searchVal });
     }, [searchVal]);
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineTagsInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             data={options}
             onChange={setSelected}
             value={selected}

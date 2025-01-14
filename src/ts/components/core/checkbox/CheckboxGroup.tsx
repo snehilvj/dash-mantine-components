@@ -28,7 +28,6 @@ const CheckboxGroup = (props: Props) => {
     const {
         children,
         setProps,
-        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -39,11 +38,12 @@ const CheckboxGroup = (props: Props) => {
         setProps({ value });
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <Checkbox.Group
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onChange={onChange}
             {...others}
         >

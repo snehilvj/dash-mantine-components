@@ -24,7 +24,6 @@ const ChipGroup = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        loading_state,
         deselectable,
         ...others
     } = props;
@@ -44,13 +43,14 @@ const ChipGroup = (props: Props) => {
         }
       };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <Chip.Group
             value={val}
             onChange={setVal}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             {...others}
         >
             <ChipGroupContext.Provider value={{ chipOnClick: deselectable ? handleChipClick : null }}>

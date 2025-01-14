@@ -10,7 +10,6 @@ interface Props extends ColorPickerProps, PersistenceProps, DashBaseProps {}
 const ColorPicker = (props: Props) => {
     const {
         setProps,
-        loading_state,
         value,
         persistence,
         persisted_props,
@@ -28,11 +27,12 @@ const ColorPicker = (props: Props) => {
         setColor(value);
     }, [value]);
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineColorPicker
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             value={color}
             onChange={setColor}
             {...others}

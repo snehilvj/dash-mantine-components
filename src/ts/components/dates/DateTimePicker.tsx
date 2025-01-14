@@ -48,7 +48,6 @@ interface Props
 const DateTimePicker = (props: Props) => {
     const {
         setProps,
-        loading_state,
         value,
         debounce,
         n_submit,
@@ -82,11 +81,12 @@ const DateTimePicker = (props: Props) => {
         }
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineDateTimePicker
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onChange={setDate}
             value={date}
             onKeyDown={handleKeyDown}

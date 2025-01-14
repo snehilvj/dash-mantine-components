@@ -63,7 +63,6 @@ const NavLink = (props: Props) => {
         persisted_props,
         persistence_type,
         setProps,
-        loading_state,
         ...others
     } = props;
 
@@ -79,12 +78,13 @@ const NavLink = (props: Props) => {
         }
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     if (href) {
         return (
             <MantineNavLink
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={loading || undefined}
                 component="a"
                 onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                     onClick(ev, href, target, refresh)

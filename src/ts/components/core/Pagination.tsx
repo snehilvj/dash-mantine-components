@@ -46,7 +46,6 @@ interface Props
 const Pagination = (props: Props) => {
     const {
         setProps,
-        loading_state,
         persistence,
         persisted_props,
         persistence_type,
@@ -56,6 +55,9 @@ const Pagination = (props: Props) => {
     const onChange = (value: number) => {
         setProps({ value });
     };
+
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
 
     return (
         <MantinePagination

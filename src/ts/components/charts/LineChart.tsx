@@ -62,7 +62,7 @@ interface Props
 
 /** Mantine-themed line chart built on top of the Recharts library, */
 const LineChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, lineChartProps, activeDotProps, lineProps, ...others } = props;
+    const { setProps,  clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, lineChartProps, activeDotProps, lineProps, ...others } = props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -147,11 +147,12 @@ const LineChart = (props: Props) => {
 
     const newProps = { ...lineChartProps, onClick, onMouseOver };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineLineChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             lineChartProps={newProps}
             series={series}
             activeDotProps={{

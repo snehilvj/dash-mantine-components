@@ -33,13 +33,13 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Use the Timeline and TimelineItem components to display a list of events in chronological order. */
 const Timeline = (props: Props) => {
-    const { setProps, loading_state, children, ...others } = props;
+    const { setProps, children, ...others } = props;
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
 
     return (
         <MantineTimeline
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {

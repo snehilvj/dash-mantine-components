@@ -8,13 +8,10 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {}
 
 /** MenuDivider */
 const MenuDivider = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
+    const { setProps, ...others } = props;
 
     return (
         <Menu.Divider
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
             {...others}
         />
     );

@@ -23,12 +23,14 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Skeleton */
 const Skeleton = (props: Props) => {
-    const { setProps, visible, loading_state, children, ...others } = props;
+    const { setProps, visible,  children, ...others } = props;
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
 
     return (
         <MantineSkeleton
             {...others}
-            visible={visible || (loading_state && loading_state.is_loading)}
+            visible={visible || loading}
         >
             {children}
         </MantineSkeleton>

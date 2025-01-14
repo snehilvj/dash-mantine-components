@@ -50,7 +50,6 @@ const Chip = (props: Props) => {
         persisted_props,
         persistence_type,
         checked,
-        loading_state,
         ...others
     } = props;
 
@@ -67,11 +66,12 @@ const Chip = (props: Props) => {
         ? { onClick: chipGroupContext?.chipOnClick }
         : { checked, onChange };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineChip
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             {...eventProps}
             {...others}
         >

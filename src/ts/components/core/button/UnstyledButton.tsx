@@ -18,7 +18,7 @@ export interface Props
 
 /** UnstyledButton */
 const UnstyledButton = (props: Props) => {
-    const { children, setProps, loading_state, disabled, n_clicks, ...others } =
+    const { children, setProps, disabled, n_clicks, ...others } =
         props;
 
     const increment = () => {
@@ -29,11 +29,12 @@ const UnstyledButton = (props: Props) => {
         }
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineUnstyledButton
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             onClick={increment}
             disabled={disabled}
             {...others}

@@ -8,7 +8,7 @@ interface Props extends ModalProps, StylesApiProps, DashBaseProps {}
 
 /** Modal */
 const Modal = (props: Props) => {
-    const { children, setProps, loading_state, opened, ...others } = props;
+    const { children, setProps, opened, ...others } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -20,11 +20,12 @@ const Modal = (props: Props) => {
         setProps({ opened: false });
     };
 
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineModal
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             opened={open}
             onClose={onClose}
             {...others}

@@ -30,7 +30,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** RingProgress */
 const RingProgress = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
+    const { setProps, ...others } = props;
 
     return (
         <MantineRingProgress

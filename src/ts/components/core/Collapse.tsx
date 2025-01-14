@@ -18,12 +18,13 @@ interface Props extends BoxProps, DashBaseProps {
 
 /** Collapse */
 const Collapse = (props: Props) => {
-    const { setProps, loading_state, opened, ...others } = props;
+    const { setProps, opened, ...others } = props;
+    const ctx = (window as any).dash_component_api.useDashContext();
+    const loading = ctx.useLoading();
+
     return (
         <MantineCollapse
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={loading || undefined}
             in={opened}
             {...others}
         />
