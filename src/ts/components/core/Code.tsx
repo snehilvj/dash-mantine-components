@@ -30,6 +30,4 @@ const Code = (props: Props) => {
     );
 };
 
-Code.defaultProps = {};
-
 export default Code;

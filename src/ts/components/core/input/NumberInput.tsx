@@ -69,12 +69,13 @@ const NumberInput = (props: Props) => {
     const {
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
-        value,
-        n_submit,
-        n_blur,
-        debounce,
+        persisted_props = ['value'],
+        persistence_type = 'local',
+        value = '',
+        n_submit = 0,
+        n_blur = 0,
+        debounce = false,
+        autoComplete = "off",
         ...others
     } = props;
 
@@ -119,20 +120,10 @@ const NumberInput = (props: Props) => {
             value={val}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            autoComplete={autoComplete}
             {...others}
         />
     );
-};
-
-
-NumberInput.defaultProps = {
-    debounce: false,
-    value: "",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-    autoComplete: "off"
 };
 
 export default NumberInput;

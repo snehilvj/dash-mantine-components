@@ -68,18 +68,13 @@ interface Props
 /** PinInput */
 const PinInput = (props: Props) => {
     const { setProps, value, ...others } = props;
-    const ctx = (window as any).dash_component_api.useDashContext();
-    const loading = ctx.useLoading();
 
     return (
         <MantinePinInput
-            data-dash-is-loading={loading || undefined}
             onComplete={(value) => setProps({ value })}
             {...others}
         />
     );
 };
-
-PinInput.defaultProps = {};
 
 export default PinInput;

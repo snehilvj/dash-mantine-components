@@ -60,6 +60,4 @@ const Table = (props: Props) => {
     );
 };
 
-Table.defaultProps = {};
-
 export default Table;

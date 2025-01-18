@@ -25,6 +25,4 @@ const MenuDropdown = (props: Props) => {
     );
 };
 
-MenuDropdown.defaultProps = {};
-
 export default MenuDropdown;

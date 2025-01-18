@@ -17,13 +17,14 @@ interface Props extends TextareaProps, DashBaseProps, DebounceProps, Persistence
 const Textarea = (props: Props) => {
     const {
         setProps,
-        value,
-        debounce,
-        n_blur,
-        n_submit,
+        value = '',
+        debounce = false,
+        n_blur = 0,
+        n_submit = 0,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'locaL',
+        autoComplete = "off",
         ...others
     } = props;
 
@@ -68,18 +69,9 @@ const Textarea = (props: Props) => {
             onChange={(ev) => setVal(ev.currentTarget.value)}
             onBlur={handleBlur}
             onKeyDown={handleKeyDown}
+            autoComplete={autoComplete}
         />
     );
-};
-
-Textarea.defaultProps = {
-    debounce: false,
-    value: "",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_blur: 0,
-    n_submit: 0,
-    autoComplete: "off"
 };
 
 export default Textarea;

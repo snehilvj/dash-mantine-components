@@ -33,7 +33,7 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
 
 /** Drawer */
 const Drawer = (props: Props) => {
-    const { setProps, opened, children, ...others } = props;
+    const { setProps, opened = false, children, ...others } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -59,7 +59,5 @@ const Drawer = (props: Props) => {
         </MantineDrawer>
     );
 };
-
-Drawer.defaultProps = { opened: false };
 
 export default Drawer;

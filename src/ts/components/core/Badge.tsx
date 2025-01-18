@@ -49,6 +49,4 @@ const Badge = (props: Props) => {
     );
 };
 
-Badge.defaultProps = {};
-
 export default Badge;

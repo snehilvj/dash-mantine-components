@@ -29,6 +29,4 @@ const Container = (props: Props) => {
     );
 };
 
-Container.defaultProps = {};
-
 export default Container;

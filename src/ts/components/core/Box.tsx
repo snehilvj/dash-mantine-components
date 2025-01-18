@@ -25,6 +25,4 @@ const Box = (props: Props) => {
     );
 };
 
-Box.defaultProps = {};
-
 export default Box;

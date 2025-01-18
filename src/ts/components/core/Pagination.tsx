@@ -47,8 +47,8 @@ const Pagination = (props: Props) => {
     const {
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -65,11 +65,6 @@ const Pagination = (props: Props) => {
             onChange={onChange}
         />
     );
-};
-
-Pagination.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default Pagination;

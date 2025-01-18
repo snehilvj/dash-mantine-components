@@ -30,6 +30,4 @@ const ActionIconGroup = (props: Props) => {
     );
 };
 
-ActionIconGroup.defaultProps = {};
-
 export default ActionIconGroup;

@@ -33,6 +33,4 @@ const Breadcrumbs = (props: Props) => {
     );
 };
 
-Breadcrumbs.defaultProps = {};
-
 export default Breadcrumbs;

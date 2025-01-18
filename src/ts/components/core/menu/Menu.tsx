@@ -62,6 +62,4 @@ const Menu = (props: Props) => {
     );
 };
 
-Menu.defaultProps = {};
-
 export default Menu;

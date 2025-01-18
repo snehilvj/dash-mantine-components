@@ -26,12 +26,12 @@ const PasswordInput = (props: Props) => {
     const {
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
-        value,
-        n_submit,
-        n_blur,
-        debounce,
+        persisted_props = ['value'],
+        persistence_type = 'local',
+        value = '',
+        n_submit = 0,
+        n_blur = 0,
+        debounce = false,
         ...others
     } = props;
 
@@ -65,12 +65,8 @@ const PasswordInput = (props: Props) => {
         });
     };
 
-    const ctx = (window as any).dash_component_api.useDashContext();
-    const loading = ctx.useLoading();
-
     return (
         <MantinePasswordInput
-            data-dash-is-loading={loading || undefined}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
             onKeyDown={handleKeyDown}
@@ -78,15 +74,6 @@ const PasswordInput = (props: Props) => {
             {...others}
         />
     );
-};
-
-PasswordInput.defaultProps = {
-    debounce: false,
-    value: "",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
 };
 
 export default PasswordInput;

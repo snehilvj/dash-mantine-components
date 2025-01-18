@@ -31,6 +31,4 @@ const Image = (props: Props) => {
     );
 };
 
-Image.defaultProps = {};
-
 export default Image;

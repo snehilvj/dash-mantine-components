@@ -26,6 +26,4 @@ const Center = (props: Props) => {
     );
 };
 
-Center.defaultProps = {};
-
 export default Center;

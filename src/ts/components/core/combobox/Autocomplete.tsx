@@ -28,7 +28,15 @@ interface Props
 
 /** Autocomplete */
 const Autocomplete = (props: Props) => {
-    const { setProps, data, value, ...others } = props;
+    const {
+        setProps,
+        data = [],
+        value,
+        persistence,
+        persisted_props = ["value"],
+        persistence_type = "local",
+         ...others
+     } = props;
 
     const [autocomplete, setAutocomplete] = useState(value);
     const [options, setOptions] = useState(data);
@@ -62,12 +70,6 @@ const Autocomplete = (props: Props) => {
             {...others}
         />
     );
-};
-
-Autocomplete.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    data: [],
 };
 
 export default Autocomplete;

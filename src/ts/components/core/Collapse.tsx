@@ -18,7 +18,7 @@ interface Props extends BoxProps, DashBaseProps {
 
 /** Collapse */
 const Collapse = (props: Props) => {
-    const { setProps, opened, ...others } = props;
+    const { setProps, opened = false, ...others } = props;
     const ctx = (window as any).dash_component_api.useDashContext();
     const loading = ctx.useLoading();
 
@@ -30,7 +30,5 @@ const Collapse = (props: Props) => {
         />
     );
 };
-
-Collapse.defaultProps = { opened: false };
 
 export default Collapse;

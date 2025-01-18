@@ -32,6 +32,4 @@ const Stack = (props: Props) => {
     );
 };
 
-Stack.defaultProps = {};
-
 export default Stack;

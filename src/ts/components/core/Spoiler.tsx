@@ -24,7 +24,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Spoiler */
 const Spoiler = (props: Props) => {
-    const { setProps, expanded, children, ...others } = props;
+    const { setProps, expanded = false, children, ...others } = props;
 
     const [opened, setOpened] = useState(expanded);
 
@@ -49,10 +49,6 @@ const Spoiler = (props: Props) => {
             {children}
         </MantineSpoiler>
     );
-};
-
-Spoiler.defaultProps = {
-    expanded: false,
 };
 
 export default Spoiler;

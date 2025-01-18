@@ -8,7 +8,7 @@ interface Props extends ModalProps, StylesApiProps, DashBaseProps {}
 
 /** Modal */
 const Modal = (props: Props) => {
-    const { children, setProps, opened, ...others } = props;
+    const { children, setProps, opened = false, ...others } = props;
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -34,7 +34,5 @@ const Modal = (props: Props) => {
         </MantineModal>
     );
 };
-
-Modal.defaultProps = { opened: false };
 
 export default Modal;

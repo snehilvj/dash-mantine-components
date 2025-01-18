@@ -22,8 +22,8 @@ const ChipGroup = (props: Props) => {
         value,
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ["value"],
+        persistence_type = "local",
         deselectable,
         ...others
     } = props;
@@ -60,9 +60,5 @@ const ChipGroup = (props: Props) => {
     );
 };
 
-ChipGroup.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
 
 export default ChipGroup;

@@ -28,8 +28,8 @@ const RadioGroup = (props: Props) => {
         value,
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         deselectable,
         ...others
     } = props;
@@ -59,11 +59,6 @@ const RadioGroup = (props: Props) => {
             </RadioGroupContext.Provider>
         </Radio.Group>
     );
-};
-
-RadioGroup.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default RadioGroup;

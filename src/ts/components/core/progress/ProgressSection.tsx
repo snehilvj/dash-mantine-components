@@ -33,6 +33,4 @@ const ProgressSection = (props: Props) => {
     );
 };
 
-ProgressSection.defaultProps = {};
-
 export default ProgressSection;

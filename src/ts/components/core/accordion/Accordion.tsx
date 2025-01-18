@@ -47,8 +47,8 @@ const Accordion = (props: Props) => {
         children,
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ["value"],
+        persistence_type = "local",
         ...others
     } = props;
 
@@ -68,11 +68,6 @@ const Accordion = (props: Props) => {
             {children}
         </MantineAccordion>
     );
-};
-
-Accordion.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default Accordion;

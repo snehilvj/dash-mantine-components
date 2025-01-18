@@ -29,6 +29,4 @@ const AppShellNavbar = (props: Props) => {
     );
 };
 
-AppShellNavbar.defaultProps = {};
-
 export default AppShellNavbar;

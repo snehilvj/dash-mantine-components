@@ -25,6 +25,4 @@ const AccordionPanel = (props: Props) => {
     );
 };
 
-AccordionPanel.defaultProps = {};
-
 export default AccordionPanel;

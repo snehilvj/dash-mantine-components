@@ -25,6 +25,4 @@ const AppShellMain = (props: Props) => {
     );
 };
 
-AppShellMain.defaultProps = {};
-
 export default AppShellMain;

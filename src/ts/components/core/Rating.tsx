@@ -38,7 +38,14 @@ interface Props
 
 /** Rating */
 const Rating = (props: Props) => {
-    const { setProps, value, ...others } = props;
+    const {
+        setProps,
+        value = 0,
+        persistence,
+        persisted_props = ['value'],
+        persistence_type = 'local',
+        ...others
+    } = props;
 
     const [val, setVal] = useState(value);
 
@@ -57,12 +64,6 @@ const Rating = (props: Props) => {
             {...others}
         />
     );
-};
-
-Rating.defaultProps = {
-    value: 0,
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default Rating;

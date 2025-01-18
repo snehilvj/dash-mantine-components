@@ -47,12 +47,12 @@ const Select = (props: Props) => {
     const {
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
-        debounce,
-        n_submit,
-        n_blur,
-        data,
+        persisted_props = ['value'],
+        persistence_type = 'local',
+        debounce = false,
+        n_submit = 0,
+        n_blur = 0,
+        data = [],
         searchValue,
         value,
         ...others
@@ -123,15 +123,6 @@ const Select = (props: Props) => {
             {...others}
         />
     );
-};
-
-Select.defaultProps = {
-    debounce: false,
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-    data: [],
 };
 
 export default Select;

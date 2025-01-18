@@ -12,8 +12,7 @@ import { TargetProps, onClick } from "../../utils/anchor";
 interface Props
     extends BoxProps,
         StylesApiProps,
-        DashBaseProps,
-        PersistenceProps {
+        DashBaseProps  {
     /** Main link label */
     label?: React.ReactNode;
     /** Link description, displayed below the label */
@@ -57,11 +56,8 @@ const NavLink = (props: Props) => {
         href,
         target,
         refresh,
-        n_clicks,
+        n_clicks = 0,
         children,
-        persistence,
-        persisted_props,
-        persistence_type,
         setProps,
         ...others
     } = props;
@@ -110,12 +106,6 @@ const NavLink = (props: Props) => {
             </MantineNavLink>
         );
     }
-};
-
-NavLink.defaultProps = {
-    n_clicks: 0,
-    persisted_props: ["opened"],
-    persistence_type: "local",
 };
 
 export default NavLink;

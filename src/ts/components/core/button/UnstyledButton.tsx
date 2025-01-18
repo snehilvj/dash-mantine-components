@@ -18,7 +18,7 @@ export interface Props
 
 /** UnstyledButton */
 const UnstyledButton = (props: Props) => {
-    const { children, setProps, disabled, n_clicks, ...others } =
+    const { children, setProps, disabled, n_clicks = 0, ...others } =
         props;
 
     const increment = () => {
@@ -42,10 +42,6 @@ const UnstyledButton = (props: Props) => {
             {children}
         </MantineUnstyledButton>
     );
-};
-
-UnstyledButton.defaultProps = {
-    n_clicks: 0,
 };
 
 export default UnstyledButton;

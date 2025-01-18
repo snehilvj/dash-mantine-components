@@ -25,6 +25,4 @@ const VisuallyHidden = (props: Props) => {
     );
 };
 
-VisuallyHidden.defaultProps = {};
-
 export default VisuallyHidden;

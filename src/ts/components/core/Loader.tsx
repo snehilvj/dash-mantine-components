@@ -19,6 +19,4 @@ const Loader = (props: Props) => {
     );
 };
 
-Loader.defaultProps = {};
-
 export default Loader;

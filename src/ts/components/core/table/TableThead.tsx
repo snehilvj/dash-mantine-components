@@ -8,6 +8,4 @@ const TableThead = (props: TableElementProps) => {
     return <Table.Thead {...others}>{children}</Table.Thead>;
 };
 
-TableThead.defaultProps = {};
-
 export default TableThead;

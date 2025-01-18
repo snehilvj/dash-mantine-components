@@ -31,10 +31,10 @@ interface Props
 const Burger = (props: Props) => {
     const {
         setProps,
-        opened,
+        opened = false,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['opened'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -55,12 +55,6 @@ const Burger = (props: Props) => {
             {...others}
         />
     );
-};
-
-Burger.defaultProps = {
-    opened: false,
-    persisted_props: ["opened"],
-    persistence_type: "local",
 };
 
 export default Burger;

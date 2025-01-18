@@ -36,7 +36,7 @@ const MenuItem = (props: Props) => {
         href,
         target,
         refresh,
-        n_clicks,
+        n_clicks = 0,
         setProps,
         ...others
     } = props;
@@ -81,7 +81,5 @@ const MenuItem = (props: Props) => {
         );
     }
 };
-
-MenuItem.defaultProps = { n_clicks: 0 };
 
 export default MenuItem;

@@ -28,6 +28,4 @@ const AspectRatio = (props: Props) => {
     );
 };
 
-AspectRatio.defaultProps = {};
-
 export default AspectRatio;

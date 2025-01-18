@@ -71,11 +71,11 @@ interface Props
 const RangeSlider = (props: Props) => {
     const {
         setProps,
-        updatemode,
+        updatemode = 'mouseup',
         value,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -107,12 +107,6 @@ const RangeSlider = (props: Props) => {
             }}
         />
     );
-};
-
-RangeSlider.defaultProps = {
-    updatemode: "mouseup",
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default RangeSlider;

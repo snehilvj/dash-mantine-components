@@ -8,6 +8,4 @@ const TableTr = (props: TableElementProps) => {
     return <Table.Tr {...others}>{children}</Table.Tr>;
 };
 
-TableTr.defaultProps = {};
-
 export default TableTr;

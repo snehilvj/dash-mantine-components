@@ -51,13 +51,13 @@ const MultiSelect = (props: Props) => {
     const {
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
-        debounce,
-        n_submit,
-        n_blur,
-        data,
-        value,
+        persisted_props = ['value'],
+        persistence_type = 'local',
+        debounce = false,
+        n_submit = 0,
+        n_blur = 0,
+        data = [],
+        value = [],
         ...others
     } = props;
 
@@ -131,16 +131,6 @@ const MultiSelect = (props: Props) => {
             />
         </div>
     );
-};
-
-MultiSelect.defaultProps = {
-    debounce: false,
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-    data: [],
-    value: [],
 };
 
 export default MultiSelect;

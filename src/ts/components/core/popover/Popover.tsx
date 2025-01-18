@@ -7,7 +7,7 @@ interface Props extends PopoverProps, DashBaseProps {}
 
 /** The Popover component can be used to display additional content in a dropdown element, triggered by a user interaction with a target element. */
 const Popover = (props: Props) => {
-    const { children, opened, setProps, ...others } = props;
+    const { children, opened = false, setProps, ...others } = props;
     const ctx = (window as any).dash_component_api.useDashContext();
     const loading = ctx.useLoading();
 
@@ -40,10 +40,6 @@ const Popover = (props: Props) => {
             })}
         </MantinePopover>
     );
-};
-
-Popover.defaultProps = {
-    opened: false,
 };
 
 export default Popover;

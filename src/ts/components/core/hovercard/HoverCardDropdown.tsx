@@ -25,6 +25,4 @@ const HoverCardDropdown = (props: Props) => {
     );
 };
 
-HoverCardDropdown.defaultProps = {};
-
 export default HoverCardDropdown;

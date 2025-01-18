@@ -39,6 +39,4 @@ const TabsTab = (props: Props) => {
     );
 };
 
-TabsTab.defaultProps = {};
-
 export default TabsTab;

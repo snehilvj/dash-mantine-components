@@ -23,7 +23,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Skeleton */
 const Skeleton = (props: Props) => {
-    const { setProps, visible,  children, ...others } = props;
+    const { setProps, visible = true,  children, ...others } = props;
     const ctx = (window as any).dash_component_api.useDashContext();
     const loading = ctx.useLoading();
 
@@ -38,9 +38,5 @@ const Skeleton = (props: Props) => {
 };
 
 Skeleton._dashprivate_isLoadingComponent = true;
-
-Skeleton.defaultProps = {
-    visible: true,
-};
 
 export default Skeleton;

@@ -8,6 +8,4 @@ const TableTfoot = (props: TableElementProps) => {
     return <Table.Tfoot {...others}>{children}</Table.Tfoot>;
 };
 
-TableTfoot.defaultProps = {};
-
 export default TableTfoot;

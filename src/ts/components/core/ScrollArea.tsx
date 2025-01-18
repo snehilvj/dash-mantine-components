@@ -42,6 +42,4 @@ const ScrollArea = (props: Props) => {
     );
 };
 
-ScrollArea.defaultProps = {};
-
 export default ScrollArea;

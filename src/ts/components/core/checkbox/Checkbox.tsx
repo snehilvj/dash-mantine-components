@@ -53,8 +53,8 @@ const Checkbox = (props: Props) => {
     const {
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ["value"],
+        persistence_type = "local",
         icon,
         indeterminateIcon,
         ...others
@@ -62,7 +62,7 @@ const Checkbox = (props: Props) => {
 
     const iconFunc = ({ indeterminate, ...others }) => {
         const selected: any = indeterminate ? indeterminateIcon : icon;
-        return React.cloneElement(selected, {extras: others});
+        return React.cloneElement(selected, {...others});
     };
 
     const ctx = (window as any).dash_component_api.useDashContext();
@@ -76,12 +76,6 @@ const Checkbox = (props: Props) => {
             {...others}
         />
     );
-};
-
-Checkbox.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
-    checked: false,
 };
 
 export default Checkbox;

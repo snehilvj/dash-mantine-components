@@ -17,6 +17,4 @@ const MenuDivider = (props: Props) => {
     );
 };
 
-MenuDivider.defaultProps = {};
-
 export default MenuDivider;

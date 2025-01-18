@@ -47,8 +47,8 @@ const Tabs = (props: Props) => {
         children,
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -67,11 +67,6 @@ const Tabs = (props: Props) => {
             {children}
         </MantineTabs>
     );
-};
-
-Tabs.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default Tabs;

@@ -37,6 +37,4 @@ const HoverCard = (props: Props) => {
     );
 };
 
-HoverCard.defaultProps = {};
-
 export default HoverCard;

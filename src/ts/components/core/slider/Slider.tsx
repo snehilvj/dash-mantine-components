@@ -67,11 +67,11 @@ interface Props
 const Slider = (props: Props) => {
     const {
         setProps,
-        updatemode,
+        updatemode = 'mouseup',
         value,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -103,12 +103,6 @@ const Slider = (props: Props) => {
             }}
         />
     );
-};
-
-Slider.defaultProps = {
-    updatemode: "mouseup",
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default Slider;

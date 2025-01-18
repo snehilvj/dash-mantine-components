@@ -25,6 +25,4 @@ const PopoverDropdown = (props: Props) => {
     );
 };
 
-PopoverDropdown.defaultProps = {};
-
 export default PopoverDropdown;

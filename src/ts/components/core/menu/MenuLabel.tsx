@@ -25,6 +25,4 @@ const MenuLabel = (props: Props) => {
     );
 };
 
-MenuLabel.defaultProps = {};
-
 export default MenuLabel;

@@ -59,6 +59,4 @@ const Timeline = (props: Props) => {
     );
 };
 
-Timeline.defaultProps = {};
-
 export default Timeline;

@@ -20,6 +20,4 @@ const Space = (props: Props) => {
     );
 };
 
-Space.defaultProps = {};
-
 export default Space;

@@ -44,6 +44,4 @@ const List = (props: Props) => {
     );
 };
 
-List.defaultProps = {};
-
 export default List;

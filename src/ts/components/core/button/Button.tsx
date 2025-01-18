@@ -44,7 +44,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 
 /** Button */
 const Button = (props: Props) => {
-    const { children, setProps, disabled, n_clicks, ...others } =
+    const { children, setProps, disabled, n_clicks = 0, ...others } =
         props;
 
     const increment = () => {
@@ -68,10 +68,6 @@ const Button = (props: Props) => {
             {children}
         </MantineButton>
     );
-};
-
-Button.defaultProps = {
-    n_clicks: 0,
 };
 
 export default Button;

@@ -37,6 +37,4 @@ const NumberFormatter = (props: Props) => {
     );
 };
 
-NumberFormatter.defaultProps = {};
-
 export default NumberFormatter;

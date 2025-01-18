@@ -29,8 +29,9 @@ const CheckboxGroup = (props: Props) => {
         children,
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
+        value = [],
         ...others
     } = props;
 
@@ -45,17 +46,12 @@ const CheckboxGroup = (props: Props) => {
         <Checkbox.Group
             data-dash-is-loading={loading || undefined}
             onChange={onChange}
+            value={value}
             {...others}
         >
             {children}
         </Checkbox.Group>
     );
-};
-
-CheckboxGroup.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    value: [],
 };
 
 export default CheckboxGroup;

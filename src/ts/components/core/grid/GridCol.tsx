@@ -32,6 +32,4 @@ const GridCol = (props: Props) => {
     );
 };
 
-GridCol.defaultProps = {};
-
 export default GridCol;

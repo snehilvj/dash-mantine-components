@@ -38,6 +38,4 @@ const ThemeIcon = (props: Props) => {
     );
 };
 
-ThemeIcon.defaultProps = {};
-
 export default ThemeIcon;

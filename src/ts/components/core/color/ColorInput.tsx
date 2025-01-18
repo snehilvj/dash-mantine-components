@@ -12,8 +12,8 @@ const ColorInput = (props: Props) => {
         setProps,
         value,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ["value"],
+        persistence_type = "local",
         ...others
     } = props;
 
@@ -38,11 +38,6 @@ const ColorInput = (props: Props) => {
             {...others}
         />
     );
-};
-
-ColorInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
 };
 
 export default ColorInput;

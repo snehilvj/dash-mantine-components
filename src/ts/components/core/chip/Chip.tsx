@@ -47,8 +47,8 @@ const Chip = (props: Props) => {
         children,
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ["checked"],
+        persistence_type = "local",
         checked,
         ...others
     } = props;
@@ -78,11 +78,6 @@ const Chip = (props: Props) => {
             {children}
         </MantineChip>
     );
-};
-
-Chip.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
 };
 
 export default Chip;

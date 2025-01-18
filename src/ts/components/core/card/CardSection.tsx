@@ -30,6 +30,4 @@ const CardSection = (props: Props) => {
     );
 };
 
-CardSection.defaultProps = {};
-
 export default CardSection;

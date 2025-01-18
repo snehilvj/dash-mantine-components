@@ -10,7 +10,7 @@ interface Props extends ActionIconProps, DashBaseProps {
 
 /** ActionIcon */
 const ActionIcon = (props: Props) => {
-    const { children, setProps, disabled, n_clicks, ...others } =
+    const { children, setProps, disabled, n_clicks = 0, ...others } =
         props;
 
     const increment = () => {
@@ -34,10 +34,6 @@ const ActionIcon = (props: Props) => {
             {children}
         </MantineActionIcon>
     );
-};
-
-ActionIcon.defaultProps = {
-    n_clicks: 0,
 };
 
 export default ActionIcon;

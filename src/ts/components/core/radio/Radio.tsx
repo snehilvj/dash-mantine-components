@@ -46,8 +46,8 @@ const Radio = (props: Props) => {
     const {
         setProps,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['checked'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -65,9 +65,5 @@ const Radio = (props: Props) => {
     );
 };
 
-Radio.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
-};
 
 export default Radio;

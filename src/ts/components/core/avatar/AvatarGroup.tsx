@@ -27,6 +27,4 @@ const AvatarGroup = (props: Props) => {
     );
 };
 
-AvatarGroup.defaultProps = {};
-
 export default AvatarGroup;

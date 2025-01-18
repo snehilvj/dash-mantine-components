@@ -29,6 +29,4 @@ const TabsList = (props: Props) => {
     );
 };
 
-TabsList.defaultProps = {};
-
 export default TabsList;

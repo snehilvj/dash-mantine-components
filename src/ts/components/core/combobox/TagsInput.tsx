@@ -48,7 +48,16 @@ interface Props
 
 /** TagsInput captures a list of values from user with free input and suggestions */
 const TagsInput = (props: Props) => {
-    const { setProps, data, searchValue, value, ...others } = props;
+    const {
+        setProps,
+        data = [],
+        searchValue,
+        value = [],
+        persistence,
+        persisted_props = ['value'],
+        persistence_type = 'local',
+         ...others
+      } = props;
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -90,13 +99,6 @@ const TagsInput = (props: Props) => {
             {...others}
         />
     );
-};
-
-TagsInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    data: [],
-    value: [],
 };
 
 export default TagsInput;
