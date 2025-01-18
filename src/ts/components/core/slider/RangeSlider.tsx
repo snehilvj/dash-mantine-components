@@ -64,7 +64,7 @@ interface Props
     /** Second thumb `aria-label` */
     thumbToLabel?: string;
     /** Determines when the component should update its value property. If mouseup (the default) then the Rangeslider will only trigger its value when the user has finished dragging the Rangeslider. If drag, then the Rangeslider will update its value continuously as it is being dragged. */
-    updatemode: "mouseup" | "drag";
+    updatemode?: "mouseup" | "drag";
 }
 
 /** RangeSlider */
