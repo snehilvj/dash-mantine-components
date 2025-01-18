@@ -33,16 +33,16 @@ interface Props
 const MonthPickerInput = (props: Props) => {
     const {
         setProps,
-        n_submit,
+        n_submit = 0,
         value,
         type,
-        debounce,
+        debounce = 0,
         minDate,
         maxDate,
         disabledDates,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -83,13 +83,6 @@ const MonthPickerInput = (props: Props) => {
             {...others}
         />
     );
-};
-
-MonthPickerInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: 0,
-    n_submit: 0,
 };
 
 export default MonthPickerInput;

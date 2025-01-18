@@ -57,7 +57,7 @@ interface Props
 const BarChart = (props: Props) => {
     const {
         setProps,  clickData, hoverData, barChartProps, clickSeriesName, hoverSeriesName, barProps,
-        highlightHover, ...others } =  props;
+        highlightHover = false, withBarValueLabel= false, ...others } =  props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -140,13 +140,6 @@ const BarChart = (props: Props) => {
 
     );
 };
-
-
-BarChart.defaultProps = {
-    withBarValueLabel: false,
-    highlightHover: false,
-};
-
 
 
 export default BarChart;

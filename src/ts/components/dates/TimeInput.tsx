@@ -24,13 +24,13 @@ interface Props
 const TimeInput = (props: Props) => {
     const {
         setProps,
-        n_submit,
-        n_blur,
-        value,
-        debounce,
+        n_submit = 0,
+        n_blur = 0,
+        value = '',
+        debounce = false,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -80,13 +80,5 @@ const TimeInput = (props: Props) => {
     );
 };
 
-TimeInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: false,
-    n_submit: 0,
-    n_blur: 0,
-    value: "",
-};
 
 export default TimeInput;

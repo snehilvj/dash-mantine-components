@@ -64,7 +64,21 @@ interface Props
 
 /** CompositeChart */
 const CompositeChart = (props: Props) => {
-    const { setProps,  clickData, hoverData, highlightHover, hoverSeriesName, clickSeriesName, composedChartProps, barProps, lineProps, areaProps, activeDotProps, ...others } =
+    const {
+        setProps,
+        clickData,
+        hoverData,
+        highlightHover = false,
+        hoverSeriesName,
+        clickSeriesName,
+        composedChartProps,
+        barProps,
+        lineProps,
+        areaProps,
+        activeDotProps,
+        withPointLabels = false,
+        withBarValueLabel = false,
+        ...others } =
         props;
 
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -179,10 +193,5 @@ const CompositeChart = (props: Props) => {
     );
 };
 
-CompositeChart.defaultProps = {
-    withPointLabels: false,
-    withBarValueLabel: false,
-    highlightHover: false
-};
 
 export default CompositeChart;

@@ -34,6 +34,5 @@ const NavigationProgress = (props: Props) => {
     }, [props]);
 };
 
-NavigationProgress.defaultProps = {};
 
 export default NavigationProgress;

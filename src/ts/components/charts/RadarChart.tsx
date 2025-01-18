@@ -68,6 +68,4 @@ const RadarChart = (props: Props) => {
     );
 };
 
-RadarChart.defaultProps = {};
-
 export default RadarChart;

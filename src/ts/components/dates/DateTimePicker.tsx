@@ -49,14 +49,14 @@ const DateTimePicker = (props: Props) => {
     const {
         setProps,
         value,
-        debounce,
-        n_submit,
+        debounce = 0,
+        n_submit = 0,
         minDate,
         maxDate,
         disabledDates,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -96,13 +96,6 @@ const DateTimePicker = (props: Props) => {
             {...others}
         />
     );
-};
-
-DateTimePicker.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: 0,
-    n_submit: 0,
 };
 
 export default DateTimePicker;

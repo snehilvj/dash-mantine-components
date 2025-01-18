@@ -58,16 +58,16 @@ interface Props
 const DateInput = (props: Props) => {
     const {
         setProps,
-        n_submit,
-        n_blur,
+        n_submit = 0,
+        n_blur = 0,
         value,
-        debounce,
+        debounce = false,
         minDate,
         maxDate,
         disabledDates,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -134,14 +134,6 @@ const DateInput = (props: Props) => {
             />
         </div>
     );
-};
-
-DateInput.defaultProps = {
-    debounce: false,
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
 };
 
 export default DateInput;

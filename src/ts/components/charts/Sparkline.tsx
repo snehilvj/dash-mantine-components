@@ -45,6 +45,4 @@ const Sparkline = (props: Props) => {
     );
 };
 
-Sparkline.defaultProps = {};
-
 export default Sparkline;

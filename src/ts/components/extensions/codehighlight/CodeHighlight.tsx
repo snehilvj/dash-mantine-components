@@ -34,6 +34,4 @@ const CodeHighlight = (props: Props) => {
     );
 };
 
-CodeHighlight.defaultProps = {};
-
 export default CodeHighlight;

@@ -64,7 +64,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Carousel */
 const Carousel = (props: Props) => {
-    const { children, active, initialSlide, setProps, autoplay, autoScroll, ...others } = props;
+    const { children, active = 0, initialSlide = 0, setProps, autoplay, autoScroll, ...others } = props;
 
     const autoplayPlugin =
         autoplay === true
@@ -100,9 +100,5 @@ const Carousel = (props: Props) => {
     );
 };
 
-Carousel.defaultProps = {
-    initialSlide:0,
-    active:0
-};
 
 export default Carousel;

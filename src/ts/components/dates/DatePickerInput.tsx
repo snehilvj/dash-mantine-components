@@ -33,16 +33,16 @@ interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputShar
 const DatePickerInput = (props: Props) => {
     const {
         setProps,
-        n_submit,
-        type,
+        n_submit = 0,
+        type = 'default',
         value,
-        debounce,
+        debounce = false,
         minDate,
         maxDate,
         disabledDates,
         persistence,
-        persisted_props,
-        persistence_type,
+        persisted_props = ['value'],
+        persistence_type = 'local',
         ...others
     } = props;
 
@@ -105,14 +105,6 @@ const DatePickerInput = (props: Props) => {
             />
         </div>
     );
-};
-
-DatePickerInput.defaultProps = {
-    persisted_props: ['value'],
-    persistence_type: 'local',
-    debounce: 0,
-    n_submit: 0,
-    type: 'default',
 };
 
 export default DatePickerInput;
