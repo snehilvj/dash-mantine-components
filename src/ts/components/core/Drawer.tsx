@@ -34,7 +34,7 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
 /** Drawer */
 const Drawer = (props: Props) => {
     const { setProps, opened = false, children, ...others } = props;
-    const [open, setOpen] = useState(opened);
+    const [open, setOpen] = useState(opened ?? false);
 
     useEffect(() => {
         setOpen(opened);
@@ -51,13 +51,16 @@ const Drawer = (props: Props) => {
     return (
         <MantineDrawer
             data-dash-is-loading={loading || undefined}
-            opened={open}
             onClose={onClose}
             {...others}
+            opened={open}
         >
             {children}
         </MantineDrawer>
     );
 };
+
+// this is the only way to prevent the error: TypeError: Required argument opened was not specified.
+Drawer.defaultProps = { opened: false };
 
 export default Drawer;

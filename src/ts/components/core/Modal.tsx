@@ -35,4 +35,7 @@ const Modal = (props: Props) => {
     );
 };
 
+// this is the only way to prevent the error: TypeError: Required argument opened was not specified.
+Modal.defaultProps = { opened: false };
+
 export default Modal;
