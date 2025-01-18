@@ -188,6 +188,8 @@ const CompositeChart = (props: Props) => {
                 onMouseOver: handleDotHover,
                 onMouseOut: handleHoverEnd,
             }}
+            withPointLabels={withPointLabels}
+            withBarValueLabel={withBarValueLabel}
             {...others}
         />
     );

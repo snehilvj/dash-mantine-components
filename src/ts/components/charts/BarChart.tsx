@@ -135,6 +135,7 @@ const BarChart = (props: Props) => {
             data-dash-is-loading={loading || undefined}
             barChartProps={newProps}
             barProps={barPropsFunction}
+            withBarValueLabel={withBarValueLabel}
             {...others}
         />
 
