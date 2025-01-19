@@ -179,6 +179,7 @@ const Tree = (props: Props) => {
             expandOnClick={false}
             renderNode={(payload) => (
                 <Leaf
+                    key={payload.node.value}
                     checkboxes={checkboxes}
                     expandOnClick={expandOnClick}
                     expandedIcon={expandedIcon}
