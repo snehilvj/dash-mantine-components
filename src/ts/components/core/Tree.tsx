@@ -39,51 +39,79 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     selected?: string[];
     /** Determines whether node should be selected on click, `false` by default */
     selectOnClick?: boolean;
+    /** Expanded state icon */
+    expandedIcon?: React.ReactNode;
+    /** Collapsed state icon */
+    collapsedIcon?: React.ReactNode;
+    /** Side to display expanded/collapsed state icon on, `'left'` by default */
+    iconSide?: "left" | "right" | "none";
 }
 
-const Leaf = ({
-    node,
-    expanded,
-    hasChildren,
-    elementProps,
-    tree,
-    checkboxes,
-    expandOnClick,
-}: RenderTreeNodePayload & { checkboxes: boolean; expandOnClick: boolean }) => {
+interface LeafProps {
+    checkboxes: boolean;
+    expandOnClick: boolean;
+    expandedIcon: React.ReactNode;
+    collapsedIcon: React.ReactNode;
+    iconSide?: "left" | "right" | "none";
+}
+
+const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
+    const {
+        node,
+        expanded,
+        hasChildren,
+        elementProps,
+        tree,
+        checkboxes,
+        expandOnClick,
+        expandedIcon,
+        collapsedIcon,
+        iconSide,
+    } = props;
     const checked = tree.isNodeChecked(node.value);
     const indeterminate = tree.isNodeIndeterminate(node.value);
+    const icon = (
+        <span
+            style={{
+                visibility: hasChildren ? "visible" : "hidden",
+                transform:
+                    collapsedIcon !== undefined || expanded
+                        ? "rotate(0deg)"
+                        : "rotate(-90deg)",
+                transition: "0.2s",
+            }}
+        >
+            {collapsedIcon === undefined || expanded
+                ? expandedIcon
+                : collapsedIcon}
+        </span>
+    );
+    const { onClick, ...otherElementProps } = elementProps;
     return (
-        <Group gap="xs" {...elementProps}>
+        <Group
+            gap="xs"
+            onClick={
+                expandOnClick
+                    ? () => tree.toggleExpanded(node.value)
+                    : undefined
+            }
+            {...otherElementProps}
+        >
+            {iconSide === "left" && icon}
             {checkboxes && (
                 <Checkbox.Indicator
                     checked={checked}
                     indeterminate={indeterminate}
-                    onClick={() =>
-                        !checked
+                    onClick={(event) => {
+                        event.stopPropagation();
+                        return !checked
                             ? tree.checkNode(node.value)
-                            : tree.uncheckNode(node.value)
-                    }
+                            : tree.uncheckNode(node.value);
+                    }}
                 />
             )}
-            <Group
-                gap={5}
-                onClick={
-                    expandOnClick
-                        ? () => tree.toggleExpanded(node.value)
-                        : undefined
-                }
-            >
-                <span>{node.label}</span>
-                {hasChildren && (
-                    <AccordionChevron
-                        style={{
-                            transform: expanded
-                                ? "rotate(180deg)"
-                                : "rotate(0deg)",
-                        }}
-                    />
-                )}
-            </Group>
+            <span>{node.label}</span>
+            {iconSide === "right" && icon}
         </Group>
     );
 };
@@ -98,6 +126,9 @@ const Tree = (props: Props) => {
         loading_state,
         selected,
         setProps,
+        expandedIcon,
+        collapsedIcon,
+        iconSide,
         ...others
     } = props;
 
@@ -150,6 +181,9 @@ const Tree = (props: Props) => {
                 <Leaf
                     checkboxes={checkboxes}
                     expandOnClick={expandOnClick}
+                    expandedIcon={expandedIcon}
+                    collapsedIcon={collapsedIcon}
+                    iconSide={iconSide}
                     {...payload}
                 />
             )}
@@ -161,6 +195,8 @@ const Tree = (props: Props) => {
 Tree.defaultProps = {
     expanded: [],
     expandOnClick: true,
+    expandedIcon: <AccordionChevron />,
+    iconSide: "left",
 };
 
 export default Tree;
