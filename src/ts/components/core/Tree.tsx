@@ -49,7 +49,6 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 interface LeafProps {
     checkboxes: boolean;
-    expandOnClick: boolean;
     expandedIcon: React.ReactNode;
     collapsedIcon: React.ReactNode;
     iconSide?: "left" | "right" | "none";
@@ -63,7 +62,6 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
         elementProps,
         tree,
         checkboxes,
-        expandOnClick,
         expandedIcon,
         collapsedIcon,
         iconSide,
@@ -86,17 +84,8 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
                 : collapsedIcon}
         </span>
     );
-    const { onClick, ...otherElementProps } = elementProps;
     return (
-        <Group
-            gap="xs"
-            onClick={
-                expandOnClick
-                    ? () => tree.toggleExpanded(node.value)
-                    : undefined
-            }
-            {...otherElementProps}
-        >
+        <Group gap="xs" {...elementProps}>
             {iconSide === "left" && icon}
             {checkboxes && (
                 <Checkbox.Indicator
@@ -104,7 +93,7 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
                     indeterminate={indeterminate}
                     onClick={(event) => {
                         event.stopPropagation();
-                        return !checked
+                        !checked
                             ? tree.checkNode(node.value)
                             : tree.uncheckNode(node.value);
                     }}
@@ -122,7 +111,6 @@ const Tree = (props: Props) => {
         checked,
         data,
         expanded,
-        expandOnClick,
         loading_state,
         selected,
         setProps,
@@ -135,6 +123,7 @@ const Tree = (props: Props) => {
     const tree = useTree({
         initialExpandedState: getTreeExpandedState(data, expanded),
         initialCheckedState: checked,
+        initialSelectedState: selected,
     });
 
     useDidUpdate(() => {
@@ -176,12 +165,10 @@ const Tree = (props: Props) => {
             }
             data={data}
             tree={tree}
-            expandOnClick={false}
             renderNode={(payload) => (
                 <Leaf
                     key={payload.node.value}
                     checkboxes={checkboxes}
-                    expandOnClick={expandOnClick}
                     expandedIcon={expandedIcon}
                     collapsedIcon={collapsedIcon}
                     iconSide={iconSide}
