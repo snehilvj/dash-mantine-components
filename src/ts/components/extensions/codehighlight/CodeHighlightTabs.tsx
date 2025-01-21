@@ -22,8 +22,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     copiedLabel?: string;
     /** `max-height` of code in collapsed state */
     maxCollapsedHeight?: React.CSSProperties["maxHeight"];
-    /** Controlled expanded state */
-    expanded?: boolean;
+    /** Uncontrolled expanded state initial value */
+    defaultExpanded?: boolean;
     /** Expand button label and tooltip, `'Expand code'` by default */
     expandCodeLabel?: string;
     /** Collapse button label and tooltip, `'Collapse code'` by default */
