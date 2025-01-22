@@ -1,6 +1,7 @@
 # Change Log
 
-# Unreleased
+# 0.15.2
+
 
 ### Added
 - Added `disabled` prop for individual options on a `SegmentedControl`  #451  by @petefine 
@@ -19,6 +20,11 @@
 ### Fixed
 - Styled the figure buttons in the "mantine_light" and "mantine_dark" Plotly figure templates.  #456 by @AnnMarieW
 - In `Carousel`  Allow only "center" | "start" | "end" in the `align` prop #477 by @AnnMarieW
+
+
+
+### Changed
+- Upgraded to latest Mantine (7.16.1)
 
 
 # 0.15.1
