@@ -10,6 +10,7 @@
 
 ### Fixed
 - Styled the figure buttons in the "mantine_light" and "mantine_dark" Plotly figure templates.  #456 by @AnnMarieW
+- In `Carousel`  Allow only "center" | "start" | "end" in the `align` prop #477 by @AnnMarieW
 
 
 # 0.15.1
