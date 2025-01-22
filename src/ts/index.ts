@@ -146,6 +146,7 @@ import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
 import CodeHighlightTabs from "./components/extensions/codehighlight/CodeHighlightTabs";
+import InlineCodeHighlight from "./components/extensions/codehighlight/InlineCodeHighlight";
 import Notification from "./components/extensions/notifications/Notification";
 import NotificationProvider from "./components/extensions/notifications/NotificationProvider";
 import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
@@ -197,6 +198,7 @@ export {
     Code,
     CodeHighlight,
     CodeHighlightTabs,
+    InlineCodeHighlight,
     Collapse,
     ColorInput,
     ColorPicker,
