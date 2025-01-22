@@ -45,7 +45,7 @@ def tree_app(**kwargs):
 
     @app.callback(Output("output-checked", "children"), Input("tree", "checked"))
     def update_output_checked(checked):
-        return str(checked)
+        return str(sorted(checked) if checked else checked)
 
     @app.callback(Output("output-data", "children"), Input("tree", "data"))
     def update_output_data(data):
@@ -53,11 +53,11 @@ def tree_app(**kwargs):
 
     @app.callback(Output("output-expanded", "children"), Input("tree", "expanded"))
     def update_output_expanded(expanded):
-        return str(expanded)
+        return str(sorted(expanded) if expanded else expanded)
 
     @app.callback(Output("output-selected", "children"), Input("tree", "selected"))
     def update_output_selected(selected):
-        return str(selected)
+        return str(sorted(selected) if selected else selected)
 
     @app.callback(
         Output("tree", "expanded"),
@@ -124,7 +124,7 @@ def test_002tr_tree_expand(dash_duo):
     expand_all = dash_duo.find_element("#button-expand-all")
     expand_all.click()
     dash_duo.wait_for_text_to_equal(
-        "#output-expanded", "['1', '2', '1.a', '1.a.i', '1.a.ii', '1.a.iii', '1.b']"
+        "#output-expanded", "['1', '1.a', '1.a.i', '1.a.ii', '1.a.iii', '1.b', '2']"
     )
 
     assert dash_duo.get_logs() == []
@@ -150,11 +150,11 @@ def test_004tr_tree_checked(dash_duo):
     app = tree_app(checked=["2", "1.b", "1.a.ii"], checkboxes=True, expanded="*")
     dash_duo.start_server(app)
 
-    dash_duo.wait_for_text_to_equal("#output-checked", "['2', '1.b', '1.a.ii']")
+    dash_duo.wait_for_text_to_equal("#output-checked", "['1.a.ii', '1.b', '2']")
     checkbox = dash_duo.find_element("div[data-value='1.a'] div[data-checked]")
     checkbox.click()
     dash_duo.wait_for_text_to_equal(
-        "#output-checked", "['2', '1.b', '1.a.ii', '1.a.i', '1.a.iii']"
+        "#output-checked", "['1.a.i', '1.a.ii', '1.a.iii', '1.b', '2']"
     )
 
     clear_checked = dash_duo.find_element("#button-clear-checked")
