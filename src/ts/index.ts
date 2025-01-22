@@ -51,6 +51,7 @@ import Switch from "./components/core/Switch";
 import Text from "./components/core/Text";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Title from "./components/core/Title";
+import Tree from "./components/core/Tree";
 import VisuallyHidden from "./components/core/VisuallyHidden";
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
@@ -304,6 +305,7 @@ export {
     Timeline,
     TimelineItem,
     Title,
+    Tree,
     Tooltip,
     UnstyledButton,
     VisuallyHidden,

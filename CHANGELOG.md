@@ -6,6 +6,7 @@
 - Added `disabled` prop for individual options on a `SegmentedControl`  #451  by @petefine 
 - Added `type` prop for `SimpleGrid` #472 by @namakshenas
 - Added `type` prop and `breakpoints` prop for `Grid` #473 by @namakshenas
+- Added `Tree` component #460 by @Godisemo
 - Added `InlineCodeHighlight` component #483 by @Godisemo
 
 ### Fixed
