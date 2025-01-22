@@ -4,7 +4,6 @@ import {
 } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
-import { __CloseButtonProps } from "props/button";
 import { ComboboxLikeProps } from "props/combobox";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
@@ -35,7 +34,7 @@ interface Props
     /** Determines whether the clear button should be displayed in the right section when the component has value, `false` by default */
     clearable?: boolean;
     /** Props passed down to the clear button */
-    clearButtonProps?: __CloseButtonProps;
+    clearButtonProps?: object;
     /** Props passed down to the hidden input */
     hiddenInputProps?: object;
     /** Divider used to separate values in the hidden input `value` attribute, `','` by default */
