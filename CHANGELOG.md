@@ -2,17 +2,22 @@
 
 # 0.15.2
 
-
 ### Added
 - Added `disabled` prop for individual options on a `SegmentedControl`  #451  by @petefine 
-- Added `type` prop for `SimpleGrid` #472 by @namakshenas
-- Added `type` prop and `breakpoints` prop for `Grid` #473 by @namakshenas
-- Added props:
+- Added `type` prop for `SimpleGrid` to enable container queries #472 by @namakshenas
+- Added `type` prop and `breakpoints` prop for `Grid` to enable container queries #473 by @namakshenas
+- Added props #478 by @AnnMarieW:
     - `inline` prop to `Center`, 
     - `allowedInitialsColors` to `Avatar`
     - `defaultExpanded` to `CodeHightlightTabs`
     - `autoComplete` to `PasswordInput`
-  #478 by @AnnMarieW
+  
+- Added props available in Mantine 7.16.0 #489 by @AnnMarieW
+    - `withOverlay` and `overlayProps` to `Popover
+    - `withPages` to `Pagination
+    - `type` to `Carousel` enabling container queries
+    - `restrictToMarks` to `RangeSlider`
+  
 
 - Added `Tree` component #460 by @Godisemo
 - Added `InlineCodeHighlight` component #483 by @Godisemo
@@ -20,8 +25,6 @@
 ### Fixed
 - Styled the figure buttons in the "mantine_light" and "mantine_dark" Plotly figure templates.  #456 by @AnnMarieW
 - In `Carousel`  Allow only "center" | "start" | "end" in the `align` prop #477 by @AnnMarieW
-
-
 
 ### Changed
 - Upgraded to latest Mantine (7.16.1)
