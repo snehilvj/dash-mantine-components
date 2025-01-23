@@ -60,6 +60,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     autoplay?: boolean | Record<string, any>;
     /** Enables autoScroll with optional configuration */
     autoScroll?: boolean | Record<string, any>;
+    /** Determines typeof of queries that are used for responsive styles, 'media' by default */
+    type?: "media" | "container";
 }
 
 /** Carousel */

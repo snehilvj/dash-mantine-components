@@ -52,6 +52,10 @@ export interface __PopoverProps {
     returnFocus?: boolean;
     /** Changes floating ui [position strategy](https://floating-ui.com/docs/usefloating#strategy), `'absolute'` by default */
     floatingStrategy?: FloatingStrategy;
+    /** Props passed down to `Overlay` component */
+    overlayProps?: object;
+    /** Determines whether the overlay should be displayed when the dropdown is opened, `false` by default */
+    withOverlay?: boolean;
 }
 
 export interface PopoverProps extends __PopoverProps, StylesApiProps {

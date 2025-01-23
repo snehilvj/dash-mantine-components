@@ -40,6 +40,8 @@ interface Props
     autoContrast?: boolean;
     /** Determines whether the pagination should be hidden when only one page is available (total=1), False by default */
     hideWithOnePage?: boolean;
+    /** Determines whether pages controls should be displayed, `true` by default */
+    withPages?: boolean;
 }
 
 /** Use the Pagination component to display active page and navigate between multiple pages */
