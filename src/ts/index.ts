@@ -28,6 +28,7 @@ import Flex from "./components/core/Flex";
 import Group from "./components/core/Group";
 import Highlight from "./components/core/Highlight";
 import Indicator from "./components/core/Indicator";
+import InputWrapper from "./components/core/input/InputWrapper";
 import Kbd from "./components/core/Kbd";
 import Loader from "./components/core/Loader";
 import LoadingOverlay from "./components/core/LoadingOverlay";
@@ -224,6 +225,7 @@ export {
     HoverCardTarget,
     Image,
     Indicator,
+    InputWrapper,
     JsonInput,
     Kbd,
     LineChart,
