@@ -5,7 +5,6 @@ import {
     MantineSpacing,
 } from "@mantine/core";
 import { BoxProps } from "./box";
-import { __CloseButtonProps } from "./button";
 import { OverlayProps } from "./overlay";
 import { TransitionProps } from "./transition";
 
@@ -50,9 +49,6 @@ export interface ModalBaseOverlayProps
     transitionProps?: TransitionProps;
 }
 
-export interface ModalBaseCloseButtonProps
-    extends __CloseButtonProps,
-        BoxProps {}
 
 export interface ModalProps extends ModalBaseProps {
     /** Modal title */
@@ -66,7 +62,7 @@ export interface ModalProps extends ModalBaseProps {
     /** Determines whether the close button should be rendered, `true` by default */
     withCloseButton?: boolean;
     /** Props passed down to the close button */
-    closeButtonProps?: ModalBaseCloseButtonProps;
+    closeButtonProps?: object;
     /** Top/bottom modal offset, `5dvh` by default */
     yOffset?: React.CSSProperties["marginTop"];
     /** Left/right modal offset, `5vw` by default */

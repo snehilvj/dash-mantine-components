@@ -1,7 +1,6 @@
 import { Drawer as MantineDrawer, MantineRadius } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import {
-    ModalBaseCloseButtonProps,
     ModalBaseOverlayProps,
     ModalBaseProps,
 } from "props/modal";
@@ -28,7 +27,7 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
     /** Determines whether the close button should be rendered, `true` by default */
     withCloseButton?: boolean;
     /** Props passed down to the close button */
-    closeButtonProps?: ModalBaseCloseButtonProps;
+    closeButtonProps?: object;
 }
 
 /** Drawer */

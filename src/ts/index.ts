@@ -51,6 +51,7 @@ import Switch from "./components/core/Switch";
 import Text from "./components/core/Text";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Title from "./components/core/Title";
+import Tree from "./components/core/Tree";
 import VisuallyHidden from "./components/core/VisuallyHidden";
 import Accordion from "./components/core/accordion/Accordion";
 import AccordionControl from "./components/core/accordion/AccordionControl";
@@ -145,6 +146,7 @@ import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
 import CodeHighlightTabs from "./components/extensions/codehighlight/CodeHighlightTabs";
+import InlineCodeHighlight from "./components/extensions/codehighlight/InlineCodeHighlight";
 import Notification from "./components/extensions/notifications/Notification";
 import NotificationProvider from "./components/extensions/notifications/NotificationProvider";
 import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
@@ -196,6 +198,7 @@ export {
     Code,
     CodeHighlight,
     CodeHighlightTabs,
+    InlineCodeHighlight,
     Collapse,
     ColorInput,
     ColorPicker,
@@ -302,6 +305,7 @@ export {
     Timeline,
     TimelineItem,
     Title,
+    Tree,
     Tooltip,
     UnstyledButton,
     VisuallyHidden,

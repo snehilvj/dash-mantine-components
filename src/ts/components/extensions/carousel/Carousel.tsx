@@ -24,8 +24,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     orientation?: "horizontal" | "vertical";
     /** Slides container `height`, required for vertical orientation */
     height?: React.CSSProperties["height"];
-    /** Determines how slides will be aligned relative to the container. Use number between 0-1 to align slides based on percentage, where 0.5 is 50%, `'center'` by default */
-    align?: "start" | "center" | "end" | number;
+    /** Determines how slides will be aligned relative to the container. `'center'` by default */
+    align?: "start" | "center" | "end";
     /** Number of slides that will be scrolled with next/previous buttons, `1` by default */
     slidesToScroll?: number | "auto";
     /** Determines whether gap between slides should be treated as part of the slide size, `true` by default */
@@ -60,6 +60,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     autoplay?: boolean | Record<string, any>;
     /** Enables autoScroll with optional configuration */
     autoScroll?: boolean | Record<string, any>;
+    /** Determines typeof of queries that are used for responsive styles, 'media' by default */
+    type?: "media" | "container";
 }
 
 /** Carousel */

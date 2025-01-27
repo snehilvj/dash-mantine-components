@@ -19,6 +19,8 @@ interface Props
     visible?: boolean;
     /** Input value for controlled component */
     value?: string;
+    /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
+    autoComplete?: string;
 }
 
 /** PasswordInput */
@@ -83,6 +85,7 @@ const PasswordInput = (props: Props) => {
 PasswordInput.defaultProps = {
     debounce: false,
     value: "",
+    autoComplete: "off",
     persisted_props: ["value"],
     persistence_type: "local",
     n_submit: 0,
