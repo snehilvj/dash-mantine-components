@@ -24,6 +24,17 @@ debounce = dmc.Stack(
             debounce=2000,
         ),
         dmc.Box(id="out-2000"),
+
+        # ensure clearButton children and icon can render with components without error
+        dmc.DateInput(
+            id="date-input-clearable",
+            value="2025-01-01",
+            clearable=True,
+            clearButtonProps = {
+                "children": html.Div("x", id="id1"),
+                "icon": html.Div("y",  id="id2"),
+            }
+        )
     ]
 )
 

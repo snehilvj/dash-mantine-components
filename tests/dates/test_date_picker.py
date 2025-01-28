@@ -40,6 +40,16 @@ def make_app(**kwargs):
                 maxDate="2024-10-31",
                 **kwargs
             ),
+            # ensure clearButton children and icon can render with components without error
+            dmc.DatePickerInput(
+                id="date-picker-input-clearable",
+                value="2025-01-01",
+                clearable=True,
+                clearButtonProps={
+                    "children": html.Div("x", id="id1"),
+                    "icon": html.Div("y", id="id2"),
+                }
+            )
         ]
     )
 
