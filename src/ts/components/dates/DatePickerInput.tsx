@@ -101,6 +101,7 @@ const DatePickerInput = (props: Props) => {
                 minDate={stringToDate(minDate)}
                 maxDate={stringToDate(maxDate)}
                 excludeDate={isExcluded}
+                popoverProps={{returnFocus: true}}
                 {...others}
             />
         </div>
