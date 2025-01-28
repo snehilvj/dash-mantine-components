@@ -8,6 +8,7 @@ import {
     MonthLevelSettings,
     YearLevelSettings,
 } from "props/dates";
+import { __ClearButtonProps } from "props/button";
 import { __BaseInputProps } from "props/input";
 import { PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
@@ -35,7 +36,7 @@ interface Props
     /** Determines whether input value can be cleared, adds clear button to right section, false by default */
     clearable?: boolean;
     /** Props added to clear button */
-    clearButtonProps?: object;
+    clearButtonProps?: __ClearButtonProps;
     /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
     valueFormat?: string;
     /** Determines whether input value should be reverted to last known valid value on blur, true by default */
