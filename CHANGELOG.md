@@ -1,5 +1,12 @@
 # Change Log
 
+
+# Unreleased
+
+### Fixed
+
+- fixed debounce on DatePickerInput that stopped working in 0.15.2  #496 by @AnnMarie
+
 # 0.15.2
 
 ### Added
