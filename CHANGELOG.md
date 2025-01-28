@@ -1,5 +1,11 @@
 # Change Log
 
+# Unreleased
+
+### Fixed
+
+- enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
+
 # 0.15.2
 
 ### Added
