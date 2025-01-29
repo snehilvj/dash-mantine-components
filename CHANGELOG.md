@@ -1,5 +1,11 @@
 # Change Log
 
+# Unreleased
+
+### Added
+- For  `MonthPickerInput`, the debounce prop can now be True, False or number of ms delay before updating. When True, the value updates on blur. #471 by @oelhammouchi
+
+
 # 0.15.2
 
 ### Added
