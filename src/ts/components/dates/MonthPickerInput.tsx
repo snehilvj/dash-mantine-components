@@ -99,6 +99,7 @@ const MonthPickerInput = (props: Props) => {
                 type={type}
                 minDate={stringToDate(minDate)}
                 maxDate={stringToDate(maxDate)}
+                popoverProps={{ returnFocus: true }}
                 {...others}
             />
         </div>
