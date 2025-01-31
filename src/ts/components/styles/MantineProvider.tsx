@@ -20,6 +20,4 @@ const MantineProvider = (props: Props) => {
     );
 };
 
-MantineProvider.defaultProps = {};
-
 export default MantineProvider;

@@ -12,6 +12,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { omit } from "ramda";
 import React, { useState } from "react";
+import { getChildLayout, getLoadingState } from "../../../utils/dash3";
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Index of the active step */
@@ -66,7 +67,7 @@ const Stepper = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childType = child.props._dashprivate_layout.type;
+                const { type: childType, props: childProps } = getChildLayout(child);
                 if (childType === "StepperCompleted") {
                     return (
                         <MantineStepper.Completed>
@@ -74,7 +75,6 @@ const Stepper = (props: Props) => {
                         </MantineStepper.Completed>
                     );
                 } else {
-                    const childProps = child.props._dashprivate_layout.props;
                     const renderedProps = renderDashComponents(
                         omit(["children"], childProps),
                         [
@@ -96,7 +96,5 @@ const Stepper = (props: Props) => {
         </MantineStepper>
     );
 };
-
-Stepper.defaultProps = {};
 
 export default Stepper;
