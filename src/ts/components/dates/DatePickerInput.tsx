@@ -41,6 +41,7 @@ const DatePickerInput = (props: Props) => {
         minDate,
         maxDate,
         disabledDates,
+        popoverProps,
         persistence,
         persisted_props,
         persistence_type,
@@ -101,6 +102,7 @@ const DatePickerInput = (props: Props) => {
                 minDate={stringToDate(minDate)}
                 maxDate={stringToDate(maxDate)}
                 excludeDate={isExcluded}
+                popoverProps={{returnFocus: true, ...popoverProps}}
                 {...others}
             />
         </div>
