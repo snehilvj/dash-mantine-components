@@ -6,6 +6,13 @@
 
 -   Added `InputWrapper` component #491 by @Godisemo
 
+
+### Fixed
+
+- fixed debounce on DatePickerInput that stopped working in 0.15.2  #496 by @AnnMarie
+
+
+
 # 0.15.2
 
 ### Added
