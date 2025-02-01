@@ -12,7 +12,7 @@ export interface ModalBaseProps extends BoxProps {
     /** If set modal/drawer will not be unmounted from the DOM when it is hidden, `display: none` styles will be added instead, `false` by default */
     keepMounted?: boolean;
     /** Determines whether modal/drawer is opened */
-    opened?: boolean;
+    opened: boolean;
     /** Determines whether scroll should be locked when `opened={true}`, `true` by default */
     lockScroll?: boolean;
     /** Determines whether focus should be trapped, `true` by default */

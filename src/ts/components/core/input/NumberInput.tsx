@@ -65,20 +65,20 @@ interface Props
 }
 
 /** The NumberInput component allows users to input numeric values  */
-const NumberInput = (props: Props) => {
-    const {
-        setProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        loading_state,
-        value = '',
-        n_submit = 0,
-        n_blur = 0,
-        debounce = false,
-         autoComplete= "off",
-        ...others
-    } = props;
+
+const NumberInput = ({
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    value,
+    n_submit = 0,
+    n_blur = 0,
+    debounce = false,
+    autoComplete = "off",
+    ...others
+}: Props) => {
 
     const [val, setVal] = useState(value);
 

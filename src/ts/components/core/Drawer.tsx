@@ -32,9 +32,8 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
 }
 
 /** Drawer */
-const Drawer = (props: Props) => {
-    const { setProps, loading_state,  children, ...others } = props;
-    const opened = props.opened === undefined ? false : props.opened;
+const Drawer = ({ setProps, loading_state, opened = false, children, ...others }: Props) => {
+
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
