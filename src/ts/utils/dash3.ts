@@ -38,3 +38,22 @@ export const getChildProps = (child: any): any => {
     return getChildLayout(child).props;
 };
 
+
+export const getLoadingStateChildren = (loading_state?: DashBaseProps["loading_state"], children?: any): boolean => {
+    if ((window as any).dash_component_api) {
+        //dash 3
+        const ctx = (window as any).dash_component_api.useDashContext();
+        const childArray = React.Children.toArray(children);
+
+        // Get loading states for all children
+        const loadingStates = childArray.map((child: any) =>
+            ctx.useLoading({ rawPath: child.props?.componentPath })
+        );
+
+        // check if any are true
+        return loadingStates.some(Boolean);
+    }
+    // dash 2
+    return  loading_state?.is_loading ?? false;
+};
+
