@@ -5,8 +5,10 @@ import {
     MantineSpacing,
 } from "@mantine/core";
 import { BoxProps } from "./box";
+import { __CloseButtonProps } from "./button";
 import { OverlayProps } from "./overlay";
 import { TransitionProps } from "./transition";
+
 
 export interface ModalBaseProps extends BoxProps {
     /** If set modal/drawer will not be unmounted from the DOM when it is hidden, `display: none` styles will be added instead, `false` by default */
@@ -50,6 +52,10 @@ export interface ModalBaseOverlayProps
 }
 
 
+export interface ModalBaseCloseButtonProps
+    extends __CloseButtonProps,
+        BoxProps {}
+
 export interface ModalProps extends ModalBaseProps {
     /** Modal title */
     title?: React.ReactNode;
@@ -62,7 +68,7 @@ export interface ModalProps extends ModalBaseProps {
     /** Determines whether the close button should be rendered, `true` by default */
     withCloseButton?: boolean;
     /** Props passed down to the close button */
-    closeButtonProps?: object;
+    closeButtonProps?: ModalBaseCloseButtonProps;
     /** Top/bottom modal offset, `5dvh` by default */
     yOffset?: React.CSSProperties["marginTop"];
     /** Left/right modal offset, `5vw` by default */

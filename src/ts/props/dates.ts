@@ -7,6 +7,7 @@ import {
 } from "@mantine/dates";
 import { BoxProps } from "./box";
 import { __BaseInputProps } from "./input";
+import { __ClearButtonProps } from "./button";
 import { ModalProps } from "./modal";
 import { PopoverProps } from "./popover";
 import { StylesApiProps } from "./styles";
@@ -126,7 +127,7 @@ export interface DateInputSharedProps extends Omit<__BaseInputProps, "size"> {
     /** Determines whether input value can be cleared, adds clear button to right section, false by default */
     clearable?: boolean;
     /** Props passed down to clear button */
-    clearButtonProps?: object;
+    clearButtonProps?: __ClearButtonProps;
     /** Determines whether the user can modify the value */
     readOnly?: boolean;
     /** Determines whether dates value should be sorted before onChange call, only applicable when type="multiple", true by default */

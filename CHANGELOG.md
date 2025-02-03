@@ -8,11 +8,10 @@
 
 -   Added `InputWrapper` component #491 by @Godisemo
 
-
 ### Fixed
 
 - fixed debounce on DatePickerInput that stopped working in 0.15.2  #496 by @AnnMarie
-
+- enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
 
 # 0.15.2
 
