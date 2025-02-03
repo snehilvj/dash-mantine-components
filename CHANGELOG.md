@@ -1,17 +1,22 @@
 # Change Log
 
-# Unreleased
+# 0.15.3
 
 ### Added
 
 -   For  `MonthPickerInput`, the debounce prop can now be True, False or number of ms delay before updating. When True, the value updates on blur. #471 by @oelhammouchi
-
 -   Added `InputWrapper` component #491 by @Godisemo
 
 ### Fixed
 
-- fixed debounce on DatePickerInput that stopped working in 0.15.2  #496 by @AnnMarie
-- enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
+- Fixed debounce in `DatePickerInput` that stopped working in 0.15.2  #496 by @AnnMarie
+- Enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
+
+
+### Changed
+
+-   Upgraded to latest Mantine (7.16.2)
+
 
 # 0.15.2
 
