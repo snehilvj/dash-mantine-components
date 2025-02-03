@@ -1,5 +1,5 @@
 import { MonthPickerInput as MantineMonthPickerInput } from "@mantine/dates";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
+import { useDebouncedValue, useDidUpdate, useFocusWithin } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { DateInputSharedProps, MonthPickerBaseProps } from "props/dates";
@@ -14,11 +14,11 @@ import {
 
 interface Props
     extends DashBaseProps,
-        PersistenceProps,
-        BoxProps,
-        DateInputSharedProps,
-        MonthPickerBaseProps,
-        StylesApiProps {
+    PersistenceProps,
+    BoxProps,
+    DateInputSharedProps,
+    MonthPickerBaseProps,
+    StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
     valueFormat?: string;
     /** Specifies days that should be disabled */
@@ -26,7 +26,7 @@ interface Props
     /** An integer that represents the number of times that this element has been submitted */
     n_submit?: number;
     /** Debounce time in ms */
-    debounce?: number;
+    debounce?: boolean | number;
 }
 
 /** MonthPickerInput */
@@ -41,6 +41,7 @@ const MonthPickerInput = (props: Props) => {
         minDate,
         maxDate,
         disabledDates,
+        popoverProps,
         persistence,
         persisted_props,
         persistence_type,
@@ -48,14 +49,25 @@ const MonthPickerInput = (props: Props) => {
     } = props;
 
     const [date, setDate] = useState(toDates(value));
-    const [debounced] = useDebouncedValue(date, debounce);
+    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const [debounced] = useDebouncedValue(date, debounceValue);
+    const { ref, focused } = useFocusWithin();
 
     useDidUpdate(() => {
-        setProps({ value: toStrings(date) });
+        if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: toStrings(date) })
+        };
     }, [debounced]);
 
     useDidUpdate(() => {
-        setDate(toDates(value));
+        // Clears value when X is clicked
+        if (focused) {
+            setProps({ value: toStrings(date) });
+        }
+    }, [date]);
+
+    useDidUpdate(() => {
+        setDate(type !== 'default' && !value ? [] : toDates(value));
     }, [value]);
 
     const handleKeyDown = (ev) => {
@@ -64,24 +76,34 @@ const MonthPickerInput = (props: Props) => {
         }
     };
 
+    const handleBlur = () => {
+        // Don't include n_blur counter because onBlur is called when the calendar is opened
+        if (debounce === true) {
+            setProps({ value: toStrings(date) });
+        }
+    };
+
     const isExcluded = (date: Date) => {
         return isDisabled(date, disabledDates || []);
     };
 
     return (
-        <MantineMonthPickerInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
-            wrapperProps={{ autoComplete: "off" }}
-            onKeyDown={handleKeyDown}
-            onChange={setDate}
-            value={date}
-            type={type}
-            minDate={stringToDate(minDate)}
-            maxDate={stringToDate(maxDate)}
-            {...others}
-        />
+        <div ref={ref}>
+            <MantineMonthPickerInput
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                }
+                onBlur={handleBlur}
+                onKeyDown={handleKeyDown}
+                onChange={setDate}
+                value={date}
+                type={type}
+                minDate={stringToDate(minDate)}
+                maxDate={stringToDate(maxDate)}
+                popoverProps={{ returnFocus: true, ...popoverProps }}
+                {...others}
+            />
+        </div>
     );
 };
 
