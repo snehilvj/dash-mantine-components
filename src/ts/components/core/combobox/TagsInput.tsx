@@ -12,6 +12,7 @@ import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { filterSelected } from "../../../utils/combobox";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -47,9 +48,17 @@ interface Props
 }
 
 /** TagsInput captures a list of values from user with free input and suggestions */
-const TagsInput = (props: Props) => {
-    const { setProps, loading_state, data, searchValue, value, ...others } =
-        props;
+const TagsInput = ({
+        setProps,
+        persistence,
+        persisted_props,
+        persistence_type,
+        loading_state,
+        data = [],
+        searchValue,
+        value = [],
+        ...others
+    }: Props) => {
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -79,9 +88,7 @@ const TagsInput = (props: Props) => {
 
     return (
         <MantineTagsInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             data={options}
             onChange={setSelected}
             value={selected}
@@ -92,11 +99,6 @@ const TagsInput = (props: Props) => {
     );
 };
 
-TagsInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    data: [],
-    value: [],
-};
+setPersistence(TagsInput)
 
 export default TagsInput;

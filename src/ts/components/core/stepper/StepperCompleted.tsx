@@ -12,6 +12,4 @@ const StepperCompleted = (props: Props) => {
     return <>{children}</>;
 };
 
-StepperCompleted.defaultProps = {};
-
 export default StepperCompleted;

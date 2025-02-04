@@ -24,6 +24,4 @@ const TimelineItem = (props: Props) => {
     return <>{children}</>;
 };
 
-TimelineItem.defaultProps = {};
-
 export default TimelineItem;

@@ -15,6 +15,4 @@ const MenuTarget = (props: Props) => {
     return <>{children}</>;
 };
 
-MenuTarget.defaultProps = {};
-
 export default MenuTarget;

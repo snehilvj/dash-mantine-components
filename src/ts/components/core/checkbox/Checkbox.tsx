@@ -8,6 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { setPersistence, getLoadingState, applyDashProps } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -49,8 +50,7 @@ interface Props
 }
 
 /** Checkbox */
-const Checkbox = (props: Props) => {
-    const {
+const Checkbox = ({
         setProps,
         loading_state,
         persistence,
@@ -59,19 +59,17 @@ const Checkbox = (props: Props) => {
         icon,
         indeterminateIcon,
         ...others
-    } = props;
+    }: Props) => {
+
 
     const iconFunc = ({ indeterminate, ...others }) => {
         const selected: any = indeterminate ? indeterminateIcon : icon;
-        Object.assign(selected.props._dashprivate_layout.props, others);
-        return selected;
+        return applyDashProps(selected, others);
     };
 
     return (
         <MantineCheckbox
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
             icon={icon || indeterminateIcon ? iconFunc : undefined}
             {...others}
@@ -79,10 +77,6 @@ const Checkbox = (props: Props) => {
     );
 };
 
-Checkbox.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
-    checked: false,
-};
+setPersistence(Checkbox, ["checked"] )
 
 export default Checkbox;

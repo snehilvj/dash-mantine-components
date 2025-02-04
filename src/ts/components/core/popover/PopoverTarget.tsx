@@ -15,6 +15,4 @@ const PopoverTarget = (props: Props) => {
     return <>{children}</>;
 };
 
-PopoverTarget.defaultProps = {};
-
 export default PopoverTarget;

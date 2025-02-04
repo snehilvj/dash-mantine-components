@@ -3,6 +3,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Content */
@@ -15,16 +16,12 @@ const MenuDropdown = (props: Props) => {
 
     return (
         <Menu.Dropdown
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}
         </Menu.Dropdown>
     );
 };
-
-MenuDropdown.defaultProps = {};
 
 export default MenuDropdown;

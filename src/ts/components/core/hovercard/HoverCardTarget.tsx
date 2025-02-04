@@ -15,6 +15,4 @@ const HoverCardTarget = (props: Props) => {
     return <>{children}</>;
 };
 
-HoverCardTarget.defaultProps = {};
-
 export default HoverCardTarget;

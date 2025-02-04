@@ -9,7 +9,7 @@ export interface DashBaseProps {
     "aria-*"?: string;
     /** tab-index */
     tabIndex?: number;
-    /**  Object that holds the loading state object coming from dash-renderer  */
+    /**  Object that holds the loading state object coming from dash-renderer. For use with dash<3.  */
     loading_state?: {
         /** Determines if the component is loading or not */
         is_loading: boolean;

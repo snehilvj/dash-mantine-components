@@ -3,6 +3,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingStateChildren } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether Skeleton overlay should be displayed, `true` by default */
@@ -22,23 +23,19 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 }
 
 /** Skeleton */
-const Skeleton = (props: Props) => {
-    const { setProps, visible, loading_state, children, ...others } = props;
+const Skeleton = ({ setProps, visible = true, loading_state, children, ...others }: Props) => {
 
     return (
         <MantineSkeleton
             {...others}
-            visible={visible || (loading_state && loading_state.is_loading)}
+            visible={visible || getLoadingStateChildren(loading_state, children)}
         >
             {children}
         </MantineSkeleton>
     );
 };
 
+// for dash2
 Skeleton._dashprivate_isLoadingComponent = true;
-
-Skeleton.defaultProps = {
-    visible: true,
-};
 
 export default Skeleton;
