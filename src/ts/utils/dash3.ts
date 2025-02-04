@@ -46,20 +46,17 @@ export const getChildLayout = (child: any): { type: any; props: any } => {
 export const getChildProps = (child: any): any => getChildLayout(child).props;
 
 /** Get the loading state of child components */
+
 export const getLoadingStateChildren = (
     loading_state?: DashBaseProps["loading_state"],
     children?: any
 ): boolean => {
     if (isDash3()) {
         const ctx = (window as any).dash_component_api.useDashContext();
-        const childArray = React.Children.toArray(children);
 
-        // Get loading states for all children
-        const loadingStates = childArray.map((child: any) =>
-            ctx.useLoading({ rawPath: child.props?.componentPath })
+        return React.Children.toArray(children).some(
+            (child: any) => ctx.useLoading({ rawPath: child.props?.componentPath })
         );
-
-        return loadingStates.some(Boolean); // Check if any child is loading
     }
 
     return loading_state?.is_loading ?? false; // Dash 2 fallback
