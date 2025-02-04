@@ -2,27 +2,25 @@ import { Box, Popover as MantinePopover } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import { PopoverProps } from "props/popover";
 import React from "react";
+import { getLoadingState, getChildLayout } from "../../../utils/dash3";
 
 interface Props extends PopoverProps, DashBaseProps {}
 
 /** The Popover component can be used to display additional content in a dropdown element, triggered by a user interaction with a target element. */
-const Popover = (props: Props) => {
-    const { children, opened, setProps, loading_state, ...others } = props;
+const Popover = ({ children, opened = false, setProps, loading_state, ...others }: Props) => {
 
     return (
         <MantinePopover
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             opened={opened}
             onChange={(_opened) => !_opened && setProps({ opened: false })}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childType = child.props._dashprivate_layout.type;
+                const { type: childType, props: childProps } = getChildLayout(child);
 
                 if (childType === "PopoverTarget") {
-                    const { boxWrapperProps } = child.props;
+                    const { boxWrapperProps } = childProps;
                     const boxProps = { w: "fit-content", ...boxWrapperProps };
 
                     return (
