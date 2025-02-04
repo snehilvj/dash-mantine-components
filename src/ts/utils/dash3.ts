@@ -16,7 +16,7 @@ export const isDash3 = (): boolean => {
 export const setPersistence = (Component: any, props: string[] = ["value"]): void => {
     const persistence = { persisted_props: props, persistence_type: "local" };
 
-    if (parseFloat(React.version) < 18.3) {
+    if if (parseFloat(React.version.substring(0, React.version.lastIndexOf('.'))) < 18.3) {
         Component.defaultProps = persistence;
     } else {
         Component.dashPersistence = persistence;
