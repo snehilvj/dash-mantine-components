@@ -6,8 +6,9 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, useState, useEffect } from "react";
 import { TargetProps, onClick } from "../../utils/anchor";
+import {History} from '@plotly/dash-component-plugins';
 
 interface Props
     extends BoxProps,
@@ -22,8 +23,11 @@ interface Props
     leftSection?: React.ReactNode;
     /** Section displayed on the right side of the label */
     rightSection?: React.ReactNode;
-    /** Determines whether the link should have active styles, `false` by default */
-    active?: boolean;
+    /** Determines whether the link should have active styles, `false` by default,
+     mimics NavLink behaviour from dash-bootstrap-components
+     exact will match the pathname exactly, whereas partial will only be concerned about the startsWith
+     */
+    active?: boolean | 'partial' | 'exact';
     /** Key of `theme.colors` of any valid CSS color to control active styles, `theme.primaryColor` by default */
     color?: MantineColor;
     /** href */
@@ -52,6 +56,7 @@ interface Props
 
 /** NavLink */
 const NavLink = (props: Props) => {
+    const [linkActive, setLinkActive] = useState(false);
     const {
         disabled,
         href,
@@ -64,8 +69,27 @@ const NavLink = (props: Props) => {
         persistence_type,
         setProps,
         loading_state,
+        active,
         ...others
     } = props;
+
+    const pathnameToActive = pathname => {
+        setLinkActive(
+          active === true ||
+            (active === 'exact' && pathname === href) ||
+            (active === 'partial' && pathname.startsWith(href))
+        );
+    };
+
+    useEffect(() => {
+        pathnameToActive(window.location.pathname);
+
+        if (typeof active === 'string') {
+          History.onChange(() => {
+            pathnameToActive(window.location.pathname);
+          });
+        }
+    }, [active]);
 
     const onChange = (state: boolean) => {
         setProps({ opened: state });
@@ -93,6 +117,7 @@ const NavLink = (props: Props) => {
                 target={target}
                 onChange={onChange}
                 disabled={disabled}
+                active={linkActive}
                 {...others}
             >
                 {children}
