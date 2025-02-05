@@ -52,6 +52,7 @@
         "@mantine/notifications": "7.16.2",
         "@mantine/nprogress": "7.16.2",
         "@mantine/spotlight": "7.16.2",
+        "@plotly/dash-component-plugins": "^1.2.0",
         "dayjs": "^1.11.10",
         "embla-carousel-auto-scroll": "^8.4.0",
         "embla-carousel-autoplay": "^8.4.0",
