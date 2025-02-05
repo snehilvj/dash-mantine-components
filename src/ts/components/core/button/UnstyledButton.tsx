@@ -18,9 +18,15 @@ export interface Props
 }
 
 /** UnstyledButton */
-const UnstyledButton = (props: Props) => {
-    const { children, setProps, loading_state, disabled, n_clicks, ...others } =
-        props;
+const UnstyledButton = ({
+    children,
+    setProps,
+    loading_state,
+    disabled,
+    n_clicks = 0,
+    ...others
+}: Props) => {
+
 
     const increment = () => {
         if (!disabled) {
@@ -42,8 +48,5 @@ const UnstyledButton = (props: Props) => {
     );
 };
 
-UnstyledButton.defaultProps = {
-    n_clicks: 0,
-};
 
 export default UnstyledButton;

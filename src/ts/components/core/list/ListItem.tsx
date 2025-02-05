@@ -26,6 +26,5 @@ const ListItem = (props: Props) => {
     );
 };
 
-ListItem.defaultProps = {};
 
 export default ListItem;

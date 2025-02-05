@@ -26,6 +26,4 @@ const InputWrapper = (props: Props) => {
     );
 };
 
-InputWrapper.defaultProps = {};
-
 export default InputWrapper;

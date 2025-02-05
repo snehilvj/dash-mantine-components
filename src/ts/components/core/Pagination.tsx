@@ -8,7 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -68,9 +68,6 @@ const Pagination = (props: Props) => {
     );
 };
 
-Pagination.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(Pagination)
 
 export default Pagination;

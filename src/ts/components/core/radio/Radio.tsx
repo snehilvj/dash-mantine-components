@@ -9,7 +9,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import RadioGroupContext from "./RadioGroupContext";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -65,9 +65,6 @@ const Radio = (props: Props) => {
     );
 };
 
-Radio.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
-};
+setPersistence(Radio, ['checked'])
 
 export default Radio;

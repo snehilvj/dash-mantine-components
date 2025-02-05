@@ -7,7 +7,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -69,9 +69,6 @@ const Tabs = (props: Props) => {
     );
 };
 
-Tabs.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(Tabs)
 
 export default Tabs;

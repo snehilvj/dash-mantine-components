@@ -26,6 +26,4 @@ const Mark = (props: Props) => {
     );
 };
 
-Mark.defaultProps = {};
-
 export default Mark;

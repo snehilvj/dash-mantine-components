@@ -31,6 +31,4 @@ const Progress = (props: Props) => {
     );
 };
 
-Progress.defaultProps = {};
-
 export default Progress;

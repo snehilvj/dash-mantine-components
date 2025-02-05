@@ -5,7 +5,7 @@ import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -25,19 +25,19 @@ interface Props
 }
 
 /** PasswordInput */
-const PasswordInput = (props: Props) => {
-    const {
-        setProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        loading_state,
-        value,
-        n_submit,
-        n_blur,
-        debounce,
-        ...others
-    } = props;
+const PasswordInput = ({
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    value = '',
+    n_submit = 0,
+    n_blur = 0,
+    debounce = false,
+    autoComplete = "off",
+    ...others
+}: Props) => {
 
     const [val, setVal] = useState(value);
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -76,19 +76,12 @@ const PasswordInput = (props: Props) => {
             value={val}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            autoComplete={autoComplete}
             {...others}
         />
     );
 };
 
-PasswordInput.defaultProps = {
-    debounce: false,
-    value: "",
-    autoComplete: "off",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-};
+setPersistence(PasswordInput)
 
 export default PasswordInput;

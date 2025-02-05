@@ -8,7 +8,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { MouseEvent } from "react";
 import { TargetProps, onClick } from "../../utils/anchor";
-import { getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -52,21 +52,20 @@ interface Props
 }
 
 /** NavLink */
-const NavLink = (props: Props) => {
-    const {
-        disabled,
-        href,
-        target,
-        refresh,
-        n_clicks,
-        children,
-        persistence,
-        persisted_props,
-        persistence_type,
-        setProps,
-        loading_state,
-        ...others
-    } = props;
+const NavLink = ({
+    disabled,
+    href,
+    target,
+    refresh,
+    n_clicks = 0,
+    children,
+    persistence,
+    persisted_props,
+    persistence_type,
+    setProps,
+    loading_state,
+    ...others
+}: Props) => {
 
     const onChange = (state: boolean) => {
         setProps({ opened: state });
@@ -111,10 +110,6 @@ const NavLink = (props: Props) => {
     }
 };
 
-NavLink.defaultProps = {
-    n_clicks: 0,
-    persisted_props: ["opened"],
-    persistence_type: "local",
-};
+setPersistence(NavLink, ["opened"])
 
 export default NavLink;

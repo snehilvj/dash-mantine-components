@@ -29,6 +29,4 @@ const FloatingTooltip = (props: Props) => {
     );
 };
 
-FloatingTooltip.defaultProps = {};
-
 export default FloatingTooltip;

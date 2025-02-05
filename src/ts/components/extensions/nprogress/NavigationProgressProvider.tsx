@@ -25,6 +25,4 @@ const NavigationProgressProvider = (props: Props) => {
     return <NavigationProgress {...others} />;
 };
 
-NavigationProgressProvider.defaultProps = {};
-
 export default NavigationProgressProvider;

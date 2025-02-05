@@ -31,6 +31,4 @@ const BackgroundImage = (props: Props) => {
     );
 };
 
-BackgroundImage.defaultProps = {};
-
 export default BackgroundImage;

@@ -33,9 +33,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 }
 
 /** Alert */
-const Alert = (props: Props) => {
-    const { children, setProps, loading_state, duration, hide, ...others } =
-        props;
+const Alert = ({ children, setProps, loading_state, duration, hide = false, ...others }: Props) => {
     const ref = useRef(null);
 
     useEffect(() => {
@@ -62,10 +60,6 @@ const Alert = (props: Props) => {
             {children}
         </MantineAlert>
     );
-};
-
-Alert.defaultProps = {
-    hide: false,
 };
 
 export default Alert;

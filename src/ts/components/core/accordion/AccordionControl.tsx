@@ -30,6 +30,4 @@ const AccordionControl = (props: Props) => {
     );
 };
 
-AccordionControl.defaultProps = {};
-
 export default AccordionControl;

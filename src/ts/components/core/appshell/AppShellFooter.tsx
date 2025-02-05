@@ -28,6 +28,4 @@ const AppShellFooter = (props: Props) => {
     );
 };
 
-AppShellFooter.defaultProps = {};
-
 export default AppShellFooter;

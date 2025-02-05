@@ -63,10 +63,23 @@ interface Props
     maxBarWidth?: number;
 }
 
+
 /** CompositeChart */
-const CompositeChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, highlightHover, hoverSeriesName, clickSeriesName, composedChartProps, barProps, lineProps, areaProps, activeDotProps, ...others } =
-        props;
+const CompositeChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    highlightHover = false,
+    hoverSeriesName,
+    clickSeriesName,
+    composedChartProps,
+    barProps,
+    lineProps,
+    areaProps,
+    activeDotProps,
+    ...others
+}: Props) => {
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -176,10 +189,5 @@ const CompositeChart = (props: Props) => {
     );
 };
 
-CompositeChart.defaultProps = {
-    withPointLabels: false,
-    withBarValueLabel: false,
-    highlightHover: false
-};
 
 export default CompositeChart;

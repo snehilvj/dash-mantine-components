@@ -57,6 +57,4 @@ const CodeHighlightTabs = (props: Props) => {
     );
 };
 
-CodeHighlightTabs.defaultProps = {};
-
 export default CodeHighlightTabs;

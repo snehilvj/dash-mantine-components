@@ -28,6 +28,4 @@ const ButtonGroup = (props: Props) => {
     );
 };
 
-ButtonGroup.defaultProps = {};
-
 export default ButtonGroup;

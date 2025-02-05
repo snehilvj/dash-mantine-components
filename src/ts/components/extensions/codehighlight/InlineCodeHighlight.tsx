@@ -24,6 +24,4 @@ const InlineCodeHighlight = (props: Props) => {
     );
 };
 
-InlineCodeHighlight.defaultProps = {};
-
 export default InlineCodeHighlight;

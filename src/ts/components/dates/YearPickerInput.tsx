@@ -11,7 +11,7 @@ import {
     toDates,
     toStrings,
 } from "../../utils/dates";
-import { getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends DashBaseProps,
@@ -31,22 +31,21 @@ interface Props
 }
 
 /** YearPickerInput */
-const YearPickerInput = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        n_submit,
-        value,
-        type,
-        debounce,
-        minDate,
-        maxDate,
-        disabledDates,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const YearPickerInput = ({
+    setProps,
+    loading_state,
+    n_submit = 0,
+    value,
+    type,
+    debounce = 0,
+    minDate,
+    maxDate,
+    disabledDates,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [date, setDate] = useState(toDates(value));
     const [debounced] = useDebouncedValue(date, debounce);
@@ -84,11 +83,6 @@ const YearPickerInput = (props: Props) => {
     );
 };
 
-YearPickerInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: 0,
-    n_submit: 0,
-};
+setPersistence(YearPickerInput)
 
 export default YearPickerInput;

@@ -36,6 +36,4 @@ const Group = (props: Props) => {
     );
 };
 
-Group.defaultProps = {};
-
 export default Group;

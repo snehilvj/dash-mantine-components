@@ -23,6 +23,4 @@ const Text = (props: Props) => {
     );
 };
 
-Text.defaultProps = {};
-
 export default Text;

@@ -40,8 +40,4 @@ const Popover = ({ children, opened = false, setProps, loading_state, ...others 
     );
 };
 
-Popover.defaultProps = {
-    opened: false,
-};
-
 export default Popover;

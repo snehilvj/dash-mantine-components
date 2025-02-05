@@ -10,7 +10,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -65,17 +65,17 @@ interface Props
 }
 
 /** Slider */
-const Slider = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        updatemode,
-        value,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const Slider = ({
+    setProps,
+    loading_state,
+    updatemode = "mouseup",
+    value,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
+
 
     const [val, setVal] = useState(value);
 
@@ -104,10 +104,6 @@ const Slider = (props: Props) => {
     );
 };
 
-Slider.defaultProps = {
-    updatemode: "mouseup",
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(Slider)
 
 export default Slider;

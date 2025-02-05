@@ -28,6 +28,4 @@ const Affix = (props: Props) => {
     );
 };
 
-Affix.defaultProps = {};
-
 export default Affix;

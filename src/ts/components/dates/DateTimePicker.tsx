@@ -12,7 +12,7 @@ import {
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { datetimeToString, isDisabled, stringToDate } from "../../utils/dates";
-import { getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends DashBaseProps,
@@ -46,21 +46,20 @@ interface Props
 }
 
 /** DateTimePicker */
-const DateTimePicker = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        value,
-        debounce,
-        n_submit,
-        minDate,
-        maxDate,
-        disabledDates,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const DateTimePicker = ({
+    setProps,
+    loading_state,
+    value,
+    debounce = 0,
+    n_submit = 0,
+    minDate,
+    maxDate,
+    disabledDates,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [date, setDate] = useState(stringToDate(value));
     const [debounced] = useDebouncedValue(date, debounce);
@@ -97,11 +96,6 @@ const DateTimePicker = (props: Props) => {
     );
 };
 
-DateTimePicker.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: 0,
-    n_submit: 0,
-};
+setPersistence(DateTimePicker)
 
 export default DateTimePicker;

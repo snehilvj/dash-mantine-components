@@ -36,6 +36,4 @@ const SimpleGrid = (props: Props) => {
     );
 };
 
-SimpleGrid.defaultProps = {};
-
 export default SimpleGrid;

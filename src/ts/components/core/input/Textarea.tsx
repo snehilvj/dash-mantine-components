@@ -3,7 +3,7 @@ import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { TextareaProps } from "props/text";
 import React, { useEffect, useState } from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props extends TextareaProps, DashBaseProps, DebounceProps, PersistenceProps {
     /** Content */
@@ -15,19 +15,19 @@ interface Props extends TextareaProps, DashBaseProps, DebounceProps, Persistence
 }
 
 /** Textarea */
-const Textarea = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        value,
-        debounce,
-        n_blur,
-        n_submit,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const Textarea = ({
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    value = '',
+    n_submit = 0,
+    n_blur = 0,
+    debounce = false,
+    autoComplete = "off",
+    ...others
+}: Props) => {
 
     const [val, setVal] = useState(value);
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -62,6 +62,7 @@ const Textarea = (props: Props) => {
     return (
         <MantineTextarea
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            autoComplete={autoComplete}
             {...others}
             value={val}
             onChange={(ev) => setVal(ev.currentTarget.value)}
@@ -71,14 +72,6 @@ const Textarea = (props: Props) => {
     );
 };
 
-Textarea.defaultProps = {
-    debounce: false,
-    value: "",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_blur: 0,
-    n_submit: 0,
-    autoComplete: "off"
-};
+setPersistence(Textarea)
 
 export default Textarea;

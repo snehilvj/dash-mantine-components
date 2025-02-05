@@ -29,6 +29,4 @@ const Highlight = (props: Props) => {
     );
 };
 
-Highlight.defaultProps = {};
-
 export default Highlight;

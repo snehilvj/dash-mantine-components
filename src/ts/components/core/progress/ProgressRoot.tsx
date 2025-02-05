@@ -18,6 +18,4 @@ const ProgressRoot = (props: Props) => {
     );
 };
 
-ProgressRoot.defaultProps = {};
-
 export default ProgressRoot;

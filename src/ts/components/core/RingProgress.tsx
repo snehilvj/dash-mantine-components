@@ -41,6 +41,4 @@ const RingProgress = (props: Props) => {
     );
 };
 
-RingProgress.defaultProps = {};
-
 export default RingProgress;

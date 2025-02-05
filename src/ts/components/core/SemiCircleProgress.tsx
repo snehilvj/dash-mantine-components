@@ -52,6 +52,4 @@ const SemiCircleProgress = (props: Props) => {
     );
 };
 
-SemiCircleProgress.defaultProps = {};
-
 export default SemiCircleProgress;

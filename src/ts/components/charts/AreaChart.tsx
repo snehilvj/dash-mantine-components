@@ -65,8 +65,19 @@ interface Props
 }
 
 /** AreaChart */
-const AreaChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, areaChartProps, activeDotProps, areaProps, ...others } = props;
+const AreaChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    clickSeriesName,
+    hoverSeriesName,
+    series,
+    highlightHover = false,
+    areaChartProps,
+    activeDotProps,
+    areaProps,
+    ...others }: Props) => {
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -168,9 +179,5 @@ const AreaChart = (props: Props) => {
       />
     );
 }
-
-AreaChart.defaultProps = {
-    highlightHover: false,
-};
 
 export default AreaChart;

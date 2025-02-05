@@ -3,7 +3,7 @@ import { useDidUpdate } from "@mantine/hooks";
 import { ColorPickerProps } from "props/color";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import React, { useState } from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props extends ColorPickerProps, PersistenceProps, DashBaseProps {}
 
@@ -39,9 +39,6 @@ const ColorPicker = (props: Props) => {
     );
 };
 
-ColorPicker.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(ColorPicker)
 
 export default ColorPicker;

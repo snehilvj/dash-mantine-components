@@ -42,6 +42,4 @@ const NotificationProvider = (props: Props) => {
     );
 };
 
-NotificationProvider.defaultProps = {};
-
 export default NotificationProvider;

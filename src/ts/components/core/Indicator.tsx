@@ -53,6 +53,4 @@ const Indicator = (props: Props) => {
     );
 };
 
-Indicator.defaultProps = {};
-
 export default Indicator;

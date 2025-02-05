@@ -56,6 +56,4 @@ const AppShell = (props: Props) => {
     );
 };
 
-AppShell.defaultProps = {};
-
 export default AppShell;

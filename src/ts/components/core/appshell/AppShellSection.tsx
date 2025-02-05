@@ -26,6 +26,4 @@ const AppShellSection = (props: Props) => {
     );
 };
 
-AppShellSection.defaultProps = {};
-
 export default AppShellSection;

@@ -54,11 +54,20 @@ interface Props
     barLabelColor?: MantineColor;
 }
 
+
 /** BarChart */
-const BarChart = (props: Props) => {
-    const {
-        setProps, loading_state, clickData, hoverData, barChartProps, clickSeriesName, hoverSeriesName, barProps,
-        highlightHover, ...others } =  props;
+const BarChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    barChartProps,
+    clickSeriesName,
+    hoverSeriesName,
+    barProps,
+    highlightHover = false,
+    ...others
+}: Props) => {
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -139,11 +148,6 @@ const BarChart = (props: Props) => {
     );
 };
 
-
-BarChart.defaultProps = {
-    withBarValueLabel: false,
-    highlightHover: false,
-};
 
 
 

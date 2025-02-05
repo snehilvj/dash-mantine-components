@@ -76,6 +76,4 @@ const BubbleChart = (props: Props) => {
     );
 };
 
-BubbleChart.defaultProps = {};
-
 export default BubbleChart;

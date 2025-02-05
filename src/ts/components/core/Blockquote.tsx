@@ -39,6 +39,4 @@ const Blockquote = (props: Props) => {
     );
 };
 
-Blockquote.defaultProps = {};
-
 export default Blockquote;

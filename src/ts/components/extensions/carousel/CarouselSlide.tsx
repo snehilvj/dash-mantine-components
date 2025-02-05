@@ -24,6 +24,4 @@ const CarouselSlide = (props: Props) => {
     );
 };
 
-CarouselSlide.defaultProps = {};
-
 export default CarouselSlide;

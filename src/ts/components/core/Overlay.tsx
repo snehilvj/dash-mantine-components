@@ -18,6 +18,4 @@ const Overlay = (props: Props) => {
     );
 };
 
-Overlay.defaultProps = {};
-
 export default Overlay;

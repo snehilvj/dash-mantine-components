@@ -44,9 +44,14 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 }
 
 /** Button */
-const Button = (props: Props) => {
-    const { children, setProps, loading_state, disabled, n_clicks, ...others } =
-        props;
+const Button = ({
+    children,
+    setProps,
+    loading_state,
+    disabled,
+    n_clicks = 0,
+    ...others
+}: Props) => {
 
     const increment = () => {
         if (!disabled) {
@@ -68,8 +73,5 @@ const Button = (props: Props) => {
     );
 };
 
-Button.defaultProps = {
-    n_clicks: 0,
-};
 
 export default Button;

@@ -26,6 +26,4 @@ const AccordionItem = (props: Props) => {
     );
 };
 
-AccordionItem.defaultProps = {};
-
 export default AccordionItem;

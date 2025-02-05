@@ -7,7 +7,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -29,16 +29,16 @@ interface Props
 }
 
 /** The Burger component renders a customizable hamburger menu button which can toggle between open and closed states. */
-const Burger = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        opened,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const Burger = ({
+    setProps,
+    loading_state,
+    opened = false,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
+
 
     const onClick = () => {
         setProps({
@@ -56,10 +56,6 @@ const Burger = (props: Props) => {
     );
 };
 
-Burger.defaultProps = {
-    opened: false,
-    persisted_props: ["opened"],
-    persistence_type: "local",
-};
+setPersistence(Burger, ["opened"] )
 
 export default Burger;

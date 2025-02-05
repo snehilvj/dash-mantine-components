@@ -30,6 +30,4 @@ const Fieldset = (props: Props) => {
     );
 };
 
-Fieldset.defaultProps = {};
-
 export default Fieldset;

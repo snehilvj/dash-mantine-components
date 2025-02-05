@@ -28,6 +28,4 @@ const Paper = (props: Props) => {
     );
 };
 
-Paper.defaultProps = {};
-
 export default Paper;

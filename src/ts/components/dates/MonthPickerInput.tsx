@@ -11,7 +11,7 @@ import {
     toDates,
     toStrings,
 } from "../../utils/dates";
-import { getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends DashBaseProps,
@@ -31,23 +31,22 @@ interface Props
 }
 
 /** MonthPickerInput */
-const MonthPickerInput = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        n_submit,
-        value,
-        type,
-        debounce,
-        minDate,
-        maxDate,
-        disabledDates,
-        popoverProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const MonthPickerInput = ({
+    setProps,
+    loading_state,
+    n_submit = 0,
+    value,
+    type,
+    debounce = false,
+    minDate,
+    maxDate,
+    disabledDates,
+    popoverProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [date, setDate] = useState(toDates(value));
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -106,11 +105,6 @@ const MonthPickerInput = (props: Props) => {
     );
 };
 
-MonthPickerInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: 0,
-    n_submit: 0,
-};
+setPersistence(MonthPickerInput)
 
 export default MonthPickerInput;

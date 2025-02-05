@@ -79,6 +79,4 @@ const PinInput = (props: Props) => {
     );
 };
 
-PinInput.defaultProps = {};
-
 export default PinInput;

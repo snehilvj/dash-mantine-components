@@ -8,8 +8,8 @@ import { getLoadingState } from "../../utils/dash3";
 interface Props extends ModalProps, StylesApiProps, DashBaseProps {}
 
 /** Modal */
-const Modal = (props: Props) => {
-    const { children, setProps, loading_state, opened, ...others } = props;
+const Modal = ({ children, setProps, loading_state, opened = false, ...others }: Props) => {
+
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -32,7 +32,5 @@ const Modal = (props: Props) => {
         </MantineModal>
     );
 };
-
-Modal.defaultProps = { opened: false };
 
 export default Modal;

@@ -26,6 +26,4 @@ const Kbd = (props: Props) => {
     );
 };
 
-Kbd.defaultProps = {};
-
 export default Kbd;

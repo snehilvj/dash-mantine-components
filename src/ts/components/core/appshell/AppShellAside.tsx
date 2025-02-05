@@ -28,6 +28,4 @@ const AppShellAside = (props: Props) => {
     );
 };
 
-AppShellAside.defaultProps = {};
-
 export default AppShellAside;

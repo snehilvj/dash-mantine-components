@@ -38,6 +38,4 @@ const Flex = (props: Props) => {
     );
 };
 
-Flex.defaultProps = {};
-
 export default Flex;

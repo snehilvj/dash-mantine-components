@@ -14,7 +14,7 @@ import { PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
-import { getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
@@ -57,22 +57,21 @@ interface Props
 }
 
 /** DateInput */
-const DateInput = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        n_submit,
-        n_blur,
-        value,
-        debounce,
-        minDate,
-        maxDate,
-        disabledDates,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const DateInput = ({
+    setProps,
+    loading_state,
+    n_submit = 0,
+    n_blur = 0,
+    value,
+    debounce = false,
+    minDate,
+    maxDate,
+    disabledDates,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [date, setDate] = useState(stringToDate(value));
 
@@ -136,12 +135,6 @@ const DateInput = (props: Props) => {
     );
 };
 
-DateInput.defaultProps = {
-    debounce: false,
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-};
+setPersistence(DateInput)
 
 export default DateInput;

@@ -37,6 +37,4 @@ const Card = (props: Props) => {
     );
 };
 
-Card.defaultProps = {};
-
 export default Card;

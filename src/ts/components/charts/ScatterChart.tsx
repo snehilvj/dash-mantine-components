@@ -82,6 +82,5 @@ const ScatterChart = (props: Props) => {
     );
 };
 
-ScatterChart.defaultProps = {};
 
 export default ScatterChart;

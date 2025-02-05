@@ -28,6 +28,4 @@ const AppShellHeader = (props: Props) => {
     );
 };
 
-AppShellHeader.defaultProps = {};
-
 export default AppShellHeader;

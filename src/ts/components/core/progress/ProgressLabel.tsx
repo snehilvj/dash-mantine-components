@@ -22,6 +22,4 @@ const ProgressLabel = (props: Props) => {
     );
 };
 
-ProgressLabel.defaultProps = {};
-
 export default ProgressLabel;

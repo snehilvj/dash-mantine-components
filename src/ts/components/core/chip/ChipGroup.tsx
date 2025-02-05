@@ -3,7 +3,7 @@ import { useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import React, { useState } from "react";
 import ChipGroupContext from "./ChipGroupContext";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props extends DashBaseProps, PersistenceProps {
     /** Determines whether it is allowed to select multiple values, `false` by default */
@@ -59,9 +59,6 @@ const ChipGroup = (props: Props) => {
     );
 };
 
-ChipGroup.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(ChipGroup)
 
 export default ChipGroup;

@@ -106,20 +106,19 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
     );
 };
 
-const Tree = (props: Props) => {
-    const {
-        checkboxes,
-        checked,
-        data,
-        expanded,
-        loading_state,
-        selected,
-        setProps,
-        expandedIcon,
-        collapsedIcon,
-        iconSide,
-        ...others
-    } = props;
+const Tree = ({
+    checkboxes,
+    checked,
+    data,
+    expanded = [],
+    loading_state,
+    selected,
+    setProps,
+    expandedIcon = <AccordionChevron />,
+    collapsedIcon,
+    iconSide = "left",
+    ...others
+}: Props) => {
 
     const tree = useTree({
         initialExpandedState: getTreeExpandedState(data, expanded),
@@ -179,11 +178,5 @@ const Tree = (props: Props) => {
     );
 };
 
-Tree.defaultProps = {
-    expanded: [],
-    expandOnClick: true,
-    expandedIcon: <AccordionChevron />,
-    iconSide: "left",
-};
 
 export default Tree;

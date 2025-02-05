@@ -33,6 +33,4 @@ const LoadingOverlay = (props: Props) => {
     );
 };
 
-LoadingOverlay.defaultProps = {};
-
 export default LoadingOverlay;

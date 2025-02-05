@@ -9,7 +9,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import ChipGroupContext from "./ChipGroupContext";
-import { getLoadingState } from "../../../utils/dash3";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -79,9 +79,6 @@ const Chip = (props: Props) => {
     );
 };
 
-Chip.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
-};
+setPersistence(Chip, ["checked"])
 
 export default Chip;

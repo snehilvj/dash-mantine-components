@@ -48,6 +48,4 @@ const Anchor = (props: Props) => {
     );
 };
 
-Anchor.defaultProps = {};
-
 export default Anchor;
