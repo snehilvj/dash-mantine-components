@@ -20,7 +20,11 @@ def navlink_app(active):
     ])
     return app
 
-def self_check_navlink(active, dash_duo):
+def self_check_navlink(active, dash_duo, app):
+    dash_duo.start_server(app)
+
+    # Wait for the app to load
+    dash_duo.wait_for_element("#link-0")
     els = dash_duo.find_elements('a[data-active]')
     if isinstance(active, bool):
         if active:
@@ -47,38 +51,18 @@ def self_check_navlink(active, dash_duo):
 
 
 def test_001nl_navlink(dash_duo):
-
     app = navlink_app(True)
-    dash_duo.start_server(app)
-
-    # Wait for the app to load
-    dash_duo.wait_for_element("#link-0")
-    self_check_navlink(True, dash_duo)
+    self_check_navlink(True, dash_duo, app)
 
 def test_002nl_navlink(dash_duo):
-
     app = navlink_app(False)
-    dash_duo.start_server(app)
-
-    # Wait for the app to load
-    dash_duo.wait_for_element("#link-0")
-    self_check_navlink(False, dash_duo)
+    self_check_navlink(False, dash_duo, app)
 
 def test_003nl_navlink(dash_duo):
-
     app = navlink_app('exact')
-    dash_duo.start_server(app)
-
-    # Wait for the app to load
-    dash_duo.wait_for_element("#link-0")
-    self_check_navlink('exact', dash_duo)
+    self_check_navlink('exact', dash_duo, app)
 
 def test_004nl_navlink(dash_duo):
-
     app = navlink_app('partial')
-    dash_duo.start_server(app)
-
-    # Wait for the app to load
-    dash_duo.wait_for_element("#link-0")
-    self_check_navlink('partial', dash_duo)
+    self_check_navlink('partial', dash_duo, app)
 
