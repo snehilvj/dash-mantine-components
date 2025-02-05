@@ -3,6 +3,8 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { TooltipBaseProps } from "props/tooltip";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
+
 
 interface Props extends TooltipBaseProps, DashBaseProps {
     /** Offset from mouse in px, `10` by default */
@@ -19,9 +21,7 @@ const FloatingTooltip = (props: Props) => {
 
     return (
         <Tooltip.Floating
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             <Box {...boxProps}>{children}</Box>

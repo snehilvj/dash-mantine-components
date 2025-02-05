@@ -6,6 +6,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import { getScatterClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -74,9 +75,7 @@ const ScatterChart = (props: Props) => {
 
     return (
         <MantineScatterChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             scatterProps={newProps}
             {...others}
         />

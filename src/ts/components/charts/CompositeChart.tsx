@@ -9,6 +9,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useRef, useState } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -159,9 +160,7 @@ const CompositeChart = (props: Props) => {
 
     return (
         <MantineCompositeChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             composedChartProps={newProps}
             barProps={(item) => propsFunction(item, 'bar')}   // Pass the chart type as 'bar'
             lineProps={(item) => propsFunction(item, 'line')}  // Pass the chart type as 'line'

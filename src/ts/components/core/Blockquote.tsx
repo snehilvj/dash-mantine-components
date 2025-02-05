@@ -6,6 +6,7 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
+import { getLoadingState } from "../../utils/dash3";
 
 import React from "react";
 
@@ -30,9 +31,7 @@ const Blockquote = (props: Props) => {
 
     return (
         <MantineBlockquote
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}

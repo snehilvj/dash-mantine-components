@@ -1,6 +1,7 @@
 import { NumberFormatter as MantineNumberFormatter } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends DashBaseProps {
     /** Value to format */
@@ -29,9 +30,7 @@ const NumberFormatter = (props: Props) => {
 
     return (
         <MantineNumberFormatter
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         />
     );

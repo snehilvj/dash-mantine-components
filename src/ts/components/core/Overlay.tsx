@@ -2,6 +2,7 @@ import { Overlay as MantineOverlay } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import { OverlayProps } from "props/overlay";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends OverlayProps, DashBaseProps {}
 
@@ -11,9 +12,7 @@ const Overlay = (props: Props) => {
 
     return (
         <MantineOverlay
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         />
     );

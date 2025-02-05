@@ -10,6 +10,7 @@ import { DashBaseProps } from "props/dash";
 import { LoaderProps } from "props/loader";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
@@ -57,9 +58,7 @@ const Button = (props: Props) => {
 
     return (
         <MantineButton
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onClick={increment}
             disabled={disabled}
             {...others}

@@ -6,6 +6,7 @@ import { TimeInputProps } from "props/dates";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends DashBaseProps,
@@ -68,9 +69,7 @@ const TimeInput = (props: Props) => {
 
     return (
         <MantineTimeInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             onChange={(ev) => setTime(ev.currentTarget.value)}

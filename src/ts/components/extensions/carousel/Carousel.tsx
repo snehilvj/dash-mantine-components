@@ -6,6 +6,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
@@ -88,9 +89,7 @@ const Carousel = (props: Props) => {
 
     return (
         <MantineCarousel
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
             plugins={[autoplayPlugin, autoScrollPlugin].filter(Boolean)}
             onSlideChange={(a) => setProps({ active: a ?? initialSlide })}

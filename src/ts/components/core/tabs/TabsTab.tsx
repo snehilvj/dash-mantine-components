@@ -3,6 +3,7 @@ import { Props as UnstyledButtonProps } from "components/core/button/UnstyledBut
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends Omit<
@@ -29,9 +30,7 @@ const TabsTab = (props: Props) => {
 
     return (
         <Tabs.Tab
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}

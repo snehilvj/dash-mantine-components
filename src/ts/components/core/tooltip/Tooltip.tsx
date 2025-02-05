@@ -10,6 +10,7 @@ import { DashBaseProps } from "props/dash";
 import { TooltipBaseProps } from "props/tooltip";
 import { TransitionProps } from "props/transition";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends TooltipBaseProps, DashBaseProps {
     /** Open delay in ms */
@@ -58,9 +59,7 @@ const Tooltip = (props: Props) => {
 
     return (
         <MantineTooltip
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             <Box {...boxProps}>{children}</Box>

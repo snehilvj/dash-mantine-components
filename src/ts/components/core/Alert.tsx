@@ -7,6 +7,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useEffect, useRef } from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
@@ -56,9 +57,7 @@ const Alert = (props: Props) => {
         <MantineAlert
             {...others}
             onClose={onClose}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
         >
             {children}
         </MantineAlert>

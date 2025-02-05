@@ -6,6 +6,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useMemo } from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.radius` or any valid CSS value to set border-radius, numbers are converted to rem, `0` by default */
@@ -22,9 +23,7 @@ const BackgroundImage = (props: Props) => {
 
     return (
         <MantineBackgroundImage
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}

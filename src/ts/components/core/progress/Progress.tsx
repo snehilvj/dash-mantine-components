@@ -3,6 +3,7 @@ import { DashBaseProps } from "props/dash";
 import { __ProgressRootProps } from "props/progress";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 export interface Props
     extends __ProgressRootProps,
@@ -24,9 +25,7 @@ const Progress = (props: Props) => {
 
     return (
         <MantineProgress
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         />
     );

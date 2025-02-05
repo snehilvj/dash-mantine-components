@@ -3,6 +3,7 @@ import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { TextareaProps } from "props/text";
 import React, { useEffect, useState } from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends TextareaProps, DashBaseProps, DebounceProps, PersistenceProps {
     /** Content */
@@ -60,9 +61,7 @@ const Textarea = (props: Props) => {
 
     return (
         <MantineTextarea
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
             value={val}
             onChange={(ev) => setVal(ev.currentTarget.value)}

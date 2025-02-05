@@ -7,6 +7,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** `List.Item` components only */
@@ -33,9 +34,7 @@ const List = (props: Props) => {
 
     return (
         <MantineList
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}

@@ -10,6 +10,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -90,9 +91,7 @@ const Slider = (props: Props) => {
 
     return (
         <MantineSlider
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
             value={val}
             onChange={setVal}

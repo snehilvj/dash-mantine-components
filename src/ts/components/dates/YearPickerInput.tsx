@@ -11,6 +11,7 @@ import {
     toDates,
     toStrings,
 } from "../../utils/dates";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends DashBaseProps,
@@ -70,9 +71,7 @@ const YearPickerInput = (props: Props) => {
 
     return (
         <MantineYearPickerInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}

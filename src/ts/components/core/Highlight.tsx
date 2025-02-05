@@ -2,6 +2,7 @@ import { MantineColor, Highlight as MantineHighlight } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import { TextProps } from "props/text";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends DashBaseProps, TextProps {
     /** Substring or an array of substrings to highlight in `children` */
@@ -20,9 +21,7 @@ const Highlight = (props: Props) => {
 
     return (
         <MantineHighlight
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}

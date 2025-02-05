@@ -11,6 +11,7 @@ import {
     toDates,
     toStrings,
 } from '../../utils/dates';
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputSharedProps, DatePickerBaseProps, StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default */
@@ -91,9 +92,7 @@ const DatePickerInput = (props: Props) => {
     return (
         <div ref={ref}>
             <MantineDatePickerInput
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}

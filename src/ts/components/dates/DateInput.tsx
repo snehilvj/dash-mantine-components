@@ -14,6 +14,7 @@ import { PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
+import { getLoadingState } from "../../utils/dash3";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
@@ -121,9 +122,7 @@ const DateInput = (props: Props) => {
     return (
         <div ref={ref}>
             <MantineDateInput
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}

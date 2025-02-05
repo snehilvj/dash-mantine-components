@@ -5,6 +5,7 @@ import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -70,9 +71,7 @@ const PasswordInput = (props: Props) => {
 
     return (
         <MantinePasswordInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
             onKeyDown={handleKeyDown}

@@ -9,6 +9,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import RadioGroupContext from "./RadioGroupContext";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -56,9 +57,7 @@ const Radio = (props: Props) => {
 
     return (
         <MantineRadio
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
             onClick={radioOnClick}
             {...others}

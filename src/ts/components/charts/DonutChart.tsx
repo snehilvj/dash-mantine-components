@@ -6,6 +6,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { getPieClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render chart */
@@ -15,9 +16,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Tooltip animation duration in ms, `0` by default */
     tooltipAnimationDuration?: number;
     /** Props passed down to `Tooltip` recharts component */
-    tooltipProps?: any;
+    tooltipProps?: object;
     /** Props passed down to recharts `Pie` component */
-    pieProps?: any;
+    pieProps?: object;
     /** Controls color of the segments stroke, by default depends on color scheme */
     strokeColor?: MantineColor;
     /** Controls text color of all labels, by default depends on color scheme */
@@ -84,9 +85,7 @@ const DonutChart = (props: Props) => {
 
     return (
         <MantineDonutChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             pieProps={newProps}
             {...others}
         />

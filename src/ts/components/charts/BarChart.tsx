@@ -10,6 +10,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -129,9 +130,7 @@ const BarChart = (props: Props) => {
 
     return (
         <MantineBarChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             barChartProps={newProps}
             barProps={barPropsFunction}
             {...others}

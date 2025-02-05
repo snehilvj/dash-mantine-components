@@ -3,6 +3,7 @@ import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { TextareaProps } from "props/text";
 import React, { useState } from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends TextareaProps, DashBaseProps, DebounceProps, PersistenceProps {
     /** Value for controlled component */
@@ -62,9 +63,7 @@ const JsonInput = (props: Props) => {
 
     return (
         <MantineJsonInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}
