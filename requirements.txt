@@ -1,4 +1,4 @@
-dash[dev]>=3.0.0rc1
+dash[dev]>=2.5.1
 wheel
 build
 black
