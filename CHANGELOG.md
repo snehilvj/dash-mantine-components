@@ -13,6 +13,7 @@
   - Removed `defaultProps` to be compatible with React 18.3
   - Handled the removal of the `loading_state` prop
   - Updated to use the new `dash_component_api` 
+  
 
 # 0.15.3
 
