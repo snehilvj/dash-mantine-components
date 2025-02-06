@@ -97,9 +97,9 @@ const MultiSelect = ({
         });
     };
 
-//     const handleSearchChange = (newSearchVal) => {
-//         setProps({ searchValue: newSearchVal });
-//     };
+    const handleSearchChange = (newSearchVal) => {
+        setProps({ searchValue: newSearchVal });
+    };
 
     useDidUpdate(() => {
         setOptions(data);
@@ -124,7 +124,7 @@ const MultiSelect = ({
                 data={options}
                 onChange={setSelected}
                 value={selected}
-          //      onSearchChange={handleSearchChange}
+                onSearchChange={handleSearchChange}
                 {...others}
             />
         </div>
