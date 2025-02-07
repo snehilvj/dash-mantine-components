@@ -9,7 +9,7 @@
 - ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
 
 ### Changed
-- Updated to handle changes in Dash 3 #499 by @AnnMarieW:
+- Updated to handle changes in Dash 3 #506 by @AnnMarieW:
   - Removed `defaultProps` to be compatible with React 18.3
   - Handled the removal of the `loading_state` prop
   - Updated to use the new `dash_component_api` 
