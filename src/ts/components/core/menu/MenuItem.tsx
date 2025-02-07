@@ -4,6 +4,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { MouseEvent } from "react";
 import { TargetProps, onClick } from "../../../utils/anchor";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Item label */
@@ -29,18 +30,17 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 }
 
 /** MenuItem */
-const MenuItem = (props: Props) => {
-    const {
+const MenuItem = ({
         children,
         disabled,
         href,
         target,
         refresh,
-        n_clicks,
+        n_clicks = 0,
         setProps,
         loading_state,
         ...others
-    } = props;
+    }: Props) => {
 
     const increment = () => {
         if (!disabled) {
@@ -53,9 +53,7 @@ const MenuItem = (props: Props) => {
     if (href) {
         return (
             <Menu.Item
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 component="a"
                 onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                     onClick(ev, href, target, refresh)
@@ -71,9 +69,7 @@ const MenuItem = (props: Props) => {
     } else {
         return (
             <Menu.Item
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 onClick={increment}
                 disabled={disabled}
                 {...others}
@@ -83,7 +79,5 @@ const MenuItem = (props: Props) => {
         );
     }
 };
-
-MenuItem.defaultProps = { n_clicks: 0 };
 
 export default MenuItem;

@@ -6,6 +6,7 @@ import { OverlayProps } from "props/overlay";
 import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Props passed down to `Transition` component, `{ transition: 'fade', duration: 0 }` by default */
@@ -26,14 +27,10 @@ const LoadingOverlay = (props: Props) => {
 
     return (
         <MantineLoadingOverlay
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         />
     );
 };
-
-LoadingOverlay.defaultProps = {};
 
 export default LoadingOverlay;

@@ -6,6 +6,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used in the chart */
@@ -59,15 +60,11 @@ const RadarChart = (props: Props) => {
 
     return (
         <MantineRadarChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             radarChartProps={newProps}
             {...others}
         />
     );
 };
-
-RadarChart.defaultProps = {};
 
 export default RadarChart;

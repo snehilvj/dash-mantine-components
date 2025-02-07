@@ -4,6 +4,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { InputWrapperProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -24,16 +25,17 @@ interface Props
 }
 
 /** CheckboxGroup */
-const CheckboxGroup = (props: Props) => {
-    const {
-        children,
-        setProps,
-        loading_state,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const CheckboxGroup = ({
+    children,
+    setProps,
+    loading_state,
+    persistence,
+    persisted_props,
+    persistence_type,
+    value = [],
+    ...others
+}: Props) => {
+
 
     const onChange = (value: string[]) => {
         setProps({ value });
@@ -41,10 +43,9 @@ const CheckboxGroup = (props: Props) => {
 
     return (
         <Checkbox.Group
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={onChange}
+            value={value}
             {...others}
         >
             {children}
@@ -52,10 +53,6 @@ const CheckboxGroup = (props: Props) => {
     );
 };
 
-CheckboxGroup.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    value: [],
-};
+setPersistence(CheckboxGroup)
 
 export default CheckboxGroup;

@@ -11,6 +11,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 
 interface Props
@@ -61,8 +62,20 @@ interface Props
 }
 
 /** Mantine-themed line chart built on top of the Recharts library, */
-const LineChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, series, highlightHover, lineChartProps, activeDotProps, lineProps, ...others } = props;
+const LineChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    clickSeriesName,
+    hoverSeriesName,
+    series,
+    highlightHover = false,
+    lineChartProps,
+    activeDotProps,
+    lineProps,
+    ...others
+}: Props) => {
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -149,9 +162,7 @@ const LineChart = (props: Props) => {
 
     return (
         <MantineLineChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             lineChartProps={newProps}
             series={series}
             activeDotProps={{
@@ -166,8 +177,5 @@ const LineChart = (props: Props) => {
     );
 };
 
-LineChart.defaultProps = {
-    highlightHover: false,
-};
 
 export default LineChart;

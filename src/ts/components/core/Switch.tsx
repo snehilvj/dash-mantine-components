@@ -8,6 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { setPersistence } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -65,9 +66,6 @@ const Switch = (props: Props) => {
     );
 };
 
-Switch.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
-};
+setPersistence(Switch, ["checked"])
 
 export default Switch;

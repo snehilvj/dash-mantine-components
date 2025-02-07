@@ -26,6 +26,10 @@ npm install
 npm run build
 ```
 
+Note: the build has a warning: ! Missing proptypes.js in dash_mantine_components/__init__.py !
+Do not add that yet because it doesn't handle Mantine prop types correctly. 
+
+
 Push updated `package-lock.json`
 
 2. Build source distribution.  
@@ -73,3 +77,7 @@ Anything that’s not a major should be safe to just bump. The ones to pay atten
 - types/ramda - just match ramda
 - style-loader and css-loader - these are used together within the webpack config. IIRC these particular upgrades don’t require any changes to the config for our normal usage, so most likely it’ll just work. If the bundle builds without errors you’re fine, otherwise need to look at the docs for these packages.
 - typescript - even if it's not a major bump, sometimes they tighten up their error checking in minor releases so the bundle fails to build and something about type annotations needs to be updated
+
+Others:
+- "dash-extensions-js": "^0.0.8" is required for the `renderDashComponent` function in Dash 2.  Do not upgrade unless support for dash 2 is dropped or the newer version of dash-extensions is dash 2 compatible
+

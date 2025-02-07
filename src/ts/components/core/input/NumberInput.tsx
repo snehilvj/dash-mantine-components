@@ -5,6 +5,7 @@ import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -61,23 +62,23 @@ interface Props
     autoComplete?: string;
     /** Sets disabled attribute on the input element */
     disabled?: boolean;
-
 }
 
 /** The NumberInput component allows users to input numeric values  */
-const NumberInput = (props: Props) => {
-    const {
-        setProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        loading_state,
-        value,
-        n_submit,
-        n_blur,
-        debounce,
-        ...others
-    } = props;
+
+const NumberInput = ({
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    value,
+    n_submit = 0,
+    n_blur = 0,
+    debounce = false,
+    autoComplete = "off",
+    ...others
+}: Props) => {
 
     const [val, setVal] = useState(value);
 
@@ -112,27 +113,17 @@ const NumberInput = (props: Props) => {
 
     return (
         <MantineNumberInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            autoComplete={autoComplete}
             {...others}
         />
     );
 };
 
-
-NumberInput.defaultProps = {
-    debounce: false,
-    value: "",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-    autoComplete: "off"
-};
+setPersistence(NumberInput)
 
 export default NumberInput;

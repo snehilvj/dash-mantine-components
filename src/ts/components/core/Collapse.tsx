@@ -2,6 +2,7 @@ import { Collapse as MantineCollapse } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, DashBaseProps {
     /** Opened state */
@@ -17,19 +18,15 @@ interface Props extends BoxProps, DashBaseProps {
 }
 
 /** Collapse */
-const Collapse = (props: Props) => {
-    const { setProps, loading_state, opened, ...others } = props;
+const Collapse = ({ setProps, loading_state, opened = false, ...others }: Props) => {
+
     return (
         <MantineCollapse
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             in={opened}
             {...others}
         />
     );
 };
-
-Collapse.defaultProps = { opened: false };
 
 export default Collapse;

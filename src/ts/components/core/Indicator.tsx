@@ -8,6 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Indicator position relative to the target element, `'top-end'` by default */
@@ -44,16 +45,12 @@ const Indicator = (props: Props) => {
 
     return (
         <MantineIndicator
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}{" "}
         </MantineIndicator>
     );
 };
-
-Indicator.defaultProps = {};
 
 export default Indicator;

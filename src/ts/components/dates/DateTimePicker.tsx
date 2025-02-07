@@ -12,6 +12,7 @@ import {
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { datetimeToString, isDisabled, stringToDate } from "../../utils/dates";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends DashBaseProps,
@@ -45,21 +46,20 @@ interface Props
 }
 
 /** DateTimePicker */
-const DateTimePicker = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        value,
-        debounce,
-        n_submit,
-        minDate,
-        maxDate,
-        disabledDates,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const DateTimePicker = ({
+    setProps,
+    loading_state,
+    value,
+    debounce = 0,
+    n_submit = 0,
+    minDate,
+    maxDate,
+    disabledDates,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [date, setDate] = useState(stringToDate(value));
     const [debounced] = useDebouncedValue(date, debounce);
@@ -84,9 +84,7 @@ const DateTimePicker = (props: Props) => {
 
     return (
         <MantineDateTimePicker
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={setDate}
             value={date}
             onKeyDown={handleKeyDown}
@@ -98,11 +96,6 @@ const DateTimePicker = (props: Props) => {
     );
 };
 
-DateTimePicker.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: 0,
-    n_submit: 0,
-};
+setPersistence(DateTimePicker)
 
 export default DateTimePicker;

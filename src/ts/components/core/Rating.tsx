@@ -8,6 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
+import { setPersistence } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -37,8 +38,7 @@ interface Props
 }
 
 /** Rating */
-const Rating = (props: Props) => {
-    const { setProps, loading_state, value, ...others } = props;
+const Rating = ({ setProps, loading_state, value = 0, ...others }: Props) => {
 
     const [val, setVal] = useState(value);
 
@@ -59,10 +59,6 @@ const Rating = (props: Props) => {
     );
 };
 
-Rating.defaultProps = {
-    value: 0,
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(Rating)
 
 export default Rating;

@@ -32,6 +32,4 @@ const Divider = (props: Props) => {
     );
 };
 
-Divider.defaultProps = {};
-
 export default Divider;

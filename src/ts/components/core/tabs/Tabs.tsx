@@ -7,6 +7,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -59,9 +60,7 @@ const Tabs = (props: Props) => {
 
     return (
         <MantineTabs
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={onChange}
             {...others}
         >
@@ -70,9 +69,6 @@ const Tabs = (props: Props) => {
     );
 };
 
-Tabs.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(Tabs)
 
 export default Tabs;

@@ -6,6 +6,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface RingProgressSection {
     value: number;
@@ -34,11 +35,10 @@ const RingProgress = (props: Props) => {
 
     return (
         <MantineRingProgress
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         />
     );
 };
-
-RingProgress.defaultProps = {};
 
 export default RingProgress;

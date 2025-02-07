@@ -3,6 +3,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { InputWrapperProps } from "props/input";
 import React from "react";
 import RadioGroupContext from "./RadioGroupContext";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props extends InputWrapperProps, DashBaseProps, PersistenceProps {
     /** `Radio` components and any other elements */
@@ -47,9 +48,7 @@ const RadioGroup = (props: Props) => {
 
     return (
         <Radio.Group
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={onChange}
             value={value}
             {...others}
@@ -61,9 +60,6 @@ const RadioGroup = (props: Props) => {
     );
 };
 
-RadioGroup.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(RadioGroup)
 
 export default RadioGroup;

@@ -1,4 +1,4 @@
-dash[ci,dev,testing]>=2.0
+dash[ci,dev,testing]>=2
 pyyaml>=5.0
 pytest<8.1.0
 wheel

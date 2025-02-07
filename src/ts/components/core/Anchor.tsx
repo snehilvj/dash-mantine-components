@@ -4,6 +4,7 @@ import { DashBaseProps } from "props/dash";
 import { TextProps } from "props/text";
 import React, { MouseEvent, useMemo } from "react";
 import { TargetProps, onClick } from "../../utils/anchor";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends Omit<TextProps, "span">, DashBaseProps {
     /** Content */
@@ -34,9 +35,7 @@ const Anchor = (props: Props) => {
 
     return (
         <MantineAnchor
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                 onClick(ev, sanitizedHref, target, refresh)
             }
@@ -48,7 +47,5 @@ const Anchor = (props: Props) => {
         </MantineAnchor>
     );
 };
-
-Anchor.defaultProps = {};
 
 export default Anchor;

@@ -10,6 +10,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -53,11 +54,20 @@ interface Props
     barLabelColor?: MantineColor;
 }
 
+
 /** BarChart */
-const BarChart = (props: Props) => {
-    const {
-        setProps, loading_state, clickData, hoverData, barChartProps, clickSeriesName, hoverSeriesName, barProps,
-        highlightHover, ...others } =  props;
+const BarChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    barChartProps,
+    clickSeriesName,
+    hoverSeriesName,
+    barProps,
+    highlightHover = false,
+    ...others
+}: Props) => {
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -129,9 +139,7 @@ const BarChart = (props: Props) => {
 
     return (
         <MantineBarChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             barChartProps={newProps}
             barProps={barPropsFunction}
             {...others}
@@ -140,11 +148,6 @@ const BarChart = (props: Props) => {
     );
 };
 
-
-BarChart.defaultProps = {
-    withBarValueLabel: false,
-    highlightHover: false,
-};
 
 
 

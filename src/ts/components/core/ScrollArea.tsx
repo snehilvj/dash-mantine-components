@@ -2,6 +2,7 @@ import { ScrollArea as MantineScrollArea } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import { ScrollAreaProps } from "props/scrollarea";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends ScrollAreaProps, DashBaseProps {
     /** Scrollbar size, any valid CSS value for width/height, numbers are converted to rem, default value is 0.75rem */
@@ -31,16 +32,12 @@ const ScrollArea = (props: Props) => {
 
     return (
         <MantineScrollArea
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}
         </MantineScrollArea>
     );
 };
-
-ScrollArea.defaultProps = {};
 
 export default ScrollArea;

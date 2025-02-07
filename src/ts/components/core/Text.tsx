@@ -2,6 +2,7 @@ import { Text as MantineText } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import { TextProps } from "props/text";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends TextProps, DashBaseProps {
     /** Content */
@@ -14,16 +15,12 @@ const Text = (props: Props) => {
 
     return (
         <MantineText
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}
         </MantineText>
     );
 };
-
-Text.defaultProps = {};
 
 export default Text;

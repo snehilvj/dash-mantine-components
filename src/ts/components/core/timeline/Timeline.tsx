@@ -9,6 +9,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { omit } from "ramda";
 import React from "react";
+import { getLoadingState, getChildProps } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** `Timeline.Item` components */
@@ -37,13 +38,11 @@ const Timeline = (props: Props) => {
 
     return (
         <MantineTimeline
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childProps = child.props._dashprivate_layout.props;
+                const childProps = getChildProps(child)
                 const renderedProps = renderDashComponents(
                     omit(["children"], childProps),
                     ["title", "bullet"]
@@ -57,7 +56,5 @@ const Timeline = (props: Props) => {
         </MantineTimeline>
     );
 };
-
-Timeline.defaultProps = {};
 
 export default Timeline;

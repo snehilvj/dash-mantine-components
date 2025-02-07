@@ -5,6 +5,7 @@ import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useEffect, useState } from "react";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -22,19 +23,19 @@ interface Props
 }
 
 /** TextInput */
-const TextInput = (props: Props) => {
-    const {
-        setProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        loading_state,
-        value,
-        n_submit,
-        n_blur,
-        debounce,
-        ...others
-    } = props;
+const TextInput = ({
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    value = '',
+    n_submit = 0,
+    n_blur = 0,
+    debounce = false,
+    autoComplete = "off",
+    ...others
+}: Props) => {
 
     const [val, setVal] = useState(value);
 
@@ -69,27 +70,17 @@ const TextInput = (props: Props) => {
 
     return (
         <MantineTextInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            autoComplete={autoComplete}
             {...others}
         />
     );
 };
 
-
-TextInput.defaultProps = {
-    debounce: false,
-    value: "",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-    autoComplete: "off"
-};
+setPersistence(TextInput)
 
 export default TextInput;

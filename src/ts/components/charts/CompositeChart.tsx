@@ -9,6 +9,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useRef, useState } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -62,10 +63,23 @@ interface Props
     maxBarWidth?: number;
 }
 
+
 /** CompositeChart */
-const CompositeChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, highlightHover, hoverSeriesName, clickSeriesName, composedChartProps, barProps, lineProps, areaProps, activeDotProps, ...others } =
-        props;
+const CompositeChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    highlightHover = false,
+    hoverSeriesName,
+    clickSeriesName,
+    composedChartProps,
+    barProps,
+    lineProps,
+    areaProps,
+    activeDotProps,
+    ...others
+}: Props) => {
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -159,9 +173,7 @@ const CompositeChart = (props: Props) => {
 
     return (
         <MantineCompositeChart
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             composedChartProps={newProps}
             barProps={(item) => propsFunction(item, 'bar')}   // Pass the chart type as 'bar'
             lineProps={(item) => propsFunction(item, 'line')}  // Pass the chart type as 'line'
@@ -177,10 +189,5 @@ const CompositeChart = (props: Props) => {
     );
 };
 
-CompositeChart.defaultProps = {
-    withPointLabels: false,
-    withBarValueLabel: false,
-    highlightHover: false
-};
 
 export default CompositeChart;

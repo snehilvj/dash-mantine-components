@@ -8,6 +8,4 @@ const TableTbody = (props: TableElementProps) => {
     return <Table.Tbody {...others}>{children}</Table.Tbody>;
 };
 
-TableTbody.defaultProps = {};
-
 export default TableTbody;
