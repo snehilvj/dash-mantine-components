@@ -5,7 +5,7 @@
 ###  Pre-release Highlights
 - This release ensures dash-mantine-components V1 is compatible with both Dash 2 and Dash 3
 - If you were using `dmc >= 0.15.0`, there are no known breaking change.
-- If you were using `dmc < 0.15.0`, please follow our [migration guide]().
+- If you were using `dmc < 0.15.0`, please follow our [migration guide](https://www.dash-mantine-components.com/migration).
 - ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
 
 ### Changed
