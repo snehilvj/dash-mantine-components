@@ -76,6 +76,8 @@ import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
 import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
+import CheckboxCard from "./components/core/checkbox/CheckboxCard";
+import CheckboxIndicator from "./components/core/checkbox/CheckboxIndicator";
 import Chip from "./components/core/chip/Chip";
 import ColorInput from "./components/core/color/ColorInput";
 import ColorPicker from "./components/core/color/ColorPicker";
@@ -194,6 +196,8 @@ export {
     Center,
     Checkbox,
     CheckboxGroup,
+    CheckboxCard,
+    CheckboxIndicator,
     Chip,
     ChipGroup,
     Code,
