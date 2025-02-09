@@ -115,6 +115,8 @@ import ProgressRoot from "./components/core/progress/ProgressRoot";
 import ProgressSection from "./components/core/progress/ProgressSection";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
+import RadioIndicator from "./components/core/radio/RadioIndicator";
+import RadioCard from "./components/core/radio/RadioCard";
 import RangeSlider from "./components/core/slider/RangeSlider";
 import SemiCircleProgress from "./components/core/SemiCircleProgress";
 import Slider from "./components/core/slider/Slider";
@@ -271,6 +273,8 @@ export {
     RadarChart,
     Radio,
     RadioGroup,
+    RadioIndicator,
+    RadioCard,
     RangeSlider,
     Rating,
     RingProgress,
