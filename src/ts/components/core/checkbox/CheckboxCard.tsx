@@ -15,8 +15,6 @@ interface Props
         StylesApiProps,
         DashBaseProps,
         PersistenceProps {
-    /** Key of `theme.colors` or any valid CSS color to set input background color in checked state, `theme.primaryColor` by default */
-    color?: MantineColor;
     /** Controls size of the component, `'sm'` by default */
     size?: MantineSize | (string & {});
     /** Determines whether the card should have border, `true` by default */
@@ -31,7 +29,7 @@ interface Props
     checked?: boolean;
     /** Whether component is disabled */
     disabled?: boolean;
-    /** Card content */
+    /** CheckboxCard content */
     children?: React.ReactNode;
 }
 
