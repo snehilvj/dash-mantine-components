@@ -1,6 +1,5 @@
 import {
     CheckboxCard as MantineCheckboxCard,
-    MantineColor,
     MantineRadius,
     MantineSize,
 } from "@mantine/core";
@@ -15,19 +14,19 @@ interface Props
         StylesApiProps,
         DashBaseProps,
         PersistenceProps {
-    /** Controls size of the component, `'sm'` by default */
-    size?: MantineSize | (string & {});
+    /** State of check box */
+    checked?: boolean;
+    /** Uncontrolled component default value */
+    defaultChecked?: boolean;
     /** Determines whether the card should have border, `true` by default */
     withBorder?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius,` `theme.defaultRadius` by default */
     radius?: MantineRadius;
-    /** Props passed down to the root element */
-    wrapperProps?: Record<string, any>;
     /** To be used with checkbox group */
     value?: string;
-    /** State of check box */
-    checked?: boolean;
-    /** Whether component is disabled */
+    /** Props passed down to the root element */
+    wrapperProps?: Record<string, any>;
+    /** Determines whether CheckboxCard is disabled and non-selectable */
     disabled?: boolean;
     /** CheckboxCard content */
     children?: React.ReactNode;
