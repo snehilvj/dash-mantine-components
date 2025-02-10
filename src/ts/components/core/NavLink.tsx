@@ -27,7 +27,7 @@ interface Props
      mimics NavLink behaviour from dash-bootstrap-components
      exact will match the pathname exactly, whereas partial will only be concerned about the startsWith
      */
-    active?: boolean | 'partial' | 'exact';
+    active?: boolean | 'partial' | 'exact' | 'hyperlink';
     /** Key of `theme.colors` of any valid CSS color to control active styles, `theme.primaryColor` by default */
     color?: MantineColor;
     /** href */
@@ -77,16 +77,27 @@ const NavLink = (props: Props) => {
         setLinkActive(
           active === true ||
             (active === 'exact' && pathname === href) ||
-            (active === 'partial' && pathname.startsWith(href))
+            (active === 'partial' && pathname.startsWith(href)) ||
+            (active === 'hyperlink' && pathname.endsWith(href))
         );
     };
 
+    const parsePath = (location) => {
+        if (active === 'hyperlink') {
+          pathnameToActive(location.href)
+        }
+        else {
+          pathnameToActive(location.pathname)
+        }
+    }
+
     useEffect(() => {
-        pathnameToActive(window.location.pathname);
+        parsePath(window.location);
 
         if (typeof active === 'string') {
           History.onChange(() => {
-            pathnameToActive(window.location.pathname);
+              parsePath(window.location);
+            ;
           });
         }
     }, [active]);
