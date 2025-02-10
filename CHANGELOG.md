@@ -8,6 +8,10 @@
 - If you were using `dmc < 0.15.0`, please follow our [migration guide](https://www.dash-mantine-components.com/migration).
 - ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
 
+### Added
+
+-   Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
+
 ### Changed
 - Updated to handle changes in Dash 3 #506 by @AnnMarieW:
   - Removed `defaultProps` to be compatible with React 18.3
