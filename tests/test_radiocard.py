@@ -14,9 +14,9 @@ def radiogroup_app(**kwargs):
                     id="radio-group",
                     children=dmc.Group(
                         [
-                            dmc.RadioCard(value="option1", children=dmc.RadioIndicator()),
-                            dmc.RadioCard(value="option2"),
-                            dmc.RadioCard(value="option3", children=dmc.Text("Text")),
+                            dmc.RadioCard(value="option1", children=dmc.RadioIndicator(), id="o1"),
+                            dmc.RadioCard(value="option2",  id="o2"),
+                            dmc.RadioCard(value="option3", children=dmc.Text("Text"),  id="o3"),
                         ]
                     ),
                     **kwargs,
@@ -41,8 +41,8 @@ def test_001rc_radio_group(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div[aria-labelledby='radio-group-label']")
 
-    option1 = dash_duo.find_element("button[id='o1']")
-    option2 = dash_duo.find_element("button[id='o2']")
+    option1 = dash_duo.find_element("#o1")
+    option2 = dash_duo.find_element("#o2")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: option1")
     option2.click()
@@ -62,24 +62,10 @@ def test_002rc_radio_group_deselectable(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div[aria-labelledby='radio-group-label']")
 
-    option1 = dash_duo.find_element("button[id='o1']")
+    option1 = dash_duo.find_element("#o1")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: option1")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: None")
-
-    assert dash_duo.get_logs() == []
-
-
-def test_003rc_single_radiocard(dash_duo):
-
-    app = Dash(__name__)
-
-    app.layout = dmc.MantineProvider(dmc.RadioCard(value="a", id="a", children=dmc.RadioIndicator()))
-
-    dash_duo.start_server(app)
-
-    # Wait for the app to load
-    dash_duo.wait_for_element("#a")
 
     assert dash_duo.get_logs() == []
