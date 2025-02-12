@@ -7,7 +7,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import RadioCardGroupContext from "./RadioCardGroupContext";
+import RadioGroupContext from "./RadioGroupContext";
 
 interface Props
     extends BoxProps,
@@ -41,15 +41,17 @@ const RadioCard = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        value,
         ...others
     } = props;
 
-    const { radioOnClick } = React.useContext(RadioCardGroupContext) || {};
+    const { radioOnClick } = React.useContext(RadioGroupContext) || {};
 
     return (
         <MantineRadioCard
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            onClick={radioOnClick}
+            onClick={radioOnClick ? () => radioOnClick(value) : null}
+            value={value}
             {...others}
         >
             {children}

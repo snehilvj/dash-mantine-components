@@ -50,6 +50,7 @@ const Radio = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        value,
         ...others
     } = props;
 
@@ -59,7 +60,8 @@ const Radio = (props: Props) => {
         <MantineRadio
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
-            onClick={radioOnClick}
+            onClick={radioOnClick ? () => radioOnClick(value) : null}
+            value={value}
             {...others}
         />
     );

@@ -40,11 +40,11 @@ const RadioGroup = (props: Props) => {
         setProps({ value });
     };
 
-    const handleRadioClick = (event: React.MouseEvent<HTMLInputElement>) => {
-        if (event.currentTarget.value === value) {
+    const handleRadioClick = (val?: string) => {
+        if (val === value) {
             setProps({ value: null });
         }
-      };
+    };
 
     return (
         <Radio.Group
