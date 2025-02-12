@@ -76,6 +76,8 @@ import Card from "./components/core/card/Card";
 import CardSection from "./components/core/card/CardSection";
 import Checkbox from "./components/core/checkbox/Checkbox";
 import CheckboxGroup from "./components/core/checkbox/CheckboxGroup";
+import CheckboxCard from "./components/core/checkbox/CheckboxCard";
+import CheckboxIndicator from "./components/core/checkbox/CheckboxIndicator";
 import Chip from "./components/core/chip/Chip";
 import ColorInput from "./components/core/color/ColorInput";
 import ColorPicker from "./components/core/color/ColorPicker";
@@ -113,6 +115,8 @@ import ProgressRoot from "./components/core/progress/ProgressRoot";
 import ProgressSection from "./components/core/progress/ProgressSection";
 import Radio from "./components/core/radio/Radio";
 import RadioGroup from "./components/core/radio/RadioGroup";
+import RadioIndicator from "./components/core/radio/RadioIndicator";
+import RadioCard from "./components/core/radio/RadioCard";
 import RangeSlider from "./components/core/slider/RangeSlider";
 import SemiCircleProgress from "./components/core/SemiCircleProgress";
 import Slider from "./components/core/slider/Slider";
@@ -194,6 +198,8 @@ export {
     Center,
     Checkbox,
     CheckboxGroup,
+    CheckboxCard,
+    CheckboxIndicator,
     Chip,
     ChipGroup,
     Code,
@@ -267,6 +273,8 @@ export {
     RadarChart,
     Radio,
     RadioGroup,
+    RadioIndicator,
+    RadioCard,
     RangeSlider,
     Rating,
     RingProgress,
