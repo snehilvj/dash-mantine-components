@@ -1,3 +1,5 @@
+import time
+
 from dash import Dash, html, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 
@@ -49,6 +51,7 @@ def test_001rc_radio_group(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: option2")
     # Not deselectable
     option2.click()
+    time.sleep(0.5)
     dash_duo.wait_for_text_to_equal("#output", "Selected: option2")
 
     assert dash_duo.get_logs() == []

@@ -1,5 +1,3 @@
-import time
-
 from dash import Dash, html, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 
@@ -48,9 +46,7 @@ def test_001chb_checkbox_group(dash_duo):
     dash_duo.wait_for_text_to_equal("#output", "Selected: ['option1']")
 
     option2 = dash_duo.find_element("#o2")
-    option2.click()  # Not clickable
-    time.sleep(0.3)
-    dash_duo.wait_for_text_to_equal("#output", "Selected: ['option1']")
+    option2.click()  # Not clickable, check is done below
 
     option3 = dash_duo.find_element("#o3")
     option3.click()
