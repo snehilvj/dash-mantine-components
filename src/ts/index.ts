@@ -49,6 +49,7 @@ import Space from "./components/core/Space";
 import Spoiler from "./components/core/Spoiler";
 import Stack from "./components/core/Stack";
 import Switch from "./components/core/Switch";
+import TableOfContents from "./components/core/TableOfContents"
 import Text from "./components/core/Text";
 import ThemeIcon from "./components/core/ThemeIcon";
 import Title from "./components/core/Title";
@@ -286,6 +287,7 @@ export {
     StepperCompleted,
     StepperStep,
     Switch,
+    TableOfContents,
     Table,
     TableCaption,
     TableTbody,
