@@ -3,6 +3,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Value of the section in 0–100 range  */
@@ -25,14 +26,10 @@ const ProgressSection = (props: Props) => {
 
     return (
         <Progress.Section
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         />
     );
 };
-
-ProgressSection.defaultProps = {};
 
 export default ProgressSection;

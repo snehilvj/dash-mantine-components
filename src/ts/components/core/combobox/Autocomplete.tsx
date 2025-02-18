@@ -10,6 +10,7 @@ import { __BaseInputProps } from "props/input";
 import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -27,8 +28,7 @@ interface Props
 }
 
 /** Autocomplete */
-const Autocomplete = (props: Props) => {
-    const { setProps, loading_state, data, value, ...others } = props;
+const Autocomplete = ({ setProps, loading_state, data = [], value, ...others }: Props) => {
 
     const [autocomplete, setAutocomplete] = useState(value);
     const [options, setOptions] = useState(data);
@@ -51,9 +51,7 @@ const Autocomplete = (props: Props) => {
 
     return (
         <MantineAutocomplete
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             wrapperProps={{ autoComplete: "off" }}
             data={options}
             onChange={setAutocomplete}
@@ -63,10 +61,6 @@ const Autocomplete = (props: Props) => {
     );
 };
 
-Autocomplete.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    data: [],
-};
+setPersistence(Autocomplete)
 
 export default Autocomplete;

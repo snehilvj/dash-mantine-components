@@ -46,6 +46,5 @@ const StepperStep = (props: Props) => {
     return <>{children}</>;
 };
 
-StepperStep.defaultProps = {};
 
 export default StepperStep;

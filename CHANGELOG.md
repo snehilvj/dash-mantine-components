@@ -1,5 +1,24 @@
 # Change Log
 
+# 1.0.0rc1
+
+###  Pre-release Highlights
+- This release ensures dash-mantine-components V1 is compatible with both Dash 2 and Dash 3
+- If you were using `dmc >= 0.15.0`, there are no known breaking change.
+- If you were using `dmc < 0.15.0`, please follow our [migration guide](https://www.dash-mantine-components.com/migration).
+- ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
+
+### Added
+
+-   Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
+
+### Changed
+- Updated to handle changes in Dash 3 #506 by @AnnMarieW:
+  - Removed `defaultProps` to be compatible with React 18.3
+  - Handled the removal of the `loading_state` prop
+  - Updated to use the new `dash_component_api` 
+  
+
 # 0.15.3
 
 ### Added

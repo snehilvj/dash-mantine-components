@@ -2,6 +2,7 @@ import { ActionIcon as MantineActionIcon } from "@mantine/core";
 import { ActionIconProps } from "props/actionicon";
 import { DashBaseProps } from "props/dash";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends ActionIconProps, DashBaseProps {
     /** An integer that represents the number of times that this element has been clicked on */
@@ -9,9 +10,14 @@ interface Props extends ActionIconProps, DashBaseProps {
 }
 
 /** ActionIcon */
-const ActionIcon = (props: Props) => {
-    const { children, setProps, loading_state, disabled, n_clicks, ...others } =
-        props;
+const ActionIcon = ({
+    children,
+    setProps,
+    loading_state,
+    disabled,
+    n_clicks = 0,
+    ...others
+}: Props) => {
 
     const increment = () => {
         if (!disabled) {
@@ -23,9 +29,7 @@ const ActionIcon = (props: Props) => {
 
     return (
         <MantineActionIcon
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             disabled={disabled}
             onClick={increment}
             {...others}
@@ -33,10 +37,6 @@ const ActionIcon = (props: Props) => {
             {children}
         </MantineActionIcon>
     );
-};
-
-ActionIcon.defaultProps = {
-    n_clicks: 0,
 };
 
 export default ActionIcon;

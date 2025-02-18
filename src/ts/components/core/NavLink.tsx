@@ -8,7 +8,9 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { MouseEvent, useState, useEffect } from "react";
 import { TargetProps, onClick } from "../../utils/anchor";
-import {History} from '@plotly/dash-component-plugins';
+import { History } from '@plotly/dash-component-plugins';
+import { setPersistence, getLoadingState } from "../../utils/dash3";
+
 
 interface Props
     extends BoxProps,
@@ -55,23 +57,22 @@ interface Props
 }
 
 /** NavLink */
-const NavLink = (props: Props) => {
+const NavLink = ({
+    disabled,
+    href,
+    target,
+    refresh,
+    n_clicks = 0,
+    children,
+    persistence,
+    persisted_props,
+    persistence_type,
+    setProps,
+    loading_state,
+    active,
+    ...others
+}: Props) => {
     const [linkActive, setLinkActive] = useState(false);
-    const {
-        disabled,
-        href,
-        target,
-        refresh,
-        n_clicks,
-        children,
-        persistence,
-        persisted_props,
-        persistence_type,
-        setProps,
-        loading_state,
-        active,
-        ...others
-    } = props;
 
     const pathnameToActive = pathname => {
         setLinkActive(
@@ -117,9 +118,7 @@ const NavLink = (props: Props) => {
     if (href) {
         return (
             <MantineNavLink
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 component="a"
                 onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                     onClick(ev, href, target, refresh)
@@ -148,10 +147,6 @@ const NavLink = (props: Props) => {
     }
 };
 
-NavLink.defaultProps = {
-    n_clicks: 0,
-    persisted_props: ["opened"],
-    persistence_type: "local",
-};
+setPersistence(NavLink, ["opened"])
 
 export default NavLink;

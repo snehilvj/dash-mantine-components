@@ -2,6 +2,7 @@ import { Box, Menu as MantineMenu } from "@mantine/core";
 import { __PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState, getChildLayout } from "../../../utils/dash3";
 
 interface Props extends __PopoverProps, StylesApiProps {
     variant?: string;
@@ -44,8 +45,7 @@ const Menu = (props: Props) => {
     return (
         <MantineMenu {...others}>
             {React.Children.map(children, (child: any, index) => {
-                const { type: childType, props: childProps } =
-                    child.props._dashprivate_layout;
+                const { type: childType, props: childProps } = getChildLayout(child);
                 if (childType === "MenuTarget") {
                     const { boxWrapperProps } = childProps;
                     return (
@@ -61,7 +61,5 @@ const Menu = (props: Props) => {
         </MantineMenu>
     );
 };
-
-Menu.defaultProps = {};
 
 export default Menu;

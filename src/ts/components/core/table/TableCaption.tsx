@@ -8,6 +8,4 @@ const TableCaption = (props: TableElementProps) => {
     return <Table.Caption {...others}>{children}</Table.Caption>;
 };
 
-TableCaption.defaultProps = {};
-
 export default TableCaption;

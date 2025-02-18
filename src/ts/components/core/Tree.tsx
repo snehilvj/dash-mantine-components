@@ -13,6 +13,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether tree nodes range can be selected with click when Shift key is pressed, `true` by default */
@@ -105,20 +106,19 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
     );
 };
 
-const Tree = (props: Props) => {
-    const {
-        checkboxes,
-        checked,
-        data,
-        expanded,
-        loading_state,
-        selected,
-        setProps,
-        expandedIcon,
-        collapsedIcon,
-        iconSide,
-        ...others
-    } = props;
+const Tree = ({
+    checkboxes,
+    checked,
+    data,
+    expanded = [],
+    loading_state,
+    selected,
+    setProps,
+    expandedIcon = <AccordionChevron />,
+    collapsedIcon,
+    iconSide = "left",
+    ...others
+}: Props) => {
 
     const tree = useTree({
         initialExpandedState: getTreeExpandedState(data, expanded),
@@ -160,9 +160,7 @@ const Tree = (props: Props) => {
 
     return (
         <MantineTree
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             data={data}
             tree={tree}
             renderNode={(payload) => (
@@ -180,11 +178,5 @@ const Tree = (props: Props) => {
     );
 };
 
-Tree.defaultProps = {
-    expanded: [],
-    expandOnClick: true,
-    expandedIcon: <AccordionChevron />,
-    iconSide: "left",
-};
 
 export default Tree;

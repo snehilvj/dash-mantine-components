@@ -3,6 +3,7 @@ import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
 import { TextareaProps } from "props/text";
 import React, { useState } from "react";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props extends TextareaProps, DashBaseProps, DebounceProps, PersistenceProps {
     /** Value for controlled component */
@@ -16,19 +17,19 @@ interface Props extends TextareaProps, DashBaseProps, DebounceProps, Persistence
 }
 
 /** JsonInput */
-const JsonInput = (props: Props) => {
-    const {
-        setProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        loading_state,
-        value,
-        n_submit,
-        n_blur,
-        debounce,
-        ...others
-    } = props;
+const JsonInput = ({
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    value = '',
+    n_submit = 0,
+    n_blur = 0,
+    debounce = false,
+    autoComplete = "off",
+    ...others
+}: Props) => {
 
     const [val, setVal] = useState(value);
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -62,26 +63,17 @@ const JsonInput = (props: Props) => {
 
     return (
         <MantineJsonInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            autoComplete={autoComplete}
             {...others}
         />
     );
 };
 
-JsonInput.defaultProps = {
-    debounce: false,
-    value: "",
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur:0,
-    autoComplete: "off"
-};
+setPersistence(JsonInput)
 
 export default JsonInput;

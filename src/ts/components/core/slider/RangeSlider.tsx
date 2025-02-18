@@ -10,6 +10,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -70,17 +71,16 @@ interface Props
 }
 
 /** RangeSlider */
-const RangeSlider = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        updatemode,
-        value,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const RangeSlider = ({
+    setProps,
+    loading_state,
+    updatemode = "mouseup",
+    value,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [val, setVal] = useState(value);
 
@@ -96,9 +96,7 @@ const RangeSlider = (props: Props) => {
 
     return (
         <MantineRangeSlider
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
             value={val}
             onChange={setVal}
@@ -111,10 +109,6 @@ const RangeSlider = (props: Props) => {
     );
 };
 
-RangeSlider.defaultProps = {
-    updatemode: "mouseup",
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(RangeSlider)
 
 export default RangeSlider;

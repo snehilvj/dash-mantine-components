@@ -69,6 +69,4 @@ const Notification = (props: Props) => {
     }, [props]);
 };
 
-Notification.defaultProps = {};
-
 export default Notification;

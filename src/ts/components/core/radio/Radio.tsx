@@ -9,6 +9,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import RadioGroupContext from "./RadioGroupContext";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -49,6 +50,7 @@ const Radio = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        value,
         ...others
     } = props;
 
@@ -56,19 +58,15 @@ const Radio = (props: Props) => {
 
     return (
         <MantineRadio
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setProps({ checked: ev.currentTarget.checked })}
-            onClick={radioOnClick}
+            onClick={radioOnClick ? () => radioOnClick(value) : null}
+            value={value}
             {...others}
         />
     );
 };
 
-Radio.defaultProps = {
-    persisted_props: ["checked"],
-    persistence_type: "local",
-};
+setPersistence(Radio, ['checked'])
 
 export default Radio;

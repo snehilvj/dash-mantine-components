@@ -3,6 +3,7 @@ import { BoxComponentProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { getLoadingState } from "../../../utils/dash3";
 
 export interface Props
     extends Omit<BoxComponentProps, "vars" | "variant">,
@@ -17,9 +18,15 @@ export interface Props
 }
 
 /** UnstyledButton */
-const UnstyledButton = (props: Props) => {
-    const { children, setProps, loading_state, disabled, n_clicks, ...others } =
-        props;
+const UnstyledButton = ({
+    children,
+    setProps,
+    loading_state,
+    disabled,
+    n_clicks = 0,
+    ...others
+}: Props) => {
+
 
     const increment = () => {
         if (!disabled) {
@@ -31,9 +38,7 @@ const UnstyledButton = (props: Props) => {
 
     return (
         <MantineUnstyledButton
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onClick={increment}
             disabled={disabled}
             {...others}
@@ -43,8 +48,5 @@ const UnstyledButton = (props: Props) => {
     );
 };
 
-UnstyledButton.defaultProps = {
-    n_clicks: 0,
-};
 
 export default UnstyledButton;

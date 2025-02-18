@@ -7,6 +7,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useEffect, useRef } from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
@@ -32,9 +33,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 }
 
 /** Alert */
-const Alert = (props: Props) => {
-    const { children, setProps, loading_state, duration, hide, ...others } =
-        props;
+const Alert = ({ children, setProps, loading_state, duration, hide = false, ...others }: Props) => {
     const ref = useRef(null);
 
     useEffect(() => {
@@ -56,17 +55,11 @@ const Alert = (props: Props) => {
         <MantineAlert
             {...others}
             onClose={onClose}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
         >
             {children}
         </MantineAlert>
     );
-};
-
-Alert.defaultProps = {
-    hide: false,
 };
 
 export default Alert;

@@ -9,6 +9,7 @@ import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { filterSelected } from "../../../utils/combobox";
+import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -47,20 +48,19 @@ interface Props
 }
 
 /** MultiSelect */
-const MultiSelect = (props: Props) => {
-    const {
+const MultiSelect = ({
         setProps,
         persistence,
         persisted_props,
         persistence_type,
         loading_state,
-        debounce,
-        n_submit,
-        n_blur,
-        data,
-        value,
+        debounce = false,
+        n_submit = 0,
+        n_blur = 0,
+        data = [],
+        value = [],
         ...others
-    } = props;
+    }: Props) => {
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
@@ -118,9 +118,7 @@ const MultiSelect = (props: Props) => {
     return (
         <div ref={ref}>
             <MantineMultiSelect
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 onKeyDown={handleKeyDown}
                 onBlur={handleBlur}
                 data={options}
@@ -133,14 +131,7 @@ const MultiSelect = (props: Props) => {
     );
 };
 
-MultiSelect.defaultProps = {
-    debounce: false,
-    persisted_props: ["value"],
-    persistence_type: "local",
-    n_submit: 0,
-    n_blur: 0,
-    data: [],
-    value: [],
-};
+
+setPersistence(MultiSelect)
 
 export default MultiSelect;

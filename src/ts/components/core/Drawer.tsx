@@ -6,6 +6,7 @@ import {
 } from "props/modal";
 import { StylesApiProps } from "props/styles";
 import React, { useEffect, useState } from "react";
+import { getLoadingState } from "../../utils/dash3";
 
 type DrawerPosition = "bottom" | "left" | "right" | "top";
 
@@ -31,8 +32,8 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
 }
 
 /** Drawer */
-const Drawer = (props: Props) => {
-    const { setProps, loading_state, opened, children, ...others } = props;
+const Drawer = ({ setProps, loading_state, opened = false, children, ...others }: Props) => {
+
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {
@@ -46,9 +47,7 @@ const Drawer = (props: Props) => {
 
     return (
         <MantineDrawer
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             opened={open}
             onClose={onClose}
             {...others}
@@ -57,7 +56,5 @@ const Drawer = (props: Props) => {
         </MantineDrawer>
     );
 };
-
-Drawer.defaultProps = { opened: false };
 
 export default Drawer;

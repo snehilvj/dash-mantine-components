@@ -6,6 +6,7 @@ import { TimeInputProps } from "props/dates";
 import { __BaseInputProps } from "props/input";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends DashBaseProps,
@@ -17,23 +18,21 @@ interface Props
         StylesApiProps {
     /** Value for controlled component */
     value?: string;
-
 }
 
 /** TimeInput */
-const TimeInput = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        n_submit,
-        n_blur,
-        value,
-        debounce,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const TimeInput = ({
+    setProps,
+    loading_state,
+    n_submit = 0,
+    n_blur = 0,
+    value = '',
+    debounce = false,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [time, setTime] = useState(value);
 
@@ -68,9 +67,7 @@ const TimeInput = (props: Props) => {
 
     return (
         <MantineTimeInput
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             onChange={(ev) => setTime(ev.currentTarget.value)}
@@ -80,13 +77,6 @@ const TimeInput = (props: Props) => {
     );
 };
 
-TimeInput.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-    debounce: false,
-    n_submit: 0,
-    n_blur: 0,
-    value: "",
-};
+setPersistence(TimeInput)
 
 export default TimeInput;

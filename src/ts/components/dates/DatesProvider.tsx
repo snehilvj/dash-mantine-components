@@ -35,6 +35,4 @@ const DatesProvider = (props: Props) => {
     );
 };
 
-DatesProvider.defaultProps = {};
-
 export default DatesProvider;

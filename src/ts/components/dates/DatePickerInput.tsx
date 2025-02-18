@@ -11,6 +11,7 @@ import {
     toDates,
     toStrings,
 } from '../../utils/dates';
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputSharedProps, DatePickerBaseProps, StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default */
@@ -30,23 +31,22 @@ interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputShar
 }
 
 /** DatePickerInput */
-const DatePickerInput = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        n_submit,
-        type,
-        value,
-        debounce,
-        minDate,
-        maxDate,
-        disabledDates,
-        popoverProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        ...others
-    } = props;
+const DatePickerInput = ({
+    setProps,
+    loading_state,
+    n_submit = 0,
+    type = 'default',
+    value,
+    debounce = false,
+    minDate,
+    maxDate,
+    disabledDates,
+    popoverProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
 
     const [date, setDate] = useState(toDates(value));
 
@@ -91,9 +91,7 @@ const DatePickerInput = (props: Props) => {
     return (
         <div ref={ref}>
             <MantineDatePickerInput
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}
@@ -109,12 +107,6 @@ const DatePickerInput = (props: Props) => {
     );
 };
 
-DatePickerInput.defaultProps = {
-    persisted_props: ['value'],
-    persistence_type: 'local',
-    debounce: 0,
-    n_submit: 0,
-    type: 'default',
-};
+setPersistence(DatePickerInput)
 
 export default DatePickerInput;

@@ -2,6 +2,7 @@ import { Box, HoverCard as MantineHoverCard } from "@mantine/core";
 import { DashBaseProps } from "props/dash";
 import { PopoverProps } from "props/popover";
 import React from "react";
+import { getLoadingState, getChildLayout } from "../../../utils/dash3";
 
 interface Props extends Omit<PopoverProps, "opened">, DashBaseProps {
     /** Open delay in ms */
@@ -16,13 +17,11 @@ const HoverCard = (props: Props) => {
 
     return (
         <MantineHoverCard
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const {type: childType, props: childProps} = child.props._dashprivate_layout;
+                const { type: childType, props: childProps } = getChildLayout(child);
                 if (childType === "HoverCardTarget") {
                     const { boxWrapperProps } = childProps;
                     return (
@@ -36,7 +35,5 @@ const HoverCard = (props: Props) => {
         </MantineHoverCard>
     );
 };
-
-HoverCard.defaultProps = {};
 
 export default HoverCard;

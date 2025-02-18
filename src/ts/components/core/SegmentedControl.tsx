@@ -10,6 +10,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
+import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -78,9 +79,7 @@ const SegmentedControl = (props: Props) => {
 
     return (
         <MantineSegmentedControl
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             data={renderedData}
             onChange={onChange}
             {...others}
@@ -88,9 +87,6 @@ const SegmentedControl = (props: Props) => {
     );
 };
 
-SegmentedControl.defaultProps = {
-    persisted_props: ["value"],
-    persistence_type: "local",
-};
+setPersistence(SegmentedControl)
 
 export default SegmentedControl;
