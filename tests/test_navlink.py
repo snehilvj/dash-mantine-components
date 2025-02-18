@@ -63,6 +63,6 @@ def test_003nl_navlink(dash_duo):
     self_check_navlink('exact', dash_duo, app)
 
 def test_004nl_navlink(dash_duo):
-    app = navlink_app('partial')
-    self_check_navlink('partial', dash_duo, app)
+    app = navlink_app('starts-with')
+    self_check_navlink('starts-with', dash_duo, app)
 
