@@ -25,11 +25,13 @@ interface Props
     leftSection?: React.ReactNode;
     /** Section displayed on the right side of the label */
     rightSection?: React.ReactNode;
-    /** Determines whether the link should have active styles, `false` by default,
-     mimics NavLink behaviour from dash-bootstrap-components
-     exact will match the pathname exactly, whereas partial will only be concerned about the startsWith
+    /**
+     * Determines whether the link should have active styles, `false` by default. Can also set active styles based on the URL match type:
+     * - `exact`: The link is active only if the `pathname` exactly matches `href`.
+     * - `starts-with`: The link is active if the `pathname` begins with `href`, allowing for subpages.
+     * - `ends-with`: The link is active if the full URL (including query parameters and hash) ends with `href`
      */
-    active?: boolean | 'partial' | 'exact' | 'hyperlink';
+    active?: boolean | 'starts-with' | 'exact' | 'ends-with';
     /** Key of `theme.colors` of any valid CSS color to control active styles, `theme.primaryColor` by default */
     color?: MantineColor;
     /** href */
@@ -78,13 +80,13 @@ const NavLink = ({
         setLinkActive(
           active === true ||
             (active === 'exact' && pathname === href) ||
-            (active === 'partial' && pathname.startsWith(href)) ||
-            (active === 'hyperlink' && pathname.endsWith(href))
+            (active === 'starts-with' && pathname.startsWith(href)) ||
+            (active === 'ends-with' && pathname.endsWith(href))
         );
     };
 
     const parsePath = (location) => {
-        if (active === 'hyperlink') {
+        if (active === 'ends-with') {
           pathnameToActive(location.href)
         }
         else {
