@@ -129,6 +129,7 @@ const NavLink = ({
                 disabled={disabled}
                 onChange={onChange}
                 onClick={increment}
+                active={linkActive}
                 {...others}
             >
                 {children}
