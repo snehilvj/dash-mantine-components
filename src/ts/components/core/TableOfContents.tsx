@@ -42,9 +42,6 @@ const TableOfContents = (
     {
         setProps,
         loading_state,
-        persistence,
-        persisted_props,
-        persistence_type,
         selector,
         ...others
     }: Props) => {
