@@ -26,12 +26,11 @@ interface Props
     /** Section displayed on the right side of the label */
     rightSection?: React.ReactNode;
     /**
-     * Determines whether the link should have active styles, `false` by default. Can also set active styles based on the URL match type:
-     * - `exact`: The link is active only if the `pathname` exactly matches `href`.
-     * - `starts-with`: The link is active if the `pathname` begins with `href`, allowing for subpages.
-     * - `ends-with`: The link is active if the full URL (including query parameters and hash) ends with `href`
+     * Controls whether the link is styled as active (default: `false`).
+     * - `exact`: Active if `pathname` matches `href` exactly.
+     * - `partial`: Active if `pathname` starts with `href` (for subpages).
      */
-    active?: boolean | 'starts-with' | 'exact' | 'ends-with';
+    active?: boolean | 'exact' | 'partial';
     /** Key of `theme.colors` of any valid CSS color to control active styles, `theme.primaryColor` by default */
     color?: MantineColor;
     /** href */
@@ -71,7 +70,7 @@ const NavLink = ({
     persistence_type,
     setProps,
     loading_state,
-    active,
+    active = false,
     ...others
 }: Props) => {
     const [linkActive, setLinkActive] = useState(false);
@@ -80,27 +79,16 @@ const NavLink = ({
         setLinkActive(
           active === true ||
             (active === 'exact' && pathname === href) ||
-            (active === 'starts-with' && pathname.startsWith(href)) ||
-            (active === 'ends-with' && pathname.endsWith(href))
+            (active === 'partial' && pathname.startsWith(href))
         );
     };
 
-    const parsePath = (location) => {
-        if (active === 'ends-with') {
-          pathnameToActive(location.href)
-        }
-        else {
-          pathnameToActive(location.pathname)
-        }
-    }
-
     useEffect(() => {
-        parsePath(window.location);
+        pathnameToActive(window.location.pathname);
 
         if (typeof active === 'string') {
           History.onChange(() => {
-              parsePath(window.location);
-            ;
+            pathnameToActive(window.location.pathname);
           });
         }
     }, [active]);
