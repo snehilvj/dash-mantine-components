@@ -79,7 +79,7 @@ const NavLink = ({
         setLinkActive(
           active === true ||
             (active === 'exact' && pathname === href) ||
-            (active === 'partial' && (pathname.startsWith(href + '/') || pathname == href))
+            (active === 'partial' && (pathname.startsWith(href + '/') || pathname === href))
         );
     };
 
