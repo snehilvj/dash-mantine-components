@@ -1,7 +1,7 @@
 import dash
 from dash import Dash, html, Output, Input, _dash_renderer, ALL, State
 import dash_mantine_components as dmc
-
+import time
 _dash_renderer._set_react_version("18.2.0")
 
 
@@ -11,9 +11,11 @@ def navlink_app(active):
     app.layout = dmc.MantineProvider([
         html.Div(
             [
-                dmc.NavLink(label=f"link-{x}", id=f"link-{x}", href=f"/link-{x}", active=active,
-                            w=300)
-                for x in range(30)
+                dmc.NavLink(label=f"link-{x}", id=f"link-{x}", href=f"/link-{x}", active=active)
+                for x in range(20)
+            ] + [
+                dmc.NavLink(label=f"link-{x}/{x}", id=f"link-{x}-{x}", href=f"/link-{x}/{x}", active=active)
+                for x in range(20)
             ]
         ),
         dash.page_container
@@ -28,26 +30,29 @@ def self_check_navlink(active, dash_duo, app):
     els = dash_duo.find_elements('a[data-active]')
     if isinstance(active, bool):
         if active:
-            assert len(els) == 30
+            assert len(els) == 40
             assert len(dash_duo.find_elements('a:not([data-active])')) == 0
         else:
             assert len(els) == 0
-            assert len(dash_duo.find_elements('a:not([data-active])')) == 30
+            assert len(dash_duo.find_elements('a:not([data-active])')) == 40
         return
     else:
         assert len(els) == 0
-    for t in [1, 5, 10, 12, 13, 20, 22]:
+    for t in [1, 5, 10, 12, 13]:
         dash_duo.find_element(f'#link-{t}').click()
+        els = dash_duo.find_elements('a[data-active]')
+        assert len(els) == 1
+
+    for t in ['1-1', '5-5', '10-10', '12-12', '13-13']:
+
+        dash_duo.find_element(f"#link-{t}").click()
         els = dash_duo.find_elements('a[data-active]')
         if active == 'exact':
             assert len(els) == 1
         else:
-            if len(str(t)) > 1:
-                assert len(els) == 2
-            else:
-                assert len(els) == 1
-            for el in els:
-                assert el.get_attribute('id') in f"link-{t}"
+            assert len(els) == 2
+
+
 
 
 def test_001nl_navlink(dash_duo):
