@@ -10,6 +10,8 @@
   - `exact`: Marks the link as active only when `pathname` exactly matches `href`.
   - `partial`: Marks the link as active when `pathname` starts with `href`, allowing for subpages.
 
+### Fixed
+- Corrected an error in the `Alert` component when the `duration` prop prop was set when using dash>=3 #516 by @AnnMarieW
 
 # 1.0.0rc1
 
