@@ -46,7 +46,6 @@ const CodeHighlightTabs = (props: Props) => {
     } else {
         renderedCode.push(renderDashComponents(code, ["icon"]));
     }
-    console.log(renderedCode)
 
     return (
         <MantineCodeHighlightTabs
