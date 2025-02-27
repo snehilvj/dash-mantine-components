@@ -1,6 +1,6 @@
 # Change Log
 
-# Unreleased
+# 1.0.0rc2
 
 ### Added
 - Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
@@ -9,6 +9,8 @@
 - Expanded the `active` prop to support string values (`"exact"` and `"partial"`) in addition to `true`/`false`. #504 by @BSd3v
   - `exact`: Marks the link as active only when `pathname` exactly matches `href`.
   - `partial`: Marks the link as active when `pathname` starts with `href`, allowing for subpages.
+
+-   Upgraded to latest Mantine (7.17.0)
 
 ### Fixed
 - Corrected an error in the `Alert` component when the `duration` prop prop was set when using dash>=3 #516 by @AnnMarieW
