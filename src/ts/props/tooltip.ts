@@ -23,4 +23,6 @@ export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     disabled?: boolean;
     /** Props to pass down to the portal when withinPortal is true */
     portalProps?: object;
+    /** Floating ui middlewares to configure position handling, `{ flip: true, shift: true, inline: false }` by default */
+    middlewares?: object;
 }

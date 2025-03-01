@@ -19,7 +19,7 @@ interface Props extends TooltipBaseProps, DashBaseProps {
     closeDelay?: number;
     /** Controlled opened state */
     opened?: boolean;
-    /** Space between target element and tooltip in px, `5` by default */
+    /** Space between target element and tooltip in px, `5` by default.  Number or FloatingAxesOffsets. */
     offset?: number | FloatingAxesOffsets;
     /** Determines whether the tooltip should have an arrow, `false` by default */
     withArrow?: boolean;
