@@ -4,7 +4,11 @@
     "baseUrl": "src/ts",
     "inlineSources": true,
     "sourceMap": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "importHelpers": true,
+    "lib": ["dom"]
   },
   "exclude": [
     "node_modules"

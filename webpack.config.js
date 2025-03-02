@@ -1,14 +1,15 @@
 const path = require('path');
-
 const packagejson = require('./package.json');
+const WebpackDashDynamicImport = require('@plotly/webpack-dash-dynamic-import');
 
 const dashLibraryName = packagejson.name.replace(/-/g, '_');
 
-module.exports = function(env, argv) {
+module.exports = function (env, argv) {
     const mode = (argv && argv.mode) || 'production';
     const entry = [path.join(__dirname, 'src/ts/index.ts')];
     const output = {
         path: path.join(__dirname, dashLibraryName),
+        chunkFilename: '[name].js',
         filename: `${dashLibraryName}.js`,
         library: dashLibraryName,
         libraryTarget: 'umd',
@@ -75,7 +76,34 @@ module.exports = function(env, argv) {
                         },
                     ],
                 },
+                {
+                   test:  /\.(png|jpe?g|gif|svg)$/i,
+                   type: 'asset/inline'
+                }
             ]
-        }
+        },
+        optimization: {
+            splitChunks: {
+                name: '[name].js',
+                cacheGroups: {
+                    async: {
+                        chunks: 'async',
+                        minSize: 0,
+                        name(module, chunks, cacheGroupKey) {
+                            return `${cacheGroupKey}-${chunks[0].name}`;
+                        }
+                    },
+                    shared: {
+                        chunks: 'all',
+                        minSize: 0,
+                        minChunks: 2,
+                        name: 'dash_leaflet-shared'
+                    }
+                }
+            }
+        },
+        plugins: [
+            new WebpackDashDynamicImport()
+        ]
     }
 }
