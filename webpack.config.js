@@ -97,7 +97,7 @@ module.exports = function (env, argv) {
                         chunks: 'all',
                         minSize: 0,
                         minChunks: 2,
-                        name: 'dash_leaflet-shared'
+                        name: 'dash_mantine_components-shared'
                     }
                 }
             }
