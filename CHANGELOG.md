@@ -1,5 +1,20 @@
 # Change Log
 
+# 1.0.0rc2
+
+### Added
+- Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
+
+### Changed
+- Expanded the `active` prop to support string values (`"exact"` and `"partial"`) in addition to `true`/`false`. #504 by @BSd3v
+  - `exact`: Marks the link as active only when `pathname` exactly matches `href`.
+  - `partial`: Marks the link as active when `pathname` starts with `href`, allowing for subpages.
+
+-   Upgraded to latest Mantine (7.17.0)
+
+### Fixed
+- Corrected an error in the `Alert` component when the `duration` prop prop was set when using dash>=3 #516 by @AnnMarieW
+
 # 1.0.0rc1
 
 ###  Pre-release Highlights
@@ -7,10 +22,6 @@
 - If you were using `dmc >= 0.15.0`, there are no known breaking change.
 - If you were using `dmc < 0.15.0`, please follow our [migration guide](https://www.dash-mantine-components.com/migration).
 - ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
-
-### Added
-
--   Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
 
 ### Changed
 - Updated to handle changes in Dash 3 #506 by @AnnMarieW:
