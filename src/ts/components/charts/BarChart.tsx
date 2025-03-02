@@ -59,29 +59,12 @@ interface Props
 
 
 /** BarChart */
-const BarChart = ({
-    setProps,
-    loading_state,
-    clickData,
-    hoverData,
-    barChartProps,
-    clickSeriesName,
-    hoverSeriesName,
-    barProps,
-    highlightHover = false,
-    ...others
-}: Props) => {
-
-    const BarChart = (props: Props) => {
-        return (
-          <Suspense fallback={null}>
-            <LazyBarChart {...props} />
-          </Suspense>
-        );
-    }
+const BarChart = (props: Props) => {
+    return (
+      <Suspense fallback={null}>
+        <LazyBarChart {...props} />
+      </Suspense>
+    );
 };
-
-
-
 
 export default BarChart;
