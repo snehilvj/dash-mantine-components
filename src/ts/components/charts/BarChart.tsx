@@ -1,4 +1,4 @@
-import { BarChart as MantineBarChart } from "@mantine/charts";
+import React, { Suspense } from 'react';
 import {
     BarChartSeries,
     BarChartType,
@@ -8,9 +8,12 @@ import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../utils/charts";
 import { getLoadingState } from "../../utils/dash3";
+
+
+// eslint-disable-next-line no-inline-comments
+const LazyBarChart = React.lazy(() => import(/* webpackChunkName: "BarChart" */ './fragments/BarChart'));
 
 interface Props
     extends BoxProps,
@@ -69,83 +72,13 @@ const BarChart = ({
     ...others
 }: Props) => {
 
-    const [highlightedArea, setHighlightedArea] = useState(null);
-    const shouldHighlight = highlightHover && highlightedArea !== null;
-
-    const seriesName = useRef(null);
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                clickSeriesName: seriesName.current,
-                clickData: getClickData(ev),
-            });
-        }
-        seriesName.current = null;
-    };
-
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                hoverSeriesName: seriesName.current,
-                hoverData: getClickData(ev)
-            });
-        }
-        seriesName.current = null;
-    };
-
-
-    const handleSeriesClick= (ev) => {
-        if (isEventValid(ev)) {
-            seriesName.current = ev.tooltipPayload[0]["name"];
-        }
-    };
-
-    const handleSeriesHover = (ev) => {
-        if (isEventValid(ev)) {
-            const hoveredSeriesName = ev.tooltipPayload[0]["name"];
-            seriesName.current = hoveredSeriesName
-            setHighlightedArea(hoveredSeriesName);
-        }
-    };
-
-    const handleSeriesHoverEnd = () => {
-        setHighlightedArea(null); // Reset highlighted area
-    };
-
-    const barPropsFunction = (item) => {
-        const dimmed = shouldHighlight && highlightedArea !== item.name;
-
-        const returnProps : any = {
-            ...barProps,
-            onClick: handleSeriesClick,
-            onMouseOver: handleSeriesHover,
-            onMouseOut: handleSeriesHoverEnd,
-        };
-
-        /**if not dimmed, default behavior of Opacity will be triggered, including Hover over chart legend (BarChart.mjs)
-            fillOpacity: dimmed ? 0.1 : fillOpacity,
-            strokeOpacity: dimmed ? 0.2 : 0,
-        */
-        if (dimmed) {
-            returnProps.fillOpacity = 0.1
-            returnProps.strokeOpacity = 0.2
-        }
-
-        return returnProps
-    };
-
-    const newProps = { ...barChartProps, onClick, onMouseOver };
-
-    return (
-        <MantineBarChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            barChartProps={newProps}
-            barProps={barPropsFunction}
-            {...others}
-        />
-
-    );
+    const BarChart = (props: Props) => {
+        return (
+          <Suspense fallback={null}>
+            <LazyBarChart {...props} />
+          </Suspense>
+        );
+    }
 };
 
 

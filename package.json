@@ -23,6 +23,7 @@
         "@braintree/sanitize-url": "^7.1.0",
         "@types/ramda": "^0.30.1",
         "@types/react": "^18.2.55",
+        "@plotly/webpack-dash-dynamic-import": "^1.3.0",
         "css-loader": "^6.10.0",
         "dash-extensions-js": "^0.0.8",
         "npm-run-all": "^2.1.0",
