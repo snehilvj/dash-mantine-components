@@ -60,7 +60,7 @@ def test_001na_notification_autoclose(dash_duo):
     children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
     assert len(children) == 0
 
-def test_001nu_notification_update(dash_duo):
+def test_002nu_notification_update(dash_duo):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(
@@ -98,7 +98,7 @@ def test_001nu_notification_update(dash_duo):
         time.sleep(1)
         assert f'{i} - clicks' in nots_holder.text
 
-def test_001nc_notification_clear(dash_duo):
+def test_003nc_notification_clear(dash_duo):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(
