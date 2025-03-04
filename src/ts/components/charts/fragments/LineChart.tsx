@@ -1,11 +1,12 @@
-import { AreaChart as MantineAreaChart } from "@mantine/charts";
+import { LineChart as MantineLineChart } from "@mantine/charts";
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";
-import { Props }  from "../AreaChart"
+import { Props }  from "../LineChart"
 
-/** AreaChart */
-const AreaChart = ({
+
+/** Mantine-themed line chart built on top of the Recharts library, */
+const LineChart = ({
     setProps,
     loading_state,
     clickData,
@@ -14,10 +15,11 @@ const AreaChart = ({
     hoverSeriesName,
     series,
     highlightHover = false,
-    areaChartProps,
+    lineChartProps,
     activeDotProps,
-    areaProps,
-    ...others }: Props) => {
+    lineProps,
+    ...others
+}: Props) => {
 
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
@@ -42,7 +44,6 @@ const AreaChart = ({
             });
         }
         seriesName.current = null;
-
     };
 
     const handleSeriesClick= (ev) => {
@@ -54,7 +55,6 @@ const AreaChart = ({
     const handleSeriesHover = (ev) => {
         if (isEventValid(ev)) {
             const hoveredSeriesName = ev["name"];
-
             seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
         }
@@ -79,11 +79,11 @@ const AreaChart = ({
         setHighlightedArea(null); // Reset highlighted area
     };
 
-    const areaPropsFunction = (item) => {
+    const linePropsFunction = (item) => {
         const dimmed = shouldHighlight && highlightedArea !== item.name;
 
         const returnProps : any = {
-            ...areaProps,
+            ...lineProps,
             onClick: handleSeriesClick,
             onMouseOver: handleSeriesHover,
             onMouseOut: handleHoverEnd,
@@ -101,23 +101,25 @@ const AreaChart = ({
         return returnProps;
     };
 
-    const newProps = { ...areaChartProps, onClick, onMouseOver };
+
+    const newProps = { ...lineChartProps, onClick, onMouseOver };
 
     return (
-      <MantineAreaChart
-        data-dash-is-loading={getLoadingState(loading_state) || undefined}
-        areaChartProps={newProps}
-        series={series}
-        activeDotProps={{
-            ...activeDotProps,
-            onClick: handleDotClick,
-            onMouseOver: handleDotHover,
-            onMouseOut: handleHoverEnd,
-        }}
-        areaProps={areaPropsFunction}
-        {...others}
-      />
+        <MantineLineChart
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            lineChartProps={newProps}
+            series={series}
+            activeDotProps={{
+                ...activeDotProps,
+                onClick: handleDotClick,
+                onMouseOver: handleDotHover,
+                onMouseOut: handleHoverEnd,
+            }}
+            lineProps={linePropsFunction}
+            {...others}
+        />
     );
-}
+};
 
-export default AreaChart;
+
+export default LineChart;

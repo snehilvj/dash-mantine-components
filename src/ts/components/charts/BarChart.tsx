@@ -8,14 +8,11 @@ import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import { getClickData, isEventValid } from "../../utils/charts";
-import { getLoadingState } from "../../utils/dash3";
-
 
 // eslint-disable-next-line no-inline-comments
 const LazyBarChart = React.lazy(() => import(/* webpackChunkName: "BarChart" */ './fragments/BarChart'));
 
-interface Props
+export interface Props
     extends BoxProps,
         GridChartBaseProps,
         StylesApiProps,

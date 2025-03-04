@@ -14,7 +14,7 @@ import { StylesApiProps } from "props/styles";
 const LazyAreaChart = React.lazy(() => import(/* webpackChunkName: "AreaChart" */ './fragments/AreaChart'));
 
 
-interface Props
+export interface Props
     extends BoxProps,
         GridChartBaseProps,
         StylesApiProps,
