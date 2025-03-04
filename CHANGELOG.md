@@ -3,7 +3,7 @@
 # [Unreleased]
 
 ### Changed
-- `notification` will not automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component.
+- `notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component.
 
 # 1.0.0rc2
 
