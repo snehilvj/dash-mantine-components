@@ -1,14 +1,14 @@
-import { DonutChart as MantineDonutChart } from "@mantine/charts";
 import { DonutChartCell } from "@mantine/charts/lib/DonutChart/DonutChart";
 import { MantineColor } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { getPieClickData, isEventValid } from "../../utils/charts";
-import { getLoadingState } from "../../utils/dash3";
+import React, { Suspense } from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+// eslint-disable-next-line no-inline-comments
+const LazyDonutChart = React.lazy(() => import(/* webpackChunkName: "DonutChart" */ './fragments/DonutChart'));
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render chart */
     data: DonutChartCell[];
     /** Determines whether the tooltip should be displayed when one of the section is hovered, `true` by default */
@@ -59,37 +59,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** DonutChart */
 const DonutChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, pieProps, ...others } = props;
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            const clickdata = getPieClickData(ev)
-            setProps({
-                clickData: clickdata,
-                clickSeriesName: clickdata["name"]
-            });
-        }
-    };
-
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            const hoverdata = getPieClickData(ev)
-            setProps({
-                hoverData: hoverdata,
-                hoverSeriesName: hoverdata["name"]
-            });
-        }
-    };
-
-    const newProps = { ...pieProps, onClick, onMouseOver};
-
     return (
-        <MantineDonutChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            pieProps={newProps}
-            {...others}
-        />
+      <Suspense fallback={null}>
+        <LazyDonutChart {...props} />
+      </Suspense>
     );
-};
+}
 
 export default DonutChart;
