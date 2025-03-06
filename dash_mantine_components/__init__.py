@@ -36,7 +36,8 @@ _current_path = _os.path.dirname(_os.path.abspath(__file__))
 _this_module = _sys.modules[__name__]
 
 
-async_resources = ["AreaChart", "BarChart", "LineChart", "BubbleChart", "DonutChart", "PieChart", "RadarChart", "ScatterChart"]
+async_resources = ["AreaChart", "BarChart", "LineChart", "BubbleChart", "DonutChart", "PieChart",
+                   "RadarChart", "ScatterChart", "CompositeChart", "Sparkline"]
 
 
 _js_dist = []
@@ -45,11 +46,10 @@ _js_dist = []
 _js_dist.extend(
     [
         {
-            "relative_package_path": "async-{}.js".format(async_resource),
+            "relative_package_path": f"async-{async_resource}.js",
             "external_url": (
-                "https://unpkg.com/{0}@{2}"
-                "/{1}/async-{3}.js"
-            ).format(package_name, __name__, __version__, async_resource),
+                f"https://unpkg.com/{package_name}@{__version__}/{__name__}/async-{async_resource}.js"
+            ),
             "namespace": package_name,
             "async": True,
         }
@@ -61,11 +61,8 @@ _js_dist.extend(
 _js_dist.extend(
     [
         {
-            "relative_package_path": "async-{}.js.map".format(async_resource),
-            "external_url": (
-                "https://unpkg.com/{0}@{2}"
-                "/{1}/async-{3}.js.map"
-            ).format(package_name, __name__, __version__, async_resource),
+            "relative_package_path": f"async-{async_resource}.js.map",
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/async-{async_resource}.js.map",
             "namespace": package_name,
             "dynamic": True,
         }
@@ -73,21 +70,27 @@ _js_dist.extend(
     ]
 )
 
-
 _js_dist.extend(
     [
         {
             "relative_package_path": "dash_mantine_components.js",
-            "external_url": "https://unpkg.com/{0}@{2}/{1}/{1}.js".format(
-                package_name, __name__, __version__
-            ),
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}.js",
             "namespace": package_name,
         },
         {
             "relative_package_path": "dash_mantine_components.js.map",
-            "external_url": "https://unpkg.com/{0}@{2}/{1}/{1}.js.map".format(
-                package_name, __name__, __version__
-            ),
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}.js.map",
+            "namespace": package_name,
+            "dynamic": True,
+        },
+        {
+            "relative_package_path": "dash_mantine_components-shared.js",
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}-shared.js",
+            "namespace": package_name,
+        },
+        {
+            "relative_package_path": "dash_mantine_components-shared.js.map",
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}-shared.js.map",
             "namespace": package_name,
             "dynamic": True,
         },
