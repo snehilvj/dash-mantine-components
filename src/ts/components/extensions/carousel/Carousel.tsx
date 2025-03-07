@@ -31,14 +31,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     slidesToScroll?: number | "auto";
     /** Determines whether gap between slides should be treated as part of the slide size, `true` by default */
     includeGapInSize?: boolean;
-    /** Determines whether the carousel can be scrolled with mouse and touch interactions, `true` by default */
-    draggable?: boolean;
     /** Determines whether momentum scrolling should be enabled, `false` by default */
     dragFree?: boolean;
     /** Enables infinite looping. `true` by default, automatically falls back to `false` if slide content isn't enough to loop. */
     loop?: boolean;
-    /** Adjusts scroll speed when triggered by any of the methods. Higher numbers enables faster scrolling. */
-    speed?: number;
     /** Index of initial slide */
     initialSlide?: number;
     /** Choose a fraction representing the percentage portion of a slide that needs to be visible in order to be considered in view. For example, 0.5 equals 50%. */
