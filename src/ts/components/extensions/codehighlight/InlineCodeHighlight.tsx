@@ -1,11 +1,13 @@
-import { InlineCodeHighlight as MantineInlineCodeHighlight } from "@mantine/code-highlight";
+
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import React, { Suspense } from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+// eslint-disable-next-line no-inline-comments
+const LazyInlineCodeHighlight = React.lazy(() => import(/* webpackChunkName: "InlineCodeHighlight" */ './fragments/InlineCodeHighlight'));
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight */
     code: string;
     /** Code language, `'tsx'` by default */
@@ -14,14 +16,12 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** InlineCodeHighlight */
 const InlineCodeHighlight = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
-
     return (
-        <MantineInlineCodeHighlight
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
-        />
+      <Suspense fallback={null}>
+        <LazyInlineCodeHighlight {...props} />
+      </Suspense>
     );
-};
+}
+
 
 export default InlineCodeHighlight;

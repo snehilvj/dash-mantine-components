@@ -37,7 +37,8 @@ _this_module = _sys.modules[__name__]
 
 
 async_resources = ["AreaChart", "BarChart", "LineChart", "BubbleChart", "DonutChart", "PieChart",
-                   "RadarChart", "ScatterChart", "CompositeChart", "Sparkline"]
+                   "RadarChart", "ScatterChart", "CompositeChart", "Sparkline",
+                   "CodeHighlight", "CodeHighlightTabs", "InlineCodeHighlight"]
 
 
 _js_dist = []
