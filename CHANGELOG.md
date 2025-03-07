@@ -1,6 +1,5 @@
 # Change Log
 
-
 # [Unreleased]
 
 ### Added
