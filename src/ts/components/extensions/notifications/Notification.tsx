@@ -41,14 +41,18 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
 const Notification = (props: Props) => {
     const { action, setProps, loading_state, ...others } = props;
 
+    const onClose = () => {
+        setProps({'action': 'hide'})
+    }
+
     useEffect(() => {
         switch (action) {
             case "show":
-                notifications.show(others);
+                notifications.show({...others, onClose});
                 break;
 
             case "update":
-                notifications.update(others);
+                notifications.update({...others, onClose});
                 break;
 
             case "hide":

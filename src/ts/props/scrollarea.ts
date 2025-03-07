@@ -20,6 +20,6 @@ export interface ScrollAreaProps extends BoxProps, StylesApiProps {
     scrollbars?: "x" | "y" | "xy" | false;
     /** Determines whether scrollbars should be offset with padding on given axis, `false` by default */
     offsetScrollbars?: boolean | "x" | "y";
-    /** Content */
-    children?: React.ReactNode;
+    /** Defines `overscroll-behavior` of the viewport. https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
+    overscrollBehavior?: React.CSSProperties['overscrollBehavior'];
 }
