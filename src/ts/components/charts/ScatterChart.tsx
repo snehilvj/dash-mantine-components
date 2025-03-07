@@ -1,14 +1,15 @@
-import { ScatterChart as MantineScatterChart } from "@mantine/charts";
 import { ScatterChartSeries } from "@mantine/charts/lib/ScatterChart/ScatterChart";
 import { BoxProps } from "props/box";
 import { GridChartBaseProps } from "props/charts";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getScatterClickData, isEventValid } from "../../utils/charts";
-import { getLoadingState } from "../../utils/dash3";
+import React, { Suspense } from "react";
 
-interface Props
+
+// eslint-disable-next-line no-inline-comments
+const LazyScatterChart = React.lazy(() => import(/* webpackChunkName: "ScatterChart" */ './fragments/ScatterChart'));
+
+export interface Props
     extends BoxProps,
         Omit<GridChartBaseProps, "dataKey" | "data" | "unit">,
         StylesApiProps,
@@ -48,39 +49,12 @@ interface Props
 
 /** ScatterChart */
 const ScatterChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, scatterProps, ...others } =
-        props;
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            const clickdata = getScatterClickData(ev)
-            setProps({
-                clickData: clickdata,
-                clickSeriesName: clickdata["name"]
-            });
-        }
-    };
-
-    const onMouseOver= (ev) => {
-        if (isEventValid(ev)) {
-            const clickdata = getScatterClickData(ev)
-            setProps({
-                hoverData: clickdata,
-                hoverSeriesName: clickdata["name"]
-             });
-        }
-    };
-
-    const newProps = { ...scatterProps, onClick, onMouseOver};
-
     return (
-        <MantineScatterChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            scatterProps={newProps}
-            {...others}
-        />
+      <Suspense fallback={null}>
+        <LazyScatterChart {...props} />
+      </Suspense>
     );
-};
+}
 
 
 export default ScatterChart;

@@ -1,14 +1,15 @@
-import { RadarChart as MantineRadarChart } from "@mantine/charts";
 import { RadarChartSeries } from "@mantine/charts/lib/RadarChart/RadarChart";
 import { MantineColor } from "@mantine/core";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getClickData, isEventValid } from "../../utils/charts";
-import { getLoadingState } from "../../utils/dash3";
+import React, { Suspense} from "react";
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+
+// eslint-disable-next-line no-inline-comments
+const LazyRadarChart = React.lazy(() => import(/* webpackChunkName: "RadarChart" */ './fragments/RadarChart'));
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used in the chart */
     data: Record<string, any>[];
     /** Determines which data should be consumed from the `data` array. */
@@ -47,24 +48,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** RadarChart */
 const RadarChart = (props: Props) => {
-    const { setProps, loading_state, clickData, radarChartProps, ...others } =
-        props;
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({ clickData: getClickData(ev) });
-        }
-    };
-
-    const newProps = { ...radarChartProps, onClick };
-
     return (
-        <MantineRadarChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            radarChartProps={newProps}
-            {...others}
-        />
+      <Suspense fallback={null}>
+        <LazyRadarChart {...props} />
+      </Suspense>
     );
-};
+}
 
 export default RadarChart;
