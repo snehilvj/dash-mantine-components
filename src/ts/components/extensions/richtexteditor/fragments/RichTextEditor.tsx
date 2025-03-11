@@ -1,6 +1,5 @@
 import { RichTextEditor as MantineRichTextEditor, Link } from "@mantine/tiptap";
 import React from "react";
-// import { getLoadingState } from "../../../../utils/dash3";
 import { Props }  from "../RichTextEditor"
 
 import { useEditor } from '@tiptap/react';
@@ -10,37 +9,44 @@ import Underline from '@tiptap/extension-underline';
 import TextAlign from '@tiptap/extension-text-align';
 import Superscript from '@tiptap/extension-superscript';
 import SubScript from '@tiptap/extension-subscript';
+import { getLoadingState } from "../../../../utils/dash3";
 
-const content =
-  '<h2 style="text-align: center;">Welcome to Mantine rich text editor</h2><p><code>RichTextEditor</code> component focuses on usability and is designed to be as simple as possible to bring a familiar editing experience to regular users. <code>RichTextEditor</code> is based on <a href="https://tiptap.dev/" rel="noopener noreferrer" target="_blank">Tiptap.dev</a> and supports all of its features:</p><ul><li>General text formatting: <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strike-through</s> </li><li>Headings (h1-h6)</li><li>Sub and super scripts (<sup>&lt;sup /&gt;</sup> and <sub>&lt;sub /&gt;</sub> tags)</li><li>Ordered and bullet lists</li><li>Text align&nbsp;</li><li>And all <a href="https://tiptap.dev/extensions" target="_blank" rel="noopener noreferrer">other extensions</a></li></ul>';
-
+/** Map of supported extensions. Must be synced with the `extensions` prop in `RichTextEditor` (!). */
+const extensionMap = {
+    "StarterKit": StarterKit,
+    "Underline": Underline,
+    "Link": Link,
+    "Superscript": Superscript,
+    "SubScript": SubScript,
+    "Highlight": Highlight,
+    // TODO: Should we add support for configuration from Dash?
+    "TextAlign": TextAlign.configure({ types: ['heading', 'paragraph'] }),
+}
 
 /** RichTextEditor */
 const RichTextEditor = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
+    const { setProps, loading_state, content, format, variant, extensions, ...others } = props;
+    // If format is specified, route output to Dash.
+    let onUpdate = undefined;
+    if(format !== undefined){
+        onUpdate = ({ editor }) => {
+            if(format === "json"){
+                setProps({content: editor.getJSON()});
+            }
+            if (format === "html"){
+                setProps({content: editor.getHTML()});
+            }
+        };
+    }
+    // Create the editor.
     const editor = useEditor({
-        extensions: [
-          StarterKit,
-          Underline,
-          Link,
-          Superscript,
-          SubScript,
-          Highlight,
-          TextAlign.configure({ types: ['heading', 'paragraph'] }),
-        ],
+        extensions: extensions.map(ext => extensionMap[ext]),
         content,
+        onUpdate,
       });
-
-
-    // return (
-    //     <MantineRichTextEditor
-    //         data-dash-is-loading={getLoadingState(loading_state) || undefined}
-    //         {...others}
-    //     />
-    // );
-
+    // Render the component tree.
     return (
-        <MantineRichTextEditor editor={editor}>
+        <MantineRichTextEditor variant={variant} editor={editor} data-dash-is-loading={getLoadingState(loading_state) || undefined}>
           <MantineRichTextEditor.Toolbar sticky>
             <MantineRichTextEditor.ControlsGroup>
               <MantineRichTextEditor.Bold />

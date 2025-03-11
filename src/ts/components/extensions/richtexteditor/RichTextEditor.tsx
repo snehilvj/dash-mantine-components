@@ -7,20 +7,20 @@ import React, { Suspense } from "react";
 // eslint-disable-next-line no-inline-comments
 const LazyRichTextEditor = React.lazy(() => import(/* webpackChunkName: "RichTextEditor" */ './fragments/RichTextEditor'));
 
-
+/** Supported extensions. */
+type Extension = "StarterKit" | "Underline" | "Underline" | "Link" | "Superscript" | "SubScript" | "Highlight" | "TextAlign";
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
-    /** Code to highlight */
-    code: string;
-    /** Code language, `'tsx'` by default */
-    language: string;
-    /** Determines whether copy button should be displayed, `true` by default */
-    withCopyButton?: boolean;
-    /** Copy tooltip label, `'Copy code'` by default */
-    copyLabel?: string;
-    /** Copied tooltip label, `'Copied'` by default */
-    copiedLabel?: string;
-    /** Determines whether code should be highlighted only after component is mounted to the dom (disables code highlight on server), `false` by default */
-    highlightOnClient?: boolean;
+    /** Editor content, be be input as an HTML string or a (ProseMirror) JSON object */
+    content: string | object;
+
+    /** Data format to bring back to Dash. If not specified, the editor content is not tracked. */
+    format?: "html" | "json";
+
+    /** Variant of the editor. */
+    variant?: 'default' | 'subtle';
+
+    /** Extensions to be loaded by the editor. */
+    extensions?: Extension[];
 }
 
 /** RichTextEditor */
