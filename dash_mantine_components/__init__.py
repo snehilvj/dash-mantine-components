@@ -11,8 +11,8 @@ from . import styles
 # noinspection PyUnresolvedReferences
 from ._imports_ import *
 from ._imports_ import __all__
-from .theme import DEFAULT_THEME
 from .figure_templates import add_figure_templates
+from .theme import DEFAULT_THEME
 
 if not hasattr(_dash, "__plotly_dash") and not hasattr(_dash, "development"):
     print(
@@ -36,9 +36,22 @@ _current_path = _os.path.dirname(_os.path.abspath(__file__))
 _this_module = _sys.modules[__name__]
 
 
-async_resources = ["AreaChart", "BarChart", "LineChart", "BubbleChart", "DonutChart", "PieChart",
-                   "RadarChart", "ScatterChart", "CompositeChart", "Sparkline",
-                   "CodeHighlight", "CodeHighlightTabs", "InlineCodeHighlight"]
+async_resources = [
+    "AreaChart",
+    "BarChart",
+    "LineChart",
+    "BubbleChart",
+    "DonutChart",
+    "PieChart",
+    "RadarChart",
+    "ScatterChart",
+    "CompositeChart",
+    "Sparkline",
+    "CodeHighlight",
+    "CodeHighlightTabs",
+    "InlineCodeHighlight",
+    "RichTextEditor",
+]
 
 
 _js_dist = []
