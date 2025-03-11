@@ -55,8 +55,13 @@
         "@mantine/spotlight": "7.17.1",
         "@mantine/tiptap": "^7.17.1",
         "@plotly/dash-component-plugins": "^1.2.0",
+        "dayjs": "^1.11.10",
+        "embla-carousel-auto-scroll": "^8.4.0",
+        "embla-carousel-autoplay": "^8.4.0",
+        "embla-carousel-react": "^8.4.0",
         "is-absolute-url": "^4.0.1",
-        "jsonpath": "^1.1.1"
+        "jsonpath": "^1.1.1",
+        "recharts": "^2.13.3"
     },
     "files": [
         "/dash_mantine_components/*{.js,.map}",
