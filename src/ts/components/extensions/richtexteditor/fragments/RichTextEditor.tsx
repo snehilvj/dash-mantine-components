@@ -11,46 +11,16 @@ import Superscript from '@tiptap/extension-superscript';
 import SubScript from '@tiptap/extension-subscript';
 import { getLoadingState } from "../../../../utils/dash3";
 
-/** Map of supported extensions. Must be synced with the `Extension` prop in `RichTextEditor` (!). */
+// Import all extensions directly
 const extensionMap = {
-    "StarterKit": StarterKit,
-    "Underline": Underline,
-    "Link": Link,
-    "Superscript": Superscript,
-    "SubScript": SubScript,
-    "Highlight": Highlight,
-    // TODO: Should we add support for configuration from Dash?
-    "TextAlign": TextAlign.configure({ types: ['heading', 'paragraph'] }),
-}
-
-/** Map of supported controls. Must be synced with the `Control` prop in `RichTextEditor` (!). */
-const controlMap = {
-    "Bold": MantineRichTextEditor.Bold,
-    "Italic": MantineRichTextEditor.Italic,
-    "Underline": MantineRichTextEditor.Underline,
-    "Strikethrough": MantineRichTextEditor.Strikethrough,
-    "ClearFormatting": MantineRichTextEditor.ClearFormatting,
-    "Highlight": MantineRichTextEditor.Highlight,
-    "Code": MantineRichTextEditor.Code,
-    "H1": MantineRichTextEditor.H1,
-    "H2": MantineRichTextEditor.H2,
-    "H3": MantineRichTextEditor.H3,
-    "H4": MantineRichTextEditor.H4,
-    "Blockquote": MantineRichTextEditor.Blockquote,
-    "Hr": MantineRichTextEditor.Hr,
-    "BulletList": MantineRichTextEditor.BulletList,
-    "OrderedList": MantineRichTextEditor.OrderedList,
-    "Subscript": MantineRichTextEditor.Subscript,
-    "Superscript": MantineRichTextEditor.Superscript,
-    "Link": MantineRichTextEditor.Link,
-    "Unlink": MantineRichTextEditor.Unlink,
-    "AlignLeft": MantineRichTextEditor.AlignLeft,
-    "AlignCenter": MantineRichTextEditor.AlignCenter,
-    "AlignJustify": MantineRichTextEditor.AlignJustify,
-    "AlignRight": MantineRichTextEditor.AlignRight,
-    "Undo": MantineRichTextEditor.Undo,
-    "Redo": MantineRichTextEditor.Redo,
-}
+    StarterKit,
+    Underline,
+    Link,
+    Superscript,
+    SubScript,
+    Highlight,
+    TextAlign: TextAlign.configure({ types: ['heading', 'paragraph'] })
+} as const;
 
 /** RichTextEditor */
 const RichTextEditor = (props: Props) => {
@@ -60,7 +30,7 @@ const RichTextEditor = (props: Props) => {
     if(toolbar !== undefined){
         mantineToolbar = <MantineRichTextEditor.Toolbar sticky={toolbar.sticky}>
             {toolbar.controlsGroups.map(controlGroup => <MantineRichTextEditor.ControlsGroup>
-                {controlGroup.map(control => React.createElement(controlMap[control]))}
+                {controlGroup.map(control => React.createElement(MantineRichTextEditor[control]))}
             </MantineRichTextEditor.ControlsGroup>)}
         </MantineRichTextEditor.Toolbar>
     }
@@ -79,7 +49,7 @@ const RichTextEditor = (props: Props) => {
     // If any extensions are specified, load them.
     let mantineExtensions = [];
     if(extensions !== undefined){
-        mantineExtensions = extensions.map(ext => extensionMap[ext]);
+        mantineExtensions = extensions.map(extension => extensionMap[extension]);
     }
     // Create the editor.
     const editor = useEditor({
