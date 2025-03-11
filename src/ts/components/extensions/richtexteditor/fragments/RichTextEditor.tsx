@@ -11,7 +11,7 @@ import Superscript from '@tiptap/extension-superscript';
 import SubScript from '@tiptap/extension-subscript';
 import { getLoadingState } from "../../../../utils/dash3";
 
-/** Map of supported extensions. Must be synced with the `extensions` prop in `RichTextEditor` (!). */
+/** Map of supported extensions. Must be synced with the `Extension` prop in `RichTextEditor` (!). */
 const extensionMap = {
     "StarterKit": StarterKit,
     "Underline": Underline,
@@ -23,9 +23,47 @@ const extensionMap = {
     "TextAlign": TextAlign.configure({ types: ['heading', 'paragraph'] }),
 }
 
+/** Map of supported controls. Must be synced with the `Control` prop in `RichTextEditor` (!). */
+const controlMap = {
+    "Bold": MantineRichTextEditor.Bold,
+    "Italic": MantineRichTextEditor.Italic,
+    "Underline": MantineRichTextEditor.Underline,
+    "Strikethrough": MantineRichTextEditor.Strikethrough,
+    "ClearFormatting": MantineRichTextEditor.ClearFormatting,
+    "Highlight": MantineRichTextEditor.Highlight,
+    "Code": MantineRichTextEditor.Code,
+    "H1": MantineRichTextEditor.H1,
+    "H2": MantineRichTextEditor.H2,
+    "H3": MantineRichTextEditor.H3,
+    "H4": MantineRichTextEditor.H4,
+    "Blockquote": MantineRichTextEditor.Blockquote,
+    "Hr": MantineRichTextEditor.Hr,
+    "BulletList": MantineRichTextEditor.BulletList,
+    "OrderedList": MantineRichTextEditor.OrderedList,
+    "Subscript": MantineRichTextEditor.Subscript,
+    "Superscript": MantineRichTextEditor.Superscript,
+    "Link": MantineRichTextEditor.Link,
+    "Unlink": MantineRichTextEditor.Unlink,
+    "AlignLeft": MantineRichTextEditor.AlignLeft,
+    "AlignCenter": MantineRichTextEditor.AlignCenter,
+    "AlignJustify": MantineRichTextEditor.AlignJustify,
+    "AlignRight": MantineRichTextEditor.AlignRight,
+    "Undo": MantineRichTextEditor.Undo,
+    "Redo": MantineRichTextEditor.Redo,
+}
+
 /** RichTextEditor */
 const RichTextEditor = (props: Props) => {
-    const { setProps, loading_state, content, format, variant, extensions, ...others } = props;
+    const { setProps, loading_state, content, format, variant, extensions, toolbar, ...others } = props;
+    // Construct the toolbar.
+    let mantineToolbar = undefined;
+    if(toolbar !== undefined){
+        mantineToolbar = <MantineRichTextEditor.Toolbar sticky={toolbar.sticky}>
+            {toolbar.controlsGroups.map(controlGroup => <MantineRichTextEditor.ControlsGroup>
+                {controlGroup.map(control => React.createElement(controlMap[control]))}
+            </MantineRichTextEditor.ControlsGroup>)}
+        </MantineRichTextEditor.Toolbar>
+    }
     // If format is specified, route output to Dash.
     let onUpdate = undefined;
     if(format !== undefined){
@@ -38,60 +76,21 @@ const RichTextEditor = (props: Props) => {
             }
         };
     }
+    // If any extensions are specified, load them.
+    let mantineExtensions = [];
+    if(extensions !== undefined){
+        mantineExtensions = extensions.map(ext => extensionMap[ext]);
+    }
     // Create the editor.
     const editor = useEditor({
-        extensions: extensions.map(ext => extensionMap[ext]),
+        extensions: mantineExtensions,
         content,
         onUpdate,
       });
     // Render the component tree.
     return (
         <MantineRichTextEditor variant={variant} editor={editor} data-dash-is-loading={getLoadingState(loading_state) || undefined}>
-          <MantineRichTextEditor.Toolbar sticky>
-            <MantineRichTextEditor.ControlsGroup>
-              <MantineRichTextEditor.Bold />
-              <MantineRichTextEditor.Italic />
-              <MantineRichTextEditor.Underline />
-              <MantineRichTextEditor.Strikethrough />
-              <MantineRichTextEditor.ClearFormatting />
-              <MantineRichTextEditor.Highlight />
-              <MantineRichTextEditor.Code />
-            </MantineRichTextEditor.ControlsGroup>
-    
-            <MantineRichTextEditor.ControlsGroup>
-              <MantineRichTextEditor.H1 />
-              <MantineRichTextEditor.H2 />
-              <MantineRichTextEditor.H3 />
-              <MantineRichTextEditor.H4 />
-            </MantineRichTextEditor.ControlsGroup>
-    
-            <MantineRichTextEditor.ControlsGroup>
-              <MantineRichTextEditor.Blockquote />
-              <MantineRichTextEditor.Hr />
-              <MantineRichTextEditor.BulletList />
-              <MantineRichTextEditor.OrderedList />
-              <MantineRichTextEditor.Subscript />
-              <MantineRichTextEditor.Superscript />
-            </MantineRichTextEditor.ControlsGroup>
-    
-            <MantineRichTextEditor.ControlsGroup>
-              <MantineRichTextEditor.Link />
-              <MantineRichTextEditor.Unlink />
-            </MantineRichTextEditor.ControlsGroup>
-    
-            <MantineRichTextEditor.ControlsGroup>
-              <MantineRichTextEditor.AlignLeft />
-              <MantineRichTextEditor.AlignCenter />
-              <MantineRichTextEditor.AlignJustify />
-              <MantineRichTextEditor.AlignRight />
-            </MantineRichTextEditor.ControlsGroup>
-    
-            <MantineRichTextEditor.ControlsGroup>
-              <MantineRichTextEditor.Undo />
-              <MantineRichTextEditor.Redo />
-            </MantineRichTextEditor.ControlsGroup>
-          </MantineRichTextEditor.Toolbar>
-    
+          {mantineToolbar}
           <MantineRichTextEditor.Content />
         </MantineRichTextEditor>
       );
