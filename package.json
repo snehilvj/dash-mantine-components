@@ -13,7 +13,7 @@
     "homepage": "https://github.com/snehilvj/dash-mantine-components",
     "scripts": {
         "build:js::dev": "webpack --mode development",
-        "build:js": "webpack",
+        "build:js": "webpack --mode production",
         "build:backends": "dash-generate-components ./src/ts/components dash_mantine_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
         "build": "npm run build:js && npm run build:backends",
         "watch": "npm run build:js::dev -- --watch",
@@ -23,6 +23,7 @@
         "@braintree/sanitize-url": "^7.1.0",
         "@types/ramda": "^0.30.1",
         "@types/react": "^18.2.55",
+        "@plotly/webpack-dash-dynamic-import": "^1.3.0",
         "css-loader": "^6.10.0",
         "dash-extensions-js": "^0.0.8",
         "npm-run-all": "^2.1.0",

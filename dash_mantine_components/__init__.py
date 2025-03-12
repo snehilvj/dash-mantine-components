@@ -11,8 +11,8 @@ from . import styles
 # noinspection PyUnresolvedReferences
 from ._imports_ import *
 from ._imports_ import __all__
-from .theme import DEFAULT_THEME
 from .figure_templates import add_figure_templates
+from .theme import DEFAULT_THEME
 
 if not hasattr(_dash, "__plotly_dash") and not hasattr(_dash, "development"):
     print(
@@ -35,34 +35,63 @@ _current_path = _os.path.dirname(_os.path.abspath(__file__))
 
 _this_module = _sys.modules[__name__]
 
-_js_dist = []
+# Add async components here.
+async_resources = [
+    "AreaChart",
+    "BarChart",
+    "LineChart",
+    "BubbleChart",
+    "DonutChart",
+    "PieChart",
+    "RadarChart",
+    "ScatterChart",
+    "CompositeChart",
+    "Sparkline",
+    "CodeHighlight",
+    "CodeHighlightTabs",
+    "InlineCodeHighlight",
+]
+async_chunks = [f"async-{async_resource}" for async_resource in async_resources]
 
+# Add shared chunks here.
+shared_chunks = [
+    f"{__name__}-shared",
+    f"{__name__}-charts-shared",
+]
+
+# Collect all chunks (main, async, shared).
+chunks = [__name__] + async_chunks + shared_chunks
+
+# Add all chunks to the js_dist list.
+_js_dist = []
 _js_dist.extend(
     [
         {
-            "relative_package_path": "dash_mantine_components.js",
-            "external_url": "https://unpkg.com/{0}@{2}/{1}/{1}.js".format(
-                package_name, __name__, __version__
-            ),
+            "relative_package_path": f"{chunk}.js",
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{chunk}.js",
             "namespace": package_name,
-        },
+            "async": chunk != __name__,  # don't make the main bundle async
+        }
+        for chunk in chunks
+    ]
+)
+_js_dist.extend(
+    [
         {
-            "relative_package_path": "dash_mantine_components.js.map",
-            "external_url": "https://unpkg.com/{0}@{2}/{1}/{1}.js.map".format(
-                package_name, __name__, __version__
-            ),
+            "relative_package_path": f"{chunk}.js.map",
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{chunk}.js.map",
             "namespace": package_name,
             "dynamic": True,
-        },
+        }
+        for chunk in chunks
     ]
 )
 
+# Similarly, collect CSS.
 _css_dist = []
-
 
 for _component in __all__:
     setattr(locals()[_component], "_js_dist", _js_dist)
     setattr(locals()[_component], "_css_dist", _css_dist)
-
 
 __all__ += [DEFAULT_THEME, styles, add_figure_templates]
