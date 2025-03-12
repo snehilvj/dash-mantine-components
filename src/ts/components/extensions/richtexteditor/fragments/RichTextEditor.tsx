@@ -73,7 +73,7 @@ const RichTextEditor = (props: Props) => {
       });
     // Render the component tree.
     return (
-        <MantineRichTextEditor variant={variant} editor={editor} data-dash-is-loading={getLoadingState(loading_state) || undefined}>
+        <MantineRichTextEditor variant={variant} editor={editor} data-dash-is-loading={getLoadingState(loading_state) || undefined} {...others}>
           {mantineToolbar}
           <MantineRichTextEditor.Content />
         </MantineRichTextEditor>
