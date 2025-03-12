@@ -12,7 +12,6 @@
 - `notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
 - graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW and @emilhe
 
-- Upgraded to latest Mantine (7.17.1)
 
 # 1.0.0rc2
 
