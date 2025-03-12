@@ -35,6 +35,9 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
     /** Toolbar property definition. */
     toolbar?: Toolbar;
+
+    /** Debounce time in ms for the editor content update. Defaults to 100ms. */
+    debounce?: number;
 }
 
 /** RichTextEditor */

@@ -22,9 +22,18 @@ const extensionMap = {
     TextAlign: TextAlign.configure({ types: ['heading', 'paragraph'] })
 } as const;
 
+// Simple debounce function. Maybe move to utils?
+function debounceCall(func, wait) {
+    let timeout;
+    return function(...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
 /** RichTextEditor */
 const RichTextEditor = (props: Props) => {
-    const { setProps, loading_state, content, format, variant, extensions, toolbar, ...others } = props;
+    const { setProps, loading_state, content, format, variant, extensions, toolbar, debounce = 100, ...others } = props;
     // Construct the toolbar.
     let mantineToolbar = undefined;
     if(toolbar !== undefined){
@@ -34,18 +43,23 @@ const RichTextEditor = (props: Props) => {
             </MantineRichTextEditor.ControlsGroup>)}
         </MantineRichTextEditor.Toolbar>
     }
+
     // If format is specified, route output to Dash.
     let onUpdate = undefined;
     if(format !== undefined){
-        onUpdate = ({ editor }) => {
-            if(format === "json"){
-                setProps({content: editor.getJSON()});
+        const debouncedUpdate = debounceCall(({ editor }) => {
+            if (format === "json") {
+              setProps({ content: editor.getJSON() });
             }
-            if (format === "html"){
-                setProps({content: editor.getHTML()});
+            if (format === "html") {
+              setProps({ content: editor.getHTML() });
             }
-        };
-    }
+          }, debounce);
+        // Debounce the update to prevent too many callback invocations.
+          onUpdate = ({ editor }) => {
+            debouncedUpdate({ editor });
+          };
+        }
     // If any extensions are specified, load them.
     let mantineExtensions = [];
     if(extensions !== undefined){
