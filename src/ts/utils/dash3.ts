@@ -22,7 +22,7 @@ export const renderDashComponent = (component: any, index?: number | null, baseP
         const {renderDashComponent: ol_renderDashComponent} = dash_extensions;
         return ol_renderDashComponent(component, index)
     }
-    console.log('rendering')
+
     // Nothing to render.
     if (isNil(component) || isEmpty(component)) {
         return null;
