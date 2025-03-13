@@ -35,7 +35,7 @@ _current_path = _os.path.dirname(_os.path.abspath(__file__))
 
 _this_module = _sys.modules[__name__]
 
-
+# Add async components here.
 async_resources = [
     "AreaChart",
     "BarChart",
@@ -52,71 +52,47 @@ async_resources = [
     "InlineCodeHighlight",
     "RichTextEditor",
 ]
+async_chunks = [f"async-{async_resource}" for async_resource in async_resources]
 
+# Add shared chunks here.
+shared_chunks = [
+    f"{__name__}-shared",
+    f"{__name__}-charts-shared",
+]
 
+# Collect all chunks (main, async, shared).
+chunks = [__name__] + async_chunks + shared_chunks
+
+# Add all chunks to the js_dist list.
 _js_dist = []
-
-
 _js_dist.extend(
     [
         {
-            "relative_package_path": f"async-{async_resource}.js",
-            "external_url": (
-                f"https://unpkg.com/{package_name}@{__version__}/{__name__}/async-{async_resource}.js"
-            ),
+            "relative_package_path": f"{chunk}.js",
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{chunk}.js",
             "namespace": package_name,
-            "async": True,
+            "async": chunk != __name__,  # don't make the main bundle async
         }
-        for async_resource in async_resources
+        for chunk in chunks
     ]
 )
-
-# TODO: Figure out if unpkg link works
 _js_dist.extend(
     [
         {
-            "relative_package_path": f"async-{async_resource}.js.map",
-            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/async-{async_resource}.js.map",
+            "relative_package_path": f"{chunk}.js.map",
+            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{chunk}.js.map",
             "namespace": package_name,
             "dynamic": True,
         }
-        for async_resource in async_resources
+        for chunk in chunks
     ]
 )
 
-_js_dist.extend(
-    [
-        {
-            "relative_package_path": "dash_mantine_components.js",
-            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}.js",
-            "namespace": package_name,
-        },
-        {
-            "relative_package_path": "dash_mantine_components.js.map",
-            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}.js.map",
-            "namespace": package_name,
-            "dynamic": True,
-        },
-        {
-            "relative_package_path": "dash_mantine_components-shared.js",
-            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}-shared.js",
-            "namespace": package_name,
-        },
-        {
-            "relative_package_path": "dash_mantine_components-shared.js.map",
-            "external_url": f"https://unpkg.com/{package_name}@{__version__}/{__name__}/{__name__}-shared.js.map",
-            "namespace": package_name,
-            "dynamic": True,
-        },
-    ]
-)
-
+# Similarly, collect CSS.
 _css_dist = []
-
 
 for _component in __all__:
     setattr(locals()[_component], "_js_dist", _js_dist)
     setattr(locals()[_component], "_css_dist", _css_dist)
-
 
 __all__ += [DEFAULT_THEME, styles, add_figure_templates]

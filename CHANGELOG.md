@@ -1,14 +1,17 @@
 # Change Log
 
-# [Unreleased]
+# 1.0.0
+
+### Breaking Change
+- Removed `draggable` and `speed` prop from `Carousel` since these props are not supported in Embla Carousel V8. #520 by @AnnMarieW
 
 ### Added
 - Added `middlewares` prop to `Tooltip` and `overscrollBehavior` prop to `ScrollArea` (New props as of Manitine 7.17). #520 by @AnnMarie
 
 ### Changed
 - `notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
-- Removed `draggable` and `speed` prop from `Carousel` since these props are not supported in Embla Carousel V8. #520 by @AnnMarieW
-- graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW
+- graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW and @emilhe
+
 
 # 1.0.0rc2
 
@@ -29,8 +32,7 @@
 
 ###  Pre-release Highlights
 - This release ensures dash-mantine-components V1 is compatible with both Dash 2 and Dash 3
-- If you were using `dmc >= 0.15.0`, there are no known breaking change.
-- If you were using `dmc < 0.15.0`, please follow our [migration guide](https://www.dash-mantine-components.com/migration).
+
 - ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
 
 ### Changed
