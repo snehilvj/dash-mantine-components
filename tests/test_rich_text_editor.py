@@ -6,69 +6,126 @@ import dash_mantine_components as dmc
 
 _dash_renderer._set_react_version("18.2.0")
 
+rte_id = "rich-text-editor"
+log_json_id = "output-json"
+log_html_id = "output-html"
+initial_content = "Hello, world!"
 
-def test_001ri_rich_text_editor(dash_duo):
-    app = Dash(__name__, prevent_initial_callbacks=True)
-    rte_id = "rich-text-editor"
-    btn_id = "click-me"
-    log_id = "output"
-    content = "Hello, world!"
-    to_add = " Bye, world!"
 
-    def _json_str(text) -> str:
-        """Convert a text to a ProseMirror JSON string."""
-        json_value = {
-            "type": "doc",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "content": [{"type": "text", "text": text}],
-                }
-            ],
-        }
-        return json.dumps(json_value)
+def _prose_mirror_json(text: str) -> dict:
+    """Convert text to ProseMirror JSON paragraph."""
+    return {
+        "type": "doc",
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [{"type": "text", "text": text}],
+            }
+        ],
+    }
 
+
+def _pmjs(text: str) -> str:
+    """Convert text to ProseMirror JSON paragraph."""
+    return json.dumps(_prose_mirror_json(text))
+
+
+def _html(text: str) -> str:
+    """Convert text to HTML paragraph."""
+    return f"<p>{text}</p>"
+
+
+def _validate_content(dash_duo, expected: str):
+    dash_duo.wait_for_text_to_equal(".tiptap", expected)
+    dash_duo.wait_for_text_to_equal(f"#{log_json_id}", _pmjs(expected))
+    dash_duo.wait_for_text_to_equal(f"#{log_html_id}", _html(expected))
+
+
+def _create_app(extra_components=None, **kwargs):
+    extra_components = extra_components or []
+    app = Dash(__name__)
     component = dmc.RichTextEditor(
-        content=content,
-        track_json=True,
+        **kwargs,
         id=rte_id,
     )
     app.layout = dmc.MantineProvider(
         [
             component,
-            btn := dmc.Button("Click me", id=btn_id),
-            log := html.Div(id=log_id),
+            html.Div(id=log_html_id),
+            html.Div(id=log_json_id),
+            *extra_components,
         ]
     )
 
     @app.callback(
-        Output(log, "children"),
-        Input(component, "json"),
+        Output(log_html_id, "children"),
+        Input(rte_id, "html"),
     )
-    def track_changes(content):
+    def track_changes_html(content):
+        return content
+
+    @app.callback(
+        Output(log_json_id, "children"),
+        Input(rte_id, "json"),
+    )
+    def track_changes_json(content):
         return json.dumps(content)
 
-    @app.callback(Output(component, "content"), Input(btn, "n_clicks"))
-    def set_content(n_clicks):
-        print(f"Setting content to {n_clicks}")
-        return str(n_clicks)
+    return app
+
+
+def test_001ri_rich_text_editor_init_html(dash_duo):
+    btn_html_id = "btn-html"
+    btn_json_id = "btn-json"
+    set_via_html = "What is the answer to life the universe and everything?"
+    set_via_json = "4"
+    extra_components = [
+        btn_html := dmc.Button("html", id=btn_html_id),
+        btn_json := dmc.Button("json", id=btn_json_id),
+    ]
+    app = _create_app(extra_components=extra_components, html=_html(initial_content))
+
+    @app.callback(
+        Output(rte_id, "html"),
+        Input(btn_html, "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def set_content_html(n_clicks):
+        return _html(set_via_html)
+
+    @app.callback(
+        Output(rte_id, "json"),
+        Input(btn_json, "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def set_content_json(n_clicks):
+        return _prose_mirror_json(set_via_json)
 
     dash_duo.start_server(app)
 
-    # Find the editor and check that content has been set correctly.
-    dash_duo.wait_for_text_to_equal(".tiptap", content)
+    # Validate that the initial content is set correctly.
+    _validate_content(dash_duo, initial_content)
+
+    # Now, try to set a different content using HTML.
+    dash_duo.find_element(f"#{btn_html_id}").click()
+    _validate_content(dash_duo, set_via_html)
+
+    # Now, try to set a different content using JSON.
+    dash_duo.find_element(f"#{btn_json_id}").click()
+    _validate_content(dash_duo, set_via_json)
 
     # Add text to the editor. Check that the content is updated in the UI.
-    dash_duo.find_element(".tiptap").send_keys(to_add)
-    dash_duo.wait_for_text_to_equal(".tiptap", content + to_add)
+    dash_duo.find_element(".tiptap").send_keys("2")
+    dash_duo.wait_for_text_to_equal(".tiptap", set_via_json + "2")
 
-    # Check that the data flows back to Dash (as JSON).
-    dash_duo.wait_for_text_to_equal(f"#{log_id}", _json_str(content + to_add))
+    # Check that no (error) logs were produced.
+    assert dash_duo.get_logs() == []
 
-    # Check that we can write from Dash to the component after initialization.
-    dash_duo.find_element(f"#{btn_id}").click()
-    dash_duo.wait_for_text_to_equal(".tiptap", "1")
-    dash_duo.wait_for_text_to_equal(f"#{log_id}", _json_str("1"))
 
+def test_002ri_rich_text_editor_init_json(dash_duo):
+    app = _create_app(json=_prose_mirror_json(initial_content))
+    dash_duo.start_server(app)
+    # Validate that the initial content is set correctly.
+    _validate_content(dash_duo, initial_content)
     # Check that no (error) logs were produced.
     assert dash_duo.get_logs() == []

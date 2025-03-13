@@ -36,11 +36,8 @@ const extensionMap = {
 const RichTextEditor = ({
     setProps,
     loading_state,
-    content,
     html,
     json,
-    track_html = false,
-    track_json = false,
     variant,
     extensions = ["StarterKit"],
     toolbar,
@@ -49,36 +46,44 @@ const RichTextEditor = ({
 }: Props) => {
     // Function to sync the html/json properties.
     const syncDashState = () => {
-        if (track_html) {
-            setProps({ html: editor.getHTML() });
+        // Return early if the editor is not yet created.
+        if(!editor) {
+            return;
         }
-        if (track_json) {
-            setProps({ json: editor.getJSON() });
-        }
-    };
-    // Setup content tracking if enabled.
-    let onUpdate = undefined;
-    const trackContent = track_html || track_json;
-    if (trackContent) {
-        const [value, setValue] = useState("");
-        // The native format of tiptap is (ProseMirror) JSON, se we store the internal state of the RTE component as JSON.
-        // As onUpdate is executed *before* the debounce, it's important that this call is not too expensive. A quick test
-        // on my laptop shows ~ 0.1 ms (getJSON) vs. ~ 2 ms (getHTML) for ~ 10.000 words).
-        onUpdate = ({ editor }) => {
-            setValue(editor.getJSON());
-        };
-        // The call to Dash via setProps can be expensive (depending on attached callbacks), so we debounce it.
-        const debounceValue = typeof debounce === "number" ? debounce : 0;
-        const [debounced] = useDebouncedValue(value, debounceValue);
-        useDidUpdate(() => {
-            syncDashState();
-        }, [debounced]);
+        // Update both props (they change together).
+        setProps({
+            html: editor.getHTML(),
+            json: editor.getJSON()
+        }); 
     }
+    // The native format of tiptap is (ProseMirror) JSON, se we store the internal state of the RTE component as JSON.
+    // As onUpdate is executed *before* the debounce, it's important that this call is not too expensive. A quick test
+    // on my laptop shows ~ 0.1 ms (getJSON) vs. ~ 2 ms (getHTML) for ~ 10.000 words).
+    const [value, setValue] = useState("");
+    const onUpdate = ({ editor }) => {
+        setValue(editor.getJSON());
+    };
+    // The call to Dash via setProps can be expensive (depending on attached callbacks), so we debounce it.
+    const debounceValue = typeof debounce === "number" ? debounce : 0;
+    const [debounced] = useDebouncedValue(value, debounceValue);
+    useDidUpdate(() => {
+        syncDashState();
+    }, [debounced]);
     // When content is updated from Dash, update the component's content and sync the html/json properties.
     useDidUpdate(() => {
-        editor?.commands.setContent(content);
+        if (!editor || editor.getHTML() === html) {
+            return;
+        }
+        editor.commands.setContent(html);
         syncDashState();
-    }, [content]);
+    }, [html]);
+    useDidUpdate(() => {
+        if (!editor || JSON.stringify(editor.getJSON()) === JSON.stringify(json)) {
+            return;
+        }
+        editor.commands.setContent(json);
+        syncDashState();
+    }, [json]);
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
     if (toolbar !== undefined) {
@@ -101,10 +106,10 @@ const RichTextEditor = ({
             (extension) => extensionMap[extension]
         );
     }
-    // Create the editor. And sync the html/json properties.
+    // Create the editor, with json taking precedence over html as content
     const editor = useEditor({
         extensions: mantineExtensions,
-        content: content,
+        content: json || html,
         onUpdate: onUpdate,
     });
     // Initial Dash state synchronization.

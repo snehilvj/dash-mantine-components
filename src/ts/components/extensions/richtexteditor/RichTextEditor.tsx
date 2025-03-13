@@ -19,24 +19,13 @@ type Toolbar = {
 }
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
-    /** Editor content, be be input as an HTML string or a (ProseMirror) JSON object */
-    content: string | object;
-
-    /** JSON object (ProseMirror) representation of the editor content as returned by getHTML(). Only updated if 
-     * 'track_html' is 'true'. The update frequency can be controlled via the 'debounce' property. */
+    /** JSON object (ProseMirror) representation of the editor content. */
     json?: object;
 
-    /** If 'true', the 'json' property is updated when the editor content changes (optionally debounced). */
-    track_json?: boolean;
-
-    /** HTML string representation of the editor content as returned by getHTML(). Only updated if 'track_html' is true. 
-     * The update frequency can be controlled via the 'debounce' property. */
+    /** HTML string representation of the editor content. */
     html?: string;
 
-    /** If 'true', the 'html' property is updated when the editor content changes (optionally debounced). */
-    track_html?: boolean;
-
-    /** Debounce time in ms for updating the 'json' / 'html' property. Defaults to 100ms. */
+    /** Debounce time in ms for updating the 'json' / 'html' properties. Defaults to 100ms. */
     debounce?: number;
 
     /** Variant of the editor. */
@@ -47,7 +36,6 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
     /** Toolbar property definition. */
     toolbar?: Toolbar;
-
 }
 
 /** RichTextEditor */
