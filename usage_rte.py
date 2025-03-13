@@ -10,8 +10,8 @@ app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 app.layout = dmc.MantineProvider(
     html.Div(
         dmc.RichTextEditor(
-            content="<p>Hello world!</p>",  # can be a JSON object or an HTML string
-            format="json",  # format of the content to be returned to Dash
+            content=content,  # can be a JSON object or an HTML string
+            track_json=True,  # format of the content to be returned to Dash
             extensions=[
                 "StarterKit",
                 "Underline",
@@ -55,7 +55,7 @@ app.layout = dmc.MantineProvider(
 
 
 # Read the content from the editor.
-@app.callback(Input("rte", "content"))
+@app.callback(Input("rte", "json"))
 def update_content(content: str):
     print(content)
 

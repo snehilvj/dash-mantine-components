@@ -1,7 +1,7 @@
 import { RichTextEditor as MantineRichTextEditor, Link } from "@mantine/tiptap";
 import { Props } from "../RichTextEditor";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useEditor } from "@tiptap/react";
 import Highlight from "@tiptap/extension-highlight";
@@ -49,7 +49,6 @@ const RichTextEditor = ({
 }: Props) => {
     // Function to sync the html/json properties.
     const syncDashState = () => {
-        // TODO: Tracking here?
         if (track_html) {
             setProps({ html: editor.getHTML() });
         }
@@ -65,7 +64,7 @@ const RichTextEditor = ({
         // The native format of tiptap is (ProseMirror) JSON, se we store the internal state of the RTE component as JSON.
         // As onUpdate is executed *before* the debounce, it's important that this call is not too expensive. A quick test
         // on my laptop shows ~ 0.1 ms (getJSON) vs. ~ 2 ms (getHTML) for ~ 10.000 words).
-        const onUpdate = ({ editor }) => {
+        onUpdate = ({ editor }) => {
             setValue(editor.getJSON());
         };
         // The call to Dash via setProps can be expensive (depending on attached callbacks), so we debounce it.
@@ -85,12 +84,12 @@ const RichTextEditor = ({
     if (toolbar !== undefined) {
         mantineToolbar = (
             <MantineRichTextEditor.Toolbar sticky={toolbar.sticky}>
-                {toolbar.controlsGroups.map((controlGroup) => (
-                    <MantineRichTextEditor.ControlsGroup>
-                        {controlGroup.map((control) =>
-                            React.createElement(MantineRichTextEditor[control])
-                        )}
-                    </MantineRichTextEditor.ControlsGroup>
+                {toolbar.controlsGroups.map((controlGroup, index) => (
+                <MantineRichTextEditor.ControlsGroup key={index}>
+                    {controlGroup.map((control, i) =>
+                    React.createElement(MantineRichTextEditor[control], { key: i })
+                    )}
+                </MantineRichTextEditor.ControlsGroup>
                 ))}
             </MantineRichTextEditor.Toolbar>
         );
@@ -108,7 +107,10 @@ const RichTextEditor = ({
         content: content,
         onUpdate: onUpdate,
     });
-    syncDashState();
+    // Initial Dash state synchronization.
+    useEffect(() => {
+        syncDashState();
+    }, []);
     // Render the component tree.
     return (
         <MantineRichTextEditor
