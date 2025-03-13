@@ -10,7 +10,7 @@ app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 app.layout = dmc.MantineProvider(
     html.Div(
         dmc.RichTextEditor(
-            html=content,  # can be a JSON object or an HTML string
+            html=content,
             extensions=[
                 "StarterKit",
                 "Underline",
