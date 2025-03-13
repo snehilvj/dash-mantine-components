@@ -16,11 +16,11 @@ export const isDash3 = (): boolean => {
     return !!(window as any).dash_component_api;
 };
 
-export const renderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
-    if (!isDash3()) {
+export const newRenderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
+    if (!isDash3() || isEmpty(basePath)) {
         const dash_extensions = require('dash-extensions-js');
-        const {renderDashComponent: ol_renderDashComponent} = dash_extensions;
-        return ol_renderDashComponent(component, index)
+        const {renderDashComponent} = dash_extensions;
+        return renderDashComponent(component, index)
     }
 
     // Nothing to render.
@@ -35,7 +35,7 @@ export const renderDashComponent = (component: any, index?: number | null, baseP
 
     // Array of stuff.
     if (Array.isArray(component)) {
-        return component.map((item, i) => renderDashComponent(item, i, [...(basePath || []), i]));
+        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i]));
     }
 
     // Merge props.
@@ -49,18 +49,16 @@ export const renderDashComponent = (component: any, index?: number | null, baseP
     return createElement((window as any).dash_component_api.ExternalWrapper, allProps);
 };
 
-export const renderDashComponents = (props: any, propsToRender: string[], basePath: any[]=[]) => {
-    if (!isDash3()) {
+export const newRenderDashComponents = (props: any, propsToRender: string[], basePath: any[]=[]) => {
+    if (!isDash3() || isEmpty(basePath)) {
         const dash_extensions = require('dash-extensions-js');
-        const {renderDashComponents: ol_renderDashComponents} = dash_extensions;
-        return ol_renderDashComponents(props, propsToRender)
+        const {renderDashComponents} = dash_extensions;
+        return renderDashComponents(props, propsToRender)
     }
-    if (propsToRender) {
-        for (let i = 0; i < propsToRender.length; i++) {
-            const key = propsToRender[i];
-            if (props.hasOwnProperty(key)) {
-                props[key] = renderDashComponent(props[key], null, [...basePath, key]);
-            }
+    for (let i = 0; i < propsToRender.length; i++) {
+        const key = propsToRender[i];
+        if (props.hasOwnProperty(key)) {
+            props[key] = newRenderDashComponent(props[key], null, [...basePath, key]);
         }
     }
     return props;

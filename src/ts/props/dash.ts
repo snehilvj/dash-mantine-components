@@ -18,6 +18,8 @@ export interface DashBaseProps {
         /** Holds the name of the component that is loading */
         component_name: string;
     };
+    /** Holds the path of the component */
+    componentPath?: any[];
 }
 
 export interface PersistenceProps {

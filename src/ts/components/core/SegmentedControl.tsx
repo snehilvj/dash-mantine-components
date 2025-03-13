@@ -10,7 +10,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
-import { setPersistence, getLoadingState, renderDashComponent } from "../../utils/dash3";
+import { setPersistence, getLoadingState, newRenderDashComponent } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -66,7 +66,7 @@ const SegmentedControl = (props: Props) => {
         } else {
             const rItem = {
                 value: item["value"],
-                label: renderDashComponent(item["label"]),
+                label: newRenderDashComponent(item["label"]),
                 disabled: item["disabled"],
             };
             renderedData.push(rItem);

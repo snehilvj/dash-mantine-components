@@ -4,7 +4,7 @@ import {
 import "@mantine/code-highlight/styles.css";
 
 import React from "react";
-import { getLoadingState, renderDashComponents } from "../../../../utils/dash3";
+import { getLoadingState, newRenderDashComponents } from "../../../../utils/dash3";
 import { Props }  from "../CodeHighlightTabs"
 
 
@@ -14,10 +14,10 @@ const CodeHighlightTabs = (props: Props) => {
     const renderedCode = [];
     if (Array.isArray(code)) {
         code.forEach((item, index) => {
-            renderedCode.push(renderDashComponents(item, ["icon"]));
+            renderedCode.push(newRenderDashComponents(item, ["icon"]));
         });
     } else {
-        renderedCode.push(renderDashComponents(code, ["icon"]));
+        renderedCode.push(newRenderDashComponents(code, ["icon"]));
     }
 
     return (
