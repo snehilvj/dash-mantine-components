@@ -4,12 +4,66 @@
  * For more details, refer to the Dash documentation:
  * Dash 3 for Component Developers - https://dash.plotly.com/dash-3-for-component-developers
  */
-import React from "react";
+import React, { useState, createElement } from "react";
 import { DashBaseProps } from "props/dash";
+import {dissoc, has, includes, isEmpty, isNil, mergeRight, type} from "ramda";
+
+const SIMPLE_COMPONENT_TYPES = ['String', 'Number', 'Null', 'Boolean'];
+const isSimpleComponent = component => includes(type(component), SIMPLE_COMPONENT_TYPES);
 
 /** check for dash version */
 export const isDash3 = (): boolean => {
     return !!(window as any).dash_component_api;
+};
+
+export const renderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
+    if (!isDash3()) {
+        const dash_extensions = require('dash-extensions-js');
+        const {renderDashComponent: ol_renderDashComponent} = dash_extensions;
+        return ol_renderDashComponent(component, index)
+    }
+    console.log('rendering')
+    // Nothing to render.
+    if (isNil(component) || isEmpty(component)) {
+        return null;
+    }
+
+    // Simple stuff such as strings.
+    if (isSimpleComponent(component)) {
+        return component;
+    }
+
+    // Array of stuff.
+    if (Array.isArray(component)) {
+        return component.map((item, i) => renderDashComponent(item, i, [...(basePath || []), i]));
+    }
+
+    // Merge props.
+    const allProps = {
+        component,
+        componentPath: [...(basePath || [])],
+        key: index !== null ? index : Math.random().toString(36).substr(2, 9)
+    };
+
+    // Render the component.
+    return createElement((window as any).dash_component_api.ExternalWrapper, allProps);
+};
+
+export const renderDashComponents = (props: any, propsToRender: string[], basePath: any[]=[]) => {
+    if (!isDash3()) {
+        const dash_extensions = require('dash-extensions-js');
+        const {renderDashComponents: ol_renderDashComponents} = dash_extensions;
+        return ol_renderDashComponents(props, propsToRender)
+    }
+    if (propsToRender) {
+        for (let i = 0; i < propsToRender.length; i++) {
+            const key = propsToRender[i];
+            if (props.hasOwnProperty(key)) {
+                props[key] = renderDashComponent(props[key], null, [...basePath, key]);
+            }
+        }
+    }
+    return props;
 };
 
 /** Apply persistence settings based on React version */

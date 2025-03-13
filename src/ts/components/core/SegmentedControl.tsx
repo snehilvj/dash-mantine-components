@@ -5,12 +5,12 @@ import {
     MantineSize,
     SegmentedControlItem,
 } from "@mantine/core";
-import { renderDashComponent } from "dash-extensions-js";
+
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { setPersistence, getLoadingState, renderDashComponent } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,

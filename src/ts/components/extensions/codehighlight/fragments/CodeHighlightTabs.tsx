@@ -2,9 +2,9 @@ import {
     CodeHighlightTabs as MantineCodeHighlightTabs,
 } from "@mantine/code-highlight";
 import "@mantine/code-highlight/styles.css";
-import { renderDashComponents } from "dash-extensions-js";
+
 import React from "react";
-import { getLoadingState } from "../../../../utils/dash3";
+import { getLoadingState, renderDashComponents } from "../../../../utils/dash3";
 import { Props }  from "../CodeHighlightTabs"
 
 
