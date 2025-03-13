@@ -4,20 +4,21 @@ import {
 import "@mantine/code-highlight/styles.css";
 
 import React from "react";
-import { getLoadingState, newRenderDashComponents } from "../../../../utils/dash3";
+import { getLoadingState, newRenderDashComponents, getContextPath } from "../../../../utils/dash3";
 import { Props }  from "../CodeHighlightTabs"
 
 
 /** CodeHighlightTabs */
 const CodeHighlightTabs = (props: Props) => {
     const { setProps, loading_state, code, ...others } = props;
+    const componentPath = getContextPath()
     const renderedCode = [];
     if (Array.isArray(code)) {
         code.forEach((item, index) => {
-            renderedCode.push(newRenderDashComponents(item, ["icon"]));
+            renderedCode.push(newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, index] : []));
         });
     } else {
-        renderedCode.push(newRenderDashComponents(code, ["icon"]));
+        renderedCode.push(newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 0] : []));
     }
 
     return (

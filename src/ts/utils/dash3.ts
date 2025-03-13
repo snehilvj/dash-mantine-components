@@ -128,3 +128,12 @@ export const applyDashProps = (component: any, props: Record<string, any>) => {
 
     return component;
 };
+
+export const getContextPath = () => {
+    let componentPath = [];
+    if (isDash3()) {
+        const ctx = (window as any).dash_component_api.useDashContext()
+        componentPath = ctx.componentPath
+    }
+    return componentPath
+}
