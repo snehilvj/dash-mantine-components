@@ -42,10 +42,11 @@ const RichTextEditor = ({
     extensions = ["StarterKit"],
     toolbar,
     debounce = 100,
+    n_blur = 0,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
-    const syncDashState = () => {
+    const syncDashState = (extraProps = {}) => {
         // Return early if the editor is not yet created.
         if(!editor) {
             return;
@@ -53,9 +54,17 @@ const RichTextEditor = ({
         // Update both props (they change together).
         setProps({
             html: editor.getHTML(),
-            json: editor.getJSON()
+            json: editor.getJSON(),
+            ...extraProps
         }); 
     }
+    // Function to handle the blur event (when focus is lost).
+    const onBlur = () => {
+        if(!editor || debounce !== true) {
+            return;
+        }
+        syncDashState({n_blur: n_blur + 1});
+    };
     // The native format of tiptap is (ProseMirror) JSON, se we store the internal state of the RTE component as JSON.
     // As onUpdate is executed *before* the debounce, it's important that this call is not too expensive. A quick test
     // on my laptop shows ~ 0.1 ms (getJSON) vs. ~ 2 ms (getHTML) for ~ 10.000 words).
@@ -67,6 +76,9 @@ const RichTextEditor = ({
     const debounceValue = typeof debounce === "number" ? debounce : 0;
     const [debounced] = useDebouncedValue(value, debounceValue);
     useDidUpdate(() => {
+        if (typeof debounce !== 'number' && debounce !== false) {
+            return;
+        }
         syncDashState();
     }, [debounced]);
     // When content is updated from Dash, update the component's content and sync the html/json properties.
@@ -111,6 +123,7 @@ const RichTextEditor = ({
         extensions: mantineExtensions,
         content: json || html,
         onUpdate: onUpdate,
+        onBlur: onBlur,
     });
     // Initial Dash state synchronization.
     useEffect(() => {

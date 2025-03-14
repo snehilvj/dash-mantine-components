@@ -25,8 +25,11 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** HTML string representation of the editor content. */
     html?: string;
 
-    /** Debounce time in ms for updating the 'json' / 'html' properties. Defaults to 100ms. */
-    debounce?: number;
+    /** If True, changes to input will be sent back to the Dash server only on enter or when losing focus. If it's False, it will send the value back on every change. If a number, it will not send anything back to the Dash server until the user has stopped typing for that number of milliseconds. */
+    debounce?: boolean | number;
+
+    /** An integer that represents the number of times that this element has lost focus */
+    n_blur?: number;
 
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';
@@ -36,6 +39,7 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
     /** Toolbar property definition. */
     toolbar?: Toolbar;
+
 }
 
 /** RichTextEditor */

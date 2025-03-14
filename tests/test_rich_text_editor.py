@@ -129,3 +129,21 @@ def test_002ri_rich_text_editor_init_json(dash_duo):
     _validate_content(dash_duo, initial_content)
     # Check that no (error) logs were produced.
     assert dash_duo.get_logs() == []
+
+
+def test_003ri_rich_text_editor_debounce_true(dash_duo):
+    app = _create_app(json=_prose_mirror_json(initial_content), debounce=True)
+    dash_duo.start_server(app)
+    # Add text to the editor. Check that the content is updated in the UI.
+    dash_duo.find_element(".tiptap").send_keys("X")
+    updated = initial_content + "X"
+    # Validate that content IS updated on UI, but NOT yet in Dash.
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+    dash_duo.wait_for_text_to_equal(f"#{log_json_id}", _pmjs(initial_content))
+    dash_duo.wait_for_text_to_equal(f"#{log_html_id}", _html(initial_content))
+    # Make the component lose focus. Check that the content is updated in Dash.
+    dash_duo.find_element(f"#{log_json_id}").click()
+    dash_duo.wait_for_text_to_equal(f"#{log_json_id}", _pmjs(updated))
+    dash_duo.wait_for_text_to_equal(f"#{log_html_id}", _html(updated))
+    # Check that no (error) logs were produced.
+    assert dash_duo.get_logs() == []
