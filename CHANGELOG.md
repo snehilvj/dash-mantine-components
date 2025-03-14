@@ -1,5 +1,10 @@
 # Change Log
 
+# [UNRELEASED]
+
+### fixed 
+ - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
+
 # 1.0.0
 
 ### Breaking Change
