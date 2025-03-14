@@ -19,16 +19,19 @@ type Toolbar = {
 }
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
-    /** JSON object (ProseMirror) representation of the editor content. */
+    /** JSON object (ProseMirror) representation of the editor content. Affected by debounce. */
     json?: object;
 
-    /** HTML string representation of the editor content. */
+    /** HTML string representation of the editor content. Affected by debounce. */
     html?: string;
 
-    /** If True, changes to input will be sent back to the Dash server only on enter or when losing focus. If it's False, it will send the value back on every change. If a number, it will not send anything back to the Dash server until the user has stopped typing for that number of milliseconds. */
+    /** Currently selected text. Affected by debounce. */
+    selected_text?: string;
+
+    /** If True, changes will be sent back to Dash only when losing focus. If False, data will be sent on every change. If a number, data will be sent when the value has been stable for that number of milliseconds. */
     debounce?: boolean | number;
 
-    /** An integer that represents the number of times that this element has lost focus */
+    /** An integer that represents the number of times that this element has lost focus. */
     n_blur?: number;
 
     /** Variant of the editor. */

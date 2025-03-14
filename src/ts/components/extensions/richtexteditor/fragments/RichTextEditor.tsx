@@ -43,6 +43,7 @@ const RichTextEditor = ({
     toolbar,
     debounce = 100,
     n_blur = 0,
+    selected_text,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -63,7 +64,10 @@ const RichTextEditor = ({
         if(!editor || debounce !== true) {
             return;
         }
-        syncDashState({n_blur: n_blur + 1});
+        syncDashState({
+            n_blur: n_blur + 1,
+            selected_text: selectedText
+        });
     };
     // The native format of tiptap is (ProseMirror) JSON, se we store the internal state of the RTE component as JSON.
     // As onUpdate is executed *before* the debounce, it's important that this call is not too expensive. A quick test
@@ -73,8 +77,8 @@ const RichTextEditor = ({
         setValue(editor.getJSON());
     };
     // The call to Dash via setProps can be expensive (depending on attached callbacks), so we debounce it.
-    const debounceValue = typeof debounce === "number" ? debounce : 0;
-    const [debounced] = useDebouncedValue(value, debounceValue);
+    const debounceTime = typeof debounce === "number" ? debounce : 0;
+    const [debounced] = useDebouncedValue(value, debounceTime);
     useDidUpdate(() => {
         if (typeof debounce !== 'number' && debounce !== false) {
             return;
@@ -96,6 +100,26 @@ const RichTextEditor = ({
         editor.commands.setContent(json);
         syncDashState();
     }, [json]);
+    // Function to handle the selection event (when text is selected).
+    const [selectedText, setSelectedText] = useState("");
+    const onSelectionUpdate = ({ editor }) => {
+        if(!editor) {
+            return;
+        }
+        const { from, to } = editor.state.selection
+        const text = editor.state.doc.textBetween(from, to, " ")
+        setSelectedText(text);
+    }
+    // TODO: Maybe use a separate debounceTime for the selected text?
+    const [debouncedSelectedText] = useDebouncedValue(selectedText, debounceTime);
+    useDidUpdate(() => {
+        if (typeof debounce !== 'number' && debounce !== false) {
+            return;
+        }
+        setProps({
+            selected_text: debouncedSelectedText
+        }); 
+    }, [debouncedSelectedText]);
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
     if (toolbar !== undefined) {
@@ -124,11 +148,9 @@ const RichTextEditor = ({
         content: json || html,
         onUpdate: onUpdate,
         onBlur: onBlur,
+        onSelectionUpdate: onSelectionUpdate,
+        onCreate: syncDashState
     });
-    // Initial Dash state synchronization.
-    useEffect(() => {
-        syncDashState();
-    }, []);
     // Render the component tree.
     return (
         <MantineRichTextEditor
