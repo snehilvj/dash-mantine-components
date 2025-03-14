@@ -54,14 +54,14 @@ const TagsInput = ({
         persisted_props,
         persistence_type,
         loading_state,
-        data = [],
+        data,
         searchValue,
-        value = [],
+        value,
         ...others
     }: Props) => {
 
-    const [selected, setSelected] = useState(value);
-    const [options, setOptions] = useState(data);
+    const [selected, setSelected] = useState(value ?? []);
+    const [options, setOptions] = useState(data ?? []);
     const [searchVal, setSearchVal] = useState(searchValue);
 
     useDidUpdate(() => {
