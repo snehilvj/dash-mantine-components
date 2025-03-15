@@ -13,13 +13,16 @@ type ExtensionName =
   | "Underline"
   | "Link"
   | "Superscript"
-  | "SubScript"
+  | "Subscript"
   | "Highlight"
   | "TextAlign"
+  | "TextStyle"
   | "Table"
   | "TableCell"
   | "TableRow"
-  | "TableHeader";
+  | "TableHeader"
+  | "Placeholder"
+  | "Color";
 
 // TODO: Maybe add types for the extensions options explicitly?
 type Extension =
@@ -27,11 +30,21 @@ type Extension =
   | { [key in ExtensionName]?: Record<string, unknown> }; // Allow any options
 
 /** Supported controls (add more as needed). */
-type Control = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo";
+type ControlName = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo" | "Color" | "ColorPicker" | "UnsetColor";
+
+// TODO: Maybe add types for the control options explicitly?
+type Control =
+  | ControlName
+  | { [key in ControlName]?: Record<string, unknown> }; // Allow any options
+
 
 /** Toolbar property definition. */
 type Toolbar = {
+  /** Determines whether `position: sticky` styles should be added to the toolbar, `false` by default */
   sticky?: boolean;
+  /** Sets top style to offset elements with fixed position, `0` by default */
+  stickyOffset?: React.CSSProperties['top'];
+  /** Groups of controls to be displayed in the toolbar. */
   controlsGroups?: Control[][];
 }
 

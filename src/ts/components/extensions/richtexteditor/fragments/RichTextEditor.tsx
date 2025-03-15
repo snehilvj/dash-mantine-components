@@ -9,12 +9,14 @@ import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
-import SubScript from "@tiptap/extension-subscript";
+import Subscript from "@tiptap/extension-subscript";
 import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
-
+import Placeholder from "@tiptap/extension-placeholder";
+import Color from "@tiptap/extension-color";
+import TextStyle from '@tiptap/extension-text-style';
 import { getLoadingState } from "../../../../utils/dash3";
 
 // Import all extensions directly
@@ -23,13 +25,16 @@ const extensionMap = {
     Underline,
     Link,
     Superscript,
-    SubScript,
+    Subscript,
     Highlight,
     Table,
     TableCell,
     TableHeader,
     TableRow,
     TextAlign,
+    Placeholder,
+    Color,
+    TextStyle
 } as const;
 
 /** RichTextEditor */
@@ -124,11 +129,15 @@ const RichTextEditor = ({
     let mantineToolbar = undefined;
     if (toolbar !== undefined) {
         mantineToolbar = (
-            <MantineRichTextEditor.Toolbar sticky={toolbar.sticky}>
+            <MantineRichTextEditor.Toolbar sticky={toolbar.sticky} stickyOffset={toolbar.stickyOffset}>
                 {toolbar.controlsGroups.map((controlGroup, index) => (
                 <MantineRichTextEditor.ControlsGroup key={index}>
-                    {controlGroup.map((control, i) =>
-                    React.createElement(MantineRichTextEditor[control], { key: i })
+                    {controlGroup.map((ctl, i) =>
+                        {
+                            const control = typeof ctl === "string" ? ctl : Object.keys(ctl)[0];
+                            const options = typeof ctl === "string" ? {} : ctl[control];
+                            return React.createElement(MantineRichTextEditor[control], { key: i, ...options })
+                        }
                     )}
                 </MantineRichTextEditor.ControlsGroup>
                 ))}
