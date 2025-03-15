@@ -22,6 +22,7 @@ type ExtensionName =
   | "TableRow"
   | "TableHeader"
   | "Placeholder"
+  | "Image"
   | "Color";
 
 // TODO: Maybe add types for the extensions options explicitly?

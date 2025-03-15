@@ -17,6 +17,7 @@ import TableRow from "@tiptap/extension-table-row";
 import Placeholder from "@tiptap/extension-placeholder";
 import Color from "@tiptap/extension-color";
 import TextStyle from '@tiptap/extension-text-style';
+import Image from '@tiptap/extension-image';
 import { getLoadingState } from "../../../../utils/dash3";
 
 // Import all extensions directly
@@ -34,7 +35,8 @@ const extensionMap = {
     TextAlign,
     Placeholder,
     Color,
-    TextStyle
+    TextStyle,
+    Image
 } as const;
 
 /** RichTextEditor */
