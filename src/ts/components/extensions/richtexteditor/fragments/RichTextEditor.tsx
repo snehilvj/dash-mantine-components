@@ -43,7 +43,7 @@ const RichTextEditor = ({
     toolbar,
     debounce = 100,
     n_blur = 0,
-    selected_text,
+    selected,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -66,7 +66,7 @@ const RichTextEditor = ({
         }
         syncDashState({
             n_blur: n_blur + 1,
-            selected_text: selectedText
+            selected: selectedValue
         });
     };
     // The native format of tiptap is (ProseMirror) JSON, se we store the internal state of the RTE component as JSON.
@@ -101,25 +101,25 @@ const RichTextEditor = ({
         syncDashState();
     }, [json]);
     // Function to handle the selection event (when text is selected).
-    const [selectedText, setSelectedText] = useState("");
+    const [selectedValue, setSelectedValue] = useState("");
     const onSelectionUpdate = ({ editor }) => {
         if(!editor) {
             return;
         }
         const { from, to } = editor.state.selection
         const text = editor.state.doc.textBetween(from, to, " ")
-        setSelectedText(text);
+        setSelectedValue(text);
     }
     // TODO: Maybe use a separate debounceTime for the selected text?
-    const [debouncedSelectedText] = useDebouncedValue(selectedText, debounceTime);
+    const [debouncedSelected] = useDebouncedValue(selectedValue, debounceTime);
     useDidUpdate(() => {
         if (typeof debounce !== 'number' && debounce !== false) {
             return;
         }
         setProps({
-            selected_text: debouncedSelectedText
+            selected: debouncedSelected
         }); 
-    }, [debouncedSelectedText]);
+    }, [debouncedSelected]);
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
     if (toolbar !== undefined) {

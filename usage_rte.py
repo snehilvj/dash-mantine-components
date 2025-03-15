@@ -54,7 +54,7 @@ app.layout = dmc.MantineProvider(
 
 
 # Read the selected text from the editor.
-@app.callback(Input("rte", "selected_text"))
+@app.callback(Input("rte", "selected"))
 def update_content(content: str):
     print(content)
 

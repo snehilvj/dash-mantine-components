@@ -26,7 +26,7 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     html?: string;
 
     /** Currently selected text. Affected by debounce. */
-    selected_text?: string;
+    selected?: string;
 
     /** If True, changes will be sent back to Dash only when losing focus. If False, data will be sent on every change. If a number, data will be sent when the value has been stable for that number of milliseconds. */
     debounce?: boolean | number;
