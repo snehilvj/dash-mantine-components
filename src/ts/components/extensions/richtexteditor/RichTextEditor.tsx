@@ -8,7 +8,23 @@ import React, { Suspense } from "react";
 const LazyRichTextEditor = React.lazy(() => import(/* webpackChunkName: "RichTextEditor" */ './fragments/RichTextEditor'));
 
 /** Supported extensions (add more as needed). */
-type Extension = "StarterKit" | "Underline" | "Underline" | "Link" | "Superscript" | "SubScript" | "Highlight" | "TextAlign" | "Table" | "TableCell" | "TableRow" | "TableHeader";
+type ExtensionName =
+  | "StarterKit"
+  | "Underline"
+  | "Link"
+  | "Superscript"
+  | "SubScript"
+  | "Highlight"
+  | "TextAlign"
+  | "Table"
+  | "TableCell"
+  | "TableRow"
+  | "TableHeader";
+
+// TODO: Maybe add types for the extensions options explicitly?
+type Extension =
+  | ExtensionName
+  | { [key in ExtensionName]?: Record<string, unknown> }; // Allow any options
 
 /** Supported controls (add more as needed). */
 type Control = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo";

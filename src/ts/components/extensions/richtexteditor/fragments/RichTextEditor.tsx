@@ -25,11 +25,11 @@ const extensionMap = {
     Superscript,
     SubScript,
     Highlight,
-    Table: Table.configure({ resizable: true }),
+    Table,
     TableCell,
     TableHeader,
     TableRow,
-    TextAlign: TextAlign.configure({ types: ["heading", "paragraph"] }),
+    TextAlign,
 } as const;
 
 /** RichTextEditor */
@@ -139,7 +139,13 @@ const RichTextEditor = ({
     let mantineExtensions = [];
     if (extensions !== undefined) {
         mantineExtensions = extensions.map(
-            (extension) => extensionMap[extension]
+            (ext) => {
+                if(typeof ext === "string") {
+                    return extensionMap[ext];
+                }
+                const name = Object.keys(ext)[0];
+                return extensionMap[name].configure(ext[name]);
+            }
         );
     }
     // Create the editor, with json taking precedence over html as content

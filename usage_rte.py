@@ -18,7 +18,7 @@ app.layout = dmc.MantineProvider(
                 "Superscript",
                 "SubScript",
                 "Highlight",
-                "TextAlign",
+                {"TextAlign": {"types": ["heading", "paragraph"]}},
             ],
             toolbar={
                 "sticky": True,
