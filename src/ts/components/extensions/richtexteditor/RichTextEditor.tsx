@@ -1,3 +1,4 @@
+import { RichTextEditorLabels } from "@mantine/tiptap";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
@@ -37,12 +38,20 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';
 
-    /** Extensions to be loaded by the editor. */
+    /** Extensions to be loaded by the editor, ["StarterKit"] by default. */
     extensions?: Extension[];
 
-    /** Toolbar property definition. */
+    /** Toolbar property definition. Empty by default. */
     toolbar?: Toolbar;
 
+    /** Determines whether code highlight styles should be added, true by default. */
+    withCodeHighlightStyles?: boolean;
+
+    /** Determines whether typography styles should be added, true by default. */
+    withTypographyStyles?: boolean;
+
+    /**	Labels that are used in controls. If not set, default labels are used. */
+    labels?: Partial<RichTextEditorLabels>;
 }
 
 /** RichTextEditor */
