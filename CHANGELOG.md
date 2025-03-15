@@ -4,7 +4,7 @@
 
 ### Added
 
--   Added `RichTextEditor` component #530 by @emilhe
+-   Added `RichTextEditor` and `TypographyStylesProvider` components #530 by @emilhe
 
 # 1.0.0
 
