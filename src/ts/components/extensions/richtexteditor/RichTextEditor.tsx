@@ -31,7 +31,7 @@ type Extension =
   | { [key in ExtensionName]?: Record<string, unknown> }; // Allow any options
 
 /** Supported controls (add more as needed). */
-type ControlName = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo" | "Color" | "ColorPicker" | "UnsetColor";
+type ControlName = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "H5" | "H6" | "CodeBlock" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo" | "Color" | "ColorPicker" | "UnsetColor";
 
 // TODO: Maybe add types for the control options explicitly?
 type Control =
