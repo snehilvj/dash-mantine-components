@@ -1,4 +1,4 @@
-import { RichTextEditorLabels } from "@mantine/tiptap";
+import { RichTextEditorLabels as MantineRichTextEditorLabels } from "@mantine/tiptap";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
@@ -48,6 +48,15 @@ type Toolbar = {
   /** Groups of controls to be displayed in the toolbar. Each item can be either a string with the control name (e.g. 'Bold') or an object with the control name as key and options as value (e.g. {'Color': {'color': 'red'}}). Empty by default. */
   controlsGroups?: Control[][];
 }
+
+
+/** Change function labels to strings. */
+type RichTextEditorLabels = Omit<MantineRichTextEditorLabels, 'colorControlLabel' | 'colorPickerColorLabel'> & {
+  /** An string containing '{color}' (replaced with the color) to go the color control label. */
+  colorControlLabel: string;
+  /** An string containing '{color}' (replaced with the color) to go the color picker control label. */
+  colorPickerColorLabel: string;
+};
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** JSON object (ProseMirror) representation of the editor content. Affected by debounce. If both json and html are provide, json takes precedence. */
