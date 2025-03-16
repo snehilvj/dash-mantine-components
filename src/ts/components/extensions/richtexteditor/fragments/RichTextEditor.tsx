@@ -78,7 +78,7 @@ const RichTextEditor = ({
     };
     // The native format of tiptap is (ProseMirror) JSON, se we store the internal state of the RTE component as JSON.
     // As onUpdate is executed *before* the debounce, it's important that this call is not too expensive. A quick test
-    // on my laptop shows ~ 0.1 ms (getJSON) vs. ~ 2 ms (getHTML) for ~ 10.000 words).
+    // on my laptop shows ~ 0.1 ms (getJSON) vs. ~ 2 ms (getHTML) for ~ 10.000 words.
     const [value, setValue] = useState("");
     const onUpdate = ({ editor }) => {
         setValue(editor.getJSON());

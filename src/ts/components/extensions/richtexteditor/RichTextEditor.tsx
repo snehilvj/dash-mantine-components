@@ -45,15 +45,15 @@ type Toolbar = {
   sticky?: boolean;
   /** Sets top style to offset elements with fixed position, `0` by default */
   stickyOffset?: React.CSSProperties['top'];
-  /** Groups of controls to be displayed in the toolbar. */
+  /** Groups of controls to be displayed in the toolbar. Each item can be either a string with the control name (e.g. "Bold") or an object with the control name as key and options as value (e.g. {"Color": {"color": "red"}}). Empty by default. */
   controlsGroups?: Control[][];
 }
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
-    /** JSON object (ProseMirror) representation of the editor content. Affected by debounce. */
+    /** JSON object (ProseMirror) representation of the editor content. Affected by debounce. If both json and html are provide, json takes precedence. */
     json?: object;
 
-    /** HTML string representation of the editor content. Affected by debounce. */
+    /** HTML string representation of the editor content. Affected by debounce. If both json and html are provide, json takes precedence. */
     html?: string;
 
     /** Currently selected text. Affected by debounce. */
@@ -68,7 +68,7 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';
 
-    /** Extensions to be loaded by the editor, ["StarterKit"] by default. */
+    /** List of extensions to be loaded by the editor. Each item can be either a string with the extension name (e.g. "Color") or an object with the extension name as key and options as value (e.g. {"TextAlign": {"types": ["heading", "paragraph"]}}). ["StarterKit"] by default. */
     extensions?: Extension[];
 
     /** Toolbar property definition. Empty by default. */
