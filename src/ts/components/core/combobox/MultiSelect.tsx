@@ -7,8 +7,8 @@ import { __ClearButtonProps } from "props/button";
 import { __BaseInputProps } from "props/input";
 import { ScrollAreaProps } from "props/scrollarea";
 import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { filterSelected } from "../../../utils/combobox";
+import React, { useState, useEffect } from "react";
+import { filterSelected, stringToFunction } from "../../../utils/combobox";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
 
 interface Props
@@ -59,12 +59,23 @@ const MultiSelect = ({
         n_blur = 0,
         data = [],
         value = [],
+        comboboxProps = {},
         ...others
     }: Props) => {
 
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
     const { ref, focused } = useFocusWithin();
+    const [filterFunction, setFilterFunction] = useState(null);
+
+    // Process filter function if provided in comboboxProps
+    useEffect(() => {
+        if (comboboxProps?.filter) {
+            setFilterFunction(() => stringToFunction(comboboxProps.filter));
+        } else {
+            setFilterFunction(null);
+        }
+    }, [comboboxProps?.filter]);
 
     const debounceValue = typeof debounce === "number" ? debounce : 0;
     const [debounced] = useDebouncedValue(selected, debounceValue);
@@ -115,6 +126,9 @@ const MultiSelect = ({
         setProps({ data: options });
     }, [options]);
 
+    // Prepare combobox props without filter since we handle it separately
+    const { filter, ...restComboboxProps } = comboboxProps;
+
     return (
         <div ref={ref}>
             <MantineMultiSelect
@@ -125,13 +139,14 @@ const MultiSelect = ({
                 onChange={setSelected}
                 value={selected}
                 onSearchChange={handleSearchChange}
+                filter={filterFunction}
+                {...restComboboxProps}
                 {...others}
             />
         </div>
     );
 };
 
-
-setPersistence(MultiSelect)
+setPersistence(MultiSelect);
 
 export default MultiSelect;
