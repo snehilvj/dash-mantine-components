@@ -18,7 +18,7 @@ import Placeholder from "@tiptap/extension-placeholder";
 import Color from "@tiptap/extension-color";
 import TextStyle from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
-import { getLoadingState } from "../../../../utils/dash3";
+import { getLoadingState, setPersistence } from "../../../../utils/dash3";
 
 // Import all extensions directly
 const extensionMap = {
@@ -43,6 +43,9 @@ const extensionMap = {
 const RichTextEditor = ({
     setProps,
     loading_state,
+    persistence,
+    persisted_props,
+    persistence_type,
     html,
     json,
     variant,
@@ -181,5 +184,7 @@ const RichTextEditor = ({
         </MantineRichTextEditor>
     );
 };
+
+setPersistence(RichTextEditor, ["html", "json"])
 
 export default RichTextEditor;

@@ -1,6 +1,6 @@
 import { RichTextEditorLabels } from "@mantine/tiptap";
 import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
+import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { Suspense } from "react";
 
@@ -49,7 +49,7 @@ type Toolbar = {
   controlsGroups?: Control[][];
 }
 
-export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps, PersistenceProps {
     /** JSON object (ProseMirror) representation of the editor content. Affected by debounce. If both json and html are provide, json takes precedence. */
     json?: object;
 
