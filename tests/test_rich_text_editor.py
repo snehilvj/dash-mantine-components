@@ -19,6 +19,7 @@ def _prose_mirror_json(text: str) -> dict:
         "content": [
             {
                 "type": "paragraph",
+                "attrs": {"textAlign": "left"},
                 "content": [{"type": "text", "text": text}],
             }
         ],
