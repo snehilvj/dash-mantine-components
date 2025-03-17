@@ -68,7 +68,22 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps, Persiste
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';
 
-    /** List of extensions to be loaded by the editor. Each item can be either a string with the extension name (e.g. 'Color') or an object with the extension name as key and options as value (e.g. {'TextAlign': {'types': ['heading', 'paragraph']}}). ['StarterKit'] by default. */
+    /** List of extensions to be loaded by the editor. Each item can be either a string with the extension name (e.g. 'Color') or an object with the extension name as key and options as value (e.g. {'TextAlign': {'types': ['heading', 'paragraph']}}). 
+     * ['StarterKit',
+        'Underline',
+        'Link',
+        'Superscript',
+        'Subscript',
+        'Highlight',
+        'Table',
+        'TableCell',
+        'TableHeader',
+        'TableRow',
+        {'Placeholder': {'placeholder': 'Write or paste content here...'}},
+        {'TextAlign': {'types': ['heading', 'paragraph']}},
+        'Color',
+        'TextStyle',
+        'Image'] by default. */
     extensions?: Extension[];
 
     /** Toolbar property definition. Empty by default. */

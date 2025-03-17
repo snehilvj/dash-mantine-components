@@ -49,7 +49,23 @@ const RichTextEditor = ({
     html,
     json,
     variant,
-    extensions = ["StarterKit"],
+    extensions = [
+        "StarterKit",
+        "Underline",
+        "Link",
+        "Superscript",
+        "Subscript",
+        "Highlight",
+        "Table",
+        "TableCell",
+        "TableHeader",
+        "TableRow",
+        {"Placeholder": {"placeholder": "Write or paste content here..."}},
+        {"TextAlign": {"types": ["heading", "paragraph"]}},
+        "Color",
+        "TextStyle",
+        "Image",
+    ],
     toolbar,
     debounce = 100,
     n_blur = 0,
@@ -150,18 +166,15 @@ const RichTextEditor = ({
         );
     }
     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
-    let mantineExtensions = [];
-    if (extensions !== undefined) {
-        mantineExtensions = extensions.map(
-            (ext) => {
-                if(typeof ext === "string") {
-                    return extensionMap[ext];
-                }
-                const name = Object.keys(ext)[0];
-                return extensionMap[name].configure(ext[name]);
+    const mantineExtensions = extensions.map(
+        (ext) => {
+            if(typeof ext === "string") {
+                return extensionMap[ext];
             }
-        );
-    }
+            const name = Object.keys(ext)[0];
+            return extensionMap[name].configure(ext[name]);
+        }
+    );
     // Create the editor, with json taking precedence over html as content
     const editor = useEditor({
         extensions: mantineExtensions,
