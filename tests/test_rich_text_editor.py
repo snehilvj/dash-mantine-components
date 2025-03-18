@@ -91,7 +91,7 @@ def test_001ri_rich_text_editor_init_html(dash_duo):
         Input(btn_html, "n_clicks"),
         prevent_initial_call=True,
     )
-    def set_content_html(_):
+    def set_content_html(n_clicks):
         return _html(set_via_html)
 
     @app.callback(
@@ -99,7 +99,7 @@ def test_001ri_rich_text_editor_init_html(dash_duo):
         Input(btn_json, "n_clicks"),
         prevent_initial_call=True,
     )
-    def set_content_json(_):
+    def set_content_json(n_clicks):
         return _prose_mirror_json(set_via_json)
 
     dash_duo.start_server(app)
