@@ -1,7 +1,7 @@
 import { RichTextEditor as MantineRichTextEditor, Link } from "@mantine/tiptap";
 import { Props } from "../RichTextEditor";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { useEditor } from "@tiptap/react";
 import Highlight from "@tiptap/extension-highlight";
@@ -70,6 +70,7 @@ const RichTextEditor = ({
     debounce = 100,
     n_blur = 0,
     selected,
+    labels,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -146,6 +147,16 @@ const RichTextEditor = ({
             selected: debouncedSelected
         }); 
     }, [debouncedSelected]);
+    // Map any functional labels.
+    const mappedLabels = labels && {
+        ...labels,
+        ...(labels.colorControlLabel && {
+            colorControlLabel: (color: string) => labels.colorControlLabel.replace("{color}", color)
+        }),
+        ...(labels.colorPickerColorLabel && {
+            colorPickerColorLabel: (color: string) => labels.colorPickerColorLabel.replace("{color}", color)
+        })
+    };
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
     if (toolbar !== undefined) {
@@ -190,6 +201,7 @@ const RichTextEditor = ({
             variant={variant}
             editor={editor}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            labels={mappedLabels}
             {...others}
         >
             {mantineToolbar}
