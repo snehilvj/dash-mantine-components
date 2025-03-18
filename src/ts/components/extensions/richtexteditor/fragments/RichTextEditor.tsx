@@ -18,7 +18,7 @@ import Placeholder from "@tiptap/extension-placeholder";
 import Color from "@tiptap/extension-color";
 import TextStyle from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
-import { getLoadingState } from "../../../../utils/dash3";
+import { getLoadingState, setPersistence } from "../../../../utils/dash3";
 
 // Import all extensions directly
 const extensionMap = {
@@ -43,10 +43,29 @@ const extensionMap = {
 const RichTextEditor = ({
     setProps,
     loading_state,
+    persistence,
+    persisted_props,
+    persistence_type,
     html,
     json,
     variant,
-    extensions = ["StarterKit"],
+    extensions = [
+        "StarterKit",
+        "Underline",
+        "Link",
+        "Superscript",
+        "Subscript",
+        "Highlight",
+        "Table",
+        "TableCell",
+        "TableHeader",
+        "TableRow",
+        {"Placeholder": {"placeholder": "Write or paste content here..."}},
+        {"TextAlign": {"types": ["heading", "paragraph"]}},
+        "Color",
+        "TextStyle",
+        "Image",
+    ],
     toolbar,
     debounce = 100,
     n_blur = 0,
@@ -158,18 +177,15 @@ const RichTextEditor = ({
         );
     }
     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
-    let mantineExtensions = [];
-    if (extensions !== undefined) {
-        mantineExtensions = extensions.map(
-            (ext) => {
-                if(typeof ext === "string") {
-                    return extensionMap[ext];
-                }
-                const name = Object.keys(ext)[0];
-                return extensionMap[name].configure(ext[name]);
+    const mantineExtensions = extensions.map(
+        (ext) => {
+            if(typeof ext === "string") {
+                return extensionMap[ext];
             }
-        );
-    }
+            const name = Object.keys(ext)[0];
+            return extensionMap[name].configure(ext[name]);
+        }
+    );
     // Create the editor, with json taking precedence over html as content
     const editor = useEditor({
         extensions: mantineExtensions,
@@ -193,5 +209,7 @@ const RichTextEditor = ({
         </MantineRichTextEditor>
     );
 };
+
+setPersistence(RichTextEditor, ["html", "json"])
 
 export default RichTextEditor;

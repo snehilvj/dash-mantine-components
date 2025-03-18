@@ -1,6 +1,6 @@
 import { RichTextEditorLabels as MantineRichTextEditorLabels } from "@mantine/tiptap";
 import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
+import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { Suspense } from "react";
 
@@ -31,7 +31,7 @@ type Extension =
   | { [key in ExtensionName]?: Record<string, unknown> }; // Allow any options
 
 /** Supported controls (add more as needed). */
-type ControlName = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo" | "Color" | "ColorPicker" | "UnsetColor";
+type ControlName = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "H5" | "H6" | "CodeBlock" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo" | "Color" | "ColorPicker" | "UnsetColor";
 
 // TODO: Maybe add types for the control options explicitly?
 type Control =
@@ -49,7 +49,6 @@ type Toolbar = {
   controlsGroups?: Control[][];
 }
 
-
 /** Change function labels to strings. */
 type RichTextEditorLabels = Omit<MantineRichTextEditorLabels, 'colorControlLabel' | 'colorPickerColorLabel'> & {
   /** An string containing '{color}' (replaced with the color) to go the color control label. */
@@ -58,7 +57,7 @@ type RichTextEditorLabels = Omit<MantineRichTextEditorLabels, 'colorControlLabel
   colorPickerColorLabel: string;
 };
 
-export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps, PersistenceProps {
     /** JSON object (ProseMirror) representation of the editor content. Affected by debounce. If both json and html are provide, json takes precedence. */
     json?: object;
 
@@ -77,7 +76,22 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';
 
-    /** List of extensions to be loaded by the editor. Each item can be either a string with the extension name (e.g. 'Color') or an object with the extension name as key and options as value (e.g. {'TextAlign': {'types': ['heading', 'paragraph']}}). ['StarterKit'] by default. */
+    /** List of extensions to be loaded by the editor. Each item can be either a string with the extension name (e.g. 'Color') or an object with the extension name as key and options as value (e.g. {'TextAlign': {'types': ['heading', 'paragraph']}}). 
+     * ['StarterKit',
+        'Underline',
+        'Link',
+        'Superscript',
+        'Subscript',
+        'Highlight',
+        'Table',
+        'TableCell',
+        'TableHeader',
+        'TableRow',
+        {'Placeholder': {'placeholder': 'Write or paste content here...'}},
+        {'TextAlign': {'types': ['heading', 'paragraph']}},
+        'Color',
+        'TextStyle',
+        'Image'] by default. */
     extensions?: Extension[];
 
     /** Toolbar property definition. Empty by default. */
