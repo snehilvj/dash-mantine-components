@@ -50,18 +50,20 @@ export const newRenderDashComponent = (component: any, index?: number | null, ba
 };
 
 export const newRenderDashComponents = (props: any, propsToRender: string[], basePath: any[]=[]) => {
+    const _ = require('lodash')
+    const newProps = _.cloneDeep(props)
     if (!isDash3() || isEmpty(basePath)) {
         const dash_extensions = require('dash-extensions-js');
         const {renderDashComponents} = dash_extensions;
-        return renderDashComponents(props, propsToRender)
+        return renderDashComponents(newProps, propsToRender)
     }
     for (let i = 0; i < propsToRender.length; i++) {
         const key = propsToRender[i];
-        if (props.hasOwnProperty(key)) {
-            props[key] = newRenderDashComponent(props[key], null, [...basePath, key]);
+        if (newProps.hasOwnProperty(key)) {
+            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, key]);
         }
     }
-    return props;
+    return newProps;
 };
 
 /** Apply persistence settings based on React version */
