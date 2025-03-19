@@ -152,13 +152,13 @@ def test_002oc_optional_components(dash_duo):
             "fileName": "demo.py",
             "code": demo_py,
             "language": "python",
-            "icon": DashIconify(icon="vscode-icons:file-type-reactts", width=20, id='test-0-icon'),
+            "icon": html.Div(id='test-0-holder', children=DashIconify(icon="vscode-icons:file-type-reactts", width=20, id='test-0-icon')),
         },
         {
             "fileName": "styles.css",
             "code":styles_css,
             "language": "css",
-            "icon": DashIconify(icon="vscode-icons:file-type-css", width=20, id='test-1-icon'),
+            "icon": html.Div(id='test-1-holder', children=DashIconify(icon="vscode-icons:file-type-css", width=20, id='test-1-icon')),
         },
     ]
 
@@ -202,11 +202,9 @@ def test_002oc_optional_components(dash_duo):
 
     assert len(icons) == 2
 
-    for i, x in enumerate(icons):
-        old_html = x.get_attribute('innerHTML')
+    for i in range(len(icons)):
+        icon_selector = f'#test-{i}-holder svg.iconify'
+        old_html = dash_duo.find_element(icon_selector).get_attribute('innerHTML')
         dash_duo.find_element(f'#test-{i}').click()
-        if i:
-            until(lambda: dash_duo.find_element(f'svg.iconify:nth-child({i})').get_attribute('innerHTML') != old_html, timeout=3)
-        else:
-            until(lambda: dash_duo.find_element(f'svg.iconify:first-child').get_attribute('innerHTML') != old_html,
-                  timeout=3)
+        time.sleep(.1)
+        until(lambda: dash_duo.find_element(icon_selector).get_attribute('innerHTML') != old_html, timeout=3)
