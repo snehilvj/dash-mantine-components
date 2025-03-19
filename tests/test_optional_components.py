@@ -293,15 +293,15 @@ def test_003oc_optional_components(dash_duo):
     dash_duo.start_server(app)
 
     dash_duo.wait_for_text_to_equal("#text", "Your page content")
-    icons = dash_duo.find_elements('svg.iconify')
+    dash_duo.wait_for_text_to_equal(".mantine-CodeHighlightTabs-files span:nth-child(2)", "demo.py")
 
-    assert len(icons) == 2
+    until(lambda: len(dash_duo.find_elements('svg.iconify')) == 4, timeout=3)
 
     dash_duo.find_element('#color-scheme-toggle').click()
     ## make sure switch to dark
     until(lambda: dash_duo.driver.find_element(By.TAG_NAME, 'html').get_attribute('data-mantine-color-scheme') == 'dark', timeout=3)
     time.sleep(2)
-    
+
     ## make sure no issues causing a reload
     until(
         lambda: dash_duo.driver.find_element(By.TAG_NAME, 'html').get_attribute('data-mantine-color-scheme') == 'dark',
