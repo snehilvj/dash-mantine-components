@@ -10,6 +10,9 @@
 
 -   Added `RichTextEditor` and `TypographyStylesProvider` components #530 by @emilhe
 
+### Changed
+
+- Complex components such as highlightcode, stepper are now rendered by the dash ecosystem when using dash 3+. Dash 2 falls back on `dash-extensions-js` to render via `React.createElement` (by @emilhe). This enables the use of these components in callbacks. #531 @BSd3v 
 
 # 1.0.0
 
