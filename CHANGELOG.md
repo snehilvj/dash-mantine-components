@@ -2,68 +2,79 @@
 
 # [UNRELEASED]
 
+
 ### fixed 
  - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
+
+### Added
+
+-   Added `RichTextEditor` and `TypographyStylesProvider` components #530 by @emilhe
+
 
 # 1.0.0
 
 ### Breaking Change
-- Removed `draggable` and `speed` prop from `Carousel` since these props are not supported in Embla Carousel V8. #520 by @AnnMarieW
+
+-   Removed `draggable` and `speed` prop from `Carousel` since these props are not supported in Embla Carousel V8. #520 by @AnnMarieW
 
 ### Added
-- Added `middlewares` prop to `Tooltip` and `overscrollBehavior` prop to `ScrollArea` (New props as of Manitine 7.17). #520 by @AnnMarie
+
+-   Added `middlewares` prop to `Tooltip` and `overscrollBehavior` prop to `ScrollArea` (New props as of Manitine 7.17). #520 by @AnnMarie
 
 ### Changed
-- `notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
-- graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW and @emilhe
 
+-   `notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
+-   graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW and @emilhe
 
 # 1.0.0rc2
 
 ### Added
-- Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
+
+-   Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
 
 ### Changed
-- Expanded the `active` prop to support string values (`"exact"` and `"partial"`) in addition to `true`/`false`. #504 by @BSd3v
-  - `exact`: Marks the link as active only when `pathname` exactly matches `href`.
-  - `partial`: Marks the link as active when `pathname` starts with `href`, allowing for subpages.
+
+-   Expanded the `active` prop to support string values (`"exact"` and `"partial"`) in addition to `true`/`false`. #504 by @BSd3v
+
+    -   `exact`: Marks the link as active only when `pathname` exactly matches `href`.
+    -   `partial`: Marks the link as active when `pathname` starts with `href`, allowing for subpages.
 
 -   Upgraded to latest Mantine (7.17.0)
 
 ### Fixed
-- Corrected an error in the `Alert` component when the `duration` prop was set when using dash>=3 #516 by @AnnMarieW
+
+-   Corrected an error in the `Alert` component when the `duration` prop was set when using dash>=3 #516 by @AnnMarieW
 
 # 1.0.0rc1
 
-###  Pre-release Highlights
-- This release ensures dash-mantine-components V1 is compatible with both Dash 2 and Dash 3
+### Pre-release Highlights
 
-- ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
+-   This release ensures dash-mantine-components V1 is compatible with both Dash 2 and Dash 3
+
+-   ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
 
 ### Changed
-- Updated to handle changes in Dash 3 #506 by @AnnMarieW:
-  - Removed `defaultProps` to be compatible with React 18.3
-  - Handled the removal of the `loading_state` prop
-  - Updated to use the new `dash_component_api` 
-  
+
+-   Updated to handle changes in Dash 3 #506 by @AnnMarieW:
+    -   Removed `defaultProps` to be compatible with React 18.3
+    -   Handled the removal of the `loading_state` prop
+    -   Updated to use the new `dash_component_api`
 
 # 0.15.3
 
 ### Added
 
--   For  `MonthPickerInput`, the debounce prop can now be True, False or number of ms delay before updating. When True, the value updates on blur. #471 by @oelhammouchi
+-   For `MonthPickerInput`, the debounce prop can now be True, False or number of ms delay before updating. When True, the value updates on blur. #471 by @oelhammouchi
 -   Added `InputWrapper` component #491 by @Godisemo
 
 ### Fixed
 
-- Fixed debounce in `DatePickerInput` that stopped working in 0.15.2  #496 by @AnnMarie
-- Enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
-
+-   Fixed debounce in `DatePickerInput` that stopped working in 0.15.2 #496 by @AnnMarie
+-   Enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
 
 ### Changed
 
 -   Upgraded to latest Mantine (7.16.2)
-
 
 # 0.15.2
 
