@@ -2,7 +2,6 @@ from dash import Dash, html, Output, Input, State, _dash_renderer, clientside_ca
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 from dash.testing.wait import until
-import time
 
 _dash_renderer._set_react_version("18.2.0")
 
@@ -206,5 +205,4 @@ def test_002oc_optional_components(dash_duo):
         icon_selector = f'#test-{i}-holder svg.iconify'
         old_html = dash_duo.find_element(icon_selector).get_attribute('innerHTML')
         dash_duo.find_element(f'#test-{i}').click()
-        time.sleep(.1)
         until(lambda: dash_duo.find_element(icon_selector).get_attribute('innerHTML') != old_html, timeout=3)
