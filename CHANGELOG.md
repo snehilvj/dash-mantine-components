@@ -2,9 +2,14 @@
 
 # [UNRELEASED]
 
+
+### fixed 
+ - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
+
 ### Added
 
 -   Added `RichTextEditor` and `TypographyStylesProvider` components #530 by @emilhe
+
 
 # 1.0.0
 
