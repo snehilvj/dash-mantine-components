@@ -158,6 +158,8 @@ import NavigationProgress from "./components/extensions/nprogress/NavigationProg
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 import MantineProvider from "./components/styles/MantineProvider";
 import ChipGroup from "./components/core/chip/ChipGroup";
+import RichTextEditor from "./components/extensions/richtexteditor/RichTextEditor";
+import TypographyStylesProvider from "./components/styles/TypographyStylesProvider";
 
 export {
     Accordion,
@@ -319,5 +321,7 @@ export {
     Tooltip,
     UnstyledButton,
     VisuallyHidden,
-    YearPickerInput
+    YearPickerInput,
+    RichTextEditor,
+    TypographyStylesProvider,
 };
