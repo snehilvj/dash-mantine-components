@@ -1,5 +1,6 @@
 from dash import Dash, html, Output, Input, State, _dash_renderer, clientside_callback
 import dash_mantine_components as dmc
+from dash_iconify import DashIconify
 from dash.testing.wait import until
 import time
 
@@ -118,3 +119,94 @@ def test_001oc_optional_components(dash_duo):
         dash_duo.wait_for_text_to_equal("#output", f"clicked {i+1} times")
 
     assert dash_duo.get_logs() == []
+
+def test_002oc_optional_components(dash_duo):
+    ## tests async rendering and also compares after callbacks to the icon
+    styles_css = """
+    .dmc-api-demo-root {
+      border: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+      padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+      border-radius: var(--mantine-radius-md);
+      font-weight: 500;
+      cursor: pointer;
+    
+      &[data-checked] {
+        background-color: var(--mantine-color-blue-filled);
+        border-color: var(--mantine-color-blue-filled);
+        color: var(--mantine-color-white);
+      }
+    }"""
+
+    demo_py = """
+    import dash_mantine_components as dmc
+    
+     dmc.Checkbox(
+        classNames={"root": "dmc-api-demo-root"},
+        label="Checkbox button",
+        w=180
+    )"""
+
+
+    code = [
+        {
+            "fileName": "demo.py",
+            "code": demo_py,
+            "language": "python",
+            "icon": DashIconify(icon="vscode-icons:file-type-reactts", width=20, id='test-0-icon'),
+        },
+        {
+            "fileName": "styles.css",
+            "code":styles_css,
+            "language": "css",
+            "icon": DashIconify(icon="vscode-icons:file-type-css", width=20, id='test-1-icon'),
+        },
+    ]
+
+
+    app = Dash(external_stylesheets=dmc.styles.ALL)
+
+
+    component = dmc.CodeHighlightTabs(
+        code=code,
+        withExpandButton=True,
+        expandCodeLabel="Show full code",
+        collapseCodeLabel="Show less",
+        defaultExpanded=False,
+        maxCollapsedHeight=100,
+        m="lg"
+    )
+
+
+    app.layout = dmc.MantineProvider(
+        [component,
+         dmc.Button(id='test-0', children='Change Python Icon'),
+         dmc.Button(id='test-1', children='Change CSS Icon')],
+        id="mantine-provider",
+        forceColorScheme="light",
+    )
+
+    for i in range(2):
+        clientside_callback(
+            """(n) => {
+                return 'dashicons:money-alt'
+            }""",
+            Output(f'test-{i}-icon', 'icon'),
+            Input(f'test-{i}', 'n_clicks'),
+            prevent_initial_call=True,
+            suppress_callback_exceptions=True
+        )
+
+    dash_duo.start_server(app)
+
+    icons = dash_duo.find_elements('svg.iconify')
+
+    assert len(icons) == 2
+
+    for i, x in enumerate(icons):
+        old_html = x.get_attribute('innerHTML')
+        dash_duo.find_element(f'#test-{i}').click()
+        if i:
+            until(lambda: dash_duo.find_element(f'svg.iconify:nth-child({i})').get_attribute('innerHTML') != old_html, timeout=3)
+        else:
+            until(lambda: dash_duo.find_element(f'svg.iconify:first-child').get_attribute('innerHTML') != old_html,
+                  timeout=3)
