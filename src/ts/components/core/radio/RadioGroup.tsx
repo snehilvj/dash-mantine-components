@@ -36,8 +36,10 @@ const RadioGroup = (props: Props) => {
         ...others
     } = props;
 
-    const onChange = (value: string) => {
-        setProps({ value });
+    const onChange = (val: string) => {
+        if (val !== value) {
+            setProps({ value: val });
+        }
     };
 
     const handleRadioClick = (val?: string) => {
