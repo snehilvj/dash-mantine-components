@@ -1,10 +1,6 @@
 # Change Log
 
-# [UNRELEASED]
-
-
-### fixed 
- - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
+# 1.1.0
 
 ### Added
 
@@ -13,6 +9,10 @@
 ### Changed
 
 - Complex components such as `CodeHighlightTabs`, and `Stepper` are now rendered by the dash ecosystem when using dash 3+. Dash 2 falls back on `dash-extensions-js` to render via `React.createElement` (by @emilhe). This enables the use of these components in callbacks as triggers. #531 @BSd3v 
+
+### fixed 
+ - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
+
 
 # 1.0.0
 
