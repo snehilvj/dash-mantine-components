@@ -1,4 +1,4 @@
-import { Notifications, notifications, useNotifications } from "@mantine/notifications";
+import { Notifications, notifications, useNotifications, notificationsStore } from "@mantine/notifications";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
@@ -7,19 +7,29 @@ import { getLoadingState } from "../../../utils/dash3";
 import { MantineColor, MantineRadius } from "@mantine/core";
 import {omit, equals} from 'ramda';
 
-// Define appNotifications as a mutable object
-export const appNotifications: Record<string, any> = {};
+// Define appNotificationHolder as a mutable object
+const appNotificationHolder: Record<string, any> = {};
 
-const NotificationStore = () => {
-    const notificationStore = useNotifications();
-    useEffect(() => {
-        appNotifications['store'] = notificationStore;
-        return () => {
-            delete appNotifications['store'];
-        };
-    }, []);
-    return null;
-};
+// Create a proxy for appNotifications
+export const appNotifications = new Proxy(appNotificationHolder, {
+    get(target, key) {
+        if (typeof key === "symbol") {
+            return undefined; // Prevent errors when symbols are used
+        }
+        if (key === 'store') {
+            // Call the function when 'state' is accessed
+            return target[key]();
+        }
+        return target[key];
+    },
+    set(target, key, value) {
+        if (typeof key === "symbol") {
+            return false; // Prevent errors when symbols are used
+        }
+        target[key] = value;
+        return true;
+    }
+});
 
 // Define the Notification interface based on your requirements
 interface Notification extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
@@ -39,9 +49,9 @@ interface Notification extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id
 
 // Define the NotificationsFormat type
 type NotificationsFormat = {
-  show: Notification[];
-  update: Notification[];
-  hide: Notification[];
+  show?: Notification[];
+  update?: Notification[];
+  hide?: Notification[];
 };
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
@@ -78,24 +88,22 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** NotificationContainer */
 const NotificationContainer = (props: Props) => {
     const { setProps, loading_state, sendNotifications, clean, cleanQueue, ...others } = props;
-    const [loaded, setLoaded] = useState(false)
+    const [appNotificationStore, setAppNotificationStore] = useState(notificationsStore)
 
     useEffect(() => {
         if (sendNotifications) {
-            // Iterate over each key in sendNotifications
-            Object.keys(sendNotifications).forEach((key) => {
-              // Access the array of notifications for the current key
-              const notificationsArray = sendNotifications[key as keyof NotificationsFormat];
-
-              // Perform operations on each notification in the array
-              sendNotifications[key].forEach((notification) => {
-                notifications[key](notification)
+          Object.entries(sendNotifications).forEach(([key, notificationsArray]) => {
+            if (Array.isArray(notificationsArray)) {
+              notificationsArray.forEach((notification) => {
+                if (notifications[key]) {
+                  notifications[key](notification);
+                }
               });
-            });
-            // unloads notifications to make sure they dont reshow on error
-            setProps({sendNotifications: {}})
+            }
+          });
+          setProps({ sendNotifications: {} }); // Avoid duplicate processing
         }
-      }, [sendNotifications]);
+    }, [sendNotifications]);
 
     useEffect(() => {
         if (clean || cleanQueue) {
@@ -111,18 +119,19 @@ const NotificationContainer = (props: Props) => {
 
     useEffect(() => {
         appNotifications['api'] = notifications
-        setLoaded(true)
-        return () => {delete appNotifications['api']}
+        appNotifications['store'] = notificationsStore.getState
+        return () => {
+            delete appNotifications['api']
+            delete appNotifications['store']
+        }
     }, [])
 
     return (
-        <>
-            <Notifications
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
-                {...others}
-            />
-            {loaded && <NotificationStore />}
-        </>
+        <Notifications
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            store={notificationsStore}
+            {...others}
+        />
     );
 };
 
