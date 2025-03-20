@@ -6,13 +6,12 @@ import {
     Stepper as MantineStepper,
 } from "@mantine/core";
 import { useDidUpdate } from "@mantine/hooks";
-import { renderDashComponents } from "dash-extensions-js";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { omit } from "ramda";
 import React, { useState } from "react";
-import { getChildLayout, getLoadingState } from "../../../utils/dash3";
+import { getChildLayout, getLoadingState, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Index of the active step */
@@ -73,7 +72,7 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
                         </MantineStepper.Completed>
                     );
                 } else {
-                    const renderedProps = renderDashComponents(
+                    const renderedProps = newRenderDashComponents(
                         omit(["children"], childProps),
                         [
                             "label",
@@ -81,7 +80,7 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
                             "icon",
                             "progressIcon",
                             "completedIcon",
-                        ]
+                        ], getContextPath()
                     );
 
                     return (

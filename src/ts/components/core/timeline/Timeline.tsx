@@ -3,13 +3,13 @@ import {
     MantineRadius,
     Timeline as MantineTimeline,
 } from "@mantine/core";
-import { renderDashComponents } from "dash-extensions-js";
+
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { omit } from "ramda";
 import React from "react";
-import { getLoadingState, getChildProps } from "../../../utils/dash3";
+import { getLoadingState, getChildProps, newRenderDashComponents } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** `Timeline.Item` components */
@@ -43,9 +43,10 @@ const Timeline = (props: Props) => {
         >
             {React.Children.map(children, (child: any, index) => {
                 const childProps = getChildProps(child)
-                const renderedProps = renderDashComponents(
+                const renderedProps = newRenderDashComponents(
                     omit(["children"], childProps),
-                    ["title", "bullet"]
+                    ["title", "bullet"],
+                    childProps.componentPath
                 );
                 return (
                     <MantineTimeline.Item {...renderedProps} key={index}>
