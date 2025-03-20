@@ -30,3 +30,25 @@ export const filterSelected = (options, values) => {
         return optionValues.includes(values) ? values : null;
     }
 };
+
+// Generic function to convert a string filter to a function
+export const stringToFunction = (code: string) => {
+    try {
+      return new Function('params', `
+        try {
+          const { options, search } = params;
+          if (!search || !options) return options;
+          
+          return options.filter(item => {
+            ${code}
+          });
+        } catch (error) {
+          console.error('Error executing filter function:', error);
+          return params.options;
+        }
+      `);
+    } catch (error) {
+      console.error('Error creating filter function:', error);
+      return ({ options }) => options;
+    }
+};
