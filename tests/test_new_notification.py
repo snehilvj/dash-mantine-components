@@ -144,6 +144,15 @@ def test_004nc_notification_new_clearQueue_store(dash_duo):
         ],
     )
 
+    clientside_callback(
+        """(n) => {
+            if (n == 8) {
+                dash_mantine_components.appNotifications.api.clean()
+            }
+        }""",
+        Input("show-notification", "n_clicks"),
+    )
+
     @callback(
         Output("notify-container", "sendNotifications"),
         Input("show-notification", "n_clicks"),
@@ -155,13 +164,11 @@ def test_004nc_notification_new_clearQueue_store(dash_duo):
             return {'show': [base_not]}
         if n==7:
             set_props('notify-container', {'cleanQueue': True})
-        else:
-            set_props('notify-container', {'clean': True})
         return no_update
 
     clientside_callback(
         """(n) => {
-            return JSON.stringify(window.dash_mantine_components.appNotifications.store)
+            return JSON.stringify(dash_mantine_components.appNotifications.store)
         }""",
         Output('notification_store', 'children'),
         Input('fetch_notification_store', 'n_clicks')
