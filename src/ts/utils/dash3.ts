@@ -4,12 +4,66 @@
  * For more details, refer to the Dash documentation:
  * Dash 3 for Component Developers - https://dash.plotly.com/dash-3-for-component-developers
  */
-import React from "react";
+import React, { useState, createElement } from "react";
 import { DashBaseProps } from "props/dash";
+import {dissoc, has, includes, isEmpty, isNil, mergeRight, type} from "ramda";
+
+const SIMPLE_COMPONENT_TYPES = ['String', 'Number', 'Null', 'Boolean'];
+const isSimpleComponent = component => includes(type(component), SIMPLE_COMPONENT_TYPES);
 
 /** check for dash version */
 export const isDash3 = (): boolean => {
     return !!(window as any).dash_component_api;
+};
+
+export const newRenderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
+    if (!isDash3() || isEmpty(basePath)) {
+        const dash_extensions = require('dash-extensions-js');
+        const {renderDashComponent} = dash_extensions;
+        return renderDashComponent(component, index)
+    }
+
+    // Nothing to render.
+    if (isNil(component) || isEmpty(component)) {
+        return null;
+    }
+
+    // Simple stuff such as strings.
+    if (isSimpleComponent(component)) {
+        return component;
+    }
+
+    // Array of stuff.
+    if (Array.isArray(component)) {
+        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i]));
+    }
+
+    // Merge props.
+    const allProps = {
+        component,
+        componentPath: [...(basePath || [])],
+        key: index !== null ? index : Math.random().toString(36).substr(2, 9)
+    };
+
+    // Render the component.
+    return createElement((window as any).dash_component_api.ExternalWrapper, allProps);
+};
+
+export const newRenderDashComponents = (props: any, propsToRender: string[], basePath: any[]=[]) => {
+    const _ = require('lodash')
+    const newProps = _.cloneDeep(props)
+    if (!isDash3() || isEmpty(basePath)) {
+        const dash_extensions = require('dash-extensions-js');
+        const {renderDashComponents} = dash_extensions;
+        return renderDashComponents(newProps, propsToRender)
+    }
+    for (let i = 0; i < propsToRender.length; i++) {
+        const key = propsToRender[i];
+        if (newProps.hasOwnProperty(key)) {
+            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, key]);
+        }
+    }
+    return newProps;
 };
 
 /** Apply persistence settings based on React version */
@@ -76,3 +130,12 @@ export const applyDashProps = (component: any, props: Record<string, any>) => {
 
     return component;
 };
+
+export const getContextPath = () => {
+    let componentPath = [];
+    if (isDash3()) {
+        const ctx = (window as any).dash_component_api.useDashContext()
+        componentPath = ctx.componentPath
+    }
+    return componentPath
+}
