@@ -3,7 +3,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, {useEffect, useState} from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { getLoadingState, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
 import { MantineColor, MantineRadius } from "@mantine/core";
 import {omit, equals} from 'ramda';
 
@@ -32,17 +32,17 @@ export const appNotifications = new Proxy(appNotificationHolder, {
 });
 
 // Define the Notification interface based on your requirements
-interface Notification extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
+interface Notification {
   color?: MantineColor;
   radius?: MantineRadius;
-  icon?: React.ReactNode;
-  title?: React.ReactNode;
+  icon?: any;
+  title?: any;
   loading?: boolean;
   withBorder?: boolean;
   withCloseButton?: boolean;
   closeButtonProps?: Record<string, any>;
   id?: string;
-  message: React.ReactNode;
+  message: any;
   autoClose?: boolean | number;
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
 }
@@ -90,13 +90,15 @@ const NotificationContainer = (props: Props) => {
     const { setProps, loading_state, sendNotifications, clean, cleanQueue, ...others } = props;
     const [appNotificationStore, setAppNotificationStore] = useState(notificationsStore)
 
+    const componentPath = getContextPath()
+
     useEffect(() => {
         if (sendNotifications) {
           Object.entries(sendNotifications).forEach(([key, notificationsArray]) => {
             if (Array.isArray(notificationsArray)) {
               notificationsArray.forEach((notification) => {
                 if (notifications[key]) {
-                  notifications[key](notification);
+                  notifications[key](newRenderDashComponents(notification, ['message', 'icon', 'title']));
                 }
               });
             }
