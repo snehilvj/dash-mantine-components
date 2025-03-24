@@ -3,7 +3,7 @@ import {
 } from "@mantine/code-highlight";
 import "@mantine/code-highlight/styles.css";
 
-import React from "react";
+import React, {useMemo} from "react";
 import { getLoadingState, newRenderDashComponents, getContextPath } from "../../../../utils/dash3";
 import { Props }  from "../CodeHighlightTabs"
 
@@ -15,10 +15,20 @@ const CodeHighlightTabs = (props: Props) => {
     const renderedCode = [];
     if (Array.isArray(code)) {
         code.forEach((item, index) => {
-            renderedCode.push(newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, index] : []));
+            renderedCode.push(
+                useMemo(() => {
+                    return newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, index] : [])
+                    }, [item, componentPath, index]
+                )
+            );
         });
     } else {
-        renderedCode.push(newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 0] : []));
+        renderedCode.push(
+            useMemo(() => {
+                return newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 0] : [])
+                }, [code, componentPath]
+            )
+        )
     }
 
     return (
