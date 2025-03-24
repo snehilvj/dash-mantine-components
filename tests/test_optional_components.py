@@ -99,7 +99,7 @@ def test_001oc_optional_components(dash_duo):
     dash_duo.wait_for_text_to_equal("#test_button", "test")
     assert dash_duo.find_element('#test_button').get_attribute('disabled') is None
 
-    step_buttons = dash_duo.find_elements("button.mantine-Stepper-step")
+    step_buttons = dash_duo.find_elements("button.mantine-Stepper-step .mantine-Stepper-stepIcon")
     for i, btn in enumerate(step_buttons):
         btn.click()
         dash_duo.wait_for_text_to_equal("div.mantine-Stepper-content", f"Step {i + 1}")
