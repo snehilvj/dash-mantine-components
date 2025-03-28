@@ -1,5 +1,12 @@
 # Change Log
 
+# 1.1.1
+
+### Fixed
+
+- Reverted PR #523, which introduced errors in the `Notification` component (reported in issue #542).  
+- Resolved an issue in the `Stepper` component where it failed to render correctly when using custom icons or other components as props.  #544 by @BSd3v
+
 # 1.1.0
 
 ### Added
@@ -26,7 +33,7 @@
 
 ### Changed
 
--   `notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
+-   `Notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
 -   graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW and @emilhe
 
 # 1.0.0rc2
