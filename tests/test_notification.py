@@ -1,11 +1,13 @@
 import time
 from dash import Dash, html, _dash_renderer, callback, Patch, Input, Output
 import dash_mantine_components as dmc
+import pytest
 
 
 _dash_renderer._set_react_version("18.2.0")
 
 
+@pytest.mark.skip(reason="Skipping this test after reverting PR 523.  Add back in PR 539 ")
 def test_001na_notification_autoclose(dash_duo):
     app = Dash(__name__)
 
