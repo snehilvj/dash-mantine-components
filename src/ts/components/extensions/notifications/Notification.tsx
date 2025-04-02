@@ -4,7 +4,6 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useEffect } from "react";
-import { getChildLayout, getContextPath, isComponentInDash } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
     /** Controls notification line or icon color, key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
@@ -35,28 +34,21 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
     action: "show" | "update" | "hide" | "clean" | "cleanQueue";
     /** Position on the screen to display the notification.  */
     position?: 'top-left' |  'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
+
 }
 
 /** Notification */
 const Notification = (props: Props) => {
     const { action, setProps, loading_state, ...others } = props;
 
-    const componentPath = getContextPath()
-    const onClose = () => {
-        const test = isComponentInDash(props, componentPath)
-        if (test) {
-            setProps({'action': 'hide'})
-        }
-    }
-
     useEffect(() => {
         switch (action) {
             case "show":
-                notifications.show({...others, onClose});
+                notifications.show(others);
                 break;
 
             case "update":
-                notifications.update({...others, onClose});
+                notifications.update(others);
                 break;
 
             case "hide":

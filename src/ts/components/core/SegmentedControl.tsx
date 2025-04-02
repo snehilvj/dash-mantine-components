@@ -9,7 +9,7 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, {useMemo} from "react";
 import { setPersistence, getLoadingState, newRenderDashComponent, getContextPath } from "../../utils/dash3";
 
 interface Props
@@ -67,7 +67,9 @@ const SegmentedControl = (props: Props) => {
         } else {
             const rItem = {
                 value: item["value"],
-                label: newRenderDashComponent(item["label"], index, componentPath ? [...componentPath, index, 'label'] : []),
+                label: useMemo(() => {
+                    return newRenderDashComponent(item["label"], index, componentPath ? [...componentPath, index, 'label'] : [])
+                    }, [item['label'], componentPath, index]),
                 disabled: item["disabled"],
             };
             renderedData.push(rItem);
