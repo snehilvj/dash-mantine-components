@@ -6,7 +6,7 @@
  */
 import React, { useState, createElement } from "react";
 import { DashBaseProps } from "props/dash";
-import {dissoc, has, includes, isEmpty, isNil, mergeRight, type, path} from "ramda";
+import {dissoc, has, includes, isEmpty, isNil, mergeRight, type} from "ramda";
 
 const SIMPLE_COMPONENT_TYPES = ['String', 'Number', 'Null', 'Boolean'];
 const isSimpleComponent = component => includes(type(component), SIMPLE_COMPONENT_TYPES);
@@ -138,32 +138,4 @@ export const getContextPath = () => {
         componentPath = ctx.componentPath
     }
     return componentPath
-}
-
-export const stringifyId = (id) => {
-  if (typeof id !== "object") {
-    return id;
-  }
-  const stringifyVal = (v) => (v && v.wild) || JSON.stringify(v);
-  const parts = Object.keys(id)
-    .sort()
-    .map((k) => JSON.stringify(k) + ":" + stringifyVal(id[k]));
-  return "{" + parts.join(",") + "}";
-}
-
-export const isComponentInDash = (props, componentPath) => {
-    const ds = (window as any).dash_stores[0]
-    let test = false
-    const appLayout = ds.getState()?.layout
-    if (!isEmpty(componentPath)) {
-        test = path(componentPath, appLayout)
-    } else if (props.id) {
-        const dash_paths = ds?.getState()?.paths?.strs
-        if (dash_paths) {
-            if (stringifyId(props.id) in dash_paths) {
-                test = path(dash_paths[stringifyId(props.id)], appLayout)
-            }
-        }
-    }
-    return test
 }
