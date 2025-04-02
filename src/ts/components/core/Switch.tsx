@@ -41,6 +41,8 @@ interface Props
     disabled?: boolean;
     /** State of check box */
     checked?: boolean;
+    /** dashRenderType */
+    dashRenderType?: any;
 }
 
 /** Switch */
@@ -51,21 +53,28 @@ const Switch = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        dashRenderType,
+        onLabel,
+        offLabel,
         ...others
     } = props;
 
     const updateProps = (checked: boolean) => {
-        setProps({ checked });
+        setProps({ checked, onLabel, offLabel });
     };
 
     return (
         <MantineSwitch
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
+            onLabel={onLabel}
+            offLabel={offLabel}
             {...others}
         />
     );
 };
 
 setPersistence(Switch, ["checked"])
+
+Switch.dashRenderType = true
 
 export default Switch;
