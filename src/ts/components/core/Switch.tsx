@@ -51,16 +51,20 @@ const Switch = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        onLabel,
+        offLabel,
         ...others
     } = props;
 
     const updateProps = (checked: boolean) => {
-        setProps({ checked });
+        setProps({ checked, onLabel, offLabel });
     };
 
     return (
         <MantineSwitch
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
+            onLabel={onLabel}
+            offLabel={offLabel}
             {...others}
         />
     );
