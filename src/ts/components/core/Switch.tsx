@@ -7,7 +7,7 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, {useEffect} from "react";
 import { setPersistence } from "../../utils/dash3";
 
 interface Props
@@ -57,8 +57,12 @@ const Switch = (props: Props) => {
     } = props;
 
     const updateProps = (checked: boolean) => {
-        setProps({ checked, onLabel, offLabel });
+        setProps({ checked});
     };
+
+    useEffect(() => {
+        setProps({onLabel, offLabel})
+    }, [others])
 
     return (
         <MantineSwitch
