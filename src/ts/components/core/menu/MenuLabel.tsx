@@ -24,4 +24,7 @@ const MenuLabel = (props: Props) => {
     );
 };
 
+
+MenuLabel.childrenLayoutHashes = true
+
 export default MenuLabel;

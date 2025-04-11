@@ -80,4 +80,6 @@ const MenuItem = ({
     }
 };
 
+MenuItem.childrenLayoutHashes = true
+
 export default MenuItem;

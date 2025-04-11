@@ -67,4 +67,7 @@ const Tooltip = (props: Props) => {
     );
 };
 
+
+Tooltip.childrenLayoutHashes = true
+
 export default Tooltip;

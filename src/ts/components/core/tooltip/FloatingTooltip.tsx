@@ -29,4 +29,6 @@ const FloatingTooltip = (props: Props) => {
     );
 };
 
+FloatingTooltip.childrenLayoutHashes = true
+
 export default FloatingTooltip;

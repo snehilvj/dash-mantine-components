@@ -24,4 +24,6 @@ const PopoverDropdown = (props: Props) => {
     );
 };
 
+PopoverDropdown.childrenLayoutHashes = true
+
 export default PopoverDropdown;

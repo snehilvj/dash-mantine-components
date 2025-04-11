@@ -24,4 +24,8 @@ const MenuDropdown = (props: Props) => {
     );
 };
 
+
+
+MenuDropdown.childrenLayoutHashes = true
+
 export default MenuDropdown;
