@@ -41,8 +41,6 @@ interface Props
     disabled?: boolean;
     /** State of check box */
     checked?: boolean;
-    /** dashRenderType */
-    dashRenderType?: any;
 }
 
 /** Switch */
@@ -53,7 +51,6 @@ const Switch = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        dashRenderType,
         onLabel,
         offLabel,
         ...others
@@ -74,7 +71,5 @@ const Switch = (props: Props) => {
 };
 
 setPersistence(Switch, ["checked"])
-
-Switch.dashRenderType = true
 
 export default Switch;
