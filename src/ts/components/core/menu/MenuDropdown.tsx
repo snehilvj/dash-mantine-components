@@ -26,6 +26,6 @@ const MenuDropdown = (props: Props) => {
 
 
 
-MenuDropdown.childrenLayoutHashes = true
+MenuDropdown.dashChildrenUpdate = true
 
 export default MenuDropdown;

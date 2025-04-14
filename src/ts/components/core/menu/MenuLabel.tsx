@@ -25,6 +25,6 @@ const MenuLabel = (props: Props) => {
 };
 
 
-MenuLabel.childrenLayoutHashes = true
+MenuLabel.dashChildrenUpdate = true
 
 export default MenuLabel;

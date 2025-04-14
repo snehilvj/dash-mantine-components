@@ -68,6 +68,6 @@ const Tooltip = (props: Props) => {
 };
 
 
-Tooltip.childrenLayoutHashes = true
+Tooltip.dashChildrenUpdate = true
 
 export default Tooltip;

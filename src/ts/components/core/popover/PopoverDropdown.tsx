@@ -24,6 +24,6 @@ const PopoverDropdown = (props: Props) => {
     );
 };
 
-PopoverDropdown.childrenLayoutHashes = true
+PopoverDropdown.dashChildrenUpdate = true
 
 export default PopoverDropdown;
