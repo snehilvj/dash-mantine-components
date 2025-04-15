@@ -39,6 +39,8 @@ export const onClick = (
         return;
     }
 
+    if (!href) return
+
     if (href && isAbsoluteUrl(href)) {
         return;
     }
