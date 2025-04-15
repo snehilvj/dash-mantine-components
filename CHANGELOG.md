@@ -7,6 +7,7 @@ unreleased
 - Fixed issue with components that used `useMemo` that couldn't be updated in a callback. #561 BY @AnnMarieW
 
 
+
 # 1.1.1
 
 ### Fixed

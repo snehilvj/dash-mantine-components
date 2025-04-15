@@ -25,4 +25,6 @@ const HoverCardDropdown = (props: Props) => {
 };
 
 
+HoverCardDropdown.dashChildrenUpdate = true
+
 export default HoverCardDropdown;
