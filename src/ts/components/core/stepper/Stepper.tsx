@@ -10,7 +10,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import { omit } from "ramda";
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { getChildLayout, getLoadingState, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
@@ -64,8 +64,9 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const componentPath = getContextPath()
+                const componentPath = getContextPath();
                 const { type: childType, props: childProps } = getChildLayout(child);
+
                 if (childType === "StepperCompleted") {
                     return (
                         <MantineStepper.Completed>
@@ -73,19 +74,17 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
                         </MantineStepper.Completed>
                     );
                 } else {
-                    const renderedProps = useMemo(() => {
-                        return newRenderDashComponents(
-                            omit(["children"], childProps),
-                            [
-                                "label",
-                                "description",
-                                "icon",
-                                "progressIcon",
-                                "completedIcon",
-                            ],
-                            componentPath ? [...componentPath, index] : []
-                        );
-                    }, [childProps, componentPath, index])
+                    const renderedProps = newRenderDashComponents(
+                        omit(["children"], childProps),
+                        [
+                            "label",
+                            "description",
+                            "icon",
+                            "progressIcon",
+                            "completedIcon",
+                        ],
+                        componentPath ? [...componentPath, index] : []
+                    );
 
                     return (
                         <MantineStepper.Step {...renderedProps} key={index}>

@@ -2,9 +2,10 @@
 
 unreleased
 ### Fixed
-- Fixed issue where switch off and on label would not refresh when switching selections #555 by @BSd3v
 - Fixed issue where children of certain components could not be updated in a callback. Requires dash >=3.03 #558 by @AnnMarieW
 - Fixed issue where Navlink could not be updated in a callback if the href prop was not set initially.  #562 by @AnnMarieW
+- Fixed issue with components that used `useMemo` that couldn't be updated in a callback. #561 BY @AnnMarieW
+
 
 # 1.1.1
 
