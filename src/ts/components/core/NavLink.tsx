@@ -105,37 +105,24 @@ const NavLink = ({
         }
     };
 
-    if (href) {
-        return (
-            <MantineNavLink
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
-                component="a"
-                onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
-                    onClick(ev, href, target, refresh)
-                }
-                href={href}
-                target={target}
-                onChange={onChange}
-                disabled={disabled}
-                active={linkActive}
-                {...others}
-            >
-                {children}
-            </MantineNavLink>
-        );
-    } else {
-        return (
-            <MantineNavLink
-                disabled={disabled}
-                onChange={onChange}
-                onClick={increment}
-                active={linkActive}
-                {...others}
-            >
-                {children}
-            </MantineNavLink>
-        );
-    }
+    return (
+        <MantineNavLink
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            component="a"
+            onClick={(ev: MouseEvent<HTMLAnchorElement>) => {
+                increment();
+                onClick(ev, href, target, refresh);
+            }}
+            href={href}
+            target={target}
+            onChange={onChange}
+            disabled={disabled}
+            active={linkActive}
+            {...others}
+        >
+            {children}
+        </MantineNavLink>
+    );
 };
 
 setPersistence(NavLink, ["opened"])
