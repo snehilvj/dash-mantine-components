@@ -1,6 +1,6 @@
 # Change Log
 
-# 1.1.1rc1
+# 1.1.2rc1
 
 ### Fixed
 - Fixed issue where children of certain components could not be updated in a callback. Requires dash >=3.03 #558 by @AnnMarieW
