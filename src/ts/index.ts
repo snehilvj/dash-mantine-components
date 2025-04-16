@@ -154,6 +154,7 @@ import CodeHighlightTabs from "./components/extensions/codehighlight/CodeHighlig
 import InlineCodeHighlight from "./components/extensions/codehighlight/InlineCodeHighlight";
 import Notification from "./components/extensions/notifications/Notification";
 import NotificationProvider from "./components/extensions/notifications/NotificationProvider";
+import NotificationContainer, {appNotifications} from "./components/extensions/notifications/NotificationContainer";
 import NavigationProgress from "./components/extensions/nprogress/NavigationProgress";
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 import MantineProvider from "./components/styles/MantineProvider";
@@ -257,6 +258,7 @@ export {
     NavigationProgressProvider,
     Notification,
     NotificationProvider,
+    NotificationContainer,
     NumberFormatter,
     NumberInput,
     Overlay,
@@ -324,4 +326,5 @@ export {
     YearPickerInput,
     RichTextEditor,
     TypographyStylesProvider,
+    appNotifications
 };
