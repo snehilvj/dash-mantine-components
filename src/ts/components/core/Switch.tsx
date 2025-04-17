@@ -56,17 +56,10 @@ const Switch = (props: Props) => {
         ...others
     } = props;
 
-    let newOnLabel = onLabel
-    let newLayout;
-    if (newOnLabel) {
-        newLayout = getChildLayout(onLabel)
-        newOnLabel = newRenderDashComponent(newLayout, null, [])
-    }
-    let newOffLabel = offLabel
-    if (newOffLabel) {
-        newLayout = getChildLayout(offLabel)
-        newOffLabel = newRenderDashComponent(newLayout, null, [])
-    }
+    /** the below is needed for an issue with offLabel, onLabel components not re-rendering when the switch changes
+     introduced in Dash 3.0.2 */
+    const newOnLabel = onLabel ? newRenderDashComponent(getChildLayout(onLabel)) : null
+    const newOffLabel = offLabel ? newRenderDashComponent(getChildLayout(offLabel)) : null
 
     const updateProps = (checked: boolean) => {
         setProps({checked});

@@ -17,7 +17,7 @@ export const isDash3 = (): boolean => {
 };
 
 export const newRenderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
-    if (!isDash3() || isEmpty(basePath)) {
+    if (!isDash3() || isEmpty(basePath) || !basePath) {
         const dash_extensions = require('dash-extensions-js');
         const {renderDashComponent} = dash_extensions;
         return renderDashComponent(component, index)
