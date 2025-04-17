@@ -13,6 +13,8 @@ interface ComboboxProps extends __PopoverProps, StylesApiProps {
     resetSelectionOnOptionHover?: boolean;
     /** Determines whether Combobox value can be changed */
     readOnly?: boolean;
+    /** Custom filter function as a string (JavaScript code) */
+    filter?: string;
 }
 
 export interface ComboboxLikeProps {
