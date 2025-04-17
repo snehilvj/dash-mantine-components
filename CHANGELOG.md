@@ -1,5 +1,10 @@
 # Change Log
 
+
+# unreleased
+### Fixed
+- Fixed issue where switch off and on label would not refresh when switching selections
+
 # 1.1.2rc1
 
 ### Fixed
@@ -9,7 +14,6 @@
 
 ### Changed
 - Upgraded to latest Mantine (7.17.4)
-
 
 # 1.1.1
 
