@@ -29,4 +29,6 @@ const FloatingTooltip = (props: Props) => {
     );
 };
 
+FloatingTooltip.dashChildrenUpdate = true
+
 export default FloatingTooltip;
