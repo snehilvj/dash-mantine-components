@@ -24,4 +24,7 @@ const MenuLabel = (props: Props) => {
     );
 };
 
+
+MenuLabel.dashChildrenUpdate = true
+
 export default MenuLabel;

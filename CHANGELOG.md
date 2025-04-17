@@ -1,8 +1,19 @@
 # Change Log
 
+
 # unreleased
 ### Fixed
 - Fixed issue where switch off and on label would not refresh when switching selections
+
+# 1.1.2rc1
+
+### Fixed
+- Fixed issue where children of certain components could not be updated in a callback. Requires dash >=3.03 #558 by @AnnMarieW
+- Fixed issue where Navlink could not be updated in a callback if the href prop was not set initially.  #562 by @AnnMarieW
+- Fixed issue with components that used `useMemo` that couldn't be updated in a callback. #561 BY @AnnMarieW
+
+### Changed
+- Upgraded to latest Mantine (7.17.4)
 
 # 1.1.1
 
@@ -20,6 +31,7 @@
 ### Changed
 
 - Complex components such as `CodeHighlightTabs`, and `Stepper` are now rendered by the dash ecosystem when using dash 3+. Dash 2 falls back on `dash-extensions-js` to render via `React.createElement` (by @emilhe). This enables the use of these components in callbacks as triggers. #531 @BSd3v 
+- Upgraded to latest Mantine (7.17.2)
 
 ### fixed 
  - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW

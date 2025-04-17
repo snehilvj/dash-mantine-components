@@ -67,4 +67,7 @@ const Tooltip = (props: Props) => {
     );
 };
 
+
+Tooltip.dashChildrenUpdate = true
+
 export default Tooltip;

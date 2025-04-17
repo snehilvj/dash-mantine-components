@@ -24,4 +24,6 @@ const PopoverDropdown = (props: Props) => {
     );
 };
 
+PopoverDropdown.dashChildrenUpdate = true
+
 export default PopoverDropdown;
