@@ -86,8 +86,11 @@ export const getLoadingState = (loading_state?: DashBaseProps["loading_state"]):
 
 /** Get layout information for a child component */
 export const getChildLayout = (child: any): { type: any; props: any } => {
+    if (isSimpleComponent(child)) {
+        return child /** returns because of simple component */
+    }
     if (isDash3()) {
-        return (window as any).dash_component_api.getLayout(child.props.componentPath);
+        return (window as any).dash_component_api.getLayout(child?.props?.componentPath);
     }
 
     return {

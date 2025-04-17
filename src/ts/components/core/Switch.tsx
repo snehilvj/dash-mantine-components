@@ -7,8 +7,8 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, {useEffect} from "react";
-import { setPersistence } from "../../utils/dash3";
+import React from "react";
+import { setPersistence, newRenderDashComponent, getChildLayout } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -56,24 +56,34 @@ const Switch = (props: Props) => {
         ...others
     } = props;
 
-    const updateProps = (checked: boolean) => {
-        setProps({ checked});
-    };
+    let newOnLabel = onLabel
+    let newLayout;
+    if (newOnLabel) {
+        newLayout = getChildLayout(onLabel)
+        newOnLabel = newRenderDashComponent(newLayout, null, [])
+    }
+    let newOffLabel = offLabel
+    if (newOffLabel) {
+        newLayout = getChildLayout(offLabel)
+        newOffLabel = newRenderDashComponent(newLayout, null, [])
+    }
 
-    useEffect(() => {
-        setProps({onLabel, offLabel})
-    }, [others])
+    const updateProps = (checked: boolean) => {
+        setProps({checked});
+    };
 
     return (
         <MantineSwitch
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
-            onLabel={onLabel}
-            offLabel={offLabel}
+            onLabel={newOnLabel}
+            offLabel={newOffLabel}
             {...others}
         />
     );
 };
 
 setPersistence(Switch, ["checked"])
+
+Switch.dashChildrenUpdate = true
 
 export default Switch;
