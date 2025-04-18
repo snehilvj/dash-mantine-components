@@ -97,4 +97,6 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
     );
 };
 
+Stepper.dashChildrenUpdate = true
+
 export default Stepper;
