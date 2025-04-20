@@ -1,5 +1,12 @@
 # Change Log
 
+# Unreleased
+
+### Added
+
+- Added `inputProps` to JsonInput, NumberInput, PasswordInput, TextInput, and TextArea components to allow passing props directly to the underlying input element. #568 by @AnnMarieW
+
+
 # 1.1.2rc1
 
 ### Fixed
