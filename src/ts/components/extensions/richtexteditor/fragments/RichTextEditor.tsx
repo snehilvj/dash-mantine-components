@@ -1,4 +1,5 @@
 import { RichTextEditor as MantineRichTextEditor, Link } from "@mantine/tiptap";
+import '@mantine/tiptap/styles.css';
 import { Props } from "../RichTextEditor";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import React, { useState } from "react";

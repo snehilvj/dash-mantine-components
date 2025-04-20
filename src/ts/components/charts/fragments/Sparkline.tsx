@@ -1,4 +1,5 @@
 import {Sparkline as MantineSparkline} from "@mantine/charts";
+import '@mantine/charts/styles.css';
 import React from "react";
 import { getLoadingState } from "../../../utils/dash3";
 import { Props }  from "../Sparkline"
