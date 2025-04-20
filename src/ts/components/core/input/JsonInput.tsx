@@ -28,6 +28,7 @@ const JsonInput = ({
     n_blur = 0,
     debounce = false,
     autoComplete = "off",
+    inputProps,
     ...others
 }: Props) => {
 
@@ -69,6 +70,7 @@ const JsonInput = ({
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             autoComplete={autoComplete}
+            {...inputProps}
             {...others}
         />
     );

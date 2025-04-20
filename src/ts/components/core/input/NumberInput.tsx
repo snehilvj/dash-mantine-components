@@ -77,6 +77,7 @@ const NumberInput = ({
     n_blur = 0,
     debounce = false,
     autoComplete = "off",
+    inputProps,
     ...others
 }: Props) => {
 
@@ -119,6 +120,7 @@ const NumberInput = ({
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             autoComplete={autoComplete}
+            {...inputProps}
             {...others}
         />
     );

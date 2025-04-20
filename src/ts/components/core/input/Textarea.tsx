@@ -26,6 +26,7 @@ const Textarea = ({
     n_blur = 0,
     debounce = false,
     autoComplete = "off",
+    inputProps,
     ...others
 }: Props) => {
 
@@ -63,6 +64,7 @@ const Textarea = ({
         <MantineTextarea
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             autoComplete={autoComplete}
+            {...inputProps}
             {...others}
             value={val}
             onChange={(ev) => setVal(ev.currentTarget.value)}

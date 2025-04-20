@@ -21,6 +21,8 @@ export interface __InputWrapperProps {
     errorProps?: Record<string, any>;
     /** Controls order of the elements, `['label', 'description', 'input', 'error']` by default */
     inputWrapperOrder?: ("label" | "input" | "description" | "error")[];
+     /** Props passed down to the `Input` component */
+    inputProps?: Record<string, any>;
 }
 
 export interface InputWrapperProps
