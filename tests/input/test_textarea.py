@@ -11,6 +11,7 @@ debounce = dmc.Stack(
     [
         dmc.Textarea(
             id="debounce-true",
+            inputProps={"maxlength": 10},
             debounce=True,
         ),
         dmc.Box(id="out-true"),
@@ -75,5 +76,7 @@ def test_001te_textarea(dash_duo):
 
     # but do expect that it is eventually called
     dash_duo.wait_for_text_to_equal("#out-2000", "x")
+
+    assert dash_duo.find_element('#debounce-true').get_attribute('maxlength') == '10'
 
     assert dash_duo.get_logs() == []

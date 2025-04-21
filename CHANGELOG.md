@@ -4,6 +4,7 @@
 
 ### Added
 
+- Added `inputProps` to JsonInput, NumberInput, PasswordInput, TextInput, and TextArea components to allow passing props directly to the underlying input element. #568 by @AnnMarieW
 - Optional component stylesheets are now bundled automatically. It’s no longer necessary to include them as external stylesheets or add them to the `assets` folder. PR #567 by @AnnMarieW
 
 
