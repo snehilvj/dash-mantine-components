@@ -64,13 +64,13 @@ const JsonInput = ({
 
     return (
         <MantineJsonInput
+            {...inputProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={setVal}
             value={val}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             autoComplete={autoComplete}
-            {...inputProps}
             {...others}
         />
     );

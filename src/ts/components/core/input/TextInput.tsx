@@ -71,13 +71,13 @@ const TextInput = ({
 
     return (
         <MantineTextInput
+            {...inputProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             autoComplete={autoComplete}
-             {...inputProps}
             {...others}
         />
     );

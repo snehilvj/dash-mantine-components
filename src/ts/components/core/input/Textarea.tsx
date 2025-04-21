@@ -62,9 +62,9 @@ const Textarea = ({
 
     return (
         <MantineTextarea
+            {...inputProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             autoComplete={autoComplete}
-            {...inputProps}
             {...others}
             value={val}
             onChange={(ev) => setVal(ev.currentTarget.value)}
