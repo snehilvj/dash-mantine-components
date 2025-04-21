@@ -1,5 +1,12 @@
 # Change Log
 
+# Unreleased
+
+### Added
+
+- Optional component stylesheets are now bundled automatically. It’s no longer necessary to include them as external stylesheets or add them to the `assets` folder. PR #567 by @AnnMarieW
+
+
 # 1.1.2rc1
 
 ### Fixed
