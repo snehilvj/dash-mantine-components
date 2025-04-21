@@ -1,17 +1,14 @@
-DATES = "https://unpkg.com/@mantine/dates@7.17.4/styles.css"
-CODE_HIGHLIGHT = "https://unpkg.com/@mantine/code-highlight@7.17.4/styles.css"
-CHARTS = "https://unpkg.com/@mantine/charts@7.17.4/styles.css"
-CAROUSEL = "https://unpkg.com/@mantine/carousel@7.17.4/styles.css"
-NOTIFICATIONS = "https://unpkg.com/@mantine/notifications@7.17.4/styles.css"
-NPROGRESS = "https://unpkg.com/@mantine/nprogress@7.17.4/styles.css"
-RICH_TEXT_EDITOR = "https://unpkg.com/@mantine/tiptap@7.17.4/styles.css"
+"""
+As of v1.1.0, optional CSS is bundled with the components, so separate imports are no longer needed.
+These variables are retained for backward compatibility with earlier versions.
+"""
 
-ALL = [
-    DATES,
-    CODE_HIGHLIGHT,
-    CHARTS,
-    CAROUSEL,
-    NOTIFICATIONS,
-    NPROGRESS,
-    RICH_TEXT_EDITOR,
-]
+DATES = ""
+CODE_HIGHLIGHT = ""
+CHARTS = ""
+CAROUSEL = ""
+NOTIFICATIONS = ""
+NPROGRESS = ""
+RICH_TEXT_EDITOR = ""
+
+ALL = []
