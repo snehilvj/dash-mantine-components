@@ -28,6 +28,7 @@ const JsonInput = ({
     n_blur = 0,
     debounce = false,
     autoComplete = "off",
+    inputProps,
     ...others
 }: Props) => {
 
@@ -63,6 +64,7 @@ const JsonInput = ({
 
     return (
         <MantineJsonInput
+            {...inputProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={setVal}
             value={val}

@@ -1,9 +1,15 @@
 # Change Log
 
-
 # unreleased
 ### Fixed
-- Fixed issue where switch off and on label would not refresh when switching selections
+- Fixed issue for components as props for timeline, stepper, codehighlight and segmentedcontrol.
+
+# 1.2.0
+
+### Added
+
+- Added `inputProps` to JsonInput, NumberInput, PasswordInput, TextInput, and TextArea components to allow passing props directly to the underlying input element. #568 by @AnnMarieW
+- Optional component stylesheets are now bundled automatically. It’s no longer necessary to include them as external stylesheets or add them to the assets folder. PR #567 by @AnnMarieW
 
 # 1.1.2rc1
 

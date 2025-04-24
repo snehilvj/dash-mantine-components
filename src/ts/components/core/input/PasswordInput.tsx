@@ -36,6 +36,7 @@ const PasswordInput = ({
     n_blur = 0,
     debounce = false,
     autoComplete = "off",
+    inputProps,
     ...others
 }: Props) => {
 
@@ -71,6 +72,7 @@ const PasswordInput = ({
 
     return (
         <MantinePasswordInput
+            {...inputProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}

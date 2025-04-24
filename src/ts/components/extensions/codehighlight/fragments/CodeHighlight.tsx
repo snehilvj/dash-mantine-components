@@ -1,4 +1,5 @@
 import { CodeHighlight as MantineCodeHighlight } from "@mantine/code-highlight";
+import '@mantine/code-highlight/styles.css';
 import React from "react";
 import { getLoadingState } from "../../../../utils/dash3";
 import { Props }  from "../CodeHighlight"
