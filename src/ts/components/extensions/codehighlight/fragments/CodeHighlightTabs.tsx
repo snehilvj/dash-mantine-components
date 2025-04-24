@@ -16,12 +16,12 @@ const CodeHighlightTabs = (props: Props) => {
     if (Array.isArray(code)) {
         code.forEach((item, index) => {
             renderedCode.push(
-                newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, index] : [])
+                newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, 'code', index] : [])
             );
         });
     } else {
         renderedCode.push(
-            newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 0] : [])
+            newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 'code'] : [])
         );
     }
 
@@ -33,5 +33,7 @@ const CodeHighlightTabs = (props: Props) => {
         />
     );
 };
+
+CodeHighlightTabs.dashChildrenUpdate = true
 
 export default CodeHighlightTabs;

@@ -47,7 +47,7 @@ const Timeline = (props: Props) => {
                 const renderedProps = newRenderDashComponents(
                     omit(["children"], childProps),
                     ["title", "bullet"],
-                    componentPath ? [...componentPath, index] : []
+                    componentPath ? [...child?.props?.componentPath] : []
                 );
 
                 return (
@@ -59,5 +59,7 @@ const Timeline = (props: Props) => {
         </MantineTimeline>
     );
 };
+
+Timeline.dashChildrenUpdate = true
 
 export default Timeline;

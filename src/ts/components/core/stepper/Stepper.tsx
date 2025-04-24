@@ -65,7 +65,7 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
         >
             {React.Children.map(children, (child: any, index) => {
                 const componentPath = getContextPath();
-                const { type: childType, props: childProps } = getChildLayout(child);
+                const { type: childType, props: childProps} = getChildLayout(child);
 
                 if (childType === "StepperCompleted") {
                     return (
@@ -83,7 +83,7 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
                             "progressIcon",
                             "completedIcon",
                         ],
-                        componentPath ? [...componentPath, index] : []
+                        componentPath ? [...child?.props?.componentPath] : []
                     );
 
                     return (
@@ -96,5 +96,7 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
         </MantineStepper>
     );
 };
+
+Stepper.dashChildrenUpdate = true
 
 export default Stepper;

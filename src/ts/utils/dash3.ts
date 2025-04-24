@@ -35,7 +35,7 @@ export const newRenderDashComponent = (component: any, index?: number | null, ba
 
     // Array of stuff.
     if (Array.isArray(component)) {
-        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i]));
+        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i, 'props']));
     }
 
     // Merge props.
@@ -60,7 +60,7 @@ export const newRenderDashComponents = (props: any, propsToRender: string[], bas
     for (let i = 0; i < propsToRender.length; i++) {
         const key = propsToRender[i];
         if (newProps.hasOwnProperty(key)) {
-            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, key]);
+            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, 'props', key]);
         }
     }
     return newProps;
