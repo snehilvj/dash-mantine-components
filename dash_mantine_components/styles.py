@@ -1,5 +1,5 @@
 """
-As of v1.1.0, optional CSS is bundled with the components, so separate imports are no longer needed.
+As of v1.2.0, optional CSS is bundled with the components, so separate imports are no longer needed.
 These variables are retained for backward compatibility with earlier versions.
 """
 
