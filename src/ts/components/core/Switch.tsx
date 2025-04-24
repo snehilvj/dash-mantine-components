@@ -8,7 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
-import { setPersistence, newRenderDashComponent, getChildLayout } from "../../utils/dash3";
+import { setPersistence } from "../../utils/dash3";
 
 interface Props
     extends BoxProps,
@@ -51,15 +51,8 @@ const Switch = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
-        onLabel,
-        offLabel,
         ...others
     } = props;
-
-    /** the below is needed for an issue with offLabel, onLabel components not re-rendering when the switch changes
-     introduced in Dash 3.0.2 */
-    const newOnLabel = onLabel ? newRenderDashComponent(getChildLayout(onLabel)) : null
-    const newOffLabel = offLabel ? newRenderDashComponent(getChildLayout(offLabel)) : null
 
     const updateProps = (checked: boolean) => {
         setProps({checked});
@@ -68,15 +61,11 @@ const Switch = (props: Props) => {
     return (
         <MantineSwitch
             onChange={(ev) => updateProps(ev.currentTarget.checked)}
-            onLabel={newOnLabel}
-            offLabel={newOffLabel}
             {...others}
         />
     );
 };
 
 setPersistence(Switch, ["checked"])
-
-Switch.dashChildrenUpdate = true
 
 export default Switch;
