@@ -6,7 +6,7 @@
  */
 import React, { useState, createElement } from "react";
 import { DashBaseProps } from "props/dash";
-import {dissoc, has, includes, isEmpty, isNil, mergeRight, type, path} from "ramda";
+import {dissoc, has, includes, isEmpty, isNil, mergeRight, type} from "ramda";
 
 const SIMPLE_COMPONENT_TYPES = ['String', 'Number', 'Null', 'Boolean'];
 const isSimpleComponent = component => includes(type(component), SIMPLE_COMPONENT_TYPES);
