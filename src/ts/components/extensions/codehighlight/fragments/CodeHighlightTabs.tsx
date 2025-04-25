@@ -6,6 +6,7 @@ import "@mantine/code-highlight/styles.css";
 import React from "react";
 import { getLoadingState, newRenderDashComponents, getContextPath } from "../../../../utils/dash3";
 import { Props }  from "../CodeHighlightTabs"
+import {isEmpty} from 'ramda';
 
 /** CodeHighlightTabs */
 const CodeHighlightTabs = (props: Props) => {
@@ -16,12 +17,12 @@ const CodeHighlightTabs = (props: Props) => {
     if (Array.isArray(code)) {
         code.forEach((item, index) => {
             renderedCode.push(
-                newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, 'props', 'code', index] : [])
+                newRenderDashComponents(item, ["icon"], !isEmpty(componentPath) ? [...componentPath, 'props', 'code', index] : [])
             );
         });
     } else {
         renderedCode.push(
-            newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 'props', 'code'] : [])
+            newRenderDashComponents(code, ["icon"], !isEmpty(componentPath) ? [...componentPath, 'props', 'code'] : [])
         );
     }
 
