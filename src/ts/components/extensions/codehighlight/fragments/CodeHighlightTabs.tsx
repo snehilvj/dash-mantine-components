@@ -16,12 +16,12 @@ const CodeHighlightTabs = (props: Props) => {
     if (Array.isArray(code)) {
         code.forEach((item, index) => {
             renderedCode.push(
-                newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, 'code', index] : [])
+                newRenderDashComponents(item, ["icon"], componentPath ? [...componentPath, 'props', 'code', index] : [])
             );
         });
     } else {
         renderedCode.push(
-            newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 'code'] : [])
+            newRenderDashComponents(code, ["icon"], componentPath ? [...componentPath, 'props', 'code'] : [])
         );
     }
 
