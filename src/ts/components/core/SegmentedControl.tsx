@@ -11,7 +11,6 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import { setPersistence, getLoadingState, newRenderDashComponent, getContextPath } from "../../utils/dash3";
-import {pathOr} from 'ramda';
 
 interface Props
     extends BoxProps,
