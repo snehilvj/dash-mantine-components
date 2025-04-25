@@ -309,7 +309,7 @@ def test_003oc_optional_components(dash_duo):
     assert dash_duo.get_logs() == []
 
 
-def test_003oc_optional_components(dash_duo):
+def test_004oc_optional_components(dash_duo):
     app = Dash(external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(
@@ -372,7 +372,7 @@ def test_003oc_optional_components(dash_duo):
             else:
                 assert item.find_element(By.CSS_SELECTOR, k).get_attribute(v['attribute']) == v['value'], f'{i} {k} expected {v}'
 
-def test_004oc_optional_components(dash_duo):
+def test_005oc_optional_components(dash_duo):
     app = Dash(external_stylesheets=dmc.styles.ALL)
 
     data = [
@@ -447,7 +447,7 @@ def test_004oc_optional_components(dash_duo):
             old_html = current_html
         dash_duo.find_element('#update_icons').click()
 
-def test_005oc_optional_components(dash_duo):
+def test_006oc_optional_components(dash_duo):
     import random
 
     # prepare the timeline items
