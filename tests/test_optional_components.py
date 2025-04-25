@@ -307,3 +307,67 @@ def test_003oc_optional_components(dash_duo):
         lambda: dash_duo.driver.find_element(By.TAG_NAME, 'html').get_attribute('data-mantine-color-scheme') == 'dark',
         timeout=3)
     assert dash_duo.get_logs() == []
+
+
+def test_003oc_optional_components(dash_duo):
+    app = Dash(external_stylesheets=dmc.styles.ALL)
+
+    app.layout = dmc.MantineProvider(
+        dmc.Timeline(
+            children=[
+                dmc.TimelineItem(
+                    title="Default bullet",
+                    children=dmc.Text("Default bullet without anything", c="dimmed", size="sm")
+                ),
+                dmc.TimelineItem(
+                    title="Avatar",
+                    bullet=dmc.Avatar(
+                        size=22,
+                        radius="xl",
+                        src="https://avatars.githubusercontent.com/u/91216500?v=4"
+                    ),
+                    children=dmc.Text("Timeline bullet as avatar image", c="dimmed", size="sm")
+                ),
+                dmc.TimelineItem(
+                    title="Icon",
+                    bullet=DashIconify(icon="tabler:sun", width=13),
+                    children=dmc.Text("Timeline bullet as icon", c="dimmed", size="sm")
+                ),
+                dmc.TimelineItem(
+                    title="ThemeIcon",
+                    bullet=dmc.ThemeIcon(
+                        size=22,
+                        variant="gradient",
+                        gradient={"from": "lime", "to": "cyan"},
+                        radius="xl",
+                        children=DashIconify(icon="tabler:video", width=13)
+                    ),
+                    children=dmc.Text("Timeline bullet as ThemeIcon component", c="dimmed", size="sm")
+                )
+            ],
+            bulletSize=24
+        )
+    )
+
+    dash_duo.start_server(app)
+
+    dash_duo.wait_for_text_to_equal(".mantine-Timeline-itemTitle", "Default bullet")
+    items = dash_duo.find_elements(".mantine-Timeline-item")
+    assert len(items) == 4
+
+    tests = [
+        {'.mantine-Timeline-itemTitle': 'Default bullet', '.mantine-Timeline-itemBullet': ''},
+        {'.mantine-Timeline-itemTitle': 'Avatar', '.mantine-Timeline-itemBullet img': {'attribute': 'src', 'value': 'https://avatars.githubusercontent.com/u/91216500?v=4'}},
+        {'.mantine-Timeline-itemTitle': 'Icon', '.mantine-Timeline-itemBullet svg': ''},
+        {'.mantine-Timeline-itemTitle': 'ThemeIcon', '.mantine-Timeline-itemBullet > .mantine-ThemeIcon-root': ''}
+    ]
+
+    for i, item in enumerate(items):
+        for k, v in tests[i].items():
+            if isinstance(v, str):
+                try:
+                    assert item.find_element(By.CSS_SELECTOR, k).text == v, f'{i} {k} expected {v}'
+                except Exception as e:
+                    assert 'test' == k, str(e)
+            else:
+                assert item.find_element(By.CSS_SELECTOR, k).get_attribute(v['attribute']) == v['value'], f'{i} {k} expected {v}'
