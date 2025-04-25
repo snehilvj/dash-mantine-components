@@ -1,4 +1,4 @@
-from dash import Dash, html, Output, Input, State, _dash_renderer, clientside_callback
+from dash import Dash, html, Output, Input, State, _dash_renderer, clientside_callback, no_update
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 from dash.testing.wait import until
@@ -446,3 +446,56 @@ def test_004oc_optional_components(dash_duo):
             assert old_html != current_html
             old_html = current_html
         dash_duo.find_element('#update_icons').click()
+
+def test_005oc_optional_components(dash_duo):
+    import random
+
+    # prepare the timeline items
+    timeline_items = [
+        dmc.TimelineItem(
+            title=char,
+            children=dmc.Text(char)
+        )
+        for char in list('ABCDE')
+    ]
+
+    app = Dash()
+    app.layout = dmc.MantineProvider(
+        html.Div(
+            [
+                dmc.Button("Shuffle timeline-items", id="button"),
+                dmc.Text(id='output_num'),
+                dmc.Timeline(
+                    # active=1,
+                    bulletSize=15,
+                    lineWidth=2,
+                    id="timeline-items",
+                    children=timeline_items,
+                )
+            ]
+        )
+    )
+
+
+    @app.callback(
+        Output('timeline-items', 'children'),
+        Output('timeline-items', 'active'),
+        Output('output_num', 'children'),
+        Input('button', 'n_clicks'),
+        prevent_initial_call=True
+    )
+    def update_output(n_clicks):
+        if n_clicks:
+            number_displayed = random.randint(0, len(timeline_items))
+            print(f"Chose to display {number_displayed} timeline item(s).")
+            return random.sample(timeline_items, number_displayed), random.randint(0, number_displayed), n_clicks
+        else:
+            return no_update, no_update, no_update
+
+    dash_duo.start_server(app)
+    dash_duo.wait_for_text_to_equal('#button', 'Shuffle timeline-items')
+    assert len(dash_duo.get_logs()) == 0
+    for i in range(1,15):
+        dash_duo.find_element('#button').click()
+        dash_duo.wait_for_text_to_equal('#output_num', f'{i}')
+        assert len(dash_duo.get_logs()) == 0
