@@ -139,31 +139,3 @@ export const getContextPath = () => {
     }
     return componentPath
 }
-
-export const stringifyId = (id) => {
-  if (typeof id !== "object") {
-    return id;
-  }
-  const stringifyVal = (v) => (v && v.wild) || JSON.stringify(v);
-  const parts = Object.keys(id)
-    .sort()
-    .map((k) => JSON.stringify(k) + ":" + stringifyVal(id[k]));
-  return "{" + parts.join(",") + "}";
-}
-
-export const isComponentInDash = (props, componentPath) => {
-    const ds = (window as any).dash_stores[0]
-    let test = false
-    const appLayout = ds.getState()?.layout
-    if (!isEmpty(componentPath)) {
-        test = path(componentPath, appLayout)
-    } else if (props.id) {
-        const dash_paths = ds?.getState()?.paths?.strs
-        if (dash_paths) {
-            if (stringifyId(props.id) in dash_paths) {
-                test = path(dash_paths[stringifyId(props.id)], appLayout)
-            }
-        }
-    }
-    return test
-}
