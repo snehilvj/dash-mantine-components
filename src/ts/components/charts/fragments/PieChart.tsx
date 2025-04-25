@@ -1,4 +1,5 @@
 import { PieChart as MantinePieChart } from "@mantine/charts";
+import '@mantine/charts/styles.css';
 import React, { useState } from "react";
 import { getPieClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";

@@ -1,4 +1,5 @@
 import { CompositeChart as MantineCompositeChart } from "@mantine/charts";
+import '@mantine/charts/styles.css';
 import React, { useRef, useState } from "react";
 import { getClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";

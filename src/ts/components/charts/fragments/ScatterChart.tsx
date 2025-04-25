@@ -1,4 +1,5 @@
 import { ScatterChart as MantineScatterChart } from "@mantine/charts";
+import '@mantine/charts/styles.css';
 import React from "react";
 import { getScatterClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";

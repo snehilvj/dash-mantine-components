@@ -1,4 +1,5 @@
 import { BarChart as MantineBarChart } from "@mantine/charts";
+import '@mantine/charts/styles.css';
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";
