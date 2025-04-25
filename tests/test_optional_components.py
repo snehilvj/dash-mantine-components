@@ -371,3 +371,78 @@ def test_003oc_optional_components(dash_duo):
                     assert 'test' == k, str(e)
             else:
                 assert item.find_element(By.CSS_SELECTOR, k).get_attribute(v['attribute']) == v['value'], f'{i} {k} expected {v}'
+
+def test_004oc_optional_components(dash_duo):
+    app = Dash(external_stylesheets=dmc.styles.ALL)
+
+    data = [
+        ["Preview", "tabler:eye"],
+        ["Code", "tabler:code"],
+        ["Export", "tabler:external-link"],
+    ]
+
+    app.layout = dmc.MantineProvider(
+        [dmc.SegmentedControl(
+            id="segmented-with-react-nodes",
+            value="Preview",
+            data=[
+                {
+                    "value": v,
+                    "label": dmc.Center(
+                        [DashIconify(icon=icon, width=16, id=f'icon-{i}'), html.Span(v)],
+                        style={"gap": 10},
+                    ),
+                }
+                for i, [v, icon] in enumerate(data)
+            ],
+            mb=10,
+        ),
+            dmc.Button(id='update_icons')
+        ]
+    )
+
+    def shift_array(array):
+        if not array:
+            return array  # Return the array as is if it's empty
+
+        # Shift elements by one position
+        shifted_array = array[-1:] + array[:-1]
+        return shifted_array
+
+    @app.callback(
+        [Output(f'icon-{i}', 'icon') for i in range(3)],
+        Input('update_icons', 'n_clicks'),
+        [State(f'icon-{i}', 'icon') for i in range(3)],
+        prevent_initial_call=True
+    )
+    def update_icons(n, *args):
+        return shift_array(list(args))
+
+    dash_duo.start_server(app)
+
+    dash_duo.wait_for_text_to_equal(".mantine-SegmentedControl-innerLabel span", "Preview")
+    items = dash_duo.find_elements(".mantine-SegmentedControl-control")
+    assert len(items) == 3
+
+    tests = [
+        {'.mantine-SegmentedControl-innerLabel span': 'Preview', 'svg': ''},
+        {'.mantine-SegmentedControl-innerLabel span': 'Code', 'svg': ''},
+        {'.mantine-SegmentedControl-innerLabel span': 'Export', 'svg': ''},
+    ]
+
+    htmls = {}
+    for x in range(3):
+        old_html = ''
+        for i, item in enumerate(items):
+            for k, v in tests[i].items():
+                if isinstance(v, str):
+                    try:
+                        assert item.find_element(By.CSS_SELECTOR, k).text == v, f'{i} {k} expected {v}'
+                    except Exception as e:
+                        assert 'test' == k, str(e)
+            until(lambda: item.find_element(By.CSS_SELECTOR, 'svg').get_attribute('outerHTML') != htmls.get(f'.mantine-SegmentedControl-control{i}', ''), 3)
+            current_html = item.find_element(By.CSS_SELECTOR, 'svg').get_attribute('outerHTML')
+            htmls[f'.mantine-SegmentedControl-control{i}'] = current_html
+            assert old_html != current_html
+            old_html = current_html
+        dash_duo.find_element('#update_icons').click()

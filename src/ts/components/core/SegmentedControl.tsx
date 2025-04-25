@@ -70,7 +70,7 @@ const SegmentedControl = (props: Props) => {
                 label: newRenderDashComponent(
                     item["label"],
                     index,
-                    componentPath ? [...pathOr([], ['props', 'componentPath'], item), 'props', 'label']  : []
+                    componentPath ? [...componentPath, 'props', 'data', index, 'label']  : []
                 ),
                 disabled: item["disabled"],
             };
@@ -92,7 +92,5 @@ const SegmentedControl = (props: Props) => {
 };
 
 setPersistence(SegmentedControl);
-
-SegmentedControl.dashChildrenUpdate = true
 
 export default SegmentedControl;
