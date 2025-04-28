@@ -17,7 +17,7 @@ export const isDash3 = (): boolean => {
 };
 
 export const newRenderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
-    if (!isDash3() || isEmpty(basePath)) {
+    if (!isDash3() || isEmpty(basePath) || !basePath) {
         const dash_extensions = require('dash-extensions-js');
         const {renderDashComponent} = dash_extensions;
         return renderDashComponent(component, index)
@@ -35,7 +35,7 @@ export const newRenderDashComponent = (component: any, index?: number | null, ba
 
     // Array of stuff.
     if (Array.isArray(component)) {
-        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i]));
+        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i, 'props']));
     }
 
     // Merge props.
@@ -60,7 +60,7 @@ export const newRenderDashComponents = (props: any, propsToRender: string[], bas
     for (let i = 0; i < propsToRender.length; i++) {
         const key = propsToRender[i];
         if (newProps.hasOwnProperty(key)) {
-            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, key]);
+            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, 'props', key]);
         }
     }
     return newProps;
@@ -86,8 +86,11 @@ export const getLoadingState = (loading_state?: DashBaseProps["loading_state"]):
 
 /** Get layout information for a child component */
 export const getChildLayout = (child: any): { type: any; props: any } => {
+    if (isSimpleComponent(child)) {
+        return child /** returns because of simple component */
+    }
     if (isDash3()) {
-        return (window as any).dash_component_api.getLayout(child.props.componentPath);
+        return (window as any).dash_component_api.getLayout(child?.props?.componentPath);
     }
 
     return {

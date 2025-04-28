@@ -7,7 +7,7 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import { omit } from "ramda";
+import { omit, isEmpty } from "ramda";
 import React from "react";
 import { getLoadingState, getChildProps, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
 
@@ -47,7 +47,7 @@ const Timeline = (props: Props) => {
                 const renderedProps = newRenderDashComponents(
                     omit(["children"], childProps),
                     ["title", "bullet"],
-                    componentPath ? [...componentPath, index] : []
+                    !isEmpty(componentPath) ? [...child?.props?.componentPath] : []
                 );
 
                 return (
@@ -59,5 +59,7 @@ const Timeline = (props: Props) => {
         </MantineTimeline>
     );
 };
+
+Timeline.dashChildrenUpdate = true
 
 export default Timeline;

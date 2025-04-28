@@ -11,6 +11,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import { setPersistence, getLoadingState, newRenderDashComponent, getContextPath } from "../../utils/dash3";
+import {isEmpty} from 'ramda';
 
 interface Props
     extends BoxProps,
@@ -69,7 +70,7 @@ const SegmentedControl = (props: Props) => {
                 label: newRenderDashComponent(
                     item["label"],
                     index,
-                    componentPath ? [...componentPath, index, "label"] : []
+                    !isEmpty(componentPath) ? [...componentPath, 'props', 'data', index, 'label']  : []
                 ),
                 disabled: item["disabled"],
             };
