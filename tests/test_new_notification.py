@@ -19,7 +19,7 @@ def test_001na_notification_new_noreopen(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "showNotifications"),
+        Output("notify-container", "sendNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )
@@ -70,16 +70,15 @@ def test_002nu_notification_new_update(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "showNotifications"),
-        Output("notify-container", "updateNotifications"),
+        Output("notify-container", "sendNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )
     def notify(n):
         base_not = dict(id=f"my-notification",message=f"{n} - clicks", color="green", loading=False, autoClose=False)
         if n == 1:
-            return [base_not], no_update
-        return no_update, [base_not]
+            return [base_not]
+        return [{**base_not, 'action': 'update'}]
 
     dash_duo.start_server(app)
 
@@ -103,19 +102,18 @@ def test_003nc_notification_new_clear(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "showNotifications"),
-        Output("notify-container", "updateNotifications"),
+        Output("notify-container", "sendNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )
     def notify(n):
         base_not = dict(id=f"my-notification", message=f"{n} - clicks", color="green", loading=False, autoClose=False)
         if n == 1:
-            return [base_not], no_update
+            return [base_not]
         elif n<5:
-            return no_update, [base_not]
+            return [{**base_not, 'action': 'update'}]
         set_props('notify-container', {'clean': True})
-        return no_update, no_update
+        return no_update
 
     dash_duo.start_server(app)
 
@@ -156,7 +154,7 @@ def test_004nc_notification_new_clearQueue_store(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "showNotifications"),
+        Output("notify-container", "sendNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )

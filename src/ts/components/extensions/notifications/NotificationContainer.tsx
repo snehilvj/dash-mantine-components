@@ -42,6 +42,7 @@ interface Notification {
   withCloseButton?: boolean;
   closeButtonProps?: Record<string, any>;
   id?: string;
+  action?: 'show' | 'update' | 'hide'
   message: any;
   autoClose?: boolean | number;
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
@@ -70,12 +71,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     zIndex?: string | number;
     /** Determines whether notifications container should be rendered inside `Portal`, `true` by default */
     withinPortal?: boolean;
-    /** Notifications to be passed to the API for showing */
-    showNotifications?: Notification[];
-    /** Notifications to be passed to the API for updating */
-    updateNotifications?: Notification[];
-    /** Notifications to be passed to the API for hiding */
-    hideNotifications?: Notification[];
+    /** Notifications to be passed to the API */
+    sendNotifications?: Notification[];
     /** Notifications API: removes all notifications from the notifications state and queue*/
     clean?: boolean;
     /** Notifications API: removes all notifications from the queue*/
@@ -84,56 +81,37 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** NotificationContainer */
 const NotificationContainer = (props: Props) => {
-    const { setProps, loading_state, showNotifications,updateNotifications, hideNotifications, clean, cleanQueue, ...others } = props;
+    const { setProps, loading_state, sendNotifications, clean, cleanQueue, ...others } = props;
 
     const componentPath = getContextPath()
 
     useEffect(() => {
-        if (showNotifications) {
-          showNotifications.forEach((notification) => {
-            notifications['show'](newRenderDashComponents(notification, ['message', 'icon', 'title']));
-          });
-          setProps({ showNotifications: [] }); // Avoid duplicate processing
+        if (sendNotifications) {
+          sendNotifications.forEach((notification) => {
+            const {action, ...realNotification} = notification;
+            notifications[action || 'show'](newRenderDashComponents(realNotification, ['message', 'icon', 'title']));
+        });
+          setProps({ sendNotifications: [] }); // Avoid duplicate processing
         }
-    }, [showNotifications]);
+    }, [sendNotifications]);
 
     useEffect(() => {
-        if (updateNotifications) {
-          updateNotifications.forEach((notification) => {
-            notifications['update'](newRenderDashComponents(notification, ['message', 'icon', 'title']));
-          });
-          setProps({ updateNotifications: [] }); // Avoid duplicate processing
+        if (cleanQueue) {
+            notifications.cleanQueue()
+            setProps({cleanQueue: false})
         }
-    }, [updateNotifications]);
+    }, [cleanQueue]);
 
     useEffect(() => {
-        if (hideNotifications) {
-          hideNotifications.forEach((notification) => {
-            notifications['hide'](newRenderDashComponents(notification, ['message', 'icon', 'title']));
-          });
-          setProps({ hideNotifications: [] }); // Avoid duplicate processing
+        if (clean) {
+            notifications.clean()
+            setProps({clean: false})
         }
-    }, [hideNotifications]);
-
-    useEffect(() => {
-        if (clean || cleanQueue) {
-            if (clean) {
-                notifications.clean()
-            }
-            if (cleanQueue) {
-                notifications.cleanQueue()
-            }
-            setProps({clean: false, cleanQueue: false})
-        }
-    }, [clean, cleanQueue]);
+    }, [clean]);
 
     useEffect(() => {
         appNotifications['api'] = notifications
         appNotifications['store'] = notificationsStore.getState
-        return () => {
-            delete appNotifications['api']
-            delete appNotifications['store']
-        }
     }, [])
 
     return (
