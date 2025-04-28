@@ -47,13 +47,6 @@ interface Notification {
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
 }
 
-// Define the NotificationsFormat type
-type NotificationsFormat = {
-  show?: Notification[];
-  update?: Notification[];
-  hide?: Notification[];
-};
-
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Notifications position, `'bottom-right'` by default */
     position?:
@@ -77,8 +70,12 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     zIndex?: string | number;
     /** Determines whether notifications container should be rendered inside `Portal`, `true` by default */
     withinPortal?: boolean;
-    /** Notifications to be passed to the API */
-    sendNotifications?: NotificationsFormat;
+    /** Notifications to be passed to the API for showing */
+    showNotifications?: Notification[];
+    /** Notifications to be passed to the API for updating */
+    updateNotifications?: Notification[];
+    /** Notifications to be passed to the API for hiding */
+    hideNotifications?: Notification[];
     /** Notifications API: removes all notifications from the notifications state and queue*/
     clean?: boolean;
     /** Notifications API: removes all notifications from the queue*/
@@ -87,25 +84,36 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** NotificationContainer */
 const NotificationContainer = (props: Props) => {
-    const { setProps, loading_state, sendNotifications, clean, cleanQueue, ...others } = props;
-    const [appNotificationStore, setAppNotificationStore] = useState(notificationsStore)
+    const { setProps, loading_state, showNotifications,updateNotifications, hideNotifications, clean, cleanQueue, ...others } = props;
 
     const componentPath = getContextPath()
 
     useEffect(() => {
-        if (sendNotifications) {
-          Object.entries(sendNotifications).forEach(([key, notificationsArray]) => {
-            if (Array.isArray(notificationsArray)) {
-              notificationsArray.forEach((notification) => {
-                if (notifications[key]) {
-                  notifications[key](newRenderDashComponents(notification, ['message', 'icon', 'title']));
-                }
-              });
-            }
+        if (showNotifications) {
+          showNotifications.forEach((notification) => {
+            notifications['show'](newRenderDashComponents(notification, ['message', 'icon', 'title']));
           });
-          setProps({ sendNotifications: {} }); // Avoid duplicate processing
+          setProps({ showNotifications: [] }); // Avoid duplicate processing
         }
-    }, [sendNotifications]);
+    }, [showNotifications]);
+
+    useEffect(() => {
+        if (updateNotifications) {
+          updateNotifications.forEach((notification) => {
+            notifications['update'](newRenderDashComponents(notification, ['message', 'icon', 'title']));
+          });
+          setProps({ updateNotifications: [] }); // Avoid duplicate processing
+        }
+    }, [updateNotifications]);
+
+    useEffect(() => {
+        if (hideNotifications) {
+          hideNotifications.forEach((notification) => {
+            notifications['hide'](newRenderDashComponents(notification, ['message', 'icon', 'title']));
+          });
+          setProps({ hideNotifications: [] }); // Avoid duplicate processing
+        }
+    }, [hideNotifications]);
 
     useEffect(() => {
         if (clean || cleanQueue) {

@@ -19,13 +19,13 @@ def test_001na_notification_new_noreopen(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "sendNotifications"),
+        Output("notify-container", "showNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )
     def notify(n):
         if n < 4:
-            nots = {'show': [
+            nots = [
                 dict(
                     id=f"my-notification-{n}",
                     title="Appointment booked",
@@ -34,7 +34,7 @@ def test_001na_notification_new_noreopen(dash_duo):
                     loading=False,
                     autoClose=3000,
                 )
-            ]}
+            ]
             return nots
         # triggers error which would display all children components without `hide` `onClose` event
         return 1 / 0
@@ -70,15 +70,16 @@ def test_002nu_notification_new_update(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "sendNotifications"),
+        Output("notify-container", "showNotifications"),
+        Output("notify-container", "updateNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )
     def notify(n):
         base_not = dict(id=f"my-notification",message=f"{n} - clicks", color="green", loading=False, autoClose=False)
         if n == 1:
-            return {'show': [base_not]}
-        return {'update': [base_not]}
+            return [base_not], no_update
+        return no_update, [base_not]
 
     dash_duo.start_server(app)
 
@@ -102,18 +103,19 @@ def test_003nc_notification_new_clear(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "sendNotifications"),
+        Output("notify-container", "showNotifications"),
+        Output("notify-container", "updateNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )
     def notify(n):
         base_not = dict(id=f"my-notification", message=f"{n} - clicks", color="green", loading=False, autoClose=False)
         if n == 1:
-            return {'show': [base_not]}
+            return [base_not], no_update
         elif n<5:
-            return {'update': [base_not]}
+            return no_update, [base_not]
         set_props('notify-container', {'clean': True})
-        return no_update
+        return no_update, no_update
 
     dash_duo.start_server(app)
 
@@ -154,14 +156,14 @@ def test_004nc_notification_new_clearQueue_store(dash_duo):
     )
 
     @callback(
-        Output("notify-container", "sendNotifications"),
+        Output("notify-container", "showNotifications"),
         Input("show-notification", "n_clicks"),
         prevent_initial_call=True,
     )
     def notify(n):
         base_not = dict(id=f"my-notification-{n}", message=f"{n} - clicks", color="green", loading=False, autoClose=False)
         if n<7:
-            return {'show': [base_not]}
+            return [base_not]
         if n==7:
             set_props('notify-container', {'cleanQueue': True})
         return no_update
