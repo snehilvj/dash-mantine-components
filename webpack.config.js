@@ -87,6 +87,9 @@ module.exports = function (env, argv) {
                         },
                         {
                             loader: "css-loader",
+                            options: {
+                                sourceMap: false,
+                            }
                         },
                     ],
                 },
