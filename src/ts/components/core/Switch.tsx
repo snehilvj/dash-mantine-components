@@ -55,7 +55,7 @@ const Switch = (props: Props) => {
     } = props;
 
     const updateProps = (checked: boolean) => {
-        setProps({ checked });
+        setProps({checked});
     };
 
     return (

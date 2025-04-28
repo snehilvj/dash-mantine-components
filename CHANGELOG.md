@@ -1,5 +1,33 @@
 # Change Log
 
+# unreleased
+### Fixed
+- Fixed issue for components as props for timeline, stepper, codehighlight and segmentedcontrol.
+
+# 1.2.0
+
+### Added
+
+- Added `inputProps` to JsonInput, NumberInput, PasswordInput, TextInput, and TextArea components to allow passing props directly to the underlying input element. #568 by @AnnMarieW
+- Optional component stylesheets are now bundled automatically. It’s no longer necessary to include them as external stylesheets or add them to the assets folder. PR #567 by @AnnMarieW
+
+# 1.1.2rc1
+
+### Fixed
+- Fixed issue where children of certain components could not be updated in a callback. Requires dash >=3.03 #558 by @AnnMarieW
+- Fixed issue where Navlink could not be updated in a callback if the href prop was not set initially.  #562 by @AnnMarieW
+- Fixed issue with components that used `useMemo` that couldn't be updated in a callback. #561 BY @AnnMarieW
+
+### Changed
+- Upgraded to latest Mantine (7.17.4)
+
+# 1.1.1
+
+### Fixed
+
+- Reverted PR #523, which introduced errors in the `Notification` component (reported in issue #542).  
+- Resolved an issue in the `Stepper` component where it failed to render correctly when using custom icons or other components as props.  #544 by @BSd3v
+
 # 1.1.0
 
 ### Added
@@ -9,6 +37,7 @@
 ### Changed
 
 - Complex components such as `CodeHighlightTabs`, and `Stepper` are now rendered by the dash ecosystem when using dash 3+. Dash 2 falls back on `dash-extensions-js` to render via `React.createElement` (by @emilhe). This enables the use of these components in callbacks as triggers. #531 @BSd3v 
+- Upgraded to latest Mantine (7.17.2)
 
 ### fixed 
  - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
@@ -26,7 +55,7 @@
 
 ### Changed
 
--   `notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
+-   `Notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
 -   graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW and @emilhe
 
 # 1.0.0rc2

@@ -9,7 +9,7 @@ import { useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import { omit } from "ramda";
+import { omit, isEmpty } from "ramda";
 import React, { useState } from "react";
 import { getChildLayout, getLoadingState, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
 
@@ -64,7 +64,9 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
+                const componentPath = getContextPath();
                 const { type: childType, props: childProps } = getChildLayout(child);
+
                 if (childType === "StepperCompleted") {
                     return (
                         <MantineStepper.Completed>
@@ -80,7 +82,8 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
                             "icon",
                             "progressIcon",
                             "completedIcon",
-                        ], getContextPath()
+                        ],
+                        !isEmpty(componentPath) ? [...child?.props?.componentPath] : []
                     );
 
                     return (
@@ -93,5 +96,7 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
         </MantineStepper>
     );
 };
+
+Stepper.dashChildrenUpdate = true
 
 export default Stepper;

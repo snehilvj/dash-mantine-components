@@ -7,9 +7,9 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import { omit } from "ramda";
+import { omit, isEmpty } from "ramda";
 import React from "react";
-import { getLoadingState, getChildProps, newRenderDashComponents } from "../../../utils/dash3";
+import { getLoadingState, getChildProps, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** `Timeline.Item` components */
@@ -35,6 +35,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** Timeline */
 const Timeline = (props: Props) => {
     const { setProps, loading_state, children, ...others } = props;
+    const componentPath = getContextPath();
 
     return (
         <MantineTimeline
@@ -42,12 +43,13 @@ const Timeline = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childProps = getChildProps(child)
+                const childProps = getChildProps(child);
                 const renderedProps = newRenderDashComponents(
                     omit(["children"], childProps),
                     ["title", "bullet"],
-                    childProps.componentPath
+                    !isEmpty(componentPath) ? [...child?.props?.componentPath] : []
                 );
+
                 return (
                     <MantineTimeline.Item {...renderedProps} key={index}>
                         {child}
@@ -57,5 +59,7 @@ const Timeline = (props: Props) => {
         </MantineTimeline>
     );
 };
+
+Timeline.dashChildrenUpdate = true
 
 export default Timeline;

@@ -77,6 +77,7 @@ const NumberInput = ({
     n_blur = 0,
     debounce = false,
     autoComplete = "off",
+    inputProps,
     ...others
 }: Props) => {
 
@@ -113,6 +114,7 @@ const NumberInput = ({
 
     return (
         <MantineNumberInput
+            {...inputProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={setVal}
             value={val}

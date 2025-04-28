@@ -11,6 +11,7 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React from "react";
 import { setPersistence, getLoadingState, newRenderDashComponent, getContextPath } from "../../utils/dash3";
+import {isEmpty} from 'ramda';
 
 interface Props
     extends BoxProps,
@@ -41,7 +42,7 @@ interface Props
     orientation?: "vertical" | "horizontal";
     /** Determines whether the value can be changed */
     readOnly?: boolean;
-    /** Determines whether text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    /** Determines whether text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used */
     autoContrast?: boolean;
     /** Determines whether there should be borders between items, `true` by default */
     withItemsBorders?: boolean;
@@ -59,18 +60,20 @@ const SegmentedControl = (props: Props) => {
         ...others
     } = props;
 
-    const componentPath = getContextPath()
-    const renderedData = [];
-    data.forEach((item, index) => {
+    const componentPath = getContextPath();
+    const renderedData = data.map((item, index) => {
         if (typeof item === "string") {
-            renderedData.push(item);
+            return item;
         } else {
-            const rItem = {
+            return {
                 value: item["value"],
-                label: newRenderDashComponent(item["label"], index, componentPath ? [...componentPath, index, 'label'] : []),
+                label: newRenderDashComponent(
+                    item["label"],
+                    index,
+                    !isEmpty(componentPath) ? [...componentPath, 'props', 'data', index, 'label']  : []
+                ),
                 disabled: item["disabled"],
             };
-            renderedData.push(rItem);
         }
     });
 
@@ -88,6 +91,6 @@ const SegmentedControl = (props: Props) => {
     );
 };
 
-setPersistence(SegmentedControl)
+setPersistence(SegmentedControl);
 
 export default SegmentedControl;

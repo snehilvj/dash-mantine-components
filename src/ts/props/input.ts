@@ -68,6 +68,8 @@ export interface __InputProps {
     placeholder?: string;
     /** Name prop */
     name?: string;
+    /** Props passed down to the `Input` component */
+    inputProps?: Record<string, any>;
 }
 
 export interface InputProps extends BoxProps, __InputProps, StylesApiProps {

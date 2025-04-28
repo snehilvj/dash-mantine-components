@@ -1,9 +1,8 @@
 import dash
-from dash import Dash, html, Output, Input, _dash_renderer, ALL, State
+from dash import Dash, html, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
-import time
 _dash_renderer._set_react_version("18.2.0")
-
+from dash.testing.wait import until
 
 def navlink_app(active):
     app = Dash(__name__, use_pages=True, pages_folder='')
@@ -70,4 +69,47 @@ def test_003nl_navlink(dash_duo):
 def test_004nl_navlink(dash_duo):
     app = navlink_app('partial')
     self_check_navlink('partial', dash_duo, app)
+
+def test_005nl_navlink(dash_duo):
+    app = Dash()
+
+    app.layout = dmc.MantineProvider(html.Div(
+        [
+            dmc.Button("go", id="btn"),
+            dmc.NavLink(
+                label=dmc.Center(dmc.Title('Start Commissioning Test', order=3)),
+                disabled=True,
+                id='link',
+                variant='filled',
+                active=True,
+                color='blue',
+                target='_blank',
+                href=None
+            ),
+        ],
+    ))
+
+    @callback(
+        Output('link', 'disabled'),
+        Output('link', 'href'),
+        Input("btn", "n_clicks")
+    )
+    def activate_button(n):
+        if n:
+            return False, f"/page{n}"
+        return True, None
+
+    dash_duo.start_server(app)
+
+
+    update = dash_duo.find_element("#btn")
+    update.click()
+
+    select = dash_duo.find_element("#link")
+    until(lambda: not select.get_attribute('data-disabled'), 3)
+    # verify that the navlink href  was updated in the callback
+    assert select.get_dom_attribute("href") == "/page1"
+
+    assert dash_duo.get_logs() == []
+
 

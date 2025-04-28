@@ -80,4 +80,6 @@ const MenuItem = ({
     }
 };
 
+MenuItem.dashChildrenUpdate = true
+
 export default MenuItem;

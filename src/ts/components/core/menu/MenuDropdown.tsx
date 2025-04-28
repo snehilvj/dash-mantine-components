@@ -24,4 +24,8 @@ const MenuDropdown = (props: Props) => {
     );
 };
 
+
+
+MenuDropdown.dashChildrenUpdate = true
+
 export default MenuDropdown;
