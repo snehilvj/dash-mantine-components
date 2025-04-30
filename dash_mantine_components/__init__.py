@@ -56,27 +56,14 @@ async_chunks = [f"async-{async_resource}" for async_resource in async_resources]
 
 # Add shared chunks here.
 shared_chunks = [
-    f"{__name__}-shared",
     f"{__name__}-charts-shared",
 ]
 
 # Collect all chunks (main, async, shared).
-chunks = async_chunks + shared_chunks
+chunks = [__name__] + async_chunks + shared_chunks
 
 # Add all chunks to the js_dist list.
-_js_dist = [
-    {
-        'relative_package_path': 'dash_mantine_components.min.js',
-        'external_url': f"https://unpkg.com/{package_name}@{__version__}/{__name__}/dash_mantine_components.min.js",
-        'namespace': package_name
-    },
-    {
-        'relative_package_path': 'dash_mantine_components.min.js.map',
-        'namespace': package_name,
-        'external_url': f"https://unpkg.com/{package_name}@{__version__}/{__name__}/dash_mantine_components.min.js.map",
-        'dynamic': True
-    },
-]
+_js_dist = []
 _js_dist.extend(
     [
         {

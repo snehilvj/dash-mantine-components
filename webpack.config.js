@@ -8,11 +8,10 @@ module.exports = function (env, argv) {
     const overrides = module.exports || {};
     const mode = (argv && argv.mode) || "production";
     const entry = [path.join(__dirname, "src/ts/index.ts")];
-    const modeSuffix = mode === 'development' ? '.dev' : '.min';
     const output = {
         path: path.join(__dirname, dashLibraryName),
         chunkFilename: "[name].js",
-        filename: `${dashLibraryName}${modeSuffix}.js`,
+        filename: `${dashLibraryName}.js`,
         library: dashLibraryName,
         libraryTarget: "umd",
     };
