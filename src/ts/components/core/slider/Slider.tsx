@@ -11,6 +11,7 @@ import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { resolveProp } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -70,6 +71,7 @@ const Slider = ({
     loading_state,
     updatemode = "mouseup",
     value,
+    label,
     persistence,
     persisted_props,
     persistence_type,
@@ -94,6 +96,7 @@ const Slider = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
             value={val}
+            label={resolveProp(label)}
             onChange={setVal}
             onChangeEnd={(value) => {
                 if (updatemode === "mouseup") {
