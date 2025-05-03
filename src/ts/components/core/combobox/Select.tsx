@@ -10,6 +10,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { filterSelected } from "../../../utils/combobox";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { resolveProp } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -41,6 +42,13 @@ interface Props
     hiddenInputProps?: object;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+    /**
+     * A function to render content of the option, replaces the default content of the option
+     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
+     *  The JS function should accept (item: ComboboxLikeRenderOptionInput<ComboboxItem>)
+     * and return a ReactNode.
+     */
+    renderOption?: React.ReactNode;
 }
 
 /** Select */
@@ -56,6 +64,7 @@ const Select = ({
         data = [],
         searchValue,
         value,
+        renderOption,
         ...others
     }: Props) => {
 
@@ -118,6 +127,7 @@ const Select = ({
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
+            renderOption={resolveProp(renderOption)}
             {...others}
         />
     );
