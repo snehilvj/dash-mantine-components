@@ -9,7 +9,7 @@ export const context = {
 //             d3,
 //             dash_clientside,
 //             ...customFunctions,
-           ...(window as any).dashMantineComponentsFunctions
+           ...(window as any).dashMantineFunctions
         };
 
 
@@ -56,7 +56,7 @@ function resolveVariable(prop, context){
     return variable
 }
 
-function getDescendantProp(obj, desc, defaultPath = "dashMantineComponentsFunctions") {
+function getDescendantProp(obj, desc, defaultPath = "dashMantineFunctions") {
     // Use the default path if the provided desc does not contain a dot
     const path = desc.includes(".") ? desc : `${defaultPath}.${desc}`;
 
