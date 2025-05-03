@@ -49,6 +49,11 @@ interface Props
      * and return a ReactNode.
      */
     renderOption?: React.ReactNode;
+    /**
+     * A Function based on which items are filtered and sorted
+     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
+     */
+    filter?: any;
 }
 
 /** Select */
@@ -65,6 +70,7 @@ const Select = ({
         searchValue,
         value,
         renderOption,
+        filter,
         ...others
     }: Props) => {
 
@@ -128,6 +134,7 @@ const Select = ({
             searchValue={searchVal}
             onSearchChange={setSearchVal}
             renderOption={resolveProp(renderOption)}
+            filter={resolveProp(filter)}
             {...others}
         />
     );
