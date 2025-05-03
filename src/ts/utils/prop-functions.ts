@@ -14,7 +14,7 @@ export const context = {
 
 
 function isPlainObject(o) {
-   return (o === null || Array.isArray(o) || typeof o == 'function' || o.constructor === Date ) ?
+   return (o === null || o === undefined || Array.isArray(o) || typeof o == 'function' || o.constructor === Date ) ?
            false
           :(typeof o == 'object');
 }
