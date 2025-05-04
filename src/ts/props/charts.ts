@@ -52,4 +52,6 @@ export interface GridChartBaseProps {
     rightYAxisProps?: any;
     /** Props passed down to the YAxis recharts component rendered on the right side */
     rightYAxisLabel?: any;
+    /** A function to format values on Y axis and inside the tooltip. Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder. */
+    valueFormatter?: any;
 }

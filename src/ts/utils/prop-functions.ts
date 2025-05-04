@@ -3,14 +3,8 @@
  * For example label={'function': 'myLabel'}
  * where 'myLabel' is a function defined in .js file in /assets
  *
+ * Based on https://github.com/emilhe/dash-extensions-js
  */
-
-export const context = {
-//             d3,
-//             dash_clientside,
-//             ...customFunctions,
-           ...(window as any).dashMantineFunctions
-        };
 
 
 function isPlainObject(o) {
@@ -66,13 +60,11 @@ function getDescendantProp(obj, desc, defaultPath = "dashMantineFunctions") {
     return obj;
 }
 
-function resolveProps(props, functionalProps, context){
-    let nProps = Object.assign({}, props);
-    for(let prop of functionalProps) {
-        if (nProps[prop]) {
-            nProps[prop] = resolveProp(nProps[prop], context);
-        }
-    }
-    return nProps
+export function resolveProps(props, context = {}) {
+  if (!props || typeof props !== 'object') return {};
+
+  return Object.fromEntries(
+    Object.entries(props).map(([key, value]) => [key, resolveProp(value, context)])
+  );
 }
 

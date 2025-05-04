@@ -3,6 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";
+import { resolveProp, resolveProps } from "../../../utils/prop-functions"
 import { Props }  from "../BarChart"
 
 /** BarChart */
@@ -16,6 +17,8 @@ const BarChart = ({
     hoverSeriesName,
     barProps,
     highlightHover = false,
+    valueFormatter,
+    tooltipProps,
     ...others
 }: Props) => {
 
@@ -92,6 +95,8 @@ const BarChart = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             barChartProps={newProps}
             barProps={barPropsFunction}
+            valueFormatter={resolveProp(valueFormatter)}
+            tooltipProps={resolveProps(tooltipProps)}
             {...others}
         />
 
