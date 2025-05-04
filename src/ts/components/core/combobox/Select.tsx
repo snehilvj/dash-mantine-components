@@ -42,18 +42,7 @@ interface Props
     hiddenInputProps?: object;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
-    /**
-     * A function to render content of the option, replaces the default content of the option
-     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
-     *  The JS function should accept (item: ComboboxLikeRenderOptionInput<ComboboxItem>)
-     * and return a ReactNode.
-     */
-    renderOption?: React.ReactNode;
-    /**
-     * A Function based on which items are filtered and sorted
-     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
-     */
-    filter?: any;
+
 }
 
 /** Select */
