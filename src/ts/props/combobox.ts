@@ -30,4 +30,16 @@ export interface ComboboxLikeProps {
     withScrollArea?: boolean;
     /** `max-height` of the dropdown, only applicable when `withScrollArea` prop is `true`, `250` by default */
     maxDropdownHeight?: number | string;
+     /**
+     * A function to render content of the option, replaces the default content of the option
+     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
+     *  The JS function should accept (item: ComboboxLikeRenderOptionInput<ComboboxItem>)
+     * and return a ReactNode.
+     */
+    renderOption?: any;
+    /**
+     * A Function based on which items are filtered and sorted
+     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
+     */
+    filter?: any;
 }

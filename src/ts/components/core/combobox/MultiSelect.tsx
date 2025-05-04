@@ -10,6 +10,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { filterSelected } from "../../../utils/combobox";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { resolveProp } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -59,6 +60,8 @@ const MultiSelect = ({
         n_blur = 0,
         data = [],
         value = [],
+        renderOption,
+        filter,
         ...others
     }: Props) => {
 
@@ -125,6 +128,8 @@ const MultiSelect = ({
                 onChange={setSelected}
                 value={selected}
                 onSearchChange={handleSearchChange}
+                renderOption={resolveProp(renderOption)}
+                filter={resolveProp(filter)}
                 {...others}
             />
         </div>
