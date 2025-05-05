@@ -27,10 +27,6 @@ export function resolveProp(prop, context = {}) {
     if (prop.function){
         return resolveVariable(prop, context)
     }
-    // Check if the prop should be resolved as an arrow function.
-    if (prop.arrow){
-        return (...args) => prop.arrow
-    }
     // If none of the special properties are present, do nothing.
     return prop
 }
@@ -40,7 +36,7 @@ function resolveVariable(prop, context){
 
     // If it's not there, raise an error.
     if(variable === undefined){
-        throw new Error("No match for [" + prop.function + "] in the global window object.")
+        throw new Error("No match for [" + prop.function + "] in window.dashMantineFunctions.")
     }
     // If it's a function, add context.
     if(isFunction(variable) && context){
@@ -50,14 +46,15 @@ function resolveVariable(prop, context){
     return variable
 }
 
-function getDescendantProp(obj, desc, defaultPath = "dashMantineFunctions") {
-    // Use the default path if the provided desc does not contain a dot
-    const path = desc.includes(".") ? desc : `${defaultPath}.${desc}`;
+function getDescendantProp(obj, name) {
+  if (name.includes(".")) {
+    throw new Error(
+      `Function name "${name}" is invalid. Dotted paths are not allowed. Only functions in the "dashMantineFunctions" namespace are supported.`
+    );
+  }
 
-    // allows for nested paths  for example "myNamespace.mySubNamespace.myFunction"
-    const arr = path.split(".");
-    while (arr.length && (obj = obj[arr.shift()]));
-    return obj;
+  const ns = obj.dashMantineFunctions;
+  return ns ? ns[name] : undefined;
 }
 
 export function resolveProps(props, context = {}) {
