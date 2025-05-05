@@ -32,6 +32,7 @@ export function resolveProp(prop, context = {}) {
 }
 
 function resolveVariable(prop, context){
+    const options = prop.options || {};
     const variable = getDescendantProp(window, prop.function)
 
     // If it's not there, raise an error.
@@ -40,7 +41,7 @@ function resolveVariable(prop, context){
     }
     // If it's a function, add context.
     if(isFunction(variable) && context){
-        return (...args) => variable(...args, context)
+        return (...args) => variable(...args, options, context)
     }
     // Otherwise, use the variable as-is.
     return variable
