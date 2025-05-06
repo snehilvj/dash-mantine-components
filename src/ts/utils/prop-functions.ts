@@ -47,16 +47,22 @@ function resolveVariable(prop, context){
     return variable
 }
 
-function getDescendantProp(obj, name) {
-  if (name.includes(".")) {
-    throw new Error(
-      `Function name "${name}" is invalid. Dotted paths are not allowed. Only functions in the "dashMantineFunctions" namespace are supported.`
-    );
+function getDescendantProp(obj, desc) {
+  // Ensure all lookups stay within dashMantineFunctions
+  const root = obj.dashMantineFunctions;
+  if (!root || typeof desc !== "string") return undefined;
+
+  const path = desc.split(".");
+  let current = root;
+
+  for (const segment of path) {
+    if (!Object.prototype.hasOwnProperty.call(current, segment)) return undefined;
+    current = current[segment];
   }
 
-  const ns = obj.dashMantineFunctions;
-  return ns ? ns[name] : undefined;
+  return current;
 }
+
 
 export function resolveProps(props, context = {}) {
   if (!props || typeof props !== 'object') return {};
