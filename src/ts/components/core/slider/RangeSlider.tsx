@@ -40,7 +40,7 @@ interface Props
         value: number;
         label?: React.ReactNode;
     }[];
-    /** Function to generate label or any react node to render instead, set to null to disable label */
+    /** Function to generate label (See https://www.dash-mantine-components.com/functions-as-props) or any react node to render instead, set to null to disable label */
     label?: React.ReactNode;
     /** Props passed down to the `Transition` component, `{ transition: 'fade', duration: 0 }` by default */
     labelTransitionProps?: TransitionProps;

@@ -31,15 +31,11 @@ export interface ComboboxLikeProps {
     /** `max-height` of the dropdown, only applicable when `withScrollArea` prop is `true`, `250` by default */
     maxDropdownHeight?: number | string;
      /**
-     * A function to render content of the option, replaces the default content of the option
-     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
-     *  The JS function should accept (item: ComboboxLikeRenderOptionInput<ComboboxItem>)
-     * and return a ReactNode.
+     * A function to render content of the option, replaces the default content of the option.  See https://www.dash-mantine-components.com/functions-as-props
      */
     renderOption?: any;
     /**
-     * A Function based on which items are filtered and sorted
-     *  Use: { "function": "yourFunctionName" }, where the function is defined in a .js file in the Dash `assets` folder.
+     * A Function based on which items are filtered and sorted. See https://www.dash-mantine-components.com/functions-as-props
      */
     filter?: any;
 }
