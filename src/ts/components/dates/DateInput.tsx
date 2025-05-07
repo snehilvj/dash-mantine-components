@@ -15,6 +15,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
 import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { resolveProp } from "../../utils/prop-functions"
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
@@ -50,8 +51,8 @@ interface Props
     maxLevel?: CalendarLevel;
     /** Current level displayed to the user (decade, year, month), used for controlled component */
     level?: CalendarLevel;
-    /** Specifies days that should be disabled */
-    disabledDates?: string[];
+    /** Specifies days that should be disabled.  Either a list of dates or a function. See https://www.dash-mantine-components.com/functions-as-props */
+    disabledDates?: any;
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
 }
@@ -128,7 +129,7 @@ const DateInput = ({
                 value={date}
                 minDate={stringToDate(minDate)}
                 maxDate={stringToDate(maxDate)}
-                excludeDate={isExcluded}
+                excludeDate={Array.isArray(disabledDates)? isExcluded : resolveProp(disabledDates)}
                 {...others}
             />
         </div>
