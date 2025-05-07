@@ -22,8 +22,6 @@ interface Props
         StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
     valueFormat?: string;
-    /** Specifies days that should be disabled */
-    disabledDates?: string[];
     /** An integer that represents the number of times that this element has been submitted */
     n_submit?: number;
     /** Debounce time in ms */
@@ -40,7 +38,6 @@ const YearPickerInput = ({
     debounce = 0,
     minDate,
     maxDate,
-    disabledDates,
     persistence,
     persisted_props,
     persistence_type,
@@ -64,9 +61,6 @@ const YearPickerInput = ({
         }
     };
 
-    const isExcluded = (date: Date) => {
-        return isDisabled(date, disabledDates || []);
-    };
 
     return (
         <MantineYearPickerInput
