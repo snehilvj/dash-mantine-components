@@ -13,7 +13,7 @@ import { __BaseInputProps } from "props/input";
 import { PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
-import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
+import { isDisabled } from "../../utils/dates";
 import { setPersistence, getLoadingState } from "../../utils/dash3";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -73,7 +73,7 @@ const DateInput = ({
     ...others
 }: Props) => {
 
-    const [date, setDate] = useState(stringToDate(value));
+    const [date, setDate] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(date, debounceValue);
@@ -82,26 +82,26 @@ const DateInput = ({
 
     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
-            setProps({ value: dateToString(date) });
+            setProps({ value: date });
         }
 
         // Ensure the value prop is updated when the date is cleared by clicking the "X" button,
         // even if the input does not have focus.
         if (!focused && debounce === true) {
-            setProps({ value: dateToString(date)})
+            setProps({ value: date})
         }
     }, [debounced]);
 
 
     useDidUpdate(() => {
-        setDate(stringToDate(value));
+        setDate(value);
     }, [value]);
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
             setProps({
                 n_submit: n_submit + 1,
-                ...(debounce === true && { value: dateToString(date) }),
+                ...(debounce === true && { value: date }),
             });
         }
     };
@@ -109,12 +109,12 @@ const DateInput = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: dateToString(date) })
+            ...(debounce === true && { value: date })
         });
     };
 
 
-    const isExcluded = (date: Date) => {
+    const isExcluded = (date: string) => {
         return isDisabled(date, disabledDates || []);
     };
 
@@ -126,8 +126,8 @@ const DateInput = ({
                 onKeyDown={handleKeyDown}
                 onChange={setDate}
                 value={date}
-                minDate={stringToDate(minDate)}
-                maxDate={stringToDate(maxDate)}
+                minDate={minDate}
+                maxDate={maxDate}
                 excludeDate={isExcluded}
                 {...others}
             />
