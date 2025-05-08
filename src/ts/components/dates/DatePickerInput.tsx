@@ -5,12 +5,7 @@ import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { DateInputSharedProps, DatePickerBaseProps } from 'props/dates';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
-import {
-    isDisabled,
-    stringToDate,
-    toDates,
-    toStrings,
-} from '../../utils/dates';
+import { isDisabled } from '../../utils/dates';
 import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputSharedProps, DatePickerBaseProps, StylesApiProps {
@@ -48,7 +43,7 @@ const DatePickerInput = ({
     ...others
 }: Props) => {
 
-    const [date, setDate] = useState(toDates(value));
+    const [date, setDate] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(date, debounceValue);
@@ -56,20 +51,20 @@ const DatePickerInput = ({
 
     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
-            setProps({ value: toStrings(date) });
+            setProps({ value: date });
         }
     }, [debounced]);
 
     useDidUpdate(() => {
         // Clears value when X is clicked
         if (focused) {
-            setProps({ value: toStrings(date) });
+            setProps({ value: date });
         }
     }, [date]);
 
     useDidUpdate(() => {
         // If type is multiple or range, sets default value to a list
-        setDate(type !== 'default' && !value ? [] : toDates(value));
+        setDate(type !== 'default' && !value ? [] : value);
     }, [value]);
 
     const handleKeyDown = (ev: React.KeyboardEvent) => {
@@ -82,11 +77,11 @@ const DatePickerInput = ({
     const handleBlur = () => {
         // Don't include n_blur counter because onBlur is called when the calendar is opened
         if (debounce === true) {
-            setProps({ value: toStrings(date) });
+            setProps({ value: date });
         }
     };
 
-    const isExcluded = (date: Date) => isDisabled(date, disabledDates || []);
+    const isExcluded = (date: string) => isDisabled(date, disabledDates || []);
 
     return (
         <div ref={ref}>
@@ -97,8 +92,8 @@ const DatePickerInput = ({
                 onChange={setDate}
                 value={date}
                 type={type}
-                minDate={stringToDate(minDate)}
-                maxDate={stringToDate(maxDate)}
+                minDate={minDate}
+                maxDate={maxDate}
                 excludeDate={isExcluded}
                 popoverProps={{returnFocus: true, ...popoverProps}}
                 {...others}

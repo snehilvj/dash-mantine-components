@@ -5,12 +5,6 @@ import { DashBaseProps, PersistenceProps } from "props/dash";
 import { DateInputSharedProps, YearPickerBaseProps } from "props/dates";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
-import {
-    isDisabled,
-    stringToDate,
-    toDates,
-    toStrings,
-} from "../../utils/dates";
 import { setPersistence, getLoadingState } from "../../utils/dash3";
 
 interface Props
@@ -47,15 +41,15 @@ const YearPickerInput = ({
     ...others
 }: Props) => {
 
-    const [date, setDate] = useState(toDates(value));
+    const [date, setDate] = useState(value);
     const [debounced] = useDebouncedValue(date, debounce);
 
     useDidUpdate(() => {
-        setProps({ value: toStrings(date) });
+        setProps({ value: date });
     }, [debounced]);
 
     useDidUpdate(() => {
-        setDate(toDates(value));
+        setDate(value);
     }, [value]);
 
     const handleKeyDown = (ev) => {
@@ -64,9 +58,6 @@ const YearPickerInput = ({
         }
     };
 
-    const isExcluded = (date: Date) => {
-        return isDisabled(date, disabledDates || []);
-    };
 
     return (
         <MantineYearPickerInput
@@ -76,8 +67,8 @@ const YearPickerInput = ({
             onChange={setDate}
             value={date}
             type={type}
-            minDate={stringToDate(minDate)}
-            maxDate={stringToDate(maxDate)}
+            minDate={minDate}
+            maxDate={maxDate}
             {...others}
         />
     );
