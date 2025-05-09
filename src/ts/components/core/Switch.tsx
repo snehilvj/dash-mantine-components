@@ -41,6 +41,8 @@ interface Props
     disabled?: boolean;
     /** State of check box */
     checked?: boolean;
+    /** If set, the indicator will be displayed inside thumb, `true` by default */
+    withThumbIndicator?: boolean;
 }
 
 /** Switch */
