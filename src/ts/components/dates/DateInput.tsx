@@ -44,8 +44,6 @@ interface Props
     fixOnBlur?: boolean;
     /** Determines whether value can be deselected when the user clicks on the selected date in the calendar (only when clearable prop is set), defaults to true if clearable prop is set, false otherwise */
     allowDeselect?: boolean;
-    /** Determines whether time (hours, minutes, seconds and milliseconds) should be preserved when new date is picked, true by default */
-    preserveTime?: boolean;
     /** Max level that user can go up to (decade, year, month), defaults to decade */
     maxLevel?: CalendarLevel;
     /** Current level displayed to the user (decade, year, month), used for controlled component */
