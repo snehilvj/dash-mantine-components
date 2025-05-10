@@ -1,14 +1,21 @@
 import {
     CodeHighlightTabs as MantineCodeHighlightTabs,
+    CodeHighlightAdapterProvider,
+    createHighlightJsAdapter
 } from "@mantine/code-highlight";
 import "@mantine/code-highlight/styles.css";
-
+import './dmc-code.css';
 import React from "react";
 import { getLoadingState, newRenderDashComponents, getContextPath } from "../../../../utils/dash3";
 import { Props }  from "../CodeHighlightTabs"
 import {isEmpty} from 'ramda';
+import hljs from 'highlight.js/lib/core';
+import { registerTopLanguages } from '../../../../utils/code-highlight';
 
-/** CodeHighlightTabs */
+registerTopLanguages(hljs);
+const highlightJsAdapter = createHighlightJsAdapter(hljs);
+
+/** Display code in tabs and highlight code with highlight.js */
 const CodeHighlightTabs = (props: Props) => {
     const { setProps, loading_state, code, ...others } = props;
     const componentPath = getContextPath();
@@ -27,11 +34,13 @@ const CodeHighlightTabs = (props: Props) => {
     }
 
     return (
-        <MantineCodeHighlightTabs
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            code={renderedCode}
-            {...others}
-        />
+        <CodeHighlightAdapterProvider adapter={highlightJsAdapter}>
+            <MantineCodeHighlightTabs
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                code={renderedCode}
+                {...others}
+            />
+        </CodeHighlightAdapterProvider>
     );
 };
 

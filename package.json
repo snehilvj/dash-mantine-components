@@ -78,7 +78,8 @@
         "embla-carousel-react": "^8.5.2",
         "is-absolute-url": "^4.0.1",
         "jsonpath": "^1.1.1",
-        "recharts": "^2.13.3"
+        "recharts": "^2.13.3",
+        "highlight.js": "^11.11.1"
     },
     "files": [
         "/dash_mantine_components/*{.js,.map}",
