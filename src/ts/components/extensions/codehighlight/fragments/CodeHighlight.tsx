@@ -11,12 +11,13 @@ import { Props }  from "../CodeHighlight"
 
 /** Highlight code with highlight.js*/
 const CodeHighlight = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
+    const { setProps, loading_state, className, ...others } = props;
 
     return (
         <CodeHighlightAdapterProvider adapter={highlightJsAdapter}>
             <MantineCodeHighlight
                 data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                className="dmc-code"
                 {...others}
             />
         </CodeHighlightAdapterProvider>
