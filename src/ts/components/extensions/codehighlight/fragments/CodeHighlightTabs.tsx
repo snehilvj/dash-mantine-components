@@ -13,7 +13,7 @@ import { highlightJsAdapter } from '../../../../utils/highlightJsAdapter';
 
 /** Display code in tabs and highlight code with highlight.js */
 const CodeHighlightTabs = (props: Props) => {
-    const { setProps, loading_state, code, ...others } = props;
+    const { setProps, loading_state, code, className, ...others } = props;
     const componentPath = getContextPath();
     const renderedCode = [];
 
@@ -34,6 +34,7 @@ const CodeHighlightTabs = (props: Props) => {
             <MantineCodeHighlightTabs
                 data-dash-is-loading={getLoadingState(loading_state) || undefined}
                 code={renderedCode}
+                className="dmc-code"
                 {...others}
             />
         </CodeHighlightAdapterProvider>
