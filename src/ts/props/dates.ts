@@ -167,6 +167,104 @@ export interface TimeInputProps
     maxTime?: string;
 }
 
+type TimePickerFormat = '12h' | '24h';
+
+interface TimePickerAmPmLabels {
+  am: string;
+  pm: string;
+}
+
+interface TimePickerPasteSplitInput {
+  time: string;
+  format: TimePickerFormat;
+  amPmLabels: TimePickerAmPmLabels;
+}
+
+interface TimePickerPasteSplitReturnType {
+  hours: number | null;
+  minutes: number | null;
+  seconds: number | null;
+  amPm: string | null;
+}
+
+type TimePickerPasteSplit = (
+  input: TimePickerPasteSplitInput
+) => TimePickerPasteSplitReturnType;
+
+interface TimePickerPresetGroup {
+  label: React.ReactNode;
+  values: string[];
+}
+
+export type TimePickerPresets = string[] | TimePickerPresetGroup[];
+
+export interface TimePickerProps
+    extends BoxProps,
+        __BaseInputProps,
+        StylesApiProps {
+
+      /** Uncontrolled component default value */
+      defaultValue?: string;
+      /** Determines whether the clear button should be displayed, `false` by default */
+      clearable?: boolean;
+      /** `name` prop passed down to the hidden input */
+      name?: string;
+      /** `form` prop passed down to the hidden input */
+      form?: string;
+      /** Min possible time value in `hh:mm:ss` format */
+      min?: string;
+      /** Max possible time value in `hh:mm:ss` format */
+      max?: string;
+      /** Time format, `'24h'` by default */
+      format?: TimePickerFormat;
+      /** Number by which hours are incremented/decremented, `1` by default */
+      hoursStep?: number;
+      /** Number by which minutes are incremented/decremented, `1` by default */
+      minutesStep?: number;
+      /** Number by which seconds are incremented/decremented, `1` by default */
+      secondsStep?: number;
+      /** Determines whether the seconds input should be displayed, `false` by default */
+      withSeconds?: boolean;
+      /** `aria-label` of hours input */
+      hoursInputLabel?: string;
+      /** `aria-label` of minutes input */
+      minutesInputLabel?: string;
+      /** `aria-label` of seconds input */
+      secondsInputLabel?: string;
+      /** `aria-label` of am/pm input */
+      amPmInputLabel?: string;
+      /** Labels used for am/pm values, `{ am: 'AM', pm: 'PM' }` by default */
+      amPmLabels?: TimePickerAmPmLabels;
+      /** Determines whether the dropdown with time controls list should be visible when the input has focus, `false` by default */
+      withDropdown?: boolean;
+      /** Props passed down to `Popover` component */
+      popoverProps?: PopoverProps;
+      /** Props passed down to clear button */
+      clearButtonProps?: any;
+      /** Props passed down to hours input */
+      hoursInputProps?: any;
+      /** Props passed down to minutes input */
+      minutesInputProps?: any;
+      /** Props passed down to seconds input */
+      secondsInputProps?: any;
+      /** Props passed down to am/pm select */
+      amPmSelectProps?: any;
+      /** If set, the value cannot be updated */
+      readOnly?: boolean;
+      /** If set, the component becomes disabled */
+      disabled?: boolean;
+      /** Props passed down to the hidden input */
+      hiddenInputProps?: any;
+      /** A function to transform paste values, by default time in 24h format can be parsed on paste for example `23:34:22` */
+      pasteSplit?: TimePickerPasteSplit;
+      /** Time presets to display in the dropdown */
+      presets?: TimePickerPresets;
+      /** Maximum height of the content displayed in the dropdown in px, `200` by default */
+      maxDropdownContentHeight?: number;
+      /** Props passed down to all underlying `ScrollArea` components */
+      scrollAreaProps?: any;
+}
+
 interface PickerBaseProps {
     /** Picker type: range, multiple or default */
     type?: DatePickerType;
