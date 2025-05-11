@@ -38,5 +38,8 @@ hljs.registerLanguage('sql', sql);
 
 hljs.registerLanguage('markdown', markdown);
 hljs.registerLanguage('md', markdown);
+// prevents runtime error if the language specified is not included here
+hljs.registerLanguage('plaintext', markdown);
+
 
 export const highlightJsAdapter = createHighlightJsAdapter(hljs);
