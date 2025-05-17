@@ -3,9 +3,9 @@ import { TableElementProps } from "props/table";
 import React from "react";
 
 const TableTr = (props: TableElementProps) => {
-    const { setProps, children, ...others } = props;
+    const { setProps, tableProps, children, ...others } = props;
 
-    return <Table.Tr {...others}>{children}</Table.Tr>;
+    return <Table.Tr {...others} {...tableProps}>{children}</Table.Tr>;
 };
 
 export default TableTr;
