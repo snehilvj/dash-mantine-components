@@ -7,7 +7,8 @@
 - Added `TableScrollContainer` component #587 by @AnnMarieW
 - 
 ### Fixed
-- Fixed issue for components as props for timeline, stepper, codehighlight and segmentedcontrol.
+- Fixed issue for components as props for `Timeline`, `Stepper`, `CodeHighlight` and `SegmentedControl`. #555 by @BSd3v
+- Removed unused async files #587 by @AnnMarieW
 
 
 ### Changed
