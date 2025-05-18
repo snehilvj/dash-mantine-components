@@ -1,4 +1,4 @@
-import { MantineSize } from "@mantine/core";
+import { MantineSize, MantineRadius } from "@mantine/core";
 import {
     CalendarAriaLabels,
     CalendarLevel,
@@ -320,4 +320,43 @@ export interface YearPickerBaseProps
         DecadeLevelBaseSettings,
         CalendarBaseProps,
         CalendarSettings {
+}
+
+
+export interface TimeGridProps
+    extends BoxProps,
+        StylesApiProps {
+      /** Time data in 24h format to be displayed in the grid, for example `['10:00', '18:30', '22:00']`. Time values must be unique. */
+      data?: string[];
+      /** Uncontrolled component default value */
+      defaultValue?: string | null;
+      /** Determines whether the value can be deselected when the current active option is clicked or activated with keyboard, `false` by default */
+      allowDeselect?: boolean;
+      /** Time format displayed in the grid, `'24h'` by default */
+      format?: TimePickerFormat;
+      /** Determines whether the seconds part should be displayed, `false` by default */
+      withSeconds?: boolean;
+      /** Labels used for am/pm values, `{ am: 'AM', pm: 'PM' }` by default */
+      amPmLabels?: TimePickerAmPmLabels;
+      /** Props passed down to the underlying `SimpleGrid` component, `{ cols: 3, spacing: 'xs' }` by default */
+      simpleGridProps?: any;
+      /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
+      radius?: MantineRadius;
+      /** Control `font-size` of controls, key of `theme.fontSizes` or any valid CSS value, `'sm'` by default */
+      size?: MantineSize;
+      /** All controls before this time are disabled */
+      minTime?: string;
+      /** All controls after this time are disabled */
+      maxTime?: string;
+      /** Array of time values to disable */
+      disableTime?: string[];
+      /** If set, all controls are disabled */
+      disabled?: boolean;
+      /**
+       * Generates a range of time values for the `data` prop.
+       * Accepts a dictionary with `startTime`, `endTime`, and `interval` keys,
+       * where all values are strings in `hh:mm:ss` format.
+       * This overrides any values provided directly in the `data` prop.
+       */
+      timeRangeData?: GetTimeRange;
 }
