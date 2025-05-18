@@ -147,6 +147,7 @@ import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
 import MonthPickerInput from "./components/dates/MonthPickerInput";
 import YearPickerInput from "./components/dates/YearPickerInput";
+import TimeGrid from "./components/dates/TimeGrid";
 import TimeInput from "./components/dates/TimeInput";
 import TimePicker from "./components/dates/TimePicker";
 import Carousel from "./components/extensions/carousel/Carousel";
@@ -316,6 +317,7 @@ export {
     TextInput,
     Textarea,
     ThemeIcon,
+    TimeGrid,
     TimeInput,
     TimePicker,
     Timeline,
