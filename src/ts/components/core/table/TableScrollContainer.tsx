@@ -14,7 +14,6 @@ interface Props extends BoxProps, DashBaseProps {
   type?: 'native' | 'scrollarea';
   /** Props passed down to `ScrollArea` component, not applicable with `type="native"` */
   scrollAreaProps?: ScrollAreaProps;
-
   /** Content rendered inside the scroll container */
   children?: React.ReactNode;
 }

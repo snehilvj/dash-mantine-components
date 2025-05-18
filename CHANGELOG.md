@@ -1,8 +1,18 @@
 # Change Log
 
-# unreleased
+# 1.3.0
+
+### Added
+- Added `tableProps` and `tabularNums` props to `Table` #587 by @AnnMarieW
+- Added `TableScrollContainer` component #587 by @AnnMarieW
+- 
 ### Fixed
 - Fixed issue for components as props for timeline, stepper, codehighlight and segmentedcontrol.
+
+
+### Changed
+- Upgraded to latest Mantine (7.17.7)
+
 
 # 1.2.0
 
