@@ -196,6 +196,13 @@ interface TimePickerPresetGroup {
   values: string[];
 }
 
+
+export interface GetTimeRange  {
+  startTime: string;
+  endTime: string;
+  interval: string
+}
+
 export type TimePickerPresets = string[] | TimePickerPresetGroup[];
 
 export interface TimePickerProps
@@ -263,6 +270,13 @@ export interface TimePickerProps
       maxDropdownContentHeight?: number;
       /** Props passed down to all underlying `ScrollArea` components */
       scrollAreaProps?: any;
+      /**
+       * Generates a range of time values for the `presets` prop.
+       * Accepts a dictionary with `startTime`, `endTime`, and `interval` keys,
+       * where all values are strings in `hh:mm:ss` format.
+       * This overrides any values provided directly in the `presets` prop.
+       */
+      timeRangePresets?: GetTimeRange;
 }
 
 interface PickerBaseProps {
