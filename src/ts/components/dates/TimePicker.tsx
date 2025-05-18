@@ -1,4 +1,4 @@
-import { TimePicker as MantineTimePicker } from "@mantine/dates";
+import { TimePicker as MantineTimePicker, getTimeRange} from "@mantine/dates";
 import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
 import { BoxProps } from "props/box";
 import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
@@ -24,6 +24,8 @@ const TimePicker = ({
     n_submit = 0,
     n_blur = 0,
     value = '',
+    timeRangePresets,
+    presets,
     debounce = false,
     persistence,
     persisted_props,
@@ -69,6 +71,7 @@ const TimePicker = ({
             onBlur={handleBlur}
             onChange={setTime}
             value={time}
+            presets={timeRangePresets ? getTimeRange(timeRangePresets) : presets}
             {...others}
         />
     );
