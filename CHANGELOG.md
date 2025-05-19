@@ -1,6 +1,13 @@
 # Change Log
 
-# Unreleased
+# Unreleased (2.0.0)
+
+### Changed
+ - BREAKING CHANGES - updated to use Mantine 8.0.1
+ - See [Migration guide](https://www.dash-mantine-components.com/migration) in in the dmc-docs
+
+### Added
+  - New `TimePicker` and `TimeGrid` components
 
 # 1.3.0
 
