@@ -28,7 +28,7 @@ interface Props
     valueFormat?: string;
     /** Controlled component value */
     value?: string;
-    /** TimeInput component props */
+    /** Props passed the TimePicker component */
     timePickerProps?: object;
     /** Props passed down to the submit button */
     submitButtonProps?: Omit<ActionIconProps, "n_click"> & any;
