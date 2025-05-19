@@ -11,7 +11,7 @@ import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import { resolveProp } from "../../../utils/prop-functions"
+import { resolveProp, parseFuncProps } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -63,6 +63,8 @@ interface Props
     updatemode: "mouseup" | "drag";
     /** Determines whether the selection should be only allowed from the given marks array, false by default */
     restrictToMarks?: boolean;
+    /** Function to generate scale (See https://www.dash-mantine-components.com/functions-as-props) A transformation function to change the scale of the slider */
+    scale?: any;
 }
 
 /** Slider */
@@ -71,13 +73,11 @@ const Slider = ({
     loading_state,
     updatemode = "mouseup",
     value,
-    label,
     persistence,
     persisted_props,
     persistence_type,
     ...others
 }: Props) => {
-
 
     const [val, setVal] = useState(value);
 
@@ -94,9 +94,8 @@ const Slider = ({
     return (
         <MantineSlider
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
+            {...parseFuncProps('Slider',others)}
             value={val}
-            label={resolveProp(label)}
             onChange={setVal}
             onChangeEnd={(value) => {
                 if (updatemode === "mouseup") {
