@@ -8,4 +8,6 @@ export interface TableElementProps
         DashBaseProps {
     /** Content */
     children?: React.ReactNode;
+    /* props passed to the table element */
+    tableProps?: object;
 }

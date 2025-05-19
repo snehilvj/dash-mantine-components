@@ -43,6 +43,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     stickyHeaderOffset?: number | string;
     /** Headers, rows and footer */
     children?: React.ReactNode;
+    /** variant 'default' | 'vertical' */
+    variant?: 'default' | 'vertical'
+    /** Determines whether `font-variant-numeric: tabular-nums` style should be set, `false` by default */
+    tabularNums?: boolean;
 }
 
 /** Table */
