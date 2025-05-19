@@ -1,4 +1,4 @@
-from dash import Dash, html, Output, Input, State, _dash_renderer, clientside_callback
+from dash import Dash, html, Output, Input, State, _dash_renderer, clientside_callback, no_update
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 from dash.testing.wait import until
@@ -307,3 +307,195 @@ def test_003oc_optional_components(dash_duo):
         lambda: dash_duo.driver.find_element(By.TAG_NAME, 'html').get_attribute('data-mantine-color-scheme') == 'dark',
         timeout=3)
     assert dash_duo.get_logs() == []
+
+
+def test_004oc_optional_components(dash_duo):
+    app = Dash(external_stylesheets=dmc.styles.ALL)
+
+    app.layout = dmc.MantineProvider(
+        dmc.Timeline(
+            children=[
+                dmc.TimelineItem(
+                    title="Default bullet",
+                    children=dmc.Text("Default bullet without anything", c="dimmed", size="sm")
+                ),
+                dmc.TimelineItem(
+                    title="Avatar",
+                    bullet=dmc.Avatar(
+                        size=22,
+                        radius="xl",
+                        src="https://avatars.githubusercontent.com/u/91216500?v=4"
+                    ),
+                    children=dmc.Text("Timeline bullet as avatar image", c="dimmed", size="sm")
+                ),
+                dmc.TimelineItem(
+                    title="Icon",
+                    bullet=DashIconify(icon="tabler:sun", width=13),
+                    children=dmc.Text("Timeline bullet as icon", c="dimmed", size="sm")
+                ),
+                dmc.TimelineItem(
+                    title="ThemeIcon",
+                    bullet=dmc.ThemeIcon(
+                        size=22,
+                        variant="gradient",
+                        gradient={"from": "lime", "to": "cyan"},
+                        radius="xl",
+                        children=DashIconify(icon="tabler:video", width=13)
+                    ),
+                    children=dmc.Text("Timeline bullet as ThemeIcon component", c="dimmed", size="sm")
+                )
+            ],
+            bulletSize=24
+        )
+    )
+
+    dash_duo.start_server(app)
+
+    dash_duo.wait_for_text_to_equal(".mantine-Timeline-itemTitle", "Default bullet")
+    items = dash_duo.find_elements(".mantine-Timeline-item")
+    assert len(items) == 4
+
+    tests = [
+        {'.mantine-Timeline-itemTitle': 'Default bullet', '.mantine-Timeline-itemBullet': ''},
+        {'.mantine-Timeline-itemTitle': 'Avatar', '.mantine-Timeline-itemBullet img': {'attribute': 'src', 'value': 'https://avatars.githubusercontent.com/u/91216500?v=4'}},
+        {'.mantine-Timeline-itemTitle': 'Icon', '.mantine-Timeline-itemBullet svg': ''},
+        {'.mantine-Timeline-itemTitle': 'ThemeIcon', '.mantine-Timeline-itemBullet > .mantine-ThemeIcon-root': ''}
+    ]
+
+    for i, item in enumerate(items):
+        for k, v in tests[i].items():
+            if isinstance(v, str):
+                try:
+                    assert item.find_element(By.CSS_SELECTOR, k).text == v, f'{i} {k} expected {v}'
+                except Exception as e:
+                    assert 'test' == k, str(e)
+            else:
+                assert item.find_element(By.CSS_SELECTOR, k).get_attribute(v['attribute']) == v['value'], f'{i} {k} expected {v}'
+
+def test_005oc_optional_components(dash_duo):
+    app = Dash(external_stylesheets=dmc.styles.ALL)
+
+    data = [
+        ["Preview", "tabler:eye"],
+        ["Code", "tabler:code"],
+        ["Export", "tabler:external-link"],
+    ]
+
+    app.layout = dmc.MantineProvider(
+        [dmc.SegmentedControl(
+            id="segmented-with-react-nodes",
+            value="Preview",
+            data=[
+                {
+                    "value": v,
+                    "label": dmc.Center(
+                        [DashIconify(icon=icon, width=16, id=f'icon-{i}'), html.Span(v)],
+                        style={"gap": 10},
+                    ),
+                }
+                for i, [v, icon] in enumerate(data)
+            ],
+            mb=10,
+        ),
+            dmc.Button(id='update_icons')
+        ]
+    )
+
+    def shift_array(array):
+        if not array:
+            return array  # Return the array as is if it's empty
+
+        # Shift elements by one position
+        shifted_array = array[-1:] + array[:-1]
+        return shifted_array
+
+    @app.callback(
+        [Output(f'icon-{i}', 'icon') for i in range(3)],
+        Input('update_icons', 'n_clicks'),
+        [State(f'icon-{i}', 'icon') for i in range(3)],
+        prevent_initial_call=True
+    )
+    def update_icons(n, *args):
+        return shift_array(list(args))
+
+    dash_duo.start_server(app)
+
+    dash_duo.wait_for_text_to_equal(".mantine-SegmentedControl-innerLabel span", "Preview")
+    items = dash_duo.find_elements(".mantine-SegmentedControl-control")
+    assert len(items) == 3
+
+    tests = [
+        {'.mantine-SegmentedControl-innerLabel span': 'Preview', 'svg': ''},
+        {'.mantine-SegmentedControl-innerLabel span': 'Code', 'svg': ''},
+        {'.mantine-SegmentedControl-innerLabel span': 'Export', 'svg': ''},
+    ]
+
+    htmls = {}
+    for x in range(3):
+        old_html = ''
+        for i, item in enumerate(items):
+            for k, v in tests[i].items():
+                if isinstance(v, str):
+                    try:
+                        assert item.find_element(By.CSS_SELECTOR, k).text == v, f'{i} {k} expected {v}'
+                    except Exception as e:
+                        assert 'test' == k, str(e)
+            until(lambda: item.find_element(By.CSS_SELECTOR, 'svg').get_attribute('outerHTML') != htmls.get(f'.mantine-SegmentedControl-control{i}', ''), 3)
+            current_html = item.find_element(By.CSS_SELECTOR, 'svg').get_attribute('outerHTML')
+            htmls[f'.mantine-SegmentedControl-control{i}'] = current_html
+            assert old_html != current_html
+            old_html = current_html
+        dash_duo.find_element('#update_icons').click()
+
+def test_006oc_optional_components(dash_duo):
+    import random
+
+    # prepare the timeline items
+    timeline_items = [
+        dmc.TimelineItem(
+            title=char,
+            children=dmc.Text(char)
+        )
+        for char in list('ABCDE')
+    ]
+
+    app = Dash()
+    app.layout = dmc.MantineProvider(
+        html.Div(
+            [
+                dmc.Button("Shuffle timeline-items", id="button"),
+                dmc.Text(id='output_num'),
+                dmc.Timeline(
+                    # active=1,
+                    bulletSize=15,
+                    lineWidth=2,
+                    id="timeline-items",
+                    children=timeline_items,
+                )
+            ]
+        )
+    )
+
+
+    @app.callback(
+        Output('timeline-items', 'children'),
+        Output('timeline-items', 'active'),
+        Output('output_num', 'children'),
+        Input('button', 'n_clicks'),
+        prevent_initial_call=True
+    )
+    def update_output(n_clicks):
+        if n_clicks:
+            number_displayed = random.randint(0, len(timeline_items))
+            print(f"Chose to display {number_displayed} timeline item(s).")
+            return random.sample(timeline_items, number_displayed), random.randint(0, number_displayed), n_clicks
+        else:
+            return no_update, no_update, no_update
+
+    dash_duo.start_server(app)
+    dash_duo.wait_for_text_to_equal('#button', 'Shuffle timeline-items')
+    assert len(dash_duo.get_logs()) == 0
+    for i in range(1,15):
+        dash_duo.find_element('#button').click()
+        dash_duo.wait_for_text_to_equal('#output_num', f'{i}')
+        assert len(dash_duo.get_logs()) == 0

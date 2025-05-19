@@ -6,7 +6,7 @@
  */
 import React, { useState, createElement } from "react";
 import { DashBaseProps } from "props/dash";
-import {dissoc, has, includes, isEmpty, isNil, mergeRight, type, path} from "ramda";
+import {dissoc, has, includes, isEmpty, isNil, mergeRight, type} from "ramda";
 
 const SIMPLE_COMPONENT_TYPES = ['String', 'Number', 'Null', 'Boolean'];
 const isSimpleComponent = component => includes(type(component), SIMPLE_COMPONENT_TYPES);
@@ -17,7 +17,7 @@ export const isDash3 = (): boolean => {
 };
 
 export const newRenderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
-    if (!isDash3() || isEmpty(basePath)) {
+    if (!isDash3() || isEmpty(basePath) || !basePath) {
         const dash_extensions = require('dash-extensions-js');
         const {renderDashComponent} = dash_extensions;
         return renderDashComponent(component, index)
@@ -35,7 +35,7 @@ export const newRenderDashComponent = (component: any, index?: number | null, ba
 
     // Array of stuff.
     if (Array.isArray(component)) {
-        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i]));
+        return component.map((item, i) => newRenderDashComponent(item, i, [...(basePath || []), i, 'props']));
     }
 
     // Merge props.
@@ -60,7 +60,7 @@ export const newRenderDashComponents = (props: any, propsToRender: string[], bas
     for (let i = 0; i < propsToRender.length; i++) {
         const key = propsToRender[i];
         if (newProps.hasOwnProperty(key)) {
-            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, key]);
+            newProps[key] = newRenderDashComponent(newProps[key], null, [...basePath, 'props', key]);
         }
     }
     return newProps;
@@ -86,8 +86,11 @@ export const getLoadingState = (loading_state?: DashBaseProps["loading_state"]):
 
 /** Get layout information for a child component */
 export const getChildLayout = (child: any): { type: any; props: any } => {
+    if (isSimpleComponent(child)) {
+        return child /** returns because of simple component */
+    }
     if (isDash3()) {
-        return (window as any).dash_component_api.getLayout(child.props.componentPath);
+        return (window as any).dash_component_api.getLayout(child?.props?.componentPath);
     }
 
     return {
@@ -138,32 +141,4 @@ export const getContextPath = () => {
         componentPath = ctx.componentPath
     }
     return componentPath
-}
-
-export const stringifyId = (id) => {
-  if (typeof id !== "object") {
-    return id;
-  }
-  const stringifyVal = (v) => (v && v.wild) || JSON.stringify(v);
-  const parts = Object.keys(id)
-    .sort()
-    .map((k) => JSON.stringify(k) + ":" + stringifyVal(id[k]));
-  return "{" + parts.join(",") + "}";
-}
-
-export const isComponentInDash = (props, componentPath) => {
-    const ds = (window as any).dash_stores[0]
-    let test = false
-    const appLayout = ds.getState()?.layout
-    if (!isEmpty(componentPath)) {
-        test = path(componentPath, appLayout)
-    } else if (props.id) {
-        const dash_paths = ds?.getState()?.paths?.strs
-        if (dash_paths) {
-            if (stringifyId(props.id) in dash_paths) {
-                test = path(dash_paths[stringifyId(props.id)], appLayout)
-            }
-        }
-    }
-    return test
 }

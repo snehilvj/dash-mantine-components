@@ -1,12 +1,26 @@
 # Change Log
 
+# 1.3.0
+
+### Added
+- Added `tableProps` and `tabularNums` props to `Table` #587 by @AnnMarieW
+- Added `TableScrollContainer` component #587 by @AnnMarieW
+- 
+### Fixed
+- Fixed issue for components as props for `Timeline`, `Stepper`, `CodeHighlight` and `SegmentedControl`. #555 by @BSd3v
+- Removed unused async files #587 by @AnnMarieW
+
+
+### Changed
+- Upgraded to latest Mantine (7.17.7)
+
+
 # 1.2.0
 
 ### Added
 
 - Added `inputProps` to JsonInput, NumberInput, PasswordInput, TextInput, and TextArea components to allow passing props directly to the underlying input element. #568 by @AnnMarieW
 - Optional component stylesheets are now bundled automatically. It’s no longer necessary to include them as external stylesheets or add them to the assets folder. PR #567 by @AnnMarieW
-
 
 # 1.1.2rc1
 
@@ -17,7 +31,6 @@
 
 ### Changed
 - Upgraded to latest Mantine (7.17.4)
-
 
 # 1.1.1
 

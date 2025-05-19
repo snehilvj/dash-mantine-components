@@ -2,7 +2,7 @@ import dash
 from dash import Dash, html, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 _dash_renderer._set_react_version("18.2.0")
-
+from dash.testing.wait import until
 
 def navlink_app(active):
     app = Dash(__name__, use_pages=True, pages_folder='')
@@ -70,7 +70,7 @@ def test_004nl_navlink(dash_duo):
     app = navlink_app('partial')
     self_check_navlink('partial', dash_duo, app)
 
-def test_004nl_navlink(dash_duo):
+def test_005nl_navlink(dash_duo):
     app = Dash()
 
     app.layout = dmc.MantineProvider(html.Div(
@@ -106,6 +106,7 @@ def test_004nl_navlink(dash_duo):
     update.click()
 
     select = dash_duo.find_element("#link")
+    until(lambda: not select.get_attribute('data-disabled'), 3)
     # verify that the navlink href  was updated in the callback
     assert select.get_dom_attribute("href") == "/page1"
 
