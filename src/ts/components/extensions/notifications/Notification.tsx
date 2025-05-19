@@ -42,6 +42,7 @@ const Notification = (props: Props) => {
     const { action, setProps, loading_state, ...others } = props;
 
     useEffect(() => {
+        console.warn('this method of Notifications is deprecated and will be removed in the next major release')
         switch (action) {
             case "show":
                 notifications.show(others);

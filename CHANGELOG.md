@@ -1,5 +1,15 @@
 # Change Log
 
+# unreleased
+
+### Added
+- Added new 'NotificationContainer' that works more closely to upstream Notifications in Mantine.
+- Exposed the `notifications` api of Mantine for granular control at `dash_mantine_components.appNotifications.api`
+- Exposed the `store` of notifications at `dash_mantine_components.store`
+
+### Changed
+- Marked `Notification` and `NotificationProvider` for deprecation
+
 # 1.3.0
 
 ### Added
