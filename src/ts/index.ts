@@ -130,6 +130,7 @@ import TableTd from "./components/core/table/TableTd";
 import TableTfoot from "./components/core/table/TableTfoot";
 import TableTh from "./components/core/table/TableTh";
 import TableThead from "./components/core/table/TableThead";
+import TableScrollContainer from "./components/core/table/TableScrollContainer";
 import TableTr from "./components/core/table/TableTr";
 import Tabs from "./components/core/tabs/Tabs";
 import TabsList from "./components/core/tabs/TabsList";
@@ -306,6 +307,7 @@ export {
     TableTh,
     TableThead,
     TableTr,
+    TableScrollContainer,
     Tabs,
     TabsList,
     TabsPanel,

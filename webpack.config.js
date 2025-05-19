@@ -115,12 +115,6 @@ module.exports = function (env, argv) {
                         name: "dash_mantine_components-charts-shared",
                         priority: 20,
                     },
-                    shared: {
-                        chunks: "all",
-                        minSize: 0,
-                        minChunks: 2,
-                        name: "dash_mantine_components-shared",
-                    },
                 },
             },
         },

@@ -56,7 +56,6 @@ async_chunks = [f"async-{async_resource}" for async_resource in async_resources]
 
 # Add shared chunks here.
 shared_chunks = [
-    f"{__name__}-shared",
     f"{__name__}-charts-shared",
 ]
 
