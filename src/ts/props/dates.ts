@@ -104,6 +104,8 @@ interface MonthSettings {
     size?: MantineSize;
     /** Determines whether controls should be separated by spacing, true by default */
     withCellSpacing?: boolean;
+    /**Determines whether week numbers should be displayed, false by default */
+    withWeekNumbers?: boolean;
 }
 
 interface MonthLevelBaseSettings extends MonthSettings {
