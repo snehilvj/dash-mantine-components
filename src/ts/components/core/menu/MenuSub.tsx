@@ -50,7 +50,7 @@ const MenuSub = (props: Props) => {
                     const { boxWrapperProps } = childProps;
                     return (
                         <MantineMenu.Sub.Target key={index}>
-                            <Box w="fit-content" {...boxWrapperProps}>
+                            <Box {...boxWrapperProps}>
                                 {child}
                             </Box>
                         </MantineMenu.Sub.Target>
