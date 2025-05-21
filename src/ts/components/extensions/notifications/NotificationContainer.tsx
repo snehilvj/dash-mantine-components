@@ -4,7 +4,7 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, {useEffect, useState} from "react";
 import { getLoadingState, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
-import { MantineColor, MantineRadius, PortalProps } from "@mantine/core";
+import { MantineColor, MantineRadius } from "@mantine/core";
 import {omit, equals} from 'ramda';
 
 // Define appNotificationHolder as a mutable object
@@ -86,8 +86,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     zIndex?: string | number;
     /** Determines whether notifications container should be rendered inside `Portal`, `true` by default */
     withinPortal?: boolean;
-    /** Custom portal props if rendered in `Portal` */
-    portalProps?: PortalProps;
+    /** Props to pass down to the Portal when withinPortal is true */
+    portalProps?: object;
     /** Notifications to be passed to the API */
     sendNotifications?: Notification[];
     /** Notifications API: removes all notifications from the notifications state and queue*/
