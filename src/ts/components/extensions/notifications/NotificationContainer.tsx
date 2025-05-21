@@ -9,6 +9,11 @@ import {omit, equals} from 'ramda';
 
 // Define appNotificationHolder as a mutable object
 const appNotificationHolder: Record<string, any> = {};
+const allowedActions = ["show", "update", "hide"] as const;
+const allowedPositions = ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'top-center', 'bottom-center'] as const;
+export type Action = typeof allowedActions[number];
+export type Position = typeof allowedPositions[number];
+
 
 // Create a proxy for appNotifications
 export const appNotifications = new Proxy(appNotificationHolder, {
@@ -38,9 +43,9 @@ interface Notification extends BoxProps, StylesApiProps {
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
     radius?: MantineRadius;
     /** Notification icon, replaces color line */
-    icon?: React.ReactNode;
+    icon?: any;
     /** Notification title, displayed before body */
-    title?: React.ReactNode;
+    title?:any;
     /** Replaces colored line or icon with Loader component */
     loading?: boolean;
     /** Determines whether notification should have a border, `false` by default */
@@ -52,26 +57,20 @@ interface Notification extends BoxProps, StylesApiProps {
     /** Notification id, can be used to close or update notification */
     id?: string;
     /** Notification message, required for all notifications */
-    message: React.ReactNode;
+    message: any;
     /** Determines whether notification should be closed automatically,
      *  number is auto close timeout in ms, overrides `autoClose` from `Notifications`
      * */
     autoClose?: boolean | number;
     /** action */
-    action: "show" | "update" | "hide" | "clean" | "cleanQueue";
+    action: Action;
     /** Position on the screen to display the notification.  */
-    position?: 'top-left' |  'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
+    position?: Position;
 }
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Notifications position, `'bottom-right'` by default */
-    position?:
-        | "top-left"
-        | "top-right"
-        | "top-center"
-        | "bottom-left"
-        | "bottom-right"
-        | "bottom-center";
+    position?: Position;
     /** Auto close timeout for all notifications in ms, `false` to disable auto close, can be overwritten for individual notifications in `notifications.show` function, `4000` by defualt */
     autoClose?: number | false;
     /** Notification transition duration in ms, `250` by default */
@@ -106,6 +105,15 @@ const NotificationContainer = (props: Props) => {
         if (sendNotifications) {
           sendNotifications.forEach((notification) => {
             const {action, ...realNotification} = notification;
+            // Validate action is one of the accepted values
+            if (!allowedActions.includes(action || 'show')) {
+                console.error(`Invalid action: '${action}' passed to action prop; should be one of '${allowedActions.join("','")}'`);
+                return; // Skip this notification
+            }
+            if (!allowedPositions.includes(realNotification?.position || 'bottom-right')) {
+                console.error(`Invalid position: '${realNotification?.position}' passed to position prop; should be one of '${allowedPositions.join("','")}'`);
+                return; // Skip this notification
+            }
             notifications[action || 'show'](newRenderDashComponents(realNotification, ['message', 'icon', 'title']));
         });
           setProps({ sendNotifications: [] }); // Avoid duplicate processing
