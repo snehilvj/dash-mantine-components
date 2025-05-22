@@ -1,5 +1,5 @@
 import time
-from dash import Dash, html, _dash_renderer, callback, Patch, Input, Output, no_update, set_props, clientside_callback
+from dash import Dash, html, _dash_renderer, callback, Patch, Input, Output, no_update, set_props, clientside_callback, ctx
 import dash_mantine_components as dmc
 from dash.testing.wait import until
 import json
@@ -202,3 +202,76 @@ def test_004nc_notification_new_clearQueue_store(dash_duo):
     until(lambda: len(json.loads(dash_duo.find_element(f"#notification_store").text).get('notifications', [])) == 0, 30)
     children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
     assert len(children) == 0
+
+
+
+def test__005nc_notification_new_show_hide(dash_duo):
+    app = Dash()
+
+    component = html.Div(
+        [
+            dmc.NotificationContainer(id="notification-container"),
+            dmc.Group(
+                [
+                    dmc.Button(
+                        "Show",
+                        id="show-notifications",
+                        n_clicks=0
+                    ),
+                    dmc.Button(
+                        "Hide",
+                        id="hide-notifications",
+                        n_clicks=0
+                    ),
+                ],
+            ),
+        ],
+    )
+
+    app.layout = dmc.MantineProvider(component)
+
+    @callback(
+        Output("notification-container", "sendNotifications"),
+        Output("notification-container", "hideNotifications"),
+        Input("show-notifications", "n_clicks"),
+        Input("hide-notifications", "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def notify(nc1, nc2):
+        button_id = ctx.triggered_id
+        if nc1 > 0:
+            if "show" in button_id:
+                return [dict(
+                    id={"index": "1"},
+                    action="show",
+                    message="Notification Message",
+                    color="Red",
+                    autoClose=False,
+                )], no_update
+        if nc2 > 0:
+            if "hide" in button_id:
+                return no_update, [{"index": "1"}]
+        return no_update
+
+    dash_duo.start_server(app)
+
+    # Wait for layout to render
+    dash_duo.wait_for_text_to_equal("#show-notifications", "Show")
+
+    # Click "Show" button
+    dash_duo.find_element("#show-notifications").click()
+    time.sleep(1)
+
+
+    # Expect 1 notification in the DOM
+    container = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
+    assert len(container.find_elements_by_xpath("./*")) == 1
+
+    # Click "Hide" button
+    dash_duo.find_element("#hide-notifications").click()
+    time.sleep(1)
+
+
+    # Notification should be removed
+    container = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
+    assert len(container.find_elements_by_xpath("./*")) == 0
