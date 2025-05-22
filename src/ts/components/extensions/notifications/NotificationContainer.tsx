@@ -3,13 +3,13 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, {useEffect, useState} from "react";
-import { getLoadingState, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
+import { getLoadingState, newRenderDashComponents, getContextPath, stringifyId } from "../../../utils/dash3";
 import { MantineColor, MantineRadius } from "@mantine/core";
 import {omit, equals} from 'ramda';
 
 // Define appNotificationHolder as a mutable object
 const appNotificationHolder: Record<string, any> = {};
-const allowedActions = ["show", "update", "hide"] as const;
+const allowedActions = ["show", "update"] as const;
 const allowedPositions = ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'top-center', 'bottom-center'] as const;
 export type Action = typeof allowedActions[number];
 export type Position = typeof allowedPositions[number];
@@ -87,8 +87,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     withinPortal?: boolean;
     /** Props to pass down to the Portal when withinPortal is true */
     portalProps?: object;
-    /** Notifications to be passed to the API */
+    /** Notifications to show or update */
     sendNotifications?: Notification[];
+    /** Notifications (ids) to be removed  from state or queue*/
+    hideNotifications?: string[];
     /** Notifications API: removes all notifications from the notifications state and queue*/
     clean?: boolean;
     /** Notifications API: removes all notifications from the queue*/
@@ -97,28 +99,48 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** NotificationContainer */
 const NotificationContainer = (props: Props) => {
-    const { setProps, loading_state, sendNotifications, clean, cleanQueue, ...others } = props;
+    const { setProps, loading_state, sendNotifications, hideNotifications, clean, cleanQueue, ...others } = props;
 
     const componentPath = getContextPath()
 
     useEffect(() => {
-        if (sendNotifications) {
-          sendNotifications.forEach((notification) => {
+        if (!sendNotifications || sendNotifications.length === 0) return;
+
+        sendNotifications.forEach((notification) => {
             const {action, ...realNotification} = notification;
+
             // Validate action is one of the accepted values
             if (!allowedActions.includes(action || 'show')) {
                 console.error(`Invalid action: '${action}' passed to action prop; should be one of '${allowedActions.join("','")}'`);
-                return; // Skip this notification
+                return;
             }
             if (!allowedPositions.includes(realNotification?.position || 'bottom-right')) {
                 console.error(`Invalid position: '${realNotification?.position}' passed to position prop; should be one of '${allowedPositions.join("','")}'`);
-                return; // Skip this notification
+                return;
             }
-            notifications[action || 'show'](newRenderDashComponents(realNotification, ['message', 'icon', 'title']));
+
+             // handle pattern matching  ids
+            const normalizedNotification = {
+              ...realNotification,
+              id: stringifyId(realNotification.id),
+            };
+            notifications[action || 'show'](newRenderDashComponents(normalizedNotification, ['message', 'icon', 'title']));
         });
-          setProps({ sendNotifications: [] }); // Avoid duplicate processing
-        }
+
+        setProps({ sendNotifications: [] }); // Avoid duplicate processing
+
     }, [sendNotifications]);
+
+    useEffect(() => {
+      if (!hideNotifications || hideNotifications.length === 0) return;
+
+      hideNotifications.forEach((id) => {
+        notifications.hide(stringifyId(id));
+      });
+
+      setProps({ hideNotifications: [] });
+    }, [hideNotifications]);
+
 
     useEffect(() => {
         if (cleanQueue) {

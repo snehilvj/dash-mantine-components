@@ -16,6 +16,23 @@ export const isDash3 = (): boolean => {
     return !!(window as any).dash_component_api;
 };
 
+
+ // stringifies object ids used in pattern matching callbacks
+export const stringifyId = (id: any): string => {
+    if (typeof id !== 'object' || id === null) {
+        return id;
+    }
+
+    const stringifyVal = (v: any) => (v && v.wild) || JSON.stringify(v);
+
+    const parts = Object.keys(id)
+        .sort()
+        .map((key) => JSON.stringify(key) + ':' + stringifyVal(id[key]));
+
+    return '{' + parts.join(',') + '}';
+};
+
+
 export const newRenderDashComponent = (component: any, index?: number | null, basePath?: any[]) => {
     if (!isDash3() || isEmpty(basePath) || !basePath) {
         const dash_extensions = require('dash-extensions-js');
