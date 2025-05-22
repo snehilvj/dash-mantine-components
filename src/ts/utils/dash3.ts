@@ -19,6 +19,10 @@ export const isDash3 = (): boolean => {
 
  // stringifies object ids used in pattern matching callbacks
 export const stringifyId = (id: any): string => {
+    if (isDash3) {
+        return (window as any).dash_component_api.stringifyId(id)
+    }
+
     if (typeof id !== 'object' || id === null) {
         return id;
     }
