@@ -104,18 +104,27 @@ const NotificationContainer = (props: Props) => {
     const componentPath = getContextPath()
 
     useEffect(() => {
-        if (!sendNotifications || sendNotifications.length === 0) return;
+        // Note - the type checking can be removed when it's handled properly in Dash
+        if (sendNotifications === undefined || sendNotifications === null) return;
+
+        if (!Array.isArray(sendNotifications)) {
+            throw new Error(
+                `Expected 'sendNotifications' to be a list of dictionaries but received: ${JSON.stringify(sendNotifications)}`
+            );
+            return;
+        }
 
         sendNotifications.forEach((notification) => {
             const {action, ...realNotification} = notification;
 
             // Validate action is one of the accepted values
             if (!allowedActions.includes(action || 'show')) {
-                console.error(`Invalid action: '${action}' passed to action prop; should be one of '${allowedActions.join("','")}'`);
+                throw new Error(`Invalid action: '${action}' passed to action prop; should be one of '${allowedActions.join("','")}'`);
                 return;
             }
             if (!allowedPositions.includes(realNotification?.position || 'bottom-right')) {
-                console.error(`Invalid position: '${realNotification?.position}' passed to position prop; should be one of '${allowedPositions.join("','")}'`);
+                throw new Error
+                (`Invalid position: '${realNotification?.position}' passed to position prop; should be one of '${allowedPositions.join("','")}'`);
                 return;
             }
 
@@ -132,7 +141,14 @@ const NotificationContainer = (props: Props) => {
     }, [sendNotifications]);
 
     useEffect(() => {
-      if (!hideNotifications || hideNotifications.length === 0) return;
+      if (hideNotifications === undefined || hideNotifications === null) return;
+
+      if (!Array.isArray(hideNotifications)) {
+          throw new Error(
+              `Expected 'hideNotifications' to be a list of ids but received: ${JSON.stringify(hideNotifications)}`
+          );
+          return;
+      }
 
       hideNotifications.forEach((id) => {
         notifications.hide(stringifyId(id));
