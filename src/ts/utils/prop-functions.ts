@@ -1,3 +1,5 @@
+import {path} from 'ramda';
+
 /**
  * Utility to allow passing a function as a prop from a dash app.
  * For example label={'function': 'myLabel'}
@@ -6,6 +8,23 @@
  * Based on https://github.com/emilhe/dash-extensions-js
  */
 
+const funcPropsMap = {
+    Slider: ['label', 'scale']
+}
+
+export function parseFuncProps(comp: string, props: Record<string, any>, context: Record<string, any> = {}): { [x: string]: any; } {
+    const funcProps: Record<string, any> = { ...props }; // Create a shallow copy to avoid mutation
+
+    if (funcPropsMap[comp]) {
+        funcPropsMap[comp].forEach((v) => {
+            if (path([v.split('.')], funcProps)) {
+                funcProps[v] = resolveProp(funcProps[v], context);
+            }
+        });
+    }
+
+    return funcProps; // Return as an object
+}
 
 function isPlainObject(o) {
    return (o === null || o === undefined || Array.isArray(o) || typeof o == 'function' || o.constructor === Date ) ?
