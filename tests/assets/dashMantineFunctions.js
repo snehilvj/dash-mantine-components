@@ -22,3 +22,7 @@ dmcfuncs.labelFormatter = function (value, opts = {}) {
   const suffix = opts.suffix || '';
   return `${prefix}${value}${suffix}`;
 };
+
+
+dmcfuncs.getScale = (v) => 2 ** v;
+
