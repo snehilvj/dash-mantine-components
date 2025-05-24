@@ -9,7 +9,8 @@ import {path} from 'ramda';
  */
 
 const funcPropsMap = {
-    Slider: ['label', 'scale']
+    Slider: ['label', 'scale'],
+    RangeSlider: ['label', 'scale']
 }
 
 export function parseFuncProps(comp: string, props: Record<string, any>, context: Record<string, any> = {}): { [x: string]: any; } {

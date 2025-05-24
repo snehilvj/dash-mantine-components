@@ -11,6 +11,7 @@ import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { parseFuncProps } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -68,6 +69,8 @@ interface Props
     updatemode: "mouseup" | "drag";
     /** Determines whether the selection should be only allowed from the given marks array, false by default */
     restrictToMarks?: boolean;
+    /** Function to generate scale (See https://www.dash-mantine-components.com/functions-as-props) A transformation function to change the scale of the slider */
+    scale?: any;
 }
 
 /** RangeSlider */
@@ -97,7 +100,7 @@ const RangeSlider = ({
     return (
         <MantineRangeSlider
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
+            {...parseFuncProps('RangeSlider',others)}
             value={val}
             onChange={setVal}
             onChangeEnd={(value) => {

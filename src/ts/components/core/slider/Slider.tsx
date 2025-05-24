@@ -11,7 +11,7 @@ import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import { resolveProp, parseFuncProps } from "../../../utils/prop-functions"
+import { parseFuncProps } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
