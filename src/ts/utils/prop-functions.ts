@@ -18,7 +18,7 @@ import {path} from 'ramda';
 
 const funcPropsMap = {
     Slider: ['label', 'scale'],
-    RangeSlider: ['label', 'scale']
+    RangeSlider: ['label', 'scale'],
 }
 
 // parses functon as props from other props

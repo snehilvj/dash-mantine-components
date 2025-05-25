@@ -19,6 +19,7 @@ const BarChart = ({
     highlightHover = false,
     valueFormatter,
     tooltipProps,
+    getBarColor,
     ...others
 }: Props) => {
 
@@ -97,6 +98,7 @@ const BarChart = ({
             barProps={barPropsFunction}
             valueFormatter={resolveProp(valueFormatter)}
             tooltipProps={resolveProp(tooltipProps)}
+            getBarColor={resolveProp(getBarColor)}
             {...others}
         />
 
