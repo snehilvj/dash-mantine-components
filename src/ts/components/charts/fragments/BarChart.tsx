@@ -3,7 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";
-import { resolveProp, resolveProps } from "../../../utils/prop-functions"
+import { resolveProp } from "../../../utils/prop-functions"
 import { Props }  from "../BarChart"
 
 /** BarChart */
@@ -96,7 +96,7 @@ const BarChart = ({
             barChartProps={newProps}
             barProps={barPropsFunction}
             valueFormatter={resolveProp(valueFormatter)}
-            tooltipProps={resolveProps(tooltipProps)}
+            tooltipProps={resolveProp(tooltipProps)}
             {...others}
         />
 

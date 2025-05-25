@@ -2,8 +2,16 @@ import {path} from 'ramda';
 
 /**
  * Utility to allow passing a function as a prop from a dash app.
- * For example label={'function': 'myLabel'}
- * where 'myLabel' is a function defined in .js file in /assets
+ * Must  be a dict with a key of "function"
+      label={'function': 'functionName'}
+
+  Handles nested functions:
+      label={"content": {"function": "functionName"}}
+
+  Can pass additional arg with the options key
+      label={"function": "functionName", "options": {"suffix": " °F"}}),
+
+ * where 'functionName' is a function defined in the dashMantineFunctions namespace in a .js file in /assets
  *
  * Based on https://github.com/emilhe/dash-extensions-js
  */
@@ -13,6 +21,7 @@ const funcPropsMap = {
     RangeSlider: ['label', 'scale']
 }
 
+// parses functon as props from other props
 export function parseFuncProps(comp: string, props: Record<string, any>, context: Record<string, any> = {}): { [x: string]: any; } {
     const funcProps: Record<string, any> = { ...props }; // Create a shallow copy to avoid mutation
 
@@ -27,68 +36,55 @@ export function parseFuncProps(comp: string, props: Record<string, any>, context
     return funcProps; // Return as an object
 }
 
-function isPlainObject(o) {
-   return (o === null || o === undefined || Array.isArray(o) || typeof o == 'function' || o.constructor === Date ) ?
-           false
-          :(typeof o == 'object');
-}
 
-function isFunction(functionToCheck) {
-   return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
-}
-
-
-export function resolveProp(prop, context = {}) {
-    // If it's not an object, just return.
-    if (!isPlainObject(prop)){
-        return prop
-    }
-    // Check if the prop should be resolved a variable.
-    if (prop.function){
-        return resolveVariable(prop, context)
-    }
-    // If none of the special properties are present, do nothing.
-    return prop
-}
-
-function resolveVariable(prop, context){
-    const options = prop.options || {};
-    const variable = getDescendantProp(window, prop.function)
-
-    // If it's not there, raise an error.
-    if(variable === undefined){
-        throw new Error("No match for [" + prop.function + "] in window.dashMantineFunctions.")
-    }
-    // If it's a function, add context.
-    if(isFunction(variable) && context){
-        return (...args) => variable(...args, options, context)
-    }
-    // Otherwise, use the variable as-is.
-    return variable
-}
-
-function getDescendantProp(obj, desc) {
-  // Ensure all lookups stay within dashMantineFunctions
-  const root = obj.dashMantineFunctions;
-  if (!root || typeof desc !== "string") return undefined;
-
-  const path = desc.split(".");
-  let current = root;
-
-  for (const segment of path) {
-    if (!Object.prototype.hasOwnProperty.call(current, segment)) return undefined;
-    current = current[segment];
-  }
-
-  return current;
-}
-
-
-export function resolveProps(props, context = {}) {
-  if (!props || typeof props !== 'object') return {};
-
-  return Object.fromEntries(
-    Object.entries(props).map(([key, value]) => [key, resolveProp(value, context)])
+function isPlainObject(o: unknown): o is Record<string, unknown> {
+  return (
+    typeof o === "object" &&
+    o !== null &&
+    !Array.isArray(o) &&
+    !(o instanceof Date)
   );
 }
 
+function isFunction(value: unknown): value is (...args: any[]) => any {
+  return typeof value === "function";
+}
+
+function getDescendantProp(obj: any, desc: string): any {
+  const root = obj.dashMantineFunctions;
+  if (!root || typeof desc !== "string") return undefined;
+  return desc.split(".").reduce((current, segment) => current?.[segment], root);
+}
+
+function resolveFunctionName(prop: any, context: Record<string, any> = {}): any {
+  const options = prop.options || {};
+  const functionName = getDescendantProp(window, prop.function);
+
+  if (functionName === undefined) {
+    throw new Error(
+      `No match for [${prop.function}] in window.dashMantineFunctions.`
+    );
+  }
+  if (isFunction(functionName) && context) {
+    return (...args: any[]) => functionName(...args, options, context);
+  }
+  return functionName;
+}
+
+/**
+ * Resolves a prop or props object recursively.
+ */
+export function resolveProp(prop: any, context: Record<string, any> = {}): any {
+  // If it's a function reference object
+  if (isPlainObject(prop) && "function" in prop) {
+    return resolveFunctionName(prop, context);
+  }
+  // If it's a plain object, recurse into its properties
+  if (isPlainObject(prop)) {
+    return Object.fromEntries(
+      Object.entries(prop).map(([key, value]) => [key, resolveProp(value, context)])
+    );
+  }
+  // Otherwise, return as-is (primitive, array, etc.)
+  return prop;
+}
