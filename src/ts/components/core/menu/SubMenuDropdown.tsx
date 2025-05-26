@@ -11,7 +11,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 }
 
 /** Sub MenuDropdown */
-const MenuSubDropdown = (props: Props) => {
+const SubMenuDropdown = (props: Props) => {
     const { children, setProps, loading_state, ...others } = props;
 
     return (
@@ -26,6 +26,6 @@ const MenuSubDropdown = (props: Props) => {
 
 
 
-MenuSubDropdown.dashChildrenUpdate = true
+SubMenuDropdown.dashChildrenUpdate = true
 
-export default MenuSubDropdown;
+export default SubMenuDropdown;

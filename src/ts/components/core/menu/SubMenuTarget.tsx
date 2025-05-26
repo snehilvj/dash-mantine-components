@@ -9,10 +9,10 @@ interface Props {
 }
 
 /** Sub MenuTarget */
-const MenuSubTarget = (props: Props) => {
+const SubMenuTarget = (props: Props) => {
     const { children } = props;
 
     return <>{children}</>;
 };
 
-export default MenuSubTarget;
+export default SubMenuTarget;

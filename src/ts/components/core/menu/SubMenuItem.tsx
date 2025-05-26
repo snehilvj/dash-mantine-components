@@ -30,7 +30,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 }
 
 /** Sub MenuItem */
-const MenuSubItem = ({
+const SubMenuItem = ({
         children,
         disabled,
         href,
@@ -80,6 +80,6 @@ const MenuSubItem = ({
     }
 };
 
-MenuSubItem.dashChildrenUpdate = true
+SubMenuItem.dashChildrenUpdate = true
 
-export default MenuSubItem;
+export default SubMenuItem;

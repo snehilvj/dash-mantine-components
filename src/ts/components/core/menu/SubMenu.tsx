@@ -1,4 +1,4 @@
-import { Box, Menu as MantineMenu } from "@mantine/core";
+import { Box, Menu  } from "@mantine/core";
 import { __PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React from "react";
@@ -39,27 +39,27 @@ interface Props extends __PopoverProps, StylesApiProps {
 }
 
 /** Sub Menu */
-const MenuSub = (props: Props) => {
+const SubMenu = (props: Props) => {
     const { children, setProps, ...others } = props;
 
     return (
-        <MantineMenu.Sub {...others}>
+        <Menu.Sub {...others}>
             {React.Children.map(children, (child: any, index) => {
                 const { type: childType, props: childProps } = getChildLayout(child);
-                if (childType === "MenuSubTarget") {
+                if (childType === "SubMenuTarget") {
                     const { boxWrapperProps } = childProps;
                     return (
-                        <MantineMenu.Sub.Target key={index}>
+                        <Menu.Sub.Target key={index}>
                             <Box {...boxWrapperProps}>
                                 {child}
                             </Box>
-                        </MantineMenu.Sub.Target>
+                        </Menu.Sub.Target>
                     );
                 }
                 return child;
             })}
-        </MantineMenu.Sub>
+        </Menu.Sub>
     );
 };
 
-export default MenuSub;
+export default SubMenu;

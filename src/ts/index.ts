@@ -106,10 +106,10 @@ import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
-import MenuSub from "./components/core/menu/MenuSub";
-import MenuSubDropdown from "./components/core/menu/MenuSubDropdown";
-import MenuSubItem from "./components/core/menu/MenuSubItem";
-import MenuSubTarget from "./components/core/menu/MenuSubTarget";
+import SubMenu from "./components/core/menu/SubMenu";
+import SubMenuDropdown from "./components/core/menu/SubMenuDropdown";
+import SubMenuItem from "./components/core/menu/SubMenuItem";
+import SubMenuTarget from "./components/core/menu/SubMenuTarget";
 import Popover from "./components/core/popover/Popover";
 import PopoverDropdown from "./components/core/popover/PopoverDropdown";
 import PopoverTarget from "./components/core/popover/PopoverTarget";
@@ -256,10 +256,10 @@ export {
     MenuItem,
     MenuLabel,
     MenuTarget,
-    MenuSub,
-    MenuSubDropdown,
-    MenuSubItem,
-    MenuSubTarget,
+    SubMenu,
+    SubMenuDropdown,
+    SubMenuItem,
+    SubMenuTarget,
     Modal,
     MonthPickerInput,
     MultiSelect,
