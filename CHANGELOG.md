@@ -3,7 +3,7 @@
 # Unreleased (2.0.0)
 
 ### Changed
- - BREAKING CHANGES - updated to use Mantine 8.0.1
+ - BREAKING CHANGES - updated to use Mantine 8.0.2
  - See [Migration guide](https://www.dash-mantine-components.com/migration) in in the dmc-docs
 
 ### Added
