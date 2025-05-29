@@ -35,7 +35,7 @@ const NotificationProvider = (props: Props) => {
     const { setProps, loading_state, ...others } = props;
 
     useEffect(() => {
-        console.warn('This method of Notifications is deprecated and will be removed in a future major release.  Instead, use `NotificationContainer')
+        console.warn('Notification and NotificationProvider are deprecated and will be removed in a future major release.  Instead, use `NotificationContainer')
         }, [])
 
     return (
