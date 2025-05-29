@@ -10,7 +10,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { filterSelected } from "../../../utils/combobox";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import { resolveProp } from "../../../utils/prop-functions"
+import { parseFuncProps } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -58,8 +58,6 @@ const Select = ({
         data = [],
         searchValue,
         value,
-        renderOption,
-        filter,
         ...others
     }: Props) => {
 
@@ -115,6 +113,7 @@ const Select = ({
     return (
         <MantineSelect
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            {...parseFuncProps('Select',others)}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             data={options}
@@ -122,9 +121,6 @@ const Select = ({
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
-            renderOption={resolveProp(renderOption)}
-            filter={resolveProp(filter)}
-            {...others}
         />
     );
 };

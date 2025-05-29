@@ -19,6 +19,9 @@ import {path} from 'ramda';
 const funcPropsMap = {
     Slider: ['label', 'scale'],
     RangeSlider: ['label', 'scale'],
+    Select: ['renderOption', 'filter'],
+    MultiSelect: ['renderOption', 'filter'],
+    TagsInput: ['renderOption', 'filter'],
 }
 
 // parses functon as props from other props
