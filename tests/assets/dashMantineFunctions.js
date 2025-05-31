@@ -26,3 +26,7 @@ dmcfuncs.labelFormatter = function (value, opts = {}) {
 
 dmcfuncs.getScale = (v) => 2 ** v;
 
+
+dmcfuncs.excludeDate = function(date) {
+    return date.getDay() !== 5
+}
