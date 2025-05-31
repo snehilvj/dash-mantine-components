@@ -1,5 +1,20 @@
 # Change Log
 
+# Unreleased
+
+### Added
+
+- Functions as Props  #580 by @AnnMarieW and @BSd3v
+  - Components can now accept JavaScript functions via: `{"function": "myFunction"}`
+  - Functions must be defined in a .js file in  `/assets` in `window.dashMantineFunction` namespace
+  - Supports passing `options` from Python, for example: ` {"function": "formatTemp", "options": {"unit": "F"}}`
+  - Supported props:
+      - label and scale in Slider and RangeSlider
+      - renderOption and filter in Select, MultiSelect and TagsInput,
+      - disabledDates in date components with a calendar picker
+      - getBarColor in BarCharts
+      - valueFormatter and tooltipProps in chart components
+  
 # 1.3.0
 
 ### Added
