@@ -3,6 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useState, useRef } from "react";
 import { getClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";
+import { resolveProp } from "../../../utils/prop-functions"
 import { Props }  from "../LineChart"
 
 
@@ -19,6 +20,8 @@ const LineChart = ({
     lineChartProps,
     activeDotProps,
     lineProps,
+    valueFormatter,
+    tooltipProps,
     ...others
 }: Props) => {
 
@@ -117,6 +120,8 @@ const LineChart = ({
                 onMouseOut: handleHoverEnd,
             }}
             lineProps={linePropsFunction}
+            valueFormatter={resolveProp(valueFormatter)}
+            tooltipProps={resolveProp(tooltipProps)}
             {...others}
         />
     );

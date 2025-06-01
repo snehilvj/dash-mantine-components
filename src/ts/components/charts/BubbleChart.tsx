@@ -44,8 +44,8 @@ export interface Props
     clickData?: Record<string, any>;
     /** Hover data */
     hoverData?: Record<string, any>;
-    /** Function to format z axis values */
-    valueFormatter?: (value: number) => string;
+    /** A function to format values on Y axis and inside the tooltip. See https://www.dash-mantine-components.com/functions-as-props */
+    valueFormatter?: any;
 }
 
 

@@ -10,6 +10,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { filterSelected } from "../../../utils/combobox";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { parseFuncProps } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -41,6 +42,7 @@ interface Props
     hiddenInputProps?: object;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+
 }
 
 /** Select */
@@ -111,6 +113,7 @@ const Select = ({
     return (
         <MantineSelect
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            {...parseFuncProps('Select',others)}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             data={options}
@@ -118,7 +121,6 @@ const Select = ({
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
-            {...others}
         />
     );
 };

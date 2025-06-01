@@ -7,12 +7,13 @@ import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { isDisabled } from '../../utils/dates';
 import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { resolveProp } from "../../utils/prop-functions"
 
 interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputSharedProps, DatePickerBaseProps, StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default */
     valueFormat?: string;
-    /** Specifies days that should be disabled */
-    disabledDates?: string[];
+    /** Specifies days that should be disabled.  Either a list of dates or a function. See https://www.dash-mantine-components.com/functions-as-props */
+    disabledDates?: any;
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
     /** An integer that represents the number of times that this element has been submitted */
@@ -94,7 +95,7 @@ const DatePickerInput = ({
                 type={type}
                 minDate={minDate}
                 maxDate={maxDate}
-                excludeDate={isExcluded}
+                excludeDate={Array.isArray(disabledDates)? isExcluded : resolveProp(disabledDates)}
                 popoverProps={{returnFocus: true, ...popoverProps}}
                 {...others}
             />

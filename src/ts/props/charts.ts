@@ -52,4 +52,6 @@ export interface GridChartBaseProps {
     rightYAxisProps?: any;
     /** Props passed down to the YAxis recharts component rendered on the right side */
     rightYAxisLabel?: any;
+    /** A function to format values on Y axis and inside the tooltip. See https://www.dash-mantine-components.com/functions-as-props */
+    valueFormatter?: any;
 }

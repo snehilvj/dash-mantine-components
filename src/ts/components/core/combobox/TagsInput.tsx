@@ -13,6 +13,7 @@ import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { filterSelected } from "../../../utils/combobox";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { parseFuncProps } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -89,12 +90,12 @@ const TagsInput = ({
     return (
         <MantineTagsInput
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+             {...parseFuncProps('Select',others)}
             data={options}
             onChange={setSelected}
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
-            {...others}
         />
     );
 };
