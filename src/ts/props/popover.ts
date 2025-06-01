@@ -73,4 +73,6 @@ export interface PopoverProps extends __PopoverProps, StylesApiProps {
     closeOnEscape?: boolean;
     /** Determines whether dropdown and target elements should have accessible roles, `true` by default */
     withRoles?: boolean;
+    /** If set, the dropdown is hidden when the element is hidden with styles or not visible on the screen, `true` by default */
+    hideDetached?: boolean;
 }

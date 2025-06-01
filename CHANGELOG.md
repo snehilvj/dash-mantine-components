@@ -1,8 +1,14 @@
 # Change Log
 
-# Unreleased
+# Unreleased (2.0.0)
+
+### Changed
+ - BREAKING CHANGES - updated to use Mantine 8.0.2
+ - See [Migration guide](https://www.dash-mantine-components.com/migration) in the dmc-docs
 
 ### Added
+- New `TimePicker, `TimeGrid`, `DatePicker` and SubMenu components
+
 
 - Functions as Props  #580 by @AnnMarieW and @BSd3v
   - Components can now accept JavaScript functions via: `{"function": "myFunction"}`
@@ -14,7 +20,7 @@
       - disabledDates in date components with a calendar picker
       - getBarColor in BarCharts
       - valueFormatter and tooltipProps in chart components
-  
+
 # 1.3.0
 
 ### Added
