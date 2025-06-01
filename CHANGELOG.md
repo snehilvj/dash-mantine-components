@@ -9,7 +9,6 @@
 ### Added
 - New `TimePicker, `TimeGrid`, `DatePicker` and SubMenu components
 
-
 - Functions as Props  #580 by @AnnMarieW and @BSd3v
   - Components can now accept JavaScript functions via: `{"function": "myFunction"}`
   - Functions must be defined in a .js file in  `/assets` in `window.dashMantineFunction` namespace
@@ -20,6 +19,13 @@
       - disabledDates in date components with a calendar picker
       - getBarColor in BarCharts
       - valueFormatter and tooltipProps in chart components
+
+
+- New way to handle Notifications #539 by @BSd3v
+  - Added new 'NotificationContainer' that works more closely to upstream Notifications in Mantine.
+  - Exposed the `notifications` api of Mantine for granular control at `dash_mantine_components.appNotifications.api`
+  - Exposed the `store` of notifications at `dash_mantine_components.store`
+  - Marked `Notification` and `NotificationProvider` for deprecation
 
 # 1.3.0
 
