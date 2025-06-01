@@ -1,14 +1,31 @@
 # Change Log
 
-# unreleased
-
-### Added
-- Added new 'NotificationContainer' that works more closely to upstream Notifications in Mantine.
-- Exposed the `notifications` api of Mantine for granular control at `dash_mantine_components.appNotifications.api`
-- Exposed the `store` of notifications at `dash_mantine_components.store`
+# Unreleased (2.0.0)
 
 ### Changed
-- Marked `Notification` and `NotificationProvider` for deprecation
+ - BREAKING CHANGES - updated to use Mantine 8.0.2
+ - See [Migration guide](https://www.dash-mantine-components.com/migration) in the dmc-docs
+
+### Added
+- New `TimePicker, `TimeGrid`, `DatePicker` and SubMenu components
+
+- Functions as Props  #580 by @AnnMarieW and @BSd3v
+  - Components can now accept JavaScript functions via: `{"function": "myFunction"}`
+  - Functions must be defined in a .js file in  `/assets` in `window.dashMantineFunction` namespace
+  - Supports passing `options` from Python, for example: ` {"function": "formatTemp", "options": {"unit": "F"}}`
+  - Supported props:
+      - label and scale in Slider and RangeSlider
+      - renderOption and filter in Select, MultiSelect and TagsInput,
+      - disabledDates in date components with a calendar picker
+      - getBarColor in BarCharts
+      - valueFormatter and tooltipProps in chart components
+
+
+- New way to handle Notifications #539 by @BSd3v
+  - Added new 'NotificationContainer' that works more closely to upstream Notifications in Mantine.
+  - Exposed the `notifications` api of Mantine for granular control at `dash_mantine_components.appNotifications.api`
+  - Exposed the `store` of notifications at `dash_mantine_components.store`
+  - Marked `Notification` and `NotificationProvider` for deprecation
 
 # 1.3.0
 

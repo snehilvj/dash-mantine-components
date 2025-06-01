@@ -30,4 +30,12 @@ export interface ComboboxLikeProps {
     withScrollArea?: boolean;
     /** `max-height` of the dropdown, only applicable when `withScrollArea` prop is `true`, `250` by default */
     maxDropdownHeight?: number | string;
+     /**
+     * A function to render content of the option, replaces the default content of the option.  See https://www.dash-mantine-components.com/functions-as-props
+     */
+    renderOption?: any;
+    /**
+     * A Function based on which items are filtered and sorted. See https://www.dash-mantine-components.com/functions-as-props
+     */
+    filter?: any;
 }

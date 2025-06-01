@@ -54,7 +54,7 @@ def test_002ca_carousel(dash_duo):
             dmc.CarouselSlide(dmc.Center("Slide-2", bg="blue", c="white", p=60)),
         ],
         id="carousel",
-        loop=True,
+        emblaOptions={"loop": True},
         autoScroll={"speed":50},
     )
 

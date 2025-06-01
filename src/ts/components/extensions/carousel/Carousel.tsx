@@ -25,20 +25,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     orientation?: "horizontal" | "vertical";
     /** Slides container `height`, required for vertical orientation */
     height?: React.CSSProperties["height"];
-    /** Determines how slides will be aligned relative to the container. `'center'` by default */
-    align?: "start" | "center" | "end";
-    /** Number of slides that will be scrolled with next/previous buttons, `1` by default */
-    slidesToScroll?: number | "auto";
     /** Determines whether gap between slides should be treated as part of the slide size, `true` by default */
     includeGapInSize?: boolean;
-    /** Determines whether momentum scrolling should be enabled, `false` by default */
-    dragFree?: boolean;
-    /** Enables infinite looping. `true` by default, automatically falls back to `false` if slide content isn't enough to loop. */
-    loop?: boolean;
     /** Index of initial slide */
     initialSlide?: number;
-    /** Choose a fraction representing the percentage portion of a slide that needs to be visible in order to be considered in view. For example, 0.5 equals 50%. */
-    inViewThreshold?: number;
     /** Determines whether next/previous controls should be displayed, true by default */
     withControls?: boolean;
     /** Determines whether indicators should be displayed, `false` by default */
@@ -47,10 +37,6 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     nextControlIcon?: React.ReactNode;
     /** Icon of the previous control */
     previousControlIcon?: React.ReactNode;
-    /** Allow the carousel to skip scroll snaps if it is dragged vigorously. Note that this option will be ignored if the dragFree option is set to `true`, `false` by default */
-    skipSnaps?: boolean;
-    /** Clear leading and trailing empty space that causes excessive scrolling. Use `trimSnaps` to only use snap points that trigger scrolling or keepSnaps to keep them. */
-    containScroll?: "trimSnaps" | "keepSnaps" | "";
     /** Determines whether arrow key should switch slides, `true` by default */
     withKeyboardEvents?: boolean;
     /** Enables autoplay with optional configuration */
@@ -59,6 +45,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     autoScroll?: boolean | Record<string, any>;
     /** Determines typeof of queries that are used for responsive styles, 'media' by default */
     type?: "media" | "container";
+    /** options to pass to the embla component */
+    emblaOptions?: object;
 }
 
 /** Carousel */
