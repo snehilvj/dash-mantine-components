@@ -1,4 +1,4 @@
-import { MantineSize } from "@mantine/core";
+import { MantineSize, MantineRadius } from "@mantine/core";
 import {
     CalendarAriaLabels,
     CalendarLevel,
@@ -104,6 +104,8 @@ interface MonthSettings {
     size?: MantineSize;
     /** Determines whether controls should be separated by spacing, true by default */
     withCellSpacing?: boolean;
+    /**Determines whether week numbers should be displayed, false by default */
+    withWeekNumbers?: boolean;
 }
 
 interface MonthLevelBaseSettings extends MonthSettings {
@@ -167,6 +169,118 @@ export interface TimeInputProps
     maxTime?: string;
 }
 
+type TimePickerFormat = '12h' | '24h';
+
+interface TimePickerAmPmLabels {
+  am: string;
+  pm: string;
+}
+
+interface TimePickerPasteSplitInput {
+  time: string;
+  format: TimePickerFormat;
+  amPmLabels: TimePickerAmPmLabels;
+}
+
+interface TimePickerPasteSplitReturnType {
+  hours: number | null;
+  minutes: number | null;
+  seconds: number | null;
+  amPm: string | null;
+}
+
+type TimePickerPasteSplit = (
+  input: TimePickerPasteSplitInput
+) => TimePickerPasteSplitReturnType;
+
+interface TimePickerPresetGroup {
+  label: React.ReactNode;
+  values: string[];
+}
+
+
+export interface GetTimeRange  {
+  startTime: string;
+  endTime: string;
+  interval: string
+}
+
+export type TimePickerPresets = string[] | TimePickerPresetGroup[];
+
+export interface TimePickerProps
+    extends BoxProps,
+        __BaseInputProps,
+        StylesApiProps {
+
+      /** Uncontrolled component default value */
+      defaultValue?: string;
+      /** Determines whether the clear button should be displayed, `false` by default */
+      clearable?: boolean;
+      /** `name` prop passed down to the hidden input */
+      name?: string;
+      /** `form` prop passed down to the hidden input */
+      form?: string;
+      /** Min possible time value in `hh:mm:ss` format */
+      min?: string;
+      /** Max possible time value in `hh:mm:ss` format */
+      max?: string;
+      /** Time format, `'24h'` by default */
+      format?: TimePickerFormat;
+      /** Number by which hours are incremented/decremented, `1` by default */
+      hoursStep?: number;
+      /** Number by which minutes are incremented/decremented, `1` by default */
+      minutesStep?: number;
+      /** Number by which seconds are incremented/decremented, `1` by default */
+      secondsStep?: number;
+      /** Determines whether the seconds input should be displayed, `false` by default */
+      withSeconds?: boolean;
+      /** `aria-label` of hours input */
+      hoursInputLabel?: string;
+      /** `aria-label` of minutes input */
+      minutesInputLabel?: string;
+      /** `aria-label` of seconds input */
+      secondsInputLabel?: string;
+      /** `aria-label` of am/pm input */
+      amPmInputLabel?: string;
+      /** Labels used for am/pm values, `{ am: 'AM', pm: 'PM' }` by default */
+      amPmLabels?: TimePickerAmPmLabels;
+      /** Determines whether the dropdown with time controls list should be visible when the input has focus, `false` by default */
+      withDropdown?: boolean;
+      /** Props passed down to `Popover` component */
+      popoverProps?: PopoverProps;
+      /** Props passed down to clear button */
+      clearButtonProps?: any;
+      /** Props passed down to hours input */
+      hoursInputProps?: any;
+      /** Props passed down to minutes input */
+      minutesInputProps?: any;
+      /** Props passed down to seconds input */
+      secondsInputProps?: any;
+      /** Props passed down to am/pm select */
+      amPmSelectProps?: any;
+      /** If set, the value cannot be updated */
+      readOnly?: boolean;
+      /** If set, the component becomes disabled */
+      disabled?: boolean;
+      /** Props passed down to the hidden input */
+      hiddenInputProps?: any;
+      /** A function to transform paste values, by default time in 24h format can be parsed on paste for example `23:34:22` */
+      pasteSplit?: TimePickerPasteSplit;
+      /** Time presets to display in the dropdown */
+      presets?: TimePickerPresets;
+      /** Maximum height of the content displayed in the dropdown in px, `200` by default */
+      maxDropdownContentHeight?: number;
+      /** Props passed down to all underlying `ScrollArea` components */
+      scrollAreaProps?: any;
+      /**
+       * Generates a range of time values for the `presets` prop.
+       * Accepts a dictionary with `startTime`, `endTime`, and `interval` keys,
+       * where all values are strings in `hh:mm:ss` format.
+       * This overrides any values provided directly in the `presets` prop.
+       */
+      timeRangePresets?: GetTimeRange;
+}
+
 interface PickerBaseProps {
     /** Picker type: range, multiple or default */
     type?: DatePickerType;
@@ -208,4 +322,43 @@ export interface YearPickerBaseProps
         DecadeLevelBaseSettings,
         CalendarBaseProps,
         CalendarSettings {
+}
+
+
+export interface TimeGridProps
+    extends BoxProps,
+        StylesApiProps {
+      /** Time data in 24h format to be displayed in the grid, for example `['10:00', '18:30', '22:00']`. Time values must be unique. */
+      data?: string[];
+      /** Uncontrolled component default value */
+      defaultValue?: string | null;
+      /** Determines whether the value can be deselected when the current active option is clicked or activated with keyboard, `false` by default */
+      allowDeselect?: boolean;
+      /** Time format displayed in the grid, `'24h'` by default */
+      format?: TimePickerFormat;
+      /** Determines whether the seconds part should be displayed, `false` by default */
+      withSeconds?: boolean;
+      /** Labels used for am/pm values, `{ am: 'AM', pm: 'PM' }` by default */
+      amPmLabels?: TimePickerAmPmLabels;
+      /** Props passed down to the underlying `SimpleGrid` component, `{ cols: 3, spacing: 'xs' }` by default */
+      simpleGridProps?: any;
+      /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
+      radius?: MantineRadius;
+      /** Control `font-size` of controls, key of `theme.fontSizes` or any valid CSS value, `'sm'` by default */
+      size?: MantineSize;
+      /** All controls before this time are disabled */
+      minTime?: string;
+      /** All controls after this time are disabled */
+      maxTime?: string;
+      /** Array of time values to disable */
+      disableTime?: string[];
+      /** If set, all controls are disabled */
+      disabled?: boolean;
+      /**
+       * Generates a range of time values for the `data` prop.
+       * Accepts a dictionary with `startTime`, `endTime`, and `interval` keys,
+       * where all values are strings in `hh:mm:ss` format.
+       * This overrides any values provided directly in the `data` prop.
+       */
+      timeRangeData?: GetTimeRange;
 }

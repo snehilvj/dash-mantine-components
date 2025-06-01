@@ -106,6 +106,10 @@ import MenuDropdown from "./components/core/menu/MenuDropdown";
 import MenuItem from "./components/core/menu/MenuItem";
 import MenuLabel from "./components/core/menu/MenuLabel";
 import MenuTarget from "./components/core/menu/MenuTarget";
+import SubMenu from "./components/core/menu/SubMenu";
+import SubMenuDropdown from "./components/core/menu/SubMenuDropdown";
+import SubMenuItem from "./components/core/menu/SubMenuItem";
+import SubMenuTarget from "./components/core/menu/SubMenuTarget";
 import Popover from "./components/core/popover/Popover";
 import PopoverDropdown from "./components/core/popover/PopoverDropdown";
 import PopoverTarget from "./components/core/popover/PopoverTarget";
@@ -147,7 +151,9 @@ import DateTimePicker from "./components/dates/DateTimePicker";
 import DatesProvider from "./components/dates/DatesProvider";
 import MonthPickerInput from "./components/dates/MonthPickerInput";
 import YearPickerInput from "./components/dates/YearPickerInput";
+import TimeGrid from "./components/dates/TimeGrid";
 import TimeInput from "./components/dates/TimeInput";
+import TimePicker from "./components/dates/TimePicker";
 import Carousel from "./components/extensions/carousel/Carousel";
 import CarouselSlide from "./components/extensions/carousel/CarouselSlide";
 import CodeHighlight from "./components/extensions/codehighlight/CodeHighlight";
@@ -250,6 +256,10 @@ export {
     MenuItem,
     MenuLabel,
     MenuTarget,
+    SubMenu,
+    SubMenuDropdown,
+    SubMenuItem,
+    SubMenuTarget,
     Modal,
     MonthPickerInput,
     MultiSelect,
@@ -315,7 +325,9 @@ export {
     TextInput,
     Textarea,
     ThemeIcon,
+    TimeGrid,
     TimeInput,
+    TimePicker,
     Timeline,
     TimelineItem,
     Title,

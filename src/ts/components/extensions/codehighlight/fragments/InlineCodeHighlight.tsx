@@ -1,19 +1,26 @@
-import { InlineCodeHighlight as MantineInlineCodeHighlight } from "@mantine/code-highlight";
+import {
+    InlineCodeHighlight as MantineInlineCodeHighlight,
+    CodeHighlightAdapterProvider
+} from "@mantine/code-highlight";
 import '@mantine/code-highlight/styles.css';
 import React from "react";
 import { getLoadingState } from "../../../../utils/dash3";
 import { Props }  from "../InlineCodeHighlight"
+import { highlightJsAdapter } from '../../../../utils/highlightJsAdapter';
 
 
-/** InlineCodeHighlight */
+/** Highlight code inline with highlight.js */
 const InlineCodeHighlight = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
+    const { setProps, loading_state, className, ...others } = props;
 
     return (
-        <MantineInlineCodeHighlight
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
-        />
+        <CodeHighlightAdapterProvider adapter={highlightJsAdapter}>
+            <MantineInlineCodeHighlight
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                className="dmc-code"
+                {...others}
+            />
+        </CodeHighlightAdapterProvider>
     );
 };
 
