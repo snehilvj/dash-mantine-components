@@ -4,7 +4,7 @@
 
 ### Changed
  - BREAKING CHANGES - updated to use Mantine 8.0.2
- - See [Migration guide](https://www.dash-mantine-components.com/migration) in in the dmc-docs
+ - See [Migration guide](https://www.dash-mantine-components.com/migration) in the dmc-docs
 
 ### Added
   - New `TimePicker` and `TimeGrid`, `TimePicker` components
