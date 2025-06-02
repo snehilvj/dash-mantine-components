@@ -13,8 +13,9 @@ import { __BaseInputProps } from "props/input";
 import { PopoverProps } from "props/popover";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
-import { dateToString, isDisabled, stringToDate } from "../../utils/dates";
+import { isDisabled } from "../../utils/dates";
 import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { resolveProp } from "../../utils/prop-functions"
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
@@ -44,14 +45,12 @@ interface Props
     fixOnBlur?: boolean;
     /** Determines whether value can be deselected when the user clicks on the selected date in the calendar (only when clearable prop is set), defaults to true if clearable prop is set, false otherwise */
     allowDeselect?: boolean;
-    /** Determines whether time (hours, minutes, seconds and milliseconds) should be preserved when new date is picked, true by default */
-    preserveTime?: boolean;
     /** Max level that user can go up to (decade, year, month), defaults to decade */
     maxLevel?: CalendarLevel;
     /** Current level displayed to the user (decade, year, month), used for controlled component */
     level?: CalendarLevel;
-    /** Specifies days that should be disabled */
-    disabledDates?: string[];
+    /** Specifies days that should be disabled.  Either a list of dates or a function. See https://www.dash-mantine-components.com/functions-as-props */
+    disabledDates?: any;
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
 }
@@ -73,7 +72,7 @@ const DateInput = ({
     ...others
 }: Props) => {
 
-    const [date, setDate] = useState(stringToDate(value));
+    const [date, setDate] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(date, debounceValue);
@@ -82,26 +81,26 @@ const DateInput = ({
 
     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
-            setProps({ value: dateToString(date) });
+            setProps({ value: date });
         }
 
         // Ensure the value prop is updated when the date is cleared by clicking the "X" button,
         // even if the input does not have focus.
         if (!focused && debounce === true) {
-            setProps({ value: dateToString(date)})
+            setProps({ value: date})
         }
     }, [debounced]);
 
 
     useDidUpdate(() => {
-        setDate(stringToDate(value));
+        setDate(value);
     }, [value]);
 
     const handleKeyDown = (ev) => {
         if (ev.key === "Enter") {
             setProps({
                 n_submit: n_submit + 1,
-                ...(debounce === true && { value: dateToString(date) }),
+                ...(debounce === true && { value: date }),
             });
         }
     };
@@ -109,12 +108,12 @@ const DateInput = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: dateToString(date) })
+            ...(debounce === true && { value: date })
         });
     };
 
 
-    const isExcluded = (date: Date) => {
+    const isExcluded = (date: string) => {
         return isDisabled(date, disabledDates || []);
     };
 
@@ -126,9 +125,9 @@ const DateInput = ({
                 onKeyDown={handleKeyDown}
                 onChange={setDate}
                 value={date}
-                minDate={stringToDate(minDate)}
-                maxDate={stringToDate(maxDate)}
-                excludeDate={isExcluded}
+                minDate={minDate}
+                maxDate={maxDate}
+                excludeDate={Array.isArray(disabledDates)? isExcluded : resolveProp(disabledDates)}
                 {...others}
             />
         </div>

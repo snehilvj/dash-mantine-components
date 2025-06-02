@@ -11,6 +11,7 @@ import { StylesApiProps } from "props/styles";
 import { TransitionProps } from "props/transition";
 import React, { useState } from "react";
 import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { parseFuncProps } from "../../../utils/prop-functions"
 
 interface Props
     extends BoxProps,
@@ -40,7 +41,7 @@ interface Props
         value: number;
         label?: React.ReactNode;
     }[];
-    /** Function to generate label or any react node to render instead, set to null to disable label */
+    /** Function to generate label (See https://www.dash-mantine-components.com/functions-as-props) or any react node to render instead, set to null to disable label */
     label?: React.ReactNode;
     /** Props passed down to the `Transition` component, `{ transition: 'fade', duration: 0 }` by default */
     labelTransitionProps?: TransitionProps;
@@ -62,6 +63,8 @@ interface Props
     updatemode: "mouseup" | "drag";
     /** Determines whether the selection should be only allowed from the given marks array, false by default */
     restrictToMarks?: boolean;
+    /** Function to generate scale (See https://www.dash-mantine-components.com/functions-as-props) A transformation function to change the scale of the slider */
+    scale?: any;
 }
 
 /** Slider */
@@ -75,7 +78,6 @@ const Slider = ({
     persistence_type,
     ...others
 }: Props) => {
-
 
     const [val, setVal] = useState(value);
 
@@ -92,7 +94,7 @@ const Slider = ({
     return (
         <MantineSlider
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
+            {...parseFuncProps('Slider',others)}
             value={val}
             onChange={setVal}
             onChangeEnd={(value) => {

@@ -3,6 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useRef, useState } from "react";
 import { getClickData, isEventValid } from "../../../utils/charts";
 import { getLoadingState } from "../../../utils/dash3";
+import { resolveProp } from "../../../utils/prop-functions"
 import { Props }  from "../CompositeChart"
 
 /** CompositeChart */
@@ -19,6 +20,8 @@ const CompositeChart = ({
     lineProps,
     areaProps,
     activeDotProps,
+    valueFormatter,
+    tooltipProps,
     ...others
 }: Props) => {
 
@@ -125,6 +128,8 @@ const CompositeChart = ({
                 onMouseOver: handleDotHover,
                 onMouseOut: handleHoverEnd,
             }}
+            valueFormatter={resolveProp(valueFormatter)}
+            tooltipProps={resolveProp(tooltipProps)}
             {...others}
         />
     );

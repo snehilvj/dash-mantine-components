@@ -52,6 +52,8 @@ export interface Props
     maxBarWidth?: number;
     /** Controls color of the bar label, by default the value is determined by the chart orientation */
     barLabelColor?: MantineColor;
+    /** A function to assign dynamic bar color based on its value.  Accepts value and series returns MantineColor.  See https://www.dash-mantine-components.com/functions-as-props */
+    getBarColor?: any;
 }
 
 

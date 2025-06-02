@@ -4,7 +4,6 @@
 
 - [ ] Update Mantine dependency in `package.json`
 - [ ] check for any added props or significant changes from the Mantine changelog.  Open issues for any missing features.
-- [ ] Update Mantine dependency for optional stylesheets in `styles.py`
 - [ ] Update other dependencies - see notes section below for details
 - [ ] Remove usage/demo apps used for testing
 

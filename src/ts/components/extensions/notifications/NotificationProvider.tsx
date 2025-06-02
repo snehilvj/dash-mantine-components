@@ -2,7 +2,7 @@ import { Notifications } from "@mantine/notifications";
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, {useEffect} from "react";
 import { getLoadingState } from "../../../utils/dash3";
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
@@ -33,6 +33,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** NotificationProvider */
 const NotificationProvider = (props: Props) => {
     const { setProps, loading_state, ...others } = props;
+
+    useEffect(() => {
+        console.warn('Notification and NotificationProvider are deprecated and will be removed in a future major release.  Instead, use `NotificationContainer')
+        }, [])
 
     return (
         <Notifications
