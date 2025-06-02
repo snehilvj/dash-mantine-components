@@ -7,7 +7,7 @@
  - See [Migration guide](https://www.dash-mantine-components.com/migration) in the dmc-docs
 
 ### Added
-- New `TimePicker, `TimeGrid`, `DatePicker` and SubMenu components
+- New `TimePicker`, `TimeGrid`, `DatePicker` and `SubMenu` components
 
 - Functions as Props  #580 by @AnnMarieW and @BSd3v
   - Components can now accept JavaScript functions via: `{"function": "myFunction"}`
@@ -22,7 +22,7 @@
 
 
 - New way to handle Notifications #539 by @BSd3v
-  - Added new 'NotificationContainer' that works more closely to upstream Notifications in Mantine.
+  - Added new `NotificationContainer` that works more closely to upstream Notifications in Mantine.
   - Exposed the `notifications` api of Mantine for granular control at `dash_mantine_components.appNotifications.api`
   - Exposed the `store` of notifications at `dash_mantine_components.store`
   - Marked `Notification` and `NotificationProvider` for deprecation
