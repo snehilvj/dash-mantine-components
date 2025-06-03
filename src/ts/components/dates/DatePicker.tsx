@@ -6,6 +6,7 @@ import { DatePickerBaseProps } from "props/dates";
 import { StylesApiProps } from "props/styles";
 import React, { useState } from "react";
 import { setPersistence } from "../../utils/dash3";
+import { resolveProp } from "../../utils/prop-functions"
 import { isDisabled } from '../../utils/dates';
 
 interface Props extends DashBaseProps, PersistenceProps, BoxProps, DatePickerBaseProps, StylesApiProps {
@@ -50,7 +51,7 @@ const DatePicker = ({
             onChange={setDate}
             value={date}
             type={type}
-            excludeDate={isExcluded}
+            excludeDate={Array.isArray(disabledDates)? isExcluded : resolveProp(disabledDates)}
             {...others}
         />
     );
