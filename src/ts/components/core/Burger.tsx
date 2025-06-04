@@ -2,12 +2,12 @@ import {
     Burger as MantineBurger,
     MantineColor,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -38,8 +38,6 @@ const Burger = ({
     persistence_type,
     ...others
 }: Props) => {
-
-
     const onClick = () => {
         setProps({
             opened: !opened,
@@ -56,6 +54,6 @@ const Burger = ({
     );
 };
 
-setPersistence(Burger, ["opened"] )
+setPersistence(Burger, ['opened']);
 
 export default Burger;

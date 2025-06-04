@@ -1,12 +1,12 @@
-import { UnstyledButton as MantineUnstyledButton } from "@mantine/core";
-import { BoxComponentProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { UnstyledButton as MantineUnstyledButton } from '@mantine/core';
+import { BoxComponentProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 export interface Props
-    extends Omit<BoxComponentProps, "vars" | "variant">,
+    extends Omit<BoxComponentProps, 'vars' | 'variant'>,
         DashBaseProps,
         StylesApiProps {
     /** Button content */
@@ -26,8 +26,6 @@ const UnstyledButton = ({
     n_clicks = 0,
     ...others
 }: Props) => {
-
-
     const increment = () => {
         if (!disabled) {
             setProps({
@@ -47,6 +45,5 @@ const UnstyledButton = ({
         </MantineUnstyledButton>
     );
 };
-
 
 export default UnstyledButton;

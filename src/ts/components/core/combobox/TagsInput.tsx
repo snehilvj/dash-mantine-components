@@ -1,24 +1,24 @@
 import {
     ComboboxStringData,
     TagsInput as MantineTagsInput,
-} from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { ComboboxLikeProps } from "props/combobox";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { __ClearButtonProps } from "props/button";
-import { __BaseInputProps } from "props/input";
-import { ScrollAreaProps } from "props/scrollarea";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { filterSelected } from "../../../utils/combobox";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import { parseFuncProps } from "../../../utils/prop-functions"
+} from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { ComboboxLikeProps } from 'props/combobox';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { __ClearButtonProps } from 'props/button';
+import { __BaseInputProps } from 'props/input';
+import { ScrollAreaProps } from 'props/scrollarea';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { filterSelected } from '../../../utils/combobox';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
+import { parseFuncProps } from '../../../utils/prop-functions';
 
 interface Props
     extends BoxProps,
         __BaseInputProps,
-        Omit<ComboboxLikeProps, "data">,
+        Omit<ComboboxLikeProps, 'data'>,
         StylesApiProps,
         DashBaseProps,
         PersistenceProps {
@@ -50,17 +50,16 @@ interface Props
 
 /** TagsInput captures a list of values from user with free input and suggestions */
 const TagsInput = ({
-        setProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        loading_state,
-        data,
-        searchValue,
-        value,
-        ...others
-    }: Props) => {
-
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    data,
+    searchValue,
+    value,
+    ...others
+}: Props) => {
     const [selected, setSelected] = useState(value ?? []);
     const [options, setOptions] = useState(data ?? []);
     const [searchVal, setSearchVal] = useState(searchValue);
@@ -90,7 +89,7 @@ const TagsInput = ({
     return (
         <MantineTagsInput
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-             {...parseFuncProps('Select',others)}
+            {...parseFuncProps('Select', others)}
             data={options}
             onChange={setSelected}
             value={selected}
@@ -100,6 +99,6 @@ const TagsInput = ({
     );
 };
 
-setPersistence(TagsInput)
+setPersistence(TagsInput);
 
 export default TagsInput;

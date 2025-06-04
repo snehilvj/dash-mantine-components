@@ -1,16 +1,16 @@
-import { nprogress } from "@mantine/nprogress";
-import { useEffect } from "react";
+import { nprogress } from '@mantine/nprogress';
+import { useEffect } from 'react';
 
 interface Props {
     /** action */
     action:
-        | "start"
-        | "stop"
-        | "increment"
-        | "decrement"
-        | "set"
-        | "reset"
-        | "complete";
+        | 'start'
+        | 'stop'
+        | 'increment'
+        | 'decrement'
+        | 'set'
+        | 'reset'
+        | 'complete';
     /** value to set the progress bar to */
     value?: number;
 }
@@ -19,11 +19,11 @@ interface Props {
 const NavigationProgress = (props: Props) => {
     const { action, value } = props;
 
-    window["np"] = nprogress;
+    window['np'] = nprogress;
 
     useEffect(() => {
         switch (action) {
-            case "set":
+            case 'set':
                 nprogress.set(value);
                 break;
 

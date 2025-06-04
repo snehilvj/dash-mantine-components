@@ -1,10 +1,10 @@
-import { CompositeChart as MantineCompositeChart } from "@mantine/charts";
+import { CompositeChart as MantineCompositeChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useRef, useState } from "react";
-import { getClickData, isEventValid } from "../../../utils/charts";
-import { getLoadingState } from "../../../utils/dash3";
-import { resolveProp } from "../../../utils/prop-functions"
-import { Props }  from "../CompositeChart"
+import React, { useRef, useState } from 'react';
+import { getClickData, isEventValid } from '../../../utils/charts';
+import { getLoadingState } from '../../../utils/dash3';
+import { resolveProp } from '../../../utils/prop-functions';
+import { Props } from '../CompositeChart';
 
 /** CompositeChart */
 const CompositeChart = ({
@@ -24,7 +24,6 @@ const CompositeChart = ({
     tooltipProps,
     ...others
 }: Props) => {
-
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
 
@@ -44,14 +43,13 @@ const CompositeChart = ({
         if (isEventValid(ev)) {
             setProps({
                 hoverSeriesName: seriesName.current,
-                hoverData: getClickData(ev)
+                hoverData: getClickData(ev),
             });
         }
         seriesName.current = null;
     };
 
-
-    const handleSeriesClick= (ev) => {
+    const handleSeriesClick = (ev) => {
         if (isEventValid(ev)) {
             seriesName.current = ev.tooltipPayload?.[0]?.name ?? ev.name;
         }
@@ -60,20 +58,20 @@ const CompositeChart = ({
     const handleSeriesHover = (ev) => {
         if (isEventValid(ev)) {
             const hoveredSeriesName = ev.tooltipPayload?.[0]?.name ?? ev.name;
-            seriesName.current = hoveredSeriesName
+            seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
         }
     };
 
     const handleDotClick = (ev, payload) => {
         if (isEventValid(ev)) {
-            seriesName.current = payload["dataKey"];
+            seriesName.current = payload['dataKey'];
         }
-    }
+    };
 
     const handleDotHover = (ev, payload) => {
         if (isEventValid(ev)) {
-            const hoveredSeriesName = payload["dataKey"];
+            const hoveredSeriesName = payload['dataKey'];
             seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
         }
@@ -83,16 +81,15 @@ const CompositeChart = ({
         setHighlightedArea(null); // Reset highlighted area
     };
 
-
-    const propsFunction = (item: any, chartType: "bar" | "area" | "line") => {
-        let chartProps : any = null;
+    const propsFunction = (item: any, chartType: 'bar' | 'area' | 'line') => {
+        let chartProps: any = null;
         const dimmed = shouldHighlight && highlightedArea !== item.name;
 
-        if (chartType === "bar") {
+        if (chartType === 'bar') {
             chartProps = barProps ?? {};
-        } else if (chartType === "area") {
+        } else if (chartType === 'area') {
             chartProps = areaProps ?? {};
-        } else if (chartType === "line") {
+        } else if (chartType === 'line') {
             chartProps = lineProps ?? {};
         }
 
@@ -111,17 +108,15 @@ const CompositeChart = ({
         return returnProps;
     };
 
-
-
-    const newProps = { ...composedChartProps, onClick, onMouseOver};
+    const newProps = { ...composedChartProps, onClick, onMouseOver };
 
     return (
         <MantineCompositeChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             composedChartProps={newProps}
-            barProps={(item) => propsFunction(item, 'bar')}   // Pass the chart type as 'bar'
-            lineProps={(item) => propsFunction(item, 'line')}  // Pass the chart type as 'line'
-            areaProps={(item) => propsFunction(item, 'area')}  // Pass the chart type as 'area'
+            barProps={(item) => propsFunction(item, 'bar')} // Pass the chart type as 'bar'
+            lineProps={(item) => propsFunction(item, 'line')} // Pass the chart type as 'line'
+            areaProps={(item) => propsFunction(item, 'area')} // Pass the chart type as 'area'
             activeDotProps={{
                 ...activeDotProps,
                 onClick: handleDotClick,
@@ -134,6 +129,5 @@ const CompositeChart = ({
         />
     );
 };
-
 
 export default CompositeChart;

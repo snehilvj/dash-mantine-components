@@ -4,14 +4,19 @@ import {
     SegmentedControl as MantineSegmentedControl,
     MantineSize,
     SegmentedControlItem,
-} from "@mantine/core";
+} from '@mantine/core';
 
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState, newRenderDashComponent, getContextPath } from "../../utils/dash3";
-import {isEmpty} from 'ramda';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import {
+    setPersistence,
+    getLoadingState,
+    newRenderDashComponent,
+    getContextPath,
+} from '../../utils/dash3';
+import { isEmpty } from 'ramda';
 
 interface Props
     extends BoxProps,
@@ -39,7 +44,7 @@ interface Props
     /** Indicator `transition-timing-function` property, `ease` by default */
     transitionTimingFunction?: string;
     /** Determines in which orientation component id displayed, `'horizontal'` by default */
-    orientation?: "vertical" | "horizontal";
+    orientation?: 'vertical' | 'horizontal';
     /** Determines whether the value can be changed */
     readOnly?: boolean;
     /** Determines whether text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used */
@@ -62,17 +67,19 @@ const SegmentedControl = (props: Props) => {
 
     const componentPath = getContextPath();
     const renderedData = data.map((item, index) => {
-        if (typeof item === "string") {
+        if (typeof item === 'string') {
             return item;
         } else {
             return {
-                value: item["value"],
+                value: item['value'],
                 label: newRenderDashComponent(
-                    item["label"],
+                    item['label'],
                     index,
-                    !isEmpty(componentPath) ? [...componentPath, 'props', 'data', index, 'label']  : []
+                    !isEmpty(componentPath)
+                        ? [...componentPath, 'props', 'data', index, 'label']
+                        : []
                 ),
-                disabled: item["disabled"],
+                disabled: item['disabled'],
             };
         }
     });

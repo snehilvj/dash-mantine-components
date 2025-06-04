@@ -7,13 +7,13 @@ import {
     TreeNodeData,
     getTreeExpandedState,
     useTree,
-} from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether tree nodes range can be selected with click when Shift key is pressed, `true` by default */
@@ -29,7 +29,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render nodes */
     data: TreeNodeData[];
     /** Determines expanded nodes as a list of values or `'*'` for all, `[]` by default */
-    expanded?: string[] | "*";
+    expanded?: string[] | '*';
     /** Determines whether tree node with children should be expanded on click, `true` by default */
     expandOnClick?: boolean;
     /** Determines whether tree node with children should be expanded on space key press, `true` by default */
@@ -45,14 +45,14 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Collapsed state icon */
     collapsedIcon?: React.ReactNode;
     /** Side to display expanded/collapsed state icon on, `'left'` by default */
-    iconSide?: "left" | "right" | "none";
+    iconSide?: 'left' | 'right' | 'none';
 }
 
 interface LeafProps {
     checkboxes: boolean;
     expandedIcon: React.ReactNode;
     collapsedIcon: React.ReactNode;
-    iconSide?: "left" | "right" | "none";
+    iconSide?: 'left' | 'right' | 'none';
 }
 
 const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
@@ -72,12 +72,12 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
     const icon = (
         <span
             style={{
-                visibility: hasChildren ? "visible" : "hidden",
+                visibility: hasChildren ? 'visible' : 'hidden',
                 transform:
                     collapsedIcon !== undefined || expanded
-                        ? "rotate(0deg)"
-                        : "rotate(-90deg)",
-                transition: "0.2s",
+                        ? 'rotate(0deg)'
+                        : 'rotate(-90deg)',
+                transition: '0.2s',
             }}
         >
             {collapsedIcon === undefined || expanded
@@ -87,7 +87,7 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
     );
     return (
         <Group gap="xs" {...elementProps}>
-            {iconSide === "left" && icon}
+            {iconSide === 'left' && icon}
             {checkboxes && (
                 <Checkbox.Indicator
                     checked={checked}
@@ -101,7 +101,7 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
                 />
             )}
             <span>{node.label}</span>
-            {iconSide === "right" && icon}
+            {iconSide === 'right' && icon}
         </Group>
     );
 };
@@ -116,10 +116,9 @@ const Tree = ({
     setProps,
     expandedIcon = <AccordionChevron />,
     collapsedIcon,
-    iconSide = "left",
+    iconSide = 'left',
     ...others
 }: Props) => {
-
     const tree = useTree({
         initialExpandedState: getTreeExpandedState(data, expanded),
         initialCheckedState: checked,
@@ -143,7 +142,7 @@ const Tree = ({
     }, [selected]);
 
     useDidUpdate(() => {
-        expanded === "*"
+        expanded === '*'
             ? tree.expandAllNodes()
             : tree.setExpandedState(
                   Object.fromEntries(expanded.map((x) => [x, true]))
@@ -177,6 +176,5 @@ const Tree = ({
         />
     );
 };
-
 
 export default Tree;

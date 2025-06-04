@@ -1,15 +1,15 @@
-import { Image as MantineImage, MantineRadius } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { useMemo } from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { Image as MantineImage, MantineRadius } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { useMemo } from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `0` by default */
     radius?: MantineRadius;
     /** Controls `object-fit` style, `'cover'` by default */
-    fit?: React.CSSProperties["objectFit"];
+    fit?: React.CSSProperties['objectFit'];
     /** Image url that will be used as a fallback in case `src` prop is not set or image cannot be loaded */
     fallbackSrc?: string;
     /** Image url */

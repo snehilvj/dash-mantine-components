@@ -1,9 +1,9 @@
-import { MantineSize } from "@mantine/core";
-import { ColorFormat } from "@mantine/core/lib/components/ColorPicker/ColorPicker.types";
-import { BoxProps } from "./box";
-import { __BaseInputProps } from "./input";
-import { PopoverProps } from "./popover";
-import { StylesApiProps } from "./styles";
+import { MantineSize } from '@mantine/core';
+import { ColorFormat } from '@mantine/core/lib/components/ColorPicker/ColorPicker.types';
+import { BoxProps } from './box';
+import { __BaseInputProps } from './input';
+import { PopoverProps } from './popover';
+import { StylesApiProps } from './styles';
 
 export interface __ColorPickerProps {
     /** Controlled component value */

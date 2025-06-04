@@ -1,9 +1,9 @@
-import { RadarChart as MantineRadarChart } from "@mantine/charts";
+import { RadarChart as MantineRadarChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React from "react";
-import { getClickData, isEventValid } from "../../../utils/charts";
-import { getLoadingState } from "../../../utils/dash3";
-import { Props }  from "../RadarChart"
+import React from 'react';
+import { getClickData, isEventValid } from '../../../utils/charts';
+import { getLoadingState } from '../../../utils/dash3';
+import { Props } from '../RadarChart';
 
 /** RadarChart */
 const RadarChart = (props: Props) => {

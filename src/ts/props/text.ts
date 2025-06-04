@@ -1,9 +1,9 @@
-import { MantineGradient, MantineSize } from "@mantine/core";
-import { BoxProps } from "./box";
-import { __BaseInputProps } from "./input";
-import { StylesApiProps } from "./styles";
+import { MantineGradient, MantineSize } from '@mantine/core';
+import { BoxProps } from './box';
+import { __BaseInputProps } from './input';
+import { StylesApiProps } from './styles';
 
-type TextTruncate = "end" | "start" | boolean;
+type TextTruncate = 'end' | 'start' | boolean;
 
 export interface TextProps extends BoxProps, StylesApiProps {
     /** Controls `font-size` and `line-height`, `'md'` by default */
@@ -33,5 +33,5 @@ export interface TextareaProps
     /** Minimum rows of autosize textarea, ignored if `autosize` prop is not set */
     minRows?: number;
     /** Controls `resize` CSS property, `'none'` by default */
-    resize?: React.CSSProperties["resize"];
+    resize?: React.CSSProperties['resize'];
 }

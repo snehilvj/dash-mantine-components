@@ -1,18 +1,19 @@
-
 import {
     LineChartCurveType,
     LineChartSeries,
     LineChartGradientStop,
     LineChartType,
-} from "@mantine/charts/lib/LineChart/LineChart";
-import { BoxProps } from "props/box";
-import { GridChartBaseProps } from "props/charts";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
+} from '@mantine/charts/lib/LineChart/LineChart';
+import { BoxProps } from 'props/box';
+import { GridChartBaseProps } from 'props/charts';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyLineChart = React.lazy(() => import(/* webpackChunkName: "LineChart" */ './fragments/LineChart'));
+const LazyLineChart = React.lazy(
+    () => import(/* webpackChunkName: "LineChart" */ './fragments/LineChart')
+);
 
 export interface Props
     extends BoxProps,
@@ -52,10 +53,10 @@ export interface Props
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
     /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
-    highlightHover?: boolean
+    highlightHover?: boolean;
     /** Determines whether each point should have associated label, False by default  */
     withPointLabels?: boolean;
-     /** Data used to generate gradient stops, [{ offset: 0, color: 'red' }, { offset: 100, color: 'blue' }] by default */
+    /** Data used to generate gradient stops, [{ offset: 0, color: 'red' }, { offset: 100, color: 'blue' }] by default */
     gradientStops?: LineChartGradientStop[];
     /** Controls styles of the line 'default' | 'gradient'.   'default' by default */
     type?: LineChartType;
@@ -64,10 +65,10 @@ export interface Props
 /** Mantine-themed line chart built on top of the Recharts library, */
 const LineChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyLineChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyLineChart {...props} />
+        </Suspense>
     );
-}
+};
 
 export default LineChart;

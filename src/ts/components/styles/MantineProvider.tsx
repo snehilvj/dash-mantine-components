@@ -1,10 +1,10 @@
 import {
     MantineProvider as MantineMantineProvider,
     MantineProviderProps,
-} from "@mantine/core";
-import React from "react";
+} from '@mantine/core';
+import React from 'react';
 
-import "@mantine/core/styles.css";
+import '@mantine/core/styles.css';
 
 // Optional stylesheets must be imported after the core styles.
 // If these components are changed to load asynchronously (like charts), their styles can be imported within the component itself.

@@ -1,8 +1,8 @@
-import { MantineColor, Highlight as MantineHighlight } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { TextProps } from "props/text";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { MantineColor, Highlight as MantineHighlight } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { TextProps } from 'props/text';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends DashBaseProps, TextProps {
     /** Substring or an array of substrings to highlight in `children` */

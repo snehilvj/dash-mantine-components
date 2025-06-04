@@ -1,8 +1,8 @@
-import { MantineRadius, MantineSize } from "@mantine/core";
-import React from "react";
+import { MantineRadius, MantineSize } from '@mantine/core';
+import React from 'react';
 
 export interface __BaseButtonProps {
-     /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
+    /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
     radius?: MantineRadius;
     /** Sets `disabled` and `data-disabled` attributes on the button element */
     disabled?: boolean;

@@ -1,10 +1,10 @@
-import { ScatterChart as MantineScatterChart } from "@mantine/charts";
+import { ScatterChart as MantineScatterChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React from "react";
-import { getScatterClickData, isEventValid } from "../../../utils/charts";
-import { getLoadingState } from "../../../utils/dash3";
-import { resolveProp } from "../../../utils/prop-functions";
-import { Props }  from "../ScatterChart"
+import React from 'react';
+import { getScatterClickData, isEventValid } from '../../../utils/charts';
+import { getLoadingState } from '../../../utils/dash3';
+import { resolveProp } from '../../../utils/prop-functions';
+import { Props } from '../ScatterChart';
 
 /** ScatterChart */
 const ScatterChart = ({
@@ -19,28 +19,27 @@ const ScatterChart = ({
     tooltipProps,
     ...others
 }: Props) => {
-
     const onClick = (ev) => {
         if (isEventValid(ev)) {
-            const clickdata = getScatterClickData(ev)
+            const clickdata = getScatterClickData(ev);
             setProps({
                 clickData: clickdata,
-                clickSeriesName: clickdata["name"]
+                clickSeriesName: clickdata['name'],
             });
         }
     };
 
-    const onMouseOver= (ev) => {
+    const onMouseOver = (ev) => {
         if (isEventValid(ev)) {
-            const clickdata = getScatterClickData(ev)
+            const clickdata = getScatterClickData(ev);
             setProps({
                 hoverData: clickdata,
-                hoverSeriesName: clickdata["name"]
-             });
+                hoverSeriesName: clickdata['name'],
+            });
         }
     };
 
-    const newProps = { ...scatterProps, onClick, onMouseOver};
+    const newProps = { ...scatterProps, onClick, onMouseOver };
 
     return (
         <MantineScatterChart
@@ -52,6 +51,5 @@ const ScatterChart = ({
         />
     );
 };
-
 
 export default ScatterChart;

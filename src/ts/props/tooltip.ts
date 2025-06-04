@@ -1,6 +1,6 @@
-import { FloatingPosition, MantineColor, MantineRadius } from "@mantine/core";
-import { BoxProps } from "./box";
-import { StylesApiProps } from "./styles";
+import { FloatingPosition, MantineColor, MantineRadius } from '@mantine/core';
+import { BoxProps } from './box';
+import { StylesApiProps } from './styles';
 
 export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     /** Target element, must support `ref` prop and `...others` */

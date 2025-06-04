@@ -1,6 +1,6 @@
-import { ComboboxData, MantineSize } from "@mantine/core";
-import { __PopoverProps } from "./popover";
-import { StylesApiProps } from "./styles";
+import { ComboboxData, MantineSize } from '@mantine/core';
+import { __PopoverProps } from './popover';
+import { StylesApiProps } from './styles';
 
 interface ComboboxProps extends __PopoverProps, StylesApiProps {
     /** Combobox content */
@@ -8,7 +8,7 @@ interface ComboboxProps extends __PopoverProps, StylesApiProps {
     /** Controls items `font-size` and `padding`, `'sm'` by default */
     size?: MantineSize | (string & {});
     /** Controls `padding` of the dropdown, `4` by default */
-    dropdownPadding?: React.CSSProperties["padding"];
+    dropdownPadding?: React.CSSProperties['padding'];
     /** Determines whether selection should be reset when option is hovered, `false` by default */
     resetSelectionOnOptionHover?: boolean;
     /** Determines whether Combobox value can be changed */
@@ -30,7 +30,7 @@ export interface ComboboxLikeProps {
     withScrollArea?: boolean;
     /** `max-height` of the dropdown, only applicable when `withScrollArea` prop is `true`, `250` by default */
     maxDropdownHeight?: number | string;
-     /**
+    /**
      * A function to render content of the option, replaces the default content of the option.  See https://www.dash-mantine-components.com/functions-as-props
      */
     renderOption?: any;

@@ -1,14 +1,14 @@
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Step index, controlled by Stepper component **/
     step?: number;
     /** Step state, controlled by Stepper component */
-    state?: "stepInactive" | "stepProgress" | "stepCompleted";
+    state?: 'stepInactive' | 'stepProgress' | 'stepCompleted';
     /** Key of `theme.colors`, by default controlled by Stepper component */
     color?: MantineColor;
     /** Determines whether the icon should be displayed */
@@ -26,7 +26,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Icon wrapper size */
     iconSize?: number;
     /** Icon position relative to step body, controlled by Stepper component */
-    iconPosition?: "right" | "left";
+    iconPosition?: 'right' | 'left';
     /** Indicates loading state of the step */
     loading?: boolean;
     /** Set to false to disable clicks on step */
@@ -34,7 +34,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Should step selection be allowed */
     allowStepSelect?: boolean;
     /** Component orientation */
-    orientation?: "vertical" | "horizontal";
+    orientation?: 'vertical' | 'horizontal';
     /* Content */
     children?: React.ReactNode;
 }
@@ -45,6 +45,5 @@ const StepperStep = (props: Props) => {
 
     return <>{children}</>;
 };
-
 
 export default StepperStep;

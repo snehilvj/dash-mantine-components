@@ -3,13 +3,13 @@ import {
     AccordionVariant,
     Accordion as MantineAccordion,
     MantineRadius,
-} from "@mantine/core";
-import { AccordionChevronPosition } from "@mantine/core/lib/components/Accordion/Accordion.types";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { AccordionChevronPosition } from '@mantine/core/lib/components/Accordion/Accordion.types';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -69,6 +69,6 @@ const Accordion = (props: Props) => {
     );
 };
 
-setPersistence(Accordion)
+setPersistence(Accordion);
 
 export default Accordion;

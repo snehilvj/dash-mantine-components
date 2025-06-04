@@ -1,63 +1,103 @@
-import { RichTextEditorLabels as MantineRichTextEditorLabels } from "@mantine/tiptap";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
+import { RichTextEditorLabels as MantineRichTextEditorLabels } from '@mantine/tiptap';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyRichTextEditor = React.lazy(() => import(/* webpackChunkName: "RichTextEditor" */ './fragments/RichTextEditor'));
+const LazyRichTextEditor = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "RichTextEditor" */ './fragments/RichTextEditor'
+        )
+);
 
 /** Supported extensions (add more as needed). */
 type ExtensionName =
-  | "StarterKit"
-  | "Underline"
-  | "Link"
-  | "Superscript"
-  | "Subscript"
-  | "Highlight"
-  | "TextAlign"
-  | "TextStyle"
-  | "Table"
-  | "TableCell"
-  | "TableRow"
-  | "TableHeader"
-  | "Placeholder"
-  | "Image"
-  | "Color";
+    | 'StarterKit'
+    | 'Underline'
+    | 'Link'
+    | 'Superscript'
+    | 'Subscript'
+    | 'Highlight'
+    | 'TextAlign'
+    | 'TextStyle'
+    | 'Table'
+    | 'TableCell'
+    | 'TableRow'
+    | 'TableHeader'
+    | 'Placeholder'
+    | 'Image'
+    | 'Color';
 
 // TODO: Maybe add types for the extensions options explicitly?
 type Extension =
-  | ExtensionName
-  | { [key in ExtensionName]?: Record<string, unknown> }; // Allow any options
+    | ExtensionName
+    | { [key in ExtensionName]?: Record<string, unknown> }; // Allow any options
 
 /** Supported controls (add more as needed). */
-type ControlName = "Bold" | "Italic" | "Underline" | "Strikethrough" | "ClearFormatting" | "Highlight" | "Code" | "H1" | "H2" | "H3" | "H4" | "H5" | "H6" | "CodeBlock" | "Blockquote" | "Hr" | "BulletList" | "OrderedList" | "Subscript" | "Superscript" | "Link" | "Unlink" | "AlignLeft" | "AlignCenter" | "AlignJustify" | "AlignRight" | "Undo" | "Redo" | "Color" | "ColorPicker" | "UnsetColor";
+type ControlName =
+    | 'Bold'
+    | 'Italic'
+    | 'Underline'
+    | 'Strikethrough'
+    | 'ClearFormatting'
+    | 'Highlight'
+    | 'Code'
+    | 'H1'
+    | 'H2'
+    | 'H3'
+    | 'H4'
+    | 'H5'
+    | 'H6'
+    | 'CodeBlock'
+    | 'Blockquote'
+    | 'Hr'
+    | 'BulletList'
+    | 'OrderedList'
+    | 'Subscript'
+    | 'Superscript'
+    | 'Link'
+    | 'Unlink'
+    | 'AlignLeft'
+    | 'AlignCenter'
+    | 'AlignJustify'
+    | 'AlignRight'
+    | 'Undo'
+    | 'Redo'
+    | 'Color'
+    | 'ColorPicker'
+    | 'UnsetColor';
 
 // TODO: Maybe add types for the control options explicitly?
-type Control =
-  | ControlName
-  | { [key in ControlName]?: Record<string, unknown> }; // Allow any options
-
+type Control = ControlName | { [key in ControlName]?: Record<string, unknown> }; // Allow any options
 
 /** Toolbar property definition. */
 type Toolbar = {
-  /** Determines whether `position: sticky` styles should be added to the toolbar, `false` by default */
-  sticky?: boolean;
-  /** Sets top style to offset elements with fixed position, `0` by default */
-  stickyOffset?: React.CSSProperties['top'];
-  /** Groups of controls to be displayed in the toolbar. Each item can be either a string with the control name (e.g. 'Bold') or an object with the control name as key and options as value (e.g. {'Color': {'color': 'red'}}). Empty by default. */
-  controlsGroups?: Control[][];
-}
-
-/** Change function labels to strings. */
-type RichTextEditorLabels = Omit<MantineRichTextEditorLabels, 'colorControlLabel' | 'colorPickerColorLabel'> & {
-  /** An string containing '{color}' (replaced with the color) to go the color control label. */
-  colorControlLabel: string;
-  /** An string containing '{color}' (replaced with the color) to go the color picker control label. */
-  colorPickerColorLabel: string;
+    /** Determines whether `position: sticky` styles should be added to the toolbar, `false` by default */
+    sticky?: boolean;
+    /** Sets top style to offset elements with fixed position, `0` by default */
+    stickyOffset?: React.CSSProperties['top'];
+    /** Groups of controls to be displayed in the toolbar. Each item can be either a string with the control name (e.g. 'Bold') or an object with the control name as key and options as value (e.g. {'Color': {'color': 'red'}}). Empty by default. */
+    controlsGroups?: Control[][];
 };
 
-export interface Props extends BoxProps, StylesApiProps, DashBaseProps, PersistenceProps {
+/** Change function labels to strings. */
+type RichTextEditorLabels = Omit<
+    MantineRichTextEditorLabels,
+    'colorControlLabel' | 'colorPickerColorLabel'
+> & {
+    /** An string containing '{color}' (replaced with the color) to go the color control label. */
+    colorControlLabel: string;
+    /** An string containing '{color}' (replaced with the color) to go the color picker control label. */
+    colorPickerColorLabel: string;
+};
+
+export interface Props
+    extends BoxProps,
+        StylesApiProps,
+        DashBaseProps,
+        PersistenceProps {
     /** JSON object (ProseMirror) representation of the editor content. Affected by debounce. If both json and html are provide, json takes precedence. */
     json?: object;
 
@@ -110,10 +150,10 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps, Persiste
 /** RichTextEditor */
 const RichTextEditor = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyRichTextEditor {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyRichTextEditor {...props} />
+        </Suspense>
     );
-}
+};
 
 export default RichTextEditor;

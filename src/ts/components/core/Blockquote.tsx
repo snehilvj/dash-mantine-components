@@ -2,13 +2,13 @@ import {
     Blockquote as MantineBlockquote,
     MantineColor,
     MantineRadius,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import { getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import { getLoadingState } from '../../utils/dash3';
 
-import React from "react";
+import React from 'react';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Blockquote icon, displayed on the top left */

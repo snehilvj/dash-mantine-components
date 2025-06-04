@@ -1,19 +1,24 @@
-import { DatePicker as MantineDatePicker} from "@mantine/dates";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { DatePickerBaseProps } from "props/dates";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { setPersistence } from "../../utils/dash3";
-import { resolveProp } from "../../utils/prop-functions"
+import { DatePicker as MantineDatePicker } from '@mantine/dates';
+import { useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { DatePickerBaseProps } from 'props/dates';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { setPersistence } from '../../utils/dash3';
+import { resolveProp } from '../../utils/prop-functions';
 import { isDisabled } from '../../utils/dates';
 
-interface Props extends DashBaseProps, PersistenceProps, BoxProps, DatePickerBaseProps, StylesApiProps {
+interface Props
+    extends DashBaseProps,
+        PersistenceProps,
+        BoxProps,
+        DatePickerBaseProps,
+        StylesApiProps {
     /** Specifies days that should be disabled */
     disabledDates?: string[];
     /** Initial displayed date */
-    defaultDate?: string ;
+    defaultDate?: string;
 }
 
 /** Inline date, multiple dates and dates range picker */
@@ -27,9 +32,9 @@ const DatePicker = ({
     persistence_type,
     ...others
 }: Props) => {
-
     const normalize = (val: any) => {
-        if (type === 'multiple' || type === 'range') return Array.isArray(val) ? val : [];
+        if (type === 'multiple' || type === 'range')
+            return Array.isArray(val) ? val : [];
         return val ?? null;
     };
 
@@ -38,7 +43,6 @@ const DatePicker = ({
     useDidUpdate(() => {
         setDate(normalize(value));
     }, [value]);
-
 
     useDidUpdate(() => {
         setProps({ value: date });
@@ -51,12 +55,16 @@ const DatePicker = ({
             onChange={setDate}
             value={date}
             type={type}
-            excludeDate={Array.isArray(disabledDates)? isExcluded : resolveProp(disabledDates)}
+            excludeDate={
+                Array.isArray(disabledDates)
+                    ? isExcluded
+                    : resolveProp(disabledDates)
+            }
             {...others}
         />
     );
 };
 
-setPersistence(DatePicker)
+setPersistence(DatePicker);
 
 export default DatePicker;

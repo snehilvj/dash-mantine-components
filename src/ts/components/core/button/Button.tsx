@@ -4,13 +4,13 @@ import {
     MantineGradient,
     MantineRadius,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { LoaderProps } from "props/loader";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { LoaderProps } from 'props/loader';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
@@ -18,7 +18,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Sets `justify-content` of `inner` element, can be used to change distribution of sections and label, `'center'` by default */
-    justify?: React.CSSProperties["justifyContent"];
+    justify?: React.CSSProperties['justifyContent'];
     /** Content displayed on the left side of the button label */
     leftSection?: React.ReactNode;
     /** Content displayed on the right side of the button label */
@@ -52,7 +52,6 @@ const Button = ({
     n_clicks = 0,
     ...others
 }: Props) => {
-
     const increment = () => {
         if (!disabled) {
             setProps({
@@ -72,6 +71,5 @@ const Button = ({
         </MantineButton>
     );
 };
-
 
 export default Button;

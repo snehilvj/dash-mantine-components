@@ -6,10 +6,10 @@ import {
     MantineRadius,
     MantineShadow,
     PopoverWidth,
-} from "@mantine/core";
-import { PopoverMiddlewares } from "@mantine/core/lib/components/Popover/Popover.types";
-import { StylesApiProps } from "./styles";
-import { TransitionProps } from "./transition";
+} from '@mantine/core';
+import { PopoverMiddlewares } from '@mantine/core/lib/components/Popover/Popover.types';
+import { StylesApiProps } from './styles';
+import { TransitionProps } from './transition';
 
 export interface __PopoverProps {
     /** Dropdown position relative to the target element, `'bottom'` by default */
