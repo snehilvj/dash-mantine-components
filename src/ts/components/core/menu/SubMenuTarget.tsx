@@ -1,5 +1,5 @@
-import { BoxProps } from "props/box";
-import React from "react";
+import { BoxProps } from 'props/box';
+import React from 'react';
 
 interface Props {
     /** Content */

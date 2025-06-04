@@ -3,13 +3,13 @@ import {
     Radio as MantineRadio,
     MantineRadius,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import RadioGroupContext from "./RadioGroupContext";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import RadioGroupContext from './RadioGroupContext';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -25,7 +25,7 @@ interface Props
     /** Props passed down to the root element */
     wrapperProps?: Record<string, any>;
     /** Position of the label relative to the input, `'right'` by default */
-    labelPosition?: "left" | "right";
+    labelPosition?: 'left' | 'right';
     /** Description displayed below the label */
     description?: React.ReactNode;
     /** Error displayed below the label */
@@ -67,6 +67,6 @@ const Radio = (props: Props) => {
     );
 };
 
-setPersistence(Radio, ['checked'])
+setPersistence(Radio, ['checked']);
 
 export default Radio;

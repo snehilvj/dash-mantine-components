@@ -3,13 +3,13 @@ import {
     MantineColor,
     MantineRadius,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import ChipGroupContext from "./ChipGroupContext";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import ChipGroupContext from './ChipGroupContext';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -21,7 +21,7 @@ interface Props
     /** Controls various properties related to component size, `'sm'` by default */
     size?: MantineSize;
     /** Chip input type, `'checkbox'` by default */
-    type?: "radio" | "checkbox";
+    type?: 'radio' | 'checkbox';
     /** `label` element associated with the input */
     children: React.ReactNode;
     /** Checked state for controlled component */
@@ -79,6 +79,6 @@ const Chip = (props: Props) => {
     );
 };
 
-setPersistence(Chip, ["checked"])
+setPersistence(Chip, ['checked']);
 
 export default Chip;

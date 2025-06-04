@@ -3,12 +3,16 @@ import {
     MantineColor,
     MantineRadius,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState, applyDashProps } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import {
+    setPersistence,
+    getLoadingState,
+    applyDashProps,
+} from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -41,17 +45,15 @@ interface Props
 
 /** CheckboxIndicator */
 const CheckboxIndicator = ({
-                      setProps,
-                      loading_state,
-                      persistence,
-                      persisted_props,
-                      persistence_type,
-                      icon,
-                      indeterminateIcon,
-                      ...others
-                  }: Props) => {
-
-
+    setProps,
+    loading_state,
+    persistence,
+    persisted_props,
+    persistence_type,
+    icon,
+    indeterminateIcon,
+    ...others
+}: Props) => {
     const iconFunc = ({ indeterminate, ...others }) => {
         const selected: any = indeterminate ? indeterminateIcon : icon;
         return applyDashProps(selected, others);
@@ -66,6 +68,6 @@ const CheckboxIndicator = ({
     );
 };
 
-setPersistence(CheckboxIndicator, ["checked"] )
+setPersistence(CheckboxIndicator, ['checked']);
 
 export default CheckboxIndicator;

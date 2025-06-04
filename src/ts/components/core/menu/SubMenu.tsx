@@ -1,8 +1,8 @@
-import { Box, Menu  } from "@mantine/core";
-import { __PopoverProps } from "props/popover";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState, getChildLayout } from "../../../utils/dash3";
+import { Box, Menu } from '@mantine/core';
+import { __PopoverProps } from 'props/popover';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState, getChildLayout } from '../../../utils/dash3';
 
 interface Props extends __PopoverProps, StylesApiProps {
     variant?: string;
@@ -21,7 +21,7 @@ interface Props extends __PopoverProps, StylesApiProps {
     /** Determines whether dropdown should be closed when Escape key is pressed */
     closeOnEscape?: boolean;
     /** Event which should open menu */
-    trigger?: "click" | "hover" | "click-hover";
+    trigger?: 'click' | 'hover' | 'click-hover';
     /** Open delay in ms, applicable only to trigger="hover" variant */
     openDelay?: number;
     /** Close delay in ms, applicable only to trigger="hover" variant */
@@ -45,14 +45,13 @@ const SubMenu = (props: Props) => {
     return (
         <Menu.Sub {...others}>
             {React.Children.map(children, (child: any, index) => {
-                const { type: childType, props: childProps } = getChildLayout(child);
-                if (childType === "SubMenuTarget") {
+                const { type: childType, props: childProps } =
+                    getChildLayout(child);
+                if (childType === 'SubMenuTarget') {
                     const { boxWrapperProps } = childProps;
                     return (
                         <Menu.Sub.Target key={index}>
-                            <Box {...boxWrapperProps}>
-                                {child}
-                            </Box>
+                            <Box {...boxWrapperProps}>{child}</Box>
                         </Menu.Sub.Target>
                     );
                 }

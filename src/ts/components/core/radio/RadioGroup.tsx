@@ -1,9 +1,9 @@
-import { MantineSize, Radio } from "@mantine/core";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { InputWrapperProps } from "props/input";
-import React from "react";
-import RadioGroupContext from "./RadioGroupContext";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { MantineSize, Radio } from '@mantine/core';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { InputWrapperProps } from 'props/input';
+import React from 'react';
+import RadioGroupContext from './RadioGroupContext';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props extends InputWrapperProps, DashBaseProps, PersistenceProps {
     /** `Radio` components and any other elements */
@@ -55,13 +55,15 @@ const RadioGroup = (props: Props) => {
             value={value}
             {...others}
         >
-            <RadioGroupContext.Provider value={{radioOnClick: deselectable ? handleRadioClick : null}}>
+            <RadioGroupContext.Provider
+                value={{ radioOnClick: deselectable ? handleRadioClick : null }}
+            >
                 {children}
             </RadioGroupContext.Provider>
         </Radio.Group>
     );
 };
 
-setPersistence(RadioGroup)
+setPersistence(RadioGroup);
 
 export default RadioGroup;

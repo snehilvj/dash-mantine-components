@@ -1,11 +1,10 @@
-import { BubbleChart as MantineBubbleChart } from "@mantine/charts";
+import { BubbleChart as MantineBubbleChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React from "react";
-import { getScatterClickData, isEventValid } from "../../../utils/charts";
-import { getLoadingState } from "../../../utils/dash3";
-import { resolveProp } from "../../../utils/prop-functions";
-import { Props }  from "../BubbleChart"
-
+import React from 'react';
+import { getScatterClickData, isEventValid } from '../../../utils/charts';
+import { getLoadingState } from '../../../utils/dash3';
+import { resolveProp } from '../../../utils/prop-functions';
+import { Props } from '../BubbleChart';
 
 /** BubbleChart */
 const BubbleChart = ({
@@ -18,20 +17,19 @@ const BubbleChart = ({
     tooltipProps,
     ...others
 }: Props) => {
-
     const onClick = (ev) => {
         if (isEventValid(ev)) {
             setProps({ clickData: getScatterClickData(ev) });
         }
     };
 
-    const onMouseOver= (ev) => {
+    const onMouseOver = (ev) => {
         if (isEventValid(ev)) {
             setProps({ hoverData: getScatterClickData(ev) });
         }
     };
 
-    const newProps = { ...scatterProps, onClick, onMouseOver};
+    const newProps = { ...scatterProps, onClick, onMouseOver };
 
     return (
         <MantineBubbleChart

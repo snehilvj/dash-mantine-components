@@ -1,8 +1,8 @@
-import { Overlay as MantineOverlay } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { OverlayProps } from "props/overlay";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { Overlay as MantineOverlay } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { OverlayProps } from 'props/overlay';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends OverlayProps, DashBaseProps {}
 

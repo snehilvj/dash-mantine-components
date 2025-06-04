@@ -4,9 +4,9 @@ export interface DashBaseProps {
     /** Update props to trigger callbacks. */
     setProps: (props: Record<string, any>) => void;
     /** Wild card data attributes */
-    "data-*"?: string;
+    'data-*'?: string;
     /** Wild card aria attributes */
-    "aria-*"?: string;
+    'aria-*'?: string;
     /** tab-index */
     tabIndex?: number;
     /**  Object that holds the loading state object coming from dash-renderer. For use with dash<3.  */
@@ -42,7 +42,7 @@ export interface PersistenceProps {
      * local: window.localStorage, data is kept after the browser quit.
      * session: window.sessionStorage, data is cleared once the browser quit.
      */
-    persistence_type?: "local" | "session" | "memory";
+    persistence_type?: 'local' | 'session' | 'memory';
 }
 
 export interface DebounceProps {

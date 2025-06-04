@@ -2,18 +2,18 @@ import {
     List as MantineList,
     MantineSize,
     MantineSpacing,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** `List.Item` components only */
     children?: React.ReactNode;
     /** List type: `ol` or `ul`, `'unordered'` by default */
-    type?: "ordered" | "unordered";
+    type?: 'ordered' | 'unordered';
     /** Determines whether list items should be offset with padding, `false` by default */
     withPadding?: boolean;
     /** Controls `font-size` and `line-height`, `'md'` by default */
@@ -25,7 +25,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Determines whether items must be centered with their icon, `false` by default */
     center?: boolean;
     /** Controls `list-style-type`, by default inferred from `type` */
-    listStyleType?: React.CSSProperties["listStyleType"];
+    listStyleType?: React.CSSProperties['listStyleType'];
 }
 
 /** List */

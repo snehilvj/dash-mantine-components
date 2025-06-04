@@ -1,15 +1,20 @@
 import {
     CompositeChartSeries,
     CompositeChartCurveType,
-} from "@mantine/charts/lib/CompositeChart/CompositeChart";
-import { BoxProps } from "props/box";
-import { GridChartBaseProps } from "props/charts";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
+} from '@mantine/charts/lib/CompositeChart/CompositeChart';
+import { BoxProps } from 'props/box';
+import { GridChartBaseProps } from 'props/charts';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyCompositeChart = React.lazy(() => import(/* webpackChunkName: "CompositeChart" */ './fragments/CompositeChart'));
+const LazyCompositeChart = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "CompositeChart" */ './fragments/CompositeChart'
+        )
+);
 
 export interface Props
     extends BoxProps,
@@ -31,7 +36,7 @@ export interface Props
     /** Determines whether a label with value should be displayed on top of a curve,
      This feature is supported only for Line and Area series */
     withPointLabels?: boolean;
-     /** Determines whether a label with bar value should be displayed on top of each bar, incompatible with `type="stacked"` and `type="percent"`, `false` by default */
+    /** Determines whether a label with bar value should be displayed on top of each bar, incompatible with `type="stacked"` and `type="percent"`, `false` by default */
     withBarValueLabel?: boolean;
     /** Props passed down to recharts `Composite` component */
     composedChartProps?: object;
@@ -50,7 +55,7 @@ export interface Props
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
     /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
-    highlightHover?: boolean
+    highlightHover?: boolean;
     /** Determines whether dots should be displayed, `true` by default */
     withDots?: boolean;
     /** Stroke width for the chart lines, `2` by default */
@@ -63,15 +68,13 @@ export interface Props
     maxBarWidth?: number;
 }
 
-
 /** CompositeChart */
 const CompositeChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyCompositeChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyCompositeChart {...props} />
+        </Suspense>
     );
-}
-
+};
 
 export default CompositeChart;

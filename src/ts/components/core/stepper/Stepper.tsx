@@ -4,14 +4,19 @@ import {
     MantineSize,
     MantineSpacing,
     Stepper as MantineStepper,
-} from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import { omit, isEmpty } from "ramda";
-import React, { useState } from "react";
-import { getChildLayout, getLoadingState, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
+} from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import { omit, isEmpty } from 'ramda';
+import React, { useState } from 'react';
+import {
+    getChildLayout,
+    getLoadingState,
+    newRenderDashComponents,
+    getContextPath,
+} from '../../../utils/dash3';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Index of the active step */
@@ -29,9 +34,9 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Key of `theme.spacing` or any valid CSS value to set `padding-top` of the content */
     contentPadding?: MantineSpacing;
     /** Stepper orientation, `'horizontal'` by default */
-    orientation?: "vertical" | "horizontal";
+    orientation?: 'vertical' | 'horizontal';
     /** Icon position relative to the step body, `'left'` by default */
-    iconPosition?: "right" | "left";
+    iconPosition?: 'right' | 'left';
     /** Controls size of various Stepper elements */
     size?: MantineSize;
     /** Key of `theme.radius` or any valid CSS value to set steps border-radius, `"xl"` by default */
@@ -47,8 +52,13 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 }
 
 /** Stepper */
-const Stepper = ({ setProps, loading_state, active, children, ...others }: Props) => {
-
+const Stepper = ({
+    setProps,
+    loading_state,
+    active,
+    children,
+    ...others
+}: Props) => {
     const [act, setAct] = useState(active);
 
     useDidUpdate(() => {
@@ -57,17 +67,17 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
 
     return (
         <MantineStepper
-            data-dash-is-loading={ getLoadingState(loading_state) || undefined
-            }
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
             active={act}
-            onStepClick={(a) => setProps({active: a})}
+            onStepClick={(a) => setProps({ active: a })}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
                 const componentPath = getContextPath();
-                const { type: childType, props: childProps } = getChildLayout(child);
+                const { type: childType, props: childProps } =
+                    getChildLayout(child);
 
-                if (childType === "StepperCompleted") {
+                if (childType === 'StepperCompleted') {
                     return (
                         <MantineStepper.Completed>
                             {child}
@@ -75,15 +85,17 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
                     );
                 } else {
                     const renderedProps = newRenderDashComponents(
-                        omit(["children"], childProps),
+                        omit(['children'], childProps),
                         [
-                            "label",
-                            "description",
-                            "icon",
-                            "progressIcon",
-                            "completedIcon",
+                            'label',
+                            'description',
+                            'icon',
+                            'progressIcon',
+                            'completedIcon',
                         ],
-                        !isEmpty(componentPath) ? [...child?.props?.componentPath] : []
+                        !isEmpty(componentPath)
+                            ? [...child?.props?.componentPath]
+                            : []
                     );
 
                     return (
@@ -97,6 +109,6 @@ const Stepper = ({ setProps, loading_state, active, children, ...others }: Props
     );
 };
 
-Stepper.dashChildrenUpdate = true
+Stepper.dashChildrenUpdate = true;
 
 export default Stepper;

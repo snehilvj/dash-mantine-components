@@ -1,24 +1,40 @@
-import { Notifications, notifications, useNotifications, notificationsStore } from "@mantine/notifications";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, {useEffect, useState} from "react";
-import { getLoadingState, newRenderDashComponents, getContextPath, stringifyId } from "../../../utils/dash3";
-import { MantineColor, MantineRadius } from "@mantine/core";
-import {omit, equals} from 'ramda';
+import {
+    Notifications,
+    notifications,
+    useNotifications,
+    notificationsStore,
+} from '@mantine/notifications';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { useEffect, useState } from 'react';
+import {
+    getLoadingState,
+    newRenderDashComponents,
+    getContextPath,
+    stringifyId,
+} from '../../../utils/dash3';
+import { MantineColor, MantineRadius } from '@mantine/core';
+import { omit, equals } from 'ramda';
 
 // Define appNotificationHolder as a mutable object
 const appNotificationHolder: Record<string, any> = {};
-const allowedActions = ["show", "update"] as const;
-const allowedPositions = ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'top-center', 'bottom-center'] as const;
-export type Action = typeof allowedActions[number];
-export type Position = typeof allowedPositions[number];
-
+const allowedActions = ['show', 'update'] as const;
+const allowedPositions = [
+    'top-left',
+    'top-right',
+    'bottom-left',
+    'bottom-right',
+    'top-center',
+    'bottom-center',
+] as const;
+export type Action = (typeof allowedActions)[number];
+export type Position = (typeof allowedPositions)[number];
 
 // Create a proxy for appNotifications
 export const appNotifications = new Proxy(appNotificationHolder, {
     get(target, key) {
-        if (typeof key === "symbol") {
+        if (typeof key === 'symbol') {
             return undefined; // Prevent errors when symbols are used
         }
         if (key === 'store') {
@@ -28,12 +44,12 @@ export const appNotifications = new Proxy(appNotificationHolder, {
         return target[key];
     },
     set(target, key, value) {
-        if (typeof key === "symbol") {
+        if (typeof key === 'symbol') {
             return false; // Prevent errors when symbols are used
         }
         target[key] = value;
         return true;
-    }
+    },
 });
 
 // Define the Notification interface based on your requirements
@@ -45,7 +61,7 @@ interface Notification extends BoxProps, StylesApiProps {
     /** Notification icon, replaces color line */
     icon?: any;
     /** Notification title, displayed before body */
-    title?:any;
+    title?: any;
     /** Replaces colored line or icon with Loader component */
     loading?: boolean;
     /** Determines whether notification should have a border, `false` by default */
@@ -99,13 +115,22 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** NotificationContainer */
 const NotificationContainer = (props: Props) => {
-    const { setProps, loading_state, sendNotifications, hideNotifications, clean, cleanQueue, ...others } = props;
+    const {
+        setProps,
+        loading_state,
+        sendNotifications,
+        hideNotifications,
+        clean,
+        cleanQueue,
+        ...others
+    } = props;
 
-    const componentPath = getContextPath()
+    const componentPath = getContextPath();
 
     useEffect(() => {
         // Note - the type checking can be removed when it's handled properly in Dash
-        if (sendNotifications === undefined || sendNotifications === null) return;
+        if (sendNotifications === undefined || sendNotifications === null)
+            return;
 
         if (!Array.isArray(sendNotifications)) {
             throw new Error(
@@ -115,67 +140,79 @@ const NotificationContainer = (props: Props) => {
         }
 
         sendNotifications.forEach((notification) => {
-            const {action, ...realNotification} = notification;
+            const { action, ...realNotification } = notification;
 
             // Validate action is one of the accepted values
             if (!allowedActions.includes(action || 'show')) {
-                throw new Error(`Invalid action: '${action}' passed to action prop; should be one of '${allowedActions.join("','")}'`);
+                throw new Error(
+                    `Invalid action: '${action}' passed to action prop; should be one of '${allowedActions.join("','")}'`
+                );
                 return;
             }
-            if (!allowedPositions.includes(realNotification?.position || 'bottom-right')) {
-                throw new Error
-                (`Invalid position: '${realNotification?.position}' passed to position prop; should be one of '${allowedPositions.join("','")}'`);
+            if (
+                !allowedPositions.includes(
+                    realNotification?.position || 'bottom-right'
+                )
+            ) {
+                throw new Error(
+                    `Invalid position: '${realNotification?.position}' passed to position prop; should be one of '${allowedPositions.join("','")}'`
+                );
                 return;
             }
 
-             // handle pattern matching  ids
+            // handle pattern matching  ids
             const normalizedNotification = {
-              ...realNotification,
-              id: stringifyId(realNotification.id),
+                ...realNotification,
+                id: stringifyId(realNotification.id),
             };
-            notifications[action || 'show'](newRenderDashComponents(normalizedNotification, ['message', 'icon', 'title']));
+            notifications[action || 'show'](
+                newRenderDashComponents(normalizedNotification, [
+                    'message',
+                    'icon',
+                    'title',
+                ])
+            );
         });
 
         setProps({ sendNotifications: [] }); // Avoid duplicate processing
-
     }, [sendNotifications]);
 
     useEffect(() => {
-      if (hideNotifications === undefined || hideNotifications === null) return;
+        if (hideNotifications === undefined || hideNotifications === null)
+            return;
 
-      if (!Array.isArray(hideNotifications)) {
-          throw new Error(
-              `Expected 'hideNotifications' to be a list of ids but received: ${JSON.stringify(hideNotifications)}`
-          );
-          return;
-      }
+        if (!Array.isArray(hideNotifications)) {
+            throw new Error(
+                `Expected 'hideNotifications' to be a list of ids but received: ${JSON.stringify(hideNotifications)}`
+            );
+            return;
+        }
 
-      hideNotifications.forEach((id) => {
-        notifications.hide(stringifyId(id));
-      });
+        hideNotifications.forEach((id) => {
+            notifications.hide(stringifyId(id));
+        });
 
-      setProps({ hideNotifications: [] });
+        setProps({ hideNotifications: [] });
     }, [hideNotifications]);
-
 
     useEffect(() => {
         if (cleanQueue) {
-            notifications.cleanQueue()
-            setProps({cleanQueue: false})
+            notifications.cleanQueue();
+            setProps({ cleanQueue: false });
         }
     }, [cleanQueue]);
 
     useEffect(() => {
         if (clean) {
-            notifications.clean()
-            setProps({clean: false})
+            notifications.clean();
+            setProps({ clean: false });
         }
     }, [clean]);
 
     useEffect(() => {
-        appNotifications['api'] = notifications
-        appNotifications['store'] = notificationsStore.getState
-    }, [])
+        appNotifications['api'] = notifications;
+        appNotifications['store'] = notificationsStore.getState;
+    }, []);
 
     return (
         <Notifications
@@ -186,4 +223,4 @@ const NotificationContainer = (props: Props) => {
     );
 };
 
-export default NotificationContainer
+export default NotificationContainer;

@@ -1,10 +1,10 @@
-import { Checkbox, MantineSize } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { InputWrapperProps } from "props/input";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { Checkbox, MantineSize } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { InputWrapperProps } from 'props/input';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -35,8 +35,6 @@ const CheckboxGroup = ({
     value = [],
     ...others
 }: Props) => {
-
-
     const onChange = (value: string[]) => {
         setProps({ value });
     };
@@ -53,6 +51,6 @@ const CheckboxGroup = ({
     );
 };
 
-setPersistence(CheckboxGroup)
+setPersistence(CheckboxGroup);
 
 export default CheckboxGroup;

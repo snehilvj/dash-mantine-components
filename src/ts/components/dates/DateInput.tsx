@@ -1,23 +1,27 @@
-import { CalendarLevel, DateInput as MantineDateInput } from "@mantine/dates";
-import { useDebouncedValue, useDidUpdate, useFocusWithin } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
+import { CalendarLevel, DateInput as MantineDateInput } from '@mantine/dates';
+import {
+    useDebouncedValue,
+    useDidUpdate,
+    useFocusWithin,
+} from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
 import {
     CalendarBaseProps,
     DecadeLevelSettings,
     MonthLevelSettings,
     YearLevelSettings,
-} from "props/dates";
-import { __ClearButtonProps } from "props/button";
-import { __BaseInputProps } from "props/input";
-import { PopoverProps } from "props/popover";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { isDisabled } from "../../utils/dates";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
-import { resolveProp } from "../../utils/prop-functions"
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
+} from 'props/dates';
+import { __ClearButtonProps } from 'props/button';
+import { __BaseInputProps } from 'props/input';
+import { PopoverProps } from 'props/popover';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { isDisabled } from '../../utils/dates';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { resolveProp } from '../../utils/prop-functions';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 dayjs.extend(customParseFormat);
 
 interface Props
@@ -25,7 +29,7 @@ interface Props
         PersistenceProps,
         DebounceProps,
         BoxProps,
-        Omit<__BaseInputProps, "size">,
+        Omit<__BaseInputProps, 'size'>,
         CalendarBaseProps,
         DecadeLevelSettings,
         YearLevelSettings,
@@ -34,7 +38,7 @@ interface Props
     /** Value for controlled component */
     value?: string;
     /** Props added to Popover component */
-    popoverProps?: Partial<Omit<PopoverProps, "children">>;
+    popoverProps?: Partial<Omit<PopoverProps, 'children'>>;
     /** Determines whether input value can be cleared, adds clear button to right section, false by default */
     clearable?: boolean;
     /** Props added to clear button */
@@ -71,7 +75,6 @@ const DateInput = ({
     persistence_type,
     ...others
 }: Props) => {
-
     const [date, setDate] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -87,17 +90,16 @@ const DateInput = ({
         // Ensure the value prop is updated when the date is cleared by clicking the "X" button,
         // even if the input does not have focus.
         if (!focused && debounce === true) {
-            setProps({ value: date})
+            setProps({ value: date });
         }
     }, [debounced]);
-
 
     useDidUpdate(() => {
         setDate(value);
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({
                 n_submit: n_submit + 1,
                 ...(debounce === true && { value: date }),
@@ -108,10 +110,9 @@ const DateInput = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: date })
+            ...(debounce === true && { value: date }),
         });
     };
-
 
     const isExcluded = (date: string) => {
         return isDisabled(date, disabledDates || []);
@@ -120,20 +121,26 @@ const DateInput = ({
     return (
         <div ref={ref}>
             <MantineDateInput
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                data-dash-is-loading={
+                    getLoadingState(loading_state) || undefined
+                }
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}
                 value={date}
                 minDate={minDate}
                 maxDate={maxDate}
-                excludeDate={Array.isArray(disabledDates)? isExcluded : resolveProp(disabledDates)}
+                excludeDate={
+                    Array.isArray(disabledDates)
+                        ? isExcluded
+                        : resolveProp(disabledDates)
+                }
                 {...others}
             />
         </div>
     );
 };
 
-setPersistence(DateInput)
+setPersistence(DateInput);
 
 export default DateInput;

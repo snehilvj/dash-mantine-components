@@ -1,11 +1,15 @@
-
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyCodeHighlight = React.lazy(() => import(/* webpackChunkName: "CodeHighlight" */ './fragments/CodeHighlight'));
+const LazyCodeHighlight = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "CodeHighlight" */ './fragments/CodeHighlight'
+        )
+);
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight */
@@ -25,12 +29,10 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** CodeHighlight */
 const CodeHighlight = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyCodeHighlight {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyCodeHighlight {...props} />
+        </Suspense>
     );
-}
-
-
+};
 
 export default CodeHighlight;

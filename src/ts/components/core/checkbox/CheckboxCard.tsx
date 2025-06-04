@@ -2,12 +2,12 @@ import {
     CheckboxCard as MantineCheckboxCard,
     MantineRadius,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -34,15 +34,14 @@ interface Props
 
 /** CheckboxCard */
 const CheckboxCard = ({
-                          children,
-                          setProps,
-                          loading_state,
-                          persistence,
-                          persisted_props,
-                          persistence_type,
-                          ...others
-                      }: Props) => {
-
+    children,
+    setProps,
+    loading_state,
+    persistence,
+    persisted_props,
+    persistence_type,
+    ...others
+}: Props) => {
     return (
         <MantineCheckboxCard
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
@@ -54,6 +53,6 @@ const CheckboxCard = ({
     );
 };
 
-setPersistence(CheckboxCard, ["checked"]);
+setPersistence(CheckboxCard, ['checked']);
 
 export default CheckboxCard;

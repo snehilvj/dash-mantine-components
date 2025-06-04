@@ -1,12 +1,12 @@
-import { sanitizeUrl } from "@braintree/sanitize-url";
-import { Anchor as MantineAnchor } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { TextProps } from "props/text";
-import React, { MouseEvent, useMemo } from "react";
-import { TargetProps, onClick } from "../../utils/anchor";
-import { getLoadingState } from "../../utils/dash3";
+import { sanitizeUrl } from '@braintree/sanitize-url';
+import { Anchor as MantineAnchor } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { TextProps } from 'props/text';
+import React, { MouseEvent, useMemo } from 'react';
+import { TargetProps, onClick } from '../../utils/anchor';
+import { getLoadingState } from '../../utils/dash3';
 
-interface Props extends Omit<TextProps, "span">, DashBaseProps {
+interface Props extends Omit<TextProps, 'span'>, DashBaseProps {
     /** Content */
     children?: React.ReactNode;
     /** Target */
@@ -16,7 +16,7 @@ interface Props extends Omit<TextProps, "span">, DashBaseProps {
     /** Whether to refresh the page */
     refresh?: boolean;
     /** Determines in which cases link should have `text-decoration: underline` styles, `hover` by default */
-    underline?: "always" | "hover" | "never";
+    underline?: 'always' | 'hover' | 'never';
 }
 
 /** Anchor */

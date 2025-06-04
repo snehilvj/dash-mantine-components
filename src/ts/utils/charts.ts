@@ -1,5 +1,5 @@
 export const getClickData = (ev) => {
-    return ev.activePayload[0]["payload"];
+    return ev.activePayload[0]['payload'];
 };
 
 export const getPieClickData = (ev) => {

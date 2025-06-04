@@ -1,10 +1,10 @@
-import { Spoiler as MantineSpoiler } from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { Spoiler as MantineSpoiler } from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Maximum height of the visible content, when this point is reached spoiler appears, `100` by default */
@@ -24,8 +24,13 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 }
 
 /** Spoiler */
-const Spoiler = ({ setProps, loading_state, expanded = false, children, ...others }: Props) => {
-
+const Spoiler = ({
+    setProps,
+    loading_state,
+    expanded = false,
+    children,
+    ...others
+}: Props) => {
     const [opened, setOpened] = useState(expanded);
 
     useDidUpdate(() => {

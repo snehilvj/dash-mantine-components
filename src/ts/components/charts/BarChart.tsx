@@ -2,15 +2,17 @@ import React, { Suspense } from 'react';
 import {
     BarChartSeries,
     BarChartType,
-} from "@mantine/charts/lib/BarChart/BarChart";
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { GridChartBaseProps } from "props/charts";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+} from '@mantine/charts/lib/BarChart/BarChart';
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { GridChartBaseProps } from 'props/charts';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
 
 // eslint-disable-next-line no-inline-comments
-const LazyBarChart = React.lazy(() => import(/* webpackChunkName: "BarChart" */ './fragments/BarChart'));
+const LazyBarChart = React.lazy(
+    () => import(/* webpackChunkName: "BarChart" */ './fragments/BarChart')
+);
 
 export interface Props
     extends BoxProps,
@@ -45,7 +47,7 @@ export interface Props
      incompatible with type="stacked" and type="percent", false by default */
     withBarValueLabel?: boolean;
     /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
-    highlightHover?: boolean
+    highlightHover?: boolean;
     /** Sets minimum height of the bar in px, `0` by default */
     minBarSize?: number;
     /** Maximum bar width in px */
@@ -56,13 +58,12 @@ export interface Props
     getBarColor?: any;
 }
 
-
 /** BarChart */
 const BarChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyBarChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyBarChart {...props} />
+        </Suspense>
     );
 };
 

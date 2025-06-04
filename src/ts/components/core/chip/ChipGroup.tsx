@@ -1,9 +1,9 @@
-import { Chip } from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import React, { useState } from "react";
-import ChipGroupContext from "./ChipGroupContext";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { Chip } from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import React, { useState } from 'react';
+import ChipGroupContext from './ChipGroupContext';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props extends DashBaseProps, PersistenceProps {
     /** Determines whether it is allowed to select multiple values, `false` by default */
@@ -41,9 +41,9 @@ const ChipGroup = (props: Props) => {
 
     const handleChipClick = (event: React.MouseEvent<HTMLInputElement>) => {
         if (event.currentTarget.value === value) {
-          setVal(null);
+            setVal(null);
         }
-      };
+    };
 
     return (
         <Chip.Group
@@ -52,13 +52,15 @@ const ChipGroup = (props: Props) => {
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
-            <ChipGroupContext.Provider value={{ chipOnClick: deselectable ? handleChipClick : null }}>
+            <ChipGroupContext.Provider
+                value={{ chipOnClick: deselectable ? handleChipClick : null }}
+            >
                 {children}
             </ChipGroupContext.Provider>
         </Chip.Group>
     );
 };
 
-setPersistence(ChipGroup)
+setPersistence(ChipGroup);
 
 export default ChipGroup;

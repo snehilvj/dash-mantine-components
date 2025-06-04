@@ -6,12 +6,12 @@ import {
     AppShellResponsiveSize,
     AppShell as MantineAppShell,
     MantineSpacing,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether associated components should have a border, `true` by default */
@@ -29,11 +29,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Duration of all transitions in ms, `200` by default */
     transitionDuration?: number;
     /** Timing function of all transitions, `ease` by default */
-    transitionTimingFunction?: React.CSSProperties["transitionTimingFunction"];
+    transitionTimingFunction?: React.CSSProperties['transitionTimingFunction'];
     /** `z-index` of all associated elements, `200` by default */
     zIndex?: string | number;
     /** Determines how Navbar/Aside are arranged relative to Header/Footer, `default` by default */
-    layout?: "default" | "alt";
+    layout?: 'default' | 'alt';
     /** If set, Navbar, Aside, Header and Footer components be hidden */
     disabled?: boolean;
     /** Determines whether Header and Footer components should include styles to offset scrollbars. Based on `react-remove-scroll`. `true` by default */

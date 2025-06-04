@@ -1,35 +1,44 @@
-import { DonutChart as MantineDonutChart } from "@mantine/charts";
+import { DonutChart as MantineDonutChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useState } from "react";
-import { getPieClickData, isEventValid } from "../../../utils/charts";
-import { getLoadingState } from "../../../utils/dash3";
-import { Props }  from "../DonutChart"
+import React, { useState } from 'react';
+import { getPieClickData, isEventValid } from '../../../utils/charts';
+import { getLoadingState } from '../../../utils/dash3';
+import { Props } from '../DonutChart';
 
 /** DonutChart */
 const DonutChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, clickSeriesName, hoverSeriesName, pieProps, ...others } = props;
+    const {
+        setProps,
+        loading_state,
+        clickData,
+        hoverData,
+        clickSeriesName,
+        hoverSeriesName,
+        pieProps,
+        ...others
+    } = props;
 
     const onClick = (ev) => {
         if (isEventValid(ev)) {
-            const clickdata = getPieClickData(ev)
+            const clickdata = getPieClickData(ev);
             setProps({
                 clickData: clickdata,
-                clickSeriesName: clickdata["name"]
+                clickSeriesName: clickdata['name'],
             });
         }
     };
 
     const onMouseOver = (ev) => {
         if (isEventValid(ev)) {
-            const hoverdata = getPieClickData(ev)
+            const hoverdata = getPieClickData(ev);
             setProps({
                 hoverData: hoverdata,
-                hoverSeriesName: hoverdata["name"]
+                hoverSeriesName: hoverdata['name'],
             });
         }
     };
 
-    const newProps = { ...pieProps, onClick, onMouseOver};
+    const newProps = { ...pieProps, onClick, onMouseOver };
 
     return (
         <MantineDonutChart

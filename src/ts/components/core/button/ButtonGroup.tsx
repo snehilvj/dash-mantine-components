@@ -1,15 +1,15 @@
-import { Button } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { Button } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** `Button` components */
     children?: React.ReactNode;
     /** Orientation of the group, `horizontal` by default */
-    orientation?: "horizontal" | "vertical";
+    orientation?: 'horizontal' | 'vertical';
     /** `border-width` of the child `Button` components. Numbers are converted to rem. Default value in `1`. */
     borderWidth?: number | string;
 }

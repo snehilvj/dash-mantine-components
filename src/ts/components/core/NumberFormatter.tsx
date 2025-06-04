@@ -1,7 +1,7 @@
-import { NumberFormatter as MantineNumberFormatter } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { NumberFormatter as MantineNumberFormatter } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends DashBaseProps {
     /** Value to format */
@@ -19,7 +19,7 @@ interface Props extends DashBaseProps {
     /** Suffix added after the value */
     suffix?: string;
     /** Defines the thousand grouping style */
-    thousandsGroupStyle?: "thousand" | "lakh" | "wan" | "none";
+    thousandsGroupStyle?: 'thousand' | 'lakh' | 'wan' | 'none';
     /** A character used to separate thousands, `','` by default */
     thousandSeparator?: string | boolean;
 }

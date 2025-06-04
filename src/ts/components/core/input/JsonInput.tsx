@@ -1,11 +1,15 @@
-import { JsonInput as MantineJsonInput } from "@mantine/core";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
-import { TextareaProps } from "props/text";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { JsonInput as MantineJsonInput } from '@mantine/core';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
+import { TextareaProps } from 'props/text';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
-interface Props extends TextareaProps, DashBaseProps, DebounceProps, PersistenceProps {
+interface Props
+    extends TextareaProps,
+        DashBaseProps,
+        DebounceProps,
+        PersistenceProps {
     /** Value for controlled component */
     value?: string;
     /** Determines whether the value should be formatted on blur, `false` by default */
@@ -27,11 +31,10 @@ const JsonInput = ({
     n_submit = 0,
     n_blur = 0,
     debounce = false,
-    autoComplete = "off",
+    autoComplete = 'off',
     inputProps,
     ...others
 }: Props) => {
-
     const [val, setVal] = useState(value);
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(val, debounceValue);
@@ -47,7 +50,7 @@ const JsonInput = ({
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({
                 n_submit: n_submit + 1,
                 ...(debounce === true && { value: val }),
@@ -58,7 +61,7 @@ const JsonInput = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: val })
+            ...(debounce === true && { value: val }),
         });
     };
 
@@ -76,6 +79,6 @@ const JsonInput = ({
     );
 };
 
-setPersistence(JsonInput)
+setPersistence(JsonInput);
 
 export default JsonInput;

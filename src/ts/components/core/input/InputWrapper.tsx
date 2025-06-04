@@ -1,8 +1,8 @@
-import { Input as MantineInput } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { InputWrapperProps } from "props/input";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { Input as MantineInput } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { InputWrapperProps } from 'props/input';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends InputWrapperProps, DashBaseProps {
     /** Input wrapper content */

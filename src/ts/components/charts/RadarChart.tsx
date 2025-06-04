@@ -1,13 +1,14 @@
-import { RadarChartSeries } from "@mantine/charts/lib/RadarChart/RadarChart";
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense} from "react";
-
+import { RadarChartSeries } from '@mantine/charts/lib/RadarChart/RadarChart';
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyRadarChart = React.lazy(() => import(/* webpackChunkName: "RadarChart" */ './fragments/RadarChart'));
+const LazyRadarChart = React.lazy(
+    () => import(/* webpackChunkName: "RadarChart" */ './fragments/RadarChart')
+);
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used in the chart */
@@ -49,10 +50,10 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** RadarChart */
 const RadarChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyRadarChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyRadarChart {...props} />
+        </Suspense>
     );
-}
+};
 
 export default RadarChart;

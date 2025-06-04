@@ -1,8 +1,8 @@
-import { MantineRadius } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
+import { MantineRadius } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Item title, displayed next to the bullet */
@@ -14,7 +14,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `'xl'` by default */
     radius?: MantineRadius;
     /** Controls line border style, `'solid'` by default */
-    lineVariant?: "solid" | "dashed" | "dotted";
+    lineVariant?: 'solid' | 'dashed' | 'dotted';
 }
 
 /** TimelineItem */

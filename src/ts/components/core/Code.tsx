@@ -1,9 +1,9 @@
-import { Code as MantineCode, MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { Code as MantineCode, MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Content */

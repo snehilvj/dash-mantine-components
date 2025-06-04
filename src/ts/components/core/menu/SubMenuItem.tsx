@@ -1,10 +1,10 @@
-import { MantineColor, Menu } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { MouseEvent } from "react";
-import { TargetProps, onClick } from "../../../utils/anchor";
-import { getLoadingState } from "../../../utils/dash3";
+import { MantineColor, Menu } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { MouseEvent } from 'react';
+import { TargetProps, onClick } from '../../../utils/anchor';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Item label */
@@ -31,17 +31,16 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 
 /** Sub MenuItem */
 const SubMenuItem = ({
-        children,
-        disabled,
-        href,
-        target,
-        refresh,
-        n_clicks = 0,
-        setProps,
-        loading_state,
-        ...others
-    }: Props) => {
-
+    children,
+    disabled,
+    href,
+    target,
+    refresh,
+    n_clicks = 0,
+    setProps,
+    loading_state,
+    ...others
+}: Props) => {
     const increment = () => {
         if (!disabled) {
             setProps({
@@ -53,7 +52,9 @@ const SubMenuItem = ({
     if (href) {
         return (
             <Menu.Sub.Item
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                data-dash-is-loading={
+                    getLoadingState(loading_state) || undefined
+                }
                 component="a"
                 onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                     onClick(ev, href, target, refresh)
@@ -69,7 +70,9 @@ const SubMenuItem = ({
     } else {
         return (
             <Menu.Sub.Item
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                data-dash-is-loading={
+                    getLoadingState(loading_state) || undefined
+                }
                 onClick={increment}
                 disabled={disabled}
                 {...others}
@@ -80,6 +83,6 @@ const SubMenuItem = ({
     }
 };
 
-SubMenuItem.dashChildrenUpdate = true
+SubMenuItem.dashChildrenUpdate = true;
 
 export default SubMenuItem;

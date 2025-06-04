@@ -1,8 +1,8 @@
-import {Sparkline as MantineSparkline} from "@mantine/charts";
+import { Sparkline as MantineSparkline } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
-import { Props }  from "../Sparkline"
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
+import { Props } from '../Sparkline';
 
 /** Sparkline */
 const Sparkline = (props: Props) => {

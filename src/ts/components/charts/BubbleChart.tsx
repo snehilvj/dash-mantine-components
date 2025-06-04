@@ -1,19 +1,18 @@
-
-import { BubbleChartDataKey } from "@mantine/charts";
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { GridChartBaseProps } from "props/charts";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
+import { BubbleChartDataKey } from '@mantine/charts';
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { GridChartBaseProps } from 'props/charts';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyBubbleChart = React.lazy(() => import(/* webpackChunkName: "BubbleChart" */ './fragments/BubbleChart'));
+const LazyBubbleChart = React.lazy(
+    () =>
+        import(/* webpackChunkName: "BubbleChart" */ './fragments/BubbleChart')
+);
 
-export interface Props
-    extends BoxProps,
-        StylesApiProps,
-        DashBaseProps {
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Chart data */
     data: Record<string, any>[];
     /** Data keys for x, y and z axis */
@@ -48,13 +47,12 @@ export interface Props
     valueFormatter?: any;
 }
 
-
 /** BubbleChart */
 const BubbleChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyBubbleChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyBubbleChart {...props} />
+        </Suspense>
     );
 };
 

@@ -3,12 +3,12 @@ import {
     Pagination as MantinePagination,
     MantineRadius,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -60,14 +60,9 @@ const Pagination = (props: Props) => {
         setProps({ value });
     };
 
-    return (
-        <MantinePagination
-            {...others}
-            onChange={onChange}
-        />
-    );
+    return <MantinePagination {...others} onChange={onChange} />;
 };
 
-setPersistence(Pagination)
+setPersistence(Pagination);
 
 export default Pagination;

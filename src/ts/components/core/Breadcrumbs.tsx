@@ -1,12 +1,12 @@
 import {
     Breadcrumbs as MantineBreadcrumbs,
     MantineSpacing,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Separator between children, `'/'` by default */

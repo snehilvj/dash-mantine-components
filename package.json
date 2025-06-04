@@ -17,7 +17,8 @@
         "build:backends": "dash-generate-components ./src/ts/components dash_mantine_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
         "build": "npm run build:js && npm run build:backends",
         "watch": "npm run build:js::dev -- --watch",
-        "dist": "python -m build --sdist --wheel --outdir dist/"
+        "dist": "python -m build --sdist --wheel --outdir dist/",
+        "format":  "prettier --write src --ignore-path=.prettierignore"
     },
     "devDependencies": {
         "@braintree/sanitize-url": "^7.1.0",
@@ -35,7 +36,8 @@
         "ts-loader": "^9.5.1",
         "typescript": "5.6.3",
         "webpack": "^5.96.1",
-        "webpack-cli": "^5.1.4"
+        "webpack-cli": "^5.1.4",
+        "prettier": "^3.2.4"
     },
     "peerDependencies": {
         "react": "^18.2.0",
