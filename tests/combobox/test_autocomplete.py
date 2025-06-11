@@ -40,11 +40,10 @@ def test_001au_autocomplete_renderOption(dash_duo):
     assert len(options) == 3
 
     for option in options:
-        # Make sure it contains a span and svg
+        # make sure each option contains a span and svg
         span = option.find_element(by=By.TAG_NAME, value="span")
         svg = option.find_element(by=By.TAG_NAME, value="svg")
 
-        # Ensure content is correct (optional)
         assert span.text.startswith("Align")
         assert svg is not None
 
