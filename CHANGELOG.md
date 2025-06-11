@@ -3,7 +3,7 @@
 # Unreleased
 
 ### Added
-- Support `renderOption`, `clearButtonProps` and `clearable`  props in Autocomplete #604 by @ihor-lazariev
+- Support for functions as props in `renderOption` and `filter`, `clearButtonProps` and `clearable` props in `Autocomplete` #604 by @ihor-lazariev
 
 # 2.0.0
 
