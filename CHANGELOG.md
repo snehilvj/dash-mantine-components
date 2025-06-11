@@ -3,7 +3,9 @@
 # Unreleased
 
 ### Added
-- Support for functions as props in `renderOption` and `filter` props, `clearButtonProps` and `clearable` props in `Autocomplete` #604 by @ihor-lazariev
+- New features for `Autocomplete` #604 by @ihor-lazariev:
+  - Support functions as props in `renderOption` and `filter` props
+  - Added `clearButtonProps` and `clearable` props
 
 # 2.0.0
 
