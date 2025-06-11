@@ -22,6 +22,7 @@ const funcPropsMap = {
     Select: ['renderOption', 'filter'],
     MultiSelect: ['renderOption', 'filter'],
     TagsInput: ['renderOption', 'filter'],
+    Autocomplete: ['renderOption', 'filter'],
 };
 
 // parses functon as props from other props
