@@ -6,6 +6,7 @@ import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { ComboboxLikeProps } from 'props/combobox';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { __ClearButtonProps } from 'props/button';
 import { __BaseInputProps } from 'props/input';
 import { ScrollAreaProps } from 'props/scrollarea';
 import { StylesApiProps } from 'props/styles';
@@ -26,6 +27,10 @@ interface Props
     value?: string;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+    /** Determines whether the clear button should be displayed in the right section when the component has value, `false` by default */
+    clearable?: boolean;
+    /** Props passed down to the clear button */
+    clearButtonProps?: __ClearButtonProps;
 }
 
 /** Autocomplete */
