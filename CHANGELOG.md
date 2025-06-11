@@ -1,6 +1,13 @@
 # Change Log
 
-# Unreleased (2.0.0)
+# Unreleased
+
+### Added
+- New features for `Autocomplete` #604 by @ihor-lazariev:
+  - Support functions as props in `renderOption` and `filter` props
+  - Added `clearButtonProps` and `clearable` props
+
+# 2.0.0
 
 ### Changed
  - BREAKING CHANGES - updated to use Mantine 8.0.2
