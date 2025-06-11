@@ -1,6 +1,11 @@
 # Change Log
 
-# Unreleased (2.0.0)
+# Unreleased
+
+### Added
+- Support renderOption prop in Autocomplete #602 by @ihor-lazariev
+
+# 2.0.0
 
 ### Changed
  - BREAKING CHANGES - updated to use Mantine 8.0.2
