@@ -59,7 +59,6 @@ const Autocomplete = ({
         <MantineAutocomplete
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('Autocomplete', others)}
-            wrapperProps={{ autoComplete: 'off' }}
             data={options}
             onChange={setAutocomplete}
             value={autocomplete}
