@@ -1,4 +1,6 @@
 var dmcfuncs = window.dashMantineFunctions = window.dashMantineFunctions || {};
+const dmc = window.dash_mantine_components;
+const iconify = window.dash_iconify;
 
 
 dmcfuncs.myLabel = (value) => `${value} °C`
@@ -32,3 +34,22 @@ dmcfuncs.excludeDate = function(dateStr) {
     const parsedDate = new Date(Date.UTC(year, month - 1, day)); // Month is 0-based
     return parsedDate.getUTCDay() !== 5;  // Use getUTCDay to avoid local timezone shift
 }
+
+
+dmcfuncs.renderAutocompleteOption = function ({ option, checked }) {
+    const icons = {
+        left: "mdi:format-align-left",
+        center: "mdi:format-align-center",
+        right: "mdi:format-align-right",
+        justify: "mdi:format-align-justify",
+    };
+
+    const icon = icons[option.value?.toLowerCase?.()] || "mdi:checkbox-blank-circle-outline";
+
+    return React.createElement(
+        dmc.Group,
+        { gap: "xs", align: "center", className: "custom-icon-label"},
+        React.createElement("span", null, option.label),
+        React.createElement(iconify.DashIconify, { icon: icon, width: 20 }),
+    );
+};
