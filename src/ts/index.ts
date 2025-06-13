@@ -33,7 +33,9 @@ import Kbd from './components/core/Kbd';
 import Loader from './components/core/Loader';
 import LoadingOverlay from './components/core/LoadingOverlay';
 import Mark from './components/core/Mark';
-import Modal from './components/core/Modal';
+import Modal from './components/core/modal/Modal';
+import ModalStack from './components/core/modal/ModalStack';
+import ManagedModal from './components/core/modal/ManagedModal';
 import NavLink from './components/core/NavLink';
 import NumberFormatter from './components/core/NumberFormatter';
 import Overlay from './components/core/Overlay';
@@ -264,6 +266,8 @@ export {
     SubMenuItem,
     SubMenuTarget,
     Modal,
+    ManagedModal,
+    ModalStack,
     MonthPickerInput,
     MultiSelect,
     NavLink,
