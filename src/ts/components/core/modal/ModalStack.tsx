@@ -14,11 +14,13 @@ interface Props extends DashBaseProps {
     children?: React.ReactElement[];
     /** Current opened state of each modal.  Read only */
     state?: Record<string, boolean>;
-    /** Opens modal with the given id */
-    open?: string;
-    /** Toggles modal with the given id */
-    toggle?: string;
-    /** Closes all modals in the StackModal */
+    /** Opens one or more modals by ID. Accepts a single ID (string or dict) or a list of IDs. */
+    open?: string | Record<string, any> | (string | Record<string, any>)[];
+    /** Closes one or more modals by ID. Accepts a single ID (string or dict) or a list of IDs. */
+    close?: string | Record<string, any> | (string | Record<string, any>)[];
+    /** Toggles one or more modals by ID. Accepts a single ID (string or dict) or a list of IDs. */
+    toggle?: string | Record<string, any> | (string | Record<string, any>)[];
+    /** Closes all modals in the ModalStack */
     closeAll?: boolean;
 }
 
@@ -28,8 +30,10 @@ const ModalStack = ({
     setProps,
     loading_state,
     open,
+    close,
     toggle,
     closeAll,
+    state,
     ...others
 }: Props) => {
     const childrenArray = React.Children.toArray(children);
@@ -46,25 +50,44 @@ const ModalStack = ({
     const stack = useModalsStack(modalIds);
 
     useDidUpdate(() => {
-        if (open) {
-            stack.open(stringifyId(open));
-            setProps?.({ open: null });
+        const openArray = Array.isArray(open) ? open : open ? [open] : [];
+        if (openArray.length > 0) {
+            openArray.forEach((id) => stack.open(stringifyId(id)));
         }
+        setProps({ open: null });
     }, [open]);
 
     useDidUpdate(() => {
-        if (toggle) {
-            stack.toggle(stringifyId(toggle));
-            setProps?.({ toggle: null });
+        const closeArray = Array.isArray(close) ? close : close ? [close] : [];
+        if (closeArray.length > 0) {
+            closeArray.forEach((id) => stack.close(stringifyId(id)));
         }
+        setProps({ close: null });
+    }, [close]);
+
+    useDidUpdate(() => {
+        const toggleArray = Array.isArray(toggle)
+            ? toggle
+            : toggle
+              ? [toggle]
+              : [];
+        if (toggleArray.length > 0) {
+            toggleArray.forEach((id) => stack.toggle(stringifyId(id)));
+        }
+        setProps({ toggle: null });
     }, [toggle]);
 
     useDidUpdate(() => {
         if (closeAll) {
             stack.closeAll();
-            setProps?.({ closeAll: false });
+            setProps({ closeAll: false });
         }
     }, [closeAll]);
+
+    useDidUpdate(() => {
+        const currentState = stack.state;
+        setProps({ state: currentState });
+    }, [stack]);
 
     // Wrap each ManagedModal child with a <Modal>, registering it into the stack by ID
     const wrappedChildren = childrenArray.map((child, index) => {
