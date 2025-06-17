@@ -54,7 +54,6 @@ const ModalStack = ({
         if (openArray.length > 0) {
             openArray.forEach((id) => stack.open(stringifyId(id)));
         }
-        setProps({ open: null });
     }, [open]);
 
     useDidUpdate(() => {
@@ -62,7 +61,6 @@ const ModalStack = ({
         if (closeArray.length > 0) {
             closeArray.forEach((id) => stack.close(stringifyId(id)));
         }
-        setProps({ close: null });
     }, [close]);
 
     useDidUpdate(() => {
@@ -74,19 +72,23 @@ const ModalStack = ({
         if (toggleArray.length > 0) {
             toggleArray.forEach((id) => stack.toggle(stringifyId(id)));
         }
-        setProps({ toggle: null });
     }, [toggle]);
 
     useDidUpdate(() => {
         if (closeAll) {
             stack.closeAll();
-            setProps({ closeAll: false });
         }
     }, [closeAll]);
 
     useDidUpdate(() => {
         const currentState = stack.state;
-        setProps({ state: currentState });
+        setProps({
+            state: currentState,
+            toggle: null,
+            close: null,
+            open: null,
+            closeAll: false,
+        });
     }, [stack]);
 
     // Wrap each ManagedModal child with a <Modal>, registering it into the stack by ID
