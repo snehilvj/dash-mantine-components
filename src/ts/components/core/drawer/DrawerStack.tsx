@@ -1,4 +1,4 @@
-import { Modal, useModalsStack } from '@mantine/core';
+import { Drawer, useDrawersStack } from '@mantine/core';
 import { useDidUpdate } from '@mantine/hooks';
 import React from 'react';
 import { DashBaseProps } from 'props/dash';
@@ -11,20 +11,20 @@ import {
 interface Props extends DashBaseProps {
     /** ManagedModel content */
     children?: React.ReactElement[];
-    /** Current opened state of each modal.  Read only */
+    /** Current opened state of each drawer.  Read only */
     state?: Record<string, boolean>;
-    /** Opens one or more modals by ID. Accepts a single ID (string or dict) or a list of IDs. */
+    /** Opens one or more drawers by ID. Accepts a single ID (string or dict) or a list of IDs. */
     open?: string | Record<string, any> | (string | Record<string, any>)[];
-    /** Closes one or more modals by ID. Accepts a single ID (string or dict) or a list of IDs. */
+    /** Closes one or more drawers by ID. Accepts a single ID (string or dict) or a list of IDs. */
     close?: string | Record<string, any> | (string | Record<string, any>)[];
-    /** Toggles one or more modals by ID. Accepts a single ID (string or dict) or a list of IDs. */
+    /** Toggles one or more drawers by ID. Accepts a single ID (string or dict) or a list of IDs. */
     toggle?: string | Record<string, any> | (string | Record<string, any>)[];
-    /** Closes all modals in the ModalStack */
+    /** Closes all drawers in the DrawerStack */
     closeAll?: boolean;
 }
 
-/** Use ModalStack component to render multiple modals at the same time.  */
-const ModalStack = ({
+/** Use DrawerStack component to render multiple drawers at the same time.  */
+const DrawerStack = ({
     children,
     setProps,
     loading_state,
@@ -38,15 +38,15 @@ const ModalStack = ({
     const childrenArray = React.Children.toArray(children);
 
     // get ids of ManagedModels
-    const modalIds = childrenArray
+    const drawerIds = childrenArray
         .map((child) => {
             const { type, props } = getChildLayout(child);
-            return type === 'ManagedModal' ? stringifyId(props.id) : null;
+            return type === 'ManagedDrawer' ? stringifyId(props.id) : null;
         })
         .filter(Boolean) as string[];
 
-    // Initialize useModalsStack
-    const stack = useModalsStack(modalIds);
+    // Initialize useDrawersStack
+    const stack = useDrawersStack(drawerIds);
 
     useDidUpdate(() => {
         const openArray = Array.isArray(open) ? open : open ? [open] : [];
@@ -90,37 +90,37 @@ const ModalStack = ({
         });
     }, [stack]);
 
-    // Wrap each ManagedModal child with a <Modal>, registering it into the stack by ID
+    // Wrap each ManagedDrawer child with a <Drawer>, registering it into the stack by ID
     const wrappedChildren = childrenArray.map((child, index) => {
         const { type, props } = getChildLayout(child);
 
-        if (type !== 'ManagedModal') {
+        if (type !== 'ManagedDrawer') {
             throw new Error(
-                `StackModal only accepts 'ManagedModal' components as children. Received: '${type}'.`
+                `StackDrawer only accepts 'ManagedDrawer' components as children. Received: '${type}'.`
             );
         }
 
-        const { children: modalContent, ...modalProps } = props;
+        const { children: drawerContent, ...drawerProps } = props;
 
         return (
-            <Modal
+            <Drawer
                 key={index}
-                {...modalProps}
+                {...drawerProps}
                 {...stack.register(stringifyId(props.id))}
             >
                 {child}
-            </Modal>
+            </Drawer>
         );
     });
 
     return (
-        <Modal.Stack
+        <Drawer.Stack
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {wrappedChildren}
-        </Modal.Stack>
+        </Drawer.Stack>
     );
 };
 
-export default ModalStack;
+export default DrawerStack;

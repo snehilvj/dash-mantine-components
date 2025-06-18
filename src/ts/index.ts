@@ -22,7 +22,9 @@ import Code from './components/core/Code';
 import Collapse from './components/core/Collapse';
 import Container from './components/core/Container';
 import Divider from './components/core/Divider';
-import Drawer from './components/core/Drawer';
+import Drawer from './components/core/drawer/Drawer';
+import DrawerStack from './components/core/drawer/DrawerStack';
+import ManagedDrawer from './components/core/drawer/ManagedDrawer';
 import Fieldset from './components/core/Fieldset';
 import Flex from './components/core/Flex';
 import Group from './components/core/Group';
@@ -233,6 +235,8 @@ export {
     Divider,
     DonutChart,
     Drawer,
+    DrawerStack,
+    ManagedDrawer,
     Fieldset,
     Flex,
     FloatingTooltip,
