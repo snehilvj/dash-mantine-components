@@ -53,3 +53,15 @@ dmcfuncs.renderAutocompleteOption = function ({ option, checked }) {
         React.createElement(iconify.DashIconify, { icon: icon, width: 20 }),
     );
 };
+
+
+dmcfuncs.myLeaf = function (payload) {
+
+  const { node, elementProps } = payload;
+
+  return React.createElement(
+    dmc.Group,
+    { key: node.value, gap: 4, ...elementProps },
+    React.createElement('span', null, '🌿 ' + node.label)
+  );
+};

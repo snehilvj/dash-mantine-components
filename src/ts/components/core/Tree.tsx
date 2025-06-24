@@ -14,6 +14,7 @@ import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import React from 'react';
 import { getLoadingState } from '../../utils/dash3';
+import { resolveProp } from '../../utils/prop-functions';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether tree nodes range can be selected with click when Shift key is pressed, `true` by default */
@@ -46,6 +47,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     collapsedIcon?: React.ReactNode;
     /** Side to display expanded/collapsed state icon on, `'left'` by default */
     iconSide?: 'left' | 'right' | 'none';
+    /**
+     * A function to render the tree node label. Replaces the default component rendering  See https://www.dash-mantine-components.com/functions-as-props
+     */
+    renderNode?: any;
 }
 
 interface LeafProps {
@@ -117,6 +122,7 @@ const Tree = ({
     expandedIcon = <AccordionChevron />,
     collapsedIcon,
     iconSide = 'left',
+    renderNode,
     ...others
 }: Props) => {
     const tree = useTree({
@@ -157,21 +163,23 @@ const Tree = ({
         });
     }, [tree.expandedState]);
 
+    const fallbackLeaf = (payload) => (
+        <Leaf
+            key={payload.node.value}
+            checkboxes={checkboxes}
+            expandedIcon={expandedIcon}
+            collapsedIcon={collapsedIcon}
+            iconSide={iconSide}
+            {...payload}
+        />
+    );
+
     return (
         <MantineTree
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             data={data}
             tree={tree}
-            renderNode={(payload) => (
-                <Leaf
-                    key={payload.node.value}
-                    checkboxes={checkboxes}
-                    expandedIcon={expandedIcon}
-                    collapsedIcon={collapsedIcon}
-                    iconSide={iconSide}
-                    {...payload}
-                />
-            )}
+            renderNode={resolveProp(renderNode) || fallbackLeaf}
             {...others}
         />
     );
