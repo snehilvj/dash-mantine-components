@@ -7,6 +7,8 @@
   - Support functions as props in `renderOption` and `filter` props
   - Added `clearButtonProps` and `clearable` props
 
+- New `renderNode` prop in `Tree` component, allowing full control over node rendering with a JavaScript function. #608 by @AnnMarieW
+
 # 2.0.0
 
 ### Changed
