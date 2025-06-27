@@ -71,6 +71,10 @@ interface Props
     restrictToMarks?: boolean;
     /** Function to generate scale (See https://www.dash-mantine-components.com/functions-as-props) A transformation function to change the scale of the slider */
     scale?: any;
+    /** Domain of the slider, defines the full range of possible values, `[min, max]` by default */
+    domain?: [number, number];
+    /** Determines whether the other thumb should be pushed by the current thumb dragging when minRange/maxRange is reached, true by default */
+    pushOnOverlap?: boolean
 }
 
 /** RangeSlider */
