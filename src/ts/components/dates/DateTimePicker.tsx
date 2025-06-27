@@ -14,6 +14,11 @@ import { isDisabled } from '../../utils/dates';
 import { setPersistence, getLoadingState } from '../../utils/dash3';
 import { resolveProp } from '../../utils/prop-functions';
 
+type DateTimePickerPreset = {
+  value: string;
+  label: string;
+};
+
 interface Props
     extends DashBaseProps,
         PersistenceProps,
@@ -43,6 +48,8 @@ interface Props
     debounce?: number;
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
+    /** Predefined values to pick from */
+    presets?: DateTimePickerPreset[]
 }
 
 /** DateTimePicker */

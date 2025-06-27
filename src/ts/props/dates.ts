@@ -33,6 +33,8 @@ interface CalendarHeaderSettings {
     withPrevious?: boolean;
     /** Component size */
     size?: MantineSize;
+    /** Controls order, `['previous', 'level', 'next']`` by default */
+    headerControlsOrder?: ("next" | "previous" | "level")[]
 }
 
 interface ControlsGroupSettings {
@@ -279,6 +281,11 @@ export interface TimePickerProps
     timeRangePresets?: GetTimeRange;
 }
 
+type DatePickerPreset = {
+  value: string | [string, string];
+  label: string;
+};
+
 interface PickerBaseProps {
     /** Picker type: range, multiple or default */
     type?: DatePickerType;
@@ -301,6 +308,8 @@ export interface DatePickerBaseProps
     maxLevel?: CalendarLevel;
     /** Current level displayed to the user (decade, year, month), used for controlled component */
     level?: CalendarLevel;
+    /** Predefined values to pick from */
+    presets?: DatePickerPreset[]
 }
 
 export interface MonthPickerBaseProps
