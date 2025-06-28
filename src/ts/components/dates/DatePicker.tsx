@@ -6,7 +6,7 @@ import { DatePickerBaseProps } from 'props/dates';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { setPersistence } from '../../utils/dash3';
-import { resolveProp } from '../../utils/prop-functions';
+import { resolveProp, parseFuncProps } from '../../utils/prop-functions';
 import { isDisabled } from '../../utils/dates';
 
 interface Props
@@ -17,8 +17,6 @@ interface Props
         StylesApiProps {
     /** Specifies days that should be disabled */
     disabledDates?: string[];
-    /** Initial displayed date */
-    defaultDate?: string;
 }
 
 /** Inline date, multiple dates and dates range picker */
@@ -60,7 +58,7 @@ const DatePicker = ({
                     ? isExcluded
                     : resolveProp(disabledDates)
             }
-            {...others}
+             {...parseFuncProps('DatePicker', others)}
         />
     );
 };

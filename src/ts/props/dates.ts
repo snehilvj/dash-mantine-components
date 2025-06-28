@@ -60,6 +60,9 @@ interface YearsListSettings extends ControlsGroupSettings {
     size?: MantineSize;
     /** Determines whether controls should be separated by spacing, true by default */
     withCellSpacing?: boolean;
+    /** A function that passes props down to year picker control based on date. (See https://www.dash-mantine-components.com/functions-as-props) */
+    getYearControlProps?: any
+
 }
 
 interface DecadeLevelBaseSettings extends YearsListSettings {
@@ -76,6 +79,8 @@ interface MonthsListSettings extends ControlsGroupSettings {
     monthsListFormat?: string;
     /** Determines whether controls should be separated by spacing, true by default */
     withCellSpacing?: boolean;
+    /** A function that passes props down month picker control based on date. (See https://www.dash-mantine-components.com/functions-as-props) */
+    getMonthControlProps?: any;
 }
 
 interface YearLevelBaseSettings extends MonthsListSettings {
@@ -108,6 +113,10 @@ interface MonthSettings {
     withCellSpacing?: boolean;
     /**Determines whether week numbers should be displayed, false by default */
     withWeekNumbers?: boolean;
+    /** A function that passes props down Day component  based on date. (See https://www.dash-mantine-components.com/functions-as-props) */
+    getDayProps?: any
+    /** A function that controls day value rendering. (See https://www.dash-mantine-components.com/functions-as-props) */
+    renderDay?: any;
 }
 
 interface MonthLevelBaseSettings extends MonthSettings {
@@ -295,6 +304,8 @@ interface PickerBaseProps {
     allowDeselect?: boolean;
     /** Determines whether single year can be selected as range, applicable only when type="range" */
     allowSingleDateInRange?: boolean;
+    /** Initial displayed date */
+    defaultDate?: string;
 }
 
 export interface DatePickerBaseProps
@@ -327,8 +338,7 @@ export interface MonthPickerBaseProps
 export interface YearPickerBaseProps
     extends PickerBaseProps,
         DecadeLevelBaseSettings,
-        CalendarBaseProps,
-        CalendarSettings {}
+         CalendarBaseProps {}
 
 export interface TimeGridProps extends BoxProps, StylesApiProps {
     /** Time data in 24h format to be displayed in the grid, for example `['10:00', '18:30', '22:00']`. Time values must be unique. */

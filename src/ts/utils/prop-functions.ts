@@ -23,6 +23,12 @@ const funcPropsMap = {
     MultiSelect: ['renderOption', 'filter'],
     TagsInput: ['renderOption', 'filter'],
     Autocomplete: ['renderOption', 'filter'],
+    DatePicker: ['getYearControlProps', 'getMonthControlProps', 'getDayProps', 'renderDay'],
+    DateTimePicker: ['getYearControlProps', 'getMonthControlProps', 'getDayProps', 'renderDay'],
+    DatePickerInput: ['getYearControlProps', 'getMonthControlProps', 'getDayProps', 'renderDay'],
+    DateInput: ['getYearControlProps', 'getMonthControlProps', 'getDayProps', 'renderDay'],
+    MonthPickerInput: ['getYearControlProps', 'getMonthControlProps'],
+    YearPickerInput:  ['getYearControlProps']
 };
 
 // parses functon as props from other props

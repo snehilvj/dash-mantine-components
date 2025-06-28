@@ -6,6 +6,7 @@ import { DateInputSharedProps, YearPickerBaseProps } from 'props/dates';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { parseFuncProps } from '../../utils/prop-functions';
 
 interface Props
     extends DashBaseProps,
@@ -57,14 +58,13 @@ const YearPickerInput = ({
     return (
         <MantineYearPickerInput
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            wrapperProps={{ autoComplete: 'off' }}
             onKeyDown={handleKeyDown}
             onChange={setDate}
             value={date}
             type={type}
             minDate={minDate}
             maxDate={maxDate}
-            {...others}
+            {...parseFuncProps('YearPickerInput', others)}
         />
     );
 };

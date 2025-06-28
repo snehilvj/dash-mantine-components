@@ -10,6 +10,7 @@ import { DateInputSharedProps, MonthPickerBaseProps } from 'props/dates';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { parseFuncProps } from '../../utils/prop-functions';
 
 interface Props
     extends DashBaseProps,
@@ -91,7 +92,7 @@ const MonthPickerInput = ({
                 minDate={minDate}
                 maxDate={maxDate}
                 popoverProps={{ returnFocus: true, ...popoverProps }}
-                {...others}
+                {...parseFuncProps('MonthPickerInput', others)}
             />
         </div>
     );

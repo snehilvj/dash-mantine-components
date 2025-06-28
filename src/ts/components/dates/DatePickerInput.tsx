@@ -11,7 +11,7 @@ import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { isDisabled } from '../../utils/dates';
 import { setPersistence, getLoadingState } from '../../utils/dash3';
-import { resolveProp } from '../../utils/prop-functions';
+import { resolveProp, parseFuncProps } from '../../utils/prop-functions';
 
 interface Props
     extends DashBaseProps,
@@ -112,7 +112,7 @@ const DatePickerInput = ({
                         : resolveProp(disabledDates)
                 }
                 popoverProps={{ returnFocus: true, ...popoverProps }}
-                {...others}
+                {...parseFuncProps('DatePickerInput', others)}
             />
         </div>
     );
