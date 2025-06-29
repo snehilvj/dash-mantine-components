@@ -35,6 +35,7 @@ const CheckboxGroup = ({
     value = [],
     ...others
 }: Props) => {
+    const safeValue = Array.isArray(value) ? value : [];
     const onChange = (value: string[]) => {
         setProps({ value });
     };
@@ -43,7 +44,7 @@ const CheckboxGroup = ({
         <Checkbox.Group
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={onChange}
-            value={value}
+            value={safeValue}
             {...others}
         >
             {children}

@@ -66,8 +66,8 @@ const MultiSelect = ({
     value = [],
     ...others
 }: Props) => {
-    const [selected, setSelected] = useState(value);
-    const [options, setOptions] = useState(data);
+    const [selected, setSelected] = useState(value ?? []);
+    const [options, setOptions] = useState(data ?? []);
     const { ref, focused } = useFocusWithin();
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
