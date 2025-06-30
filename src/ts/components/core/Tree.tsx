@@ -14,11 +14,12 @@ import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import React from 'react';
 import { getLoadingState } from '../../utils/dash3';
+import { resolveProp } from '../../utils/prop-functions';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether tree nodes range can be selected with click when Shift key is pressed, `true` by default */
     allowRangeSelection?: boolean;
-    /** Determines if checkboxes should be rendered, `false` by default */
+    /** Determines if checkboxes should be rendered, `false` by default. Ignored when using a custom `renderNode` function. */
     checkboxes?: boolean;
     /** Determines checked nodes as a list of values (note that only leaves can be checked), `[]` by default */
     checked?: string[];
@@ -40,12 +41,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     selected?: string[];
     /** Determines whether node should be selected on click, `false` by default */
     selectOnClick?: boolean;
-    /** Expanded state icon */
+    /** Expanded state icon. Ignored when using a custom `renderNode` function. */
     expandedIcon?: React.ReactNode;
-    /** Collapsed state icon */
+    /** Collapsed state icon. Ignored when using a custom `renderNode` function. */
     collapsedIcon?: React.ReactNode;
-    /** Side to display expanded/collapsed state icon on, `'left'` by default */
+    /** Side to display expanded/collapsed state icon on, `'left'` by default. Ignored when using a custom `renderNode` function. */
     iconSide?: 'left' | 'right' | 'none';
+    /**
+     * A function to render the tree node label. Replaces the default component rendering  See https://www.dash-mantine-components.com/functions-as-props
+     */
+    renderNode?: any;
 }
 
 interface LeafProps {
@@ -117,6 +122,7 @@ const Tree = ({
     expandedIcon = <AccordionChevron />,
     collapsedIcon,
     iconSide = 'left',
+    renderNode,
     ...others
 }: Props) => {
     const tree = useTree({
@@ -157,21 +163,23 @@ const Tree = ({
         });
     }, [tree.expandedState]);
 
+    const fallbackLeaf = (payload) => (
+        <Leaf
+            key={payload.node.value}
+            checkboxes={checkboxes}
+            expandedIcon={expandedIcon}
+            collapsedIcon={collapsedIcon}
+            iconSide={iconSide}
+            {...payload}
+        />
+    );
+
     return (
         <MantineTree
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             data={data}
             tree={tree}
-            renderNode={(payload) => (
-                <Leaf
-                    key={payload.node.value}
-                    checkboxes={checkboxes}
-                    expandedIcon={expandedIcon}
-                    collapsedIcon={collapsedIcon}
-                    iconSide={iconSide}
-                    {...payload}
-                />
-            )}
+            renderNode={resolveProp(renderNode) || fallbackLeaf}
             {...others}
         />
     );

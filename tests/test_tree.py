@@ -3,11 +3,7 @@ import dash_mantine_components as dmc
 
 _dash_renderer._set_react_version("18.2.0")
 
-
-def tree_app(**kwargs):
-    app = Dash(__name__)
-
-    default_data = [
+default_data = [
         {
             "label": "1",
             "value": "1",
@@ -26,6 +22,9 @@ def tree_app(**kwargs):
         },
         {"label": "2", "value": "2"},
     ]
+
+def tree_app(**kwargs):
+    app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(
         html.Div(
@@ -172,5 +171,32 @@ def test_005tr_tree_icon(dash_duo):
     root = dash_duo.find_element("div[data-value='1']")
     root.click()
     dash_duo.wait_for_text_to_equal("div[data-value='1'] :last-child", "-")
+
+    assert dash_duo.get_logs() == []
+
+
+
+def test_006tr_tree_renderNode(dash_duo):
+    app = Dash(__name__)
+    app.layout = dmc.MantineProvider([
+        dmc.Tree(
+            id="tree",
+            data=default_data,
+            renderNode={"function": "myLeaf"},
+            expanded=["1", "1.a"],
+        )
+    ])
+
+    dash_duo.start_server(app)
+
+    # Wait for a tree node to render
+    dash_duo.wait_for_text_to_equal("span", "🌿 1")
+
+    # Check that a few specific nodes are visible
+    labels = dash_duo.find_elements("span")
+    text = [el.text for el in labels]
+    assert "🌿 1" in text
+    assert "🌿 a" in text
+    assert "🌿 i" in text
 
     assert dash_duo.get_logs() == []

@@ -3,11 +3,16 @@ import { DashBaseProps } from 'props/dash';
 import { ModalBaseOverlayProps, ModalBaseProps } from 'props/modal';
 import { StylesApiProps } from 'props/styles';
 import React, { useEffect, useState } from 'react';
-import { getLoadingState } from '../../utils/dash3';
+import { getLoadingState } from '../../../utils/dash3';
 
 type DrawerPosition = 'bottom' | 'left' | 'right' | 'top';
 
-interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
+interface Props
+    extends StylesApiProps,
+        Omit<ModalBaseProps, 'opened'>,
+        Omit<DashBaseProps, 'id'> {
+    /** Unique ID to identify this component. Required for use with DrawerStack */
+    id: string;
     /** Side of the screen on which drawer will be opened, `'left'` by default */
     position?: DrawerPosition;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `0` by default */
@@ -28,35 +33,14 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
     closeButtonProps?: object;
 }
 
-/** Drawer */
-const Drawer = ({
+/**  Managed Drawer for DrawerStack */
+const ManagedDrawer = ({
+    children,
     setProps,
     loading_state,
-    opened = false,
-    children,
     ...others
 }: Props) => {
-    const [open, setOpen] = useState(opened);
-
-    useEffect(() => {
-        setOpen(opened);
-    }, [opened]);
-
-    const onClose = () => {
-        setOpen(false);
-        setProps({ opened: false });
-    };
-
-    return (
-        <MantineDrawer
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            opened={open}
-            onClose={onClose}
-            {...others}
-        >
-            {children}
-        </MantineDrawer>
-    );
+    return <>{children}</>;
 };
 
-export default Drawer;
+export default ManagedDrawer;
