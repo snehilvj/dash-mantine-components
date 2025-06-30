@@ -27,8 +27,8 @@ const DrawerStackComponent = createStackComponent({
 });
 
 /** Use DrawerStack to render multiple drawers at the same time */
-const DrawerStack = (props: DrawerStackProps) => {
-    return React.createElement(DrawerStackComponent, props);
-};
+const DrawerStack = (props: DrawerStackProps) => (
+    <DrawerStackComponent {...props} />
+);
 
 export default DrawerStack;

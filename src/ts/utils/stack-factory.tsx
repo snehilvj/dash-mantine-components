@@ -1,10 +1,6 @@
 import React from 'react';
 import { useDidUpdate } from '@mantine/hooks';
-import {
-    getChildLayout,
-    getLoadingState,
-    stringifyId,
-} from './dash3';
+import { getChildLayout, getLoadingState, stringifyId } from './dash3';
 import { DashBaseProps } from 'props/dash';
 
 interface StackProps extends DashBaseProps {
@@ -60,8 +56,8 @@ export function createStackComponent({
             const closeArray = Array.isArray(close)
                 ? close
                 : close
-                ? [close]
-                : [];
+                  ? [close]
+                  : [];
             closeArray.forEach((id) => stack.close(stringifyId(id)));
         }, [close]);
 
@@ -69,8 +65,8 @@ export function createStackComponent({
             const toggleArray = Array.isArray(toggle)
                 ? toggle
                 : toggle
-                ? [toggle]
-                : [];
+                  ? [toggle]
+                  : [];
             toggleArray.forEach((id) => stack.toggle(stringifyId(id)));
         }, [toggle]);
 
@@ -99,24 +95,27 @@ export function createStackComponent({
             }
 
             const { children: content, ...innerProps } = props;
-            return React.createElement(
-                InnerComponent,
-                {
-                    key: index,
-                    ...innerProps,
-                    ...stack.register(stringifyId(props.id)),
-                },
-                child
+
+            return (
+                <InnerComponent
+                    key={index}
+                    {...innerProps}
+                    {...stack.register(stringifyId(props.id))}
+                >
+                    {child}
+                </InnerComponent>
             );
         });
 
-        return React.createElement(
-            OuterStack,
-            {
-                'data-dash-is-loading': getLoadingState(loading_state) || undefined,
-                ...others,
-            },
-            wrappedChildren
+        return (
+            <OuterStack
+                data-dash-is-loading={
+                    getLoadingState(loading_state) || undefined
+                }
+                {...others}
+            >
+                {wrappedChildren}
+            </OuterStack>
         );
     };
 

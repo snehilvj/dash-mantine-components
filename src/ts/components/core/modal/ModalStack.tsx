@@ -30,6 +30,7 @@ const ModalStackComponent = createStackComponent({
 const ModalStack = (props: ModalStackProps) => (
     <ModalStackComponent {...props} />
 );
+
 ModalStack.displayName = 'ModalStack';
 
 export default ModalStack;
