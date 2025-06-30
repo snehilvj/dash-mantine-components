@@ -12,7 +12,12 @@ import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { isDisabled } from '../../utils/dates';
 import { setPersistence, getLoadingState } from '../../utils/dash3';
-import { resolveProp } from '../../utils/prop-functions';
+import { resolveProp, parseFuncProps } from '../../utils/prop-functions';
+
+type DateTimePickerPreset = {
+    value: string;
+    label: string;
+};
 
 interface Props
     extends DashBaseProps,
@@ -43,6 +48,10 @@ interface Props
     debounce?: number;
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
+    /** Predefined values to pick from */
+    presets?: DateTimePickerPreset[];
+    /** Initial displayed date */
+    defaultDate?: string;
 }
 
 /** DateTimePicker */
@@ -94,7 +103,7 @@ const DateTimePicker = ({
                     ? isExcluded
                     : resolveProp(disabledDates)
             }
-            {...others}
+            {...parseFuncProps('DateTimePicker', others)}
         />
     );
 };

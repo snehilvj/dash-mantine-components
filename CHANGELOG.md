@@ -13,6 +13,21 @@
   - Introduced `ModalStack` / `ManagedModal` and `DrawerStack` / `ManagedDrawer` for managing stacked modals and drawers.
   - `ModalStack` and `DrawerStack` accept the Dash props: `open`, `close`, `toggle`, and `closeAll` to control visibility, and a read-only `state` prop to track which children are open.
  
+- Added Props #609 by @AnnMarieW
+  - `headerControlOrderProp` to calendar components
+  - `presets` to `DatePicker` and  `DateTimePicker`
+  - `autoContrast` to `Tooltip` and `FloatingTooltip`
+  - `domain` to `Slider` and `RangeSlider`
+  - `pushOnOverlap` to `RangeSlider`
+  - `bdrs` new style prop to for `borderRadius`
+  - `getYearControlProps`, `getMonthControlProps`, `getDayProps`, `renderDay` to date components
+
+### Fixed
+
+- Fixed issue where setting `value=None` in `MultiSelect` or `CheckboxGroup` caused an error #609
+
+### Changed
+- Upgraded to latest Mantine (8.1.2)
 
 # 2.0.0
 

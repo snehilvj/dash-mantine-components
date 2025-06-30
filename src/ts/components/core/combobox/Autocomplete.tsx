@@ -12,7 +12,7 @@ import { ScrollAreaProps } from 'props/scrollarea';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
-import { parseFuncProps } from "../../../utils/prop-functions"
+import { parseFuncProps } from '../../../utils/prop-functions';
 
 interface Props
     extends BoxProps,
