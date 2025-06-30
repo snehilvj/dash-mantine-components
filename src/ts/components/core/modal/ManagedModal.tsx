@@ -5,12 +5,13 @@ import { StylesApiProps } from 'props/styles';
 import React, { useEffect, useState } from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 
-
-interface Props extends Omit<DashBaseProps, 'id'>, Omit<ModalProps, 'opened'>, StylesApiProps {
+interface Props
+    extends Omit<DashBaseProps, 'id'>,
+        Omit<ModalProps, 'opened'>,
+        StylesApiProps {
     /** Unique ID to identify this component. Required for use with StackModal */
-   id: string;
+    id: string;
 }
-
 
 /**  Managed Model for StackModal */
 const ManagedModal = ({

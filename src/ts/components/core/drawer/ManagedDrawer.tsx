@@ -7,7 +7,10 @@ import { getLoadingState } from '../../../utils/dash3';
 
 type DrawerPosition = 'bottom' | 'left' | 'right' | 'top';
 
-interface Props extends StylesApiProps, Omit<ModalBaseProps, 'opened'>, Omit<DashBaseProps, 'id'> {
+interface Props
+    extends StylesApiProps,
+        Omit<ModalBaseProps, 'opened'>,
+        Omit<DashBaseProps, 'id'> {
     /** Unique ID to identify this component. Required for use with DrawerStack */
     id: string;
     /** Side of the screen on which drawer will be opened, `'left'` by default */
@@ -29,7 +32,6 @@ interface Props extends StylesApiProps, Omit<ModalBaseProps, 'opened'>, Omit<Das
     /** Props passed down to the close button */
     closeButtonProps?: object;
 }
-
 
 /**  Managed Drawer for DrawerStack */
 const ManagedDrawer = ({
