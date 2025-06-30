@@ -22,6 +22,10 @@
   - `bdrs` new style prop to for `borderRadius`
   - `getYearControlProps`, `getMonthControlProps`, `getDayProps`, `renderDay` to date components
 
+### Fixed
+
+- Fixed issue where setting `value=None` in `MultiSelect` or `CheckboxGroup` caused an error #609
+
 ### Changed
 - Upgraded to latest Mantine (8.1.2)
 
