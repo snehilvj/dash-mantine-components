@@ -18,7 +18,6 @@ interface DrawerStackProps extends DashBaseProps {
     closeAll?: boolean;
 }
 
-
 const DrawerStackComponent = createStackComponent({
     name: 'DrawerStack',
     useStackHook: useDrawersStack,

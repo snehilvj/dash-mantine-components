@@ -27,7 +27,9 @@ const ModalStackComponent = createStackComponent({
 });
 
 /** Use ModalStack component to render multiple modals at the same time.*/
-const ModalStack = (props: ModalStackProps) => <ModalStackComponent {...props} />;
+const ModalStack = (props: ModalStackProps) => (
+    <ModalStackComponent {...props} />
+);
 ModalStack.displayName = 'ModalStack';
 
 export default ModalStack;
