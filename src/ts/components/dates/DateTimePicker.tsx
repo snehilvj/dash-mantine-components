@@ -15,8 +15,8 @@ import { setPersistence, getLoadingState } from '../../utils/dash3';
 import { resolveProp, parseFuncProps } from '../../utils/prop-functions';
 
 type DateTimePickerPreset = {
-  value: string;
-  label: string;
+    value: string;
+    label: string;
 };
 
 interface Props
@@ -49,7 +49,7 @@ interface Props
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
     /** Predefined values to pick from */
-    presets?: DateTimePickerPreset[]
+    presets?: DateTimePickerPreset[];
     /** Initial displayed date */
     defaultDate?: string;
 }

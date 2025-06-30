@@ -30,5 +30,5 @@ export interface TooltipBaseProps extends BoxProps, StylesApiProps {
      * less than theme.luminosityThreshold, then theme.white will be used for text color, otherwise theme.black.
      * Overrides theme.autoContrast.
      */
-    autoContrast?: boolean
+    autoContrast?: boolean;
 }

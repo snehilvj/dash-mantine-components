@@ -58,7 +58,7 @@ const DatePicker = ({
                     ? isExcluded
                     : resolveProp(disabledDates)
             }
-             {...parseFuncProps('DatePicker', others)}
+            {...parseFuncProps('DatePicker', others)}
         />
     );
 };
