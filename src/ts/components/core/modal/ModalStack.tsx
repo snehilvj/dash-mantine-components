@@ -1,10 +1,12 @@
-import { createStackComponent } from '../../../utils/stack-factory';
+import React from 'react';
 import { Modal, useModalsStack } from '@mantine/core';
+import { createStackComponent } from '../../../utils/stack-factory';
 import { DashBaseProps } from 'props/dash';
-interface Props extends DashBaseProps {
-    /** ManagedModel content */
+
+interface ModalStackProps extends DashBaseProps {
+    /** ManagedModal content */
     children?: React.ReactElement[];
-    /** Current opened state of each modal.  Read only */
+    /** Current opened state of each modal. Read only */
     state?: Record<string, boolean>;
     /** Opens one or more modals by ID. Accepts a single ID (string or dict) or a list of IDs. */
     open?: string | Record<string, any> | (string | Record<string, any>)[];
@@ -16,13 +18,16 @@ interface Props extends DashBaseProps {
     closeAll?: boolean;
 }
 
-/** Use ModalStack component to render multiple modals at the same time.  */
-const ModalStack = createStackComponent({
+const ModalStackComponent = createStackComponent({
     name: 'ModalStack',
     useStackHook: useModalsStack,
     OuterStack: Modal.Stack,
     InnerComponent: Modal,
     expectedType: 'ManagedModal',
 });
+
+/** Use ModalStack component to render multiple modals at the same time.*/
+const ModalStack = (props: ModalStackProps) => <ModalStackComponent {...props} />;
+ModalStack.displayName = 'ModalStack';
 
 export default ModalStack;

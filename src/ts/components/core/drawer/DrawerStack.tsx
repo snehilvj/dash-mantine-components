@@ -1,11 +1,12 @@
+import React from 'react';
 import { createStackComponent } from '../../../utils/stack-factory';
 import { Drawer, useDrawersStack } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 
-interface Props extends DashBaseProps {
+interface DrawerStackProps extends DashBaseProps {
     /** ManagedDrawer content */
     children?: React.ReactElement[];
-    /** Current opened state of each drawer.  Read only */
+    /** Current opened state of each drawer. Read only */
     state?: Record<string, boolean>;
     /** Opens one or more drawers by ID. Accepts a single ID (string or dict) or a list of IDs. */
     open?: string | Record<string, any> | (string | Record<string, any>)[];
@@ -17,13 +18,18 @@ interface Props extends DashBaseProps {
     closeAll?: boolean;
 }
 
-/** Use DrawerStack component to render multiple drawers at the same time.  */
-const DrawerStack = createStackComponent({
+
+const DrawerStackComponent = createStackComponent({
     name: 'DrawerStack',
     useStackHook: useDrawersStack,
     OuterStack: Drawer.Stack,
     InnerComponent: Drawer,
     expectedType: 'ManagedDrawer',
 });
+
+/** Use DrawerStack to render multiple drawers at the same time */
+const DrawerStack = (props: DrawerStackProps) => {
+    return React.createElement(DrawerStackComponent, props);
+};
 
 export default DrawerStack;
