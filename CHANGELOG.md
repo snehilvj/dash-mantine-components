@@ -7,6 +7,11 @@
   - Support functions as props in `renderOption` and `filter` props
   - Added `clearButtonProps` and `clearable` props
 
+- Added  Modal Stack and Drawer Stack components  #606 by @AnnMarieW
+  - Introduced `ModalStack` / `ManagedModal` and `DrawerStack` / `ManagedDrawer` for managing stacked modals and drawers.
+  - `ModalStack` and `DrawerStack` accept the Dash props: `open`, `close`, `toggle`, and `closeAll` to control visibility, and a read-only `state` prop to track which children are open.
+ 
+
 # 2.0.0
 
 ### Changed

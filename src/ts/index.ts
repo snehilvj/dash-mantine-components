@@ -22,7 +22,9 @@ import Code from './components/core/Code';
 import Collapse from './components/core/Collapse';
 import Container from './components/core/Container';
 import Divider from './components/core/Divider';
-import Drawer from './components/core/Drawer';
+import Drawer from './components/core/drawer/Drawer';
+import DrawerStack from './components/core/drawer/DrawerStack';
+import ManagedDrawer from './components/core/drawer/ManagedDrawer';
 import Fieldset from './components/core/Fieldset';
 import Flex from './components/core/Flex';
 import Group from './components/core/Group';
@@ -33,7 +35,9 @@ import Kbd from './components/core/Kbd';
 import Loader from './components/core/Loader';
 import LoadingOverlay from './components/core/LoadingOverlay';
 import Mark from './components/core/Mark';
-import Modal from './components/core/Modal';
+import Modal from './components/core/modal/Modal';
+import ModalStack from './components/core/modal/ModalStack';
+import ManagedModal from './components/core/modal/ManagedModal';
 import NavLink from './components/core/NavLink';
 import NumberFormatter from './components/core/NumberFormatter';
 import Overlay from './components/core/Overlay';
@@ -231,6 +235,8 @@ export {
     Divider,
     DonutChart,
     Drawer,
+    DrawerStack,
+    ManagedDrawer,
     Fieldset,
     Flex,
     FloatingTooltip,
@@ -264,6 +270,8 @@ export {
     SubMenuItem,
     SubMenuTarget,
     Modal,
+    ManagedModal,
+    ModalStack,
     MonthPickerInput,
     MultiSelect,
     NavLink,
