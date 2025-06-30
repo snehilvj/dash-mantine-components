@@ -7,7 +7,12 @@
   - Support functions as props in `renderOption` and `filter` props
   - Added `clearButtonProps` and `clearable` props
 
-- New `renderNode` prop in `Tree` component, allowing full control over node rendering with a JavaScript function. #608 by @AnnMarieW
+- Added `renderNode` prop in `Tree` component, allowing full control over node rendering with a JavaScript function. #608 by @AnnMarieW
+
+- Added  Modal Stack and Drawer Stack components  #606 by @AnnMarieW
+  - Introduced `ModalStack` / `ManagedModal` and `DrawerStack` / `ManagedDrawer` for managing stacked modals and drawers.
+  - `ModalStack` and `DrawerStack` accept the Dash props: `open`, `close`, `toggle`, and `closeAll` to control visibility, and a read-only `state` prop to track which children are open.
+ 
 
 # 2.0.0
 
