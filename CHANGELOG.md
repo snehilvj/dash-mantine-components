@@ -1,6 +1,6 @@
 # Change Log
 
-# Unreleased
+# 2.1.0
 
 ### Added
 - New features for `Autocomplete` #604 by @ihor-lazariev:
