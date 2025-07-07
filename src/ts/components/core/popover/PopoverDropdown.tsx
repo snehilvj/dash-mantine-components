@@ -1,9 +1,9 @@
-import { Popover } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { Popover } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Content */
@@ -24,6 +24,6 @@ const PopoverDropdown = (props: Props) => {
     );
 };
 
-PopoverDropdown.dashChildrenUpdate = true
+PopoverDropdown.dashChildrenUpdate = true;
 
 export default PopoverDropdown;

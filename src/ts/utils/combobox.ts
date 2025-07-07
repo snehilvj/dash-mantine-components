@@ -1,18 +1,25 @@
 export const filterSelected = (options, values) => {
-    if (!options || options.length === 0 || values === null || values === undefined) {
-        return  null;
+    if (
+        !options ||
+        options.length === 0 ||
+        values === null ||
+        values === undefined
+    ) {
+        return null;
     }
 
     const extractValues = (optionList) => {
         let extractedValues = [];
 
         for (const option of optionList) {
-            if (typeof option === "string") {
+            if (typeof option === 'string') {
                 extractedValues.push(option);
             } else if ('value' in option && 'label' in option) {
                 extractedValues.push(option.value);
             } else if ('group' in option && 'items' in option) {
-                extractedValues = extractedValues.concat(extractValues(option.items));
+                extractedValues = extractedValues.concat(
+                    extractValues(option.items)
+                );
             }
         }
 

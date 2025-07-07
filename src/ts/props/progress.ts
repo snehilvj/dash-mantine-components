@@ -1,6 +1,6 @@
-import { MantineRadius, MantineSize } from "@mantine/core";
-import { BoxProps } from "./box";
-import { StylesApiProps } from "./styles";
+import { MantineRadius, MantineSize } from '@mantine/core';
+import { BoxProps } from './box';
+import { StylesApiProps } from './styles';
 
 export interface __ProgressRootProps extends BoxProps {
     /** Controls track height, `'md'` by default */

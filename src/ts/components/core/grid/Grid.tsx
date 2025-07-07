@@ -1,9 +1,14 @@
-import { Grid as MantineGrid, MantineSpacing, StyleProp, MantineSize } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import {
+    Grid as MantineGrid,
+    MantineSpacing,
+    StyleProp,
+    MantineSize,
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 export type GridBreakpoints = Record<MantineSize, string>;
 
@@ -15,13 +20,13 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether columns in the last row should expand to fill all available space, `false` by default */
     grow?: boolean;
     /** Sets `justify-content`, `flex-start` by default */
-    justify?: React.CSSProperties["justifyContent"];
+    justify?: React.CSSProperties['justifyContent'];
     /** Sets `align-items`, `stretch` by default */
-    align?: React.CSSProperties["alignItems"];
+    align?: React.CSSProperties['alignItems'];
     /** Number of columns in each row, `12` by default */
     columns?: number;
     /** Sets `overflow` CSS property on the root element, `'visible'` by default */
-    overflow?: React.CSSProperties["overflow"];
+    overflow?: React.CSSProperties['overflow'];
     /** Determines typeof of queries that are used for responsive styles, `'media'` by default */
     type?: 'media' | 'container';
     /** Breakpoints values, only applicable when `type="container"` is set, ignored when `type` is not set or `type="media"` is set. */

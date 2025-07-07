@@ -1,11 +1,12 @@
-import { YearPickerInput as MantineYearPickerInput } from "@mantine/dates";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { DateInputSharedProps, YearPickerBaseProps } from "props/dates";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { YearPickerInput as MantineYearPickerInput } from '@mantine/dates';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { DateInputSharedProps, YearPickerBaseProps } from 'props/dates';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { parseFuncProps } from '../../utils/prop-functions';
 
 interface Props
     extends DashBaseProps,
@@ -37,7 +38,6 @@ const YearPickerInput = ({
     persistence_type,
     ...others
 }: Props) => {
-
     const [date, setDate] = useState(value);
     const [debounced] = useDebouncedValue(date, debounce);
 
@@ -50,27 +50,25 @@ const YearPickerInput = ({
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({ n_submit: n_submit + 1 });
         }
     };
 
-
     return (
         <MantineYearPickerInput
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            wrapperProps={{ autoComplete: "off" }}
             onKeyDown={handleKeyDown}
             onChange={setDate}
             value={date}
             type={type}
             minDate={minDate}
             maxDate={maxDate}
-            {...others}
+            {...parseFuncProps('YearPickerInput', others)}
         />
     );
 };
 
-setPersistence(YearPickerInput)
+setPersistence(YearPickerInput);
 
 export default YearPickerInput;

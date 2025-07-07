@@ -1,6 +1,6 @@
-import { FloatingPosition, MantineColor, MantineRadius } from "@mantine/core";
-import { BoxProps } from "./box";
-import { StylesApiProps } from "./styles";
+import { FloatingPosition, MantineColor, MantineRadius } from '@mantine/core';
+import { BoxProps } from './box';
+import { StylesApiProps } from './styles';
 
 export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     /** Target element, must support `ref` prop and `...others` */
@@ -25,4 +25,10 @@ export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     portalProps?: object;
     /** Floating ui middlewares to configure position handling, `{ flip: true, shift: true, inline: false }` by default */
     middlewares?: object;
+    /**
+     * Determines whether tooltip text color should depend on background-color. If luminosity of the color prop is
+     * less than theme.luminosityThreshold, then theme.white will be used for text color, otherwise theme.black.
+     * Overrides theme.autoContrast.
+     */
+    autoContrast?: boolean;
 }

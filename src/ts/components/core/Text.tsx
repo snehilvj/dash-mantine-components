@@ -1,8 +1,8 @@
-import { Text as MantineText } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { TextProps } from "props/text";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { Text as MantineText } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { TextProps } from 'props/text';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends TextProps, DashBaseProps {
     /** Content */

@@ -1,8 +1,8 @@
-import isAbsoluteUrl from "is-absolute-url";
-import { isNil } from "ramda";
-import { MouseEvent } from "react";
+import isAbsoluteUrl from 'is-absolute-url';
+import { isNil } from 'ramda';
+import { MouseEvent } from 'react';
 
-export type TargetProps = "_blank" | "_self";
+export type TargetProps = '_blank' | '_self';
 
 /*
  * event polyfill for IE
@@ -16,7 +16,7 @@ function CustomEvent(event, params) {
         // eslint-disable-next-line no-undefined
         detail: undefined,
     };
-    const evt = document.createEvent("CustomEvent");
+    const evt = document.createEvent('CustomEvent');
     evt.initCustomEvent(
         event,
         params.bubbles,
@@ -39,13 +39,13 @@ export const onClick = (
         return;
     }
 
-    if (!href) return
+    if (!href) return;
 
     if (href && isAbsoluteUrl(href)) {
         return;
     }
 
-    if (target !== "_self" && !isNil(target)) {
+    if (target !== '_self' && !isNil(target)) {
         return;
     }
 
@@ -57,8 +57,8 @@ export const onClick = (
     if (refresh) {
         win.location = href;
     } else {
-        win.history.pushState({}, "", href);
-        window.dispatchEvent(CustomEvent("_dashprivate_pushstate", undefined));
+        win.history.pushState({}, '', href);
+        window.dispatchEvent(CustomEvent('_dashprivate_pushstate', undefined));
     }
     // scroll back to top
     win.scrollTo(0, 0);

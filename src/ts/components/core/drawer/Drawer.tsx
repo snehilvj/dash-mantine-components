@@ -1,14 +1,11 @@
-import { Drawer as MantineDrawer, MantineRadius } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import {
-    ModalBaseOverlayProps,
-    ModalBaseProps,
-} from "props/modal";
-import { StylesApiProps } from "props/styles";
-import React, { useEffect, useState } from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { Drawer as MantineDrawer, MantineRadius } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { ModalBaseOverlayProps, ModalBaseProps } from 'props/modal';
+import { StylesApiProps } from 'props/styles';
+import React, { useEffect, useState } from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
-type DrawerPosition = "bottom" | "left" | "right" | "top";
+type DrawerPosition = 'bottom' | 'left' | 'right' | 'top';
 
 interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
     /** Side of the screen on which drawer will be opened, `'left'` by default */
@@ -32,8 +29,13 @@ interface Props extends StylesApiProps, ModalBaseProps, DashBaseProps {
 }
 
 /** Drawer */
-const Drawer = ({ setProps, loading_state, opened = false, children, ...others }: Props) => {
-
+const Drawer = ({
+    setProps,
+    loading_state,
+    opened = false,
+    children,
+    ...others
+}: Props) => {
     const [open, setOpen] = useState(opened);
 
     useEffect(() => {

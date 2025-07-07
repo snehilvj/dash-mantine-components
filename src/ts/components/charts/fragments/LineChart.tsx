@@ -1,11 +1,10 @@
-import { LineChart as MantineLineChart } from "@mantine/charts";
+import { LineChart as MantineLineChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useState, useRef } from "react";
-import { getClickData, isEventValid } from "../../../utils/charts";
-import { getLoadingState } from "../../../utils/dash3";
-import { resolveProp } from "../../../utils/prop-functions"
-import { Props }  from "../LineChart"
-
+import React, { useState, useRef } from 'react';
+import { getClickData, isEventValid } from '../../../utils/charts';
+import { getLoadingState } from '../../../utils/dash3';
+import { resolveProp } from '../../../utils/prop-functions';
+import { Props } from '../LineChart';
 
 /** Mantine-themed line chart built on top of the Recharts library, */
 const LineChart = ({
@@ -24,7 +23,6 @@ const LineChart = ({
     tooltipProps,
     ...others
 }: Props) => {
-
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
 
@@ -34,7 +32,7 @@ const LineChart = ({
         if (isEventValid(ev)) {
             setProps({
                 clickSeriesName: seriesName.current,
-                clickData: getClickData(ev)
+                clickData: getClickData(ev),
             });
         }
         seriesName.current = null;
@@ -44,21 +42,21 @@ const LineChart = ({
         if (isEventValid(ev)) {
             setProps({
                 hoverSeriesName: seriesName.current,
-                hoverData: getClickData(ev)
+                hoverData: getClickData(ev),
             });
         }
         seriesName.current = null;
     };
 
-    const handleSeriesClick= (ev) => {
+    const handleSeriesClick = (ev) => {
         if (isEventValid(ev)) {
-            seriesName.current = ev["name"];
+            seriesName.current = ev['name'];
         }
     };
 
     const handleSeriesHover = (ev) => {
         if (isEventValid(ev)) {
-            const hoveredSeriesName = ev["name"];
+            const hoveredSeriesName = ev['name'];
             seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
         }
@@ -66,18 +64,17 @@ const LineChart = ({
 
     const handleDotClick = (ev, payload) => {
         if (isEventValid(ev)) {
-            seriesName.current = payload["dataKey"];
+            seriesName.current = payload['dataKey'];
         }
-    }
+    };
 
     const handleDotHover = (ev, payload) => {
         if (isEventValid(ev)) {
-            const hoveredSeriesName = payload["dataKey"];
+            const hoveredSeriesName = payload['dataKey'];
             seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
         }
     };
-
 
     const handleHoverEnd = () => {
         setHighlightedArea(null); // Reset highlighted area
@@ -86,7 +83,7 @@ const LineChart = ({
     const linePropsFunction = (item) => {
         const dimmed = shouldHighlight && highlightedArea !== item.name;
 
-        const returnProps : any = {
+        const returnProps: any = {
             ...lineProps,
             onClick: handleSeriesClick,
             onMouseOver: handleSeriesHover,
@@ -104,7 +101,6 @@ const LineChart = ({
 
         return returnProps;
     };
-
 
     const newProps = { ...lineChartProps, onClick, onMouseOver };
 
@@ -126,6 +122,5 @@ const LineChart = ({
         />
     );
 };
-
 
 export default LineChart;

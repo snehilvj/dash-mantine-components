@@ -1,19 +1,24 @@
-import { MonthPickerInput as MantineMonthPickerInput } from "@mantine/dates";
-import { useDebouncedValue, useDidUpdate, useFocusWithin } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { DateInputSharedProps, MonthPickerBaseProps } from "props/dates";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { MonthPickerInput as MantineMonthPickerInput } from '@mantine/dates';
+import {
+    useDebouncedValue,
+    useDidUpdate,
+    useFocusWithin,
+} from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { DateInputSharedProps, MonthPickerBaseProps } from 'props/dates';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { parseFuncProps } from '../../utils/prop-functions';
 
 interface Props
     extends DashBaseProps,
-    PersistenceProps,
-    BoxProps,
-    DateInputSharedProps,
-    MonthPickerBaseProps,
-    StylesApiProps {
+        PersistenceProps,
+        BoxProps,
+        DateInputSharedProps,
+        MonthPickerBaseProps,
+        StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default  */
     valueFormat?: string;
     /** An integer that represents the number of times that this element has been submitted */
@@ -38,7 +43,6 @@ const MonthPickerInput = ({
     persistence_type,
     ...others
 }: Props) => {
-
     const [date, setDate] = useState(value);
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(date, debounceValue);
@@ -46,8 +50,8 @@ const MonthPickerInput = ({
 
     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
-            setProps({ value: date })
-        };
+            setProps({ value: date });
+        }
     }, [debounced]);
 
     useDidUpdate(() => {
@@ -62,7 +66,7 @@ const MonthPickerInput = ({
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({ n_submit: n_submit + 1 });
         }
     };
@@ -74,11 +78,12 @@ const MonthPickerInput = ({
         }
     };
 
-
     return (
         <div ref={ref}>
             <MantineMonthPickerInput
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                data-dash-is-loading={
+                    getLoadingState(loading_state) || undefined
+                }
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}
@@ -87,12 +92,12 @@ const MonthPickerInput = ({
                 minDate={minDate}
                 maxDate={maxDate}
                 popoverProps={{ returnFocus: true, ...popoverProps }}
-                {...others}
+                {...parseFuncProps('MonthPickerInput', others)}
             />
         </div>
     );
 };
 
-setPersistence(MonthPickerInput)
+setPersistence(MonthPickerInput);
 
 export default MonthPickerInput;

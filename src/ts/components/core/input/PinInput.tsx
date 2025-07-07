@@ -3,12 +3,12 @@ import {
     MantineRadius,
     MantineSize,
     MantineSpacing,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -42,7 +42,7 @@ interface Props
     /** If set, adds error styles and `aria-invalid` attribute to all inputs */
     error?: boolean;
     /** Determines which values can be entered, `'alphanumeric'` by default */
-    type?: "alphanumeric" | "number" | RegExp;
+    type?: 'alphanumeric' | 'number' | RegExp;
     /** Changes input type to `"password"`, `false` by default */
     mask?: boolean;
     /** Number of inputs, `4` by default */
@@ -53,14 +53,14 @@ interface Props
     inputType?: React.HTMLInputTypeAttribute;
     /** `inputmode` attribute, inferred from the `type` prop if not specified */
     inputMode?:
-        | "none"
-        | "text"
-        | "tel"
-        | "url"
-        | "email"
-        | "numeric"
-        | "decimal"
-        | "search"
+        | 'none'
+        | 'text'
+        | 'tel'
+        | 'url'
+        | 'email'
+        | 'numeric'
+        | 'decimal'
+        | 'search'
         | undefined;
     /** `aria-label` for the inputs */
     ariaLabel?: string;

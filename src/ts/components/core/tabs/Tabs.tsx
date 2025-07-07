@@ -2,12 +2,12 @@ import {
     MantineColor,
     MantineRadius,
     Tabs as MantineTabs,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -17,9 +17,9 @@ interface Props
     /** Value for controlled component */
     value?: string | null;
     /** Tabs orientation, `'horizontal'` by default */
-    orientation?: "vertical" | "horizontal";
+    orientation?: 'vertical' | 'horizontal';
     /** `Tabs.List` placement relative to `Tabs.Panel`, applicable only when `orientation="vertical"`, `'left'` by default */
-    placement?: "left" | "right";
+    placement?: 'left' | 'right';
     /** Base id, used to generate ids to connect labels with controls, generated randomly by default */
     id?: string;
     /** Determines whether arrow key presses should loop though items (first to last and last to first), `true` by default */
@@ -69,6 +69,6 @@ const Tabs = (props: Props) => {
     );
 };
 
-setPersistence(Tabs)
+setPersistence(Tabs);
 
 export default Tabs;

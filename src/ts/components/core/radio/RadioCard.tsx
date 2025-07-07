@@ -1,13 +1,10 @@
-import {
-    RadioCard as MantineRadioCard,
-    MantineRadius,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import RadioGroupContext from "./RadioGroupContext";
+import { RadioCard as MantineRadioCard, MantineRadius } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
+import RadioGroupContext from './RadioGroupContext';
 
 interface Props
     extends BoxProps,
@@ -59,6 +56,6 @@ const RadioCard = (props: Props) => {
     );
 };
 
-setPersistence(RadioCard, ["checked"]);
+setPersistence(RadioCard, ['checked']);
 
 export default RadioCard;

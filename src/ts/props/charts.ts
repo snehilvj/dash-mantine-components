@@ -1,5 +1,5 @@
-import { ChartData } from "@mantine/charts";
-import { MantineColor } from "@mantine/core";
+import { ChartData } from '@mantine/charts';
+import { MantineColor } from '@mantine/core';
 
 export interface GridChartBaseProps {
     /** Data used to display chart */
@@ -19,11 +19,11 @@ export interface GridChartBaseProps {
     /** Props passed down to the `CartesianGrid` component */
     gridProps?: object;
     /** Specifies which axis should have tick line, `'y'` by default */
-    tickLine?: "x" | "y" | "xy" | "none";
+    tickLine?: 'x' | 'y' | 'xy' | 'none';
     /** Dash array for the grid lines and cursor, `'5 5'` by default */
     strokeDasharray?: string | number;
     /** Specifies which lines should be displayed in the grid, `'x'` by default */
-    gridAxis?: "x" | "y" | "xy" | "none";
+    gridAxis?: 'x' | 'y' | 'xy' | 'none';
     /** Unit displayed next to each tick in y-axis */
     unit?: string;
     /** Tooltip position animation duration in ms, `0` by default */
@@ -41,7 +41,7 @@ export interface GridChartBaseProps {
     /** Color of the grid and cursor lines, by default depends on color scheme */
     gridColor?: MantineColor;
     /** Chart orientation, `'horizontal'` by default */
-    orientation?: "horizontal" | "vertical";
+    orientation?: 'horizontal' | 'vertical';
     /** A label to display below the x-axis */
     xAxisLabel?: string;
     /** A label to display next to the y-axis */

@@ -1,8 +1,8 @@
-import { ActionIcon as MantineActionIcon } from "@mantine/core";
-import { ActionIconProps } from "props/actionicon";
-import { DashBaseProps } from "props/dash";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { ActionIcon as MantineActionIcon } from '@mantine/core';
+import { ActionIconProps } from 'props/actionicon';
+import { DashBaseProps } from 'props/dash';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends ActionIconProps, DashBaseProps {
     /** An integer that represents the number of times that this element has been clicked on */
@@ -18,7 +18,6 @@ const ActionIcon = ({
     n_clicks = 0,
     ...others
 }: Props) => {
-
     const increment = () => {
         if (!disabled) {
             setProps({

@@ -1,37 +1,37 @@
 :where([data-mantine-color-scheme='light']) .dmc-code {
-  --code-text-color: var(--mantine-color-gray-7);
-  --code-background: var(--mantine-color-gray-0);
-  --code-comment-color: var(--mantine-color-gray-6);
-  --code-keyword-color: var(--mantine-color-violet-8);
-  --code-tag-color: var(--mantine-color-red-9);
-  --code-literal-color: var(--mantine-color-blue-6);
-  --code-string-color: var(--mantine-color-blue-9);
-  --code-variable-color: var(--mantine-color-lime-9);
-  --code-class-color: var(--mantine-color-orange-9);
+    --code-text-color: var(--mantine-color-gray-7);
+    --code-background: var(--mantine-color-gray-0);
+    --code-comment-color: var(--mantine-color-gray-6);
+    --code-keyword-color: var(--mantine-color-violet-8);
+    --code-tag-color: var(--mantine-color-red-9);
+    --code-literal-color: var(--mantine-color-blue-6);
+    --code-string-color: var(--mantine-color-blue-9);
+    --code-variable-color: var(--mantine-color-lime-9);
+    --code-class-color: var(--mantine-color-orange-9);
 }
 
 :where([data-mantine-color-scheme='dark']) .dmc-code {
-  --code-text-color: var(--mantine-color-dark-1);
-  --code-background: var(--mantine-color-dark-8);
-  --code-comment-color: var(--mantine-color-dark-3);
-  --code-keyword-color: var(--mantine-color-violet-3);
-  --code-tag-color: var(--mantine-color-yellow-4);
-  --code-literal-color: var(--mantine-color-blue-4);
-  --code-string-color: var(--mantine-color-green-6);
-  --code-variable-color: var(--mantine-color-blue-2);
-  --code-class-color: var(--mantine-color-orange-5);
+    --code-text-color: var(--mantine-color-dark-1);
+    --code-background: var(--mantine-color-dark-8);
+    --code-comment-color: var(--mantine-color-dark-3);
+    --code-keyword-color: var(--mantine-color-violet-3);
+    --code-tag-color: var(--mantine-color-yellow-4);
+    --code-literal-color: var(--mantine-color-blue-4);
+    --code-string-color: var(--mantine-color-green-6);
+    --code-variable-color: var(--mantine-color-blue-2);
+    --code-class-color: var(--mantine-color-orange-5);
 }
 
 .dmc-code .hljs-comment,
 .dmc-code .hljs-quote {
-  font-style: italic;
-  color: var(--code-comment-color);
+    font-style: italic;
+    color: var(--code-comment-color);
 }
 
 .dmc-code .hljs-doctag,
 .dmc-code .hljs-formula,
 .dmc-code .hljs-keyword {
-  color: var(--code-keyword-color);
+    color: var(--code-keyword-color);
 }
 
 .dmc-code .hljs-deletion,
@@ -39,11 +39,11 @@
 .dmc-code .hljs-section,
 .dmc-code .hljs-selector-tag,
 .dmc-code .hljs-subst {
-  color: var(--code-tag-color);
+    color: var(--code-tag-color);
 }
 
 .dmc-code .hljs-literal {
-  color: var(--code-literal-color);
+    color: var(--code-literal-color);
 }
 
 .dmc-code .hljs-addition,
@@ -51,7 +51,7 @@
 .dmc-code .hljs-meta .hljs-string,
 .dmc-code .hljs-regexp,
 .dmc-code .hljs-string {
-  color: var(--code-string-color);
+    color: var(--code-string-color);
 }
 
 .dmc-code .hljs-attr,
@@ -62,7 +62,7 @@
 .dmc-code .hljs-template-variable,
 .dmc-code .hljs-type,
 .dmc-code .hljs-variable {
-  color: var(--code-variable-color);
+    color: var(--code-variable-color);
 }
 
 .dmc-code .hljs-bullet,
@@ -74,17 +74,17 @@
 .dmc-code .hljs-built_in,
 .dmc-code .hljs-class .hljs-title,
 .dmc-code .hljs-title.class_ {
-  color: var(--code-class-color);
+    color: var(--code-class-color);
 }
 
 .dmc-code .hljs-emphasis {
-  font-style: italic;
+    font-style: italic;
 }
 
 .dmc-code .hljs-strong {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .dmc-code .hljs-link {
-  text-decoration: underline;
+    text-decoration: underline;
 }

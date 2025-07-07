@@ -3,16 +3,17 @@ import {
     AreaChartCurveType,
     AreaChartSeries,
     AreaChartType,
-} from "@mantine/charts/lib/AreaChart/AreaChart";
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { GridChartBaseProps } from "props/charts";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+} from '@mantine/charts/lib/AreaChart/AreaChart';
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { GridChartBaseProps } from 'props/charts';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
 
 // eslint-disable-next-line no-inline-comments
-const LazyAreaChart = React.lazy(() => import(/* webpackChunkName: "AreaChart" */ './fragments/AreaChart'));
-
+const LazyAreaChart = React.lazy(
+    () => import(/* webpackChunkName: "AreaChart" */ './fragments/AreaChart')
+);
 
 export interface Props
     extends BoxProps,
@@ -62,16 +63,16 @@ export interface Props
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
     /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
-    highlightHover?: boolean
+    highlightHover?: boolean;
 }
 
 /** AreaChart */
 const AreaChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyAreaChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyAreaChart {...props} />
+        </Suspense>
     );
-}
+};
 
 export default AreaChart;

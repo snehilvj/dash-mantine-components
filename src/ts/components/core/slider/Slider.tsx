@@ -3,15 +3,15 @@ import {
     MantineRadius,
     MantineSize,
     Slider as MantineSlider,
-} from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import { TransitionProps } from "props/transition";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import { parseFuncProps } from "../../../utils/prop-functions"
+} from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import { TransitionProps } from 'props/transition';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
+import { parseFuncProps } from '../../../utils/prop-functions';
 
 interface Props
     extends BoxProps,
@@ -60,25 +60,26 @@ interface Props
     /** Determines whether track value representation should be inverted, `false` by default */
     inverted?: boolean;
     /** Determines when the component should update its value property. If mouseup (the default) then the slider will only trigger its value when the user has finished dragging the slider. If drag, then the slider will update its value continuously as it is being dragged. */
-    updatemode: "mouseup" | "drag";
+    updatemode: 'mouseup' | 'drag';
     /** Determines whether the selection should be only allowed from the given marks array, false by default */
     restrictToMarks?: boolean;
     /** Function to generate scale (See https://www.dash-mantine-components.com/functions-as-props) A transformation function to change the scale of the slider */
     scale?: any;
+    /** Domain of the slider, defines the full range of possible values, `[min, max]` by default */
+    domain?: [number, number];
 }
 
 /** Slider */
 const Slider = ({
     setProps,
     loading_state,
-    updatemode = "mouseup",
+    updatemode = 'mouseup',
     value,
     persistence,
     persisted_props,
     persistence_type,
     ...others
 }: Props) => {
-
     const [val, setVal] = useState(value);
 
     useDidUpdate(() => {
@@ -86,7 +87,7 @@ const Slider = ({
     }, [value]);
 
     useDidUpdate(() => {
-        if (updatemode === "drag") {
+        if (updatemode === 'drag') {
             setProps({ value: val });
         }
     }, [val]);
@@ -94,11 +95,11 @@ const Slider = ({
     return (
         <MantineSlider
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...parseFuncProps('Slider',others)}
+            {...parseFuncProps('Slider', others)}
             value={val}
             onChange={setVal}
             onChangeEnd={(value) => {
-                if (updatemode === "mouseup") {
+                if (updatemode === 'mouseup') {
                     setProps({ value });
                 }
             }}
@@ -106,6 +107,6 @@ const Slider = ({
     );
 };
 
-setPersistence(Slider)
+setPersistence(Slider);
 
 export default Slider;

@@ -1,19 +1,19 @@
-import { Group as MantineGroup, MantineSpacing } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { Group as MantineGroup, MantineSpacing } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
     children?: React.ReactNode;
     /** Controls `justify-content` CSS property, `'flex-start'` by default */
-    justify?: React.CSSProperties["justifyContent"];
+    justify?: React.CSSProperties['justifyContent'];
     /** Controls `align-items` CSS property, `'center'` by default */
-    align?: React.CSSProperties["alignItems"];
+    align?: React.CSSProperties['alignItems'];
     /** Controls `flex-wrap` CSS property, `'wrap'` by default */
-    wrap?: React.CSSProperties["flexWrap"];
+    wrap?: React.CSSProperties['flexWrap'];
     /** Key of `theme.spacing` or any valid CSS value for `gap`, numbers are converted to rem, `'md'` by default */
     gap?: MantineSpacing;
     /** Determines whether each child element should have `flex-grow: 1` style, `false` by default */

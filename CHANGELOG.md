@@ -1,13 +1,42 @@
 # Change Log
 
-# Unreleased (2.0.0)
+# 2.1.0
+
+### Added
+- New features for `Autocomplete` #604 by @ihor-lazariev:
+  - Support functions as props in `renderOption` and `filter` props
+  - Added `clearButtonProps` and `clearable` props
+
+- Added `renderNode` prop in `Tree` component, allowing full control over node rendering with a JavaScript function. #608 by @AnnMarieW
+
+- Added  Modal Stack and Drawer Stack components  #606 by @AnnMarieW
+  - Introduced `ModalStack` / `ManagedModal` and `DrawerStack` / `ManagedDrawer` for managing stacked modals and drawers.
+  - `ModalStack` and `DrawerStack` accept the Dash props: `open`, `close`, `toggle`, and `closeAll` to control visibility, and a read-only `state` prop to track which children are open.
+ 
+- Added Props #609 by @AnnMarieW
+  - `headerControlOrderProp` to calendar components
+  - `presets` to `DatePicker` and  `DateTimePicker`
+  - `autoContrast` to `Tooltip` and `FloatingTooltip`
+  - `domain` to `Slider` and `RangeSlider`
+  - `pushOnOverlap` to `RangeSlider`
+  - `bdrs` new style prop to for `borderRadius`
+  - `getYearControlProps`, `getMonthControlProps`, `getDayProps`, `renderDay` to date components
+
+### Fixed
+
+- Fixed issue where setting `value=None` in `MultiSelect` or `CheckboxGroup` caused an error #609
+
+### Changed
+- Upgraded to latest Mantine (8.1.2)
+
+# 2.0.0
 
 ### Changed
  - BREAKING CHANGES - updated to use Mantine 8.0.2
  - See [Migration guide](https://www.dash-mantine-components.com/migration) in the dmc-docs
 
 ### Added
-- New `TimePicker, `TimeGrid`, `DatePicker` and SubMenu components
+- New `TimePicker`, `TimeGrid`, `DatePicker` and `SubMenu` components
 
 - Functions as Props  #580 by @AnnMarieW and @BSd3v
   - Components can now accept JavaScript functions via: `{"function": "myFunction"}`
@@ -22,7 +51,7 @@
 
 
 - New way to handle Notifications #539 by @BSd3v
-  - Added new 'NotificationContainer' that works more closely to upstream Notifications in Mantine.
+  - Added new `NotificationContainer` that works more closely to upstream Notifications in Mantine.
   - Exposed the `notifications` api of Mantine for granular control at `dash_mantine_components.appNotifications.api`
   - Exposed the `store` of notifications at `dash_mantine_components.store`
   - Marked `Notification` and `NotificationProvider` for deprecation

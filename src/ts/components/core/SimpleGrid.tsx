@@ -2,12 +2,12 @@ import {
     SimpleGrid as MantineSimpleGrid,
     MantineSpacing,
     StyleProp,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
@@ -19,7 +19,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Spacing between rows, `'md'` by default */
     verticalSpacing?: StyleProp<MantineSpacing>;
     /** Determines typeof of queries that are used for responsive styles, 'media' by default */
-    type?: "media" | "container";
+    type?: 'media' | 'container';
 }
 
 /** SimpleGrid */

@@ -2,15 +2,14 @@ import {
     MantineColor,
     NavLink as MantineNavLink,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { MouseEvent, useState, useEffect } from "react";
-import { TargetProps, onClick } from "../../utils/anchor";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { MouseEvent, useState, useEffect } from 'react';
+import { TargetProps, onClick } from '../../utils/anchor';
 import { History } from '@plotly/dash-component-plugins';
-import { setPersistence, getLoadingState } from "../../utils/dash3";
-
+import { setPersistence, getLoadingState } from '../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -75,11 +74,12 @@ const NavLink = ({
 }: Props) => {
     const [linkActive, setLinkActive] = useState(false);
 
-    const pathnameToActive = pathname => {
+    const pathnameToActive = (pathname) => {
         setLinkActive(
-          active === true ||
-            (active === 'exact' && pathname === href) ||
-            (active === 'partial' && (pathname.startsWith(href + '/') || pathname === href))
+            active === true ||
+                (active === 'exact' && pathname === href) ||
+                (active === 'partial' &&
+                    (pathname.startsWith(href + '/') || pathname === href))
         );
     };
 
@@ -87,9 +87,9 @@ const NavLink = ({
         pathnameToActive(window.location.pathname);
 
         if (typeof active === 'string') {
-          History.onChange(() => {
-            pathnameToActive(window.location.pathname);
-          });
+            History.onChange(() => {
+                pathnameToActive(window.location.pathname);
+            });
         }
     }, [active]);
 
@@ -125,6 +125,6 @@ const NavLink = ({
     );
 };
 
-setPersistence(NavLink, ["opened"])
+setPersistence(NavLink, ['opened']);
 
 export default NavLink;

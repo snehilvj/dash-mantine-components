@@ -1,12 +1,14 @@
-import { DonutChartCell } from "@mantine/charts/lib/DonutChart/DonutChart";
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
+import { DonutChartCell } from '@mantine/charts/lib/DonutChart/DonutChart';
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyDonutChart = React.lazy(() => import(/* webpackChunkName: "DonutChart" */ './fragments/DonutChart'));
+const LazyDonutChart = React.lazy(
+    () => import(/* webpackChunkName: "DonutChart" */ './fragments/DonutChart')
+);
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render chart */
@@ -40,7 +42,7 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls angle at which charts ends, `360` by default. Set to `0` to render the chart as semicircle. */
     endAngle?: number;
     /** Determines which data is displayed in the tooltip. `'all'` – display all values, `'segment'` – display only hovered segment. `'all'` by default. */
-    tooltipDataSource?: "segment" | "all";
+    tooltipDataSource?: 'segment' | 'all';
     /** Chart label, displayed in the center of the chart */
     chartLabel?: string | number;
     /** Additional elements rendered inside `PieChart` component */
@@ -60,10 +62,10 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** DonutChart */
 const DonutChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyDonutChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyDonutChart {...props} />
+        </Suspense>
     );
-}
+};
 
 export default DonutChart;

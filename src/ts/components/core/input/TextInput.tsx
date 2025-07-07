@@ -1,11 +1,11 @@
-import { TextInput as MantineTextInput } from "@mantine/core";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
-import { __BaseInputProps } from "props/input";
-import { StylesApiProps } from "props/styles";
-import React, { useEffect, useState } from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { TextInput as MantineTextInput } from '@mantine/core';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
+import { __BaseInputProps } from 'props/input';
+import { StylesApiProps } from 'props/styles';
+import React, { useEffect, useState } from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -33,11 +33,10 @@ const TextInput = ({
     n_submit = 0,
     n_blur = 0,
     debounce = false,
-    autoComplete = "off",
+    autoComplete = 'off',
     inputProps,
     ...others
 }: Props) => {
-
     const [val, setVal] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -54,7 +53,7 @@ const TextInput = ({
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({
                 n_submit: n_submit + 1,
                 ...(debounce === true && { value: val }),
@@ -65,7 +64,7 @@ const TextInput = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: val })
+            ...(debounce === true && { value: val }),
         });
     };
 
@@ -83,6 +82,6 @@ const TextInput = ({
     );
 };
 
-setPersistence(TextInput)
+setPersistence(TextInput);
 
 export default TextInput;

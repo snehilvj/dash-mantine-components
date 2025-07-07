@@ -1,17 +1,21 @@
-import { ScatterChartSeries } from "@mantine/charts/lib/ScatterChart/ScatterChart";
-import { BoxProps } from "props/box";
-import { GridChartBaseProps } from "props/charts";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
-
+import { ScatterChartSeries } from '@mantine/charts/lib/ScatterChart/ScatterChart';
+import { BoxProps } from 'props/box';
+import { GridChartBaseProps } from 'props/charts';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyScatterChart = React.lazy(() => import(/* webpackChunkName: "ScatterChart" */ './fragments/ScatterChart'));
+const LazyScatterChart = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "ScatterChart" */ './fragments/ScatterChart'
+        )
+);
 
 export interface Props
     extends BoxProps,
-        Omit<GridChartBaseProps, "dataKey" | "data" | "unit">,
+        Omit<GridChartBaseProps, 'dataKey' | 'data' | 'unit'>,
         StylesApiProps,
         DashBaseProps {
     /** Keys that should be used to retrieve data from the data array on x and y axis */
@@ -40,7 +44,7 @@ export interface Props
     /** Hover data */
     hoverData?: Record<string, any>;
     /** If set, displays labels next to points for the given axis  */
-    pointLabels?: "x" | "y";
+    pointLabels?: 'x' | 'y';
     /** Name of the series that was clicked */
     clickSeriesName?: Record<string, any>;
     /** Name of the series that is hovered*/
@@ -50,11 +54,10 @@ export interface Props
 /** ScatterChart */
 const ScatterChart = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyScatterChart {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyScatterChart {...props} />
+        </Suspense>
     );
-}
-
+};
 
 export default ScatterChart;

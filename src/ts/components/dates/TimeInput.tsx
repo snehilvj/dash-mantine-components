@@ -1,12 +1,12 @@
-import { TimeInput as MantineTimeInput } from "@mantine/dates";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
-import { TimeInputProps } from "props/dates";
-import { __BaseInputProps } from "props/input";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { TimeInput as MantineTimeInput } from '@mantine/dates';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
+import { TimeInputProps } from 'props/dates';
+import { __BaseInputProps } from 'props/input';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
 
 interface Props
     extends DashBaseProps,
@@ -14,7 +14,7 @@ interface Props
         DebounceProps,
         TimeInputProps,
         BoxProps,
-        Omit<__BaseInputProps, "size">,
+        Omit<__BaseInputProps, 'size'>,
         StylesApiProps {
     /** Value for controlled component */
     value?: string;
@@ -33,7 +33,6 @@ const TimeInput = ({
     persistence_type,
     ...others
 }: Props) => {
-
     const [time, setTime] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -50,7 +49,7 @@ const TimeInput = ({
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({
                 n_submit: n_submit + 1,
                 ...(debounce === true && { value: time }),
@@ -61,7 +60,7 @@ const TimeInput = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: time })
+            ...(debounce === true && { value: time }),
         });
     };
 
@@ -77,6 +76,6 @@ const TimeInput = ({
     );
 };
 
-setPersistence(TimeInput)
+setPersistence(TimeInput);
 
 export default TimeInput;

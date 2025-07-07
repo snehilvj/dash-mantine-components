@@ -3,15 +3,15 @@ import {
     MantineRadius,
     RangeSlider as MantineRangeSlider,
     MantineSize,
-} from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import { TransitionProps } from "props/transition";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
-import { parseFuncProps } from "../../../utils/prop-functions"
+} from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import { TransitionProps } from 'props/transition';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
+import { parseFuncProps } from '../../../utils/prop-functions';
 
 interface Props
     extends BoxProps,
@@ -66,25 +66,28 @@ interface Props
     /** Second thumb `aria-label` */
     thumbToLabel?: string;
     /** Determines when the component should update its value property. If mouseup (the default) then the Rangeslider will only trigger its value when the user has finished dragging the Rangeslider. If drag, then the Rangeslider will update its value continuously as it is being dragged. */
-    updatemode: "mouseup" | "drag";
+    updatemode: 'mouseup' | 'drag';
     /** Determines whether the selection should be only allowed from the given marks array, false by default */
     restrictToMarks?: boolean;
     /** Function to generate scale (See https://www.dash-mantine-components.com/functions-as-props) A transformation function to change the scale of the slider */
     scale?: any;
+    /** Domain of the slider, defines the full range of possible values, `[min, max]` by default */
+    domain?: [number, number];
+    /** Determines whether the other thumb should be pushed by the current thumb dragging when minRange/maxRange is reached, true by default */
+    pushOnOverlap?: boolean;
 }
 
 /** RangeSlider */
 const RangeSlider = ({
     setProps,
     loading_state,
-    updatemode = "mouseup",
+    updatemode = 'mouseup',
     value,
     persistence,
     persisted_props,
     persistence_type,
     ...others
 }: Props) => {
-
     const [val, setVal] = useState(value);
 
     useDidUpdate(() => {
@@ -92,7 +95,7 @@ const RangeSlider = ({
     }, [value]);
 
     useDidUpdate(() => {
-        if (updatemode === "drag") {
+        if (updatemode === 'drag') {
             setProps({ value: val });
         }
     }, [val]);
@@ -100,11 +103,11 @@ const RangeSlider = ({
     return (
         <MantineRangeSlider
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...parseFuncProps('RangeSlider',others)}
+            {...parseFuncProps('RangeSlider', others)}
             value={val}
             onChange={setVal}
             onChangeEnd={(value) => {
-                if (updatemode === "mouseup") {
+                if (updatemode === 'mouseup') {
                     setProps({ value });
                 }
             }}
@@ -112,6 +115,6 @@ const RangeSlider = ({
     );
 };
 
-setPersistence(RangeSlider)
+setPersistence(RangeSlider);
 
 export default RangeSlider;

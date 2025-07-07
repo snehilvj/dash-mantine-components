@@ -1,11 +1,15 @@
-
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyInlineCodeHighlight = React.lazy(() => import(/* webpackChunkName: "InlineCodeHighlight" */ './fragments/InlineCodeHighlight'));
+const LazyInlineCodeHighlight = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "InlineCodeHighlight" */ './fragments/InlineCodeHighlight'
+        )
+);
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight */
@@ -17,11 +21,10 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** InlineCodeHighlight */
 const InlineCodeHighlight = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyInlineCodeHighlight {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyInlineCodeHighlight {...props} />
+        </Suspense>
     );
-}
-
+};
 
 export default InlineCodeHighlight;

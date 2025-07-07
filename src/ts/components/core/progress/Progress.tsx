@@ -1,9 +1,9 @@
-import { MantineColor, Progress as MantineProgress } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { __ProgressRootProps } from "props/progress";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { MantineColor, Progress as MantineProgress } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { __ProgressRootProps } from 'props/progress';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 export interface Props
     extends __ProgressRootProps,

@@ -4,13 +4,13 @@ import {
     FloatingAxesOffsets,
     FloatingStrategy,
     Tooltip as MantineTooltip,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { TooltipBaseProps } from "props/tooltip";
-import { TransitionProps } from "props/transition";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { TooltipBaseProps } from 'props/tooltip';
+import { TransitionProps } from 'props/transition';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends TooltipBaseProps, DashBaseProps {
     /** Open delay in ms */
@@ -55,7 +55,11 @@ interface Props extends TooltipBaseProps, DashBaseProps {
 const Tooltip = (props: Props) => {
     const { children, boxWrapperProps, setProps, loading_state, ...others } =
         props;
-    const boxProps = { w: "fit-content", key: "tooltip-target", ...boxWrapperProps };
+    const boxProps = {
+        w: 'fit-content',
+        key: 'tooltip-target',
+        ...boxWrapperProps,
+    };
 
     return (
         <MantineTooltip
@@ -67,7 +71,6 @@ const Tooltip = (props: Props) => {
     );
 };
 
-
-Tooltip.dashChildrenUpdate = true
+Tooltip.dashChildrenUpdate = true;
 
 export default Tooltip;

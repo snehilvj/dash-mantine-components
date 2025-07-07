@@ -1,15 +1,25 @@
 import { DatePickerInput as MantineDatePickerInput } from '@mantine/dates';
-import { useDebouncedValue, useDidUpdate, useFocusWithin } from '@mantine/hooks';
+import {
+    useDebouncedValue,
+    useDidUpdate,
+    useFocusWithin,
+} from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { DateInputSharedProps, DatePickerBaseProps } from 'props/dates';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { isDisabled } from '../../utils/dates';
-import { setPersistence, getLoadingState } from "../../utils/dash3";
-import { resolveProp } from "../../utils/prop-functions"
+import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { resolveProp, parseFuncProps } from '../../utils/prop-functions';
 
-interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputSharedProps, DatePickerBaseProps, StylesApiProps {
+interface Props
+    extends DashBaseProps,
+        PersistenceProps,
+        BoxProps,
+        DateInputSharedProps,
+        DatePickerBaseProps,
+        StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default */
     valueFormat?: string;
     /** Specifies days that should be disabled.  Either a list of dates or a function. See https://www.dash-mantine-components.com/functions-as-props */
@@ -43,7 +53,6 @@ const DatePickerInput = ({
     persistence_type,
     ...others
 }: Props) => {
-
     const [date, setDate] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
@@ -87,7 +96,9 @@ const DatePickerInput = ({
     return (
         <div ref={ref}>
             <MantineDatePickerInput
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                data-dash-is-loading={
+                    getLoadingState(loading_state) || undefined
+                }
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}
@@ -95,14 +106,18 @@ const DatePickerInput = ({
                 type={type}
                 minDate={minDate}
                 maxDate={maxDate}
-                excludeDate={Array.isArray(disabledDates)? isExcluded : resolveProp(disabledDates)}
-                popoverProps={{returnFocus: true, ...popoverProps}}
-                {...others}
+                excludeDate={
+                    Array.isArray(disabledDates)
+                        ? isExcluded
+                        : resolveProp(disabledDates)
+                }
+                popoverProps={{ returnFocus: true, ...popoverProps }}
+                {...parseFuncProps('DatePickerInput', others)}
             />
         </div>
     );
 };
 
-setPersistence(DatePickerInput)
+setPersistence(DatePickerInput);
 
 export default DatePickerInput;

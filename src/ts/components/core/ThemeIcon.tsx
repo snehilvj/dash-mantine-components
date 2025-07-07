@@ -4,11 +4,11 @@ import {
     MantineRadius,
     MantineSize,
     ThemeIcon as MantineThemeIcon,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Controls width and height of the button. Numbers are converted to rem. `'md'` by default. */
@@ -29,13 +29,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
 const ThemeIcon = (props: Props) => {
     const { children, setProps, loading_state, ...others } = props;
 
-    return (
-        <MantineThemeIcon
-            {...others}
-        >
-            {children}
-        </MantineThemeIcon>
-    );
+    return <MantineThemeIcon {...others}>{children}</MantineThemeIcon>;
 };
 
 export default ThemeIcon;

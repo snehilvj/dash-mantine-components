@@ -1,10 +1,10 @@
-import { AreaChart as MantineAreaChart } from "@mantine/charts";
+import { AreaChart as MantineAreaChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useState, useRef } from "react";
-import { getClickData, isEventValid } from "../../../utils/charts";
-import { getLoadingState } from "../../../utils/dash3";
-import { resolveProp } from "../../../utils/prop-functions";
-import { Props }  from "../AreaChart"
+import React, { useState, useRef } from 'react';
+import { getClickData, isEventValid } from '../../../utils/charts';
+import { getLoadingState } from '../../../utils/dash3';
+import { resolveProp } from '../../../utils/prop-functions';
+import { Props } from '../AreaChart';
 
 /** AreaChart */
 const AreaChart = ({
@@ -21,8 +21,8 @@ const AreaChart = ({
     areaProps,
     valueFormatter,
     tooltipProps,
-    ...others }: Props) => {
-
+    ...others
+}: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
 
@@ -32,7 +32,7 @@ const AreaChart = ({
         if (isEventValid(ev)) {
             setProps({
                 clickSeriesName: seriesName.current,
-                clickData: getClickData(ev)
+                clickData: getClickData(ev),
             });
         }
         seriesName.current = null;
@@ -42,22 +42,21 @@ const AreaChart = ({
         if (isEventValid(ev)) {
             setProps({
                 hoverSeriesName: seriesName.current,
-                hoverData: getClickData(ev)
+                hoverData: getClickData(ev),
             });
         }
         seriesName.current = null;
-
     };
 
-    const handleSeriesClick= (ev) => {
+    const handleSeriesClick = (ev) => {
         if (isEventValid(ev)) {
-            seriesName.current = ev["name"];
+            seriesName.current = ev['name'];
         }
     };
 
     const handleSeriesHover = (ev) => {
         if (isEventValid(ev)) {
-            const hoveredSeriesName = ev["name"];
+            const hoveredSeriesName = ev['name'];
 
             seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
@@ -66,18 +65,17 @@ const AreaChart = ({
 
     const handleDotClick = (ev, payload) => {
         if (isEventValid(ev)) {
-            seriesName.current = payload["dataKey"];
+            seriesName.current = payload['dataKey'];
         }
-    }
+    };
 
     const handleDotHover = (ev, payload) => {
         if (isEventValid(ev)) {
-            const hoveredSeriesName = payload["dataKey"];
+            const hoveredSeriesName = payload['dataKey'];
             seriesName.current = hoveredSeriesName;
             setHighlightedArea(hoveredSeriesName);
         }
     };
-
 
     const handleHoverEnd = () => {
         setHighlightedArea(null); // Reset highlighted area
@@ -86,7 +84,7 @@ const AreaChart = ({
     const areaPropsFunction = (item) => {
         const dimmed = shouldHighlight && highlightedArea !== item.name;
 
-        const returnProps : any = {
+        const returnProps: any = {
             ...areaProps,
             onClick: handleSeriesClick,
             onMouseOver: handleSeriesHover,
@@ -108,22 +106,22 @@ const AreaChart = ({
     const newProps = { ...areaChartProps, onClick, onMouseOver };
 
     return (
-      <MantineAreaChart
-        data-dash-is-loading={getLoadingState(loading_state) || undefined}
-        areaChartProps={newProps}
-        series={series}
-        activeDotProps={{
-            ...activeDotProps,
-            onClick: handleDotClick,
-            onMouseOver: handleDotHover,
-            onMouseOut: handleHoverEnd,
-        }}
-        areaProps={areaPropsFunction}
-        valueFormatter={resolveProp(valueFormatter)}
-        tooltipProps={resolveProp(tooltipProps)}
-        {...others}
-      />
+        <MantineAreaChart
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            areaChartProps={newProps}
+            series={series}
+            activeDotProps={{
+                ...activeDotProps,
+                onClick: handleDotClick,
+                onMouseOver: handleDotHover,
+                onMouseOut: handleHoverEnd,
+            }}
+            areaProps={areaPropsFunction}
+            valueFormatter={resolveProp(valueFormatter)}
+            tooltipProps={resolveProp(tooltipProps)}
+            {...others}
+        />
     );
-}
+};
 
 export default AreaChart;

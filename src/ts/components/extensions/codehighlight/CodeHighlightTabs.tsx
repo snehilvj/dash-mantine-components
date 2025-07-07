@@ -1,14 +1,16 @@
-import {
-    CodeHighlightTabsCode,
-} from "@mantine/code-highlight";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { Suspense } from "react";
-
+import { CodeHighlightTabsCode } from '@mantine/code-highlight';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
-const LazyCodeHighlightTabs = React.lazy(() => import(/* webpackChunkName: "CodeHighlightTabs" */ './fragments/CodeHighlightTabs'));
+const LazyCodeHighlightTabs = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "CodeHighlightTabs" */ './fragments/CodeHighlightTabs'
+        )
+);
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight with meta data (file name and icon) */
@@ -22,7 +24,7 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Copied tooltip label, `'Copied'` by default */
     copiedLabel?: string;
     /** `max-height` of code in collapsed state */
-    maxCollapsedHeight?: React.CSSProperties["maxHeight"];
+    maxCollapsedHeight?: React.CSSProperties['maxHeight'];
     /** Uncontrolled expanded state initial value */
     defaultExpanded?: boolean;
     /** Expand button label and tooltip, `'Expand code'` by default */
@@ -38,11 +40,10 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** CodeHighlightTabs */
 const CodeHighlightTabs = (props: Props) => {
     return (
-      <Suspense fallback={null}>
-        <LazyCodeHighlightTabs {...props} />
-      </Suspense>
+        <Suspense fallback={null}>
+            <LazyCodeHighlightTabs {...props} />
+        </Suspense>
     );
-}
-
+};
 
 export default CodeHighlightTabs;

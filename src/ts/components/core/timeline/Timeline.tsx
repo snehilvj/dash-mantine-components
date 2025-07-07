@@ -2,14 +2,19 @@ import {
     MantineColor,
     MantineRadius,
     Timeline as MantineTimeline,
-} from "@mantine/core";
+} from '@mantine/core';
 
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import { omit, isEmpty } from "ramda";
-import React from "react";
-import { getLoadingState, getChildProps, newRenderDashComponents, getContextPath } from "../../../utils/dash3";
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import { omit, isEmpty } from 'ramda';
+import React from 'react';
+import {
+    getLoadingState,
+    getChildProps,
+    newRenderDashComponents,
+    getContextPath,
+} from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** `Timeline.Item` components */
@@ -23,7 +28,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls size of the bullet, `20` by default */
     bulletSize?: number | string;
     /** Controls how the content is positioned relative to the bullet, `'left'` by default */
-    align?: "right" | "left";
+    align?: 'right' | 'left';
     /** Control width of the line */
     lineWidth?: number | string;
     /** Determines whether the active items direction should be reversed without reversing items order, `false` by default */
@@ -45,9 +50,11 @@ const Timeline = (props: Props) => {
             {React.Children.map(children, (child: any, index) => {
                 const childProps = getChildProps(child);
                 const renderedProps = newRenderDashComponents(
-                    omit(["children"], childProps),
-                    ["title", "bullet"],
-                    !isEmpty(componentPath) ? [...child?.props?.componentPath] : []
+                    omit(['children'], childProps),
+                    ['title', 'bullet'],
+                    !isEmpty(componentPath)
+                        ? [...child?.props?.componentPath]
+                        : []
                 );
 
                 return (
@@ -60,6 +67,6 @@ const Timeline = (props: Props) => {
     );
 };
 
-Timeline.dashChildrenUpdate = true
+Timeline.dashChildrenUpdate = true;
 
 export default Timeline;

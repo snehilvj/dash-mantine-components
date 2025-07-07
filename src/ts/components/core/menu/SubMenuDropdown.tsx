@@ -1,9 +1,9 @@
-import { Menu } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { Menu } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Content */
@@ -24,8 +24,6 @@ const SubMenuDropdown = (props: Props) => {
     );
 };
 
-
-
-SubMenuDropdown.dashChildrenUpdate = true
+SubMenuDropdown.dashChildrenUpdate = true;
 
 export default SubMenuDropdown;
