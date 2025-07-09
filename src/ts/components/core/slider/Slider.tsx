@@ -94,6 +94,7 @@ const Slider = ({
 
     return (
         <MantineSlider
+            key={`${others.min}-${others.max}`}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('Slider', others)}
             value={val}
