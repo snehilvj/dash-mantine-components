@@ -102,6 +102,7 @@ const RangeSlider = ({
 
     return (
         <MantineRangeSlider
+            key={`${others.min}-${others.max}`}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('RangeSlider', others)}
             value={val}

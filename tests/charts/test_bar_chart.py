@@ -111,3 +111,42 @@ def test_002ba_barchart(dash_duo):
     dash_duo.wait_for_text_to_equal("#name", "Smartphones")
 
     assert dash_duo.get_logs() == []
+
+
+def test_value_labels_on_bar_chart(dash_duo):
+    component = dmc.Group(
+        [
+            dmc.Title(
+                "BarChart with valueLabelProps (position: inside, fill: white)",
+                order=3,
+                mt="xl",
+            ),
+            dmc.BarChart(
+                id="custom-chart",
+                h=300,
+                data=data,
+                dataKey="month",
+                withBarValueLabel=True,
+                valueLabelProps={"position": "inside", "fill": "white"},
+                series=[
+                    {"name": "Smartphones", "color": "violet.6"},
+                    {"name": "Laptops", "color": "blue.6"},
+                    {"name": "Tablets", "color": "teal.6"},
+                ],
+            ),
+        ]
+    )
+    app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
+    app.layout = dmc.MantineProvider(component)
+
+    dash_duo.start_server(app)
+
+    # Target the bars
+    value_labels = dash_duo.find_elements(".recharts-layer.recharts-label-list text")
+
+    assert len(value_labels) > 0, "No value labels found in the chart"
+    for value_label in value_labels:
+        assert value_label.get_attribute("fill") == "white", (
+            "Value label 'fill' should be 'white', but found: "
+            + value_label.get_attribute("text-anchor")
+        )
