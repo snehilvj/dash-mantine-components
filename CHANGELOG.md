@@ -5,6 +5,8 @@
 ### Fixed
 - Resolved an issue where `Slider` and `RangeSlider` values did not update correctly when the `min` or `max` props were updated in a callback. #616 by @AnnMarieW
 
+### Added
+- Added `valueLabelProps` to `BarChart` to allow customization of the value label, which is displayed when `withBarValueLabel` is set. #619 by @CGaul
 
 # 2.1.0
 
