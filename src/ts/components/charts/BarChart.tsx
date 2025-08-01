@@ -43,9 +43,12 @@ export interface Props
     clickSeriesName?: Record<string, any>;
     /** Name of the series that is hovered*/
     hoverSeriesName?: Record<string, any>;
-    /** Determines whether a label with bar value should be displayed on top of each bar,
-     incompatible with type="stacked" and type="percent", false by default */
+    /** Determines whether a label with bar value should be displayed on top of each bar.
+     On type="stacked" or type="percent", additionally use withBarValueLabel to customize the label (e.g. use {position: 'inside'} to move the labels inside each bar).
+     false by default */
     withBarValueLabel?: boolean;
+    /** Props passed down to recharts `LabelList` component. Can be an object with props like "position" for valueLabel formatting. Only relevant, if withBarValueLabel is true. */
+    valueLabelProps?: object;
     /**Determines whether a hovered series is highlighted. False by default. Mirrors the behaviour when hovering about chart legend items*/
     highlightHover?: boolean;
     /** Sets minimum height of the bar in px, `0` by default */
