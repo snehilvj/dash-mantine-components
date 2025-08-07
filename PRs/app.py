@@ -1,9 +1,7 @@
 import dash_mantine_components as dmc
-from dash import Dash, dcc, _dash_renderer
+from dash import Dash, dcc
 
-_dash_renderer._set_react_version("18.2.0")
-
-app = Dash(external_stylesheets=dmc.styles.ALL)
+app = Dash()
 
 component = dcc.Markdown(
     """
