@@ -1,6 +1,6 @@
 # Change Log
 
-# Unreleased
+# 2.2.0rc1
 
 ### Fixed
 - Resolved an issue where `Slider` and `RangeSlider` values did not update correctly when the `min` or `max` props were updated in a callback. #616 by @AnnMarieW
