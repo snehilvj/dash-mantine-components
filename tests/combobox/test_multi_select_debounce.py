@@ -5,6 +5,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 from dash import Dash, html, callback, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
+import time
 
 _dash_renderer._set_react_version("18.2.0")
 
@@ -60,9 +61,8 @@ def test_001mu_multi_select_debounce(dash_duo):
     elem = dash_duo.find_element("#debounce-true")
     actions = ActionChains(dash_duo.driver)
     actions.move_to_element(elem).click().perform()
-
     # # select item from dropdown
-    # # Get all the options on the page
+    # # Get the options
     options = dash_duo.find_elements(".mantine-MultiSelect-option")
     options[1].click()
 
@@ -76,11 +76,12 @@ def test_001mu_multi_select_debounce(dash_duo):
 
     # debounce=False
     # focus the select input
-    elem = dash_duo.find_element("#debounce-false")
+    elem2 = dash_duo.find_element("#debounce-false")
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(elem).click().perform()
-    # click on option in second dropdown
-    options[4].click()
+    actions.move_to_element(elem2).click().perform()
+
+    options = dash_duo.find_elements(".mantine-MultiSelect-option")
+    options[1].click()
     # verify the output has  been updated because debounce=False
     dash_duo.wait_for_text_to_equal("#out-false", '["d", "e"]')
     # make  input lose focus and closes dropdown
@@ -92,8 +93,8 @@ def test_001mu_multi_select_debounce(dash_duo):
     # focus the select input
     actions = ActionChains(dash_duo.driver)
     actions.move_to_element(elem).click().perform()
-    # click on option in third dropdown
-    options[7].click()
+    options = dash_duo.find_elements(".mantine-MultiSelect-option")
+    options[1].click()
 
     with pytest.raises(TimeoutException):
         dash_duo.wait_for_text_to_equal("#out-2000", '["g", "h"]', timeout=1)
