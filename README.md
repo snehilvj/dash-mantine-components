@@ -29,17 +29,12 @@ pip install dash-mantine-components
 ## Quickstart
 
 ```python
-from datetime import date
-
 import dash
-from dash import Dash, Input, Output, callback, html
-from dash.exceptions import PreventUpdate
+from dash import Dash, Input, Output, callback, html, no_update
 
 import dash_mantine_components as dmc
 
-dash._dash_renderer._set_react_version('18.2.0')
-
-app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
+app = Dash()
 
 app.layout = dmc.MantineProvider(
     [
@@ -47,7 +42,7 @@ app.layout = dmc.MantineProvider(
             id="date-picker",
             label="Start Date",
             description="You can also provide a description",
-            minDate=date(2020, 8, 5),
+            minDate='2022-08-05',
             value=None,
             w=200
         ),
@@ -63,7 +58,7 @@ def update_output(d):
     if d:
         return prefix + d
     else:
-        raise PreventUpdate
+        return no_update
 
 
 if __name__ == "__main__":
