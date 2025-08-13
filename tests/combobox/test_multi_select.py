@@ -1,6 +1,7 @@
 from dash import Dash, html, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 from flaky import flaky
+import time
 
 _dash_renderer._set_react_version("18.2.0")
 
@@ -98,6 +99,7 @@ def test_002mu_multi_select(dash_duo):
     dash_duo.wait_for_text_to_equal("#out", "val=None search=None" )
 
     dash_duo.find_element("#update-select").click()
+    time.sleep(1)
 
     dash_duo.wait_for_text_to_equal("#out", "val=['b'] search='a'")
 

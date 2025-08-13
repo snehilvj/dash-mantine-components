@@ -31,6 +31,8 @@ interface Props
     clearable?: boolean;
     /** Props passed down to the clear button */
     clearButtonProps?: __ClearButtonProps;
+    /** If set, the highlighted option is selected when the input loses focus @default `false` */
+    autoSelectOnBlur?: boolean;
 }
 
 /** Autocomplete */

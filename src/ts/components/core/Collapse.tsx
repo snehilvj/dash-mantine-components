@@ -15,6 +15,8 @@ interface Props extends BoxProps, DashBaseProps {
     animateOpacity?: boolean;
     /** Content */
     children?: React.ReactNode;
+    /** Keep element in DOM when collapsed, useful for nested collapses */
+    keepMounted?: boolean;
 }
 
 /** Collapse */

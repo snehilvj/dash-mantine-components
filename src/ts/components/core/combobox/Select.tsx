@@ -42,9 +42,9 @@ interface Props
     hiddenInputProps?: object;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
-    /** If set, the highlighted option is selected when the input loses focus @default `false` */
+    /** If set, the highlighted option is selected when the input loses focus. default `false` */
     autoSelectOnBlur?: boolean;
-    /** Clears search value when dropdown is opened.  Ignored if searchable=False*/
+    /** Clears search value when dropdown is opened.  Ignored if searchable=False */
     clearSearchOnFocus?: boolean;
 }
 

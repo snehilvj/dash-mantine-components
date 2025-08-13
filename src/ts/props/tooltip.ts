@@ -4,7 +4,7 @@ import { StylesApiProps } from './styles';
 
 export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     /** Target element, must support `ref` prop and `...others` */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /** Tooltip position relative to target element (`Tooltip` component) or mouse (`Tooltip.Floating` component) */
     position?: FloatingPosition;
     /** Tooltip content */
@@ -31,4 +31,6 @@ export interface TooltipBaseProps extends BoxProps, StylesApiProps {
      * Overrides theme.autoContrast.
      */
     autoContrast?: boolean;
+    /** Selector, ref of an element or element itself that should be used for positioning */
+    target?: React.RefObject<HTMLElement | null> | HTMLElement | null | string;
 }
