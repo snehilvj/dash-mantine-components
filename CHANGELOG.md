@@ -19,7 +19,7 @@ The following was added in #625 by @AnnMarieW
 
 
 ### Changed
-- Upgraded to latest Mantine (8.2.5) #625 by @AnnMarieW
+- Upgraded to latest Mantine (8.2.4) #625 by @AnnMarieW
 
 # 2.2.0rc1
 
