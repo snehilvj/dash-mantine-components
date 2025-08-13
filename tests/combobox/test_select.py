@@ -140,6 +140,29 @@ def test_002se_select(dash_duo):
     assert dash_duo.get_logs() == []
 
 
+# test for clearSearchOnFocus prop
+def test_003se_select(dash_duo):
+    app = Dash()
+
+    component = dmc.Select(
+        data=["Pandas", "NumPy", "TensorFlow", "PyTorch"],
+        value="Pandas",
+        searchable=True,
+        clearSearchOnFocus=True,
+        id="select"
+    )
+
+    app.layout = dmc.MantineProvider(component)
+
+    dash_duo.start_server(app)
+
+    select_input = dash_duo.find_element("#select")
+    assert select_input.get_attribute("value") == "Pandas"
+    select_input.click()
+    assert select_input.get_attribute("value") == ""
+
+    assert dash_duo.get_logs() == []
+
 
 
 
