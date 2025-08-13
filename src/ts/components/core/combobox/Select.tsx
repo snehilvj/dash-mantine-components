@@ -42,8 +42,10 @@ interface Props
     hiddenInputProps?: object;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
-    /** If set, the highlighted option is selected when the input loses focus @default `false` */
+    /** If set, the highlighted option is selected when the input loses focus. default `false` */
     autoSelectOnBlur?: boolean;
+    /** Clears search value when dropdown is opened.  Ignored if searchable=False */
+    clearSearchOnFocus?: boolean;
 }
 
 /** Select */
@@ -59,6 +61,7 @@ const Select = ({
     data = [],
     searchValue,
     value,
+    clearSearchOnFocus = false,
     ...others
 }: Props) => {
     const [selected, setSelected] = useState(value);
@@ -114,6 +117,11 @@ const Select = ({
             {...parseFuncProps('Select', others)}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            onDropdownOpen={() => {
+                if (clearSearchOnFocus && others.searchable) {
+                  setSearchVal('');
+                }
+              }}
             data={options}
             onChange={setSelected}
             value={selected}

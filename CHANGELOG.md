@@ -5,6 +5,9 @@
 See details and examples in the [DMC 2.2.0 Release Announcement](https://www.dash-mantine-components.com/release-2-2-0)
 
 ### Added
+
+- Added `clearSearchOnFocus` prop to `Select`  #627 by @AnnMarieW
+
 The following was added in #625 by @AnnMarieW
 - `attributes` prop – Pass custom attributes to inner elements of components that support the Styles API.
 - `strategy` prop for `Container` – Added `strategy="grid"` option for grid-based layouts with breakout features.
