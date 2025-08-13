@@ -1,5 +1,10 @@
 # Change Log
 
+# Unreleased
+
+### Added
+- Added `clearSearchOnFocus` prop to `Select`  #627 by @AnnMarieW
+
 # 2.2.0rc1
 
 ### Fixed
