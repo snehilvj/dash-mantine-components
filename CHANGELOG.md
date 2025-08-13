@@ -1,5 +1,26 @@
 # Change Log
 
+# Unreleased
+
+See details and examples in the [DMC 2.2.0 Release Announcement](https://www.dash-mantine-components.com/release-2-2-0)
+
+### Added
+The following was added in #625 by @AnnMarieW
+- `attributes` prop – Pass custom attributes to inner elements of components that support the Styles API.
+- `strategy` prop for `Container` – Added `strategy="grid"` option for grid-based layouts with breakout features.
+- `target` prop for `Tooltip` – Specify tooltip targets using a selector, HTML element, or ref, as an alternative to children.
+- `chevronIconSize` prop for `Accordion` – Control the size of the default chevron icon independently from `chevronSize`.
+- `keepMounted` prop for `Collapse` – Keep collapsed content in the DOM while hidden.
+- `autoSelectOnBlur` prop for `Select` and `Autocomplete` – Automatically select the highlighted option when the input loses focus.
+
+
+### Fixed
+- Fixed CSS for `CodeHighlight` so it works when `dcc.Markdown` and/or `dash-ag-grid` are also used in the same app. #625 by @AnnMarieW
+
+
+### Changed
+- Upgraded to latest Mantine (8.2.4) #625 by @AnnMarieW
+
 # 2.2.0rc1
 
 ### Fixed

@@ -40,6 +40,8 @@ interface Props
     radius?: MantineRadius;
     /** Accordion content */
     children: React.ReactNode;
+    /** Size of the default chevron icon. Ignored when `chevron` prop is set. default `16` */
+    chevronIconSize?: number | string;
 }
 
 /** Accordion */

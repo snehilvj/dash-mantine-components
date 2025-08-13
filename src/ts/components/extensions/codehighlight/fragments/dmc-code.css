@@ -22,6 +22,18 @@
     --code-class-color: var(--mantine-color-orange-5);
 }
 
+:where([data-mantine-color-scheme='dark']) .hljs {
+    color: var(--mantine-color-dark-1);
+    background: var(--mantine-color-dark-8);
+}
+
+
+:where([data-mantine-color-scheme='light']) .hljs {
+    color: var(--mantine-color-gray-7);
+    background: var(--mantine-color-gray-0);
+}
+
+
 .dmc-code .hljs-comment,
 .dmc-code .hljs-quote {
     font-style: italic;
@@ -72,7 +84,8 @@
 .dmc-code .hljs-symbol,
 .dmc-code .hljs-title,
 .dmc-code .hljs-built_in,
-.dmc-code .hljs-class .hljs-title,
+.dmc-code .hljs-class,
+.dmc-code .hljs-title,
 .dmc-code .hljs-title.class_ {
     color: var(--code-class-color);
 }

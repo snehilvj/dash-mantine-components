@@ -56,7 +56,7 @@ def test_001ti_timeinput(dash_duo):
     dash_duo.wait_for_text_to_equal("#out-true", "")
     elem.send_keys(Keys.TAB)
     # verify the output has been updated after input loses focus
-    dash_duo.wait_for_text_to_equal("#out-true", "11:01:00")
+    dash_duo.wait_for_text_to_equal("#out-true", "11:01")
 
     # debounce=False
     # verify output is blank
@@ -65,16 +65,16 @@ def test_001ti_timeinput(dash_duo):
     elem = dash_duo.find_element("#debounce-false input")
     elem.send_keys("1101")
     # verify the output has been updated without pressing enter or losing focus
-    dash_duo.wait_for_text_to_equal("#out-false", "11:01:00")
+    dash_duo.wait_for_text_to_equal("#out-false", "11:01")
 
     # debounce is an number
     # expect that a long debounce does not call back in a short amount of time
     elem = dash_duo.find_element("#debounce-2000 input")
     elem.send_keys("1101")
     with pytest.raises(TimeoutException):
-        dash_duo.wait_for_text_to_equal("#out-2000", "11:01:00", timeout=1)
+        dash_duo.wait_for_text_to_equal("#out-2000", "11:01", timeout=1)
 
     # but do expect that it is eventually called
-    dash_duo.wait_for_text_to_equal("#out-2000", "11:01:00")
+    dash_duo.wait_for_text_to_equal("#out-2000", "11:01")
 
     assert dash_duo.get_logs() == []
