@@ -8,7 +8,7 @@ import { getLoadingState } from '../../../utils/dash3';
 type DrawerPosition = 'bottom' | 'left' | 'right' | 'top';
 
 interface Props
-    extends StylesApiProps,
+    extends Omit<StylesApiProps, 'attributes'>,
         Omit<ModalBaseProps, 'opened'>,
         Omit<DashBaseProps, 'id'> {
     /** Unique ID to identify this component. Required for use with DrawerStack */

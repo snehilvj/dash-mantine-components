@@ -76,8 +76,9 @@ def test_001se_select(dash_duo):
     # focus the select input
     elem = dash_duo.find_element("#debounce-false")
     elem.click()
-    # click on option in second dropdown
-    options[4].click()
+    options = dash_duo.find_elements(".mantine-Select-option")
+    options[1].click()
+
     # verify the output has  been updated because debounce=False
     dash_duo.wait_for_text_to_equal("#out-false", "e")
 
@@ -86,8 +87,8 @@ def test_001se_select(dash_duo):
     elem = dash_duo.find_element("#debounce-2000")
     # focus the select input
     elem.click()
-    # click on option in second dropdown
-    options[7].click()
+    options = dash_duo.find_elements(".mantine-Select-option")
+    options[1].click()
 
     with pytest.raises(TimeoutException):
         dash_duo.wait_for_text_to_equal("#out-2000", "h", timeout=1)
@@ -139,6 +140,29 @@ def test_002se_select(dash_duo):
 
     assert dash_duo.get_logs() == []
 
+
+# test for clearSearchOnFocus prop
+def test_003se_select(dash_duo):
+    app = Dash()
+
+    component = dmc.Select(
+        data=["Pandas", "NumPy", "TensorFlow", "PyTorch"],
+        value="Pandas",
+        searchable=True,
+        clearSearchOnFocus=True,
+        id="select"
+    )
+
+    app.layout = dmc.MantineProvider(component)
+
+    dash_duo.start_server(app)
+
+    select_input = dash_duo.find_element("#select")
+    assert select_input.get_attribute("value") == "Pandas"
+    select_input.click()
+    assert select_input.get_attribute("value") == ""
+
+    assert dash_duo.get_logs() == []
 
 
 

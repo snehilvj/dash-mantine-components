@@ -5,7 +5,7 @@ import { StylesApiProps } from 'props/styles';
 import React, { useEffect, useState } from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 
-interface Props extends ModalProps, StylesApiProps, DashBaseProps {}
+interface Props extends ModalProps, Omit<StylesApiProps, 'attributes'>, DashBaseProps {}
 
 /** Modal */
 const Modal = ({

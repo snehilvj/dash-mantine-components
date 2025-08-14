@@ -8,7 +8,7 @@ import { getLoadingState } from '../../../utils/dash3';
 interface Props
     extends Omit<DashBaseProps, 'id'>,
         Omit<ModalProps, 'opened'>,
-        StylesApiProps {
+        Omit<StylesApiProps, 'attributes'> {
     /** Unique ID to identify this component. Required for use with StackModal */
     id: string;
 }
