@@ -100,7 +100,7 @@ type Toolbar = {
          * Use this to customize the appearance of the button directly.
          */
         style?: React.CSSProperties;
-        /** 
+        /**
          * Optional CSS class name(s) to apply to the button.
          * Useful for applying custom styles via external stylesheets or CSS modules.
          */
