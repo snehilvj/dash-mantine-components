@@ -67,7 +67,8 @@ type ControlName =
     | 'Redo'
     | 'Color'
     | 'ColorPicker'
-    | 'UnsetColor';
+    | 'UnsetColor'
+    | 'FontSize';
 
 // TODO: Maybe add types for the control options explicitly?
 type Control = ControlName | { [key in ControlName]?: Record<string, unknown> }; // Allow any options
