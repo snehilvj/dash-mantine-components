@@ -69,8 +69,18 @@ type ControlName =
     | 'ColorPicker'
     | 'UnsetColor';
 
-// TODO: Maybe add types for the control options explicitly?
-type Control = ControlName | { [key in ControlName]?: Record<string, unknown> }; // Allow any options
+export type CustomButton = {
+    'aria-label'?: string;
+    children?: React.ReactNode;
+    style?: React.CSSProperties;
+    className?: string;
+    title?: string;
+};
+
+type Control =
+    | ControlName
+    | { custom: CustomButton }
+    | { [key in ControlName]?: Record<string, unknown> }; // Allow any options;
 
 /** Toolbar property definition. */
 type Toolbar = {
@@ -80,37 +90,6 @@ type Toolbar = {
     stickyOffset?: React.CSSProperties['top'];
     /** Groups of controls to be displayed in the toolbar. Each item can be either a string with the control name (e.g. 'Bold') or an object with the control name as key and options as value (e.g. {'Color': {'color': 'red'}}). Empty by default. */
     controlsGroups?: Control[][];
-    /**
-     * Custom buttons to be displayed in the rich text editor toolbar.
-     * Each button can display an icon or custom content, and supports optional styling, class, and tooltip.
-     */
-    customButtons?: {
-        /**
-         * Accessible label for the button, used by screen readers for better accessibility.
-         * If not provided, the button may be less accessible to assistive technologies.
-         */
-        'aria-label'?: string;
-        /**
-         * The icon, text, or React node to be rendered inside the button.
-         * This defines the visible content of the button.
-         */
-        children: React.ReactNode;
-        /**
-         * Optional inline styles to apply to the button.
-         * Use this to customize the appearance of the button directly.
-         */
-        style?: React.CSSProperties;
-        /**
-         * Optional CSS class name(s) to apply to the button.
-         * Useful for applying custom styles via external stylesheets or CSS modules.
-         */
-        className?: string;
-        /**
-         * Tooltip text shown when hovering over the button.
-         * Helps users understand the button's purpose.
-         */
-        title?: string;
-    }[];
 };
 
 /** Change function labels to strings. */
