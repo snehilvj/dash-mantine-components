@@ -69,7 +69,7 @@ type ControlName =
     | 'ColorPicker'
     | 'UnsetColor';
 
-export type CustomButton = {
+export type CustomControl = {
     'aria-label'?: string;
     children?: React.ReactNode;
     style?: React.CSSProperties;
