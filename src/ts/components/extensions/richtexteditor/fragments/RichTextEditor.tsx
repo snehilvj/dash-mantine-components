@@ -19,7 +19,8 @@ import Placeholder from '@tiptap/extension-placeholder';
 import Color from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
-import { getLoadingState, setPersistence } from '../../../../utils/dash3';
+import { getLoadingState, setPersistence, applyDashProps } from '../../../../utils/dash3';
+import { resolveProp } from '../../../../utils/prop-functions';
 
 // Import all extensions directly
 const extensionMap = {
@@ -163,6 +164,61 @@ const RichTextEditor = ({
                 labels.colorPickerColorLabel.replace('{color}', color),
         }),
     };
+
+     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
+    const mantineExtensions = extensions.map((ext) => {
+        if (typeof ext === 'string') {
+            return extensionMap[ext];
+        }
+        const name = Object.keys(ext)[0];
+        return extensionMap[name].configure(ext[name]);
+    });
+
+    // Create the editor, with json taking precedence over html as content
+    const editor = useEditor({
+        extensions: mantineExtensions,
+        content: json || html,
+        onUpdate: onUpdate,
+        onBlur: onBlur,
+        onSelectionUpdate: onSelectionUpdate,
+        onCreate: syncDashState,
+    });
+
+
+    const renderControl = (ctl, i, editor) => {
+        // Case 1: Built-in control name
+        if (typeof ctl === 'string') {
+            return React.createElement(
+                MantineRichTextEditor[ctl],
+                { key: i }
+            );
+        }
+
+        // Case 2: Built-in control with options
+        const controlName = Object.keys(ctl)[0];
+        const options = ctl[controlName];
+
+        if (controlName !== 'Custom') {
+            return React.createElement(
+                MantineRichTextEditor[controlName],
+                { key: i, ...options }
+            );
+        }
+
+        // Case 3: Custom control
+        return (
+            <MantineRichTextEditor.Control
+                key={`custom-${i}`}
+                aria-label={options.ariaLabel}
+                title={options.title}
+                onClick={resolveProp(options, { editor })}
+            >
+                {options.children}
+            </MantineRichTextEditor.Control>
+        );
+    };
+
+
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
     if (toolbar !== undefined) {
@@ -173,40 +229,14 @@ const RichTextEditor = ({
             >
                 {toolbar.controlsGroups.map((controlGroup, index) => (
                     <MantineRichTextEditor.ControlsGroup key={index}>
-                        {controlGroup.map((ctl, i) => {
-                            const control =
-                                typeof ctl === 'string'
-                                    ? ctl
-                                    : Object.keys(ctl)[0];
-                            const options =
-                                typeof ctl === 'string' ? {} : ctl[control];
-                            return React.createElement(
-                                MantineRichTextEditor[control],
-                                { key: i, ...options }
-                            );
-                        })}
+                        {controlGroup.map((ctl, i) => renderControl(ctl, i, editor))}
                     </MantineRichTextEditor.ControlsGroup>
                 ))}
             </MantineRichTextEditor.Toolbar>
         );
     }
-    // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
-    const mantineExtensions = extensions.map((ext) => {
-        if (typeof ext === 'string') {
-            return extensionMap[ext];
-        }
-        const name = Object.keys(ext)[0];
-        return extensionMap[name].configure(ext[name]);
-    });
-    // Create the editor, with json taking precedence over html as content
-    const editor = useEditor({
-        extensions: mantineExtensions,
-        content: json || html,
-        onUpdate: onUpdate,
-        onBlur: onBlur,
-        onSelectionUpdate: onSelectionUpdate,
-        onCreate: syncDashState,
-    });
+
+
     // Render the component tree.
     return (
         <MantineRichTextEditor
