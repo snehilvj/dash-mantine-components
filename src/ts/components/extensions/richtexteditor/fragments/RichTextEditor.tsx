@@ -46,6 +46,22 @@ const extensionMap = {
     Image,
 } as const;
 
+const CustomButton = (props) => {
+    const { i, componentPath, editor, children, ...others } = props;
+    return (
+        <MantineRichTextEditor.Control
+            onClick={resolveProp(props, { editor })}
+            {...others}
+        >
+            {newRenderDashComponent(children, i, [
+                ...componentPath,
+                'custom',
+                'children',
+            ])}
+        </MantineRichTextEditor.Control>
+    );
+};
+
 /** RichTextEditor */
 const RichTextEditor = ({
     setProps,
@@ -199,29 +215,24 @@ const RichTextEditor = ({
         const controlName = Object.keys(ctl)[0];
         const options = ctl[controlName];
 
-        if (controlName !== 'custom') {
+        if (controlName !== 'CustomButton') {
             return React.createElement(MantineRichTextEditor[controlName], {
                 key: i,
                 ...options,
             });
+        } else {
+            return (
+                <CustomButton
+                    i={i}
+                    key={`custom-${i}`}
+                    componentPath={componentPath}
+                    editor={editor}
+                    {...options}
+                />
+            );
         }
-
-        // Case 3: Custom control
-        return (
-            <MantineRichTextEditor.Control
-                key={`custom-${i}`}
-                aria-label={options.ariaLabel}
-                title={options.title}
-                onClick={resolveProp(options, { editor })}
-            >
-                {newRenderDashComponent(options.children, i, [
-                    ...componentPath,
-                    'custom',
-                    'children',
-                ])}
-            </MantineRichTextEditor.Control>
-        );
     };
+
     if (toolbar !== undefined) {
         const componentPath = getContextPath();
         mantineToolbar = (

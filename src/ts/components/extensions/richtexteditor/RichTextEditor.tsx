@@ -79,7 +79,7 @@ export type CustomButton = {
 
 type Control =
     | ControlName
-    | { custom: CustomButton }
+    | { CustomButton }
     | { [key in ControlName]?: Record<string, unknown> }; // Allow any options;
 
 /** Toolbar property definition. */
