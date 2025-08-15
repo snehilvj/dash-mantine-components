@@ -222,7 +222,7 @@ const RichTextEditor = ({
             });
         } else {
             return (
-                <CustomButton
+                <CustomControl
                     i={i}
                     key={`custom-${i}`}
                     componentPath={componentPath}
