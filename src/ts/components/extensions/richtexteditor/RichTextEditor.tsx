@@ -69,8 +69,18 @@ type ControlName =
     | 'ColorPicker'
     | 'UnsetColor';
 
-// TODO: Maybe add types for the control options explicitly?
-type Control = ControlName | { [key in ControlName]?: Record<string, unknown> }; // Allow any options
+export type CustomControl = {
+    'aria-label'?: string;
+    children?: React.ReactNode;
+    style?: React.CSSProperties;
+    className?: string;
+    title?: string;
+};
+
+type Control =
+    | ControlName
+    | { CustomButton }
+    | { [key in ControlName]?: Record<string, unknown> }; // Allow any options;
 
 /** Toolbar property definition. */
 type Toolbar = {
