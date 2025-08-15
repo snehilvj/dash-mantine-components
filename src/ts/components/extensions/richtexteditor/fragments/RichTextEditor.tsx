@@ -215,7 +215,7 @@ const RichTextEditor = ({
         const controlName = Object.keys(ctl)[0];
         const options = ctl[controlName];
 
-        if (controlName !== 'CustomButton') {
+        if (controlName !== 'CustomControl') {
             return React.createElement(MantineRichTextEditor[controlName], {
                 key: i,
                 ...options,
