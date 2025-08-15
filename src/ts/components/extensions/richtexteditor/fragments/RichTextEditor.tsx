@@ -46,7 +46,7 @@ const extensionMap = {
     Image,
 } as const;
 
-const CustomButton = (props) => {
+const CustomControl = (props) => {
     const { i, componentPath, editor, children, ...others } = props;
     return (
         <MantineRichTextEditor.Control
