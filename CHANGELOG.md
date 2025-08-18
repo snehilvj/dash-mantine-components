@@ -6,6 +6,7 @@ See details and examples in the [DMC 2.2.0 Release Announcement](https://www.das
 
 ### Added
 
+- Added support for custom toolbar controls in `RichTextEditor` #629 by @BSd3v
 - Added `clearSearchOnFocus` prop to `Select`  #627 by @AnnMarieW
 
 The following was added in #625 by @AnnMarieW
