@@ -47,15 +47,15 @@ const extensionMap = {
 } as const;
 
 const CustomControl = (props) => {
-    const { i, componentPath, editor, children, ...others } = props;
+    const { i, componentPath, editor, onClick, children, ...others } = props;
     return (
         <MantineRichTextEditor.Control
-            onClick={resolveProp(props, { editor })}
+            onClick={resolveProp(onClick, { editor })}
             {...others}
         >
             {newRenderDashComponent(children, i, [
                 ...componentPath,
-                'custom',
+                'CustomControl',
                 'children',
             ])}
         </MantineRichTextEditor.Control>

@@ -75,6 +75,7 @@ export type CustomControl = {
     style?: React.CSSProperties;
     className?: string;
     title?: string;
+    onClick?: any;
 };
 
 type Control =
