@@ -65,3 +65,10 @@ dmcfuncs.myLeaf = function (payload) {
     React.createElement('span', null, '🌿 ' + node.label)
   );
 };
+
+dmcfuncs.insertContent = (e, options, {editor}) => {
+     if (!editor) {
+        return;
+    }
+    editor?.commands.insertContent(options)
+}
