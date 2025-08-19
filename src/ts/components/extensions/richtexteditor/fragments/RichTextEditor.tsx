@@ -52,10 +52,9 @@ const CustomControl = (props) => {
         <MantineRichTextEditor.Control
             onClick={(event) => {
                 if (editor) {
-                     resolveProp(onClick)(editor, event);
+                     resolveProp(onClick)({editor, event});
                 }
             }}
-          //  onClick={resolveProp(onClick, { editor })}
             {...others}
         >
             {newRenderDashComponent(children, i, [
