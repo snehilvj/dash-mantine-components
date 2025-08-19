@@ -66,9 +66,6 @@ dmcfuncs.myLeaf = function (payload) {
   );
 };
 
-dmcfuncs.insertContent = (e, options, {editor}) => {
-     if (!editor) {
-        return;
-    }
+dmcfuncs.insertContent = (editor, e, options) => {
     editor?.commands.insertContent(options)
 }

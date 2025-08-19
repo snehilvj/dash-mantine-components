@@ -158,7 +158,7 @@ def test_003ri_rich_text_editor_custom_controls(dash_duo):
             [
                 {
                     "CustomControl": {
-                        "ariaLabel": "Insert Star",
+                        "aria-label": "Insert Star",
                         "title": "Insert Star",
                         "children": DashIconify(icon="mdi:star", width=20, height=20),
                         "onClick": {"function": "insertContent", "options": "⭐"},
