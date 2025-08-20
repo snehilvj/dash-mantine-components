@@ -119,9 +119,9 @@ const Select = ({
             onBlur={handleBlur}
             onDropdownOpen={() => {
                 if (clearSearchOnFocus && others.searchable) {
-                  setSearchVal('');
+                    setSearchVal('');
                 }
-              }}
+            }}
             data={options}
             onChange={setSelected}
             value={selected}
