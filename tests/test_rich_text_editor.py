@@ -3,6 +3,7 @@ import json
 from dash import Dash, Input, Output, _dash_renderer, html
 
 import dash_mantine_components as dmc
+from dash_iconify import DashIconify
 
 _dash_renderer._set_react_version("18.2.0")
 
@@ -146,3 +147,45 @@ def test_002ri_rich_text_editor_init_json(dash_duo):
 
     # Check that no (error) logs were produced.
     assert dash_duo.get_logs() == []
+
+
+def test_003ri_rich_text_editor_custom_controls(dash_duo):
+    app = Dash(__name__)
+
+    content = '<div>Click control to insert star emoji</div>'
+    toolbar = {
+        "controlsGroups": [
+            [
+                {
+                    "CustomControl": {
+                        "aria-label": "Insert Star",
+                        "title": "Insert Star",
+                        "children": DashIconify(icon="mdi:star", width=20, height=20),
+                        "onClick": {"function": "insertContent", "options": "⭐"},
+                    },
+                },
+            ],
+        ],
+    }
+
+    app.layout = dmc.MantineProvider(
+        dmc.RichTextEditor(
+            html=content,
+            toolbar=toolbar
+        )
+    )
+
+    dash_duo.start_server(app)
+
+    # Find the custom control (the star icon button)
+    button = dash_duo.find_element("button[title='Insert Star']")
+
+    # get original content
+    content_div = dash_duo.find_element(".mantine-RichTextEditor-content")
+    assert content_div.text == "Click control to insert star emoji"
+
+    # Click the button to insert the emoji
+    button.click()
+
+    # check that emoji was added
+    assert "⭐" in content_div.text

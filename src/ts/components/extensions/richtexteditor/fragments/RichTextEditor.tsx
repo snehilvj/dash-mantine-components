@@ -3,6 +3,7 @@ import '@mantine/tiptap/styles.css';
 import { Props } from '../RichTextEditor';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import React, { useState } from 'react';
+import { resolveProp } from '../../../../utils/prop-functions';
 
 import { useEditor } from '@tiptap/react';
 import Highlight from '@tiptap/extension-highlight';
@@ -19,7 +20,12 @@ import Placeholder from '@tiptap/extension-placeholder';
 import Color from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
-import { getLoadingState, setPersistence } from '../../../../utils/dash3';
+import {
+    getLoadingState,
+    setPersistence,
+    newRenderDashComponent,
+    getContextPath,
+} from '../../../../utils/dash3';
 
 // Import all extensions directly
 const extensionMap = {
@@ -39,6 +45,26 @@ const extensionMap = {
     TextStyle,
     Image,
 } as const;
+
+const CustomControl = (props) => {
+    const { i, componentPath, editor, onClick, children, ...others } = props;
+    return (
+        <MantineRichTextEditor.Control
+            onClick={(event) => {
+                if (editor) {
+                     resolveProp(onClick)({editor, event});
+                }
+            }}
+            {...others}
+        >
+            {newRenderDashComponent(children, i, [
+                ...componentPath,
+                'CustomControl',
+                'children',
+            ])}
+        </MantineRichTextEditor.Control>
+    );
+};
 
 /** RichTextEditor */
 const RichTextEditor = ({
@@ -165,31 +191,6 @@ const RichTextEditor = ({
     };
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
-    if (toolbar !== undefined) {
-        mantineToolbar = (
-            <MantineRichTextEditor.Toolbar
-                sticky={toolbar.sticky}
-                stickyOffset={toolbar.stickyOffset}
-            >
-                {toolbar.controlsGroups.map((controlGroup, index) => (
-                    <MantineRichTextEditor.ControlsGroup key={index}>
-                        {controlGroup.map((ctl, i) => {
-                            const control =
-                                typeof ctl === 'string'
-                                    ? ctl
-                                    : Object.keys(ctl)[0];
-                            const options =
-                                typeof ctl === 'string' ? {} : ctl[control];
-                            return React.createElement(
-                                MantineRichTextEditor[control],
-                                { key: i, ...options }
-                            );
-                        })}
-                    </MantineRichTextEditor.ControlsGroup>
-                ))}
-            </MantineRichTextEditor.Toolbar>
-        );
-    }
     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
     const mantineExtensions = extensions.map((ext) => {
         if (typeof ext === 'string') {
@@ -207,6 +208,60 @@ const RichTextEditor = ({
         onSelectionUpdate: onSelectionUpdate,
         onCreate: syncDashState,
     });
+
+    const renderControl = (ctl, i, editor, componentPath) => {
+        // Case 1: Built-in control name
+        if (typeof ctl === 'string') {
+            return React.createElement(MantineRichTextEditor[ctl], { key: i });
+        }
+
+        // Case 2: Built-in control with options
+        const controlName = Object.keys(ctl)[0];
+        const options = ctl[controlName];
+
+        if (controlName !== 'CustomControl') {
+            return React.createElement(MantineRichTextEditor[controlName], {
+                key: i,
+                ...options,
+            });
+        } else {
+            return (
+                <CustomControl
+                    i={i}
+                    key={`custom-${i}`}
+                    componentPath={componentPath}
+                    editor={editor}
+                    {...options}
+                />
+            );
+        }
+    };
+
+    if (toolbar !== undefined) {
+        const componentPath = getContextPath();
+        mantineToolbar = (
+            <MantineRichTextEditor.Toolbar
+                sticky={toolbar.sticky}
+                stickyOffset={toolbar.stickyOffset}
+            >
+                {toolbar.controlsGroups.map((controlGroup, index) => (
+                    <MantineRichTextEditor.ControlsGroup key={index}>
+                        {controlGroup.map((ctl, i) =>
+                            renderControl(ctl, i, editor, [
+                                ...componentPath,
+                                'props',
+                                'toolbar',
+                                'controlsGroups',
+                                index,
+                                i,
+                            ])
+                        )}
+                    </MantineRichTextEditor.ControlsGroup>
+                ))}
+            </MantineRichTextEditor.Toolbar>
+        );
+    }
+
     // Render the component tree.
     return (
         <MantineRichTextEditor
