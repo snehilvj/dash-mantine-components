@@ -1,6 +1,6 @@
 # Change Log
 
-# Unreleased
+# 2.2.0
 
 See details and examples in the [DMC 2.2.0 Release Announcement](https://www.dash-mantine-components.com/release-2-2-0)
 
