@@ -7,7 +7,10 @@ import { getLoadingState } from '../../../utils/dash3';
 
 type DrawerPosition = 'bottom' | 'left' | 'right' | 'top';
 
-interface Props extends Omit<StylesApiProps, 'attributes'>, ModalBaseProps, DashBaseProps {
+interface Props
+    extends Omit<StylesApiProps, 'attributes'>,
+        ModalBaseProps,
+        DashBaseProps {
     /** Side of the screen on which drawer will be opened, `'left'` by default */
     position?: DrawerPosition;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `0` by default */

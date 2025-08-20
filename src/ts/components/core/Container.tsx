@@ -13,7 +13,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether the container should take 100% of its parent width. If set, `size` prop is ignored. `false` by default. */
     fluid?: boolean;
     /** Centering strategy. Default value: 'block'*/
-    strategy?: "block" | "grid";
+    strategy?: 'block' | 'grid';
 }
 
 /** Container */
