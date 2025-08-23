@@ -70,6 +70,7 @@ const NavLink = ({
     setProps,
     loading_state,
     active = false,
+    opened = false,
     ...others
 }: Props) => {
     const [linkActive, setLinkActive] = useState(false);
@@ -108,16 +109,21 @@ const NavLink = ({
     return (
         <MantineNavLink
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            component="a"
             onClick={(ev: MouseEvent<HTMLAnchorElement>) => {
                 increment();
-                onClick(ev, href, target, refresh);
+                if (href) {
+                    onClick(ev, href, target, refresh);
+                }
+                if (children !== undefined) {
+                  setProps({ opened: !opened });
+                }
             }}
             href={href}
             target={target}
             onChange={onChange}
             disabled={disabled}
             active={linkActive}
+            opened={opened}
             {...others}
         >
             {children}
