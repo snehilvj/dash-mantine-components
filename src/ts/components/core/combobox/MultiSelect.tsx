@@ -102,18 +102,21 @@ const MultiSelect = ({
         });
     };
 
-     useDidUpdate(() => {
-        const newOptions = Array.isArray(data) ? data : [];
-        const rawValue = Array.isArray(value) ? value : [];
-        const newSelected = filterSelected(newOptions, rawValue) ?? [];
 
-        setOptions(newOptions);
-        setSelected(newSelected);
+   useDidUpdate(() => {
+      const newOptions = Array.isArray(data) ? data : [];
+      setOptions(newOptions);
 
-        setProps({
-            value: newSelected,
-        });
-    }, [data, value]);
+      const rawValue = Array.isArray(value) ? value : [];
+      const newSelected = filterSelected(newOptions, rawValue) ?? [];
+      setSelected(newSelected);
+
+      setProps({ value: newSelected });
+    }, [data]);
+
+    useDidUpdate(() => {
+        setSelected(value ?? []);
+    }, [value]);
 
     const handleSearchChange = (newSearchVal) => {
         setProps({ searchValue: newSearchVal });
