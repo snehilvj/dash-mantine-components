@@ -94,18 +94,17 @@ const Select = ({
     };
 
     useDidUpdate(() => {
-        setOptions(data);
-        const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected);
-    }, [data]);
+        const newOptions = Array.isArray(data) ? data : [];
+        const newSelected = filterSelected(newOptions, value);
 
-    useDidUpdate(() => {
-        setSelected(value);
-    }, [value]);
+        setOptions(newOptions);
+        setSelected(newSelected);
 
-    useDidUpdate(() => {
-        setProps({ data: options });
-    }, [options]);
+        setProps({
+            value: newSelected,
+        });
+    }, [data, value]);
+
 
     useDidUpdate(() => {
         setProps({ searchValue: searchVal });
