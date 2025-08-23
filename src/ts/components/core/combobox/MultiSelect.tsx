@@ -85,6 +85,21 @@ const MultiSelect = ({
         }
     }, [debounced]);
 
+    useDidUpdate(() => {
+        const newOptions = Array.isArray(data) ? data : [];
+        const rawValue = Array.isArray(value) ? value : [];
+        const newSelected = filterSelected(newOptions, rawValue) ?? [];
+
+        setOptions(newOptions);
+        setSelected(newSelected);
+
+        setProps({
+            data: newOptions,
+            value: newSelected,
+        });
+    }, [data, value]);
+
+
     const handleKeyDown = (ev) => {
         if (ev.key === 'Enter') {
             setProps({
@@ -104,20 +119,6 @@ const MultiSelect = ({
     const handleSearchChange = (newSearchVal) => {
         setProps({ searchValue: newSearchVal });
     };
-
-    useDidUpdate(() => {
-        setOptions(data);
-        const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected ?? []);
-    }, [data]);
-
-    useDidUpdate(() => {
-        setSelected(value ?? []);
-    }, [value]);
-
-    useDidUpdate(() => {
-        setProps({ data: options });
-    }, [options]);
 
     return (
         <div ref={ref}>
