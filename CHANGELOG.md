@@ -1,5 +1,10 @@
 # Change Log
 
+# Unreleased
+
+### Fixed
+- Fixed where Navlinks with `children` did not open/close on click. #633 by @AnnMarieW
+
 # 2.2.0
 
 See details and examples in the [DMC 2.2.0 Release Announcement](https://www.dash-mantine-components.com/release-2-2-0)
