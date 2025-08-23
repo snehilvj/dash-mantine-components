@@ -103,8 +103,11 @@ const Select = ({
         setProps({
             value: newSelected,
         });
-    }, [data, value]);
+    }, [data]);
 
+    useDidUpdate(() => {
+        setSelected(value);
+    }, [value]);
 
     useDidUpdate(() => {
         setProps({ searchValue: searchVal });
