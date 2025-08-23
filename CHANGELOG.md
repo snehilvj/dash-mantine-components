@@ -4,7 +4,7 @@
 
 ### Fixed
 
-- fixes 'MultiSelectandSelectso that changes to thedataandvalue` are batched so they only trigger a single callback. #637 by @AnnMarieW
+- fixes `MultiSelect` and `Select` so that changes to the `data` and `value` are batched so they only trigger a single callback. #637 by @AnnMarieW
 
 # 2.2.0
 
