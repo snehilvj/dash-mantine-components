@@ -113,3 +113,49 @@ def test_005nl_navlink(dash_duo):
     assert dash_duo.get_logs() == []
 
 
+def test_006_navlink(dash_duo):
+    app = dash.Dash()
+
+    app.layout = dmc.MantineProvider(html.Div(
+        [
+            dmc.NavLink(
+                id="parent-link",
+                label="Parent link",
+                href="/parent",
+                childrenOffset=20,
+                children=[
+                    dmc.NavLink(id="child-link-1", label="Child link 1", href="/child-1"),
+                    dmc.NavLink(id="child-link-2", label="Child link 2", href="/child-2"),
+                ],
+            ),
+            html.Div(id="opened-state"),
+        ]
+    ))
+
+    @app.callback(
+        Output("opened-state", "children"),
+        Input("parent-link", "opened"),
+    )
+    def show_opened_state(opened):
+        opened = opened or False
+        return f"opened={opened}"
+
+    dash_duo.start_server(app)
+
+    parent = dash_duo.find_element("#parent-link")
+
+    # Initially closed
+    dash_duo.wait_for_text_to_equal("#opened-state", "opened=False")
+
+    # Click -> should open
+    parent.click()
+    dash_duo.wait_for_text_to_equal("#opened-state", "opened=True")
+
+    # Click again -> should close
+    parent.click()
+    dash_duo.wait_for_text_to_equal("#opened-state", "opened=False")
+
+    assert dash_duo.get_logs() == []
+
+
+
