@@ -3,7 +3,9 @@
 # 2.2.1
 
 ### Fixed
-- Fixed where Navlinks with `children` did not open/close on click. #633 by @AnnMarieW
+
+- Fixed `MultiSelect` and `Select` so that changes to the `data` and `value` are batched so they only trigger a single callback. #637 by @AnnMarieW
+- Fixed a regression where Navlinks with `children` did not open/close on click. #633 by @AnnMarieW
 
 ### Changed
 - Upgraded to latest Mantine (8.2.7) #638 by @AnnMarieW

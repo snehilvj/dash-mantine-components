@@ -85,6 +85,7 @@ const MultiSelect = ({
         }
     }, [debounced]);
 
+
     const handleKeyDown = (ev) => {
         if (ev.key === 'Enter') {
             setProps({
@@ -101,23 +102,25 @@ const MultiSelect = ({
         });
     };
 
-    const handleSearchChange = (newSearchVal) => {
-        setProps({ searchValue: newSearchVal });
-    };
 
-    useDidUpdate(() => {
-        setOptions(data);
-        const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected ?? []);
+   useDidUpdate(() => {
+      const newOptions = Array.isArray(data) ? data : [];
+      setOptions(newOptions);
+
+      const rawValue = Array.isArray(value) ? value : [];
+      const newSelected = filterSelected(newOptions, rawValue) ?? [];
+      setSelected(newSelected);
+
+      setProps({ value: newSelected });
     }, [data]);
 
     useDidUpdate(() => {
         setSelected(value ?? []);
     }, [value]);
 
-    useDidUpdate(() => {
-        setProps({ data: options });
-    }, [options]);
+    const handleSearchChange = (newSearchVal) => {
+        setProps({ searchValue: newSearchVal });
+    };
 
     return (
         <div ref={ref}>
