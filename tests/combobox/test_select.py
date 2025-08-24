@@ -76,9 +76,8 @@ def test_001se_select(dash_duo):
     # focus the select input
     elem = dash_duo.find_element("#debounce-false")
     elem.click()
-    options = dash_duo.find_elements(".mantine-Select-option")
-    options[1].click()
-
+    # click on option in second dropdown
+    options[4].click()
     # verify the output has  been updated because debounce=False
     dash_duo.wait_for_text_to_equal("#out-false", "e")
 
@@ -87,8 +86,8 @@ def test_001se_select(dash_duo):
     elem = dash_duo.find_element("#debounce-2000")
     # focus the select input
     elem.click()
-    options = dash_duo.find_elements(".mantine-Select-option")
-    options[1].click()
+    # click on option in second dropdown
+    options[7].click()
 
     with pytest.raises(TimeoutException):
         dash_duo.wait_for_text_to_equal("#out-2000", "h", timeout=1)
