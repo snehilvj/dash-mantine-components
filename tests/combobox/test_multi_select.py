@@ -1,4 +1,4 @@
-from dash import Dash, html, Output, Input, _dash_renderer, ctx
+from dash import Dash, html, Output, Input, State, _dash_renderer, ctx
 import dash_mantine_components as dmc
 from flaky import flaky
 import pytest
@@ -118,16 +118,12 @@ def test_003mu_multi_select(dash_duo):
             dmc.Text(id="dmc-triggered"),
             dmc.MultiSelect(
                 id="dmc-dropdown",
-                data = ["three", "four", "five"],
-                value=["three", "four"]
+                data=["three", "four", "five"],
+                value=["three", "four"],
             ),
-            dmc.Button(
-                "change options",
-                id="change-options",
-            ),
+            dmc.Button("change options", id="change-options"),
         ]
     )
-
 
     @app.callback(
         Output("dmc-dropdown", "data"),
@@ -137,23 +133,33 @@ def test_003mu_multi_select(dash_duo):
     def change_options(n_clicks):
         return ["one", "two", "three"]
 
-
+    # accumulate triggered history instead of overwriting
     @app.callback(
         Output("dmc-triggered", "children"),
         Input("dmc-dropdown", "value"),
         Input("dmc-dropdown", "data"),
+        State("dmc-triggered", "children"),
     )
-    def dmc_select_value(value, data):
-        return str(ctx.triggered)
-
+    def dmc_select_value(value, data, prev):
+        prev = prev or ""
+        return prev + "|" + str(ctx.triggered)
 
     dash_duo.start_server(app)
-    # Wait for the app to load
-    dash_duo.wait_for_text_to_equal("#dmc-triggered", "[{'prop_id': '.', 'value': None}]" )
+
+    # wait for app to load
+    dash_duo.wait_for_text_to_equal(
+        "#dmc-triggered", "|[{'prop_id': '.', 'value': None}]"
+    )
 
     dash_duo.find_element("#change-options").click()
 
-    dash_duo.wait_for_text_to_equal("#dmc-triggered", "[{'prop_id': 'dmc-dropdown.data', 'value': ['one', 'two', 'three']}, {'prop_id': 'dmc-dropdown.value', 'value': ['three']}]")
+    # There should be only one additional appended entry (checks that callback is triggered only once)
+    dash_duo.wait_for_text_to_equal(
+        "#dmc-triggered",
+        "|[{'prop_id': '.', 'value': None}]"
+        + "|[{'prop_id': 'dmc-dropdown.data', 'value': ['one', 'two', 'three']}, "
+        + "{'prop_id': 'dmc-dropdown.value', 'value': ['three']}]",
+    )
 
     assert dash_duo.get_logs() == []
 
