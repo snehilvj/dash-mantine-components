@@ -165,58 +165,6 @@ def test_003se_select(dash_duo):
     assert dash_duo.get_logs() == []
 
 
-#
-# # check that value and data update at the same time when data is updated
-# def test_004se_select(dash_duo):
-#     app = Dash()
-#
-#     app.layout = dmc.MantineProvider(
-#         [
-#             dmc.Text(id="dmc-triggered"),
-#             dmc.Select(
-#                 id="dmc-dropdown",
-#                 data = ["three", "four", "five"],
-#                 value="four"
-#             ),
-#             dmc.Button(
-#                 "change options",
-#                 id="change-options",
-#             ),
-#         ]
-#     )
-#
-#
-#     @app.callback(
-#         Output("dmc-dropdown", "data"),
-#         Input("change-options", "n_clicks"),
-#         prevent_initial_call=True,
-#     )
-#     def change_options(n_clicks):
-#         return ["one", "two", "three"]
-#
-#
-#     @app.callback(
-#         Output("dmc-triggered", "children"),
-#         Input("dmc-dropdown", "value"),
-#         Input("dmc-dropdown", "data"),
-#     )
-#     def dmc_select_value(value, data):
-#         return str(ctx.triggered)
-#
-#
-#     dash_duo.start_server(app)
-#     # Wait for the app to load
-#     dash_duo.wait_for_text_to_equal("#dmc-triggered", "[{'prop_id': '.', 'value': None}]" )
-#
-#     dash_duo.find_element("#change-options").click()
-#
-#     dash_duo.wait_for_text_to_equal("#dmc-triggered", "[{'prop_id': 'dmc-dropdown.data', 'value': ['one', 'two', 'three']}, {'prop_id': 'dmc-dropdown.value', 'value': None}]")
-#
-#     assert dash_duo.get_logs() == []
-#
-#
-
-
 # check that value and data update at the same time when data is updated
 def test_004se_select(dash_duo):
     app = Dash()
