@@ -1,9 +1,12 @@
 # Change Log
 
-# Unreleased
+# 2.2.1
 
 ### Fixed
 - Fixed where Navlinks with `children` did not open/close on click. #633 by @AnnMarieW
+
+### Changed
+- Upgraded to latest Mantine (8.2.7) #638 by @AnnMarieW
 
 # 2.2.0
 
