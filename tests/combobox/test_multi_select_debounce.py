@@ -62,13 +62,12 @@ def test_001mu_multi_select_debounce(dash_duo):
     actions = ActionChains(dash_duo.driver)
     actions.move_to_element(elem).click().perform()
     # # select item from dropdown
-    # # Get the options
+    # # Get all the options on the page
     options = dash_duo.find_elements(".mantine-MultiSelect-option")
     options[1].click()
 
     # verify the output has not been updated because debounce=True
     dash_duo.wait_for_text_to_equal("#out-true", '["a"]')
-
     # make  input lose focus
     elem.send_keys(Keys.TAB)
     # verify the output has been updated after input loses focus
@@ -76,25 +75,23 @@ def test_001mu_multi_select_debounce(dash_duo):
 
     # debounce=False
     # focus the select input
-    elem2 = dash_duo.find_element("#debounce-false")
+    elem = dash_duo.find_element("#debounce-false")
     actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(elem2).click().perform()
-
-    options = dash_duo.find_elements(".mantine-MultiSelect-option")
-    options[1].click()
+    actions.move_to_element(elem).click().perform()
+    # click on option in second dropdown
+    options[4].click()
     # verify the output has  been updated because debounce=False
     dash_duo.wait_for_text_to_equal("#out-false", '["d", "e"]')
     # make  input lose focus and closes dropdown
     elem.send_keys(Keys.TAB)
-
     # debounce is an number
     # expect that a long debounce does not call back in a short amount of time
     elem = dash_duo.find_element("#debounce-2000")
     # focus the select input
     actions = ActionChains(dash_duo.driver)
     actions.move_to_element(elem).click().perform()
-    options = dash_duo.find_elements(".mantine-MultiSelect-option")
-    options[1].click()
+    # click on option in third dropdown
+    options[7].click()
 
     with pytest.raises(TimeoutException):
         dash_duo.wait_for_text_to_equal("#out-2000", '["g", "h"]', timeout=1)
