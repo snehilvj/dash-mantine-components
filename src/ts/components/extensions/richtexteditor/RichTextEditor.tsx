@@ -67,7 +67,8 @@ type ControlName =
     | 'Redo'
     | 'Color'
     | 'ColorPicker'
-    | 'UnsetColor';
+    | 'UnsetColor'
+    | 'FontSize';
 
 export type CustomControl = {
     'aria-label'?: string;
