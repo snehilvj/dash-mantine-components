@@ -59,7 +59,6 @@ def test_001sc_scrollarea_scrollto(dash_duo):
     updated_location_section1 = section_1.location['y']
     assert updated_location_section1 < initial_location_section1
 
-
     section_9 = dash_duo.find_element("#section-9")
     initial_location_section9 = section_9.location['y']
 

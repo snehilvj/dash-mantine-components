@@ -2,7 +2,7 @@ import { ScrollArea as MantineScrollArea } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 import { ScrollAreaProps } from 'props/scrollarea';
 import React, { useEffect, useRef } from 'react';
-import { getLoadingState } from '../../utils/dash3';
+import { getLoadingState } from '../../../utils/dash3';
 
 
 interface ScrollToOptions {
