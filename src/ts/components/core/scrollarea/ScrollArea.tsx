@@ -6,17 +6,10 @@ import { getLoadingState } from '../../../utils/dash3';
 
 
 interface ScrollToOptions {
-    /** The vertical position as a percentage (0-100). Ignored if element is specified.*/
+    /** The vertical position as a percentage (0-100).*/
     top?: number;
-    /** The horizontal position as a percentage (0-100). Ignored if element is specified. */
+    /** The horizontal position as a percentage (0-100). */
     left?: number;
-    /** CSS selector or element ID to scroll to. When specified, top/left are ignored. */
-    element?: string;
-    /** How to align the element vertically when scrolling to it */
-    block?: 'start' | 'center' | 'end' | 'nearest';
-    /** How to align the element horizontally when scrolling to it */
-    inline?: 'start' | 'center' | 'end' | 'nearest';
-    /** The scroll behavior ('auto' | 'smooth') */
     behavior?: 'auto' | 'smooth';
 }
 
@@ -51,20 +44,6 @@ const ScrollArea = (props: Props) => {
     useEffect(() => {
         if (!scrollTo || !viewportRef.current) return;
 
-        // Handle element-based scrolling
-        if (scrollTo.element) {
-            // Find the target element within the ScrollArea
-            const targetElement = viewportRef.current.querySelector(scrollTo.element);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: scrollTo.behavior || 'smooth',
-                    block: scrollTo.block || 'start',
-                    inline: scrollTo.inline || 'nearest'
-                });
-            }
-            return;
-        }
-
         // Handle percentage-based scrolling
         const calculatedTop = calculatePosition(scrollTo.top, 'height');
         const calculatedLeft = calculatePosition(scrollTo.left, 'width');
@@ -88,5 +67,3 @@ const ScrollArea = (props: Props) => {
 };
 
 export default ScrollArea;
-
-

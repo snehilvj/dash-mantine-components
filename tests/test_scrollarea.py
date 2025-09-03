@@ -29,7 +29,7 @@ def test_001sc_scrollarea_scrollto(dash_duo):
 
     controls = dmc.Group([
         dmc.NumberInput(label="Y position", min=0, max=100, value=0, id="y-position"),
-        dmc.Button("scroll to section 9", id="element-id", n_clicks=0)
+        dmc.NumberInput(label="X position", min=0, max=100, value=0, id="x-position"),
     ])
 
     app.layout = dmc.MantineProvider([
@@ -39,33 +39,29 @@ def test_001sc_scrollarea_scrollto(dash_duo):
 
     @app.callback(
         Output("scrollArea", "scrollTo"),
+        Input("x-position", "value"),
         Input("y-position", "value"),
-        Input("element-id", "n_clicks")
+
     )
-    def scroll_to(y, n):
-        if n > 0:
-            return {"element": "#section-9"}
-        return {"top": y}
+    def scroll_to(x, y):
+       return {"top": y, "left": x}
 
     dash_duo.start_server(app)
 
     section_1 = dash_duo.find_element("#section-1")
-    initial_location_section1 = section_1.location['y']
+    initial_location_section_y = section_1.location['y']
+    initial_location_section_x = section_1.location['y']
 
     y_input = dash_duo.find_element("#y-position")
     y_input.send_keys("50")
+    x_input = dash_duo.find_element("#x-position")
+    x_input.send_keys("50")
     time.sleep(.5)
 
-    updated_location_section1 = section_1.location['y']
-    assert updated_location_section1 < initial_location_section1
-
-    section_9 = dash_duo.find_element("#section-9")
-    initial_location_section9 = section_9.location['y']
-
-    dash_duo.find_element("#element-id").click()
-    time.sleep(.5)
-    updated_location_section9 = section_9.location['y']
-    assert updated_location_section9 < initial_location_section9
+    updated_location_section_y = section_1.location['y']
+    updated_location_section_x = section_1.location['x']
+    assert updated_location_section_y < initial_location_section_y
+    assert updated_location_section_x < initial_location_section_x
 
     assert dash_duo.get_logs() == []
 
