@@ -1,5 +1,11 @@
 # Change Log
 
+# [Unreleased]
+
+### Added
+- New `scrollTo` prop for `ScrollArea` #645
+- New `ScrollAreaAutoheight` component.  #645 by @AnnMarieW
+
 # 2.2.1
 
 ### Fixed
