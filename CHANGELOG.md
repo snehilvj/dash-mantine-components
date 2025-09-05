@@ -1,5 +1,13 @@
 # Change Log
 
+# [Unreleased]
+
+### Fixed
+
+- BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
+
+
+
 # 2.2.1
 
 ### Fixed
