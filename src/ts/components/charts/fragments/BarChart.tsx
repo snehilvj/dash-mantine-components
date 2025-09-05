@@ -94,7 +94,7 @@ const BarChart = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             barChartProps={newProps}
             barProps={barPropsFunction}
-            valueFormatter={resolveProp(valueFormatter)}
+            valueFormatter={resolveProp(valueFormatter) || ((value: number) => value.toString())}
             tooltipProps={resolveProp(tooltipProps)}
             getBarColor={resolveProp(getBarColor)}
             {...others}
