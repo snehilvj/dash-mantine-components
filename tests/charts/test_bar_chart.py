@@ -141,12 +141,12 @@ def test_value_labels_on_bar_chart(dash_duo):
 
     dash_duo.start_server(app)
 
-    # Target the bars
-    value_labels = dash_duo.find_elements(".recharts-layer.recharts-label-list text")
+    # Target the value labels more specifically - they should be direct children of bar groups
+    value_labels = dash_duo.find_elements(".mantine-BarChart-bar g.recharts-layer.recharts-label-list text")
 
     assert len(value_labels) > 0, "No value labels found in the chart"
     for value_label in value_labels:
         assert value_label.get_attribute("fill") == "white", (
-            "Value label 'fill' should be 'white', but found: "
-            + value_label.get_attribute("text-anchor")
+            f"Value label 'fill' should be 'white', but found: '{value_label.get_attribute('fill')}'"
         )
+        assert value_label.text != '', "label text should not be blank"

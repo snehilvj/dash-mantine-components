@@ -2,9 +2,15 @@
 
 # [Unreleased]
 
+
 ### Added
 - New `scrollTo` prop for `ScrollArea` #645
 - New `ScrollAreaAutoheight` component.  #645 by @AnnMarieW
+
+### Fixed
+
+- BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
+
 
 # 2.2.1
 

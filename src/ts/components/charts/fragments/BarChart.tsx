@@ -6,6 +6,8 @@ import { getLoadingState } from '../../../utils/dash3';
 import { resolveProp } from '../../../utils/prop-functions';
 import { Props } from '../BarChart';
 
+const defaultValueFormatter = (value: number) => value.toString();
+
 /** BarChart */
 const BarChart = ({
     setProps,
@@ -94,7 +96,7 @@ const BarChart = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             barChartProps={newProps}
             barProps={barPropsFunction}
-            valueFormatter={resolveProp(valueFormatter)}
+            valueFormatter={resolveProp(valueFormatter) || defaultValueFormatter}
             tooltipProps={resolveProp(tooltipProps)}
             getBarColor={resolveProp(getBarColor)}
             {...others}
