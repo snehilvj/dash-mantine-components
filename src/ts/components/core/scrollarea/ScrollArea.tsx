@@ -6,10 +6,10 @@ import { getLoadingState } from '../../../utils/dash3';
 
 
 interface ScrollToOptions {
-    /** The vertical position as a percentage (0-100).*/
-    top?: number;
-    /** The horizontal position as a percentage (0-100). */
-    left?: number;
+    /** The vertical position as pixels (number) or percentage (string like '50%'). */
+    top?: number | string;
+    /** The horizontal position as pixels (number) or percentage (string like '50%'). */
+    left?: number | string;
     behavior?: 'auto' | 'smooth';
 }
 
@@ -27,24 +27,44 @@ const ScrollArea = (props: Props) => {
     const { setProps, loading_state, children, scrollTo, ...others } = props;
     const viewportRef = useRef<HTMLDivElement>(null);
 
-    const calculatePosition = (percentage: number | undefined, dimension: 'height' | 'width'): number | undefined => {
-        if (percentage === undefined || !viewportRef.current) return undefined;
+    const calculatePosition = (value: number | string | undefined, dimension: 'height' | 'width'): number | undefined => {
+        if (value === undefined || !viewportRef.current) return undefined;
 
         const viewport = viewportRef.current;
-        const scrollSize = dimension === 'height' ? viewport.scrollHeight : viewport.scrollWidth;
-        const viewportSize = dimension === 'height' ? viewport.clientHeight : viewport.clientWidth;
-        const maxScroll = scrollSize - viewportSize;
 
-        // Clamp percentage to 0-100 range
-        const clampedPercentage = Math.max(0, Math.min(100, percentage));
+        // Handle pixel values (numbers)
+        if (typeof value === 'number') {
+            return value;
+        }
 
-        return (maxScroll * clampedPercentage) / 100;
+        // Handle percentage values (strings)
+        if (typeof value === 'string' && value.endsWith('%')) {
+            const percentage = parseFloat(value.slice(0, -1));
+
+            // Validate percentage
+            if (isNaN(percentage)) {
+                console.warn(`Invalid percentage value: ${value}`);
+                return undefined;
+            }
+
+            const scrollSize = dimension === 'height' ? viewport.scrollHeight : viewport.scrollWidth;
+            const viewportSize = dimension === 'height' ? viewport.clientHeight : viewport.clientWidth;
+            const maxScroll = scrollSize - viewportSize;
+
+            // Clamp percentage to 0-100 range
+            const clampedPercentage = Math.max(0, Math.min(100, percentage));
+
+            return (maxScroll * clampedPercentage) / 100;
+        }
+
+        // Handle invalid string values
+        console.warn(`Invalid scroll position value: ${value}. Expected a number (pixels) or string with % (percentage).`);
+        return undefined;
     };
 
     useEffect(() => {
         if (!scrollTo || !viewportRef.current) return;
 
-        // Handle percentage-based scrolling
         const calculatedTop = calculatePosition(scrollTo.top, 'height');
         const calculatedLeft = calculatePosition(scrollTo.left, 'width');
 
