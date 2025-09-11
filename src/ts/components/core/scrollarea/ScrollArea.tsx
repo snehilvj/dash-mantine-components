@@ -6,13 +6,13 @@ import { getLoadingState } from '../../../utils/dash3';
 
 
 interface ScrollToOptions {
-    /** The vertical position as pixels (number) or percentage (string like '50%'). */
+    /** The vertical position as pixels (number) or percentage (string) from '0%' to '100%' */
     top?: number | string;
-    /** The horizontal position as pixels (number) or percentage (string like '50%'). */
+    /** The horizontal position as pixels (number) or percentage (string) from '0%' to '100%' */
     left?: number | string;
+    /** scroll behavior: `auto` (instant) or `smooth` (animated), `smooth` by default */
     behavior?: 'auto' | 'smooth';
 }
-
 
 interface Props extends ScrollAreaProps, DashBaseProps {
     /** Content */
