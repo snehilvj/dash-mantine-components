@@ -174,6 +174,7 @@ import MantineProvider from './components/styles/MantineProvider';
 import ChipGroup from './components/core/chip/ChipGroup';
 import RichTextEditor from './components/extensions/richtexteditor/RichTextEditor';
 import TypographyStylesProvider from './components/styles/TypographyStylesProvider';
+import DirectionProvider from './components/styles/DirectionProvider';
 
 export {
     Accordion,
@@ -351,4 +352,5 @@ export {
     RichTextEditor,
     TypographyStylesProvider,
     appNotifications,
+    DirectionProvider,
 };

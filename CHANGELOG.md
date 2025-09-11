@@ -2,9 +2,16 @@
 
 # [Unreleased]
 
+### Added
+
+- added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
+
 ### Fixed
 
 - BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
+
+### Changed
+- Upgraded to latest Mantine (8.3.1) #650 by @AnnMarieW
 
 
 
