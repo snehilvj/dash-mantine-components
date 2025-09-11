@@ -5,6 +5,7 @@
 ### Added
 
 - added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
+- added `debounce` prop to `Autocomplete #654 by @AnnMarieW
 
 ### Fixed
 
