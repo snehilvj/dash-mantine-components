@@ -287,6 +287,8 @@ export interface TimePickerProps
      * This overrides any values provided directly in the `presets` prop.
      */
     timeRangePresets?: GetTimeRange;
+    /** If set, the time controls list are reversed, default `false` */
+    reverseTimeControlsList?: boolean;
 }
 
 type DatePickerPreset = {
