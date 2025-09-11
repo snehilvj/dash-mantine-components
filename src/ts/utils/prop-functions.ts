@@ -23,6 +23,7 @@ const funcPropsMap = {
     MultiSelect: ['renderOption', 'filter'],
     TagsInput: ['renderOption', 'filter'],
     Autocomplete: ['renderOption', 'filter'],
+    MiniCalendar: [ 'getDayProps'],
     DatePicker: [
         'getYearControlProps',
         'getMonthControlProps',
