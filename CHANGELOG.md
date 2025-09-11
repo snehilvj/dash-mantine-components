@@ -2,7 +2,10 @@
 
 # [Unreleased]
 
+
 ### Added
+- New `scrollTo` prop for `ScrollArea` #645 by @AnnMarieW
+- New `ScrollAreaAutoheight` component. #645 
 
 - added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
 - added `debounce` prop to `Autocomplete #654 by @AnnMarieW
@@ -13,7 +16,6 @@
 
 ### Changed
 - Upgraded to latest Mantine (8.3.1) #650 by @AnnMarieW
-
 
 
 # 2.2.1

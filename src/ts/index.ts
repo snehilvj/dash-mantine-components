@@ -45,7 +45,8 @@ import Pagination from './components/core/Pagination';
 import Paper from './components/core/Paper';
 import Rating from './components/core/Rating';
 import RingProgress from './components/core/RingProgress';
-import ScrollArea from './components/core/ScrollArea';
+import ScrollArea from './components/core/scrollarea/ScrollArea';
+import ScrollAreaAutosize from './components/core/scrollarea/ScrollAreaAutosize';
 import SegmentedControl from './components/core/SegmentedControl';
 import SimpleGrid from './components/core/SimpleGrid';
 import Skeleton from './components/core/Skeleton';
@@ -307,6 +308,7 @@ export {
     SemiCircleProgress,
     ScatterChart,
     ScrollArea,
+    ScrollAreaAutosize,
     SegmentedControl,
     Select,
     SimpleGrid,
