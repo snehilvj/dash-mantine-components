@@ -50,6 +50,8 @@ interface Props
     hiddenInputValuesDivider?: string;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+    /** Clear search value when item is selected. Default True */
+    clearSearchOnChange?: boolean;
 }
 
 /** MultiSelect */
