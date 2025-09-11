@@ -2,10 +2,10 @@ import {
     ComboboxStringData,
     Autocomplete as MantineAutocomplete,
 } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { ComboboxLikeProps } from 'props/combobox';
-import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
 import { __ClearButtonProps } from 'props/button';
 import { __BaseInputProps } from 'props/input';
 import { ScrollAreaProps } from 'props/scrollarea';
@@ -20,6 +20,7 @@ interface Props
         Omit<ComboboxLikeProps, 'data'>,
         StylesApiProps,
         DashBaseProps,
+        DebounceProps,
         PersistenceProps {
     /** Data displayed in the dropdown */
     data?: ComboboxStringData;
@@ -39,12 +40,43 @@ interface Props
 const Autocomplete = ({
     setProps,
     loading_state,
+    debounce = false,
+    persistence,
+    persisted_props,
+    persistence_type,
+    n_submit = 0,
+    n_blur = 0,
     data = [],
-    value,
+    value = '',
     ...others
 }: Props) => {
     const [autocomplete, setAutocomplete] = useState(value);
     const [options, setOptions] = useState(data);
+
+    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const [debounced] = useDebouncedValue(autocomplete, debounceValue);
+
+    useDidUpdate(() => {
+        if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
+    }, [debounced]);
+
+    const handleKeyDown = (ev) => {
+        if (ev.key === 'Enter') {
+            setProps({
+                n_submit: n_submit + 1,
+                ...(debounce === true && { value: autocomplete }),
+            });
+        }
+    };
+
+    const handleBlur = () => {
+        setProps({
+            n_blur: n_blur + 1,
+            ...(debounce === true && { value: autocomplete }),
+        });
+    };
 
     useDidUpdate(() => {
         setOptions(data);
@@ -55,10 +87,6 @@ const Autocomplete = ({
     }, [options]);
 
     useDidUpdate(() => {
-        setProps({ value: autocomplete });
-    }, [autocomplete]);
-
-    useDidUpdate(() => {
         setAutocomplete(value);
     }, [value]);
 
@@ -67,6 +95,8 @@ const Autocomplete = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('Autocomplete', others)}
             data={options}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             onChange={setAutocomplete}
             value={autocomplete}
         />
