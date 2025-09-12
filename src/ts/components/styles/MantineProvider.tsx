@@ -3,6 +3,11 @@ import {
     MantineProviderProps,
 } from '@mantine/core';
 import React from 'react';
+import * as MantineCore from '@mantine/core';
+import * as MantineHooks from '@mantine/hooks';
+
+(window as any).MantineCore = MantineCore;
+(window as any).MantineHooks = MantineHooks;
 
 import '@mantine/core/styles.css';
 
