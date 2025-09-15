@@ -154,6 +154,7 @@ import DatePicker from './components/dates/DatePicker';
 import DatePickerInput from './components/dates/DatePickerInput';
 import DateTimePicker from './components/dates/DateTimePicker';
 import DatesProvider from './components/dates/DatesProvider';
+import MiniCalendar from './components/dates/MiniCalendar';
 import MonthPickerInput from './components/dates/MonthPickerInput';
 import YearPickerInput from './components/dates/YearPickerInput';
 import TimeGrid from './components/dates/TimeGrid';
@@ -259,6 +260,7 @@ export {
     ListItem,
     Loader,
     LoadingOverlay,
+    MiniCalendar,
     MantineProvider,
     Mark,
     Menu,
