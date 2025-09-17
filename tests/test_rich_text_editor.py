@@ -34,7 +34,7 @@ def _pmjs(text: str) -> str:
 
 def _html(text: str) -> str:
     """Convert text to HTML paragraph."""
-    return f"<p>{text}</p>"
+    return  f'<p style="text-align: left;">{text}</p>'
 
 
 def _validate_content(dash_duo, expected: str):
