@@ -9,14 +9,15 @@
 
 - added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
 - added `debounce` prop to `Autocomplete #654 by @AnnMarieW
+- added support for new text style features from TipTap 3: BackgroundColor, FontFamily, FontSize, LineHeight.  #657 By @AnnMarieW
 
 ### Fixed
-
 - BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
 
 ### Changed
-- Upgraded to latest Mantine (8.3.1) #650 by @AnnMarieW
-
+- Updated to latest Mantine (8.3.1) #650 by @AnnMarieW
+- Updated `RichTextEditor` to use TipTap 3 (Mantine 8.3.0 recommendation).  #657 by @AnnMarieW
+  
 
 # 2.2.1
 

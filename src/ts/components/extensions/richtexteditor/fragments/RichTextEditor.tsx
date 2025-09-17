@@ -1,4 +1,4 @@
-import { RichTextEditor as MantineRichTextEditor, Link } from '@mantine/tiptap';
+import { RichTextEditor as MantineRichTextEditor } from '@mantine/tiptap';
 import '@mantine/tiptap/styles.css';
 import { Props } from '../RichTextEditor';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
@@ -8,17 +8,25 @@ import { resolveProp } from '../../../../utils/prop-functions';
 import { useEditor } from '@tiptap/react';
 import Highlight from '@tiptap/extension-highlight';
 import StarterKit from '@tiptap/starter-kit';
-import Underline from '@tiptap/extension-underline';
 import TextAlign from '@tiptap/extension-text-align';
 import Superscript from '@tiptap/extension-superscript';
 import Subscript from '@tiptap/extension-subscript';
-import Table from '@tiptap/extension-table';
-import TableCell from '@tiptap/extension-table-cell';
-import TableHeader from '@tiptap/extension-table-header';
-import TableRow from '@tiptap/extension-table-row';
-import Placeholder from '@tiptap/extension-placeholder';
-import Color from '@tiptap/extension-color';
-import TextStyle from '@tiptap/extension-text-style';
+import {
+    Table,
+    TableCell,
+    TableHeader,
+    TableRow,
+} from '@tiptap/extension-table';
+
+import { Placeholder } from '@tiptap/extensions';
+import {
+    TextStyle,
+    Color,
+    BackgroundColor,
+    FontFamily,
+    FontSize,
+    LineHeight,
+} from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
 import {
     getLoadingState,
@@ -30,8 +38,6 @@ import {
 // Import all extensions directly
 const extensionMap = {
     StarterKit,
-    Underline,
-    Link,
     Superscript,
     Subscript,
     Highlight,
@@ -43,6 +49,10 @@ const extensionMap = {
     Placeholder,
     Color,
     TextStyle,
+    BackgroundColor,
+    FontFamily,
+    FontSize,
+    LineHeight,
     Image,
 } as const;
 
@@ -78,8 +88,6 @@ const RichTextEditor = ({
     variant,
     extensions = [
         'StarterKit',
-        'Underline',
-        'Link',
         'Superscript',
         'Subscript',
         'Highlight',
@@ -91,6 +99,10 @@ const RichTextEditor = ({
         { TextAlign: { types: ['heading', 'paragraph'] } },
         'Color',
         'TextStyle',
+        'BackgroundColor',
+        'FontFamily',
+        'FontSize',
+        'LineHeight',
         'Image',
     ],
     toolbar,
@@ -207,6 +219,7 @@ const RichTextEditor = ({
         onBlur: onBlur,
         onSelectionUpdate: onSelectionUpdate,
         onCreate: syncDashState,
+        shouldRerenderOnTransaction: true,
     });
 
     const renderControl = (ctl, i, editor, componentPath) => {

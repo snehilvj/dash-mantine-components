@@ -20,7 +20,7 @@ def _prose_mirror_json(text: str) -> dict:
         "content": [
             {
                 "type": "paragraph",
-                "attrs": {"textAlign": "left"},
+                "attrs": {"textAlign": None},
                 "content": [{"type": "text", "text": text}],
             }
         ],
@@ -34,7 +34,7 @@ def _pmjs(text: str) -> str:
 
 def _html(text: str) -> str:
     """Convert text to HTML paragraph."""
-    return f"<p>{text}</p>"
+    return  f"<p>{text}</p>"
 
 
 def _validate_content(dash_duo, expected: str):
