@@ -10,6 +10,12 @@
 - added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
 - added `debounce` prop to `Autocomplete #654 by @AnnMarieW
 
+The following new features available in Mantine 8.3.0 were added in #655 by @AnnMarieW
+- `MiniCalendar` component
+- `orientation` prop for `Progress`.  Now supports both horizontal and vertical orientation
+- `clearSearchOnChange` prop for `MultiSelect` - to clear search input when an item is selected
+- `reverseTimeControlsList`  prop for `TimePicker` -  to reverse the order of time controls in the dropdown. Use this option if you want the order of controls to match keyboard controls (up and down arrow) direction.
+
 ### Fixed
 
 - BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
