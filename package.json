@@ -1,6 +1,6 @@
 {
     "name": "dash_mantine_components",
-    "version": "2.2.1",
+    "version": "2.3.0",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
@@ -14,7 +14,7 @@
     "scripts": {
         "build:js::dev": "webpack --mode development",
         "build:js": "webpack --mode production",
-        "build:backends": "dash-generate-components ./src/ts/components dash_mantine_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
+        "build:backends": "dash-generate-components ./src/ts/components dash_mantine_components -p package-info.json  --ignore \\.test\\.",
         "build": "npm run build:js && npm run build:backends",
         "watch": "npm run build:js::dev -- --watch",
         "dist": "python -m build --sdist --wheel --outdir dist/",
