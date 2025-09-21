@@ -28,6 +28,10 @@ type ExtensionName =
     | 'TableHeader'
     | 'Placeholder'
     | 'Image'
+    | 'BackgroundColor'
+    | 'FontFamily'
+    | 'FontSize'
+    | 'LineHeight'
     | 'Color';
 
 // TODO: Maybe add types for the extensions options explicitly?

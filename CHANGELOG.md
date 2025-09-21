@@ -10,6 +10,7 @@
 
 - added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
 - added `debounce` prop to `Autocomplete #654 by @AnnMarieW
+- added support for new text style features from TipTap 3: BackgroundColor, FontFamily, FontSize, LineHeight.  #657 By @AnnMarieW
 
 The following new features available in Mantine 8.3.0 were added in #655 by @AnnMarieW
 - `MiniCalendar` component
@@ -17,14 +18,16 @@ The following new features available in Mantine 8.3.0 were added in #655 by @Ann
 - `clearSearchOnChange` prop for `MultiSelect` - to clear search input when an item is selected
 - `reverseTimeControlsList`  prop for `TimePicker` -  to reverse the order of time controls in the dropdown. Use this option if you want the order of controls to match keyboard controls (up and down arrow) direction.
 
-### Fixed
+### Fixed 
 
 - BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
 
-### Changed  
 
-- Upgraded to latest Mantine (8.3.1) #650 by @AnnMarieW
+### Changed 
 
+- Updated to latest Mantine (8.3.1) #650 by @AnnMarieW
+- `RichTextEditor` now uses Tiptap 3 (Mantine 8.3.0 recommendation). . No known breaking changes, but customizations may be affected.  See our [migration guide,](https://www.dash-mantine-components.com/migration).  #657 by @AnnMarieW
+  
 
 # 2.2.1
 
