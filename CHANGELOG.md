@@ -1,9 +1,10 @@
 # Change Log
 
-# [Unreleased]
+# 2.3.0
 
 
-### Added
+### Added  
+
 - New `scrollTo` prop for `ScrollArea` #645 by @AnnMarieW
 - New `ScrollAreaAutoheight` component. #645 
 
@@ -20,7 +21,8 @@ The following new features available in Mantine 8.3.0 were added in #655 by @Ann
 
 - BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
 
-### Changed
+### Changed  
+
 - Upgraded to latest Mantine (8.3.1) #650 by @AnnMarieW
 
 
