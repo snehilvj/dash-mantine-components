@@ -3,7 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useState, useRef } from 'react';
 import { getClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
-import { resolveProp } from '../../../utils/prop-functions';
+import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../AreaChart';
 
 /** AreaChart */
@@ -19,10 +19,11 @@ const AreaChart = ({
     areaChartProps,
     activeDotProps,
     areaProps,
-    valueFormatter,
-    tooltipProps,
+    data,
+    dataKey,
     ...others
 }: Props) => {
+
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
 
@@ -108,6 +109,9 @@ const AreaChart = ({
     return (
         <MantineAreaChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+             {...parseFuncProps('Charts', others)}
+            data={data}
+            dataKey={dataKey}
             areaChartProps={newProps}
             series={series}
             activeDotProps={{
@@ -117,9 +121,6 @@ const AreaChart = ({
                 onMouseOut: handleHoverEnd,
             }}
             areaProps={areaPropsFunction}
-            valueFormatter={resolveProp(valueFormatter)}
-            tooltipProps={resolveProp(tooltipProps)}
-            {...others}
         />
     );
 };

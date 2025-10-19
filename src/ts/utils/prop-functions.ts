@@ -50,9 +50,12 @@ const funcPropsMap = {
     ],
     MonthPickerInput: ['getYearControlProps', 'getMonthControlProps'],
     YearPickerInput: ['getYearControlProps'],
+    Charts: ['xAxisProps', 'xAxisProps', 'gridProps', 'rightYAxisProps', 'tooltipProps', 'valueFormatter']
 };
 
 // parses functon as props from other props
+// Note: parseFuncProps is for optional props. If other props includes required props,
+//       they must be passed to the component explicitly
 export function parseFuncProps(
     comp: string,
     props: Record<string, any>,
