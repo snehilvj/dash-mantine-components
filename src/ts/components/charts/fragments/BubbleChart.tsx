@@ -3,7 +3,7 @@ import '@mantine/charts/styles.css';
 import React from 'react';
 import { getScatterClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
-import { resolveProp } from '../../../utils/prop-functions';
+import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../BubbleChart';
 
 /** BubbleChart */
@@ -13,8 +13,9 @@ const BubbleChart = ({
     clickData,
     hoverData,
     scatterProps,
-    valueFormatter,
-    tooltipProps,
+    data,
+    dataKey,
+    range,
     ...others
 }: Props) => {
     const onClick = (ev) => {
@@ -34,10 +35,11 @@ const BubbleChart = ({
     return (
         <MantineBubbleChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            {...parseFuncProps('BubbleChart', others)}
+            data={data}
+            dataKey={dataKey}
+            range={range}
             scatterProps={newProps}
-            valueFormatter={resolveProp(valueFormatter)}
-            tooltipProps={resolveProp(tooltipProps)}
-            {...others}
         />
     );
 };

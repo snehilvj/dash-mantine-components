@@ -1,5 +1,11 @@
 # Change Log
 
+# [Unreleased]
+
+### Added
+
+- Added function as prop support for `xAxisProps`, `yAxisProps`, `gridProps`, `rightYAxisProps` (and `zAxisProps` for BubbleChart) in `AreaChart`, `BarChart`, `BubbleChart`, `CompositeChart`, `LineChart`, and `ScatterChart`. #661 by @AnnMarieW
+
 # 2.3.0
 
 

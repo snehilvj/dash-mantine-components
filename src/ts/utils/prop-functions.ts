@@ -23,7 +23,7 @@ const funcPropsMap = {
     MultiSelect: ['renderOption', 'filter'],
     TagsInput: ['renderOption', 'filter'],
     Autocomplete: ['renderOption', 'filter'],
-    MiniCalendar: [ 'getDayProps'],
+    MiniCalendar: ['getDayProps'],
     DatePicker: [
         'getYearControlProps',
         'getMonthControlProps',
@@ -50,9 +50,58 @@ const funcPropsMap = {
     ],
     MonthPickerInput: ['getYearControlProps', 'getMonthControlProps'],
     YearPickerInput: ['getYearControlProps'],
+    AreaChart: [
+        'xAxisProps',
+        'yAxisProps',
+        'gridProps',
+        'rightYAxisProps',
+        'tooltipProps',
+        'valueFormatter',
+    ],
+    BarChart: [
+        'xAxisProps',
+        'yAxisProps',
+        'gridProps',
+        'rightYAxisProps',
+        'tooltipProps',
+        'getBarColor',
+    ],
+    BubbleChart: [
+        'xAxisProps',
+        'xAxisProps',
+        'zAxisProps',
+        'tooltipProps',
+        'valueFormatter',
+    ],
+    CompositeChart: [
+        'xAxisProps',
+        'yAxisProps',
+        'gridProps',
+        'rightYAxisProps',
+        'tooltipProps',
+        'valueFormatter',
+    ],
+    LineChart: [
+        'xAxisProps',
+        'yAxisProps',
+        'gridProps',
+        'rightYAxisProps',
+        'tooltipProps',
+        'valueFormatter',
+    ],
+    ScatterChart: [
+        'xAxisProps',
+        'yAxisProps',
+        'gridProps',
+        'rightYAxisProps',
+        'tooltipProps',
+        'valueFormatter',
+    ],
 };
 
 // parses functon as props from other props
+// Note: parseFuncProps is for optional props. If other props includes required props,
+//       they must be passed to the component explicitly
 export function parseFuncProps(
     comp: string,
     props: Record<string, any>,

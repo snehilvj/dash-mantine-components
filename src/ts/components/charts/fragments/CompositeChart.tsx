@@ -3,7 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useRef, useState } from 'react';
 import { getClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
-import { resolveProp } from '../../../utils/prop-functions';
+import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../CompositeChart';
 
 /** CompositeChart */
@@ -20,8 +20,9 @@ const CompositeChart = ({
     lineProps,
     areaProps,
     activeDotProps,
-    valueFormatter,
-    tooltipProps,
+    series,
+    data,
+    dataKey,
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -113,6 +114,10 @@ const CompositeChart = ({
     return (
         <MantineCompositeChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            {...parseFuncProps('CompositeChart', others)}
+            data={data}
+            dataKey={dataKey}
+            series={series}
             composedChartProps={newProps}
             barProps={(item) => propsFunction(item, 'bar')} // Pass the chart type as 'bar'
             lineProps={(item) => propsFunction(item, 'line')} // Pass the chart type as 'line'
@@ -123,9 +128,6 @@ const CompositeChart = ({
                 onMouseOver: handleDotHover,
                 onMouseOut: handleHoverEnd,
             }}
-            valueFormatter={resolveProp(valueFormatter)}
-            tooltipProps={resolveProp(tooltipProps)}
-            {...others}
         />
     );
 };
