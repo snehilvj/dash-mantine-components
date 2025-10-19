@@ -109,7 +109,7 @@ const AreaChart = ({
     return (
         <MantineAreaChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-             {...parseFuncProps('Charts', others)}
+             {...parseFuncProps('AreaChart', others)}
             data={data}
             dataKey={dataKey}
             areaChartProps={newProps}

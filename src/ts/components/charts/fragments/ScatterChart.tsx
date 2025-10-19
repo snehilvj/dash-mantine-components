@@ -3,7 +3,7 @@ import '@mantine/charts/styles.css';
 import React from 'react';
 import { getScatterClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
-import { resolveProp } from '../../../utils/prop-functions';
+import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../ScatterChart';
 
 /** ScatterChart */
@@ -15,8 +15,8 @@ const ScatterChart = ({
     clickSeriesName,
     hoverSeriesName,
     scatterProps,
-    valueFormatter,
-    tooltipProps,
+    data,
+    dataKey,
     ...others
 }: Props) => {
     const onClick = (ev) => {
@@ -44,10 +44,10 @@ const ScatterChart = ({
     return (
         <MantineScatterChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+             {...parseFuncProps('ScatterChart', others)}
+            data={data}
+            dataKey={dataKey}
             scatterProps={newProps}
-            valueFormatter={resolveProp(valueFormatter)}
-            tooltipProps={resolveProp(tooltipProps)}
-            {...others}
         />
     );
 };

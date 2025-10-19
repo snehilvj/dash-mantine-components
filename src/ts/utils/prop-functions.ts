@@ -50,7 +50,12 @@ const funcPropsMap = {
     ],
     MonthPickerInput: ['getYearControlProps', 'getMonthControlProps'],
     YearPickerInput: ['getYearControlProps'],
-    Charts: ['xAxisProps', 'xAxisProps', 'gridProps', 'rightYAxisProps', 'tooltipProps', 'valueFormatter']
+    AreaChart: ['xAxisProps', 'yAxisProps', 'gridProps', 'rightYAxisProps', 'tooltipProps', 'valueFormatter'],
+    BarChart: ['xAxisProps', 'yAxisProps', 'gridProps', 'rightYAxisProps', 'tooltipProps', 'getBarColor'],
+    BubbleChart: ['xAxisProps', 'xAxisProps', 'zAxisProps', 'tooltipProps', 'valueFormatter'],
+    CompositeChart: ['xAxisProps', 'yAxisProps', 'gridProps', 'rightYAxisProps', 'tooltipProps', 'valueFormatter'],
+    LineChart: ['xAxisProps', 'yAxisProps', 'gridProps', 'rightYAxisProps', 'tooltipProps', 'valueFormatter'],
+    ScatterChart: ['xAxisProps', 'yAxisProps', 'gridProps', 'rightYAxisProps', 'tooltipProps', 'valueFormatter'],
 };
 
 // parses functon as props from other props

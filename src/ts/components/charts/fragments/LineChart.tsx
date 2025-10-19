@@ -3,7 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useState, useRef } from 'react';
 import { getClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
-import { resolveProp } from '../../../utils/prop-functions';
+import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../LineChart';
 
 /** Mantine-themed line chart built on top of the Recharts library, */
@@ -15,12 +15,12 @@ const LineChart = ({
     clickSeriesName,
     hoverSeriesName,
     series,
+    data,
+    dataKey,
     highlightHover = false,
     lineChartProps,
     activeDotProps,
     lineProps,
-    valueFormatter,
-    tooltipProps,
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -107,6 +107,9 @@ const LineChart = ({
     return (
         <MantineLineChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            {...parseFuncProps('LineChart', others)}
+            data={data}
+            dataKey={dataKey}
             lineChartProps={newProps}
             series={series}
             activeDotProps={{
@@ -116,9 +119,6 @@ const LineChart = ({
                 onMouseOut: handleHoverEnd,
             }}
             lineProps={linePropsFunction}
-            valueFormatter={resolveProp(valueFormatter)}
-            tooltipProps={resolveProp(tooltipProps)}
-            {...others}
         />
     );
 };
