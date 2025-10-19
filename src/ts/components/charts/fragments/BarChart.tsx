@@ -101,7 +101,9 @@ const BarChart = ({
             series={series}
             barChartProps={newProps}
             barProps={barPropsFunction}
-            valueFormatter={resolveProp(valueFormatter) || defaultValueFormatter}
+            valueFormatter={
+                resolveProp(valueFormatter) || defaultValueFormatter
+            }
         />
     );
 };

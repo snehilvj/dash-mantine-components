@@ -23,7 +23,6 @@ const AreaChart = ({
     dataKey,
     ...others
 }: Props) => {
-
     const [highlightedArea, setHighlightedArea] = useState(null);
     const shouldHighlight = highlightHover && highlightedArea !== null;
 
@@ -109,7 +108,7 @@ const AreaChart = ({
     return (
         <MantineAreaChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-             {...parseFuncProps('AreaChart', others)}
+            {...parseFuncProps('AreaChart', others)}
             data={data}
             dataKey={dataKey}
             areaChartProps={newProps}

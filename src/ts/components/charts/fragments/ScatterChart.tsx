@@ -44,7 +44,7 @@ const ScatterChart = ({
     return (
         <MantineScatterChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-             {...parseFuncProps('ScatterChart', others)}
+            {...parseFuncProps('ScatterChart', others)}
             data={data}
             dataKey={dataKey}
             scatterProps={newProps}
