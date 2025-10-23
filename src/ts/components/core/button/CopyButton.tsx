@@ -8,14 +8,13 @@ import {
 } from '@mantine/core';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
-import { LoaderProps } from 'props/loader';
 import { StylesApiProps } from 'props/styles';
 import React, { useRef, useEffect } from 'react';
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Value to be copied to clipboard */
     value: string;
-    /** Copied status timeout in ms, `1000` by default */
+    /** Copied status timeout in ms, `500` by default */
     timeout?: number;
     /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
     size?: MantineSize | `compact-${MantineSize}` | (string & {});
@@ -46,7 +45,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 /** CopyButton - Button component with copy to clipboard functionality */
 const CopyButton = ({
     value,
-    timeout = 1000,
+    timeout = 500,
     triggerCopy = false,
     children,
     copiedChildren,
