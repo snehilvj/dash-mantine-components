@@ -1,5 +1,13 @@
 # Change Log
 
+# [Unreleased]
+
+### Added
+
+- Two new copy to clipboard components #662 by @AnnMarieW
+    - `CopyButton` a ready-to-use copy button with customizable text, icons, and colors to indicate copy state.
+    - `CustomCopyButton` a fully customizable component using JavaScript function props for advanced use-cases.
+
 # 2.3.0
 
 
