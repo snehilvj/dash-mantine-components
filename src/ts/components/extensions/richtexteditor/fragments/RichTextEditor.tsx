@@ -28,12 +28,27 @@ import {
     LineHeight,
 } from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
+import { createLowlight } from 'lowlight';
+import ts from 'highlight.js/lib/languages/typescript';
+import js from 'highlight.js/lib/languages/javascript';
+import python from 'highlight.js/lib/languages/python';
+import css from 'highlight.js/lib/languages/css';
+import plaintext from 'highlight.js/lib/languages/plaintext';
+
 import {
     getLoadingState,
     setPersistence,
     newRenderDashComponent,
     getContextPath,
 } from '../../../../utils/dash3';
+
+const lowlight = createLowlight();
+lowlight.register({ ts });
+lowlight.register('js', js);
+lowlight.register('python', python);
+lowlight.register('css', css);
+lowlight.register('text', plaintext);
 
 // Import all extensions directly
 const extensionMap = {
@@ -54,6 +69,7 @@ const extensionMap = {
     FontSize,
     LineHeight,
     Image,
+    CodeBlockLowlight,
 } as const;
 
 const CustomControl = (props) => {
@@ -87,7 +103,8 @@ const RichTextEditor = ({
     json,
     variant,
     extensions = [
-        'StarterKit',
+        { StarterKit: { codeBlock: false } },
+        { CodeBlockLowlight: { lowlight } },
         'Superscript',
         'Subscript',
         'Highlight',
@@ -203,14 +220,39 @@ const RichTextEditor = ({
     };
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
+
     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
-    const mantineExtensions = extensions.map((ext) => {
+
+    // Ensure CodeBlockLowlight always receives the JS `lowlight` instance,
+    // because Python users can't pass it through the Dash props.
+    const normalizedExtensions = extensions.map((ext) => {
+        // Case 1: String extension (e.g. "CodeBlockLowlight")
+        if (typeof ext === 'string') {
+            if (ext === 'CodeBlockLowlight') {
+                return { CodeBlockLowlight: { lowlight } };
+            }
+            return ext;
+        }
+
+        // Case 2: Object extension (e.g. { CodeBlockLowlight: {} })
+        const name = Object.keys(ext)[0];
+        const opts = ext[name];
+
+        if (name === 'CodeBlockLowlight') {
+            // Merge user options with lowlight
+            return { CodeBlockLowlight: { lowlight, ...opts } };
+        }
+
+        return ext;
+    });
+    const mantineExtensions = normalizedExtensions.map((ext) => {
         if (typeof ext === 'string') {
             return extensionMap[ext];
         }
         const name = Object.keys(ext)[0];
         return extensionMap[name].configure(ext[name]);
     });
+
     // Create the editor, with json taking precedence over html as content
     const editor = useEditor({
         extensions: mantineExtensions,
