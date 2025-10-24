@@ -68,7 +68,7 @@ export const newRenderDashComponent = (
     const allProps = {
         component,
         componentPath: [...(basePath || [])],
-        key: index !== null ? index : Math.random().toString(36).substr(2, 9),
+        key: index ?? 0,
     };
 
     // Render the component.
