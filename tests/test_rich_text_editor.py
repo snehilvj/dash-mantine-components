@@ -335,7 +335,6 @@ def test_005ri_rich_text_editor_read_only(dash_duo):
         prevent_initial_call=True,
     )
     def set_read_only(n_clicks):
-        # Toggle read_only based on odd/even clicks
         return n_clicks % 2 == 1
 
     dash_duo.start_server(app)
@@ -370,5 +369,4 @@ def test_005ri_rich_text_editor_read_only(dash_duo):
     updated = updated + " EDIT2"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
-    # Check that no (error) logs were produced.
     assert dash_duo.get_logs() == []
