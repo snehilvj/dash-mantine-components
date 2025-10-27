@@ -93,7 +93,7 @@ export const newRenderDashComponents = (
     for (let i = 0; i < propsToRender.length; i++) {
         const key = propsToRender[i];
         if (newProps.hasOwnProperty(key)) {
-            newProps[key] = newRenderDashComponent(newProps[key], null, [
+            newProps[key] = newRenderDashComponent(newProps[key], i, [
                 ...basePath,
                 'props',
                 key,
