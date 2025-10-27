@@ -35,6 +35,7 @@ import js from 'highlight.js/lib/languages/javascript';
 import python from 'highlight.js/lib/languages/python';
 import css from 'highlight.js/lib/languages/css';
 import plaintext from 'highlight.js/lib/languages/plaintext';
+import bash from 'highlight.js/lib/languages/bash'
 
 import {
     getLoadingState,
@@ -44,11 +45,16 @@ import {
 } from '../../../../utils/dash3';
 
 const lowlight = createLowlight();
-lowlight.register({ ts });
-lowlight.register('js', js);
-lowlight.register('python', python);
-lowlight.register('css', css);
-lowlight.register('text', plaintext);
+lowlight.register({
+  ts,
+  js,
+  python,
+  py: python,
+  css,
+  bash,
+  shell: bash,
+  text: plaintext,
+});
 
 // Import all extensions directly
 const extensionMap = {
