@@ -1,6 +1,6 @@
 import json
 
-from dash import Dash, Input, Output, _dash_renderer, html
+from dash import Dash, Input, Output, _dash_renderer, html, ctx
 
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
@@ -244,7 +244,6 @@ def test_004ri_rich_text_editor_focus(dash_duo):
         prevent_initial_call=True,
     )
     def set_focus(focus_clicks, blur_clicks, start_clicks, end_clicks):
-        from dash import ctx
         if ctx.triggered_id == btn_focus_id:
             return True
         elif ctx.triggered_id == btn_blur_id:
@@ -259,42 +258,34 @@ def test_004ri_rich_text_editor_focus(dash_duo):
     # Validate that the initial content is set correctly.
     _validate_content(dash_duo, initial_content)
 
-    import time
     editor = dash_duo.find_element(".tiptap")
 
     # Test focus start - should move cursor to beginning
     dash_duo.find_element(f"#{btn_focus_start_id}").click()
-    time.sleep(0.5)
 
     # Type at the start position
     editor.send_keys("START ")
-    time.sleep(0.3)
-    text = dash_duo.find_element(".tiptap").text
-    assert text.startswith("START"), f"Focus 'start' should position cursor at beginning, got: {text}"
+    updated = "START " + initial_content
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     # Test focus end - should move cursor to end
     dash_duo.find_element(f"#{btn_focus_end_id}").click()
-    time.sleep(0.5)
 
     # Type at the end position
     editor.send_keys(" END")
-    time.sleep(0.3)
-    text = dash_duo.find_element(".tiptap").text
-    assert text.endswith("END"), f"Focus 'end' should position cursor at end, got: {text}"
+    updated = updated + " END"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     # Test blur - editor should not be focused
     dash_duo.find_element(f"#{btn_blur_id}").click()
-    time.sleep(0.5)
 
     # Test focus button (default position)
     dash_duo.find_element(f"#{btn_focus_id}").click()
-    time.sleep(0.5)
 
     # Should be able to type after focusing
     editor.send_keys(" MIDDLE")
-    time.sleep(0.3)
-    text = dash_duo.find_element(".tiptap").text
-    assert "MIDDLE" in text, f"Focus should allow typing, got: {text}"
+    updated = updated + " MIDDLE"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     # Check that no (error) logs were produced.
     assert dash_duo.get_logs() == []
