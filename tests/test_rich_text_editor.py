@@ -289,3 +289,86 @@ def test_004ri_rich_text_editor_focus(dash_duo):
 
     # Check that no (error) logs were produced.
     assert dash_duo.get_logs() == []
+
+
+def test_005ri_rich_text_editor_read_only(dash_duo):
+    btn_toggle_readonly_id = "btn-toggle-readonly"
+
+    app = Dash(__name__)
+
+    app.layout = dmc.MantineProvider(
+        [
+            dmc.RichTextEditor(
+                id=rte_id,
+                html=_html(initial_content),
+                toolbar={
+                    "controlsGroups": [
+                        ["Bold", "Italic", "Underline"],
+                        ["H1", "H2", "H3"],
+                        ["BulletList", "OrderedList"],
+                    ]
+                },
+            ),
+            html.Div(id=log_html_id),
+            html.Div(id=log_json_id),
+            dmc.Button("Toggle Read Only", id=btn_toggle_readonly_id),
+        ]
+    )
+
+    @app.callback(
+        Output(log_html_id, "children"),
+        Input(rte_id, "html"),
+    )
+    def track_changes_html(content):
+        return content
+
+    @app.callback(
+        Output(log_json_id, "children"),
+        Input(rte_id, "json"),
+    )
+    def track_changes_json(content):
+        return json.dumps(content)
+
+    @app.callback(
+        Output(rte_id, "read_only"),
+        Input(btn_toggle_readonly_id, "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def set_read_only(n_clicks):
+        # Toggle read_only based on odd/even clicks
+        return n_clicks % 2 == 1
+
+    dash_duo.start_server(app)
+
+    # Validate that the initial content is set correctly.
+    _validate_content(dash_duo, initial_content)
+
+    editor = dash_duo.find_element(".tiptap")
+
+    # Test that editor is editable by default
+    assert editor.get_attribute("contenteditable") == "true"
+    editor.send_keys(" EDIT1")
+    updated = initial_content + " EDIT1"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    # Toggle read-only mode on
+    dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
+
+    # Wait for contenteditable to be set to false
+    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='false']")
+    assert editor.get_attribute("contenteditable") == "false"
+
+    # Toggle read-only mode off
+    dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
+
+    # Wait for contenteditable to be set to true again
+    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='true']")
+    assert editor.get_attribute("contenteditable") == "true"
+
+    # Should be able to edit again
+    editor.send_keys(" EDIT2")
+    updated = updated + " EDIT2"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    # Check that no (error) logs were produced.
+    assert dash_duo.get_logs() == []

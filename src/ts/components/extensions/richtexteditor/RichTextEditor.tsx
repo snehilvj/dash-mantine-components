@@ -131,6 +131,9 @@ export interface Props
     /** If True, the editor will be focused. If False, the editor will be blurred. Can also be a string ('start', 'end', 'all') or number to focus at a specific position. */
     focus?: boolean | 'start' | 'end' | 'all' | number;
 
+    /** If True, the editor will be read-only. False by default. */
+    read_only?: boolean;
+
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';
 

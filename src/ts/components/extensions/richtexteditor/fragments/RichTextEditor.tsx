@@ -111,6 +111,7 @@ const RichTextEditor = ({
     selected,
     labels,
     focus,
+    read_only = false,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -235,6 +236,19 @@ const RichTextEditor = ({
             editor.commands.focus(focus === true ? undefined : focus);
         }
     }, [focus, editor]);
+
+    // handle read_only prop changes.
+    useEffect(() => {
+        if (!editor) {
+            return;
+        }
+
+        if (read_only) {
+            editor.setEditable(false);
+        } else {
+            editor.setEditable(true);
+        }
+    }, [read_only, editor]);
 
     const renderControl = (ctl, i, editor, componentPath) => {
         // Case 1: Built-in control name
