@@ -2,7 +2,7 @@ import { RichTextEditor as MantineRichTextEditor } from '@mantine/tiptap';
 import '@mantine/tiptap/styles.css';
 import { Props } from '../RichTextEditor';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { resolveProp } from '../../../../utils/prop-functions';
 
 import { useEditor } from '@tiptap/react';
@@ -110,6 +110,7 @@ const RichTextEditor = ({
     n_blur = 0,
     selected,
     labels,
+    focus,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -221,6 +222,19 @@ const RichTextEditor = ({
         onCreate: syncDashState,
         shouldRerenderOnTransaction: true,
     });
+
+    // Handle focus prop changes.
+    useEffect(() => {
+        if (!editor || focus === undefined) {
+            return;
+        }
+
+        if (focus === false) {
+            editor.commands.blur();
+        } else {
+            editor.commands.focus(focus === true ? undefined : focus);
+        }
+    }, [focus, editor]);
 
     const renderControl = (ctl, i, editor, componentPath) => {
         // Case 1: Built-in control name
