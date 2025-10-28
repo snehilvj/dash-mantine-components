@@ -35,7 +35,7 @@ import js from 'highlight.js/lib/languages/javascript';
 import python from 'highlight.js/lib/languages/python';
 import css from 'highlight.js/lib/languages/css';
 import plaintext from 'highlight.js/lib/languages/plaintext';
-import bash from 'highlight.js/lib/languages/bash'
+import bash from 'highlight.js/lib/languages/bash';
 
 import {
     getLoadingState,
@@ -46,14 +46,14 @@ import {
 
 const lowlight = createLowlight();
 lowlight.register({
-  ts,
-  js,
-  python,
-  py: python,
-  css,
-  bash,
-  shell: bash,
-  text: plaintext,
+    ts,
+    js,
+    python,
+    py: python,
+    css,
+    bash,
+    shell: bash,
+    text: plaintext,
 });
 
 // Import all extensions directly
@@ -228,36 +228,63 @@ const RichTextEditor = ({
     let mantineToolbar = undefined;
 
     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
+    const mantineExtensions = extensions
+        .map((ext) => {
+            // Case 1: String extension
+            if (typeof ext === 'string') {
+                // Special handling for CodeBlockLowlight (since can't pass lowlight from Python app)
+                if (ext === 'CodeBlockLowlight') {
+                    return extensionMap.CodeBlockLowlight.configure({
+                        lowlight,
+                    });
+                }
 
-    // Ensure CodeBlockLowlight always receives the JS `lowlight` instance,
-    // because Python users can't pass it through the Dash props.
-    const normalizedExtensions = extensions.map((ext) => {
-        // Case 1: String extension (e.g. "CodeBlockLowlight")
-        if (typeof ext === 'string') {
-            if (ext === 'CodeBlockLowlight') {
-                return { CodeBlockLowlight: { lowlight } };
+                // Validate and return other string extensions
+                if (!(ext in extensionMap)) {
+                    throw new Error(`Unknown extension: "${ext}"`);
+                    return null;
+                }
+                return extensionMap[ext];
             }
-            return ext;
-        }
 
-        // Case 2: Object extension (e.g. { CodeBlockLowlight: {} })
-        const name = Object.keys(ext)[0];
-        const opts = ext[name];
+            // Case 2: Object extension
+            if (!ext || typeof ext !== 'object') {
+                throw new Error(`Invalid extension format: ${ext}`);
+                return null;
+            }
 
-        if (name === 'CodeBlockLowlight') {
-            // Merge user options with lowlight
-            return { CodeBlockLowlight: { lowlight, ...opts } };
-        }
+            const keys = Object.keys(ext);
 
-        return ext;
-    });
-    const mantineExtensions = normalizedExtensions.map((ext) => {
-        if (typeof ext === 'string') {
-            return extensionMap[ext];
-        }
-        const name = Object.keys(ext)[0];
-        return extensionMap[name].configure(ext[name]);
-    });
+            if (keys.length === 0) {
+                throw new Error('Empty extension object');
+                return null;
+            }
+
+            if (keys.length > 1) {
+                throw new Error(
+                    `Extension object should have one key, got: ${keys.join(', ')}`
+                );
+            }
+
+            const name = keys[0];
+
+            if (!(name in extensionMap)) {
+                throw new Error(`Unknown extension: "${name}"`);
+                return null;
+            }
+
+            // Special handling for CodeBlockLowlight - merge with lowlight
+            if (name === 'CodeBlockLowlight') {
+                return extensionMap.CodeBlockLowlight.configure({
+                    lowlight,
+                    ...(ext.CodeBlockLowlight || {}),
+                });
+            }
+
+            // Handle all other extensions
+            return extensionMap[name].configure(ext[name]);
+        })
+        .filter(Boolean); // Remove any null entries
 
     // Create the editor, with json taking precedence over html as content
     const editor = useEditor({
