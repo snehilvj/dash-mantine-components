@@ -242,7 +242,6 @@ const RichTextEditor = ({
                 // Validate and return other string extensions
                 if (!(ext in extensionMap)) {
                     throw new Error(`Unknown extension: "${ext}"`);
-                    return null;
                 }
                 return extensionMap[ext];
             }
@@ -250,14 +249,12 @@ const RichTextEditor = ({
             // Case 2: Object extension
             if (!ext || typeof ext !== 'object') {
                 throw new Error(`Invalid extension format: ${ext}`);
-                return null;
             }
 
             const keys = Object.keys(ext);
 
             if (keys.length === 0) {
                 throw new Error('Empty extension object');
-                return null;
             }
 
             if (keys.length > 1) {
@@ -270,7 +267,6 @@ const RichTextEditor = ({
 
             if (!(name in extensionMap)) {
                 throw new Error(`Unknown extension: "${name}"`);
-                return null;
             }
 
             // Special handling for CodeBlockLowlight - merge with lowlight
