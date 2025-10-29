@@ -9,7 +9,8 @@ import {
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { getTargetText } from '../../../utils/dash3';
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Value to be copied to clipboard */
@@ -38,13 +39,18 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     autoContrast?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
     n_clicks?: number;
-    /** Set to true to trigger copy programmatically - will auto-reset to false after copy */
+    /** Set to true to trigger copy in a callback - will auto-reset to false after copy */
     triggerCopy?: boolean;
+     /**
+     * The id of target component containing text to copy to the clipboard.
+     * The inner text of the `children` prop will be copied to the clipboard.  If none, then the text from the
+     *  `value` prop will be copied.
+     */
+    target_id?: string;
 }
-
 /** CopyButton - Button component with copy to clipboard functionality */
 const CopyButton = ({
-    value,
+    value = '',
     timeout = 500,
     triggerCopy = false,
     children,
@@ -54,6 +60,7 @@ const CopyButton = ({
     setProps,
     disabled,
     n_clicks = 0,
+    target_id,
     ...others
 }: Props) => {
     const copyFnRef = useRef<(() => void) | null>(null);
@@ -69,10 +76,20 @@ const CopyButton = ({
 
     const handleClick = (copy: () => void) => {
         if (!disabled) {
-            copy();
-            setProps({
-                n_clicks: n_clicks + 1,
-            });
+            if (target_id) {
+                // Update the value state, then trigger copy
+                const textToCopy = getTargetText(target_id);
+                setProps({
+                    value: textToCopy,
+                    n_clicks: n_clicks + 1,
+                    triggerCopy: true,
+                });
+            } else {
+                copy();
+                setProps({
+                    n_clicks: n_clicks + 1,
+                });
+            }
         }
     };
 
