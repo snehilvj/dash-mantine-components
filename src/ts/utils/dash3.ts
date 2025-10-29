@@ -187,3 +187,24 @@ export const getContextPath = () => {
     }
     return componentPath;
 };
+
+export const getTargetText = (targetId: string): string | null => {
+    const id = stringifyId(targetId);
+    const target = document.getElementById(id);
+    if (!target) {
+        throw new Error(
+            'Clipboard copy failed: no element found for target_id ' +
+                targetId
+        );
+    }
+
+    let text = target.innerText;
+
+    // If no innerText, check if it's an input/textarea/select element
+    if (!text && ('value' in target)) {
+        text = (target as any).value;
+    }
+
+    return text || null;
+}
+
