@@ -2,7 +2,7 @@ import { RichTextEditor as MantineRichTextEditor } from '@mantine/tiptap';
 import '@mantine/tiptap/styles.css';
 import { Props } from '../RichTextEditor';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { resolveProp } from '../../../../utils/prop-functions';
 
 import { useEditor } from '@tiptap/react';
@@ -34,6 +34,21 @@ import {
     newRenderDashComponent,
     getContextPath,
 } from '../../../../utils/dash3';
+
+// Global registry for editor instances
+if (typeof window !== 'undefined') {
+    if (!(window as any).dash_mantine_components) {
+        (window as any).dash_mantine_components = {};
+    }
+    if (!(window as any).dash_mantine_components._editorInstances) {
+        (window as any).dash_mantine_components._editorInstances = {};
+    }
+
+    // Public API function to get editor by ID
+    (window as any).dash_mantine_components.getEditor = function(id: string) {
+        return (window as any).dash_mantine_components._editorInstances[id];
+    };
+}
 
 // Import all extensions directly
 const extensionMap = {
@@ -78,6 +93,7 @@ const CustomControl = (props) => {
 
 /** RichTextEditor */
 const RichTextEditor = ({
+    id,
     setProps,
     loading_state,
     persistence,
@@ -221,6 +237,22 @@ const RichTextEditor = ({
         onCreate: syncDashState,
         shouldRerenderOnTransaction: true,
     });
+
+    // Register editor instance in global registry
+    useEffect(() => {
+        if (editor && id) {
+            if (typeof window !== 'undefined') {
+                (window as any).dash_mantine_components._editorInstances[id] = editor;
+            }
+        }
+
+        // Cleanup: remove from registry when component unmounts
+        return () => {
+            if (id && typeof window !== 'undefined') {
+                delete (window as any).dash_mantine_components._editorInstances[id];
+            }
+        };
+    }, [editor, id]);
 
     const renderControl = (ctl, i, editor, componentPath) => {
         // Case 1: Built-in control name
