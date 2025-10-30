@@ -3,7 +3,7 @@ import '@mantine/charts/styles.css';
 import React, { useState, useRef } from 'react';
 import { getClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
-import { resolveProp } from '../../../utils/prop-functions';
+import { resolveProp, parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../BarChart';
 
 const defaultValueFormatter = (value: number) => value.toString();
@@ -20,8 +20,9 @@ const BarChart = ({
     barProps,
     highlightHover = false,
     valueFormatter,
-    tooltipProps,
-    getBarColor,
+    series,
+    data,
+    dataKey,
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -94,12 +95,15 @@ const BarChart = ({
     return (
         <MantineBarChart
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            {...parseFuncProps('BarChart', others)}
+            data={data}
+            dataKey={dataKey}
+            series={series}
             barChartProps={newProps}
             barProps={barPropsFunction}
-            valueFormatter={resolveProp(valueFormatter) || defaultValueFormatter}
-            tooltipProps={resolveProp(tooltipProps)}
-            getBarColor={resolveProp(getBarColor)}
-            {...others}
+            valueFormatter={
+                resolveProp(valueFormatter) || defaultValueFormatter
+            }
         />
     );
 };
