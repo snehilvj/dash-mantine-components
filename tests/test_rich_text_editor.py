@@ -191,49 +191,22 @@ def test_003ri_rich_text_editor_custom_controls(dash_duo):
     assert "⭐" in content_div.text
 
 
-def test_004ri_rich_text_editor_focus(dash_duo):
+def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     btn_focus_id = "btn-focus"
     btn_blur_id = "btn-blur"
     btn_focus_start_id = "btn-focus-start"
     btn_focus_end_id = "btn-focus-end"
+    btn_toggle_readonly_id = "btn-toggle-readonly"
 
-    app = Dash(__name__)
+    extra_components = [
+        dmc.Button("Focus", id=btn_focus_id),
+        dmc.Button("Blur", id=btn_blur_id),
+        dmc.Button("Focus Start", id=btn_focus_start_id),
+        dmc.Button("Focus End", id=btn_focus_end_id),
+        dmc.Button("Toggle Read Only", id=btn_toggle_readonly_id),
+    ]
 
-    app.layout = dmc.MantineProvider(
-        [
-            dmc.RichTextEditor(
-                id=rte_id,
-                html=_html(initial_content),
-                toolbar={
-                    "controlsGroups": [
-                        ["Bold", "Italic", "Underline"],
-                        ["H1", "H2", "H3"],
-                        ["BulletList", "OrderedList"],
-                    ]
-                },
-            ),
-            html.Div(id=log_html_id),
-            html.Div(id=log_json_id),
-            dmc.Button("Focus", id=btn_focus_id),
-            dmc.Button("Blur", id=btn_blur_id),
-            dmc.Button("Focus Start", id=btn_focus_start_id),
-            dmc.Button("Focus End", id=btn_focus_end_id),
-        ]
-    )
-
-    @app.callback(
-        Output(log_html_id, "children"),
-        Input(rte_id, "html"),
-    )
-    def track_changes_html(content):
-        return content
-
-    @app.callback(
-        Output(log_json_id, "children"),
-        Input(rte_id, "json"),
-    )
-    def track_changes_json(content):
-        return json.dumps(content)
+    app = _create_app(extra_components=extra_components, html=_html(initial_content))
 
     @app.callback(
         Output(rte_id, "focus"),
@@ -253,82 +226,6 @@ def test_004ri_rich_text_editor_focus(dash_duo):
         elif ctx.triggered_id == btn_focus_end_id:
             return "end"
 
-    dash_duo.start_server(app)
-
-    # Validate that the initial content is set correctly.
-    _validate_content(dash_duo, initial_content)
-
-    editor = dash_duo.find_element(".tiptap")
-
-    # Test focus start - should move cursor to beginning
-    dash_duo.find_element(f"#{btn_focus_start_id}").click()
-
-    # Type at the start position
-    editor.send_keys("START ")
-    updated = "START " + initial_content
-    dash_duo.wait_for_text_to_equal(".tiptap", updated)
-
-    # Test focus end - should move cursor to end
-    dash_duo.find_element(f"#{btn_focus_end_id}").click()
-
-    # Type at the end position
-    editor.send_keys(" END")
-    updated = updated + " END"
-    dash_duo.wait_for_text_to_equal(".tiptap", updated)
-
-    # Test blur - editor should not be focused
-    dash_duo.find_element(f"#{btn_blur_id}").click()
-
-    # Test focus button (default position)
-    dash_duo.find_element(f"#{btn_focus_id}").click()
-
-    # Should be able to type after focusing
-    editor.send_keys(" MIDDLE")
-    updated = updated + " MIDDLE"
-    dash_duo.wait_for_text_to_equal(".tiptap", updated)
-
-    # Check that no (error) logs were produced.
-    assert dash_duo.get_logs() == []
-
-
-def test_005ri_rich_text_editor_read_only(dash_duo):
-    btn_toggle_readonly_id = "btn-toggle-readonly"
-
-    app = Dash(__name__)
-
-    app.layout = dmc.MantineProvider(
-        [
-            dmc.RichTextEditor(
-                id=rte_id,
-                html=_html(initial_content),
-                toolbar={
-                    "controlsGroups": [
-                        ["Bold", "Italic", "Underline"],
-                        ["H1", "H2", "H3"],
-                        ["BulletList", "OrderedList"],
-                    ]
-                },
-            ),
-            html.Div(id=log_html_id),
-            html.Div(id=log_json_id),
-            dmc.Button("Toggle Read Only", id=btn_toggle_readonly_id),
-        ]
-    )
-
-    @app.callback(
-        Output(log_html_id, "children"),
-        Input(rte_id, "html"),
-    )
-    def track_changes_html(content):
-        return content
-
-    @app.callback(
-        Output(log_json_id, "children"),
-        Input(rte_id, "json"),
-    )
-    def track_changes_json(content):
-        return json.dumps(content)
-
     @app.callback(
         Output(rte_id, "read_only"),
         Input(btn_toggle_readonly_id, "n_clicks"),
@@ -344,29 +241,42 @@ def test_005ri_rich_text_editor_read_only(dash_duo):
 
     editor = dash_duo.find_element(".tiptap")
 
-    # Test that editor is editable by default
-    assert editor.get_attribute("contenteditable") == "true"
-    editor.send_keys(" EDIT1")
-    updated = initial_content + " EDIT1"
+    # Focus start -> type at beginning
+    dash_duo.find_element(f"#{btn_focus_start_id}").click()
+    editor.send_keys("START ")
+    updated = "START " + initial_content
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
-    # Toggle read-only mode on
-    dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
+    # Focus end -> type at end
+    dash_duo.find_element(f"#{btn_focus_end_id}").click()
+    editor.send_keys(" END")
+    updated = updated + " END"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
-    # Wait for contenteditable to be set to false
+    # Blur then focus default -> type in middle (default focus behavior)
+    dash_duo.find_element(f"#{btn_blur_id}").click()
+    dash_duo.find_element(f"#{btn_focus_id}").click()
+    editor.send_keys(" MIDDLE")
+    updated = updated + " MIDDLE"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    # Now test read_only toggling via button
+    # Ensure editable to start
+    assert editor.get_attribute("contenteditable") == "true"
+
+    # Toggle read-only on
+    dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
     dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='false']")
     assert editor.get_attribute("contenteditable") == "false"
 
-    # Toggle read-only mode off
+    # Toggle read-only off
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
-
-    # Wait for contenteditable to be set to true again
     dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='true']")
     assert editor.get_attribute("contenteditable") == "true"
 
-    # Should be able to edit again
-    editor.send_keys(" EDIT2")
-    updated = updated + " EDIT2"
+    # Final sanity edit
+    editor.send_keys(" FINAL")
+    updated = updated + " FINAL"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     assert dash_duo.get_logs() == []
