@@ -68,7 +68,7 @@ export const newRenderDashComponent = (
     const allProps = {
         component,
         componentPath: [...(basePath || [])],
-        key: index !== null ? index : Math.random().toString(36).substr(2, 9),
+        key: index ?? 0,
     };
 
     // Render the component.
@@ -93,7 +93,7 @@ export const newRenderDashComponents = (
     for (let i = 0; i < propsToRender.length; i++) {
         const key = propsToRender[i];
         if (newProps.hasOwnProperty(key)) {
-            newProps[key] = newRenderDashComponent(newProps[key], null, [
+            newProps[key] = newRenderDashComponent(newProps[key], i, [
                 ...basePath,
                 'props',
                 key,
