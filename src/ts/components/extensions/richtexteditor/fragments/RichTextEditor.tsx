@@ -243,11 +243,8 @@ const RichTextEditor = ({
             return;
         }
 
-        if (read_only) {
-            editor.setEditable(false);
-        } else {
-            editor.setEditable(true);
-        }
+       editor.setEditable(!read_only);
+       editor.commands.focus()
     }, [read_only, editor]);
 
     const renderControl = (ctl, i, editor, componentPath) => {
