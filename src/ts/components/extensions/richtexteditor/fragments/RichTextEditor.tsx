@@ -275,7 +275,7 @@ const RichTextEditor = ({
         }
     };
 
-    if (toolbar !== undefined) {
+    if (toolbar !== undefined && !read_only) {
         const componentPath = getContextPath();
         mantineToolbar = (
             <MantineRichTextEditor.Toolbar
