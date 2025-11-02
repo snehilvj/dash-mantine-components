@@ -311,6 +311,7 @@ const RichTextEditor = ({
     // Render the component tree.
     return (
         <MantineRichTextEditor
+            id={id}
             variant={variant}
             editor={editor}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
