@@ -132,7 +132,8 @@ export interface Props
     focus?: boolean | 'start' | 'end' | 'all' | number;
 
     /** If True, the editor will be read-only. False by default. */
-    read_only?: boolean;
+    /** If True, the editor will be editable. True by default. */
+    editable?: boolean;
 
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';

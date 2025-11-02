@@ -227,12 +227,13 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
             return "end"
 
     @app.callback(
-        Output(rte_id, "read_only"),
+        Output(rte_id, "editable"),
         Input(btn_toggle_readonly_id, "n_clicks"),
         prevent_initial_call=True,
     )
-    def set_read_only(n_clicks):
-        return n_clicks % 2 == 1
+    def set_editable(n_clicks):
+        # Toggle editable: odd clicks -> False (not editable), even -> True
+        return not (n_clicks % 2 == 1)
 
     dash_duo.start_server(app)
 
@@ -260,7 +261,7 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     updated = updated + " MIDDLE"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
-    # Now test read_only toggling via button
+    # Now test editable toggling via button
     # Ensure editable to start
     assert editor.get_attribute("contenteditable") == "true"
 

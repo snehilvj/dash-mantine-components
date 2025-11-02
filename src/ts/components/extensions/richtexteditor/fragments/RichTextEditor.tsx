@@ -111,7 +111,7 @@ const RichTextEditor = ({
     selected,
     labels,
     focus,
-    read_only = false,
+    editable = true,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -237,15 +237,14 @@ const RichTextEditor = ({
         }
     }, [focus, editor]);
 
-    // handle read_only prop changes.
+    // handle editable prop changes.
     useEffect(() => {
         if (!editor) {
             return;
         }
 
-       editor.setEditable(!read_only);
-       editor.commands.focus()
-    }, [read_only, editor]);
+        editor.setEditable(editable);
+    }, [editable, editor]);
 
     const renderControl = (ctl, i, editor, componentPath) => {
         // Case 1: Built-in control name
@@ -275,7 +274,7 @@ const RichTextEditor = ({
         }
     };
 
-    if (toolbar !== undefined && !read_only) {
+    if (toolbar !== undefined && editable) {
         const componentPath = getContextPath();
         mantineToolbar = (
             <MantineRichTextEditor.Toolbar
