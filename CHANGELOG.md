@@ -5,6 +5,7 @@
 ### Added
 
 - Added function as prop support for `xAxisProps`, `yAxisProps`, `gridProps`, `rightYAxisProps` (and `zAxisProps` for BubbleChart) in `AreaChart`, `BarChart`, `BubbleChart`, `CompositeChart`, `LineChart`, and `ScatterChart`. #661 by @AnnMarieW
+- Added `dash_mantine_components.getEditor(id)` function to access the Tiptap editor instance in clientside callbacks. #666 by @AnnMarieW
 
 # 2.3.0
 
