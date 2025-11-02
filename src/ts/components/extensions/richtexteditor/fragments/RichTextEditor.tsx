@@ -35,20 +35,6 @@ import {
     getContextPath,
 } from '../../../../utils/dash3';
 
-// Global registry for editor instances
-if (typeof window !== 'undefined') {
-    if (!(window as any).dash_mantine_components) {
-        (window as any).dash_mantine_components = {};
-    }
-    if (!(window as any).dash_mantine_components._editorInstances) {
-        (window as any).dash_mantine_components._editorInstances = {};
-    }
-
-    // Public API function to get editor by ID
-    (window as any).dash_mantine_components.getEditor = function(id: string) {
-        return (window as any).dash_mantine_components._editorInstances[id];
-    };
-}
 
 // Import all extensions directly
 const extensionMap = {
@@ -242,13 +228,28 @@ const RichTextEditor = ({
     useEffect(() => {
         if (editor && id) {
             if (typeof window !== 'undefined') {
+                // Ensure namespace exists
+                if (!(window as any).dash_mantine_components) {
+                    (window as any).dash_mantine_components = {};
+                }
+                if (!(window as any).dash_mantine_components._editorInstances) {
+                    (window as any).dash_mantine_components._editorInstances = {};
+                }
+                if (!(window as any).dash_mantine_components.getEditor) {
+                    (window as any).dash_mantine_components.getEditor = function(id: string) {
+                        return (window as any).dash_mantine_components._editorInstances[id];
+                    };
+                }
+
+                // Register this editor
                 (window as any).dash_mantine_components._editorInstances[id] = editor;
             }
         }
 
         // Cleanup: remove from registry when component unmounts
         return () => {
-            if (id && typeof window !== 'undefined') {
+            if (id && typeof window !== 'undefined' &&
+                (window as any).dash_mantine_components?._editorInstances) {
                 delete (window as any).dash_mantine_components._editorInstances[id];
             }
         };

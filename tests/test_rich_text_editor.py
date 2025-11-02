@@ -189,3 +189,41 @@ def test_003ri_rich_text_editor_custom_controls(dash_duo):
 
     # check that emoji was added
     assert "⭐" in content_div.text
+
+
+
+
+
+def test_005_rich_text_editor_clientside(dash_duo):
+    extra_components = [
+        dmc.Button("Clientside update", id="btn-clientside", n_clicks=0),
+    ]
+
+    app = _create_app(extra_components=extra_components, html=_html(initial_content))
+
+    app.clientside_callback(
+            """
+            function(n_clicks) {
+                if (n_clicks > 0) {
+                    const editor = dash_mantine_components.getEditor('rich-text-editor');                    
+                    if (editor) {
+                        editor.commands.insertContent('more content');
+                    }
+                }                
+            }
+            """,
+            Input("btn-clientside", "n_clicks"),
+            prevent_initial_call=True
+        )
+
+    dash_duo.start_server(app)
+
+    # Validate that the initial content is set correctly.
+    _validate_content(dash_duo, initial_content)
+
+    # access editor instance in clientsie callback
+    dash_duo.find_element('#btn-clientside').click()
+    updated = 'more content' + initial_content
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    assert dash_duo.get_logs() == []
