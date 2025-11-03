@@ -8,7 +8,7 @@ import { resolveProp } from '../../../utils/prop-functions';
 interface Props {
     /** Value to be copied to clipboard */
     value: string;
-    /** Copied status timeout in ms, `500` by default */
+    /** Copied status timeout in ms, `1000` by default */
     timeout?: number;
     /** Function that receives {copied, copy} and returns a component  See https://www.dash-mantine-components.com/functions-as-props*/
     children?: any;
@@ -21,7 +21,7 @@ interface Props {
 /** CustomCopyButton - custom component with copy to clipboard functionality */
 const CustomCopyButton = ({
     value,
-    timeout = 500,
+    timeout = 1000,
     children,
     setProps
 }: Props) => {
