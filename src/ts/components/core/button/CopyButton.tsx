@@ -15,7 +15,7 @@ import { getTargetText } from '../../../utils/dash3';
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Value to be copied to clipboard */
     value: string;
-    /** Copied status timeout in ms, `500` by default */
+    /** Copied status timeout in ms, `1000` by default */
     timeout?: number;
     /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
     size?: MantineSize | `compact-${MantineSize}` | (string & {});
@@ -51,7 +51,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
 /** CopyButton - Button component with copy to clipboard functionality */
 const CopyButton = ({
     value = '',
-    timeout = 500,
+    timeout = 1000,
     triggerCopy = false,
     children,
     copiedChildren,
