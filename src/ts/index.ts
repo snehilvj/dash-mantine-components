@@ -174,9 +174,11 @@ import NavigationProgress from './components/extensions/nprogress/NavigationProg
 import NavigationProgressProvider from './components/extensions/nprogress/NavigationProgressProvider';
 import MantineProvider from './components/styles/MantineProvider';
 import ChipGroup from './components/core/chip/ChipGroup';
-import RichTextEditor, { getEditor } from './components/extensions/richtexteditor/RichTextEditor';
+import RichTextEditor from './components/extensions/richtexteditor/RichTextEditor';
+import { getEditor } from './utils/editorRegistry';
 import TypographyStylesProvider from './components/styles/TypographyStylesProvider';
 import DirectionProvider from './components/styles/DirectionProvider';
+
 
 export {
     Accordion,

@@ -1,6 +1,6 @@
 import { RichTextEditor as MantineRichTextEditor } from '@mantine/tiptap';
 import '@mantine/tiptap/styles.css';
-import { Props, editorInstances } from '../RichTextEditor';
+import { Props } from '../RichTextEditor';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import React, { useState, useEffect } from 'react';
 import { resolveProp } from '../../../../utils/prop-functions';
@@ -34,6 +34,8 @@ import {
     newRenderDashComponent,
     getContextPath,
 } from '../../../../utils/dash3';
+
+import { editorInstances } from '../../../../utils/editorRegistry'
 
 
 // Import all extensions directly
