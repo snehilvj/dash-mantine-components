@@ -1,6 +1,10 @@
 # Change Log
 
+
 # [Unreleased]
+
+### Fixed
+- removed random react key generation which led to keys never match up between renders and would force component rerenders. #664 chgiesse
 
 ### Added
 
@@ -14,10 +18,10 @@
 # 2.3.0
 
 
-### Added  
+### Added
 
 - New `scrollTo` prop for `ScrollArea` #645 by @AnnMarieW
-- New `ScrollAreaAutoheight` component. #645 
+- New `ScrollAreaAutoheight` component. #645
 
 - added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
 - added `debounce` prop to `Autocomplete #654 by @AnnMarieW
@@ -29,16 +33,16 @@ The following new features available in Mantine 8.3.0 were added in #655 by @Ann
 - `clearSearchOnChange` prop for `MultiSelect` - to clear search input when an item is selected
 - `reverseTimeControlsList`  prop for `TimePicker` -  to reverse the order of time controls in the dropdown. Use this option if you want the order of controls to match keyboard controls (up and down arrow) direction.
 
-### Fixed 
+### Fixed
 
 - BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
 
 
-### Changed 
+### Changed
 
 - Updated to latest Mantine (8.3.1) #650 by @AnnMarieW
 - `RichTextEditor` now uses Tiptap 3 (Mantine 8.3.0 recommendation). . No known breaking changes, but customizations may be affected.  See our [migration guide,](https://www.dash-mantine-components.com/migration).  #657 by @AnnMarieW
-  
+
 
 # 2.2.1
 
@@ -95,7 +99,7 @@ The following was added in #625 by @AnnMarieW
 - Added  Modal Stack and Drawer Stack components  #606 by @AnnMarieW
   - Introduced `ModalStack` / `ManagedModal` and `DrawerStack` / `ManagedDrawer` for managing stacked modals and drawers.
   - `ModalStack` and `DrawerStack` accept the Dash props: `open`, `close`, `toggle`, and `closeAll` to control visibility, and a read-only `state` prop to track which children are open.
- 
+
 - Added Props #609 by @AnnMarieW
   - `headerControlOrderProp` to calendar components
   - `presets` to `DatePicker` and  `DateTimePicker`
@@ -144,7 +148,7 @@ The following was added in #625 by @AnnMarieW
 ### Added
 - Added `tableProps` and `tabularNums` props to `Table` #587 by @AnnMarieW
 - Added `TableScrollContainer` component #587 by @AnnMarieW
-- 
+-
 ### Fixed
 - Fixed issue for components as props for `Timeline`, `Stepper`, `CodeHighlight` and `SegmentedControl`. #555 by @BSd3v
 - Removed unused async files #587 by @AnnMarieW
@@ -175,7 +179,7 @@ The following was added in #625 by @AnnMarieW
 
 ### Fixed
 
-- Reverted PR #523, which introduced errors in the `Notification` component (reported in issue #542).  
+- Reverted PR #523, which introduced errors in the `Notification` component (reported in issue #542).
 - Resolved an issue in the `Stepper` component where it failed to render correctly when using custom icons or other components as props.  #544 by @BSd3v
 
 # 1.1.0
@@ -186,10 +190,10 @@ The following was added in #625 by @AnnMarieW
 
 ### Changed
 
-- Complex components such as `CodeHighlightTabs`, and `Stepper` are now rendered by the dash ecosystem when using dash 3+. Dash 2 falls back on `dash-extensions-js` to render via `React.createElement` (by @emilhe). This enables the use of these components in callbacks as triggers. #531 @BSd3v 
+- Complex components such as `CodeHighlightTabs`, and `Stepper` are now rendered by the dash ecosystem when using dash 3+. Dash 2 falls back on `dash-extensions-js` to render via `React.createElement` (by @emilhe). This enables the use of these components in callbacks as triggers. #531 @BSd3v
 - Upgraded to latest Mantine (7.17.2)
 
-### fixed 
+### fixed
  - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
 
 
