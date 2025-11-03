@@ -1,6 +1,6 @@
 import { RichTextEditor as MantineRichTextEditor } from '@mantine/tiptap';
 import '@mantine/tiptap/styles.css';
-import { Props } from '../RichTextEditor';
+import { Props, editorInstances } from '../RichTextEditor';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import React, { useState, useEffect } from 'react';
 import { resolveProp } from '../../../../utils/prop-functions';
@@ -224,33 +224,15 @@ const RichTextEditor = ({
         shouldRerenderOnTransaction: true,
     });
 
-    // Register editor instance in global registry
+    // Register editor instance
     useEffect(() => {
         if (editor && id) {
-            if (typeof window !== 'undefined') {
-                // Ensure namespace exists
-                if (!(window as any).dash_mantine_components) {
-                    (window as any).dash_mantine_components = {};
-                }
-                if (!(window as any).dash_mantine_components._editorInstances) {
-                    (window as any).dash_mantine_components._editorInstances = {};
-                }
-                if (!(window as any).dash_mantine_components.getEditor) {
-                    (window as any).dash_mantine_components.getEditor = function(id: string) {
-                        return (window as any).dash_mantine_components._editorInstances[id];
-                    };
-                }
-
-                // Register this editor
-                (window as any).dash_mantine_components._editorInstances[id] = editor;
-            }
+             editorInstances[id] = editor;
         }
-
         // Cleanup: remove from registry when component unmounts
         return () => {
-            if (id && typeof window !== 'undefined' &&
-                (window as any).dash_mantine_components?._editorInstances) {
-                delete (window as any).dash_mantine_components._editorInstances[id];
+            if (id) {
+                delete editorInstances[id];
             }
         };
     }, [editor, id]);

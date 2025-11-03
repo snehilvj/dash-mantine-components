@@ -172,3 +172,10 @@ const RichTextEditor = (props: Props) => {
 };
 
 export default RichTextEditor;
+
+
+export const editorInstances: Record<string, any> = {};
+
+export const getEditor = (id: string): any => editorInstances[id];
+
+
