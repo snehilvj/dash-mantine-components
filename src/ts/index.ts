@@ -76,6 +76,8 @@ import ActionIcon from './components/core/button/ActionIcon';
 import ActionIconGroup from './components/core/button/ActionIconGroup';
 import Button from './components/core/button/Button';
 import ButtonGroup from './components/core/button/ButtonGroup';
+import CopyButton from './components/core/button/CopyButton';
+import CustomCopyButton from './components/core/button/CustomCopyButton';
 import UnstyledButton from './components/core/button/UnstyledButton';
 import Card from './components/core/card/Card';
 import CardSection from './components/core/card/CardSection';
@@ -210,6 +212,8 @@ export {
     Burger,
     Button,
     ButtonGroup,
+    CopyButton,
+    CustomCopyButton,
     Card,
     CardSection,
     Carousel,

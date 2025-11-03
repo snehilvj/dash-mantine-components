@@ -6,6 +6,14 @@
 ### Fixed
 - removed random react key generation which led to keys never match up between renders and would force component rerenders. #664 chgiesse
 
+### Added
+
+- Two new copy to clipboard components #662 by @AnnMarieW
+    - `CopyButton` a ready-to-use copy button with customizable text, icons, and colors to indicate copy state.
+    - `CustomCopyButton` a fully customizable component using JavaScript function props for advanced use-cases.
+
+- Added function as prop support for `xAxisProps`, `yAxisProps`, `gridProps`, `rightYAxisProps` (and `zAxisProps` for BubbleChart) in `AreaChart`, `BarChart`, `BubbleChart`, `CompositeChart`, `LineChart`, and `ScatterChart`. #661 by @AnnMarieW
+
 
 # 2.3.0
 
