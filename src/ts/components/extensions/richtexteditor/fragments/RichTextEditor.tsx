@@ -234,7 +234,9 @@ const RichTextEditor = ({
             editor.commands.blur();
         } else {
             editor.commands.focus(focus === true ? undefined : focus);
-        }
+        };
+        setProps({focus: undefined});
+        
     }, [focus, editor]);
 
     // handle editable prop changes.
