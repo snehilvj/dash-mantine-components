@@ -3,9 +3,20 @@
 
 # [Unreleased]
 
+
+### Fixed
+- removed random react key generation which led to keys never match up between renders and would force component rerenders. #664 chgiesse
+
 ### Added
-- New `focus` prop to control the cursor of the `Rich Text Editor` #665 by @chgiesse
-- New `editable` prop to `Rich Text Editor` #665
+
+- Two new copy to clipboard components #662 by @AnnMarieW
+    - `CopyButton` a ready-to-use copy button with customizable text, icons, and colors to indicate copy state.
+    - `CustomCopyButton` a fully customizable component using JavaScript function props for advanced use-cases.
+
+- Added function as prop support for `xAxisProps`, `yAxisProps`, `gridProps`, `rightYAxisProps` (and `zAxisProps` for BubbleChart) in `AreaChart`, `BarChart`, `BubbleChart`, `CompositeChart`, `LineChart`, and `ScatterChart`. #661 by @AnnMarieW
+- Added `focus` prop to control the cursor of the `Rich Text Editor` #665 by @chgiesse
+- Added `editable` prop to `Rich Text Editor` #665
+
 
 # 2.3.0
 
