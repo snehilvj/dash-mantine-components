@@ -28,6 +28,15 @@ import {
     LineHeight,
 } from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
+import { createLowlight } from 'lowlight';
+import ts from 'highlight.js/lib/languages/typescript';
+import js from 'highlight.js/lib/languages/javascript';
+import python from 'highlight.js/lib/languages/python';
+import css from 'highlight.js/lib/languages/css';
+import plaintext from 'highlight.js/lib/languages/plaintext';
+import bash from 'highlight.js/lib/languages/bash';
+
 import {
     getLoadingState,
     setPersistence,
@@ -37,6 +46,18 @@ import {
 
 import { editorInstances } from '../../../../utils/editorRegistry'
 
+
+const lowlight = createLowlight();
+lowlight.register({
+    ts,
+    js,
+    python,
+    py: python,
+    css,
+    bash,
+    shell: bash,
+    text: plaintext,
+});
 
 // Import all extensions directly
 const extensionMap = {
@@ -57,6 +78,7 @@ const extensionMap = {
     FontSize,
     LineHeight,
     Image,
+    CodeBlockLowlight,
 } as const;
 
 const CustomControl = (props) => {
@@ -91,7 +113,8 @@ const RichTextEditor = ({
     json,
     variant,
     extensions = [
-        'StarterKit',
+        { StarterKit: { codeBlock: false } },
+        { CodeBlockLowlight: { lowlight } },
         'Superscript',
         'Subscript',
         'Highlight',
@@ -114,6 +137,8 @@ const RichTextEditor = ({
     n_blur = 0,
     selected,
     labels,
+    focus,
+    editable = true,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -207,14 +232,62 @@ const RichTextEditor = ({
     };
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
+
     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
-    const mantineExtensions = extensions.map((ext) => {
-        if (typeof ext === 'string') {
-            return extensionMap[ext];
-        }
-        const name = Object.keys(ext)[0];
-        return extensionMap[name].configure(ext[name]);
-    });
+    const mantineExtensions = extensions
+        .map((ext) => {
+            // Case 1: String extension
+            if (typeof ext === 'string') {
+                // Special handling for CodeBlockLowlight (since can't pass lowlight from Python app)
+                if (ext === 'CodeBlockLowlight') {
+                    return extensionMap.CodeBlockLowlight.configure({
+                        lowlight,
+                    });
+                }
+
+                // Validate and return other string extensions
+                if (!(ext in extensionMap)) {
+                    throw new Error(`Unknown extension: "${ext}"`);
+                }
+                return extensionMap[ext];
+            }
+
+            // Case 2: Object extension
+            if (!ext || typeof ext !== 'object') {
+                throw new Error(`Invalid extension format: ${ext}`);
+            }
+
+            const keys = Object.keys(ext);
+
+            if (keys.length === 0) {
+                throw new Error('Empty extension object');
+            }
+
+            if (keys.length > 1) {
+                throw new Error(
+                    `Extension object should have one key, got: ${keys.join(', ')}`
+                );
+            }
+
+            const name = keys[0];
+
+            if (!(name in extensionMap)) {
+                throw new Error(`Unknown extension: "${name}"`);
+            }
+
+            // Special handling for CodeBlockLowlight - merge with lowlight
+            if (name === 'CodeBlockLowlight') {
+                return extensionMap.CodeBlockLowlight.configure({
+                    lowlight,
+                    ...(ext.CodeBlockLowlight || {}),
+                });
+            }
+
+            // Handle all other extensions
+            return extensionMap[name].configure(ext[name]);
+        })
+        .filter(Boolean); // Remove any null entries
+
     // Create the editor, with json taking precedence over html as content
     const editor = useEditor({
         extensions: mantineExtensions,
@@ -225,6 +298,7 @@ const RichTextEditor = ({
         onCreate: syncDashState,
         shouldRerenderOnTransaction: true,
     });
+
 
     // Register editor instance
     useEffect(() => {
@@ -238,6 +312,30 @@ const RichTextEditor = ({
             }
         };
     }, [editor, id]);
+
+    // Handle focus prop changes.
+    useEffect(() => {
+        if (!editor || focus === undefined) {
+            return;
+        }
+
+        if (focus === false) {
+            editor.commands.blur();
+        } else {
+            editor.commands.focus(focus === true ? undefined : focus);
+        };
+        setProps({focus: undefined});
+        
+    }, [focus, editor]);
+
+    // handle editable prop changes.
+    useEffect(() => {
+        if (!editor) {
+            return;
+        }
+
+        editor.setEditable(editable);
+    }, [editable, editor]);
 
     const renderControl = (ctl, i, editor, componentPath) => {
         // Case 1: Built-in control name
@@ -267,7 +365,7 @@ const RichTextEditor = ({
         }
     };
 
-    if (toolbar !== undefined) {
+    if (toolbar !== undefined && editable) {
         const componentPath = getContextPath();
         mantineToolbar = (
             <MantineRichTextEditor.Toolbar
