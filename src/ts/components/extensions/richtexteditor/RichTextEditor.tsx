@@ -32,7 +32,8 @@ type ExtensionName =
     | 'FontFamily'
     | 'FontSize'
     | 'LineHeight'
-    | 'Color';
+    | 'Color'
+    | 'CodeBlockLowlight';
 
 // TODO: Maybe add types for the extensions options explicitly?
 type Extension =
