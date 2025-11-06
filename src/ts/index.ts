@@ -181,7 +181,6 @@ import { getEditor } from './utils/editorRegistry';
 import TypographyStylesProvider from './components/styles/TypographyStylesProvider';
 import DirectionProvider from './components/styles/DirectionProvider';
 
-
 export {
     Accordion,
     AccordionControl,

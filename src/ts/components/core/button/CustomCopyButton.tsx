@@ -1,6 +1,4 @@
-import {
-    CopyButton as MantineCopyButton
-} from '@mantine/core';
+import { CopyButton as MantineCopyButton } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 import React from 'react';
 import { resolveProp } from '../../../utils/prop-functions';
@@ -23,7 +21,7 @@ const CustomCopyButton = ({
     value,
     timeout = 1000,
     children,
-    setProps
+    setProps,
 }: Props) => {
     return (
         <MantineCopyButton value={value} timeout={timeout}>

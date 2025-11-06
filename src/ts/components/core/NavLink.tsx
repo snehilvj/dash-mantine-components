@@ -115,7 +115,7 @@ const NavLink = ({
                     onClick(ev, href, target, refresh);
                 }
                 if (children !== undefined) {
-                  setProps({ opened: !opened });
+                    setProps({ opened: !opened });
                 }
             }}
             href={href}
