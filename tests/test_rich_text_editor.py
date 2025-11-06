@@ -1,6 +1,6 @@
 import json
 
-from dash import Dash, Input, Output, _dash_renderer, html
+from dash import Dash, Input, Output, _dash_renderer, html, ctx
 
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
@@ -189,3 +189,95 @@ def test_003ri_rich_text_editor_custom_controls(dash_duo):
 
     # check that emoji was added
     assert "⭐" in content_div.text
+
+
+def test_004_rich_text_editor_focus_and_readonly(dash_duo):
+    btn_focus_id = "btn-focus"
+    btn_blur_id = "btn-blur"
+    btn_focus_start_id = "btn-focus-start"
+    btn_focus_end_id = "btn-focus-end"
+    btn_toggle_readonly_id = "btn-toggle-readonly"
+
+    extra_components = [
+        dmc.Button("Focus", id=btn_focus_id),
+        dmc.Button("Blur", id=btn_blur_id),
+        dmc.Button("Focus Start", id=btn_focus_start_id),
+        dmc.Button("Focus End", id=btn_focus_end_id),
+        dmc.Button("Toggle Read Only", id=btn_toggle_readonly_id),
+    ]
+
+    app = _create_app(extra_components=extra_components, html=_html(initial_content))
+
+    @app.callback(
+        Output(rte_id, "focus"),
+        Input(btn_focus_id, "n_clicks"),
+        Input(btn_blur_id, "n_clicks"),
+        Input(btn_focus_start_id, "n_clicks"),
+        Input(btn_focus_end_id, "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def set_focus(focus_clicks, blur_clicks, start_clicks, end_clicks):
+        if ctx.triggered_id == btn_focus_id:
+            return True
+        elif ctx.triggered_id == btn_blur_id:
+            return False
+        elif ctx.triggered_id == btn_focus_start_id:
+            return "start"
+        elif ctx.triggered_id == btn_focus_end_id:
+            return "end"
+
+    @app.callback(
+        Output(rte_id, "editable"),
+        Input(btn_toggle_readonly_id, "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def set_editable(n_clicks):
+        # Toggle editable: odd clicks -> False (not editable), even -> True
+        return not (n_clicks % 2 == 1)
+
+    dash_duo.start_server(app)
+
+    # Validate that the initial content is set correctly.
+    _validate_content(dash_duo, initial_content)
+
+    editor = dash_duo.find_element(".tiptap")
+
+    # Focus start -> type at beginning
+    dash_duo.find_element(f"#{btn_focus_start_id}").click()
+    editor.send_keys("START ")
+    updated = "START " + initial_content
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    # Focus end -> type at end
+    dash_duo.find_element(f"#{btn_focus_end_id}").click()
+    editor.send_keys(" END")
+    updated = updated + " END"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    # Blur then focus default -> type in middle (default focus behavior)
+    dash_duo.find_element(f"#{btn_blur_id}").click()
+    dash_duo.find_element(f"#{btn_focus_id}").click()
+    editor.send_keys(" MIDDLE")
+    updated = updated + " MIDDLE"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    # Now test editable toggling via button
+    # Ensure editable to start
+    assert editor.get_attribute("contenteditable") == "true"
+
+    # Toggle read-only on
+    dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
+    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='false']")
+    assert editor.get_attribute("contenteditable") == "false"
+
+    # Toggle read-only off
+    dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
+    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='true']")
+    assert editor.get_attribute("contenteditable") == "true"
+
+    # Final sanity edit
+    editor.send_keys(" FINAL")
+    updated = updated + " FINAL"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
+
+    assert dash_duo.get_logs() == []
