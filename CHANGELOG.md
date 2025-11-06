@@ -1,11 +1,7 @@
 # Change Log
 
 
-# [Unreleased]
-
-
-### Fixed
-- removed random react key generation which led to keys never match up between renders and would force component rerenders. #664 chgiesse
+# [2.4.0]
 
 ### Added
 
@@ -19,11 +15,18 @@
     - Added `dash_mantine_components.getEditor(id)` function to access the Tiptap editor instance in clientside callbacks. #666 by @AnnMarieW
     - Added `focus` prop to control the cursor of the `Rich Text Editor` #665 by @chgiesse
     - Added `editable` prop to `Rich Text Editor` #665
+    - Enabled code highlighting with the `CodeBlockLowlight` extension #663 by @AnnMarieW
 
+### Fixed
+
+- removed random react key generation which led to keys never match up between renders and would force component rerenders. #664 chgiesse
+
+### Changed
+
+- Updated to latest Mantine (8.3.6) #667 by @AnnMarieW
 
 
 # 2.3.0
-
 
 ### Added
 
@@ -49,7 +52,6 @@ The following new features available in Mantine 8.3.0 were added in #655 by @Ann
 
 - Updated to latest Mantine (8.3.1) #650 by @AnnMarieW
 - `RichTextEditor` now uses Tiptap 3 (Mantine 8.3.0 recommendation). . No known breaking changes, but customizations may be affected.  See our [migration guide,](https://www.dash-mantine-components.com/migration).  #657 by @AnnMarieW
-
 
 # 2.2.1
 
