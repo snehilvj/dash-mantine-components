@@ -1,7 +1,7 @@
 # Change Log
 
 
-# [2.4.0]
+# 2.4.0
 
 ### Added
 
@@ -11,7 +11,7 @@
 
 - Added function as prop support for `xAxisProps`, `yAxisProps`, `gridProps`, `rightYAxisProps` (and `zAxisProps` for BubbleChart) in `AreaChart`, `BarChart`, `BubbleChart`, `CompositeChart`, `LineChart`, and `ScatterChart`. #661 by @AnnMarieW
 
-- RichTextEdter updates:
+- RichTextEditor updates:
     - Added `dash_mantine_components.getEditor(id)` function to access the Tiptap editor instance in clientside callbacks. #666 by @AnnMarieW
     - Added `focus` prop to control the cursor of the `Rich Text Editor` #665 by @chgiesse
     - Added `editable` prop to `Rich Text Editor` #665
