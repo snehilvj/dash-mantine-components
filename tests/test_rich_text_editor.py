@@ -278,9 +278,9 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     updated = updated + " MIDDLE"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
     
-    # access editor instance in clientsie callback
+    # access editor instance in clientside callback
     dash_duo.find_element('#btn-clientside').click()
-    updated = 'more content' + updated
+    updated = updated + 'more content'
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     # Now test editable toggling via button
@@ -300,6 +300,7 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     # Final sanity edit
     editor.send_keys(" FINAL")
     updated = updated + " FINAL"
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
     
 
     assert dash_duo.get_logs() == []
