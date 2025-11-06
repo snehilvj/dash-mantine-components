@@ -14,8 +14,12 @@
     - `CustomCopyButton` a fully customizable component using JavaScript function props for advanced use-cases.
 
 - Added function as prop support for `xAxisProps`, `yAxisProps`, `gridProps`, `rightYAxisProps` (and `zAxisProps` for BubbleChart) in `AreaChart`, `BarChart`, `BubbleChart`, `CompositeChart`, `LineChart`, and `ScatterChart`. #661 by @AnnMarieW
-- Added `focus` prop to control the cursor of the `Rich Text Editor` #665 by @chgiesse
-- Added `editable` prop to `Rich Text Editor` #665
+
+- RichTextEdter updates:
+    - Added `dash_mantine_components.getEditor(id)` function to access the Tiptap editor instance in clientside callbacks. #666 by @AnnMarieW
+    - Added `focus` prop to control the cursor of the `Rich Text Editor` #665 by @chgiesse
+    - Added `editable` prop to `Rich Text Editor` #665
+
 
 
 # 2.3.0

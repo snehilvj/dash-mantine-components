@@ -191,6 +191,7 @@ def test_003ri_rich_text_editor_custom_controls(dash_duo):
     assert "⭐" in content_div.text
 
 
+
 def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     btn_focus_id = "btn-focus"
     btn_blur_id = "btn-blur"
@@ -204,10 +205,26 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
         dmc.Button("Focus Start", id=btn_focus_start_id),
         dmc.Button("Focus End", id=btn_focus_end_id),
         dmc.Button("Toggle Read Only", id=btn_toggle_readonly_id),
+        dmc.Button("Clientside update", id="btn-clientside", n_clicks=0),
     ]
 
     app = _create_app(extra_components=extra_components, html=_html(initial_content))
 
+    app.clientside_callback(
+            """
+            function(n_clicks) {
+                if (n_clicks > 0) {
+                    const editor = dash_mantine_components.getEditor('rich-text-editor');                    
+                    if (editor) {
+                        editor.commands.insertContent('more content');
+                    }
+                }                
+            }
+            """,
+            Input("btn-clientside", "n_clicks"),
+            prevent_initial_call=True
+        )
+    
     @app.callback(
         Output(rte_id, "focus"),
         Input(btn_focus_id, "n_clicks"),
@@ -260,6 +277,11 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     editor.send_keys(" MIDDLE")
     updated = updated + " MIDDLE"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
+    
+    # access editor instance in clientside callback
+    dash_duo.find_element('#btn-clientside').click()
+    updated = updated + 'more content'
+    dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     # Now test editable toggling via button
     # Ensure editable to start
@@ -279,5 +301,6 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     editor.send_keys(" FINAL")
     updated = updated + " FINAL"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
+    
 
     assert dash_duo.get_logs() == []

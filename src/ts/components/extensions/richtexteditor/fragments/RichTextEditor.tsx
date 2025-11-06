@@ -44,6 +44,9 @@ import {
     getContextPath,
 } from '../../../../utils/dash3';
 
+import { editorInstances } from '../../../../utils/editorRegistry'
+
+
 const lowlight = createLowlight();
 lowlight.register({
     ts,
@@ -100,6 +103,7 @@ const CustomControl = (props) => {
 
 /** RichTextEditor */
 const RichTextEditor = ({
+    id,
     setProps,
     loading_state,
     persistence,
@@ -295,6 +299,20 @@ const RichTextEditor = ({
         shouldRerenderOnTransaction: true,
     });
 
+
+    // Register editor instance
+    useEffect(() => {
+        if (editor && id) {
+             editorInstances[id] = editor;
+        }
+        // Cleanup: remove from registry when component unmounts
+        return () => {
+            if (id) {
+                delete editorInstances[id];
+            }
+        };
+    }, [editor, id]);
+
     // Handle focus prop changes.
     useEffect(() => {
         if (!editor || focus === undefined) {
@@ -375,6 +393,7 @@ const RichTextEditor = ({
     // Render the component tree.
     return (
         <MantineRichTextEditor
+            id={id}
             variant={variant}
             editor={editor}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
