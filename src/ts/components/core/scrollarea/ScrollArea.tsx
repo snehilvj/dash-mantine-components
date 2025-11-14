@@ -4,7 +4,6 @@ import { ScrollAreaProps } from 'props/scrollarea';
 import React, { useEffect, useRef } from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 
-
 interface ScrollToOptions {
     /** The vertical position as pixels (number) or percentage (string) from '0%' to '100%' */
     top?: number | string;
@@ -21,13 +20,15 @@ interface Props extends ScrollAreaProps, DashBaseProps {
     scrollTo?: ScrollToOptions;
 }
 
-
 /** Scroll area with custom scroll bars */
 const ScrollArea = (props: Props) => {
     const { setProps, loading_state, children, scrollTo, ...others } = props;
     const viewportRef = useRef<HTMLDivElement>(null);
 
-    const calculatePosition = (value: number | string | undefined, dimension: 'height' | 'width'): number | undefined => {
+    const calculatePosition = (
+        value: number | string | undefined,
+        dimension: 'height' | 'width'
+    ): number | undefined => {
         if (value === undefined || !viewportRef.current) return undefined;
 
         const viewport = viewportRef.current;
@@ -47,8 +48,14 @@ const ScrollArea = (props: Props) => {
                 return undefined;
             }
 
-            const scrollSize = dimension === 'height' ? viewport.scrollHeight : viewport.scrollWidth;
-            const viewportSize = dimension === 'height' ? viewport.clientHeight : viewport.clientWidth;
+            const scrollSize =
+                dimension === 'height'
+                    ? viewport.scrollHeight
+                    : viewport.scrollWidth;
+            const viewportSize =
+                dimension === 'height'
+                    ? viewport.clientHeight
+                    : viewport.clientWidth;
             const maxScroll = scrollSize - viewportSize;
 
             // Clamp percentage to 0-100 range
@@ -58,7 +65,9 @@ const ScrollArea = (props: Props) => {
         }
 
         // Handle invalid string values
-        console.warn(`Invalid scroll position value: ${value}. Expected a number (pixels) or string with % (percentage).`);
+        console.warn(
+            `Invalid scroll position value: ${value}. Expected a number (pixels) or string with % (percentage).`
+        );
         return undefined;
     };
 
@@ -71,7 +80,7 @@ const ScrollArea = (props: Props) => {
         viewportRef.current.scrollTo({
             top: calculatedTop,
             left: calculatedLeft,
-            behavior: scrollTo.behavior || 'smooth'
+            behavior: scrollTo.behavior || 'smooth',
         });
     }, [scrollTo]);
 

@@ -1,4 +1,3 @@
-
 export const editorInstances: Record<string, any> = {};
 
 export const getEditor = (id: string) => {
@@ -9,6 +8,6 @@ export const getEditor = (id: string) => {
         return api;
     }
     throw new Error(
-         `no RichTextEditor found with id: ${id}, or it's not initialized yet.`
+        `no RichTextEditor found with id: ${id}, or it's not initialized yet.`
     );
 };

@@ -41,7 +41,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     n_clicks?: number;
     /** Set to true to trigger copy in a callback - will auto-reset to false after copy */
     triggerCopy?: boolean;
-     /**
+    /**
      * The id of target component containing text to copy to the clipboard.
      * The inner text of the `children` prop will be copied to the clipboard.  If none, then the text from the
      *  `value` prop will be copied.

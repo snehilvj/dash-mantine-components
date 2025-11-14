@@ -44,8 +44,7 @@ import {
     getContextPath,
 } from '../../../../utils/dash3';
 
-import { editorInstances } from '../../../../utils/editorRegistry'
-
+import { editorInstances } from '../../../../utils/editorRegistry';
 
 const lowlight = createLowlight();
 lowlight.register({
@@ -299,11 +298,10 @@ const RichTextEditor = ({
         shouldRerenderOnTransaction: true,
     });
 
-
     // Register editor instance
     useEffect(() => {
         if (editor && id) {
-             editorInstances[id] = editor;
+            editorInstances[id] = editor;
         }
         // Cleanup: remove from registry when component unmounts
         return () => {
@@ -323,9 +321,8 @@ const RichTextEditor = ({
             editor.commands.blur();
         } else {
             editor.commands.focus(focus === true ? undefined : focus);
-        };
-        setProps({focus: undefined});
-        
+        }
+        setProps({ focus: undefined });
     }, [focus, editor]);
 
     // handle editable prop changes.

@@ -1,4 +1,4 @@
-import { ScrollArea  } from '@mantine/core';
+import { ScrollArea } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 import { ScrollAreaProps } from 'props/scrollarea';
 import React from 'react';
