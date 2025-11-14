@@ -95,7 +95,9 @@ const DateInput = ({
     }, [debounced]);
 
     useDidUpdate(() => {
-        setDate(value);
+        if (value !== debounced) {
+            setDate(value);
+        }
     }, [value]);
 
     const handleKeyDown = (ev) => {

@@ -46,7 +46,9 @@ const JsonInput = ({
     }, [debounced]);
 
     useDidUpdate(() => {
-        setVal(value);
+        if (value !== debounced) {
+            setVal(value);
+        }
     }, [value]);
 
     const handleKeyDown = (ev) => {

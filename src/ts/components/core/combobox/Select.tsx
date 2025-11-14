@@ -106,7 +106,9 @@ const Select = ({
     }, [data]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        if (value !== debounced) {
+            setSelected(value);
+        }
     }, [value]);
 
     useDidUpdate(() => {

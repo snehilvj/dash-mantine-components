@@ -44,8 +44,10 @@ const TimeInput = ({
         }
     }, [debounced]);
 
-    useDidUpdate(() => {
-        setTime(value);
+   useDidUpdate(() => {
+        if (value !== debounced) {
+            setTime(value);
+        }
     }, [value]);
 
     const handleKeyDown = (ev) => {
