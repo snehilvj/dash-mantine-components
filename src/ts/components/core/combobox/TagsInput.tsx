@@ -79,9 +79,7 @@ const TagsInput = ({
     }, [selected]);
 
     useDidUpdate(() => {
-        if (value !== debounced) {
-            setSelected(value ?? []);
-        }
+        setSelected(value ?? []);
     }, [value]);
 
     useDidUpdate(() => {
