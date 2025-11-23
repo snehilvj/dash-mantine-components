@@ -1,5 +1,14 @@
 # Change Log
 
+# [Unreleased]
+
+### Added
+
+- Added `withAlignedLabels` prop to support offsetting the selected check icon in `Select` and `MultiSelect` #675 by @AnnMarieW.
+
+### Changed
+
+- Updated to Mantine (8.3.9),  Recharts (2.15.4), an TipTap (3.11.0) #675 
 
 # 2.4.0
 
