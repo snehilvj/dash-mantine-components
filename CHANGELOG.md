@@ -1,5 +1,10 @@
 # Change Log
 
+# [Unreleased]
+
+### Fixed
+
+- Fixed race condition in debounced value updates #671 by @AnnMarieW
 
 # 2.4.0
 
