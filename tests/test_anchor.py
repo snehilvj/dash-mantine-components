@@ -23,4 +23,7 @@ def test_001an_anchor(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#anchor", "link")
 
+    # Get attribute set using anchorProps
+    assert dash_duo.find_element("#anchor").get_attribute("download") == "file.txt"
+
     assert dash_duo.get_logs() == []
