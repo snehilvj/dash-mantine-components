@@ -1,5 +1,8 @@
 # Change Log
 
+# [Unreleased]
+
+- Added `anchorProps` prop to `Anchor` by @jksinton 
 
 # 2.4.0
 
