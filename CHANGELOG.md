@@ -2,7 +2,12 @@
 
 # [Unreleased]
 
+### Added
 - Added `anchorProps` prop to `Anchor` by @jksinton 
+
+### Fixed
+- Fixed race condition in debounced value updates #671 by @AnnMarieW
+
 
 # 2.4.0
 

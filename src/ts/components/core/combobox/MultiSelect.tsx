@@ -114,8 +114,10 @@ const MultiSelect = ({
         setProps({ value: newSelected });
     }, [data]);
 
-    useDidUpdate(() => {
-        setSelected(value ?? []);
+   useDidUpdate(() => {
+        if (value !== debounced) {
+            setSelected(value ?? []);
+        }
     }, [value]);
 
     const handleSearchChange = (newSearchVal) => {

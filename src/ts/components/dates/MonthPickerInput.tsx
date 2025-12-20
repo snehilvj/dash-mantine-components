@@ -62,7 +62,10 @@ const MonthPickerInput = ({
     }, [date]);
 
     useDidUpdate(() => {
-        setDate(type !== 'default' && !value ? [] : value);
+        if (value !== debounced) {
+            // If type is multiple or range, sets default value to a list
+            setDate(type !== 'default' && !value ? [] : value);
+        }
     }, [value]);
 
     const handleKeyDown = (ev) => {
