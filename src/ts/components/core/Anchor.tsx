@@ -17,6 +17,8 @@ interface Props extends Omit<TextProps, 'span'>, DashBaseProps {
     refresh?: boolean;
     /** Determines in which cases link should have `text-decoration: underline` styles, `hover` by default */
     underline?: 'always' | 'hover' | 'never';
+    /** Props passed down to the `Anchor` component */
+    anchorProps?: Record<string, any>;
 }
 
 /** Anchor */
@@ -28,6 +30,7 @@ const Anchor = (props: Props) => {
         children,
         setProps,
         loading_state,
+        anchorProps,
         ...others
     } = props;
 
@@ -35,6 +38,7 @@ const Anchor = (props: Props) => {
 
     return (
         <MantineAnchor
+            {...anchorProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                 onClick(ev, sanitizedHref, target, refresh)

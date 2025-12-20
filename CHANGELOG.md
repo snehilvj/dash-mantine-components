@@ -3,11 +3,13 @@
 # [Unreleased]
 
 ### Added
-
 - Added `withAlignedLabels` prop to support offsetting the selected check icon in `Select` and `MultiSelect` #675 by @AnnMarieW.
+- Added `anchorProps` prop to `Anchor` by @jksinton 
+
+### Fixed
+- Fixed race condition in debounced value updates #671 by @AnnMarieW
 
 ### Changed
-
 - Updated to Mantine (8.3.10),  Recharts (2.15.4), and TipTap (3.14.0) #675 
 
 # 2.4.0

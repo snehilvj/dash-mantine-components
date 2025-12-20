@@ -87,7 +87,9 @@ const Autocomplete = ({
     }, [options]);
 
     useDidUpdate(() => {
-        setAutocomplete(value);
+        if (value !== debounced) {
+            setAutocomplete(value);
+        }
     }, [value]);
 
     return (

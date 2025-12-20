@@ -60,7 +60,7 @@ const Select = ({
     debounce = false,
     n_submit = 0,
     n_blur = 0,
-    data = [],
+    data,
     searchValue,
     value,
     clearSearchOnFocus = false,
@@ -108,7 +108,9 @@ const Select = ({
     }, [data]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        if (value !== debounced) {
+            setSelected(value);
+        }
     }, [value]);
 
     useDidUpdate(() => {
