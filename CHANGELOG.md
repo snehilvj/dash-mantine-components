@@ -8,7 +8,7 @@
 
 ### Changed
 
-- Updated to Mantine (8.3.9),  Recharts (2.15.4), an TipTap (3.11.0) #675 
+- Updated to Mantine (8.3.10),  Recharts (2.15.4), and TipTap (3.14.0) #675 
 
 # 2.4.0
 
