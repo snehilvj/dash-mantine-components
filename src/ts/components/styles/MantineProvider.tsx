@@ -3,6 +3,7 @@ import {
     MantineProviderProps,
 } from '@mantine/core';
 import React from 'react';
+import { parseFuncProps } from '../../utils/prop-functions';
 
 import '@mantine/core/styles.css';
 
@@ -22,8 +23,12 @@ interface Props extends MantineProviderProps {
 const MantineProvider = (props: Props) => {
     const { children, ...others } = props;
 
-    return (
-        <MantineMantineProvider {...others}>{children}</MantineMantineProvider>
+   return (
+        <MantineMantineProvider
+            {...parseFuncProps('MantineProvider', others)}
+        >
+            {children}
+        </MantineMantineProvider>
     );
 };
 
