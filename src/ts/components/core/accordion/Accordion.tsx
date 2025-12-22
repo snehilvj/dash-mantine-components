@@ -3,13 +3,13 @@ import {
     AccordionVariant,
     Accordion as MantineAccordion,
     MantineRadius,
-} from "@mantine/core";
-import { AccordionChevronPosition } from "@mantine/core/lib/components/Accordion/Accordion.types";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { AccordionChevronPosition } from '@mantine/core/lib/components/Accordion/Accordion.types';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -40,6 +40,8 @@ interface Props
     radius?: MantineRadius;
     /** Accordion content */
     children: React.ReactNode;
+    /** Size of the default chevron icon. Ignored when `chevron` prop is set. default `16` */
+    chevronIconSize?: number | string;
 }
 
 /** Accordion */
@@ -69,6 +71,6 @@ const Accordion = (props: Props) => {
     );
 };
 
-setPersistence(Accordion)
+setPersistence(Accordion);
 
 export default Accordion;

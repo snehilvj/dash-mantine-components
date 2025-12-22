@@ -1,10 +1,10 @@
-import { FloatingPosition, MantineColor, MantineRadius } from "@mantine/core";
-import { BoxProps } from "./box";
-import { StylesApiProps } from "./styles";
+import { FloatingPosition, MantineColor, MantineRadius } from '@mantine/core';
+import { BoxProps } from './box';
+import { StylesApiProps } from './styles';
 
 export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     /** Target element, must support `ref` prop and `...others` */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /** Tooltip position relative to target element (`Tooltip` component) or mouse (`Tooltip.Floating` component) */
     position?: FloatingPosition;
     /** Tooltip content */
@@ -23,4 +23,14 @@ export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     disabled?: boolean;
     /** Props to pass down to the portal when withinPortal is true */
     portalProps?: object;
+    /** Floating ui middlewares to configure position handling, `{ flip: true, shift: true, inline: false }` by default */
+    middlewares?: object;
+    /**
+     * Determines whether tooltip text color should depend on background-color. If luminosity of the color prop is
+     * less than theme.luminosityThreshold, then theme.white will be used for text color, otherwise theme.black.
+     * Overrides theme.autoContrast.
+     */
+    autoContrast?: boolean;
+    /** Selector, ref of an element or element itself that should be used for positioning */
+    target?: React.RefObject<HTMLElement | null> | HTMLElement | null | string;
 }

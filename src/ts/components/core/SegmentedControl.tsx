@@ -4,13 +4,19 @@ import {
     SegmentedControl as MantineSegmentedControl,
     MantineSize,
     SegmentedControlItem,
-} from "@mantine/core";
-import { renderDashComponent } from "dash-extensions-js";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import {
+    setPersistence,
+    getLoadingState,
+    newRenderDashComponent,
+    getContextPath,
+} from '../../utils/dash3';
+import { isEmpty } from 'ramda';
 
 interface Props
     extends BoxProps,
@@ -38,10 +44,10 @@ interface Props
     /** Indicator `transition-timing-function` property, `ease` by default */
     transitionTimingFunction?: string;
     /** Determines in which orientation component id displayed, `'horizontal'` by default */
-    orientation?: "vertical" | "horizontal";
+    orientation?: 'vertical' | 'horizontal';
     /** Determines whether the value can be changed */
     readOnly?: boolean;
-    /** Determines whether text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
+    /** Determines whether text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used */
     autoContrast?: boolean;
     /** Determines whether there should be borders between items, `true` by default */
     withItemsBorders?: boolean;
@@ -59,17 +65,22 @@ const SegmentedControl = (props: Props) => {
         ...others
     } = props;
 
-    const renderedData = [];
-    data.forEach((item, index) => {
-        if (typeof item === "string") {
-            renderedData.push(item);
+    const componentPath = getContextPath();
+    const renderedData = data.map((item, index) => {
+        if (typeof item === 'string') {
+            return item;
         } else {
-            const rItem = {
-                value: item["value"],
-                label: renderDashComponent(item["label"]),
-                disabled: item["disabled"],
+            return {
+                value: item['value'],
+                label: newRenderDashComponent(
+                    item['label'],
+                    index,
+                    !isEmpty(componentPath)
+                        ? [...componentPath, 'props', 'data', index, 'label']
+                        : []
+                ),
+                disabled: item['disabled'],
             };
-            renderedData.push(rItem);
         }
     });
 
@@ -87,6 +98,6 @@ const SegmentedControl = (props: Props) => {
     );
 };
 
-setPersistence(SegmentedControl)
+setPersistence(SegmentedControl);
 
 export default SegmentedControl;

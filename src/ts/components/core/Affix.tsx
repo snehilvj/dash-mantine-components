@@ -1,13 +1,13 @@
-import { AffixBaseProps, Affix as MantineAffix } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { AffixBaseProps, Affix as MantineAffix } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props
     extends BoxProps,
-        Omit<AffixBaseProps, "portalProps">,
+        Omit<AffixBaseProps, 'portalProps'>,
         StylesApiProps,
         DashBaseProps {
     /* Content */

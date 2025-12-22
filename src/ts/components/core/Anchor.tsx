@@ -1,12 +1,12 @@
-import { sanitizeUrl } from "@braintree/sanitize-url";
-import { Anchor as MantineAnchor } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { TextProps } from "props/text";
-import React, { MouseEvent, useMemo } from "react";
-import { TargetProps, onClick } from "../../utils/anchor";
-import { getLoadingState } from "../../utils/dash3";
+import { sanitizeUrl } from '@braintree/sanitize-url';
+import { Anchor as MantineAnchor } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { TextProps } from 'props/text';
+import React, { MouseEvent, useMemo } from 'react';
+import { TargetProps, onClick } from '../../utils/anchor';
+import { getLoadingState } from '../../utils/dash3';
 
-interface Props extends Omit<TextProps, "span">, DashBaseProps {
+interface Props extends Omit<TextProps, 'span'>, DashBaseProps {
     /** Content */
     children?: React.ReactNode;
     /** Target */
@@ -16,7 +16,9 @@ interface Props extends Omit<TextProps, "span">, DashBaseProps {
     /** Whether to refresh the page */
     refresh?: boolean;
     /** Determines in which cases link should have `text-decoration: underline` styles, `hover` by default */
-    underline?: "always" | "hover" | "never";
+    underline?: 'always' | 'hover' | 'never';
+    /** Props passed down to the `Anchor` component */
+    anchorProps?: Record<string, any>;
 }
 
 /** Anchor */
@@ -28,6 +30,7 @@ const Anchor = (props: Props) => {
         children,
         setProps,
         loading_state,
+        anchorProps,
         ...others
     } = props;
 
@@ -35,6 +38,7 @@ const Anchor = (props: Props) => {
 
     return (
         <MantineAnchor
+            {...anchorProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
                 onClick(ev, sanitizedHref, target, refresh)

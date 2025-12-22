@@ -1,9 +1,9 @@
-import { Flex as MantineFlex, MantineSize, StyleProp } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { Flex as MantineFlex, MantineSize, StyleProp } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
@@ -15,13 +15,13 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** `column-gap` CSS property */
     columnGap?: StyleProp<MantineSize | (string & {}) | number>;
     /** `align-items` CSS property */
-    align?: StyleProp<React.CSSProperties["alignItems"]>;
+    align?: StyleProp<React.CSSProperties['alignItems']>;
     /** `justify-content` CSS property */
-    justify?: StyleProp<React.CSSProperties["justifyContent"]>;
+    justify?: StyleProp<React.CSSProperties['justifyContent']>;
     /** `flex-wrap` CSS property */
-    wrap?: StyleProp<React.CSSProperties["flexWrap"]>;
+    wrap?: StyleProp<React.CSSProperties['flexWrap']>;
     /** `flex-direction` CSS property */
-    direction?: StyleProp<React.CSSProperties["flexDirection"]>;
+    direction?: StyleProp<React.CSSProperties['flexDirection']>;
 }
 
 /** Flex */

@@ -1,7 +1,7 @@
-import { MantineColor } from "@mantine/core";
-import { NavigationProgress } from "@mantine/nprogress";
-import { DashBaseProps } from "props/dash";
-import React from "react";
+import { MantineColor } from '@mantine/core';
+import { NavigationProgress } from '@mantine/nprogress';
+import { DashBaseProps } from 'props/dash';
+import React from 'react';
 
 interface Props extends DashBaseProps {
     /** Initial progress value, `0` by default */
@@ -15,7 +15,7 @@ interface Props extends DashBaseProps {
     /** Determines whether the progress bar should be rendered within `Portal`, `true` by default */
     withinPortal?: boolean;
     /** Progressbar z-index, `9999` by default */
-    zIndex?: React.CSSProperties["zIndex"];
+    zIndex?: React.CSSProperties['zIndex'];
 }
 
 /** NavigationProgressProvider */

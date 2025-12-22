@@ -1,8 +1,8 @@
-import { Progress } from "@mantine/core";
-import { DashBaseProps } from "props/dash";
-import { ProgressRootProps } from "props/progress";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { Progress } from '@mantine/core';
+import { DashBaseProps } from 'props/dash';
+import { ProgressRootProps } from 'props/progress';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 export interface Props extends ProgressRootProps, DashBaseProps {}
 

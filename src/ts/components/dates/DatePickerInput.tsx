@@ -1,23 +1,29 @@
 import { DatePickerInput as MantineDatePickerInput } from '@mantine/dates';
-import { useDebouncedValue, useDidUpdate, useFocusWithin } from '@mantine/hooks';
+import {
+    useDebouncedValue,
+    useDidUpdate,
+    useFocusWithin,
+} from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { DateInputSharedProps, DatePickerBaseProps } from 'props/dates';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
-import {
-    isDisabled,
-    stringToDate,
-    toDates,
-    toStrings,
-} from '../../utils/dates';
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+import { isDisabled } from '../../utils/dates';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { resolveProp, parseFuncProps } from '../../utils/prop-functions';
 
-interface Props extends DashBaseProps, PersistenceProps, BoxProps, DateInputSharedProps, DatePickerBaseProps, StylesApiProps {
+interface Props
+    extends DashBaseProps,
+        PersistenceProps,
+        BoxProps,
+        DateInputSharedProps,
+        DatePickerBaseProps,
+        StylesApiProps {
     /** Dayjs format to display input value, "MMMM D, YYYY" by default */
     valueFormat?: string;
-    /** Specifies days that should be disabled */
-    disabledDates?: string[];
+    /** Specifies days that should be disabled.  Either a list of dates or a function. See https://www.dash-mantine-components.com/functions-as-props */
+    disabledDates?: any;
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
     /** An integer that represents the number of times that this element has been submitted */
@@ -47,8 +53,7 @@ const DatePickerInput = ({
     persistence_type,
     ...others
 }: Props) => {
-
-    const [date, setDate] = useState(toDates(value));
+    const [date, setDate] = useState(value);
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(date, debounceValue);
@@ -56,20 +61,22 @@ const DatePickerInput = ({
 
     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
-            setProps({ value: toStrings(date) });
+            setProps({ value: date });
         }
     }, [debounced]);
 
     useDidUpdate(() => {
         // Clears value when X is clicked
         if (focused) {
-            setProps({ value: toStrings(date) });
+            setProps({ value: date });
         }
     }, [date]);
 
     useDidUpdate(() => {
-        // If type is multiple or range, sets default value to a list
-        setDate(type !== 'default' && !value ? [] : toDates(value));
+        if (value !== debounced) {
+            // If type is multiple or range, sets default value to a list
+            setDate(type !== 'default' && !value ? [] : value);
+        }
     }, [value]);
 
     const handleKeyDown = (ev: React.KeyboardEvent) => {
@@ -82,31 +89,37 @@ const DatePickerInput = ({
     const handleBlur = () => {
         // Don't include n_blur counter because onBlur is called when the calendar is opened
         if (debounce === true) {
-            setProps({ value: toStrings(date) });
+            setProps({ value: date });
         }
     };
 
-    const isExcluded = (date: Date) => isDisabled(date, disabledDates || []);
+    const isExcluded = (date: string) => isDisabled(date, disabledDates || []);
 
     return (
         <div ref={ref}>
             <MantineDatePickerInput
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                data-dash-is-loading={
+                    getLoadingState(loading_state) || undefined
+                }
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
                 onChange={setDate}
                 value={date}
                 type={type}
-                minDate={stringToDate(minDate)}
-                maxDate={stringToDate(maxDate)}
-                excludeDate={isExcluded}
-                popoverProps={{returnFocus: true, ...popoverProps}}
-                {...others}
+                minDate={minDate}
+                maxDate={maxDate}
+                excludeDate={
+                    Array.isArray(disabledDates)
+                        ? isExcluded
+                        : resolveProp(disabledDates)
+                }
+                popoverProps={{ returnFocus: true, ...popoverProps }}
+                {...parseFuncProps('DatePickerInput', others)}
             />
         </div>
     );
 };
 
-setPersistence(DatePickerInput)
+setPersistence(DatePickerInput);
 
 export default DatePickerInput;

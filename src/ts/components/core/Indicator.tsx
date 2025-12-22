@@ -2,13 +2,13 @@ import {
     MantineColor,
     Indicator as MantineIndicator,
     MantineRadius,
-} from "@mantine/core";
-import { IndicatorPosition } from "@mantine/core/lib/components/Indicator/Indicator.types";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { IndicatorPosition } from '@mantine/core/lib/components/Indicator/Indicator.types';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Indicator position relative to the target element, `'top-end'` by default */
@@ -48,7 +48,7 @@ const Indicator = (props: Props) => {
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
-            {children}{" "}
+            {children}{' '}
         </MantineIndicator>
     );
 };

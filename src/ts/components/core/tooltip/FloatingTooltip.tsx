@@ -1,10 +1,9 @@
-import { Box, Tooltip } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { TooltipBaseProps } from "props/tooltip";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
-
+import { Box, Tooltip } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { TooltipBaseProps } from 'props/tooltip';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends TooltipBaseProps, DashBaseProps {
     /** Offset from mouse in px, `10` by default */
@@ -17,7 +16,11 @@ interface Props extends TooltipBaseProps, DashBaseProps {
 const FloatingTooltip = (props: Props) => {
     const { children, boxWrapperProps, setProps, loading_state, ...others } =
         props;
-    const boxProps = { w: "fit-content", key: "tooltip-target", ...boxWrapperProps };
+    const boxProps = {
+        w: 'fit-content',
+        key: 'tooltip-target',
+        ...boxWrapperProps,
+    };
 
     return (
         <Tooltip.Floating
@@ -28,5 +31,7 @@ const FloatingTooltip = (props: Props) => {
         </Tooltip.Floating>
     );
 };
+
+FloatingTooltip.dashChildrenUpdate = true;
 
 export default FloatingTooltip;

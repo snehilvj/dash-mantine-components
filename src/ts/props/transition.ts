@@ -1,4 +1,4 @@
-import { MantineTransition } from "@mantine/core";
+import { MantineTransition } from '@mantine/core';
 
 export interface TransitionProps {
     /** If set element will not be unmounted from the DOM when it is hidden, `display: none` styles will be applied instead */

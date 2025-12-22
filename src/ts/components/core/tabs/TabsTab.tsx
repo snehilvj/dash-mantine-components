@@ -1,14 +1,14 @@
-import { MantineColor, Tabs } from "@mantine/core";
-import { Props as UnstyledButtonProps } from "components/core/button/UnstyledButton";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { MantineColor, Tabs } from '@mantine/core';
+import { Props as UnstyledButtonProps } from 'components/core/button/UnstyledButton';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends Omit<
             UnstyledButtonProps,
-            "n_clicks" | "variant" | "classNames" | "styles" | "vars"
+            'n_clicks' | 'variant' | 'classNames' | 'styles' | 'vars'
         >,
         DashBaseProps,
         StylesApiProps {

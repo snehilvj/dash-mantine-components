@@ -1,16 +1,17 @@
-import {
-    AreaChartCurveType,
-    Sparkline as MantineSparkline,
-} from "@mantine/charts";
-import { SparklineTrendColors } from "@mantine/charts/lib/Sparkline/Sparkline";
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { AreaChartCurveType } from '@mantine/charts';
+import { SparklineTrendColors } from '@mantine/charts/lib/Sparkline/Sparkline';
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+// eslint-disable-next-line no-inline-comments
+const LazySparkline = React.lazy(
+    () => import(/* webpackChunkName: "Sparkline" */ './fragments/Sparkline')
+);
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Data used to render the chart */
     data: number[];
     /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
@@ -33,14 +34,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** Sparkline */
 const Sparkline = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
-
     return (
-        <MantineSparkline
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
-        />
+        <Suspense fallback={null}>
+            <LazySparkline {...props} />
+        </Suspense>
     );
 };
-
 export default Sparkline;

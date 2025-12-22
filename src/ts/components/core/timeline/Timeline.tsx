@@ -2,14 +2,19 @@ import {
     MantineColor,
     MantineRadius,
     Timeline as MantineTimeline,
-} from "@mantine/core";
-import { renderDashComponents } from "dash-extensions-js";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import { omit } from "ramda";
-import React from "react";
-import { getLoadingState, getChildProps } from "../../../utils/dash3";
+} from '@mantine/core';
+
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import { omit, isEmpty } from 'ramda';
+import React from 'react';
+import {
+    getLoadingState,
+    getChildProps,
+    newRenderDashComponents,
+    getContextPath,
+} from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** `Timeline.Item` components */
@@ -23,7 +28,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls size of the bullet, `20` by default */
     bulletSize?: number | string;
     /** Controls how the content is positioned relative to the bullet, `'left'` by default */
-    align?: "right" | "left";
+    align?: 'right' | 'left';
     /** Control width of the line */
     lineWidth?: number | string;
     /** Determines whether the active items direction should be reversed without reversing items order, `false` by default */
@@ -35,6 +40,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** Timeline */
 const Timeline = (props: Props) => {
     const { setProps, loading_state, children, ...others } = props;
+    const componentPath = getContextPath();
 
     return (
         <MantineTimeline
@@ -42,11 +48,15 @@ const Timeline = (props: Props) => {
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
-                const childProps = getChildProps(child)
-                const renderedProps = renderDashComponents(
-                    omit(["children"], childProps),
-                    ["title", "bullet"]
+                const childProps = getChildProps(child);
+                const renderedProps = newRenderDashComponents(
+                    omit(['children'], childProps),
+                    ['title', 'bullet'],
+                    !isEmpty(componentPath)
+                        ? [...child?.props?.componentPath]
+                        : []
                 );
+
                 return (
                     <MantineTimeline.Item {...renderedProps} key={index}>
                         {child}
@@ -56,5 +66,7 @@ const Timeline = (props: Props) => {
         </MantineTimeline>
     );
 };
+
+Timeline.dashChildrenUpdate = true;
 
 export default Timeline;

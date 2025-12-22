@@ -1,11 +1,17 @@
-import { CodeHighlight as MantineCodeHighlight } from "@mantine/code-highlight";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+// eslint-disable-next-line no-inline-comments
+const LazyCodeHighlight = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "CodeHighlight" */ './fragments/CodeHighlight'
+        )
+);
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight */
     code: string;
     /** Code language, `'tsx'` by default */
@@ -22,13 +28,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CodeHighlight */
 const CodeHighlight = (props: Props) => {
-    const { setProps, loading_state, ...others } = props;
-
     return (
-        <MantineCodeHighlight
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
-        />
+        <Suspense fallback={null}>
+            <LazyCodeHighlight {...props} />
+        </Suspense>
     );
 };
 

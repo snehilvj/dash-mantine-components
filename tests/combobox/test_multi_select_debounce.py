@@ -5,6 +5,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 from dash import Dash, html, callback, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
+import time
 
 _dash_renderer._set_react_version("18.2.0")
 
@@ -60,7 +61,6 @@ def test_001mu_multi_select_debounce(dash_duo):
     elem = dash_duo.find_element("#debounce-true")
     actions = ActionChains(dash_duo.driver)
     actions.move_to_element(elem).click().perform()
-
     # # select item from dropdown
     # # Get all the options on the page
     options = dash_duo.find_elements(".mantine-MultiSelect-option")
@@ -68,7 +68,6 @@ def test_001mu_multi_select_debounce(dash_duo):
 
     # verify the output has not been updated because debounce=True
     dash_duo.wait_for_text_to_equal("#out-true", '["a"]')
-
     # make  input lose focus
     elem.send_keys(Keys.TAB)
     # verify the output has been updated after input loses focus
@@ -85,7 +84,6 @@ def test_001mu_multi_select_debounce(dash_duo):
     dash_duo.wait_for_text_to_equal("#out-false", '["d", "e"]')
     # make  input lose focus and closes dropdown
     elem.send_keys(Keys.TAB)
-
     # debounce is an number
     # expect that a long debounce does not call back in a short amount of time
     elem = dash_duo.find_element("#debounce-2000")

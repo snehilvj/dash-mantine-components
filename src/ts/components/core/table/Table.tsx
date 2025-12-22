@@ -3,18 +3,18 @@ import {
     MantineSpacing,
     Table as MantineTable,
     TableData,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Value of `table-layout` style, `auto` by default */
-    layout?: React.CSSProperties["tableLayout"];
+    layout?: React.CSSProperties['tableLayout'];
     /** Determines on which side `Table.Caption` is displayed, `bottom` by default */
-    captionSide?: "top" | "bottom";
+    captionSide?: 'top' | 'bottom';
     /** Color of table borders, key of `theme.colors` or any valid CSS color */
     borderColor?: MantineColor;
     /** Determines whether the table should have outer border, `false` by default */
@@ -28,7 +28,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Vertical cells spacing, key of `theme.spacing` or any valid CSS value for padding, numbers are converted to rem, default value is `xs` */
     verticalSpacing?: MantineSpacing;
     /** Determines whether every odd/even row background should be changed to `strippedColor`, if set to `true`, then `odd` value will be used, `false` by default  */
-    striped?: boolean | "odd" | "even";
+    striped?: boolean | 'odd' | 'even';
     /** Background color of striped rows, key of `theme.colors` or any valid CSS color */
     stripedColor?: MantineColor;
     /** Determines whether table rows background should change to `highlightOnHoverColor` when hovered, `false` by default */
@@ -43,6 +43,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     stickyHeaderOffset?: number | string;
     /** Headers, rows and footer */
     children?: React.ReactNode;
+    /** variant 'default' | 'vertical' */
+    variant?: 'default' | 'vertical';
+    /** Determines whether `font-variant-numeric: tabular-nums` style should be set, `false` by default */
+    tabularNums?: boolean;
 }
 
 /** Table */

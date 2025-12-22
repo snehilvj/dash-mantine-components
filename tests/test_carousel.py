@@ -14,19 +14,30 @@ def test_001ca_carousel(dash_duo):
             dmc.CarouselSlide(dmc.Center("Slide-2", bg="blue", c="white", p=60)),
         ],
         id="carousel",
-        autoplay={"delay": 500, "stopOnMouseEnter": True, "stopOnLastSnap": True},
+        autoplay=False,
     )
 
-    app.layout = dmc.MantineProvider(html.Div([component, html.Div(id="output")]))
+    app.layout = dmc.MantineProvider(html.Div([component, html.Div(id="output"), dmc.Button('Start', id='start')]))
 
     @app.callback(Output("output", "children"), Input("carousel", "active"))
     def update_output(n):
         return f"slide index {n}"
 
+    @app.callback(
+        Output('carousel', 'autoplay'),
+        Input('start', 'n_clicks'),
+        prevent_initial_call=True
+    )
+    def play(n):
+        return {"delay": 500, "stopOnMouseEnter": True, "stopOnLastSnap": True}
+
     dash_duo.start_server(app)
+    dash_duo.wait_for_text_to_equal('#start', 'Start')
+    dash_duo.find_element('#start').click()
 
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#output", "slide index 0")
+
     # autoplay is set to show 3 slides
     dash_duo.wait_for_text_to_equal("#output", "slide index 1")
     dash_duo.wait_for_text_to_equal("#output", "slide index 2")
@@ -43,7 +54,7 @@ def test_002ca_carousel(dash_duo):
             dmc.CarouselSlide(dmc.Center("Slide-2", bg="blue", c="white", p=60)),
         ],
         id="carousel",
-        loop=True,
+        emblaOptions={"loop": True},
         autoScroll={"speed":50},
     )
 

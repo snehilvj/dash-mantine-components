@@ -1,11 +1,11 @@
-import { PasswordInput as MantinePasswordInput } from "@mantine/core";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
-import { __BaseInputProps } from "props/input";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { PasswordInput as MantinePasswordInput } from '@mantine/core';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
+import { __BaseInputProps } from 'props/input';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -35,10 +35,10 @@ const PasswordInput = ({
     n_submit = 0,
     n_blur = 0,
     debounce = false,
-    autoComplete = "off",
+    autoComplete = 'off',
+    inputProps,
     ...others
 }: Props) => {
-
     const [val, setVal] = useState(value);
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(val, debounceValue);
@@ -50,11 +50,13 @@ const PasswordInput = ({
     }, [debounced]);
 
     useDidUpdate(() => {
-        setVal(value);
+        if (value !== debounced) {
+            setVal(value);
+        }
     }, [value]);
 
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({
                 n_submit: n_submit + 1,
                 ...(debounce === true && { value: val }),
@@ -65,12 +67,13 @@ const PasswordInput = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: val })
+            ...(debounce === true && { value: val }),
         });
     };
 
     return (
         <MantinePasswordInput
+            {...inputProps}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             onChange={(ev) => setVal(ev.currentTarget.value)}
             value={val}
@@ -82,6 +85,6 @@ const PasswordInput = ({
     );
 };
 
-setPersistence(PasswordInput)
+setPersistence(PasswordInput);
 
 export default PasswordInput;

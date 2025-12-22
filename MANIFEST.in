@@ -8,3 +8,4 @@ include requires-dev.txt
 include dash_mantine_components/package-info.json
 include package.json
 exclude dash_mantine_components/metadata.json
+exclude dash_mantine_components/proptypes.js

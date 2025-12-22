@@ -1,16 +1,18 @@
-import {
-    CodeHighlightTabsCode,
-    CodeHighlightTabs as MantineCodeHighlightTabs,
-} from "@mantine/code-highlight";
-import "@mantine/code-highlight/styles.css";
-import { renderDashComponents } from "dash-extensions-js";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { CodeHighlightTabsCode } from '@mantine/code-highlight';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+// eslint-disable-next-line no-inline-comments
+const LazyCodeHighlightTabs = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "CodeHighlightTabs" */ './fragments/CodeHighlightTabs'
+        )
+);
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Code to highlight with meta data (file name and icon) */
     code: CodeHighlightTabsCode | CodeHighlightTabsCode[];
     /** Index of controlled active tab state */
@@ -22,7 +24,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Copied tooltip label, `'Copied'` by default */
     copiedLabel?: string;
     /** `max-height` of code in collapsed state */
-    maxCollapsedHeight?: React.CSSProperties["maxHeight"];
+    maxCollapsedHeight?: React.CSSProperties['maxHeight'];
     /** Uncontrolled expanded state initial value */
     defaultExpanded?: boolean;
     /** Expand button label and tooltip, `'Expand code'` by default */
@@ -37,23 +39,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
 /** CodeHighlightTabs */
 const CodeHighlightTabs = (props: Props) => {
-    const { setProps, loading_state, code, ...others } = props;
-    const renderedCode = [];
-    if (Array.isArray(code)) {
-        code.forEach((item, index) => {
-            renderedCode.push(renderDashComponents(item, ["icon"]));
-        });
-    } else {
-        renderedCode.push(renderDashComponents(code, ["icon"]));
-    }
-    console.log(renderedCode)
-
     return (
-        <MantineCodeHighlightTabs
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            code={renderedCode}
-            {...others}
-        />
+        <Suspense fallback={null}>
+            <LazyCodeHighlightTabs {...props} />
+        </Suspense>
     );
 };
 

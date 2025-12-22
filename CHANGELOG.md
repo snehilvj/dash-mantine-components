@@ -1,37 +1,286 @@
 # Change Log
 
-# 1.0.0rc1
+# [Unreleased]
 
-###  Pre-release Highlights
-- This release ensures dash-mantine-components V1 is compatible with both Dash 2 and Dash 3
-- If you were using `dmc >= 0.15.0`, there are no known breaking change.
-- If you were using `dmc < 0.15.0`, please follow our [migration guide](https://www.dash-mantine-components.com/migration).
-- ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
+### Added
+- Added `withAlignedLabels` prop to support offsetting the selected check icon in `Select` and `MultiSelect` #675 by @AnnMarieW.
+- Added `anchorProps` prop to `Anchor` by @jksinton 
+
+### Fixed
+- Fixed race condition in debounced value updates #671 by @AnnMarieW
 
 ### Changed
-- Updated to handle changes in Dash 3 #506 by @AnnMarieW:
-  - Removed `defaultProps` to be compatible with React 18.3
-  - Handled the removal of the `loading_state` prop
-  - Updated to use the new `dash_component_api` 
-  
+- Updated to Mantine (8.3.10),  Recharts (2.15.4), and TipTap (3.14.0) #675 
+
+# 2.4.0
+
+### Added
+
+- Two new copy to clipboard components #662 by @AnnMarieW
+    - `CopyButton` a ready-to-use copy button with customizable text, icons, and colors to indicate copy state.
+    - `CustomCopyButton` a fully customizable component using JavaScript function props for advanced use-cases.
+
+- Added function as prop support for `xAxisProps`, `yAxisProps`, `gridProps`, `rightYAxisProps` (and `zAxisProps` for BubbleChart) in `AreaChart`, `BarChart`, `BubbleChart`, `CompositeChart`, `LineChart`, and `ScatterChart`. #661 by @AnnMarieW
+
+- RichTextEditor updates:
+    - Added `dash_mantine_components.getEditor(id)` function to access the Tiptap editor instance in clientside callbacks. #666 by @AnnMarieW
+    - Added `focus` prop to control the cursor of the `Rich Text Editor` #665 by @chgiesse
+    - Added `editable` prop to `Rich Text Editor` #665
+    - Enabled code highlighting with the `CodeBlockLowlight` extension #663 by @AnnMarieW
+
+### Fixed
+
+- removed random react key generation which led to keys never match up between renders and would force component rerenders. #664 chgiesse
+
+### Changed
+
+- Updated to latest Mantine (8.3.6) #667 by @AnnMarieW
+
+
+# 2.3.0
+
+### Added
+
+- New `scrollTo` prop for `ScrollArea` #645 by @AnnMarieW
+- New `ScrollAreaAutoheight` component. #645
+
+- added `DirectionProvider` to handle RTL (right-to-left) text direction.  #650 by @AnnMarieW
+- added `debounce` prop to `Autocomplete #654 by @AnnMarieW
+- added support for new text style features from TipTap 3: BackgroundColor, FontFamily, FontSize, LineHeight.  #657 By @AnnMarieW
+
+The following new features available in Mantine 8.3.0 were added in #655 by @AnnMarieW
+- `MiniCalendar` component
+- `orientation` prop for `Progress`.  Now supports both horizontal and vertical orientation
+- `clearSearchOnChange` prop for `MultiSelect` - to clear search input when an item is selected
+- `reverseTimeControlsList`  prop for `TimePicker` -  to reverse the order of time controls in the dropdown. Use this option if you want the order of controls to match keyboard controls (up and down arrow) direction.
+
+### Fixed
+
+- BarChart: Added default `valueFormatter` to prevent rendering issues when `valueFormatter` is undefined. #464 by @AnnMarieW
+
+
+### Changed
+
+- Updated to latest Mantine (8.3.1) #650 by @AnnMarieW
+- `RichTextEditor` now uses Tiptap 3 (Mantine 8.3.0 recommendation). . No known breaking changes, but customizations may be affected.  See our [migration guide,](https://www.dash-mantine-components.com/migration).  #657 by @AnnMarieW
+
+# 2.2.1
+
+### Fixed
+
+- Fixed `MultiSelect` and `Select` so that changes to the `data` and `value` are batched so they only trigger a single callback. #637 by @AnnMarieW
+- Fixed a regression where Navlinks with `children` did not open/close on click. #633 by @AnnMarieW
+
+### Changed
+- Upgraded to latest Mantine (8.2.7) #638 by @AnnMarieW
+
+# 2.2.0
+
+See details and examples in the [DMC 2.2.0 Release Announcement](https://www.dash-mantine-components.com/release-2-2-0)
+
+### Added
+
+- Added support for custom toolbar controls in `RichTextEditor` #629 by @BSd3v
+- Added `clearSearchOnFocus` prop to `Select`  #627 by @AnnMarieW
+
+The following was added in #625 by @AnnMarieW
+- `attributes` prop – Pass custom attributes to inner elements of components that support the Styles API.
+- `strategy` prop for `Container` – Added `strategy="grid"` option for grid-based layouts with breakout features.
+- `target` prop for `Tooltip` – Specify tooltip targets using a selector, HTML element, or ref, as an alternative to children.
+- `chevronIconSize` prop for `Accordion` – Control the size of the default chevron icon independently from `chevronSize`.
+- `keepMounted` prop for `Collapse` – Keep collapsed content in the DOM while hidden.
+- `autoSelectOnBlur` prop for `Select` and `Autocomplete` – Automatically select the highlighted option when the input loses focus.
+
+
+### Fixed
+- Fixed CSS for `CodeHighlight` so it works when `dcc.Markdown` and/or `dash-ag-grid` are also used in the same app. #625 by @AnnMarieW
+
+
+### Changed
+- Upgraded to latest Mantine (8.2.5) #632 by @AnnMarieW
+
+# 2.2.0rc1
+
+### Fixed
+- Resolved an issue where `Slider` and `RangeSlider` values did not update correctly when the `min` or `max` props were updated in a callback. #616 by @AnnMarieW
+
+### Added
+- Added `valueLabelProps` to `BarChart` to allow customization of the value label, which is displayed when `withBarValueLabel` is set. #619 by @CGaul
+
+# 2.1.0
+
+### Added
+- New features for `Autocomplete` #604 by @ihor-lazariev:
+  - Support functions as props in `renderOption` and `filter` props
+  - Added `clearButtonProps` and `clearable` props
+
+- Added `renderNode` prop in `Tree` component, allowing full control over node rendering with a JavaScript function. #608 by @AnnMarieW
+
+- Added  Modal Stack and Drawer Stack components  #606 by @AnnMarieW
+  - Introduced `ModalStack` / `ManagedModal` and `DrawerStack` / `ManagedDrawer` for managing stacked modals and drawers.
+  - `ModalStack` and `DrawerStack` accept the Dash props: `open`, `close`, `toggle`, and `closeAll` to control visibility, and a read-only `state` prop to track which children are open.
+
+- Added Props #609 by @AnnMarieW
+  - `headerControlOrderProp` to calendar components
+  - `presets` to `DatePicker` and  `DateTimePicker`
+  - `autoContrast` to `Tooltip` and `FloatingTooltip`
+  - `domain` to `Slider` and `RangeSlider`
+  - `pushOnOverlap` to `RangeSlider`
+  - `bdrs` new style prop to for `borderRadius`
+  - `getYearControlProps`, `getMonthControlProps`, `getDayProps`, `renderDay` to date components
+
+### Fixed
+
+- Fixed issue where setting `value=None` in `MultiSelect` or `CheckboxGroup` caused an error #609
+
+### Changed
+- Upgraded to latest Mantine (8.1.2)
+
+# 2.0.0
+
+### Changed
+ - BREAKING CHANGES - updated to use Mantine 8.0.2
+ - See [Migration guide](https://www.dash-mantine-components.com/migration) in the dmc-docs
+
+### Added
+- New `TimePicker`, `TimeGrid`, `DatePicker` and `SubMenu` components
+
+- Functions as Props  #580 by @AnnMarieW and @BSd3v
+  - Components can now accept JavaScript functions via: `{"function": "myFunction"}`
+  - Functions must be defined in a .js file in  `/assets` in `window.dashMantineFunction` namespace
+  - Supports passing `options` from Python, for example: ` {"function": "formatTemp", "options": {"unit": "F"}}`
+  - Supported props:
+      - label and scale in Slider and RangeSlider
+      - renderOption and filter in Select, MultiSelect and TagsInput,
+      - disabledDates in date components with a calendar picker
+      - getBarColor in BarCharts
+      - valueFormatter and tooltipProps in chart components
+
+
+- New way to handle Notifications #539 by @BSd3v
+  - Added new `NotificationContainer` that works more closely to upstream Notifications in Mantine.
+  - Exposed the `notifications` api of Mantine for granular control at `dash_mantine_components.appNotifications.api`
+  - Exposed the `store` of notifications at `dash_mantine_components.store`
+  - Marked `Notification` and `NotificationProvider` for deprecation
+
+# 1.3.0
+
+### Added
+- Added `tableProps` and `tabularNums` props to `Table` #587 by @AnnMarieW
+- Added `TableScrollContainer` component #587 by @AnnMarieW
+-
+### Fixed
+- Fixed issue for components as props for `Timeline`, `Stepper`, `CodeHighlight` and `SegmentedControl`. #555 by @BSd3v
+- Removed unused async files #587 by @AnnMarieW
+
+
+### Changed
+- Upgraded to latest Mantine (7.17.7)
+
+
+# 1.2.0
+
+### Added
+
+- Added `inputProps` to JsonInput, NumberInput, PasswordInput, TextInput, and TextArea components to allow passing props directly to the underlying input element. #568 by @AnnMarieW
+- Optional component stylesheets are now bundled automatically. It’s no longer necessary to include them as external stylesheets or add them to the assets folder. PR #567 by @AnnMarieW
+
+# 1.1.2rc1
+
+### Fixed
+- Fixed issue where children of certain components could not be updated in a callback. Requires dash >=3.03 #558 by @AnnMarieW
+- Fixed issue where Navlink could not be updated in a callback if the href prop was not set initially.  #562 by @AnnMarieW
+- Fixed issue with components that used `useMemo` that couldn't be updated in a callback. #561 BY @AnnMarieW
+
+### Changed
+- Upgraded to latest Mantine (7.17.4)
+
+# 1.1.1
+
+### Fixed
+
+- Reverted PR #523, which introduced errors in the `Notification` component (reported in issue #542).
+- Resolved an issue in the `Stepper` component where it failed to render correctly when using custom icons or other components as props.  #544 by @BSd3v
+
+# 1.1.0
+
+### Added
+
+-   Added `RichTextEditor` and `TypographyStylesProvider` components #530 by @emilhe
+
+### Changed
+
+- Complex components such as `CodeHighlightTabs`, and `Stepper` are now rendered by the dash ecosystem when using dash 3+. Dash 2 falls back on `dash-extensions-js` to render via `React.createElement` (by @emilhe). This enables the use of these components in callbacks as triggers. #531 @BSd3v
+- Upgraded to latest Mantine (7.17.2)
+
+### fixed
+ - Fixed `TagsInput` initial value being cleared after user update (regression introduced in 1.0.0)  #533 by AnnMarieW
+
+
+# 1.0.0
+
+### Breaking Change
+
+-   Removed `draggable` and `speed` prop from `Carousel` since these props are not supported in Embla Carousel V8. #520 by @AnnMarieW
+
+### Added
+
+-   Added `middlewares` prop to `Tooltip` and `overscrollBehavior` prop to `ScrollArea` (New props as of Manitine 7.17). #520 by @AnnMarie
+
+### Changed
+
+-   `Notification` will now automatically set its `action` to `hide` when closed, this avoids issues where a `callback` error would re-trigger the component. #523 by @BSd3v
+-   graphs and code highlight components now loaded async, reducing the dash_mantine_components.js file size from 2.68 MiB to 823 KiB #521 by @AnnMarieW and @emilhe
+
+# 1.0.0rc2
+
+### Added
+
+-   Added `CheckboxCard` `CheckboxIndicator` `RadioCard` `RadioIndicator` components #486 by @deadkex
+
+### Changed
+
+-   Expanded the `active` prop to support string values (`"exact"` and `"partial"`) in addition to `true`/`false`. #504 by @BSd3v
+
+    -   `exact`: Marks the link as active only when `pathname` exactly matches `href`.
+    -   `partial`: Marks the link as active when `pathname` starts with `href`, allowing for subpages.
+
+-   Upgraded to latest Mantine (7.17.0)
+
+### Fixed
+
+-   Corrected an error in the `Alert` component when the `duration` prop was set when using dash>=3 #516 by @AnnMarieW
+
+# 1.0.0rc1
+
+### Pre-release Highlights
+
+-   This release ensures dash-mantine-components V1 is compatible with both Dash 2 and Dash 3
+
+-   ⚠️ **Important:** Apps using `dmc < 1.0.0` must pin `dash < 3` to avoid compatibility issues.
+
+### Changed
+
+-   Updated to handle changes in Dash 3 #506 by @AnnMarieW:
+    -   Removed `defaultProps` to be compatible with React 18.3
+    -   Handled the removal of the `loading_state` prop
+    -   Updated to use the new `dash_component_api`
 
 # 0.15.3
 
 ### Added
 
--   For  `MonthPickerInput`, the debounce prop can now be True, False or number of ms delay before updating. When True, the value updates on blur. #471 by @oelhammouchi
+-   For `MonthPickerInput`, the debounce prop can now be True, False or number of ms delay before updating. When True, the value updates on blur. #471 by @oelhammouchi
 -   Added `InputWrapper` component #491 by @Godisemo
 
 ### Fixed
 
-- Fixed debounce in `DatePickerInput` that stopped working in 0.15.2  #496 by @AnnMarie
-- Enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
-
+-   Fixed debounce in `DatePickerInput` that stopped working in 0.15.2 #496 by @AnnMarie
+-   Enable components to be used in `children` and `icon` in the `closeButtonProps` and `clearButtonProps`. #493 by @AnnMarieW
 
 ### Changed
 
 -   Upgraded to latest Mantine (7.16.2)
-
 
 # 0.15.2
 

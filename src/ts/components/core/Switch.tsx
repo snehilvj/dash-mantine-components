@@ -3,12 +3,12 @@ import {
     MantineRadius,
     MantineSize,
     Switch as MantineSwitch,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { setPersistence } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
+import { setPersistence } from '../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -32,7 +32,7 @@ interface Props
     /** Icon inside the thumb of the switch */
     thumbIcon?: React.ReactNode;
     /** Position of the label relative to the input, `'right'` by default */
-    labelPosition?: "left" | "right";
+    labelPosition?: 'left' | 'right';
     /** Description displayed below the label */
     description?: React.ReactNode;
     /** Error displayed below the label */
@@ -41,6 +41,8 @@ interface Props
     disabled?: boolean;
     /** State of check box */
     checked?: boolean;
+    /** If set, the indicator will be displayed inside thumb, `true` by default */
+    withThumbIndicator?: boolean;
 }
 
 /** Switch */
@@ -66,6 +68,6 @@ const Switch = (props: Props) => {
     );
 };
 
-setPersistence(Switch, ["checked"])
+setPersistence(Switch, ['checked']);
 
 export default Switch;

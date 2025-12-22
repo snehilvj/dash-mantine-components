@@ -2,12 +2,12 @@ import {
     Alert as MantineAlert,
     MantineColor,
     MantineRadius,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { useEffect, useRef } from "react";
-import { getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { useEffect, useRef } from 'react';
+import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
@@ -33,8 +33,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 }
 
 /** Alert */
-const Alert = ({ children, setProps, loading_state, duration, hide = false, ...others }: Props) => {
+const Alert = ({
+    children,
+    setProps,
+    loading_state,
+    duration,
+    hide = false,
+    ...others
+}: Props) => {
     const ref = useRef(null);
+    const isLoading = getLoadingState(loading_state);
 
     useEffect(() => {
         if (duration) {
@@ -55,7 +63,7 @@ const Alert = ({ children, setProps, loading_state, duration, hide = false, ...o
         <MantineAlert
             {...others}
             onClose={onClose}
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            data-dash-is-loading={isLoading || undefined}
         >
             {children}
         </MantineAlert>

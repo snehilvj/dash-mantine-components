@@ -1,19 +1,19 @@
-import { Notifications } from "@mantine/notifications";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getLoadingState } from "../../../utils/dash3";
+import { Notifications } from '@mantine/notifications';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { useEffect } from 'react';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Notifications position, `'bottom-right'` by default */
     position?:
-        | "top-left"
-        | "top-right"
-        | "top-center"
-        | "bottom-left"
-        | "bottom-right"
-        | "bottom-center";
+        | 'top-left'
+        | 'top-right'
+        | 'top-center'
+        | 'bottom-left'
+        | 'bottom-right'
+        | 'bottom-center';
     /** Auto close timeout for all notifications in ms, `false` to disable auto close, can be overwritten for individual notifications in `notifications.show` function, `4000` by defualt */
     autoClose?: number | false;
     /** Notification transition duration in ms, `250` by default */
@@ -33,6 +33,12 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 /** NotificationProvider */
 const NotificationProvider = (props: Props) => {
     const { setProps, loading_state, ...others } = props;
+
+    useEffect(() => {
+        console.warn(
+            'Notification and NotificationProvider are deprecated and will be removed in a future major release.  Instead, use `NotificationContainer'
+        );
+    }, []);
 
     return (
         <Notifications

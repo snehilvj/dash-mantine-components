@@ -1,18 +1,18 @@
-import { BubbleChart as MantineBubbleChart } from "@mantine/charts";
-import { BubbleChartDataKey } from "@mantine/charts";
-import { MantineColor } from "@mantine/core";
-import { BoxProps } from "props/box";
-import { GridChartBaseProps } from "props/charts";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React from "react";
-import { getScatterClickData, isEventValid } from "../../utils/charts";
-import { getLoadingState } from "../../utils/dash3";
+import { BubbleChartDataKey } from '@mantine/charts';
+import { MantineColor } from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { GridChartBaseProps } from 'props/charts';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { Suspense } from 'react';
 
-interface Props
-    extends BoxProps,
-        StylesApiProps,
-        DashBaseProps {
+// eslint-disable-next-line no-inline-comments
+const LazyBubbleChart = React.lazy(
+    () =>
+        import(/* webpackChunkName: "BubbleChart" */ './fragments/BubbleChart')
+);
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Chart data */
     data: Record<string, any>[];
     /** Data keys for x, y and z axis */
@@ -43,36 +43,16 @@ interface Props
     clickData?: Record<string, any>;
     /** Hover data */
     hoverData?: Record<string, any>;
-    /** Function to format z axis values */
-    valueFormatter?: (value: number) => string;
+    /** A function to format values on Y axis and inside the tooltip. See https://www.dash-mantine-components.com/functions-as-props */
+    valueFormatter?: any;
 }
 
-
-/** ScatterChart */
+/** BubbleChart */
 const BubbleChart = (props: Props) => {
-    const { setProps, loading_state, clickData, hoverData, scatterProps, ...others } =
-        props;
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({ clickData: getScatterClickData(ev) });
-        }
-    };
-
-    const onMouseOver= (ev) => {
-        if (isEventValid(ev)) {
-            setProps({ hoverData: getScatterClickData(ev) });
-        }
-    };
-
-    const newProps = { ...scatterProps, onClick, onMouseOver};
-
     return (
-        <MantineBubbleChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            scatterProps={newProps}
-            {...others}
-        />
+        <Suspense fallback={null}>
+            <LazyBubbleChart {...props} />
+        </Suspense>
     );
 };
 

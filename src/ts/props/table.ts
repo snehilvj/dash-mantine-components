@@ -1,6 +1,6 @@
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
 
 export interface TableElementProps
     extends BoxProps,
@@ -8,4 +8,6 @@ export interface TableElementProps
         DashBaseProps {
     /** Content */
     children?: React.ReactNode;
+    /* props passed to the table element */
+    tableProps?: object;
 }

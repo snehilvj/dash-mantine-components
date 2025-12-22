@@ -1,6 +1,6 @@
-import { MantineRadius, MantineSize } from "@mantine/core";
-import { BoxProps } from "./box";
-import { StylesApiProps } from "./styles";
+import { MantineRadius, MantineSize } from '@mantine/core';
+import { BoxProps } from './box';
+import { StylesApiProps } from './styles';
 
 export interface __InputWrapperProps {
     /** Contents of `Input.Label` component. If not set, label is not rendered. */
@@ -20,7 +20,7 @@ export interface __InputWrapperProps {
     /** Props passed down to the `Input.Error` component */
     errorProps?: Record<string, any>;
     /** Controls order of the elements, `['label', 'description', 'input', 'error']` by default */
-    inputWrapperOrder?: ("label" | "input" | "description" | "error")[];
+    inputWrapperOrder?: ('label' | 'input' | 'description' | 'error')[];
 }
 
 export interface InputWrapperProps
@@ -30,26 +30,26 @@ export interface InputWrapperProps
     /** Controls size of `Input.Label`, `Input.Description` and `Input.Error` components */
     size?: MantineSize | (string & {});
     /** `Input.Label` root element, `'label'` by default */
-    labelElement?: "label" | "div";
+    labelElement?: 'label' | 'div';
 }
 
 export interface __InputProps {
     /** Content section rendered on the left side of the input */
     leftSection?: React.ReactNode;
     /** Left section width, used to set `width` of the section and input `padding-left`, by default equals to the input height */
-    leftSectionWidth?: React.CSSProperties["width"];
+    leftSectionWidth?: React.CSSProperties['width'];
     /** Props passed down to the `leftSection` element */
     leftSectionProps?: object;
     /** Sets `pointer-events` styles on the `leftSection` element, `'none'` by default */
-    leftSectionPointerEvents?: React.CSSProperties["pointerEvents"];
+    leftSectionPointerEvents?: React.CSSProperties['pointerEvents'];
     /** Content section rendered on the right side of the input */
     rightSection?: React.ReactNode;
     /** Right section width, used to set `width` of the section and input `padding-right`, by default equals to the input height */
-    rightSectionWidth?: React.CSSProperties["width"];
+    rightSectionWidth?: React.CSSProperties['width'];
     /** Props passed down to the `rightSection` element */
     rightSectionProps?: object;
     /** Sets `pointer-events` styles on the `rightSection` element, `'none'` by default */
-    rightSectionPointerEvents?: React.CSSProperties["pointerEvents"];
+    rightSectionPointerEvents?: React.CSSProperties['pointerEvents'];
     /** Props passed down to the root element of the `Input` component */
     wrapperProps?: Record<string, any>;
     /** Sets `required` attribute on the `input` element */
@@ -68,6 +68,8 @@ export interface __InputProps {
     placeholder?: string;
     /** Name prop */
     name?: string;
+    /** Props passed down to the `Input` component */
+    inputProps?: Record<string, any>;
 }
 
 export interface InputProps extends BoxProps, __InputProps, StylesApiProps {
@@ -81,7 +83,7 @@ export interface InputProps extends BoxProps, __InputProps, StylesApiProps {
 
 export interface __BaseInputProps
     extends __InputWrapperProps,
-        Omit<__InputProps, "wrapperProps"> {
+        Omit<__InputProps, 'wrapperProps'> {
     /** Props passed down to the root element */
     wrapperProps?: Record<string, any>;
     /** Readonly */

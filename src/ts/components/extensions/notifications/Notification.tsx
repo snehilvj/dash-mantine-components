@@ -1,11 +1,11 @@
-import { MantineColor, MantineRadius } from "@mantine/core";
-import { notifications } from "@mantine/notifications";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { useEffect } from "react";
+import { MantineColor, MantineRadius } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { useEffect } from 'react';
 
-interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
+interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, 'id'> {
     /** Controls notification line or icon color, key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
@@ -31,10 +31,15 @@ interface Props extends BoxProps, StylesApiProps, Omit<DashBaseProps, "id"> {
      * */
     autoClose?: boolean | number;
     /** action */
-    action: "show" | "update" | "hide" | "clean" | "cleanQueue";
+    action: 'show' | 'update' | 'hide' | 'clean' | 'cleanQueue';
     /** Position on the screen to display the notification.  */
-    position?: 'top-left' |  'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
-
+    position?:
+        | 'top-left'
+        | 'top-right'
+        | 'bottom-left'
+        | 'bottom-right'
+        | 'top-center'
+        | 'bottom-center';
 }
 
 /** Notification */
@@ -42,24 +47,27 @@ const Notification = (props: Props) => {
     const { action, setProps, loading_state, ...others } = props;
 
     useEffect(() => {
+        console.warn(
+            'Notification and NotificationProvider are deprecated and will be removed in a future major release.  Instead, use `NotificationContainer'
+        );
         switch (action) {
-            case "show":
+            case 'show':
                 notifications.show(others);
                 break;
 
-            case "update":
+            case 'update':
                 notifications.update(others);
                 break;
 
-            case "hide":
+            case 'hide':
                 notifications.hide(others.id);
                 break;
 
-            case "clean":
+            case 'clean':
                 notifications.clean();
                 break;
 
-            case "cleanQueue":
+            case 'cleanQueue':
                 notifications.cleanQueue();
                 break;
 

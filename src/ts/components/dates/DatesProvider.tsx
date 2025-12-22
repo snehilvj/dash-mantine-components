@@ -1,10 +1,10 @@
 import {
     DatesProviderProps,
     DatesProvider as MantineDatesProvider,
-} from "@mantine/dates";
-import dayjs from "dayjs";
-import React, { useEffect } from "react";
-import customParseFormat from "dayjs/plugin/customParseFormat";
+} from '@mantine/dates';
+import dayjs from 'dayjs';
+import React, { useEffect } from 'react';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 const REGISTERED = {};
 

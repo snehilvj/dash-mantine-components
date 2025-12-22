@@ -1,7 +1,7 @@
-import React, { createContext } from "react";
+import React, { createContext } from 'react';
 
 interface RadioGroupContextProps {
-    radioOnClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
+    radioOnClick?: (val?: string) => void;
 }
 
 const RadioGroupContext = createContext<RadioGroupContextProps | null>(null);

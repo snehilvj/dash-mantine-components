@@ -1,6 +1,6 @@
-import { MantineRadius, MantineSize } from "@mantine/core";
-import { BoxProps } from "./box";
-import { StylesApiProps } from "./styles";
+import { MantineRadius, MantineSize } from '@mantine/core';
+import { BoxProps } from './box';
+import { StylesApiProps } from './styles';
 
 export interface __ProgressRootProps extends BoxProps {
     /** Controls track height, `'md'` by default */
@@ -11,6 +11,8 @@ export interface __ProgressRootProps extends BoxProps {
     autoContrast?: boolean;
     /** Controls sections width transition duration, value is specified in ms, `100` by default */
     transitionDuration?: number;
+    /** Controls orientation default `'horizontal'` */
+    orientation?: 'horizontal' | 'vertical';
 }
 export interface ProgressRootProps extends __ProgressRootProps, StylesApiProps {
     /** Content */

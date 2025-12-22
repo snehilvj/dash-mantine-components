@@ -6,10 +6,10 @@ import {
     MantineRadius,
     MantineShadow,
     PopoverWidth,
-} from "@mantine/core";
-import { PopoverMiddlewares } from "@mantine/core/lib/components/Popover/Popover.types";
-import { StylesApiProps } from "./styles";
-import { TransitionProps } from "./transition";
+} from '@mantine/core';
+import { PopoverMiddlewares } from '@mantine/core/lib/components/Popover/Popover.types';
+import { StylesApiProps } from './styles';
+import { TransitionProps } from './transition';
 
 export interface __PopoverProps {
     /** Dropdown position relative to the target element, `'bottom'` by default */
@@ -73,4 +73,6 @@ export interface PopoverProps extends __PopoverProps, StylesApiProps {
     closeOnEscape?: boolean;
     /** Determines whether dropdown and target elements should have accessible roles, `true` by default */
     withRoles?: boolean;
+    /** If set, the dropdown is hidden when the element is hidden with styles or not visible on the screen, `true` by default */
+    hideDetached?: boolean;
 }

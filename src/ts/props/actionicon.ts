@@ -3,11 +3,11 @@ import {
     MantineGradient,
     MantineRadius,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { LoaderProps } from "props/loader";
-import { StylesApiProps } from "props/styles";
-import React from "react";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { LoaderProps } from 'props/loader';
+import { StylesApiProps } from 'props/styles';
+import React from 'react';
 
 export interface ActionIconProps extends BoxProps, StylesApiProps {
     /** Determines whether `Loader` component should be displayed instead of the `children`, `false` by default */

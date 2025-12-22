@@ -1,15 +1,16 @@
-import { Select as MantineSelect } from "@mantine/core";
-import { useDebouncedValue, useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { ComboboxLikeProps } from "props/combobox";
-import { DashBaseProps, PersistenceProps, DebounceProps } from "props/dash";
-import { __ClearButtonProps } from "props/button";
-import { __BaseInputProps } from "props/input";
-import { ScrollAreaProps } from "props/scrollarea";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { filterSelected } from "../../../utils/combobox";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+import { Select as MantineSelect } from '@mantine/core';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { ComboboxLikeProps } from 'props/combobox';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
+import { __ClearButtonProps } from 'props/button';
+import { __BaseInputProps } from 'props/input';
+import { ScrollAreaProps } from 'props/scrollarea';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { filterSelected } from '../../../utils/combobox';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
+import { parseFuncProps } from '../../../utils/prop-functions';
 
 interface Props
     extends BoxProps,
@@ -25,8 +26,10 @@ interface Props
     searchable?: boolean;
     /** Determines whether check icon should be displayed near the selected option label, `true` by default */
     withCheckIcon?: boolean;
+    /** If set, unchecked labels are aligned with the checked one @default `false` */
+    withAlignedLabels?: boolean;
     /** Position of the check icon relative to the option label, `'left'` by default */
-    checkIconPosition?: "left" | "right";
+    checkIconPosition?: 'left' | 'right';
     /** Message displayed when no option matched current search query, only applicable when `searchable` prop is set */
     nothingFoundMessage?: React.ReactNode;
     /** Controlled search value */
@@ -41,24 +44,28 @@ interface Props
     hiddenInputProps?: object;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+    /** If set, the highlighted option is selected when the input loses focus. default `false` */
+    autoSelectOnBlur?: boolean;
+    /** Clears search value when dropdown is opened.  Ignored if searchable=False */
+    clearSearchOnFocus?: boolean;
 }
 
 /** Select */
 const Select = ({
-        setProps,
-        persistence,
-        persisted_props,
-        persistence_type,
-        loading_state,
-        debounce = false,
-        n_submit = 0,
-        n_blur = 0,
-        data = [],
-        searchValue,
-        value,
-        ...others
-    }: Props) => {
-
+    setProps,
+    persistence,
+    persisted_props,
+    persistence_type,
+    loading_state,
+    debounce = false,
+    n_submit = 0,
+    n_blur = 0,
+    data,
+    searchValue,
+    value,
+    clearSearchOnFocus = false,
+    ...others
+}: Props) => {
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
     const [searchVal, setSearchVal] = useState(searchValue);
@@ -72,9 +79,8 @@ const Select = ({
         }
     }, [debounced]);
 
-
     const handleKeyDown = (ev) => {
-        if (ev.key === "Enter") {
+        if (ev.key === 'Enter') {
             setProps({
                 n_submit: n_submit + 1,
                 ...(debounce === true && { value: selected }),
@@ -85,24 +91,27 @@ const Select = ({
     const handleBlur = () => {
         setProps({
             n_blur: n_blur + 1,
-            ...(debounce === true && { value: selected })
+            ...(debounce === true && { value: selected }),
         });
     };
 
-
     useDidUpdate(() => {
-        setOptions(data);
-        const filteredSelected = filterSelected(data, selected);
-        setSelected(filteredSelected);
+        const newOptions = Array.isArray(data) ? data : [];
+        const newSelected = filterSelected(newOptions, value);
+
+        setOptions(newOptions);
+        setSelected(newSelected);
+
+        setProps({
+            value: newSelected,
+        });
     }, [data]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        if (value !== debounced) {
+            setSelected(value);
+        }
     }, [value]);
-
-    useDidUpdate(() => {
-        setProps({ data: options });
-    }, [options]);
 
     useDidUpdate(() => {
         setProps({ searchValue: searchVal });
@@ -111,19 +120,23 @@ const Select = ({
     return (
         <MantineSelect
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            {...parseFuncProps('Select', others)}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            onDropdownOpen={() => {
+                if (clearSearchOnFocus && others.searchable) {
+                    setSearchVal('');
+                }
+            }}
             data={options}
             onChange={setSelected}
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
-            {...others}
         />
     );
 };
 
-setPersistence(Select)
-
+setPersistence(Select);
 
 export default Select;

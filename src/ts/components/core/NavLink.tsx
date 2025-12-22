@@ -2,13 +2,14 @@ import {
     MantineColor,
     NavLink as MantineNavLink,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { MouseEvent } from "react";
-import { TargetProps, onClick } from "../../utils/anchor";
-import { setPersistence, getLoadingState } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { MouseEvent, useState, useEffect } from 'react';
+import { TargetProps, onClick } from '../../utils/anchor';
+import { History } from '@plotly/dash-component-plugins';
+import { setPersistence, getLoadingState } from '../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -23,8 +24,12 @@ interface Props
     leftSection?: React.ReactNode;
     /** Section displayed on the right side of the label */
     rightSection?: React.ReactNode;
-    /** Determines whether the link should have active styles, `false` by default */
-    active?: boolean;
+    /**
+     * Controls whether the link is styled as active (default: `false`).
+     * - `exact`: Active if `pathname` matches `href` exactly.
+     * - `partial`: Active if `pathname` starts with `href` (for subpages).
+     */
+    active?: boolean | 'exact' | 'partial';
     /** Key of `theme.colors` of any valid CSS color to control active styles, `theme.primaryColor` by default */
     color?: MantineColor;
     /** href */
@@ -64,8 +69,30 @@ const NavLink = ({
     persistence_type,
     setProps,
     loading_state,
+    active = false,
+    opened = false,
     ...others
 }: Props) => {
+    const [linkActive, setLinkActive] = useState(false);
+
+    const pathnameToActive = (pathname) => {
+        setLinkActive(
+            active === true ||
+                (active === 'exact' && pathname === href) ||
+                (active === 'partial' &&
+                    (pathname.startsWith(href + '/') || pathname === href))
+        );
+    };
+
+    useEffect(() => {
+        pathnameToActive(window.location.pathname);
+
+        if (typeof active === 'string') {
+            History.onChange(() => {
+                pathnameToActive(window.location.pathname);
+            });
+        }
+    }, [active]);
 
     const onChange = (state: boolean) => {
         setProps({ opened: state });
@@ -79,37 +106,31 @@ const NavLink = ({
         }
     };
 
-    if (href) {
-        return (
-            <MantineNavLink
-                data-dash-is-loading={getLoadingState(loading_state) || undefined}
-                component="a"
-                onClick={(ev: MouseEvent<HTMLAnchorElement>) =>
-                    onClick(ev, href, target, refresh)
+    return (
+        <MantineNavLink
+            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            onClick={(ev: MouseEvent<HTMLAnchorElement>) => {
+                increment();
+                if (href) {
+                    onClick(ev, href, target, refresh);
                 }
-                href={href}
-                target={target}
-                onChange={onChange}
-                disabled={disabled}
-                {...others}
-            >
-                {children}
-            </MantineNavLink>
-        );
-    } else {
-        return (
-            <MantineNavLink
-                disabled={disabled}
-                onChange={onChange}
-                onClick={increment}
-                {...others}
-            >
-                {children}
-            </MantineNavLink>
-        );
-    }
+                if (children !== undefined) {
+                    setProps({ opened: !opened });
+                }
+            }}
+            href={href}
+            target={target}
+            onChange={onChange}
+            disabled={disabled}
+            active={linkActive}
+            opened={opened}
+            {...others}
+        >
+            {children}
+        </MantineNavLink>
+    );
 };
 
-setPersistence(NavLink, ["opened"])
+setPersistence(NavLink, ['opened']);
 
 export default NavLink;

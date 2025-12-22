@@ -1,23 +1,26 @@
 import {
     ComboboxStringData,
     Autocomplete as MantineAutocomplete,
-} from "@mantine/core";
-import { useDidUpdate } from "@mantine/hooks";
-import { BoxProps } from "props/box";
-import { ComboboxLikeProps } from "props/combobox";
-import { DashBaseProps, PersistenceProps } from "props/dash";
-import { __BaseInputProps } from "props/input";
-import { ScrollAreaProps } from "props/scrollarea";
-import { StylesApiProps } from "props/styles";
-import React, { useState } from "react";
-import { setPersistence, getLoadingState } from "../../../utils/dash3";
+} from '@mantine/core';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { BoxProps } from 'props/box';
+import { ComboboxLikeProps } from 'props/combobox';
+import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
+import { __ClearButtonProps } from 'props/button';
+import { __BaseInputProps } from 'props/input';
+import { ScrollAreaProps } from 'props/scrollarea';
+import { StylesApiProps } from 'props/styles';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
+import { parseFuncProps } from '../../../utils/prop-functions';
 
 interface Props
     extends BoxProps,
         __BaseInputProps,
-        Omit<ComboboxLikeProps, "data">,
+        Omit<ComboboxLikeProps, 'data'>,
         StylesApiProps,
         DashBaseProps,
+        DebounceProps,
         PersistenceProps {
     /** Data displayed in the dropdown */
     data?: ComboboxStringData;
@@ -25,13 +28,55 @@ interface Props
     value?: string;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+    /** Determines whether the clear button should be displayed in the right section when the component has value, `false` by default */
+    clearable?: boolean;
+    /** Props passed down to the clear button */
+    clearButtonProps?: __ClearButtonProps;
+    /** If set, the highlighted option is selected when the input loses focus @default `false` */
+    autoSelectOnBlur?: boolean;
 }
 
 /** Autocomplete */
-const Autocomplete = ({ setProps, loading_state, data = [], value, ...others }: Props) => {
-
+const Autocomplete = ({
+    setProps,
+    loading_state,
+    debounce = false,
+    persistence,
+    persisted_props,
+    persistence_type,
+    n_submit = 0,
+    n_blur = 0,
+    data = [],
+    value = '',
+    ...others
+}: Props) => {
     const [autocomplete, setAutocomplete] = useState(value);
     const [options, setOptions] = useState(data);
+
+    const debounceValue = typeof debounce === 'number' ? debounce : 0;
+    const [debounced] = useDebouncedValue(autocomplete, debounceValue);
+
+    useDidUpdate(() => {
+        if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
+    }, [debounced]);
+
+    const handleKeyDown = (ev) => {
+        if (ev.key === 'Enter') {
+            setProps({
+                n_submit: n_submit + 1,
+                ...(debounce === true && { value: autocomplete }),
+            });
+        }
+    };
+
+    const handleBlur = () => {
+        setProps({
+            n_blur: n_blur + 1,
+            ...(debounce === true && { value: autocomplete }),
+        });
+    };
 
     useDidUpdate(() => {
         setOptions(data);
@@ -42,25 +87,24 @@ const Autocomplete = ({ setProps, loading_state, data = [], value, ...others }: 
     }, [options]);
 
     useDidUpdate(() => {
-        setProps({ value: autocomplete });
-    }, [autocomplete]);
-
-    useDidUpdate(() => {
-        setAutocomplete(value);
+        if (value !== debounced) {
+            setAutocomplete(value);
+        }
     }, [value]);
 
     return (
         <MantineAutocomplete
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            wrapperProps={{ autoComplete: "off" }}
+            {...parseFuncProps('Autocomplete', others)}
             data={options}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             onChange={setAutocomplete}
             value={autocomplete}
-            {...others}
         />
     );
 };
 
-setPersistence(Autocomplete)
+setPersistence(Autocomplete);
 
 export default Autocomplete;
