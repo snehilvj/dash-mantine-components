@@ -97,6 +97,10 @@ const funcPropsMap = {
         'tooltipProps',
         'valueFormatter',
     ],
+    MantineProvider: [
+        'colorSchemeManager',
+        'cssVariablesResolver',
+    ]
 };
 
 // parses functon as props from other props
