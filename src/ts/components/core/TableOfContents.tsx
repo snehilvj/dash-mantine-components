@@ -35,6 +35,13 @@ interface Props
     depthOffset?: number | string;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
     radius?: MantineRadius;
+    /** Offset from the top of the viewport to use when determining the active heading, 0 by default*/
+    offset?: number;
+    /** Set scrollIntoView options.
+     * {'behavior': 'auto' | 'instant' | 'smooth',
+     *  'block': 'center' | 'end' | 'nearest' | 'start',
+     *  'inline': 'center' | 'end' | 'nearest' | 'start'}*/
+    scrollIntoViewOptions?: ScrollIntoViewOptions;
 }
 
 /** TableOfContents */
@@ -43,20 +50,28 @@ const TableOfContents = (
         setProps,
         loading_state,
         selector,
+        offset,
+        scrollIntoViewOptions,
         ...others
     }: Props) => {
-
-
     return (
         <MantineTableOfContents
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             scrollSpyOptions={{
-                selector: selector
-                // getDepth: (element) => Number(element.getAttribute('data-order')),
-                // getValue: (element) => element.getAttribute('data-heading') || '',
+                selector: selector,
+                // getDepth: (element) => Number(element.getAttribute('data-order')), // A function to retrieve depth of heading, by default depth is calculated based on tag name
+                // getValue: (element) => element.getAttribute('data-heading') || '', // A function to retrieve heading value, by default element.textContent is used
+                // scrollHost?: HTMLElement, // Host element to attach scroll event listener, if not provided, window is used
+                offset: offset,
             }}
-            getControlProps={({ data }) => ({
-                onClick: () => data.getNode().scrollIntoView(),
+            getControlProps={({ active, data }) => ({
+                onClick: (e) => {
+                    e.preventDefault();
+                    window.history.replaceState(null, "", `#${data.id}`);
+                    data.getNode().scrollIntoView(scrollIntoViewOptions);
+                },
+                component: "a",
+                href: `#${data.id}`,
                 children: data.value,
             })}
             {...others}
