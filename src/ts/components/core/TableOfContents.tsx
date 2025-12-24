@@ -7,7 +7,7 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { getLoadingState } from "../../utils/dash3";
 import {
     InitialTableOfContentsData
@@ -42,6 +42,8 @@ interface Props
      *  'block': 'center' | 'end' | 'nearest' | 'start',
      *  'inline': 'center' | 'end' | 'nearest' | 'start'}*/
     scrollIntoViewOptions?: ScrollIntoViewOptions;
+    /** Usable in callbacks to force a refresh.*/
+    refresh?: boolean;
 }
 
 /** TableOfContents */
@@ -52,11 +54,20 @@ const TableOfContents = (
         selector,
         offset,
         scrollIntoViewOptions,
+        refresh,
         ...others
     }: Props) => {
+
+    const reinitializeRef = useRef(() => {});
+
+    useLayoutEffect(() => {
+        reinitializeRef.current();
+    }, [refresh]);
+
     return (
         <MantineTableOfContents
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            reinitializeRef={reinitializeRef}
             scrollSpyOptions={{
                 selector: selector,
                 // getDepth: (element) => Number(element.getAttribute('data-order')), // A function to retrieve depth of heading, by default depth is calculated based on tag name
