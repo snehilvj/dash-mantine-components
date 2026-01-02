@@ -43,7 +43,7 @@ interface Props
      *  'inline': 'center' | 'end' | 'nearest' | 'start'}*/
     scrollIntoViewOptions?: ScrollIntoViewOptions;
     /** Usable in callbacks to force a refresh.*/
-    refresh?: boolean;
+    refresh?: any;
 }
 
 /** TableOfContents */
@@ -61,6 +61,7 @@ const TableOfContents = (
     const reinitializeRef = useRef(() => {});
 
     useLayoutEffect(() => {
+        if (refresh === undefined) return;
         reinitializeRef.current();
     }, [refresh]);
 
