@@ -7,11 +7,12 @@ import {
 import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useEffect } from "react";
 import { getLoadingState } from "../../utils/dash3";
 import {
     InitialTableOfContentsData
 } from "@mantine/core/lib/components/TableOfContents/TableOfContents";
+import {equals, concat, includes, toPairs, any} from 'ramda';
 
 interface Props
     extends BoxProps,
@@ -43,8 +44,26 @@ interface Props
      *  'inline': 'center' | 'end' | 'nearest' | 'start'}*/
     scrollIntoViewOptions?: ScrollIntoViewOptions;
     /** Usable in callbacks to force a refresh.*/
-    refresh?: any;
+    refresh?: boolean;
+    /** component to listen to for auto reloading upon update defaults to listen to '_pages_content'.*/
+    targetComponentId?: string;
 }
+
+const loadingSelector = (componentId) => state => {
+    const loadingChildren = toPairs(state.loading).reduce(
+        (acc, [path, load]) => {
+            if (load[0]?.id === componentId && load.length) {
+                return concat(acc, load);
+            }
+            return acc;
+        },
+        []
+    );
+    if (loadingChildren.length) {
+        return false;
+    }
+    return true;
+};
 
 /** TableOfContents */
 const TableOfContents = (
@@ -55,15 +74,34 @@ const TableOfContents = (
         offset,
         scrollIntoViewOptions,
         refresh,
+        targetComponentId,
         ...others
     }: Props) => {
 
     const reinitializeRef = useRef(() => {});
 
     useLayoutEffect(() => {
-        if (refresh === undefined) return;
-        reinitializeRef.current();
+        if (refresh) {
+            reinitializeRef.current();
+            setProps({ refresh: false });
+        }
     }, [refresh]);
+
+    const ctx = (window as any)?.dash_component_api?.useDashContext();
+
+    const loading = ctx.useSelector(
+        loadingSelector(targetComponentId || "_pages_content"),
+        equals
+    );
+
+    useEffect(() => {
+        if (loading) {
+            setTimeout(() => {
+                reinitializeRef.current();
+                setProps({refresh: true}); // Trigger re-render to update TOC
+            }, 0); // Delay to allow content to load
+        }
+    }, [loading]);
 
     return (
         <MantineTableOfContents
