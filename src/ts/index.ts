@@ -180,6 +180,7 @@ import RichTextEditor from './components/extensions/richtexteditor/RichTextEdito
 import { getEditor } from './utils/editorRegistry';
 import TypographyStylesProvider from './components/styles/TypographyStylesProvider';
 import DirectionProvider from './components/styles/DirectionProvider';
+import TableOfContents from "./components/core/TableOfContents"
 
 export {
     Accordion,
@@ -329,6 +330,7 @@ export {
     StepperCompleted,
     StepperStep,
     Switch,
+    TableOfContents,
     Table,
     TableCaption,
     TableTbody,
