@@ -8,7 +8,7 @@ import { BoxProps } from "props/box";
 import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useLayoutEffect, useRef, useEffect } from "react";
-import { getLoadingState } from "../../utils/dash3";
+import { getLoadingState, useDash3LoadingCompleted } from "../../utils/dash3";
 import {
     InitialTableOfContentsData
 } from "@mantine/core/lib/components/TableOfContents/TableOfContents";
@@ -45,25 +45,13 @@ interface Props
     scrollIntoViewOptions?: ScrollIntoViewOptions;
     /** Usable in callbacks to force a refresh.*/
     refresh?: boolean;
-    /** component to listen to for auto reloading upon update defaults to listen to '_pages_content'.*/
-    targetComponentId?: string;
+    /**
+      * Component id to observe for loading completion (Dash >= 3 only).
+      * Defaults to Dash Pages content container '_pages_content'.
+      * For Dash 2 use reinitialize prop instead.
+      */
+    target_id?: string;
 }
-
-const loadingSelector = (componentId) => state => {
-    const loadingChildren = toPairs(state.loading).reduce(
-        (acc, [path, load]) => {
-            if (load[0]?.id === componentId && load.length) {
-                return concat(acc, load);
-            }
-            return acc;
-        },
-        []
-    );
-    if (loadingChildren.length) {
-        return false;
-    }
-    return true;
-};
 
 /** TableOfContents */
 const TableOfContents = (
@@ -74,7 +62,7 @@ const TableOfContents = (
         offset,
         scrollIntoViewOptions,
         refresh,
-        targetComponentId,
+        target_id,
         ...others
     }: Props) => {
 
@@ -87,21 +75,19 @@ const TableOfContents = (
         }
     }, [refresh]);
 
-    const ctx = (window as any)?.dash_component_api?.useDashContext();
 
-    const loading = ctx.useSelector(
-        loadingSelector(targetComponentId || "_pages_content"),
-        equals
+    const loaded = useDash3LoadingCompleted(
+        target_id || "_pages_content"
     );
 
     useEffect(() => {
-        if (loading) {
+        if (loaded) {
             setTimeout(() => {
                 reinitializeRef.current();
-                setProps({refresh: true}); // Trigger re-render to update TOC
-            }, 0); // Delay to allow content to load
+                setProps({ refresh: true });
+            }, 0);
         }
-    }, [loading]);
+    }, [loaded]);
 
     return (
         <MantineTableOfContents

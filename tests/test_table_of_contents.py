@@ -91,7 +91,7 @@ def test_001ta_table_of_contents_multipage(dash_duo):
     assert dash_duo.get_logs() == []
 
 
-def test_002ta_table_of_contents_targetComponentId(dash_duo):
+def test_002ta_table_of_contents_target_id(dash_duo):
     app = Dash()
 
     component = dmc.AppShell(
@@ -111,7 +111,7 @@ def test_002ta_table_of_contents_targetComponentId(dash_duo):
                 ),
                 html.Div(id="tabs-content"),
                 dmc.AppShellAside(
-                    dmc.TableOfContents(id="toc", targetComponentId="tabs-content")
+                    dmc.TableOfContents(id="toc", target_id="tabs-content")
                 ),
             ]
         )
