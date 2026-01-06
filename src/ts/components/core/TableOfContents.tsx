@@ -8,9 +8,6 @@ import { DashBaseProps } from "props/dash";
 import { StylesApiProps } from "props/styles";
 import React, { useLayoutEffect, useRef, useEffect } from "react";
 import { getLoadingState, useDash3LoadingCompleted } from "../../utils/dash3";
-import {
-    InitialTableOfContentsData
-} from "@mantine/core/lib/components/TableOfContents/TableOfContents";
 
 interface Props
     extends BoxProps,
@@ -26,8 +23,6 @@ interface Props
     autoContrast?: boolean;
     /** CSS Selector to get headings, 'h1, h2, h3, h4, h5, h6' by default */
     selector?: string;
-    /** Data used to render content until actual values are retrieved from the DOM, empty array by default */
-    initialData?: InitialTableOfContentsData[];
     /** Minimum `depth` value that requires offset, `1` by default */
     minDepthToOffset?: number;
     /** Controls padding on the left side of control, multiplied by (`depth` - `minDepthToOffset`), `20px` by default  */

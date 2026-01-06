@@ -14,9 +14,6 @@ import {
     isNil,
     mergeRight,
     type,
-    equals,
-    concat,
-    toPairs,
 } from 'ramda';
 
 const SIMPLE_COMPONENT_TYPES = ['String', 'Number', 'Null', 'Boolean'];
@@ -238,6 +235,6 @@ export const useDash3LoadingCompleted = (componentId: string): boolean | null =>
         return null; // Dash < 3 or unsupported environment
     }
 
-    return ctx.useSelector(loadingSelector(componentId), equals);
+    return ctx.useSelector(loadingSelector(componentId));
 };
 
