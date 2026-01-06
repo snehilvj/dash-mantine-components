@@ -45,7 +45,8 @@ import Pagination from './components/core/Pagination';
 import Paper from './components/core/Paper';
 import Rating from './components/core/Rating';
 import RingProgress from './components/core/RingProgress';
-import ScrollArea from './components/core/ScrollArea';
+import ScrollArea from './components/core/scrollarea/ScrollArea';
+import ScrollAreaAutosize from './components/core/scrollarea/ScrollAreaAutosize';
 import SegmentedControl from './components/core/SegmentedControl';
 import SimpleGrid from './components/core/SimpleGrid';
 import Skeleton from './components/core/Skeleton';
@@ -75,6 +76,8 @@ import ActionIcon from './components/core/button/ActionIcon';
 import ActionIconGroup from './components/core/button/ActionIconGroup';
 import Button from './components/core/button/Button';
 import ButtonGroup from './components/core/button/ButtonGroup';
+import CopyButton from './components/core/button/CopyButton';
+import CustomCopyButton from './components/core/button/CustomCopyButton';
 import UnstyledButton from './components/core/button/UnstyledButton';
 import Card from './components/core/card/Card';
 import CardSection from './components/core/card/CardSection';
@@ -153,6 +156,7 @@ import DatePicker from './components/dates/DatePicker';
 import DatePickerInput from './components/dates/DatePickerInput';
 import DateTimePicker from './components/dates/DateTimePicker';
 import DatesProvider from './components/dates/DatesProvider';
+import MiniCalendar from './components/dates/MiniCalendar';
 import MonthPickerInput from './components/dates/MonthPickerInput';
 import YearPickerInput from './components/dates/YearPickerInput';
 import TimeGrid from './components/dates/TimeGrid';
@@ -173,7 +177,9 @@ import NavigationProgressProvider from './components/extensions/nprogress/Naviga
 import MantineProvider from './components/styles/MantineProvider';
 import ChipGroup from './components/core/chip/ChipGroup';
 import RichTextEditor from './components/extensions/richtexteditor/RichTextEditor';
+import { getEditor } from './utils/editorRegistry';
 import TypographyStylesProvider from './components/styles/TypographyStylesProvider';
+import DirectionProvider from './components/styles/DirectionProvider';
 
 export {
     Accordion,
@@ -207,6 +213,8 @@ export {
     Burger,
     Button,
     ButtonGroup,
+    CopyButton,
+    CustomCopyButton,
     Card,
     CardSection,
     Carousel,
@@ -257,6 +265,7 @@ export {
     ListItem,
     Loader,
     LoadingOverlay,
+    MiniCalendar,
     MantineProvider,
     Mark,
     Menu,
@@ -306,6 +315,7 @@ export {
     SemiCircleProgress,
     ScatterChart,
     ScrollArea,
+    ScrollAreaAutosize,
     SegmentedControl,
     Select,
     SimpleGrid,
@@ -349,6 +359,8 @@ export {
     VisuallyHidden,
     YearPickerInput,
     RichTextEditor,
+    getEditor,
     TypographyStylesProvider,
     appNotifications,
+    DirectionProvider,
 };

@@ -36,6 +36,8 @@ interface Props
     nothingFoundMessage?: React.ReactNode;
     /** Determines whether check icon should be displayed near the selected option label, `true` by default */
     withCheckIcon?: boolean;
+    /** If set, unchecked labels are aligned with the checked one @default `false` */
+    withAlignedLabels?: boolean;
     /** Position of the check icon relative to the option label, `'left'` by default */
     checkIconPosition?: 'left' | 'right';
     /** Determines whether picked options should be removed from the options list, `false` by default */
@@ -50,6 +52,8 @@ interface Props
     hiddenInputValuesDivider?: string;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */
     scrollAreaProps?: ScrollAreaProps;
+    /** Clear search value when item is selected. Default True */
+    clearSearchOnChange?: boolean;
 }
 
 /** MultiSelect */
@@ -85,7 +89,6 @@ const MultiSelect = ({
         }
     }, [debounced]);
 
-
     const handleKeyDown = (ev) => {
         if (ev.key === 'Enter') {
             setProps({
@@ -102,20 +105,21 @@ const MultiSelect = ({
         });
     };
 
+    useDidUpdate(() => {
+        const newOptions = Array.isArray(data) ? data : [];
+        setOptions(newOptions);
 
-   useDidUpdate(() => {
-      const newOptions = Array.isArray(data) ? data : [];
-      setOptions(newOptions);
+        const rawValue = Array.isArray(value) ? value : [];
+        const newSelected = filterSelected(newOptions, rawValue) ?? [];
+        setSelected(newSelected);
 
-      const rawValue = Array.isArray(value) ? value : [];
-      const newSelected = filterSelected(newOptions, rawValue) ?? [];
-      setSelected(newSelected);
-
-      setProps({ value: newSelected });
+        setProps({ value: newSelected });
     }, [data]);
 
-    useDidUpdate(() => {
-        setSelected(value ?? []);
+   useDidUpdate(() => {
+        if (value !== debounced) {
+            setSelected(value ?? []);
+        }
     }, [value]);
 
     const handleSearchChange = (newSearchVal) => {

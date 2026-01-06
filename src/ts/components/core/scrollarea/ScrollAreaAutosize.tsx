@@ -1,8 +1,8 @@
-import { ScrollArea as MantineScrollArea } from '@mantine/core';
+import { ScrollArea } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 import { ScrollAreaProps } from 'props/scrollarea';
 import React from 'react';
-import { getLoadingState } from '../../utils/dash3';
+import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends ScrollAreaProps, DashBaseProps {
     /** Content */
@@ -10,17 +10,17 @@ interface Props extends ScrollAreaProps, DashBaseProps {
 }
 
 /** ScrollArea */
-const ScrollArea = (props: Props) => {
+const ScrollAreaAutosize = (props: Props) => {
     const { setProps, loading_state, children, ...others } = props;
 
     return (
-        <MantineScrollArea
+        <ScrollArea.Autosize
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         >
             {children}
-        </MantineScrollArea>
+        </ScrollArea.Autosize>
     );
 };
 
-export default ScrollArea;
+export default ScrollAreaAutosize;

@@ -28,7 +28,12 @@ type ExtensionName =
     | 'TableHeader'
     | 'Placeholder'
     | 'Image'
-    | 'Color';
+    | 'BackgroundColor'
+    | 'FontFamily'
+    | 'FontSize'
+    | 'LineHeight'
+    | 'Color'
+    | 'CodeBlockLowlight';
 
 // TODO: Maybe add types for the extensions options explicitly?
 type Extension =
@@ -124,10 +129,16 @@ export interface Props
     /** An integer that represents the number of times that this element has lost focus. */
     n_blur?: number;
 
+    /** If True, the editor will be focused. If False, the editor will be blurred. Can also be a string ('start', 'end', 'all') or number to focus at a specific position. Positive values start at the beginning of the document - negative values at the end. */
+    focus?: boolean | 'start' | 'end' | 'all' | number;
+
+    /** If True, the editor will be editable. True by default. */
+    editable?: boolean;
+
     /** Variant of the editor. */
     variant?: 'default' | 'subtle';
 
-    /** List of extensions to be loaded by the editor. Each item can be either a string with the extension name (e.g. 'Color') or an object with the extension name as key and options as value (e.g. {'TextAlign': {'types': ['heading', 'paragraph']}}). 
+    /** List of extensions to be loaded by the editor. Each item can be either a string with the extension name (e.g. 'Color') or an object with the extension name as key and options as value (e.g. {'TextAlign': {'types': ['heading', 'paragraph']}}).
      * ['StarterKit',
         'Underline',
         'Link',

@@ -1,25 +1,42 @@
-import { RichTextEditor as MantineRichTextEditor, Link } from '@mantine/tiptap';
+import { RichTextEditor as MantineRichTextEditor } from '@mantine/tiptap';
 import '@mantine/tiptap/styles.css';
 import { Props } from '../RichTextEditor';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { resolveProp } from '../../../../utils/prop-functions';
 
 import { useEditor } from '@tiptap/react';
 import Highlight from '@tiptap/extension-highlight';
 import StarterKit from '@tiptap/starter-kit';
-import Underline from '@tiptap/extension-underline';
 import TextAlign from '@tiptap/extension-text-align';
 import Superscript from '@tiptap/extension-superscript';
 import Subscript from '@tiptap/extension-subscript';
-import Table from '@tiptap/extension-table';
-import TableCell from '@tiptap/extension-table-cell';
-import TableHeader from '@tiptap/extension-table-header';
-import TableRow from '@tiptap/extension-table-row';
-import Placeholder from '@tiptap/extension-placeholder';
-import Color from '@tiptap/extension-color';
-import TextStyle from '@tiptap/extension-text-style';
+import {
+    Table,
+    TableCell,
+    TableHeader,
+    TableRow,
+} from '@tiptap/extension-table';
+
+import { Placeholder } from '@tiptap/extensions';
+import {
+    TextStyle,
+    Color,
+    BackgroundColor,
+    FontFamily,
+    FontSize,
+    LineHeight,
+} from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image';
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
+import { createLowlight } from 'lowlight';
+import ts from 'highlight.js/lib/languages/typescript';
+import js from 'highlight.js/lib/languages/javascript';
+import python from 'highlight.js/lib/languages/python';
+import css from 'highlight.js/lib/languages/css';
+import plaintext from 'highlight.js/lib/languages/plaintext';
+import bash from 'highlight.js/lib/languages/bash';
+
 import {
     getLoadingState,
     setPersistence,
@@ -27,11 +44,23 @@ import {
     getContextPath,
 } from '../../../../utils/dash3';
 
+import { editorInstances } from '../../../../utils/editorRegistry';
+
+const lowlight = createLowlight();
+lowlight.register({
+    ts,
+    js,
+    python,
+    py: python,
+    css,
+    bash,
+    shell: bash,
+    text: plaintext,
+});
+
 // Import all extensions directly
 const extensionMap = {
     StarterKit,
-    Underline,
-    Link,
     Superscript,
     Subscript,
     Highlight,
@@ -43,7 +72,12 @@ const extensionMap = {
     Placeholder,
     Color,
     TextStyle,
+    BackgroundColor,
+    FontFamily,
+    FontSize,
+    LineHeight,
     Image,
+    CodeBlockLowlight,
 } as const;
 
 const CustomControl = (props) => {
@@ -68,6 +102,7 @@ const CustomControl = (props) => {
 
 /** RichTextEditor */
 const RichTextEditor = ({
+    id,
     setProps,
     loading_state,
     persistence,
@@ -77,9 +112,8 @@ const RichTextEditor = ({
     json,
     variant,
     extensions = [
-        'StarterKit',
-        'Underline',
-        'Link',
+        { StarterKit: { codeBlock: false } },
+        { CodeBlockLowlight: { lowlight } },
         'Superscript',
         'Subscript',
         'Highlight',
@@ -91,6 +125,10 @@ const RichTextEditor = ({
         { TextAlign: { types: ['heading', 'paragraph'] } },
         'Color',
         'TextStyle',
+        'BackgroundColor',
+        'FontFamily',
+        'FontSize',
+        'LineHeight',
         'Image',
     ],
     toolbar,
@@ -98,6 +136,8 @@ const RichTextEditor = ({
     n_blur = 0,
     selected,
     labels,
+    focus,
+    editable = true,
     ...others
 }: Props) => {
     // Function to sync the html/json properties.
@@ -191,14 +231,62 @@ const RichTextEditor = ({
     };
     // Construct the toolbar. NB: Can't be updated after the editor is created.
     let mantineToolbar = undefined;
+
     // If any extensions are specified, load them. NB: Can't be changed after the editor is created.
-    const mantineExtensions = extensions.map((ext) => {
-        if (typeof ext === 'string') {
-            return extensionMap[ext];
-        }
-        const name = Object.keys(ext)[0];
-        return extensionMap[name].configure(ext[name]);
-    });
+    const mantineExtensions = extensions
+        .map((ext) => {
+            // Case 1: String extension
+            if (typeof ext === 'string') {
+                // Special handling for CodeBlockLowlight (since can't pass lowlight from Python app)
+                if (ext === 'CodeBlockLowlight') {
+                    return extensionMap.CodeBlockLowlight.configure({
+                        lowlight,
+                    });
+                }
+
+                // Validate and return other string extensions
+                if (!(ext in extensionMap)) {
+                    throw new Error(`Unknown extension: "${ext}"`);
+                }
+                return extensionMap[ext];
+            }
+
+            // Case 2: Object extension
+            if (!ext || typeof ext !== 'object') {
+                throw new Error(`Invalid extension format: ${ext}`);
+            }
+
+            const keys = Object.keys(ext);
+
+            if (keys.length === 0) {
+                throw new Error('Empty extension object');
+            }
+
+            if (keys.length > 1) {
+                throw new Error(
+                    `Extension object should have one key, got: ${keys.join(', ')}`
+                );
+            }
+
+            const name = keys[0];
+
+            if (!(name in extensionMap)) {
+                throw new Error(`Unknown extension: "${name}"`);
+            }
+
+            // Special handling for CodeBlockLowlight - merge with lowlight
+            if (name === 'CodeBlockLowlight') {
+                return extensionMap.CodeBlockLowlight.configure({
+                    lowlight,
+                    ...(ext.CodeBlockLowlight || {}),
+                });
+            }
+
+            // Handle all other extensions
+            return extensionMap[name].configure(ext[name]);
+        })
+        .filter(Boolean); // Remove any null entries
+
     // Create the editor, with json taking precedence over html as content
     const editor = useEditor({
         extensions: mantineExtensions,
@@ -207,7 +295,44 @@ const RichTextEditor = ({
         onBlur: onBlur,
         onSelectionUpdate: onSelectionUpdate,
         onCreate: syncDashState,
+        shouldRerenderOnTransaction: true,
     });
+
+    // Register editor instance
+    useEffect(() => {
+        if (editor && id) {
+            editorInstances[id] = editor;
+        }
+        // Cleanup: remove from registry when component unmounts
+        return () => {
+            if (id) {
+                delete editorInstances[id];
+            }
+        };
+    }, [editor, id]);
+
+    // Handle focus prop changes.
+    useEffect(() => {
+        if (!editor || focus === undefined) {
+            return;
+        }
+
+        if (focus === false) {
+            editor.commands.blur();
+        } else {
+            editor.commands.focus(focus === true ? undefined : focus);
+        }
+        setProps({ focus: undefined });
+    }, [focus, editor]);
+
+    // handle editable prop changes.
+    useEffect(() => {
+        if (!editor) {
+            return;
+        }
+
+        editor.setEditable(editable);
+    }, [editable, editor]);
 
     const renderControl = (ctl, i, editor, componentPath) => {
         // Case 1: Built-in control name
@@ -237,7 +362,7 @@ const RichTextEditor = ({
         }
     };
 
-    if (toolbar !== undefined) {
+    if (toolbar !== undefined && editable) {
         const componentPath = getContextPath();
         mantineToolbar = (
             <MantineRichTextEditor.Toolbar
@@ -265,6 +390,7 @@ const RichTextEditor = ({
     // Render the component tree.
     return (
         <MantineRichTextEditor
+            id={id}
             variant={variant}
             editor={editor}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
