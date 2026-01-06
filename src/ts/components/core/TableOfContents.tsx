@@ -43,8 +43,8 @@ interface Props
      *  'block': 'center' | 'end' | 'nearest' | 'start',
      *  'inline': 'center' | 'end' | 'nearest' | 'start'}*/
     scrollIntoViewOptions?: ScrollIntoViewOptions;
-    /** Usable in callbacks to force a refresh.*/
-    refresh?: boolean;
+    /** Forces a re-scan of headings for dynamic content. Can be triggered in a callback.*/
+    reinitialize?: boolean;
     /**
       * Component id to observe for loading completion (Dash >= 3 only).
       * Defaults to Dash Pages content container '_pages_content'.
