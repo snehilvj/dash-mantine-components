@@ -1,7 +1,6 @@
 import {
     TableOfContents as MantineTableOfContents,
     MantineColor,
-    MantineRadius,
     MantineSize,
 } from "@mantine/core";
 import { BoxProps } from "props/box";
@@ -12,7 +11,6 @@ import { getLoadingState, useDash3LoadingCompleted } from "../../utils/dash3";
 import {
     InitialTableOfContentsData
 } from "@mantine/core/lib/components/TableOfContents/TableOfContents";
-import {equals, concat, includes, toPairs, any} from 'ramda';
 
 interface Props
     extends BoxProps,
@@ -61,7 +59,7 @@ const TableOfContents = (
         selector,
         offset,
         scrollIntoViewOptions,
-        refresh,
+        reinitialize,
         target_id,
         ...others
     }: Props) => {
@@ -69,11 +67,11 @@ const TableOfContents = (
     const reinitializeRef = useRef(() => {});
 
     useLayoutEffect(() => {
-        if (refresh) {
+        if (reinitialize) {
             reinitializeRef.current();
-            setProps({ refresh: false });
+            setProps({ reinitialize: false });
         }
-    }, [refresh]);
+    }, [reinitialize]);
 
 
     const loaded = useDash3LoadingCompleted(
@@ -84,7 +82,7 @@ const TableOfContents = (
         if (loaded) {
             setTimeout(() => {
                 reinitializeRef.current();
-                setProps({ refresh: true });
+                setProps({ reinitialize: true });
             }, 0);
         }
     }, [loaded]);
@@ -97,7 +95,7 @@ const TableOfContents = (
                 selector: selector,
                 offset: offset,
             }}
-            getControlProps={({ active, data }) => ({
+            getControlProps={({ data }) => ({
                 onClick: (e) => {
                     e.preventDefault();
                     window.history.replaceState(null, "", `#${data.id}`);
