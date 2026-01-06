@@ -95,9 +95,6 @@ const TableOfContents = (
             reinitializeRef={reinitializeRef}
             scrollSpyOptions={{
                 selector: selector,
-                // getDepth: (element) => Number(element.getAttribute('data-order')), // A function to retrieve depth of heading, by default depth is calculated based on tag name
-                // getValue: (element) => element.getAttribute('data-heading') || '', // A function to retrieve heading value, by default element.textContent is used
-                // scrollHost?: HTMLElement, // Host element to attach scroll event listener, if not provided, window is used
                 offset: offset,
             }}
             getControlProps={({ active, data }) => ({
