@@ -185,7 +185,7 @@ def test_003ta_table_of_contents_reinitialize(dash_duo):
 
     @callback(
         Output("tabs-content", "children"),
-        Output("toc", "refresh"),
+        Output("toc", "reinitialize"),
         Input("tabs-example", "value"),
     )
     def render_content(active):
