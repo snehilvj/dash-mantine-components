@@ -221,17 +221,13 @@ export const getTargetText = (targetId: string): string | null => {
 export const loadingSelector =
     (componentId: string) =>
     (state: any): boolean => {
-        const loadingChildren = toPairs(state.loading).reduce(
-            (acc, [, load]) => {
-                if (load[0]?.id === componentId && load.length) {
-                    return concat(acc, load);
-                }
-                return acc;
-            },
-            []
-        );
-
-        return loadingChildren.length === 0;
+        for (const key in state.loading) {
+            const load = state.loading[key];
+            if (load.length && load[0]?.id === componentId) {
+                return false;
+            }
+        }
+        return true;
     };
 
 
