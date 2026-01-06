@@ -23,7 +23,7 @@ interface Props
     /** Active element color. Key of `theme.colors` or any valid CSS color value, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Controls font-size and padding of all elements, `'md'` by default */
-    size?: MantineSize | (string & {}) | number;
+    size?: MantineSize | string  | number;
     /** Determines whether text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
     autoContrast?: boolean;
     /** Selector to get headings, 'h1, h2, h3, h4, h5, h6' by default */
