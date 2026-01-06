@@ -2,23 +2,20 @@ import {
     TableOfContents as MantineTableOfContents,
     MantineColor,
     MantineSize,
-} from "@mantine/core";
-import { BoxProps } from "props/box";
-import { DashBaseProps } from "props/dash";
-import { StylesApiProps } from "props/styles";
-import React, { useLayoutEffect, useRef, useEffect } from "react";
-import { getLoadingState, useDash3LoadingCompleted } from "../../utils/dash3";
+} from '@mantine/core';
+import { BoxProps } from 'props/box';
+import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
+import React, { useLayoutEffect, useRef, useEffect } from 'react';
+import { getLoadingState, useDash3LoadingCompleted } from '../../utils/dash3';
 
-interface Props
-    extends BoxProps,
-        StylesApiProps,
-        DashBaseProps {
+interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls active element style, `'filled'` by default */
-    variant?: "filled" | "light" | "none";
+    variant?: 'filled' | 'light' | 'none';
     /** Active element color. Key of `theme.colors` or any valid CSS color value, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Controls font-size and padding of all elements, `'md'` by default */
-    size?: MantineSize | string  | number;
+    size?: MantineSize | string | number;
     /** Determines whether text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
     autoContrast?: boolean;
     /** CSS Selector to get headings, 'h1, h2, h3, h4, h5, h6' by default */
@@ -39,26 +36,24 @@ interface Props
     /** Forces a re-scan of headings for dynamic content. Can be triggered in a callback.*/
     reinitialize?: boolean;
     /**
-      * Component id to observe for loading completion (Dash >= 3 only).
-      * Defaults to Dash Pages content container '_pages_content'.
-      * For Dash 2 use reinitialize prop instead.
-      */
+     * Component id to observe for loading completion (Dash >= 3 only).
+     * Defaults to Dash Pages content container '_pages_content'.
+     * For Dash 2 use reinitialize prop instead.
+     */
     target_id?: string;
 }
 
 /** TableOfContents */
-const TableOfContents = (
-    {
-        setProps,
-        loading_state,
-        selector,
-        offset,
-        scrollIntoViewOptions,
-        reinitialize,
-        target_id,
-        ...others
-    }: Props) => {
-
+const TableOfContents = ({
+    setProps,
+    loading_state,
+    selector,
+    offset,
+    scrollIntoViewOptions,
+    reinitialize,
+    target_id,
+    ...others
+}: Props) => {
     const reinitializeRef = useRef(() => {});
 
     useLayoutEffect(() => {
@@ -68,10 +63,7 @@ const TableOfContents = (
         }
     }, [reinitialize]);
 
-
-    const loaded = useDash3LoadingCompleted(
-        target_id || "_pages_content"
-    );
+    const loaded = useDash3LoadingCompleted(target_id || '_pages_content');
 
     useEffect(() => {
         if (loaded) {
@@ -93,10 +85,10 @@ const TableOfContents = (
             getControlProps={({ data }) => ({
                 onClick: (e) => {
                     e.preventDefault();
-                    window.history.replaceState(null, "", `#${data.id}`);
+                    window.history.replaceState(null, '', `#${data.id}`);
                     data.getNode().scrollIntoView(scrollIntoViewOptions);
                 },
-                component: "a",
+                component: 'a',
                 href: `#${data.id}`,
                 children: data.value,
             })}
