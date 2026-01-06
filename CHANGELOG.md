@@ -2,6 +2,10 @@
 
 # [Unreleased]
 
+### Added `TableOfContents` component #513 by @deadkex
+
+# 2.4.1
+
 ### Added
 - Added `withAlignedLabels` prop to support offsetting the selected check icon in `Select` and `MultiSelect` #675 by @AnnMarieW.
 - Added `anchorProps` prop to `Anchor` by @jksinton 

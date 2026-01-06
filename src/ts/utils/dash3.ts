@@ -6,7 +6,15 @@
  */
 import React, { useState, createElement } from 'react';
 import { DashBaseProps } from 'props/dash';
-import { dissoc, has, includes, isEmpty, isNil, mergeRight, type } from 'ramda';
+import {
+    dissoc,
+    has,
+    includes,
+    isEmpty,
+    isNil,
+    mergeRight,
+    type,
+} from 'ramda';
 
 const SIMPLE_COMPONENT_TYPES = ['String', 'Number', 'Null', 'Boolean'];
 const isSimpleComponent = (component) =>
@@ -206,3 +214,27 @@ export const getTargetText = (targetId: string): string | null => {
 
     return text || null;
 };
+
+export const loadingSelector =
+    (componentId: string) =>
+    (state: any): boolean => {
+        for (const key in state.loading) {
+            const load = state.loading[key];
+            if (load.length && load[0]?.id === componentId) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+
+export const useDash3LoadingCompleted = (componentId: string): boolean | null => {
+    const ctx = (window as any)?.dash_component_api?.useDashContext?.();
+
+    if (!ctx) {
+        return null; // Dash < 3 or unsupported environment
+    }
+
+    return ctx.useSelector(loadingSelector(componentId));
+};
+
