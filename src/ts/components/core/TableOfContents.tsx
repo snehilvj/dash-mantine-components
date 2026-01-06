@@ -26,7 +26,7 @@ interface Props
     size?: MantineSize | string  | number;
     /** Determines whether text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */
     autoContrast?: boolean;
-    /** Selector to get headings, 'h1, h2, h3, h4, h5, h6' by default */
+    /** CSS Selector to get headings, 'h1, h2, h3, h4, h5, h6' by default */
     selector?: string;
     /** Data used to render content until actual values are retrieved from the DOM, empty array by default */
     initialData?: InitialTableOfContentsData[];
