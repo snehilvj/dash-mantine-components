@@ -40,8 +40,6 @@ interface Props
     error?: boolean;
     /** Determines which values can be entered, `'alphanumeric'` by default. */
     type?: 'alphanumeric' | 'number';
-    /** A JavaScript regular expression (as a string) used to validate input. */
-    regex?: string;
     /** Changes input type to `"password"`, `false` by default */
     mask?: boolean;
     /** Number of inputs, `4` by default */
