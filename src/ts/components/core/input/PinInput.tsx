@@ -1,7 +1,4 @@
-import {
-    PinInput as MantinePinInput,
-    MantineSize,
-} from '@mantine/core';
+import { PinInput as MantinePinInput, MantineSize } from '@mantine/core';
 import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
@@ -70,7 +67,7 @@ const PinInput = (props: Props) => {
     const [val, setVal] = useState(value);
 
     useDidUpdate(() => {
-      setVal(value);
+        setVal(value);
     }, [value]);
 
     return (
