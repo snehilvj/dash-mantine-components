@@ -2,7 +2,11 @@
 
 # [Unreleased]
 
-### Added `TableOfContents` component #513 by @deadkex
+### Added
+- Added `TableOfContents` component #513 by @deadkex
+
+### Fixed
+- Fixed `PinInput` so that `value` can be set initially and in a callback. #684 by @AnnMarieW
 
 # 2.4.1
 

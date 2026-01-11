@@ -1,4 +1,4 @@
-import time
+
 from dash import Dash, html, _dash_renderer
 import dash_mantine_components as dmc
 
@@ -16,5 +16,5 @@ def test_001al_alert(dash_duo):
 
     # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#alert", "Alert text")
-    time.sleep(.3)
+
     assert dash_duo.get_logs() == []

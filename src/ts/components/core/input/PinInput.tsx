@@ -1,14 +1,10 @@
-import {
-    PinInput as MantinePinInput,
-    MantineRadius,
-    MantineSize,
-    MantineSpacing,
-} from '@mantine/core';
+import { PinInput as MantinePinInput, MantineSize } from '@mantine/core';
+import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React from 'react';
-import { getLoadingState } from '../../../utils/dash3';
+import React, { useState } from 'react';
+import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends BoxProps,
@@ -20,9 +16,9 @@ interface Props
     /** Hidden input `form` attribute */
     form?: string;
     /** Key of `theme.spacing` or any valid CSS value to set `gap` between inputs, numbers are converted to rem, `'md'` by default */
-    gap?: MantineSpacing;
+    gap?: string | number;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: string | number;
     /** Controls inputs `width` and `height`, `'sm'` by default */
     size?: MantineSize;
     /** If set, the first input is focused when component is mounted, `false` by default */
@@ -35,14 +31,12 @@ interface Props
     manageFocus?: boolean;
     /** Determines whether `autocomplete="one-time-code"` attribute should be set on all inputs, `true` by default */
     oneTimeCode?: boolean;
-    /** Base id used for all inputs. By default, inputs' ids are generated randomly. */
-    id?: string;
     /** If set, `disabled` attribute is added to all inputs */
     disabled?: boolean;
     /** If set, adds error styles and `aria-invalid` attribute to all inputs */
     error?: boolean;
-    /** Determines which values can be entered, `'alphanumeric'` by default */
-    type?: 'alphanumeric' | 'number' | RegExp;
+    /** Determines which values can be entered, `'alphanumeric'` by default. */
+    type?: 'alphanumeric' | 'number';
     /** Changes input type to `"password"`, `false` by default */
     mask?: boolean;
     /** Number of inputs, `4` by default */
@@ -66,17 +60,27 @@ interface Props
     ariaLabel?: string;
 }
 
-/** PinInput */
+/** Capture pin code or one time password from the user */
 const PinInput = (props: Props) => {
     const { setProps, loading_state, value, ...others } = props;
 
+    const [val, setVal] = useState(value);
+
+    useDidUpdate(() => {
+        setVal(value);
+    }, [value]);
+
     return (
         <MantinePinInput
+            onChange={setVal}
+            value={val}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            onComplete={(value) => setProps({ value })}
+            onComplete={(v) => setProps({ value: v })}
             {...others}
         />
     );
 };
+
+setPersistence(PinInput);
 
 export default PinInput;
