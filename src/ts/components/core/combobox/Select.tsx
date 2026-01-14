@@ -26,6 +26,8 @@ interface Props
     searchable?: boolean;
     /** Determines whether check icon should be displayed near the selected option label, `true` by default */
     withCheckIcon?: boolean;
+    /** If set, unchecked labels are aligned with the checked one @default `false` */
+    withAlignedLabels?: boolean;
     /** Position of the check icon relative to the option label, `'left'` by default */
     checkIconPosition?: 'left' | 'right';
     /** Message displayed when no option matched current search query, only applicable when `searchable` prop is set */
@@ -58,7 +60,7 @@ const Select = ({
     debounce = false,
     n_submit = 0,
     n_blur = 0,
-    data = [],
+    data,
     searchValue,
     value,
     clearSearchOnFocus = false,
@@ -106,7 +108,9 @@ const Select = ({
     }, [data]);
 
     useDidUpdate(() => {
-        setSelected(value);
+        if (value !== debounced) {
+            setSelected(value);
+        }
     }, [value]);
 
     useDidUpdate(() => {

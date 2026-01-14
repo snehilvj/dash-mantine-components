@@ -6,6 +6,13 @@ import {
 } from '@mantine/core';
 import React from 'react';
 import { DashBaseProps } from 'props/dash';
+import * as MantineCore from '@mantine/core';
+import * as MantineHooks from '@mantine/hooks';
+import * as MantineDates from '@mantine/dates';
+
+(window as any).MantineCore = MantineCore;
+(window as any).MantineHooks = MantineHooks;
+(window as any).MantineDates = MantineDates;
 
 import '@mantine/core/styles.css';
 

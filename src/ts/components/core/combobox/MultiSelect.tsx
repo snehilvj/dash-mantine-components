@@ -36,6 +36,8 @@ interface Props
     nothingFoundMessage?: React.ReactNode;
     /** Determines whether check icon should be displayed near the selected option label, `true` by default */
     withCheckIcon?: boolean;
+    /** If set, unchecked labels are aligned with the checked one @default `false` */
+    withAlignedLabels?: boolean;
     /** Position of the check icon relative to the option label, `'left'` by default */
     checkIconPosition?: 'left' | 'right';
     /** Determines whether picked options should be removed from the options list, `false` by default */
@@ -114,8 +116,10 @@ const MultiSelect = ({
         setProps({ value: newSelected });
     }, [data]);
 
-    useDidUpdate(() => {
-        setSelected(value ?? []);
+   useDidUpdate(() => {
+        if (value !== debounced) {
+            setSelected(value ?? []);
+        }
     }, [value]);
 
     const handleSearchChange = (newSearchVal) => {

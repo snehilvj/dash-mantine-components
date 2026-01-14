@@ -2,7 +2,27 @@
 
 # [Unreleased]
 
+### Added
+- Added `TableOfContents` component #513 by @deadkex
+
+- Exposed Mantine Core, Mantine Hooks, and Mantine Dates on the global window object for use in custom Dash 
+components. This enables building custom Dash components that depend on Mantine components or hooks while remaining
+compatible with Dash Mantine Components. #653 by @BSd3v
+
+### Fixed
+- Fixed `PinInput` so that `value` can be set initially and in a callback. #684 by @AnnMarieW
+
+# 2.4.1
+
+### Added
+- Added `withAlignedLabels` prop to support offsetting the selected check icon in `Select` and `MultiSelect` #675 by @AnnMarieW.
 - Added `anchorProps` prop to `Anchor` by @jksinton 
+
+### Fixed
+- Fixed race condition in debounced value updates #671 by @AnnMarieW
+
+### Changed
+- Updated to Mantine (8.3.10),  Recharts (2.15.4), and TipTap (3.14.0) #675 
 
 # 2.4.0
 
