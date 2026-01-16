@@ -14,7 +14,7 @@ import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
-    size?: MantineSize | `compact-${MantineSize}` | (string & {});
+    size?: MantineSize | `compact-${MantineSize}` | (string);
     /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Sets `justify-content` of `inner` element, can be used to change distribution of sections and label, `'center'` by default */

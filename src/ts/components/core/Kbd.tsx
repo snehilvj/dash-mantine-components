@@ -7,7 +7,7 @@ import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls font-size and padding, `'sm'` by default */
-    size?: MantineSize | (string & {});
+    size?: MantineSize | (string);
     /** Keyboard key */
     children?: React.ReactNode;
 }

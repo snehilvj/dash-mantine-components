@@ -23,7 +23,7 @@ interface Props
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `'xl'` by default */
     radius?: MantineRadius;
     /** Controls size of the track, `'md'` by default */
-    size?: MantineSize | (string & {}) | number;
+    size?: MantineSize | (string) | number;
     /** Minimal possible value, `0` by default */
     min?: number;
     /** Maximum possible value, `100` by default */

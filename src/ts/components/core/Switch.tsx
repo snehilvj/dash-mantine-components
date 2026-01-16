@@ -24,7 +24,7 @@ interface Props
     /** Key of `theme.colors` or any valid CSS color to set input color in checked state, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Controls size of all elements */
-    size?: MantineSize | (string & {});
+    size?: MantineSize | (string);
     /** Key of `theme.radius` or any valid CSS value to set `border-radius,` "xl" by default */
     radius?: MantineRadius;
     /** Props passed down to the root element */

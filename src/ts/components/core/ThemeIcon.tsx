@@ -12,7 +12,7 @@ import React from 'react';
 
 interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Controls width and height of the button. Numbers are converted to rem. `'md'` by default. */
-    size?: MantineSize | (string & {}) | number;
+    size?: MantineSize | (string) | number;
     /** Key of `theme.colors` or any valid CSS color. Default value is `theme.primaryColor`.  */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */

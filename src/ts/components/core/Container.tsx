@@ -9,7 +9,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
     children?: React.ReactNode;
     /** Sets `max-width` of the container, value is not responsive – it is the same for all screen sizes. Numbers are converted to rem. Ignored when `fluid` prop is set. `'md'` by default */
-    size?: MantineSize | (string & {}) | number;
+    size?: MantineSize | (string) | number;
     /** Determines whether the container should take 100% of its parent width. If set, `size` prop is ignored. `false` by default. */
     fluid?: boolean;
     /** Centering strategy. Default value: 'block'*/
