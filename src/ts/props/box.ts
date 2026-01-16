@@ -105,13 +105,13 @@ export interface BoxProps extends Omit<MantineBoxProps, '__vars' | '__size'> {
     /* Background */
 
     /** Background size – Accepts CSS values or a dict for responsive styles. */
-    bgsz?: string | number | object;
+    bgsz?: React.CSSProperties['backgroundSize'] | object;
     /** Background position – Accepts CSS values or a dict for responsive styles. */
-    bgp?: string | number | object;
+    bgp?: React.CSSProperties['backgroundPosition'] | object;
     /** Background repeat – Accepts CSS values or a dict for responsive styles. */
-    bgr?: string | object;
+    bgr?: React.CSSProperties['backgroundRepeat'] | object;
     /** Background attachment – Accepts CSS values or a dict for responsive styles. */
-    bga?: string | object;
+    bga?: React.CSSProperties['backgroundAttachment'] | object;
 
     /* Layout */
 
