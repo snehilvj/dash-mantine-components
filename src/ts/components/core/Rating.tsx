@@ -24,7 +24,7 @@ interface Props
     /** Number of fractions each item can be divided into, `1` by default */
     fractions?: number;
     /** Controls component size, `'sm'` by default */
-    size?: MantineSize | number | (string);
+    size?: MantineSize | number | (string & {});
     /** Number of controls, `5` by default */
     count?: number;
     /** `name` attribute passed down to all inputs. By default, `name` is generated randomly. */

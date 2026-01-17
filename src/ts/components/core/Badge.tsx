@@ -13,7 +13,7 @@ import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls `font-size`, `height` and horizontal `padding`, `'md'` by default */
-    size?: MantineSize | (string);
+    size?: MantineSize | (string & {});
     /** If set, badge `min-width` becomes equal to its `height` and horizontal padding is removed */
     circle?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `'xl'` by default */

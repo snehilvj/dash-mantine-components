@@ -18,7 +18,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Copied status timeout in ms, `1000` by default */
     timeout?: number;
     /** Controls button `height`, `font-size` and horizontal `padding`, `'sm'` by default */
-    size?: MantineSize | `compact-${MantineSize}` | (string);
+    size?: MantineSize | `compact-${MantineSize}` | (string & {});
     /** Key of `theme.colors` or any valid CSS color, used when the value has not been copied yet */
     color?: MantineColor;
     /** Key of `theme.colors` or any valid CSS color, used after the value has been copied to clipboard */

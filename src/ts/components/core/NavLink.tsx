@@ -45,7 +45,7 @@ interface Props
     /** If set, right section will not be rotated when collapse is opened, `false` by default */
     disableRightSectionRotation?: boolean;
     /** Key of `theme.spacing` or any valid CSS value to set collapsed links `padding-left`, `'lg'` by default */
-    childrenOffset?: MantineSize | (string) | number;
+    childrenOffset?: MantineSize | (string & {}) | number;
     /** If set, disabled styles will be added to the root element, `false` by default */
     disabled?: boolean;
     /** Determines whether button text color with filled variant should depend on `background-color`. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. */

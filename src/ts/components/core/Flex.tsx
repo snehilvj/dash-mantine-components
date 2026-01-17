@@ -9,11 +9,11 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
     children?: React.ReactNode;
     /** `gap` CSS property */
-    gap?: StyleProp<MantineSize | (string) | number>;
+    gap?: StyleProp<MantineSize | (string & {}) | number>;
     /** `row-gap` CSS property */
-    rowGap?: StyleProp<MantineSize | (string) | number>;
+    rowGap?: StyleProp<MantineSize | (string & {}) | number>;
     /** `column-gap` CSS property */
-    columnGap?: StyleProp<MantineSize | (string) | number>;
+    columnGap?: StyleProp<MantineSize | (string & {}) | number>;
     /** `align-items` CSS property */
     align?: StyleProp<React.CSSProperties['alignItems']>;
     /** `justify-content` CSS property */

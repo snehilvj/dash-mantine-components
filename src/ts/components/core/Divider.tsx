@@ -12,7 +12,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.colors` or any valid CSS color value, by default value depends on color scheme */
     color?: MantineColor;
     /** Controls width/height (depends on orientation), `'xs'` by default */
-    size?: MantineSize | number | (string);
+    size?: MantineSize | number | (string & {});
     /** Divider label, visible only when `orientation` is `horizontal` */
     label?: React.ReactNode;
     /** Controls label position, `'left'` by default */
