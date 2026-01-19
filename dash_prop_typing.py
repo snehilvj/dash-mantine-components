@@ -9,21 +9,7 @@ See also dash docs:  https://dash.plotly.com/dash-3-for-component-developers#cus
 def style_prop(type_info, component_name, prop_name):
     """All generic style props accept scalar values or a dict for responsive styles."""
     return "typing.Union[str, NumberType, typing.Dict[str, typing.Any]]"
-#
-# size_or_str = "typing.Union[str, Literal['xs','sm','md','lg','xl']]"
-#
-# size_or_str_or_num = "typing.Union[str, NumberType, Literal['xs','sm','md','lg','xl']]"
-#
-# def size_prop(t, component_name, p):
-#     if component_name == "Text":
-#         return size_or_str
-#     return "typing.Union[str]"
-#
-# custom_props = {
-#     "*": {"size": size_prop}
-# }
-#
-#
+
 
 def generate_mantine_union(type_info, *_):
     """
@@ -99,12 +85,34 @@ def generate_mantine_string_union(type_info, *_):
     return f"typing.Union[{', '.join(parts)}]"
 
 
+def combobox_data_prop(*_):
+    return (
+        "typing.Sequence["
+        "typing.Union[str, typing.Dict[str, typing.Any]]"
+        "]"
+    )
+
+
 custom_props = {
 
     "*": {
         "size": generate_mantine_union,
         "color":   generate_mantine_string_union,
         "radius": generate_mantine_string_union,
+        "shadow": generate_mantine_string_union,
 
+    },
+    "Autocomplete": {
+        "data": combobox_data_prop,
+    },
+    "MultiSelect": {
+        "data": combobox_data_prop,
+    },
+    "Select": {
+        "data": combobox_data_prop,
+    },
+    "TagsInput": {
+        "data": combobox_data_prop,
     }
+
 }
