@@ -26,7 +26,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     /** Determines whether button should take 100% width of its parent container, `false` by default */
     fullWidth?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Gradient configuration used when `variant="gradient"`, default value is `theme.defaultGradient` */
     gradient?: MantineGradient;
     /** Indicates disabled state */

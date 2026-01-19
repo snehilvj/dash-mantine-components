@@ -40,7 +40,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Controls size of various Stepper elements */
     size?: MantineSize;
     /** Key of `theme.radius` or any valid CSS value to set steps border-radius, `"xl"` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Determines whether next steps can be selected, `true` by default **/
     allowNextStepsSelect?: boolean;
     /** Determines whether steps should wrap to the next line if no space is available, `true` by default */

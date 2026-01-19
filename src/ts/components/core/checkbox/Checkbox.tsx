@@ -26,7 +26,7 @@ interface Props
     /** Controls size of the component, `'sm'` by default */
     size?: MantineSize | (string & {});
     /** Key of `theme.radius` or any valid CSS value to set `border-radius,` `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Props passed down to the root element */
     wrapperProps?: Record<string, any>;
     /** Position of the label relative to the input, `'right'` by default */

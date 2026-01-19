@@ -3,7 +3,7 @@ import React from 'react';
 
 export interface __BaseButtonProps {
     /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Sets `disabled` and `data-disabled` attributes on the button element */
     disabled?: boolean;
     /** `X` icon `width` and `height`, `80%` by default */

@@ -7,7 +7,7 @@ import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `0` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Controls `object-fit` style, `'cover'` by default */
     fit?: React.CSSProperties['objectFit'];
     /** Image url that will be used as a fallback in case `src` prop is not set or image cannot be loaded */

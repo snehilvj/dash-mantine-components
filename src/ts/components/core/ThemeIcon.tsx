@@ -16,7 +16,7 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     /** Key of `theme.colors` or any valid CSS color. Default value is `theme.primaryColor`.  */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Gradient data used when `variant="gradient"`, default value is `theme.defaultGradient` */
     gradient?: MantineGradient;
     /** Icon displayed inside the component */

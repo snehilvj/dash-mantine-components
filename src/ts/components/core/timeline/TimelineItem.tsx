@@ -12,7 +12,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** React node that should be rendered inside the bullet – icon, image, avatar, etc. By default, large white dot is displayed. */
     bullet?: React.ReactNode;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `'xl'` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Controls line border style, `'solid'` by default */
     lineVariant?: 'solid' | 'dashed' | 'dotted';
 }

@@ -37,7 +37,7 @@ interface Props
     /** Controls visuals */
     variant?: AccordionVariant;
     /** Key of `theme.radius` or any valid CSS value to set border-radius. Numbers are converted to rem. `theme.defaultRadius` by default. */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Accordion content */
     children: React.ReactNode;
     /** Size of the default chevron icon. Ignored when `chevron` prop is set. default `16` */

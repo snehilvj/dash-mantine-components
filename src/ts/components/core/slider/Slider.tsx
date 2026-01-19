@@ -21,7 +21,7 @@ interface Props
     /** Key of `theme.colors` or any valid CSS color, controls color of track and thumb, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `'xl'` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Controls size of the track, `'md'` by default */
     size?: MantineSize | (string & {}) | number;
     /** Minimal possible value, `0` by default */

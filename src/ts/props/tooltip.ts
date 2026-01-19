@@ -12,7 +12,7 @@ export interface TooltipBaseProps extends BoxProps, StylesApiProps {
     /** Determines whether tooltip should be rendered within `Portal`, `true` by default */
     withinPortal?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set border-radius, numbers are converted to rem, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Key of `theme.colors` or any valid CSS color, controls tooltip background, by default set based on current color scheme */
     color?: MantineColor;
     /** Determines whether content should be wrapped on to the next line, `false` by default */

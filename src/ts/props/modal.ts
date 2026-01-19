@@ -72,7 +72,7 @@ export interface ModalProps extends ModalBaseProps {
     /** Left/right modal offset, `5vw` by default */
     xOffset?: React.CSSProperties['marginLeft'];
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Determines whether the modal should be centered vertically, `false` by default */
     centered?: boolean;
     /** Determines whether the modal should take the entire screen, `false` by default */
