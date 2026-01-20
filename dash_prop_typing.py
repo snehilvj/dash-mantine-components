@@ -13,7 +13,7 @@ def style_prop(type_info, component_name, prop_name):
 
 def generate_mantine_union(type_info, *_):
     """
-    This is used for Mantine types such as MantineSize which is defined as literals only.
+    Use for Mantine types such as MantineSize which is defined as literals only.
     If a prop like `size` allows arbitrary strings, it needs to be included separately.
     For example `size?: MantineSize | (string & {})
 
@@ -92,6 +92,15 @@ def combobox_data_prop(*_):
         "]"
     )
 
+def number_range_prop(*_):
+    """ handles types like [number, number]"""
+    return "typing.Sequence[NumberType]"
+
+
+def list_of_strings_prop(*_):
+    """ handles types like [MantineColor, MantineColor] """
+    return "typing.Sequence[string]"
+
 
 custom_props = {
 
@@ -113,6 +122,18 @@ custom_props = {
     },
     "TagsInput": {
         "data": combobox_data_prop,
-    }
-
+    },
+    "RangeSlider": {
+        "value": number_range_prop,
+        "domain": number_range_prop,
+    },
+    "Slider": {
+        "domain": number_range_prop,
+    },
+    "BubbleChart": {
+        "range": number_range_prop,
+    },
+    "AreaChart": {
+        "splitColors": list_of_strings_prop,
+    },
 }
