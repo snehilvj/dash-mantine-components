@@ -99,7 +99,7 @@ def number_range_prop(*_):
 
 def list_of_strings_prop(*_):
     """ handles types like [MantineColor, MantineColor] """
-    return "typing.Sequence[string]"
+    return "typing.Sequence[str]"
 
 
 custom_props = {
