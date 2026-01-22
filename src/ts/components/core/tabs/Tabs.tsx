@@ -33,7 +33,7 @@ interface Props
     /** Changes colors of `Tabs.Tab` components when variant is `pills` or `default`, does nothing for other variants */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Determines whether tabs should have inverted styles, `false` by default */
     inverted?: boolean;
     /** If set to `false`, `Tabs.Panel` content will be unmounted when the associated tab is not active, `true` by default */

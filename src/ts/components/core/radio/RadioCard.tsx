@@ -16,7 +16,7 @@ interface Props
     /** Determines whether the card should have border, `true` by default */
     withBorder?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius,` "xl" by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** To be used with Radio group */
     value?: string;
     /** Value used to associate all related radio cards, required for accessibility if used outside of `Radio.Group` */

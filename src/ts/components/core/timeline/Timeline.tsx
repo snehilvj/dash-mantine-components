@@ -24,7 +24,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.colors` or any valid CSS color to control active item colors, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `'xl'` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Controls size of the bullet, `20` by default */
     bulletSize?: number | string;
     /** Controls how the content is positioned relative to the bullet, `'left'` by default */

@@ -55,7 +55,7 @@ export interface __InputProps {
     /** Sets `required` attribute on the `input` element */
     required?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Sets `disabled` attribute on the `input` element */
     disabled?: boolean;
     /** Controls input `height` and horizontal `padding`, `'sm'` by default */

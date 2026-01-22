@@ -10,7 +10,7 @@ import { getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.radius` or any valid CSS value to set border-radius, numbers are converted to rem, `0` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Image url */
     src: string;
     /** Content */

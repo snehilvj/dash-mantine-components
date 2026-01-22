@@ -10,7 +10,7 @@ import { getLoadingState } from '../../utils/dash3';
 
 interface RingProgressSection {
     value: number;
-    color: MantineColor;
+    color: string;
     tooltip?: React.ReactNode;
 }
 

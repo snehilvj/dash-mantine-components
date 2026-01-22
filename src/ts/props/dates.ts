@@ -357,7 +357,7 @@ export interface TimeGridProps extends BoxProps, StylesApiProps {
     /** Props passed down to the underlying `SimpleGrid` component, `{ cols: 3, spacing: 'xs' }` by default */
     simpleGridProps?: any;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Control `font-size` of controls, key of `theme.fontSizes` or any valid CSS value, `'sm'` by default */
     size?: MantineSize;
     /** All controls before this time are disabled */

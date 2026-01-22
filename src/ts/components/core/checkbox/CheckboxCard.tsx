@@ -21,7 +21,7 @@ interface Props
     /** Determines whether the card should have border, `true` by default */
     withBorder?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius,` `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** To be used with checkbox group */
     value?: string;
     /** Props passed down to the root element */

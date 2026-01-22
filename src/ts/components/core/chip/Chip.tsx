@@ -17,7 +17,7 @@ interface Props
         DashBaseProps,
         PersistenceProps {
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `'xl'` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Controls various properties related to component size, `'sm'` by default */
     size?: MantineSize;
     /** Chip input type, `'checkbox'` by default */

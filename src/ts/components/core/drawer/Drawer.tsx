@@ -14,7 +14,7 @@ interface Props
     /** Side of the screen on which drawer will be opened, `'left'` by default */
     position?: DrawerPosition;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `0` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Drawer container offset from the viewport end, `0` by default */
     offset?: number | string;
     /** Drawer title */

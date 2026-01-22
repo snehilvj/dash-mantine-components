@@ -1,4 +1,4 @@
-import { PinInput as MantinePinInput, MantineSize } from '@mantine/core';
+import { PinInput as MantinePinInput, MantineSize, MantineRadius } from '@mantine/core';
 import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
@@ -18,7 +18,7 @@ interface Props
     /** Key of `theme.spacing` or any valid CSS value to set `gap` between inputs, numbers are converted to rem, `'md'` by default */
     gap?: string | number;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `theme.defaultRadius` by default */
-    radius?: string | number;
+    radius?: MantineRadius | number;
     /** Controls inputs `width` and `height`, `'sm'` by default */
     size?: MantineSize;
     /** If set, the first input is focused when component is mounted, `false` by default */

@@ -57,7 +57,7 @@ interface Notification extends BoxProps, StylesApiProps {
     /** Controls notification line or icon color, key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Notification icon, replaces color line */
     icon?: any;
     /** Notification title, displayed before body */

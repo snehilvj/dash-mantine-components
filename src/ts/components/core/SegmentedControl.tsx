@@ -38,7 +38,7 @@ interface Props
     /** Controls `font-size`, `padding` and `height` properties, `'sm'` by default */
     size?: MantineSize | (string & {});
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, numbers are converted to rem, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Indicator `transition-duration` in ms, set `0` to turn off transitions, `200` by default */
     transitionDuration?: number;
     /** Indicator `transition-timing-function` property, `ease` by default */

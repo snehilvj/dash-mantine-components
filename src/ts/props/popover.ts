@@ -43,7 +43,7 @@ export interface __PopoverProps {
     /** Dropdown `z-index`, `300` by default */
     zIndex?: string | number;
     /** Key of `theme.radius` or any valid CSS value to set border-radius, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Key of `theme.shadows` or any other valid CSS `box-shadow` value */
     shadow?: MantineShadow;
     /** If set, popover dropdown will not be rendered */

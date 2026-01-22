@@ -17,7 +17,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** If set, badge `min-width` becomes equal to its `height` and horizontal padding is removed */
     circle?: boolean;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `'xl'` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Gradient configuration used when `variant="gradient"`, default value is `theme.defaultGradient` */

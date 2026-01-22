@@ -2,6 +2,7 @@ import {
     TableOfContents as MantineTableOfContents,
     MantineColor,
     MantineSize,
+    MantineRadius,
 } from '@mantine/core';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
@@ -25,7 +26,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls padding on the left side of control, multiplied by (`depth` - `minDepthToOffset`), `20px` by default  */
     depthOffset?: number | string;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
-    radius?: string;
+    radius?: MantineRadius | number;
     /** Offset from the top of the viewport to use when determining the active heading, 0 by default*/
     offset?: number;
     /** Set scrollIntoView options.

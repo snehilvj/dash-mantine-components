@@ -18,7 +18,7 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
     /** Key of `theme.radius` or any valid CSS value to set `border-radius`, `theme.defaultRadius` by default */
-    radius?: MantineRadius;
+    radius?: MantineRadius | number;
     /** Reference to a cited quote */
     cite?: React.ReactNode;
     /** Content */
