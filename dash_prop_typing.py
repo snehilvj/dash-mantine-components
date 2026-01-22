@@ -55,7 +55,7 @@ def combobox_data_prop(*_):
     """
     Handles Select / MultiSelect / Autocomplete / TagsInput data props.
     """
-    return "typing.Sequence[" "typing.Union[str, typing.Dict[str, typing.Any]]" "]"
+    return "typing.Sequence[typing.Union[str, typing.Dict[str, typing.Any]]]"
 
 
 def number_range_prop(*_):
