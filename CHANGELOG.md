@@ -11,6 +11,7 @@ compatible with Dash Mantine Components. #653 by @BSd3v
 
 ### Fixed
 - Fixed `PinInput` so that `value` can be set initially and in a callback. #684 by @AnnMarieW
+- Fixed Python type generation, #688  and #685 by @AnnMarieW
 
 # 2.4.1
 
