@@ -1,7 +1,4 @@
-import {
-    Breadcrumbs as MantineBreadcrumbs,
-    MantineSpacing,
-} from '@mantine/core';
+import { Breadcrumbs as MantineBreadcrumbs } from '@mantine/core';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
@@ -12,7 +9,7 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Separator between children, `'/'` by default */
     separator?: React.ReactNode;
     /** Controls spacing between separator and breadcrumb, `'xs'` by default */
-    separatorMargin?: MantineSpacing;
+    separatorMargin?: string | number;
     /** React nodes that should be separated with `separator` */
     children: React.ReactNode;
 }

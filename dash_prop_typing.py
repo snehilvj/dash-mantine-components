@@ -6,134 +6,174 @@ See also dash docs:  https://dash.plotly.com/dash-3-for-component-developers#cus
 
 """
 
-def style_prop(type_info, component_name, prop_name):
+
+def str_num_dict_prop(type_info, component_name, prop_name):
     """All generic style props accept scalar values or a dict for responsive styles."""
     return "typing.Union[str, NumberType, typing.Dict[str, typing.Any]]"
 
 
-def generate_mantine_union(type_info, *_):
-    """
-    Use for Mantine types such as MantineSize which is defined as literals only.
-    If a prop like `size` allows arbitrary strings, it needs to be included separately.
-    For example `size?: MantineSize | (string & {})
+def str_num_prop(*_):
+    return "typing.Union[str, NumberType]"
 
-    """
-    raw = type_info.get("raw", "")
 
-    # Extract literal values
-    literals = [
-        item["value"]
-        for item in type_info.get("value", [])
-        if item.get("name") == "literal"
+def str_prop(*_):
+    return "typing.Optional[str]"
+
+
+def size_prop(type_info, component_name, prop_name):
+    str_or_num = [
+        "Burger",
+        "Container",
+        "Divider",
+        "Indicator",
+        "Pagination",
+        "Rating",
+        "TableOfContents",
+        "ThemeIcon",
+        "Avatar",
+        "RangeSlider",
+        "Slider",
+        "Box",
+        "Modal",
+        "Loader",
+        "Progress",
+        "ProgressRoot",
+        "Title",
     ]
-
-    parts = []
-
-    # Allow numbers if explicitly present
-    if "number" in raw:
-        parts.append("NumberType")
-
-    # Allow arbitrary strings ONLY if (string & {}) is added to Mantine type
-    allows_string = "(string & {})" in raw or "string & {}" in raw
-
-    if allows_string:
-        parts.append("str")
-
-    # Add Literal[...] hints
-    if literals:
-        literal_part = ", ".join(
-            f'typing.Literal["{v}"]' for v in literals
-        )
-        parts.append(literal_part)
-
-    if not parts:
-        parts.append("typing.Any")
-
-    return f"typing.Union[{', '.join(parts)}]"
-
-
-def generate_mantine_string_union(type_info, *_):
-    """
-    Use for Mantine types that incude string & {}  (like MantineColor)
-    """
-    raw = type_info.get("raw", "")
-
-    # 1. Extract literal values from union
-    literals = [
-        item["value"]
-        for item in type_info.get("value", [])
-        if item.get("name") == "literal"
+    num_only = [
+        "RingProgress",
+        "SemiCircleProgrss",
     ]
-
-    parts = ["str"]
-
-    # 2. Allow numbers if present in TS union
-    if "number" in raw:
-        parts.append("NumberType")
-
-
-    # 3. Add Literal[...] hints
-    if literals:
-        literal_part = ", ".join(
-            f'typing.Literal["{v}"]' for v in literals
-        )
-        parts.append(literal_part)
-
-    if not parts:
-        parts.append("typing.Any")
-
-    return f"typing.Union[{', '.join(parts)}]"
+    if component_name in str_or_num:
+        return "typing.Union[str, NumberType]"
+    if component_name in num_only:
+        return "typing.Optional[NumberType]"
+    return "typing.Optional[str]"
 
 
 def combobox_data_prop(*_):
-    return (
-        "typing.Sequence["
-        "typing.Union[str, typing.Dict[str, typing.Any]]"
-        "]"
-    )
+    """
+    Handles Select / MultiSelect / Autocomplete / TagsInput data props.
+    """
+    return "typing.Sequence[" "typing.Union[str, typing.Dict[str, typing.Any]]" "]"
+
 
 def number_range_prop(*_):
-    """ handles types like [number, number]"""
+    """Handles tuple-like numeric ranges such as [number, number]."""
     return "typing.Sequence[NumberType]"
 
 
 def list_of_strings_prop(*_):
-    """ handles types like [MantineColor, MantineColor] """
+    """Handles arrays like [MantineColor, MantineColor]."""
     return "typing.Sequence[str]"
 
 
+default_types = {
+    "color": str_prop,
+    "gridColor": str_prop,
+    "iconColor": str_prop,
+    "labelColor": str_prop,
+    "radius": str_num_prop,
+    "shadow": str_prop,
+    "size": size_prop,
+    "strokeColor": str_prop,
+    "textColor": str_prop,
+}
+
+
 custom_props = {
-
-    "*": {
-        "size": generate_mantine_union,
-        "color":   generate_mantine_string_union,
-        "radius": generate_mantine_string_union,
-        "shadow": generate_mantine_string_union,
-
-    },
-    "Autocomplete": {
-        "data": combobox_data_prop,
-    },
-    "MultiSelect": {
-        "data": combobox_data_prop,
-    },
-    "Select": {
-        "data": combobox_data_prop,
-    },
-    "TagsInput": {
-        "data": combobox_data_prop,
-    },
-    "RangeSlider": {
-        "value": number_range_prop,
-        "domain": number_range_prop,
-    },
-    "Slider": {
-        "domain": number_range_prop,
-    },
-    "BubbleChart": {
-        "range": number_range_prop,
+    "*": default_types,
+    "AppShell": {
+        "padding": str_num_dict_prop,
+        **default_types,
     },
     "AreaChart": {
         "splitColors": list_of_strings_prop,
+        **default_types,
+    },
+    "Autocomplete": {
+        "data": combobox_data_prop,
+        **default_types,
+    },
+    "AvatarGroup": {
+        "spacing": str_num_prop,
+        **default_types,
+    },
+    "BarChart": {
+        "barLabelColor": str_prop,
+        "cursorFill": str_prop,
+        **default_types,
+    },
+    "BubbleChart": {
+        "range": number_range_prop,
+        **default_types,
+    },
+    "Card": {
+        "padding": str_num_prop,
+        **default_types,
+    },
+    "Carousel": {
+        "controlsOffset": str_num_prop,
+        "slideGap": str_num_dict_prop,
+        **default_types,
+    },
+    "CopyButton": {
+        "copiedColor": str_prop,
+        **default_types,
+    },
+    "MultiSelect": {
+        "data": combobox_data_prop,
+        **default_types,
+    },
+    "Modal": {
+        "padding": str_num_prop,
+        **default_types,
+    },
+    "NavLink": {
+        "childrenOffset": str_num_prop,
+        **default_types,
+    },
+    "RangeSlider": {
+        "domain": number_range_prop,
+        "value": number_range_prop,
+        **default_types,
+    },
+    "RingProgress": {
+        "rootColor": str_prop,
+        **default_types,
+    },
+    "Select": {
+        "data": combobox_data_prop,
+        **default_types,
+    },
+    "SemiCircleProgrss": {
+        "emptySegmentColor": str_prop,
+        "filledSegmentColor": str_prop,
+        **default_types,
+    },
+    "SimpleGrid": {
+        "spacing": str_num_dict_prop,
+        "verticalSpacing": str_num_dict_prop,
+        **default_types,
+    },
+    "Slider": {
+        "domain": number_range_prop,
+        **default_types,
+    },
+    "Stepper": {
+        "contentPadding": str_num_prop,
+        **default_types,
+    },
+    "Table": {
+        "VerticalSpacing": str_num_prop,
+        "borderColor": str_prop,
+        "highlightOnHoverColor": str_prop,
+        "horizontalSpacing": str_num_prop,
+        "stripedColor": str_prop,
+        **default_types,
+    },
+    "TagsInput": {
+        "data": combobox_data_prop,
+        **default_types,
     },
 }

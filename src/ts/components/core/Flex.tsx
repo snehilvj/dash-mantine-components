@@ -8,20 +8,20 @@ import { getLoadingState } from '../../utils/dash3';
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /* Content */
     children?: React.ReactNode;
-    /** `gap` CSS property */
-    gap?: StyleProp<MantineSize | (string & {}) | number>;
-    /** `row-gap` CSS property */
-    rowGap?: StyleProp<MantineSize | (string & {}) | number>;
-    /** `column-gap` CSS property */
-    columnGap?: StyleProp<MantineSize | (string & {}) | number>;
-    /** `align-items` CSS property */
-    align?: StyleProp<React.CSSProperties['alignItems']>;
-    /** `justify-content` CSS property */
-    justify?: StyleProp<React.CSSProperties['justifyContent']>;
-    /** `flex-wrap` CSS property */
-    wrap?: StyleProp<React.CSSProperties['flexWrap']>;
-    /** `flex-direction` CSS property */
-    direction?: StyleProp<React.CSSProperties['flexDirection']>;
+    /** theme.spacing key, `gap` CSS property, or dict for responsive values */
+    gap?: string | number | object;
+    /** theme.spacing key, `row-gap` CSS property, or dict for responsive values */
+    rowGap?: string | number | object;
+    /** theme.spacing key, `column-gap` CSS property, or dict for responsive values*/
+    columnGap?: string | number | object;
+    /** `align-items` CSS property. Supports dict for responsive values */
+    align?: React.CSSProperties['alignItems'] | object;
+    /** `justify-content` CSS property.  Supports dict for responsive values */
+    justify?:  React.CSSProperties['justifyContent'] | object;
+    /** `flex-wrap` CSS property. Supports dict for responsive values */
+    wrap?:  React.CSSProperties['flexWrap'] | object;
+    /** `flex-direction` CSS property. Supports dict for responsive values */
+    direction?:  React.CSSProperties['flexDirection'] | object;
 }
 
 /** Flex */

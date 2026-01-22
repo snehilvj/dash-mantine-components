@@ -20,7 +20,7 @@ interface Props
     /** Determines whether next/previous controls should be rendered, true by default */
     withControls?: boolean;
     /** Key of `theme.spacing`, gap between controls, `8` by default */
-    gap?: MantineSize | (string & {}) | number;
+    gap?: string | number;
     /** `height` and `min-width` of controls, `'md'` by default */
     size?: MantineSize | (string & {}) | number;
     /** Total number of pages, must be an integer */
