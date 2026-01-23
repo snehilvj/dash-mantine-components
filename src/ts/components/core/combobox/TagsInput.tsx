@@ -46,6 +46,8 @@ interface Props
     scrollAreaProps?: ScrollAreaProps;
     /** Determines whether the value typed in by the user but not submitted should be accepted when the input is blurred, true by default */
     acceptValueOnBlur?: boolean;
+    /** If set, the dropdown opens when the input receives focus default `True` */
+    openOnFocus?: boolean;
 }
 
 /** TagsInput captures a list of values from user with free input and suggestions */

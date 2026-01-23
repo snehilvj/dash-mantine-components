@@ -22,6 +22,8 @@ export interface ComboboxLikeProps {
     dropdownOpened?: boolean;
     /** Determines whether the first option should be selected when value changes, `false` by default */
     selectFirstOptionOnChange?: boolean;
+    /** If set, the first option is selected when dropdown opens, `false` by default */
+    selectFirstOptionOnDropdownOpen?: boolean;
     /** Props passed down to `Combobox` component */
     comboboxProps?: ComboboxProps;
     /** Maximum number of options displayed at a time, `Infinity` by default */

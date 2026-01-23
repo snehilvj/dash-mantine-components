@@ -34,6 +34,8 @@ interface Props
     clearButtonProps?: __ClearButtonProps;
     /** If set, the highlighted option is selected when the input loses focus @default `false` */
     autoSelectOnBlur?: boolean;
+    /** If set, the dropdown opens when the input receives focus default `True` */
+    openOnFocus?: boolean;
 }
 
 /** Autocomplete */

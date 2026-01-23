@@ -9,9 +9,15 @@
 components. This enables building custom Dash components that depend on Mantine components or hooks while remaining
 compatible with Dash Mantine Components. #653 by @BSd3v
 
+- AppShell: Add static `mode` support for nested app shells
+- Added `selectFirstOptionOnDropdownOpen` and `openOnFocus`props to Combobox based components.
+
 ### Fixed
 - Fixed `PinInput` so that `value` can be set initially and in a callback. #684 by @AnnMarieW
 - Fixed Python type generation, #688  and #685 by @AnnMarieW
+
+### Changed
+- Updated to Mantine 8.3.13
 
 # 2.4.1
 
