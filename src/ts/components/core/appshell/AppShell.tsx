@@ -40,6 +40,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     offsetScrollbars?: boolean;
     /** Content */
     children: React.ReactNode;
+    /** Determines positioning mode of all sections default 'fixed' */
+    mode?: 'fixed' | 'static';
 }
 
 /** AppShell */

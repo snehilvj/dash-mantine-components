@@ -54,6 +54,8 @@ interface Props
     scrollAreaProps?: ScrollAreaProps;
     /** Clear search value when item is selected. Default True */
     clearSearchOnChange?: boolean;
+    /** If set, the dropdown opens when the input receives focus default `True` */
+    openOnFocus?: boolean;
 }
 
 /** MultiSelect */

@@ -48,6 +48,8 @@ interface Props
     autoSelectOnBlur?: boolean;
     /** Clears search value when dropdown is opened.  Ignored if searchable=False */
     clearSearchOnFocus?: boolean;
+    /** If set, the dropdown opens when the input receives focus default `True` */
+    openOnFocus?: boolean;
 }
 
 /** Select */
