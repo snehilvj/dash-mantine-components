@@ -1,6 +1,6 @@
 # Change Log
 
-# [Unreleased]
+# 2.5.0
 
 ### Added
 - Added `TableOfContents` component #513 by @deadkex
