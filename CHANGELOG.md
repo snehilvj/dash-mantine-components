@@ -5,7 +5,7 @@
 ### Added
 - Added `TableOfContents` component #513 by @deadkex
 
-- Exposed Mantine Core, Mantine Hooks, and Mantine Dates on the global window object for use in custom Dash 
+- Exposed `MantineCore` and `MantineHooks` on the global window object for use in custom Dash 
 components. This enables building custom Dash components that depend on Mantine components or hooks while remaining
 compatible with Dash Mantine Components. #653 by @BSd3v
 
