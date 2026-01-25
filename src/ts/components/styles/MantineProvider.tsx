@@ -5,11 +5,9 @@ import {
 import React from 'react';
 import * as MantineCore from '@mantine/core';
 import * as MantineHooks from '@mantine/hooks';
-import * as MantineDates from '@mantine/dates';
 
 (window as any).MantineCore = MantineCore;
 (window as any).MantineHooks = MantineHooks;
-(window as any).MantineDates = MantineDates;
 
 import '@mantine/core/styles.css';
 
