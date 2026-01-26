@@ -1,5 +1,11 @@
 # Change Log
 
+# 2.5.1  
+
+### Fixed
+- Fixed more Python type generation by including improvements available in latest dash version. #692
+
+
 # 2.5.0
 
 ### Added
