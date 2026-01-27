@@ -260,58 +260,39 @@ DEFAULT_THEME = {
     "components": {},
 }
 
-def pre_render_color_scheme(
-    default: str = "auto",
-    storage_key: str = "mantine-color-scheme",
-    force: str | None = None,
-):
+def pre_render_color_scheme(default: str = "auto"):
     """
-        Initialize the Mantine color scheme before Dash renders.
-        Prevents light/dark theme flashes on app load and page refresh.
-        """
+    Initialize the Mantine color scheme before Dash renders.
+
+    Prevents light/dark theme flashes on app load and page refresh.
+    """
     try:
         from dash import hooks
     except ImportError:
         raise RuntimeError(
-            "pre_render_color_scheme requires Dash >= 3.0 "
-            "(dash.hooks is not available in Dash 2)."
+            "pre_render_color_scheme requires Dash >= 3.0"
         )
 
     script = """
-<script>
-(function () {{
-  try {{
-    const force = {f'"{force}"' if force else "null"};
-    let scheme;
+    <script>
+    (function () {
+      try {
+        const stored =
+          localStorage.getItem("mantine-color-scheme") || "auto";
 
-    if (force) {{
-      scheme = force;
-    }} else {{
-      const stored =
-        localStorage.getItem("{storage_key}") || "{default}";
-
-      const prefersDark =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      scheme =
-        stored === "auto"
-          ? (prefersDark ? "dark" : "light")
-          : stored;
-    }}
-
-    document.documentElement.setAttribute(
-      "data-mantine-color-scheme",
-      scheme
-    );
-  }} catch (e) {{}}
-})();
-</script>
-"""
+        document.documentElement.setAttribute(
+          "data-mantine-color-scheme",
+          stored
+        );
+      } catch (e) {}
+    })();
+    </script>
+    """
 
     @hooks.index()
     def _inject(index_html: str) -> str:
         head = "<head>"
         i = index_html.find(head) + len(head)
         return index_html[:i] + script + index_html[i:]
+
 
