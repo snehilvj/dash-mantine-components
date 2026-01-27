@@ -49,17 +49,18 @@ export function ColorSchemeToggle(props: Props) {
         lightIcon,
         darkIcon,
         variant = 'subtle',
+        computedColorScheme,
         ...others
     } = props;
 
     const { setColorScheme } = useMantineColorScheme();
-    const computedColorScheme = useComputedColorScheme('light');
+    const colorScheme = useComputedColorScheme('light');
 
-    const isDark = computedColorScheme === 'dark';
+    const isDark = colorScheme === 'dark';
 
     useEffect(() => {
         setProps({
-          computedColorScheme,
+          computedColorScheme: colorScheme,
         });
       }, [computedColorScheme]);
 

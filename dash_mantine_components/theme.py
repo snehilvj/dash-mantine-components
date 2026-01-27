@@ -260,12 +260,14 @@ DEFAULT_THEME = {
     "components": {},
 }
 
+
 def pre_render_color_scheme():
     """
-    Initialize the Mantine color scheme before Dash renders.
+       Initialize the Mantine color scheme before Dash renders.
 
-    Prevents light/dark theme flashes on app load and page refresh.
-    """
+       Prevents light/dark theme flashes on app load and page refresh.
+   """
+
     try:
         from dash import hooks
     except ImportError:
@@ -273,26 +275,33 @@ def pre_render_color_scheme():
             "pre_render_color_scheme requires Dash >= 3.0"
         )
 
-    script = """
-    <script>
-    (function () {
-      try {
-        const stored =
-          localStorage.getItem("mantine-color-scheme") || "auto";
-
-        document.documentElement.setAttribute(
-          "data-mantine-color-scheme",
-          stored
-        );
-      } catch (e) {}
-    })();
-    </script>
-    """
-
     @hooks.index()
-    def _inject(index_html: str) -> str:
+    def update_index(app_index):
+        html = "<html data-mantine-color-scheme='loading'>"
+        updated_app_index = app_index.replace('<html>', html)
         head = "<head>"
-        i = index_html.find(head) + len(head)
-        return index_html[:i] + script + index_html[i:]
-
-
+        head_idx = updated_app_index.find(head) + len(head)
+        updated_app_index = (
+                updated_app_index[:head_idx]
+                + f"""<style>
+                [data-mantine-color-scheme='loading'].dark {{
+                    background-color: {DEFAULT_THEME['colors']['dark'][7]}
+                }}
+                [data-mantine-color-scheme='loading'].light {{
+                    background-color: unset
+                }}
+                @media (prefers-color-scheme: dark) {{
+                    [data-mantine-color-scheme='loading'].auto {{
+                        background-color: {DEFAULT_THEME['colors']['dark'][7]};
+                    }}
+                }}
+                </style>
+                <script>
+                  // Mantine stores the color scheme under 'mantine-color-scheme'
+                  const colorScheme = localStorage.getItem('mantine-color-scheme-value') || 'auto';
+                  document.documentElement.classList.add(colorScheme);
+                </script>
+                """
+                + updated_app_index[head_idx:]
+        )
+        return updated_app_index
