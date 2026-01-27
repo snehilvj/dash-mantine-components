@@ -260,7 +260,7 @@ DEFAULT_THEME = {
     "components": {},
 }
 
-def pre_render_color_scheme(default: str = "auto"):
+def pre_render_color_scheme():
     """
     Initialize the Mantine color scheme before Dash renders.
 
