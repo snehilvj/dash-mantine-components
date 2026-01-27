@@ -1,4 +1,4 @@
-from dash import hooks
+
 
 # https://mantine.dev/theming/default-theme/
 DEFAULT_THEME = {
@@ -260,9 +260,7 @@ DEFAULT_THEME = {
     "components": {},
 }
 
-# When using ColorSchemeToggle, prevents flash of the wrong color scheme when
-# the app starts or when refreshed.
-def initalize_color_scheme(
+def pre_render_color_scheme(
     default: str = "auto",
     storage_key: str = "mantine-color-scheme",
     force: str | None = None,
@@ -271,6 +269,14 @@ def initalize_color_scheme(
         Initialize the Mantine color scheme before Dash renders.
         Prevents light/dark theme flashes on app load and page refresh.
         """
+    try:
+        from dash import hooks
+    except ImportError:
+        raise RuntimeError(
+            "pre_render_color_scheme requires Dash >= 3.0 "
+            "(dash.hooks is not available in Dash 2)."
+        )
+
     script = """
 <script>
 (function () {{
