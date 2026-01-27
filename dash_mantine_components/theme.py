@@ -260,11 +260,17 @@ DEFAULT_THEME = {
     "components": {},
 }
 
-def enable_color_scheme(
+# When using ColorSchemeToggle, prevents flash of the wrong color scheme when
+# the app starts or when refreshed.
+def initalize_color_scheme(
     default: str = "auto",
     storage_key: str = "mantine-color-scheme",
     force: str | None = None,
 ):
+    """
+        Initialize the Mantine color scheme before Dash renders.
+        Prevents light/dark theme flashes on app load and page refresh.
+        """
     script = """
 <script>
 (function () {{
