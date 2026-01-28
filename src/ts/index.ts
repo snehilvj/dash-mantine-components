@@ -20,6 +20,7 @@ import Burger from './components/core/Burger';
 import Center from './components/core/Center';
 import Code from './components/core/Code';
 import Collapse from './components/core/Collapse';
+import ColorSchemeToggle from './components/core/ColorSchemeToggle';
 import Container from './components/core/Container';
 import Divider from './components/core/Divider';
 import Drawer from './components/core/drawer/Drawer';
@@ -230,6 +231,7 @@ export {
     Code,
     CodeHighlight,
     CodeHighlightTabs,
+    ColorSchemeToggle,
     InlineCodeHighlight,
     Collapse,
     ColorInput,
