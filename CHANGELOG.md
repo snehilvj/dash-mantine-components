@@ -1,6 +1,6 @@
 # Change Log
 
-# Unreleased
+# 2.6.0
 
 ### Added
 - Added `ColorSchemeToggle` to switch between light and dark themes without a callback.  The current scheme is persisted
@@ -10,7 +10,7 @@ scheme before the app renders on page load or refresh, preventing flashes of the
 
 ### Fixed
 - Fixed `NumberInput` clamping when `max=None` #697 by @AnnMarieW
-- Fixed prop types in Grid and SimpleGrid #698 by @AnnMarieW
+- Fixed prop types in `Grid` and `SimpleGrid` #698 by @AnnMarieW
 
 ### Changed
 - Updated to Mantine 8.3.14 #699
