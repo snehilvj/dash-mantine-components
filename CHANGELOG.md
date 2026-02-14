@@ -10,7 +10,7 @@ scheme before the app renders on page load or refresh, preventing flashes of the
 
 ### Fixed
 - Fixed `NumberInput` clamping when `max=None` #697 by @AnnMarieW
-
+- Fixed prop types in Grid and SimpleGrid #698 by @AnnMarieW
 
 # 2.5.1  
 

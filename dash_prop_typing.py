@@ -121,6 +121,16 @@ custom_props = {
         "copiedColor": str_prop,
         **default_types,
     },
+    "Grid": {
+        "gutter": str_num_dict_prop,
+        **default_types,
+    },
+    "GridCol": {
+        "span": str_num_dict_prop,
+        "order": str_num_dict_prop,
+        "offset": str_num_dict_prop,
+        **default_types,
+    },
     "MultiSelect": {
         "data": combobox_data_prop,
         **default_types,
@@ -154,6 +164,7 @@ custom_props = {
     "SimpleGrid": {
         "spacing": str_num_dict_prop,
         "verticalSpacing": str_num_dict_prop,
+        "cols": str_num_dict_prop,
         **default_types,
     },
     "Slider": {
