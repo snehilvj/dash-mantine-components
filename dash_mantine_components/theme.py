@@ -1,3 +1,5 @@
+
+
 # https://mantine.dev/theming/default-theme/
 DEFAULT_THEME = {
     "scale": 1,
@@ -257,3 +259,49 @@ DEFAULT_THEME = {
     "other": {},
     "components": {},
 }
+
+
+def pre_render_color_scheme():
+    """
+       Initialize the Mantine color scheme before Dash renders.
+
+       Prevents light/dark theme flashes on app load and page refresh.
+   """
+
+    try:
+        from dash import hooks
+    except ImportError:
+        raise RuntimeError(
+            "pre_render_color_scheme requires Dash >= 3.0"
+        )
+
+    @hooks.index()
+    def update_index(app_index):
+        html = "<html data-mantine-color-scheme='loading'>"
+        updated_app_index = app_index.replace('<html>', html)
+        head = "<head>"
+        head_idx = updated_app_index.find(head) + len(head)
+        updated_app_index = (
+                updated_app_index[:head_idx]
+                + f"""<style>
+                [data-mantine-color-scheme='loading'].dark {{
+                    background-color: {DEFAULT_THEME['colors']['dark'][7]}
+                }}
+                [data-mantine-color-scheme='loading'].light {{
+                    background-color: unset
+                }}
+                @media (prefers-color-scheme: dark) {{
+                    [data-mantine-color-scheme='loading'].auto {{
+                        background-color: {DEFAULT_THEME['colors']['dark'][7]};
+                    }}
+                }}
+                </style>
+                <script>
+                  // Mantine stores the color scheme under 'mantine-color-scheme'
+                  const colorScheme = localStorage.getItem('mantine-color-scheme-value') || 'auto';
+                  document.documentElement.classList.add(colorScheme);
+                </script>
+                """
+                + updated_app_index[head_idx:]
+        )
+        return updated_app_index
