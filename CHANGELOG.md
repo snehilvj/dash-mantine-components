@@ -1,5 +1,10 @@
 # Change Log
 
+# Unreleased
+
+### Fixed
+- Fixed `NumberInput` clamping when `max=None` #697 by @AnnMarieW
+
 # 2.5.1  
 
 ### Fixed

@@ -20,6 +20,9 @@ rm -rf dist build
 ```
 
 2. Run a new build
+
+Be sure to use dash>=4.0.0 so types are correct
+
 ```
 npm install
 npm run build
