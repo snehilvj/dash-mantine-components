@@ -7,7 +7,9 @@
 in localStorage (mantine-color-scheme-value).  Also added the `pre_render_color_scheme()` helper, which sets the color
 scheme before the app renders on page load or refresh, preventing flashes of the wrong theme. #693 by @AnnMarieW
 
+
 ### Fixed
+- Fixed `NumberInput` clamping when `max=None` #697 by @AnnMarieW
 - Fixed prop types in Grid and SimpleGrid #698 by @AnnMarieW
 
 ### Changed
