@@ -10,6 +10,9 @@ scheme before the app renders on page load or refresh, preventing flashes of the
 ### Fixed
 - Fixed prop types in Grid and SimpleGrid #698 by @AnnMarieW
 
+### Changed
+- Updated to Mantine 8.3.14 #699
+
 # 2.5.1  
 
 ### Fixed
