@@ -1,5 +1,11 @@
 # Change Log
 
+# Unreleased
+
+### Fixed
+
+- Fixed prop types in Grid and SimpleGrid #698 by @AnnMarieW
+
 # 2.5.1  
 
 ### Fixed
