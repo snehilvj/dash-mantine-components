@@ -77,3 +77,26 @@ def test_001nu_numberinput(dash_duo):
     dash_duo.wait_for_text_to_equal("#out-2000", "3")
 
     assert dash_duo.get_logs() == []
+
+
+
+def test_002nu_numberinput_max(dash_duo):
+    """
+    Test that NumberInput(max=None) does not clamp values on blur   See issue #696
+    """
+    app = Dash(__name__)
+
+    app.layout = dmc.MantineProvider(dmc.NumberInput(max=None, value=1, id="max"))
+
+    dash_duo.start_server(app)
+
+    elem = dash_duo.find_element("#max")
+    assert elem.get_attribute("value") == "1"
+
+    elem.send_keys("3")
+    assert elem.get_attribute("value") == "13"
+
+    elem.send_keys(Keys.TAB)
+    assert elem.get_attribute("value") == "13"
+
+    assert dash_duo.get_logs() == []

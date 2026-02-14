@@ -7,6 +7,10 @@ import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
+// Dash serializes Python None → null; Mantine expects undefined to unset certain numeric props
+const normalizeNumberProp = (v?: number | null) =>
+    v === null ? undefined : v;
+
 interface Props
     extends BoxProps,
         __BaseInputProps,
@@ -78,6 +82,9 @@ const NumberInput = ({
     debounce = false,
     autoComplete = 'off',
     inputProps,
+    min,
+    max,
+    step,
     ...others
 }: Props) => {
     const [val, setVal] = useState(value);
@@ -122,6 +129,9 @@ const NumberInput = ({
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             autoComplete={autoComplete}
+            min={normalizeNumberProp(min)}
+            max={normalizeNumberProp(max)}
+            step={normalizeNumberProp(step)}
             {...others}
         />
     );
