@@ -11,6 +11,7 @@ import yaml from 'highlight.js/lib/languages/yaml';
 import bash from 'highlight.js/lib/languages/bash';
 import sql from 'highlight.js/lib/languages/sql';
 import markdown from 'highlight.js/lib/languages/markdown';
+import plaintext from 'highlight.js/lib/languages/plaintext';
 
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('py', python);
@@ -38,6 +39,6 @@ hljs.registerLanguage('sql', sql);
 hljs.registerLanguage('markdown', markdown);
 hljs.registerLanguage('md', markdown);
 // prevents runtime error if the language specified is not included here
-hljs.registerLanguage('plaintext', markdown);
+hljs.registerLanguage('plaintext', plaintext);
 
 export const highlightJsAdapter = createHighlightJsAdapter(hljs);
