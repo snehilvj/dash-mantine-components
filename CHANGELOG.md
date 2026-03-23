@@ -1,5 +1,12 @@
 # Change Log
 
+# 2.6.1
+
+### Fixed
+
+- Add missing import of `dmc-code.css` to `InlineCodeHighlight`.
+- Unknown code highlight language now defaults to `plaintext` rather than `markdown`.
+
 # 2.6.0
 
 ### Added
