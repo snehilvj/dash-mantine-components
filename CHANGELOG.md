@@ -1,11 +1,15 @@
 # Change Log
 
-# 2.6.1
+# UNRELEASED
 
 ### Fixed
 
-- Add missing import of `dmc-code.css` to `InlineCodeHighlight`.
-- Unknown code highlight language now defaults to `plaintext` rather than `markdown`.
+- Add missing import of `dmc-code.css` to `InlineCodeHighlight`. #704 by @antonymilne
+- Unknown code highlight language now defaults to `plaintext` rather than `markdown`. #704
+
+
+### Changed
+- Updated to Mantine 8.3.17 #705
 
 # 2.6.0
 
