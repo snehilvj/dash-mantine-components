@@ -11,6 +11,9 @@ def str_num_dict_prop(type_info, component_name, prop_name):
     """All generic style props accept scalar values or a dict for responsive styles."""
     return "typing.Union[str, NumberType, typing.Dict[str, typing.Any]]"
 
+def bool_dict_prop(*_):
+    return "typing.Optional[Union[bool, Dict[str, Any]]]"
+
 
 def str_num_prop(*_):
     return "typing.Union[str, NumberType]"
@@ -53,7 +56,7 @@ def size_prop(type_info, component_name, prop_name):
 
 def combobox_data_prop(*_):
     """
-    Handles Select / MultiSelect / Autocomplete / TagsInput data props.
+    Handles Select / MultiSelect / Autocomplete / TagsInput / SegmentedControl data props.
     """
     return "typing.Sequence[typing.Union[str, typing.Dict[str, typing.Any]]]"
 
@@ -115,6 +118,8 @@ custom_props = {
     "Carousel": {
         "controlsOffset": str_num_prop,
         "slideGap": str_num_dict_prop,
+        "autoplay": bool_dict_prop,
+        "autoScroll": bool_dict_prop,
         **default_types,
     },
     "CopyButton": {
@@ -150,6 +155,10 @@ custom_props = {
     },
     "RingProgress": {
         "rootColor": str_prop,
+        **default_types,
+    },
+    "SegmentedControl": {
+        "data": combobox_data_prop,
         **default_types,
     },
     "Select": {

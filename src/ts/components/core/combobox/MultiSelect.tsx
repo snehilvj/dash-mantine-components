@@ -72,6 +72,11 @@ const MultiSelect = ({
     value = [],
     ...others
 }: Props) => {
+    if (typeof value === 'string') {
+        throw new Error(
+        'MultiSelect: `value` must be a list'
+        );
+    }
     const [selected, setSelected] = useState(value ?? []);
     const [options, setOptions] = useState(data ?? []);
     const { ref, focused } = useFocusWithin();

@@ -62,6 +62,11 @@ const TagsInput = ({
     value,
     ...others
 }: Props) => {
+    if (typeof value === 'string') {
+        throw new Error(
+        'TagsInput: `value` must be a list'
+        );
+    }
     const [selected, setSelected] = useState(value ?? []);
     const [options, setOptions] = useState(data ?? []);
     const [searchVal, setSearchVal] = useState(searchValue);
