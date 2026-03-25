@@ -12,7 +12,7 @@ def str_num_dict_prop(type_info, component_name, prop_name):
     return "typing.Union[str, NumberType, typing.Dict[str, typing.Any]]"
 
 def bool_dict_prop(*_):
-    return "typing.Optional[Union[bool, Dict[str, Any]]]"
+    return "typing.Optional[typing.Union[bool, typing.Dict[str, typing.Any]]]"
 
 
 def str_num_prop(*_):
