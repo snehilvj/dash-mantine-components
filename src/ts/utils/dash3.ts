@@ -91,8 +91,7 @@ export const newRenderDashComponents = (
     propsToRender: string[],
     basePath: any[] = []
 ) => {
-    const _ = require('lodash');
-    const newProps = _.cloneDeep(props);
+    const newProps = structuredClone(props);
     if (!isDash3() || isEmpty(basePath)) {
         const dash_extensions = require('dash-extensions-js');
         const { renderDashComponents } = dash_extensions;
