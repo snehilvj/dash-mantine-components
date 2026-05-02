@@ -15,7 +15,7 @@ export interface Props
     n_clicks?: number;
     /** Indicates disabled state */
     disabled?: boolean;
-    /** Props passed down to the `Button` component **/
+    /** Props passed down to the `Button` component */
     buttonProps?: object;
 }
 

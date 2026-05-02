@@ -41,7 +41,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     autoContrast?: boolean;
     /** An integer that represents the number of times that this element has been clicked on */
     n_clicks?: number;
-    /** Props passed down to the `Button` component **/
+    /** Props passed down to the `Button` component */
     buttonProps?: object;
 }
 

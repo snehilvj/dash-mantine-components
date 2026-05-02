@@ -47,7 +47,7 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
      *  `value` prop will be copied.
      */
     target_id?: string;
-    /** Props passed down to the `Button` component **/
+    /** Props passed down to the `Button` component */
     buttonProps?: object;
 }
 /** CopyButton - Button component with copy to clipboard functionality */

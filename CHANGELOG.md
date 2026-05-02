@@ -1,6 +1,6 @@
 # Change Log
 
-# Unreleased
+# 2.7.0
 
 ### Added
 
@@ -9,6 +9,10 @@
   - `active="children"` sets parent link to active if any child links are active.
   
 - Added `buttonProps` to `Button`, `ActionIcon`, `UnstyledButton`, `CopyButton` components to allow passing props directly to the underlying button element. #716 by @AnnMarieW
+
+
+### Changed
+- Updated to Mantine 8.3.18  Last Mantine V8 release.
 
 # 2.6.1
 
