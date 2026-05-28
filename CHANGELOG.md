@@ -1,5 +1,11 @@
 # Change Log
 
+# Unreleased
+
+### Added
+
+- Enable functions in valueLabelProps in BarChart  #724 by @almostBurtMacklin 
+
 # 2.7.0
 
 ### Added
