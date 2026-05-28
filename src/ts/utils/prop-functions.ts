@@ -64,7 +64,7 @@ const funcPropsMap = {
         'gridProps',
         'rightYAxisProps',
         'tooltipProps',
-        'valueLabelProp',  
+        'valueLabelProps',  
         'getBarColor',
     ],
     BubbleChart: [
