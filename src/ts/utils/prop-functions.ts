@@ -98,6 +98,11 @@ const funcPropsMap = {
         'tooltipProps',
         'valueFormatter',
     ],
+    Heatmap: [
+        'getTooltipLabel',
+        'tooltipProps',
+        'getRectProps',
+    ]
 };
 
 // parses functon as props from other props
