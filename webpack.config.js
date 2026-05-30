@@ -106,7 +106,7 @@ module.exports = function (env, argv) {
                         test(module, { chunkGraph }) {
                             const chunks = chunkGraph.getModuleChunks(module);
                             return Array.from(chunks).some((chunk) =>
-                                /(?:Chart|Sparkline)$/.test(chunk.name)
+                                /(?:Chart|Sparkline|Heatmap)$/.test(chunk.name)
                             );
                         },
                         chunks: "all",

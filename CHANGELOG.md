@@ -4,6 +4,7 @@
 
 ### Added
 
+- Added Heatmap component #725 by @AnnMarieW
 - Enable functions in valueLabelProps in BarChart  #724 by @almostBurtMacklin 
 
 # 2.7.0

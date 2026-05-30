@@ -29,6 +29,7 @@ import ManagedDrawer from './components/core/drawer/ManagedDrawer';
 import Fieldset from './components/core/Fieldset';
 import Flex from './components/core/Flex';
 import Group from './components/core/Group';
+import Heatmap from './components/charts/Heatmap';
 import Highlight from './components/core/Highlight';
 import Indicator from './components/core/Indicator';
 import InputWrapper from './components/core/input/InputWrapper';
@@ -254,6 +255,7 @@ export {
     Grid,
     GridCol,
     Group,
+    Heatmap,
     Highlight,
     HoverCard,
     HoverCardDropdown,
