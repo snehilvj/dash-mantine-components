@@ -45,6 +45,18 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
     /** Click data */
     clickData?: Record<string, any>;
+    /** Determines whether Tooltip component should be displayed. Default false */
+    withTooltip?: boolean;
+    /** Props passed down to recharts Tooltip component */
+    tooltipProps?: object;
+    /** Tooltip position animation duration in ms.  Default 0 */
+    tooltipAnimationDuration?: number;
+     /** Determines whether dots should be displayed. Default false */
+    withDots?: boolean;
+    /** Props passed down to all dots. Ignored if `withDots=False` is set. */
+    dotProps?: object;
+    /** Props passed down to all active dots. Ignored if `withDots=False` is set. */
+    activeDotProps?: object;
 }
 
 /** RadarChart */

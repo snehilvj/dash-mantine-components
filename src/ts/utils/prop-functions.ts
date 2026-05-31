@@ -102,6 +102,16 @@ const funcPropsMap = {
         'getTooltipLabel',
         'tooltipProps',
         'getRectProps',
+    ],
+    RadarChart: [
+        'tooltipProps',
+        'legendProps',
+        'radarProps',
+        'polarGridProps',
+        'polarAngleAxixProps',
+        'polarRadiusAxisProps',
+        'dotProps',
+        'activeDotProps'
     ]
 };
 
