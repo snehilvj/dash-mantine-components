@@ -82,6 +82,11 @@ const funcPropsMap = {
         'tooltipProps',
         'valueFormatter',
     ],
+    FunnelChart: [
+        "tooltipProps",
+        "valueFormatter",
+        "funnelChartProps",
+    ],
     LineChart: [
         'xAxisProps',
         'yAxisProps',
