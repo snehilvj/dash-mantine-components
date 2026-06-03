@@ -10,6 +10,11 @@ export const getScatterClickData = (ev) => {
     return ev.payload;
 };
 
+
+export const getFunnelClickData = (ev) => {
+    return ev.payload.payload;
+};
+
 export const isEventValid = (ev) => {
     return Object.keys(ev).length !== 0;
 };
