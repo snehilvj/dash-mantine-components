@@ -23,7 +23,7 @@ interface Props extends MantineProviderProps {
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
     /**getStyleNonce is a function to generate [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) attribute added to dynamic generated `<style />` tags.*/
-    getStyleNonce: any;
+    getStyleNonce?: any;
 }
 
 /* MantineProvider */
