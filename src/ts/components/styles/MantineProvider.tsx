@@ -22,17 +22,19 @@ import '@mantine/notifications/styles.css';
 interface Props extends MantineProviderProps {
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
-    /**getStyleNonce is a function to generate nonce attribute added to dynamic generated `<style />` tags.*/
+    /**getStyleNonce is a function to generate [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) attribute added to dynamic generated `<style />` tags.*/
     getStyleNonce: any;
 }
 
 /* MantineProvider */
 const MantineProvider = (props: Props) => {
-    const { children, ...others } = props;
+  const { children, ...others } = props;
 
-    return (
-        <MantineMantineProvider {...parseFuncProps('MantineProvider', others)}>{children}</MantineMantineProvider>
-    );
+  return (
+    <MantineMantineProvider {...parseFuncProps('MantineProvider', others)}>
+      {children}
+    </MantineMantineProvider>
+  );
 };
 
 export default MantineProvider;
