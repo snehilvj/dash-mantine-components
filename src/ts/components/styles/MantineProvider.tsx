@@ -5,6 +5,7 @@ import {
 import React from 'react';
 import * as MantineCore from '@mantine/core';
 import * as MantineHooks from '@mantine/hooks';
+import { parseFuncProps } from '../../utils/prop-functions';
 
 (window as any).MantineCore = MantineCore;
 (window as any).MantineHooks = MantineHooks;
@@ -21,15 +22,19 @@ import '@mantine/notifications/styles.css';
 interface Props extends MantineProviderProps {
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
+    /**getStyleNonce is a function to generate [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) attribute added to dynamic generated `<style />` tags.*/
+    getStyleNonce?: any;
 }
 
 /* MantineProvider */
 const MantineProvider = (props: Props) => {
-    const { children, ...others } = props;
+  const { children, ...others } = props;
 
-    return (
-        <MantineMantineProvider {...others}>{children}</MantineMantineProvider>
-    );
+  return (
+    <MantineMantineProvider {...parseFuncProps('MantineProvider', others)}>
+      {children}
+    </MantineMantineProvider>
+  );
 };
 
 export default MantineProvider;

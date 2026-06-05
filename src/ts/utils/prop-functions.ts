@@ -17,6 +17,7 @@ import { path } from 'ramda';
  */
 
 const funcPropsMap = {
+    MantineProvider: ['getStyleNonce'],
     Slider: ['label', 'scale'],
     RangeSlider: ['label', 'scale'],
     Select: ['renderOption', 'filter'],
