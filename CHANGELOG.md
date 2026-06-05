@@ -5,11 +5,13 @@
 ### Added
 
 - Added Heatmap component #725 by @AnnMarieW
-- Enable functions in valueLabelProps in BarChart  #724 by @almostBurtMacklin 
+- Enable functions in `valueLabelProps` in `BarChart`  #724 by @almostBurtMacklin 
 
 - Updated RadarChart: #726 by @AnnMarieW
   - allow for functions in props passed to Recharts.
   - added props: `withTooltip`, `tooltipProps`, `tooltipAnimationDuration`, `withDots`, `dotProps`, `activeDotProps`
+
+- Added `getStyleNonce` prop to `MantineProvider`  #731 by @AnnMarieW
 
 # 2.7.0
 
