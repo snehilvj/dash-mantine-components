@@ -1,4 +1,4 @@
-:where([data-mantine-color-scheme='light']) .dmc-code {
+[data-mantine-color-scheme='light'] .dmc-code .hljs {
     --code-text-color: var(--mantine-color-gray-7);
     --code-background: var(--mantine-color-gray-0);
     --code-comment-color: var(--mantine-color-gray-6);
@@ -10,7 +10,7 @@
     --code-class-color: var(--mantine-color-orange-9);
 }
 
-:where([data-mantine-color-scheme='dark']) .dmc-code {
+[data-mantine-color-scheme='dark'] .dmc-code .hljs {
     --code-text-color: var(--mantine-color-dark-1);
     --code-background: var(--mantine-color-dark-8);
     --code-comment-color: var(--mantine-color-dark-3);
@@ -22,12 +22,12 @@
     --code-class-color: var(--mantine-color-orange-5);
 }
 
-:where([data-mantine-color-scheme='dark']) .hljs {
+[data-mantine-color-scheme='dark'] .dmc-code .hljs {
     color: var(--mantine-color-dark-1);
     background: var(--mantine-color-dark-8);
 }
 
-:where([data-mantine-color-scheme='light']) .hljs {
+[data-mantine-color-scheme='light'] .dmc-code .hljs {
     color: var(--mantine-color-gray-7);
     background: var(--mantine-color-gray-0);
 }
