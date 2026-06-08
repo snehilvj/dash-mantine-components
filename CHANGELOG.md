@@ -13,6 +13,10 @@
 
 - Added `getStyleNonce` prop to `MantineProvider`  #731 by @AnnMarieW
 
+### Fixed
+
+- Fixed a CSS specificity issue where Highlight.js styles associated with `dcc.Markdown` could override the dark theme styling of `dmc.CodeHighlight`. #732 by @AnnMarieW
+
 # 2.7.0
 
 ### Added
