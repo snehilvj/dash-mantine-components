@@ -10,7 +10,7 @@ import { __ClearButtonProps } from 'props/button';
 import { __BaseInputProps } from 'props/input';
 import { ScrollAreaProps } from 'props/scrollarea';
 import { StylesApiProps } from 'props/styles';
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
 
@@ -58,8 +58,17 @@ const Autocomplete = ({
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(autocomplete, debounceValue);
 
+    const inputRef = useRef(null);
+    const isInputFocused = () => document.activeElement === inputRef.current;
+
     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
+
+        // Update the value prop when the clear button is clicked
+        // while the input is not focused.
+        if (!isInputFocused() && debounce === true) {
             setProps({ value: debounced });
         }
     }, [debounced]);
@@ -96,6 +105,7 @@ const Autocomplete = ({
 
     return (
         <MantineAutocomplete
+            ref={inputRef}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('Autocomplete', others)}
             data={options}

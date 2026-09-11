@@ -8,6 +8,7 @@
 
 ### Fixed
 - Fixed  `preset` type in datepicker components #740 by @AnnMarieW
+- Fixed `Select` with `debounce` and `clearable` so clearing the value updates correctly. #744 by @AnnMarieW
 
 # 2.8.0
 
