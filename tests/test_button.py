@@ -2,7 +2,7 @@
 from dash import Dash, html, _dash_renderer
 import dash_mantine_components as dmc
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def test_001bu_button(dash_duo):

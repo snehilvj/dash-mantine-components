@@ -3,7 +3,7 @@ from dash import Dash, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 import json
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 data = [
   { "name": "USA", "value": 400, "color": "indigo.6" },

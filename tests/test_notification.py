@@ -4,7 +4,7 @@ import dash_mantine_components as dmc
 import pytest
 
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 @pytest.mark.skip(reason="Skipping this test after reverting PR 523.  Add back in PR 539 ")

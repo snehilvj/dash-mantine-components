@@ -5,7 +5,7 @@ from dash import Dash, Input, Output, _dash_renderer, html, ctx
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 rte_id = "rich-text-editor"
 log_json_id = "output-json"
