@@ -2,7 +2,7 @@ dash[ci,dev,testing]>=4.5.0rc0
 pyyaml>=5.0
 pytest<8.1.0
 wheel
-selenium<4.3.0
+selenium>=4.11.0,<=4.48.0
 black
 build
 dash-iconify
