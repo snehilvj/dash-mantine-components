@@ -30,7 +30,7 @@ def test_001ts_typography_styles_provider(dash_duo):
     app.layout = dmc.MantineProvider(
         [
             dcc.Markdown(content, dangerously_allow_html=True, id="default"),
-            dmc.TypographyStylesProvider(
+            dmc.Typography(
                 dcc.Markdown(content, dangerously_allow_html=True, id="styled")
             ),
         ],
