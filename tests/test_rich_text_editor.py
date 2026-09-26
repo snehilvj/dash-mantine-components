@@ -290,10 +290,12 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
 
     # Toggle read-only on
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
+    time.sleep(.5)
     assert editor.get_attribute("contenteditable") == "false"
 
     # Toggle read-only off
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
+    time.sleep(.5)
     assert editor.get_attribute("contenteditable") == "true"
 
     # Final sanity edit

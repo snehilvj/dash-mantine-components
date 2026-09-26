@@ -38,9 +38,6 @@ def test_001chb_checkbox_group(dash_duo):
     app = checkboxgroup_app()
     dash_duo.start_server(app)
 
-    # Wait for the app to load
-    dash_duo.wait_for_element("div[aria-labelledby='checkbox-group-label']")
-
     option1 = dash_duo.find_element("#o1")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: ['option1']")

@@ -26,16 +26,15 @@ def test_001ho_hovercard(dash_duo):
 
     dash_duo.start_server(app)
 
-
     # Locate the first component
-    element = dash_duo.find_element("#hover1-target")
+    element = dash_duo.find_element("#hover1")
 
     # Verify the HoverTargetCard has the default style
     style_attribute = element.get_attribute("style")
     assert style_attribute == "width: fit-content;"
 
     # Locate the second component
-    element = dash_duo.find_element("#hover2-target")
+    element = dash_duo.find_element("#hover2")
 
     # Verify the HoverTargetCard has the styles passed from boxWrapperProps
     style_attribute = element.get_attribute("style")

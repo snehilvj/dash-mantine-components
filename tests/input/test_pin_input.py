@@ -37,7 +37,6 @@ def test_001pi_pininput(dash_duo):
     button.click()
     dash_duo.wait_for_text_to_equal("#div", "abcd")
 
-
     pin_input = dash_duo.find_element("#pin input")  # Mantine renders each digit as input
     pin_input.send_keys("wxyz")
     dash_duo.wait_for_text_to_equal("#div", "wxyz")
