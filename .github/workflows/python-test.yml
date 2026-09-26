@@ -2,30 +2,25 @@ name: Run tests
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
     tags:
       - v*
   pull_request:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
-  test:
+  test-react:
     runs-on: ubuntu-latest
 
     env:
       REACT_VERSION: "19.2.4"
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -33,10 +28,18 @@ jobs:
           node-version: 24
           cache: npm
 
+      - name: Setup Chrome and ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
       - name: Setup uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Install dependencies
+      - name: Setup virtual display
+        uses: ./.github/actions/setup-virtual-display
+
+      - name: Install package
         run: |
           uv venv
           source .venv/bin/activate
@@ -44,19 +47,13 @@ jobs:
           uv pip install wheel
           uv pip install ".[dev]"
           npm ci
+          npm run build
+        timeout-minutes: 20
 
-      - name: Build DMC
+      - name: Install package in editable mode
         run: |
           source .venv/bin/activate
-          npm run build
-
-      - name: Setup Chrome and ChromeDriver
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-
-      - name: Setup virtual display
-        uses: ./.github/actions/setup-virtual-display
+          uv pip install -e .
 
       - name: Run tests
         run: |
