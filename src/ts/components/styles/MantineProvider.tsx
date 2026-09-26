@@ -25,7 +25,7 @@ const ensureReact19 = () => {
     if (major < 19) {
         throw new Error(
             `Dash Mantine Components v3 requires React 19. Detected React ${React.version}. ` +
-            'Upgrade to Dash>= 4 with React 19. See the DMC migration guide for more information.'
+            'Upgrade to Dash>= 4.5 to use React 19.2.4. See the DMC migration guide for more information.'
         );
     }
 };
