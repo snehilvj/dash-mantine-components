@@ -2,46 +2,63 @@ name: Run tests
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
     tags:
       - v*
   pull_request:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
-  test-react:
+  test:
     runs-on: ubuntu-latest
 
+    env:
+      REACT_VERSION: "19.2.4"
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v3
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.12
+          python-version: "3.12"
+          cache: pip
 
-      - name: Start XVFB
-        run: Xvfb :99 &
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
 
       - name: Setup uv
-        run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          uv venv
+        uses: astral-sh/setup-uv@v6
 
-      - name: Install package
+      - name: Install dependencies
         run: |
+          uv venv
           source .venv/bin/activate
           uv pip install --upgrade pip
           uv pip install wheel
           uv pip install ".[dev]"
-          npm i
-          npm run build
-        timeout-minutes: 20
+          npm ci
 
-      - name: Run tests
-        env:
-          DISPLAY: :99
-          REACT_VERSION: 19.2.4
+      - name: Build DMC
         run: |
           source .venv/bin/activate
-          uv pip install -e .
+          npm run build
+
+      - name: Setup Chrome and ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Setup virtual display
+        uses: ./.github/actions/setup-virtual-display
+
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
           pytest --headless
