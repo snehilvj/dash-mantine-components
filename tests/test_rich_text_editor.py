@@ -1,4 +1,5 @@
 import json
+import time
 
 from dash import Dash, Input, Output, _dash_renderer, html, ctx
 
@@ -289,12 +290,10 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
 
     # Toggle read-only on
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
-    dash_duo.wait_for_element("css selector", ".tiptap[contenteditable='false']")
     assert editor.get_attribute("contenteditable") == "false"
 
     # Toggle read-only off
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
-    dash_duo.wait_for_element("css selector", ".tiptap[contenteditable='true']")
     assert editor.get_attribute("contenteditable") == "true"
 
     # Final sanity edit

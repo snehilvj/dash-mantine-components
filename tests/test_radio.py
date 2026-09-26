@@ -38,9 +38,6 @@ def test_001ra_radio_group(dash_duo):
     app = radiogroup_app()
     dash_duo.start_server(app)
 
-    # Wait for the app to load
-    dash_duo.wait_for_element("div[aria-labelledby='radio-group-label']")
-
     option1 = dash_duo.find_element("input[value='option1']")
     option2 = dash_duo.find_element("input[value='option2']")
     option1.click()
@@ -58,9 +55,6 @@ def test_002ra_radio_group_deselectable(dash_duo):
 
     app = radiogroup_app(deselectable=True)
     dash_duo.start_server(app)
-
-    # Wait for the app to load
-    dash_duo.wait_for_element("div[aria-labelledby='radio-group-label']")
 
     option1 = dash_duo.find_element("input[value='option1']")
     option1.click()
