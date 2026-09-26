@@ -38,7 +38,7 @@ def test_001se_segmented_control(dash_duo):
     # Verify that "b" is disabled
     assert option_b.get_attribute("disabled") == "true"
 
-    option_c = dash_duo.find_element("input[value='c']").find_element_by_xpath("./..")
+    option_c = dash_duo.find_element("input[value='c']").find_element("xpath", "./..")
     option_c.click()
     dash_duo.wait_for_text_to_equal("#output", "choice='c'")
 

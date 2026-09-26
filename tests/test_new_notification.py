@@ -49,14 +49,14 @@ def test_001na_notification_new_noreopen(dash_duo):
         button.click()
         nots_holder = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
         time.sleep(1)
-        children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
+        children = nots_holder.find_elements("xpath", './*')  # Finds all direct children
         assert len(children) == 1
 
     time.sleep(2)
     button.click()
     nots_holder = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
     time.sleep(1)
-    children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
+    children = nots_holder.find_elements("xpath", './*')  # Finds all direct children
     assert len(children) == 0
 
 def test_002nu_notification_new_update(dash_duo):
@@ -129,7 +129,7 @@ def test_003nc_notification_new_clear(dash_duo):
     button.click()
     nots_holder = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
     time.sleep(1)
-    children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
+    children = nots_holder.find_elements("xpath", './*')  # Finds all direct children
     assert len(children) == 0
 
 def test_004nc_notification_new_clearQueue_store(dash_duo):
@@ -200,7 +200,7 @@ def test_004nc_notification_new_clearQueue_store(dash_duo):
     time.sleep(1)
     fetch.click()
     until(lambda: len(json.loads(dash_duo.find_element(f"#notification_store").text).get('notifications', [])) == 0, 30)
-    children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
+    children = nots_holder.find_elements("xpath", './*')  # Finds all direct children
     assert len(children) == 0
 
 
@@ -265,7 +265,7 @@ def test__005nc_notification_new_show_hide(dash_duo):
 
     # Expect 1 notification in the DOM
     container = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
-    assert len(container.find_elements_by_xpath("./*")) == 1
+    assert len(container.find_elements("xpath", "./*")) == 1
 
     # Click "Hide" button
     dash_duo.find_element("#hide-notifications").click()
@@ -274,4 +274,4 @@ def test__005nc_notification_new_show_hide(dash_duo):
 
     # Notification should be removed
     container = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
-    assert len(container.find_elements_by_xpath("./*")) == 0
+    assert len(container.find_elements("xpath", "./*")) == 0

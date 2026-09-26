@@ -52,14 +52,14 @@ def test_001na_notification_autoclose(dash_duo):
         button.click()
         nots_holder = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
         time.sleep(1)
-        children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
+        children = nots_holder.find_elements("xpath", './*')  # Finds all direct children
         assert len(children) == 1
 
     time.sleep(2)
     button.click()
     nots_holder = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
     time.sleep(1)
-    children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
+    children = nots_holder.find_elements("xpath", './*')  # Finds all direct children
     assert len(children) == 0
 
 def test_002nu_notification_update(dash_duo):
@@ -141,5 +141,5 @@ def test_003nc_notification_clear(dash_duo):
     button.click()
     nots_holder = dash_duo.find_element(".mantine-Notifications-root[data-position='bottom-right'] > div")
     time.sleep(1)
-    children = nots_holder.find_elements_by_xpath('./*')  # Finds all direct children
+    children = nots_holder.find_elements("xpath", './*')  # Finds all direct children
     assert len(children) == 0
