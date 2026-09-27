@@ -1,53 +1,52 @@
 import { FunnelChart as MantineFunnelChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useState } from 'react';
-import { getFunnelClickData, isEventValid } from '../../../utils/charts';
+import React from 'react';
 import { getLoadingState } from '../../../utils/dash3';
+import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../FunnelChart';
-import {parseFuncProps} from "../../../utils/prop-functions";
 
 /** FunnelChart */
-const FunnelChart = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        clickData,
-        hoverData,
-        clickSeriesName,
-        hoverSeriesName,
-        funnelProps,
-        data,
-        ...others
-    } = props;
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            const clickdata = getFunnelClickData(ev);
+const FunnelChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    clickSeriesName,
+    hoverSeriesName,
+    funnelProps,
+    data,
+    ...others
+}: Props) => {
+    const handleClick = (item) => {
+        if (item?.payload) {
             setProps({
-                clickData: clickdata,
-                clickSeriesName: clickdata['name'],
+                clickData: item.payload,
+                clickSeriesName: item.name,
             });
         }
     };
 
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            const hoverdata = getFunnelClickData(ev);
+    const handleMouseEnter = (item) => {
+        if (item?.payload) {
             setProps({
-                hoverData: hoverdata,
-                hoverSeriesName: hoverdata['name'],
+                hoverData: item.payload,
+                hoverSeriesName: item.name,
             });
         }
     };
-
-    const newProps = { ...funnelProps, onClick, onMouseOver };
 
     return (
         <MantineFunnelChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-             {...parseFuncProps('FunnelChart', others)}
+            data-dash-is-loading={
+                getLoadingState(loading_state) || undefined
+            }
+            {...parseFuncProps('FunnelChart', others)}
             data={data}
-            funnelProps={newProps}
+            funnelProps={{
+                ...funnelProps,
+                onClick: handleClick,
+                onMouseEnter: handleMouseEnter,
+            }}
         />
     );
 };

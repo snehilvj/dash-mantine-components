@@ -62,7 +62,7 @@ def test_001pi_piechart(dash_duo):
     assert clickdata["value"] == 400
     assert clickdata["color"] == "indigo.6"
 
-    hoverdata = json.loads(dash_duo.find_element("#clickdata").text)
+    hoverdata = json.loads(dash_duo.find_element("#hoverdata").text)
     assert hoverdata["name"] == "USA"
     assert hoverdata["value"] == 400
     assert hoverdata["color"] == "indigo.6"

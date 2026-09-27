@@ -56,12 +56,16 @@ def test_001fu_funnelhart(dash_duo):
     actions = ActionChains(dash_duo.driver)
     actions.move_to_element(areas[0]).click().perform()
 
-    expected_output = (
-         '{"name": "USA", "value": 400, "color": "indigo.6"}'
-    )
+    clickdata = json.loads(dash_duo.find_element("#clickdata").text)
+    assert clickdata["name"] == "USA"
+    assert clickdata["value"] == 400
+    assert clickdata["color"] == "indigo.6"
 
-    dash_duo.wait_for_text_to_equal("#clickdata", expected_output)
-    dash_duo.wait_for_text_to_equal("#hoverdata", expected_output)
+    hoverdata = json.loads(dash_duo.find_element("#hoverdata").text)
+    assert hoverdata["name"] == "USA"
+    assert hoverdata["value"] == 400
+    assert hoverdata["color"] == "indigo.6"
+
     dash_duo.wait_for_text_to_equal("#hoverseriesname", "USA")
     dash_duo.wait_for_text_to_equal("#clickseriesname", "USA")
 
