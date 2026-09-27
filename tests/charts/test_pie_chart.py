@@ -2,6 +2,7 @@ from selenium.webdriver import ActionChains
 from dash import Dash, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 import json
+import time
 
 _dash_renderer._set_react_version("19.2.4")
 
@@ -56,7 +57,7 @@ def test_001pi_piechart(dash_duo):
     actions = ActionChains(dash_duo.driver)
     actions.move_to_element(areas[0]).click().perform()
 
-
+    time.sleep(.5)
     clickdata = json.loads(dash_duo.find_element("#clickdata").text)
     assert clickdata["name"] == "USA"
     assert clickdata["value"] == 400
