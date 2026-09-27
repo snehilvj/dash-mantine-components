@@ -1,7 +1,7 @@
 from dash import Dash, html, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def checkboxgroup_app(**kwargs):
@@ -37,9 +37,6 @@ def test_001chb_checkbox_group(dash_duo):
 
     app = checkboxgroup_app()
     dash_duo.start_server(app)
-
-    # Wait for the app to load
-    dash_duo.wait_for_element("div[aria-labelledby='checkbox-group-label']")
 
     option1 = dash_duo.find_element("#o1")
     option1.click()

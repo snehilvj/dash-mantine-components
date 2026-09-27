@@ -16,8 +16,6 @@ export interface __PopoverProps {
     position?: FloatingPosition;
     /** Offset of the dropdown element, `8` by default */
     offset?: number | FloatingAxesOffsets;
-    /** `useEffect` dependencies to force update dropdown position, `[]` by default */
-    positionDependencies?: any[];
     /** If set dropdown will not be unmounted from the DOM when it is hidden, `display: none` styles will be added instead */
     keepMounted?: boolean;
     /** Props passed down to the `Transition` component that used to animate dropdown presence, use to configure duration and animation type, `{ duration: 150, transition: 'fade' }` by default */

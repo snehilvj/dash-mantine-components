@@ -156,11 +156,7 @@ const Tree = ({
     }, [selected]);
 
     useDidUpdate(() => {
-        expanded === '*'
-            ? tree.expandAllNodes()
-            : tree.setExpandedState(
-                  Object.fromEntries(expanded.map((x) => [x, true]))
-              );
+        tree.setExpandedState(getTreeExpandedState(data, expanded));
     }, [expanded]);
 
     useDidUpdate(() => {

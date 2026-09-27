@@ -19,6 +19,17 @@ import '@mantine/carousel/styles.css';
 import '@mantine/nprogress/styles.css';
 import '@mantine/notifications/styles.css';
 
+const ensureReact19 = () => {
+    const major = Number(React.version.split('.')[0]);
+
+    if (major < 19) {
+        throw new Error(
+            `Dash Mantine Components v3 requires React 19. Detected React ${React.version}. ` +
+            'Upgrade to Dash>= 4.5 to use React 19.2.4. See the DMC migration guide for more information.'
+        );
+    }
+};
+
 interface Props extends MantineProviderProps {
     /** Unique ID to identify this component in Dash callbacks. */
     id?: string;
@@ -29,6 +40,8 @@ interface Props extends MantineProviderProps {
 /* MantineProvider */
 const MantineProvider = (props: Props) => {
   const { children, ...others } = props;
+
+  ensureReact19();
 
   return (
     <MantineMantineProvider {...parseFuncProps('MantineProvider', others)}>

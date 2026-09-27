@@ -1,5 +1,5 @@
 import {
-    ComboboxStringData,
+    ComboboxGenericData,
     TagsInput as MantineTagsInput,
 } from '@mantine/core';
 import { useDidUpdate } from '@mantine/hooks';
@@ -23,7 +23,7 @@ interface Props
         DashBaseProps,
         PersistenceProps {
     /** Data displayed in the dropdown */
-    data?: ComboboxStringData;
+    data?: ComboboxGenericData;
     /** Controlled component value */
     value?: string[];
     /** Controlled search value */

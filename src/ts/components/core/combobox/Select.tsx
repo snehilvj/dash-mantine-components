@@ -1,4 +1,4 @@
-import { Select as MantineSelect } from '@mantine/core';
+import { Primitive, Select as MantineSelect } from '@mantine/core';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { ComboboxLikeProps } from 'props/combobox';
@@ -21,7 +21,7 @@ interface Props
         DebounceProps,
         PersistenceProps {
     /** Controlled component value */
-    value?: string | null;
+    value?: Primitive | null;
     /** Determines whether the select should be searchable, `false` by default */
     searchable?: boolean;
     /** Determines whether check icon should be displayed near the selected option label, `true` by default */

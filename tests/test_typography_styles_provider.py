@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 import dash_mantine_components as dmc
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def _get_effective_background_color(element):
@@ -30,7 +30,7 @@ def test_001ts_typography_styles_provider(dash_duo):
     app.layout = dmc.MantineProvider(
         [
             dcc.Markdown(content, dangerously_allow_html=True, id="default"),
-            dmc.TypographyStylesProvider(
+            dmc.Typography(
                 dcc.Markdown(content, dangerously_allow_html=True, id="styled")
             ),
         ],
@@ -39,10 +39,10 @@ def test_001ts_typography_styles_provider(dash_duo):
     dash_duo.start_server(app)
 
     # The default code element should have a white background color.
-    code_default = dash_duo.find_element("#default").find_element_by_tag_name("code")
+    code_default = dash_duo.find_element("#default").find_element("tag name","code")
     assert _get_effective_background_color(code_default) == "rgba(255, 255, 255, 1)"
     # The mantine styled code element should have a light gray background color.
-    code_styled = dash_duo.find_element("#styled").find_element_by_tag_name("code")
+    code_styled = dash_duo.find_element("#styled").find_element("tag name", "code")
     assert _get_effective_background_color(code_styled) == "rgba(248, 249, 250, 1)"
 
     assert dash_duo.get_logs() == []

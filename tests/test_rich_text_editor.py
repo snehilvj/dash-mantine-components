@@ -1,11 +1,12 @@
 import json
+import time
 
 from dash import Dash, Input, Output, _dash_renderer, html, ctx
 
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 rte_id = "rich-text-editor"
 log_json_id = "output-json"
@@ -289,12 +290,12 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
 
     # Toggle read-only on
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
-    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='false']")
+    time.sleep(.5)
     assert editor.get_attribute("contenteditable") == "false"
 
     # Toggle read-only off
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
-    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='true']")
+    time.sleep(.5)
     assert editor.get_attribute("contenteditable") == "true"
 
     # Final sanity edit

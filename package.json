@@ -1,6 +1,6 @@
 {
     "name": "dash_mantine_components",
-    "version": "2.8.0",
+    "version": "3.0.0-dev",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
@@ -30,9 +30,9 @@
         "dash-extensions-js": "^0.0.8",
         "npm-run-all": "4.1.5",
         "ramda": "^0.30.1",
-        "react": "^18.2.0",
-        "react-docgen": "^5.4.0",
-        "react-dom": "^18.2.0",
+        "react": "^19.2.4",
+        "react-docgen": "^7",
+        "react-dom": "^19.2.4",
         "style-loader": "^3.3.4",
         "ts-loader": "^9.5.1",
         "typescript": "5.6.3",
@@ -41,22 +41,22 @@
         "prettier": "^3.2.4"
     },
     "peerDependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4"
     },
     "author": "Snehil Vijay <snehilvj@outlook.com>",
     "license": "MIT",
     "dependencies": {
-        "@mantine/carousel": "8.3.18",
-        "@mantine/charts": "8.3.18",
-        "@mantine/code-highlight": "8.3.18",
-        "@mantine/core": "8.3.18",
-        "@mantine/dates": "8.3.18",
-        "@mantine/hooks": "8.3.18",
-        "@mantine/notifications": "8.3.18",
-        "@mantine/nprogress": "8.3.18",
-        "@mantine/spotlight": "8.3.18",
-        "@mantine/tiptap": "8.3.18",
+        "@mantine/carousel": "9.6.3",
+        "@mantine/charts": "9.6.3",
+        "@mantine/code-highlight": "9.6.3",
+        "@mantine/core": "9.6.3",
+        "@mantine/dates": "9.6.3",
+        "@mantine/hooks": "9.6.3",
+        "@mantine/notifications": "9.6.3",
+        "@mantine/nprogress": "9.6.3",
+        "@mantine/spotlight": "9.6.3",
+        "@mantine/tiptap": "9.6.3",
         "@plotly/dash-component-plugins": "^1.2.0",
         "@tiptap/extension-table": "3.14.0",
         "@tiptap/extension-image": "3.14.0",
@@ -79,7 +79,7 @@
         "embla-carousel-autoplay": "^8.5.2",
         "embla-carousel-react": "^8.5.2",
         "is-absolute-url": "^4.0.1",
-        "recharts": "^2.15.4",
+        "recharts": "^3.1.2",
         "highlight.js": "^11.11.1"
     },
     "files": [

@@ -1,5 +1,5 @@
 import {
-    ComboboxStringData,
+    ComboboxGenericData,
     Autocomplete as MantineAutocomplete,
 } from '@mantine/core';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
@@ -23,7 +23,7 @@ interface Props
         DebounceProps,
         PersistenceProps {
     /** Data displayed in the dropdown */
-    data?: ComboboxStringData;
+    data?: ComboboxGenericData;
     /** Controlled component value */
     value?: string;
     /** Props passed down to the underlying `ScrollArea` component in the dropdown */

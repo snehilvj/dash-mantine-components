@@ -29,7 +29,7 @@ const Collapse = ({
     return (
         <MantineCollapse
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            in={opened}
+            expanded={opened}
             {...others}
         />
     );

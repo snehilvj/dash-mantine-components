@@ -5,7 +5,7 @@ from dash.testing.wait import until
 from selenium.webdriver.common.by import By
 import time
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def test_001oc_optional_components(dash_duo):

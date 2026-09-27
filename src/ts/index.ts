@@ -181,9 +181,10 @@ import MantineProvider from './components/styles/MantineProvider';
 import ChipGroup from './components/core/chip/ChipGroup';
 import RichTextEditor from './components/extensions/richtexteditor/RichTextEditor';
 import { getEditor } from './utils/editorRegistry';
-import TypographyStylesProvider from './components/styles/TypographyStylesProvider';
+import Typography from './components/styles/Typography';
 import DirectionProvider from './components/styles/DirectionProvider';
 import TableOfContents from "./components/core/TableOfContents"
+
 
 export {
     Accordion,
@@ -366,9 +367,9 @@ export {
     UnstyledButton,
     VisuallyHidden,
     YearPickerInput,
-    RichTextEditor,
-    getEditor,
-    TypographyStylesProvider,
-    appNotifications,
-    DirectionProvider,
+     RichTextEditor,
+     getEditor,
+     Typography,
+     appNotifications,
+     DirectionProvider,
 };

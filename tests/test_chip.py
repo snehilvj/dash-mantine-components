@@ -1,7 +1,7 @@
 from dash import Dash, html, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def chipgroup_app(**kwargs):
@@ -41,12 +41,8 @@ def test_001ch_chip_group(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div.mantine-Group-root")
 
-    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath(
-        "./.."
-    )
-    option2 = dash_duo.find_element("input[value='option2']").find_element_by_xpath(
-        "./.."
-    )
+    option1 = dash_duo.find_element("input[value='option1']").find_element("xpath", "./..")
+    option2 = dash_duo.find_element("input[value='option2']").find_element("xpath", "./..")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: option1")
     option2.click()
@@ -66,9 +62,7 @@ def test_002ch_chip_group_deselectable(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div.mantine-Group-root")
 
-    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath(
-        "./.."
-    )
+    option1 = dash_duo.find_element("input[value='option1']").find_element("xpath", "./..")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: option1")
     option1.click()
@@ -85,12 +79,9 @@ def test_003ch_chip_group_deselectable_multiple(dash_duo):
     # Wait for the app to load
     dash_duo.wait_for_element("div.mantine-Group-root")
 
-    option1 = dash_duo.find_element("input[value='option1']").find_element_by_xpath(
-        "./.."
-    )
-    option2 = dash_duo.find_element("input[value='option2']").find_element_by_xpath(
-        "./.."
-    )
+    option1 = dash_duo.find_element("input[value='option1']").find_element("xpath", "./..")
+
+    option2 = dash_duo.find_element("input[value='option2']").find_element("xpath", "./..")
     option1.click()
     dash_duo.wait_for_text_to_equal("#output", "Selected: ['option1']")
     option2.click()

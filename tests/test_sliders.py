@@ -4,7 +4,7 @@ import dash_mantine_components as dmc
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 # verifies that value is correct after max is changed in a callback
 # see PR 616

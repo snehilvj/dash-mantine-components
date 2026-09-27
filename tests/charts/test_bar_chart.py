@@ -3,7 +3,7 @@ from dash import Dash, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 import json
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 data = [
     {"month": "January", "Smartphones": 1200, "Laptops": 900, "Tablets": 200},
@@ -59,7 +59,6 @@ def test_001ba_barchart(dash_duo):
     bars = dash_duo.find_elements(
         ".recharts-layer.recharts-bar-rectangle"
     )
-
 
     assert len(bars) > 0, "No areas found in the chart"
     actions = ActionChains(dash_duo.driver)
@@ -141,12 +140,15 @@ def test_value_labels_on_bar_chart(dash_duo):
 
     dash_duo.start_server(app)
 
-    # Target the value labels more specifically - they should be direct children of bar groups
-    value_labels = dash_duo.find_elements(".mantine-BarChart-bar g.recharts-layer.recharts-label-list text")
+    value_labels = dash_duo.find_elements(
+        ".recharts-label-list text"
+    )
 
     assert len(value_labels) > 0, "No value labels found in the chart"
+
     for value_label in value_labels:
         assert value_label.get_attribute("fill") == "white", (
-            f"Value label 'fill' should be 'white', but found: '{value_label.get_attribute('fill')}'"
+            f"Value label 'fill' should be 'white', but found: "
+            f"'{value_label.get_attribute('fill')}'"
         )
-        assert value_label.text != '', "label text should not be blank"
+        assert value_label.text != "", "label text should not be blank"

@@ -3,7 +3,7 @@ from dash import Dash, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 import json
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 data = [
     {"date": "Mar 22", "Apples": 2890, "Oranges": 2338, "Tomatoes": 2452},
@@ -26,11 +26,30 @@ component = dmc.Group(
                 {"name": "Oranges", "color": "blue.6"},
                 {"name": "Tomatoes", "color": "teal.6"},
             ],
+            areaProps={"dot": True},
         ),
         dmc.Text(id="data"),
         dmc.Text(id="name"),
     ]
 )
+
+
+def get_tomatoes_dot(dash_duo, index):
+    dots = dash_duo.find_elements(
+        ".recharts-dot"
+    )
+
+    tomatoes_dots = [
+        dot
+        for dot in dots
+        if "teal" in (dot.get_attribute("stroke") or "")
+    ]
+
+    assert len(tomatoes_dots) == 5, (
+        f"Expected 5 Tomatoes dots, found {len(tomatoes_dots)}"
+    )
+
+    return tomatoes_dots[index]
 
 
 def test_001ar_areachart(dash_duo):
@@ -49,18 +68,12 @@ def test_001ar_areachart(dash_duo):
 
     dash_duo.start_server(app)
 
-    # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the areas
-    areas = dash_duo.find_elements(
-        ".recharts-curve.recharts-area-area"
-    )
+    # Third Tomatoes point = Mar 24
+    dot = get_tomatoes_dot(dash_duo, 2)
 
-
-    assert len(areas) > 0, "No areas found in the chart"
-    actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(areas[0]).click().perform()
+    ActionChains(dash_duo.driver).move_to_element(dot).click().perform()
 
     expected_output = (
         '{"date": "Mar 24", "Apples": 3322, "Oranges": 986, "Tomatoes": 1821}'
@@ -88,17 +101,12 @@ def test_002ar_areachart(dash_duo):
 
     dash_duo.start_server(app)
 
-    # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the areas
-    areas = dash_duo.find_elements(
-        ".recharts-curve.recharts-area-area"
-    )
+    # Third Tomatoes point = Mar 24
+    dot = get_tomatoes_dot(dash_duo, 2)
 
-    assert len(areas) > 0, "No areas found in the chart"
-    actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(areas[0]).perform()
+    ActionChains(dash_duo.driver).move_to_element(dot).perform()
 
     expected_output = (
         '{"date": "Mar 24", "Apples": 3322, "Oranges": 986, "Tomatoes": 1821}'

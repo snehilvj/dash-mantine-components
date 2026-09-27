@@ -1,7 +1,6 @@
 import { CompositeChart as MantineCompositeChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useRef, useState } from 'react';
-import { getClickData, isEventValid } from '../../../utils/charts';
+import React, { useState } from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../CompositeChart';
@@ -26,102 +25,116 @@ const CompositeChart = ({
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
-    const shouldHighlight = highlightHover && highlightedArea !== null;
 
-    const seriesName = useRef(null);
+    const shouldHighlight =
+        highlightHover && highlightedArea !== null;
 
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                clickSeriesName: seriesName.current,
-                clickData: getClickData(ev),
-            });
+    const handleBarClick = (seriesName, ev) => {
+        if (!ev?.payload) {
+            return;
         }
-        seriesName.current = null;
+
+        setProps({
+            clickSeriesName: seriesName,
+            clickData: ev.payload,
+        });
     };
 
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                hoverSeriesName: seriesName.current,
-                hoverData: getClickData(ev),
-            });
+    const handleBarHover = (seriesName, ev) => {
+        if (!ev?.payload) {
+            return;
         }
-        seriesName.current = null;
-    };
 
-    const handleSeriesClick = (ev) => {
-        if (isEventValid(ev)) {
-            seriesName.current = ev.tooltipPayload?.[0]?.name ?? ev.name;
-        }
-    };
+        setProps({
+            hoverSeriesName: seriesName,
+            hoverData: ev.payload,
+        });
 
-    const handleSeriesHover = (ev) => {
-        if (isEventValid(ev)) {
-            const hoveredSeriesName = ev.tooltipPayload?.[0]?.name ?? ev.name;
-            seriesName.current = hoveredSeriesName;
-            setHighlightedArea(hoveredSeriesName);
-        }
+        setHighlightedArea(seriesName);
     };
 
     const handleDotClick = (ev, payload) => {
-        if (isEventValid(ev)) {
-            seriesName.current = payload['dataKey'];
+        if (!payload) {
+            return;
         }
+
+        setProps({
+            clickSeriesName: payload.dataKey,
+            clickData: payload.payload,
+        });
     };
 
     const handleDotHover = (ev, payload) => {
-        if (isEventValid(ev)) {
-            const hoveredSeriesName = payload['dataKey'];
-            seriesName.current = hoveredSeriesName;
-            setHighlightedArea(hoveredSeriesName);
+        if (!payload) {
+            return;
         }
+
+        setProps({
+            hoverSeriesName: payload.dataKey,
+            hoverData: payload.payload,
+        });
+
+        setHighlightedArea(payload.dataKey);
     };
 
     const handleHoverEnd = () => {
-        setHighlightedArea(null); // Reset highlighted area
+        setHighlightedArea(null);
     };
 
-    const propsFunction = (item: any, chartType: 'bar' | 'area' | 'line') => {
+    const propsFunction = (
+        item: any,
+        chartType: 'bar' | 'area' | 'line'
+    ) => {
         let chartProps: any = null;
-        const dimmed = shouldHighlight && highlightedArea !== item.name;
 
         if (chartType === 'bar') {
             chartProps = barProps ?? {};
         } else if (chartType === 'area') {
             chartProps = areaProps ?? {};
-        } else if (chartType === 'line') {
+        } else {
             chartProps = lineProps ?? {};
         }
 
-        if (dimmed) {
-            chartProps.fillOpacity = 0.1;
-            chartProps.strokeOpacity = 0.2;
-        }
+        const dimmed =
+            shouldHighlight && highlightedArea !== item.name;
 
         const returnProps: any = {
             ...chartProps,
-            onClick: handleSeriesClick,
-            onMouseOver: handleSeriesHover,
-            onMouseOut: handleHoverEnd,
         };
+
+        if (chartType === 'bar') {
+            returnProps.onClick = (ev) =>
+                handleBarClick(item.name, ev);
+            returnProps.onMouseEnter = (ev) =>
+                handleBarHover(item.name, ev);
+            returnProps.onMouseLeave = handleHoverEnd;
+        } else {
+            returnProps.onMouseOver = () =>
+                setHighlightedArea(item.name);
+            returnProps.onMouseOut = handleHoverEnd;
+        }
+
+        if (dimmed) {
+            returnProps.fillOpacity = 0.1;
+            returnProps.strokeOpacity = 0.2;
+        }
 
         return returnProps;
     };
 
-    const newProps = { ...composedChartProps, onClick, onMouseOver };
-
     return (
         <MantineCompositeChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            data-dash-is-loading={
+                getLoadingState(loading_state) || undefined
+            }
             {...parseFuncProps('CompositeChart', others)}
             data={data}
             dataKey={dataKey}
             series={series}
-            composedChartProps={newProps}
-            barProps={(item) => propsFunction(item, 'bar')} // Pass the chart type as 'bar'
-            lineProps={(item) => propsFunction(item, 'line')} // Pass the chart type as 'line'
-            areaProps={(item) => propsFunction(item, 'area')} // Pass the chart type as 'area'
+            composedChartProps={composedChartProps}
+            barProps={(item) => propsFunction(item, 'bar')}
+            lineProps={(item) => propsFunction(item, 'line')}
+            areaProps={(item) => propsFunction(item, 'area')}
             activeDotProps={{
                 ...activeDotProps,
                 onClick: handleDotClick,

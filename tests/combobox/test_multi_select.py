@@ -4,7 +4,7 @@ from flaky import flaky
 import pytest
 import time
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def test_001mu_multi_select(dash_duo):

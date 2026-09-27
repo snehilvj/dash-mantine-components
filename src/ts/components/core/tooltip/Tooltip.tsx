@@ -39,8 +39,7 @@ interface Props extends TooltipBaseProps, DashBaseProps {
         focus: boolean;
         touch: boolean;
     };
-    /** `useEffect` dependencies to force update tooltip position */
-    positionDependencies?: any[];
+
     /** Must be set if the tooltip target is an inline element */
     inline?: boolean;
     /** If set, the tooltip will not be unmounted from the DOM when it is hidden, `display: none` styles will be applied instead */

@@ -1,7 +1,6 @@
 import { BarChart as MantineBarChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useState, useRef } from 'react';
-import { getClickData, isEventValid } from '../../../utils/charts';
+import React, { useState } from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 import { resolveProp, parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../BarChart';
@@ -26,62 +25,51 @@ const BarChart = ({
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
-    const shouldHighlight = highlightHover && highlightedArea !== null;
 
-    const seriesName = useRef(null);
+    const shouldHighlight =
+        highlightHover && highlightedArea !== null;
 
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                clickSeriesName: seriesName.current,
-                clickData: getClickData(ev),
-            });
+    const handleBarClick = (seriesName, ev) => {
+        console.log("bar click", seriesName, ev)
+        if (!ev?.payload) {
+            return;
         }
-        seriesName.current = null;
+
+        setProps({
+            clickSeriesName: seriesName,
+            clickData: ev.payload,
+        });
     };
 
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                hoverSeriesName: seriesName.current,
-                hoverData: getClickData(ev),
-            });
+    const handleBarHover = (seriesName, ev) => {
+         console.log("bar hover", seriesName, ev)
+        if (!ev?.payload) {
+            return;
         }
-        seriesName.current = null;
+
+        setProps({
+            hoverSeriesName: seriesName,
+            hoverData: ev.payload,
+        });
+
+        setHighlightedArea(seriesName);
     };
 
-    const handleSeriesClick = (ev) => {
-        if (isEventValid(ev)) {
-            seriesName.current = ev.tooltipPayload[0]['name'];
-        }
-    };
-
-    const handleSeriesHover = (ev) => {
-        if (isEventValid(ev)) {
-            const hoveredSeriesName = ev.tooltipPayload[0]['name'];
-            seriesName.current = hoveredSeriesName;
-            setHighlightedArea(hoveredSeriesName);
-        }
-    };
-
-    const handleSeriesHoverEnd = () => {
-        setHighlightedArea(null); // Reset highlighted area
+    const handleHoverEnd = () => {
+        setHighlightedArea(null);
     };
 
     const barPropsFunction = (item) => {
-        const dimmed = shouldHighlight && highlightedArea !== item.name;
+        const dimmed =
+            shouldHighlight && highlightedArea !== item.name;
 
         const returnProps: any = {
             ...barProps,
-            onClick: handleSeriesClick,
-            onMouseOver: handleSeriesHover,
-            onMouseOut: handleSeriesHoverEnd,
+            onClick: (ev) => handleBarClick(item.name, ev),
+            onMouseEnter: (ev) => handleBarHover(item.name, ev),
+            onMouseLeave: handleHoverEnd,
         };
 
-        /**if not dimmed, default behavior of Opacity will be triggered, including Hover over chart legend (BarChart.mjs)
-            fillOpacity: dimmed ? 0.1 : fillOpacity,
-            strokeOpacity: dimmed ? 0.2 : 0,
-        */
         if (dimmed) {
             returnProps.fillOpacity = 0.1;
             returnProps.strokeOpacity = 0.2;
@@ -90,16 +78,15 @@ const BarChart = ({
         return returnProps;
     };
 
-    const newProps = { ...barChartProps, onClick, onMouseOver };
-
     return (
         <MantineBarChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            data-dash-is-loading={
+                getLoadingState(loading_state) || undefined
+            }
             {...parseFuncProps('BarChart', others)}
             data={data}
             dataKey={dataKey}
             series={series}
-            barChartProps={newProps}
             barProps={barPropsFunction}
             valueFormatter={
                 resolveProp(valueFormatter) || defaultValueFormatter
