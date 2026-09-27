@@ -1,7 +1,6 @@
 import { LineChart as MantineLineChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useState, useRef } from 'react';
-import { getClickData, isEventValid } from '../../../utils/charts';
+import React, { useState } from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
 import { Props } from '../LineChart';
@@ -24,76 +23,48 @@ const LineChart = ({
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
-    const shouldHighlight = highlightHover && highlightedArea !== null;
 
-    const seriesName = useRef(null);
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                clickSeriesName: seriesName.current,
-                clickData: getClickData(ev),
-            });
-        }
-        seriesName.current = null;
-    };
-
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({
-                hoverSeriesName: seriesName.current,
-                hoverData: getClickData(ev),
-            });
-        }
-        seriesName.current = null;
-    };
-
-    const handleSeriesClick = (ev) => {
-        if (isEventValid(ev)) {
-            seriesName.current = ev['name'];
-        }
-    };
-
-    const handleSeriesHover = (ev) => {
-        if (isEventValid(ev)) {
-            const hoveredSeriesName = ev['name'];
-            seriesName.current = hoveredSeriesName;
-            setHighlightedArea(hoveredSeriesName);
-        }
-    };
+    const shouldHighlight =
+        highlightHover && highlightedArea !== null;
 
     const handleDotClick = (ev, payload) => {
-        if (isEventValid(ev)) {
-            seriesName.current = payload['dataKey'];
+        if (!payload) {
+            return;
         }
+
+        setProps({
+            clickSeriesName: payload.dataKey,
+            clickData: payload.payload,
+        });
     };
 
     const handleDotHover = (ev, payload) => {
-        if (isEventValid(ev)) {
-            const hoveredSeriesName = payload['dataKey'];
-            seriesName.current = hoveredSeriesName;
-            setHighlightedArea(hoveredSeriesName);
+        if (!payload) {
+            return;
         }
+
+        setProps({
+            hoverSeriesName: payload.dataKey,
+            hoverData: payload.payload,
+        });
+
+        setHighlightedArea(payload.dataKey);
     };
 
     const handleHoverEnd = () => {
-        setHighlightedArea(null); // Reset highlighted area
+        setHighlightedArea(null);
     };
 
     const linePropsFunction = (item) => {
-        const dimmed = shouldHighlight && highlightedArea !== item.name;
+        const dimmed =
+            shouldHighlight && highlightedArea !== item.name;
 
         const returnProps: any = {
             ...lineProps,
-            onClick: handleSeriesClick,
-            onMouseOver: handleSeriesHover,
+            onMouseOver: () => setHighlightedArea(item.name),
             onMouseOut: handleHoverEnd,
         };
 
-        /**if not dimmed, default behavior of Opacity will be triggered, including Hover over chart legend (BarChart.mjs)
-            fillOpacity: dimmed ? 0.1 : fillOpacity,
-            strokeOpacity: dimmed ? 0.2 : 0,
-        */
         if (dimmed) {
             returnProps.fillOpacity = 0.1;
             returnProps.strokeOpacity = 0.2;
@@ -102,15 +73,15 @@ const LineChart = ({
         return returnProps;
     };
 
-    const newProps = { ...lineChartProps, onClick, onMouseOver };
-
     return (
         <MantineLineChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            data-dash-is-loading={
+                getLoadingState(loading_state) || undefined
+            }
             {...parseFuncProps('LineChart', others)}
             data={data}
             dataKey={dataKey}
-            lineChartProps={newProps}
+            lineChartProps={lineChartProps}
             series={series}
             activeDotProps={{
                 ...activeDotProps,
