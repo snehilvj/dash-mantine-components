@@ -1,5 +1,17 @@
 # Change Log
 
+# UNRELEASDED v3 
+
+### Updated
+
+-Initial update for Mantine v9 [#738](https://github.com/snehilvj/dash-mantine-components/pull/738) by @AnnMarieW
+  - DMC v3 requires Dash >= 4.5 and React 19.2.4
+  - Updated to Mantine 9.6.3 and Recharts 3.1.2
+  - Updated breaking changes in the Mantine v9 migration guide
+  - Updated webpack to handle `jsx-runtime` for React 19, as described in Dash PR #3880. Added a runtime error message when React 19 is not used
+  - Updated GitHub workflows to use React 19
+
+
 # 2.8.0
 
 ### Added
