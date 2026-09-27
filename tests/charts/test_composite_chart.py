@@ -25,6 +25,7 @@ data = [
         "Tomatoes": 1821,
     },
 ]
+
 component = dmc.Group(
     [
         dmc.CompositeChart(
@@ -35,15 +36,36 @@ component = dmc.Group(
             withLegend=True,
             maxBarWidth=30,
             series=[
-                {"name": "Tomatoes", "color": "rgba(18, 120, 255, 0.2)", "type": "bar"},
+                {
+                    "name": "Tomatoes",
+                    "color": "rgba(18, 120, 255, 0.2)",
+                    "type": "bar",
+                },
                 {"name": "Apples", "color": "red.8", "type": "line"},
                 {"name": "Oranges", "color": "yellow.8", "type": "area"},
-            ]
+            ],
+            areaProps={"dot": True},
         ),
         dmc.Text(id="data"),
         dmc.Text(id="name"),
     ]
 )
+
+
+def get_oranges_dot(dash_duo, index):
+    dots = dash_duo.find_elements(".recharts-dot")
+
+    oranges_dots = [
+        dot
+        for dot in dots
+        if "yellow" in (dot.get_attribute("stroke") or "")
+    ]
+
+    assert len(oranges_dots) == 3, (
+        f"Expected 3 Oranges dots, found {len(oranges_dots)}"
+    )
+
+    return oranges_dots[index]
 
 
 def test_001co_composite(dash_duo):
@@ -62,21 +84,15 @@ def test_001co_composite(dash_duo):
 
     dash_duo.start_server(app)
 
-    # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the areas
-    areas = dash_duo.find_elements(
-        ".recharts-curve.recharts-area-area"
-    )
+    # Second Oranges point = Mar 23
+    dot = get_oranges_dot(dash_duo, 1)
 
-
-    assert len(areas) > 0, "No areas found in the chart"
-    actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(areas[0]).click().perform()
+    ActionChains(dash_duo.driver).move_to_element(dot).click().perform()
 
     expected_output = (
-         '{"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402}'
+        '{"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402}'
     )
 
     dash_duo.wait_for_text_to_equal("#data", expected_output)
@@ -101,17 +117,12 @@ def test_002co_compositechart(dash_duo):
 
     dash_duo.start_server(app)
 
-    # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#data", "null")
 
-    # Target the areas
-    areas = dash_duo.find_elements(
-        ".recharts-curve.recharts-area-area"
-    )
+    # Second Oranges point = Mar 23
+    dot = get_oranges_dot(dash_duo, 1)
 
-    assert len(areas) > 0, "No areas found in the chart"
-    actions = ActionChains(dash_duo.driver)
-    actions.move_to_element(areas[0]).click().perform()
+    ActionChains(dash_duo.driver).move_to_element(dot).perform()
 
     expected_output = (
         '{"date": "Mar 23", "Apples": 2756, "Oranges": 2103, "Tomatoes": 2402}'
