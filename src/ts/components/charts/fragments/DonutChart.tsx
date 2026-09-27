@@ -1,49 +1,48 @@
 import { DonutChart as MantineDonutChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
-import React, { useState } from 'react';
-import { getPieClickData, isEventValid } from '../../../utils/charts';
+import React from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 import { Props } from '../DonutChart';
 
 /** DonutChart */
-const DonutChart = (props: Props) => {
-    const {
-        setProps,
-        loading_state,
-        clickData,
-        hoverData,
-        clickSeriesName,
-        hoverSeriesName,
-        pieProps,
-        ...others
-    } = props;
-
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            const clickdata = getPieClickData(ev);
+const DonutChart = ({
+    setProps,
+    loading_state,
+    clickData,
+    hoverData,
+    clickSeriesName,
+    hoverSeriesName,
+    pieProps,
+    ...others
+}: Props) => {
+    const handleClick = (data) => {
+        if (data?.payload) {
             setProps({
-                clickData: clickdata,
-                clickSeriesName: clickdata['name'],
+                clickData: data.payload,
+                clickSeriesName: data.name,
             });
         }
     };
 
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            const hoverdata = getPieClickData(ev);
+    const handleMouseEnter = (data) => {
+        if (data?.payload) {
             setProps({
-                hoverData: hoverdata,
-                hoverSeriesName: hoverdata['name'],
+                hoverData: data.payload,
+                hoverSeriesName: data.name,
             });
         }
     };
-
-    const newProps = { ...pieProps, onClick, onMouseOver };
 
     return (
         <MantineDonutChart
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            pieProps={newProps}
+            data-dash-is-loading={
+                getLoadingState(loading_state) || undefined
+            }
+            pieProps={{
+                ...pieProps,
+                onClick: handleClick,
+                onMouseEnter: handleMouseEnter,
+            }}
             {...others}
         />
     );
