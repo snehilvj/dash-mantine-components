@@ -2,11 +2,11 @@ name: Run tests
 
 on:
   push:
-    branches: [master]
+    branches: [master, v3]
     tags:
       - v*
   pull_request:
-    branches: [master]
+    branches: [master, v3]
 
 jobs:
   test-react:
