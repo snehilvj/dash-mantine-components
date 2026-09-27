@@ -70,12 +70,16 @@ const PinInput = (props: Props) => {
         setVal(value);
     }, [value]);
 
+    const handleChange = (v: string) => {
+        setVal(v);
+        setProps({ value: v });
+    };
+
     return (
         <MantinePinInput
-            onChange={setVal}
+            onChange={handleChange}
             value={val}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            onComplete={(v) => setProps({ value: v })}
             {...others}
         />
     );
