@@ -1,3 +1,7 @@
+
+import pytest
+from selenium.common.exceptions import TimeoutException
+
 from dash import Dash, html, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 
@@ -198,5 +202,24 @@ def test_006tr_tree_renderNode(dash_duo):
     assert "🌿 1" in text
     assert "🌿 a" in text
     assert "🌿 i" in text
+
+    assert dash_duo.get_logs() == []
+
+
+def test_007tr_tree_checked_debounce(dash_duo):
+    app = tree_app(checked=["2", "1.b", "1.a.ii"], checkboxes=True, expanded="*", checkedDebounce=2000)
+    dash_duo.start_server(app)
+
+    dash_duo.wait_for_text_to_equal("#output-checked", "['1.a.ii', '1.b', '2']")
+    checkbox = dash_duo.find_element("div[data-value='1.a'] div[data-checked]")
+    checkbox.click()
+
+    with pytest.raises(TimeoutException):
+        dash_duo.wait_for_text_to_equal( "#output-checked", "['1.a.i', '1.a.ii', '1.a.iii', '1.b', '2']", timeout=1)
+
+    # but do expect that it is eventually called
+    dash_duo.wait_for_text_to_equal(
+        "#output-checked", "['1.a.i', '1.a.ii', '1.a.iii', '1.b', '2']"
+    )
 
     assert dash_duo.get_logs() == []

@@ -30,6 +30,14 @@ debounce = dmc.Stack(
             debounce=2000,
         ),
         dmc.Box(id="out-2000"),
+        dmc.Select(
+            id="debounce-clearable",
+            data=["g", "h", "i"],
+            value="g",
+            debounce=True,
+            clearable=True
+        ),
+        dmc.Box(id="out-debounce-clearable"),
     ]
 )
 
@@ -43,12 +51,14 @@ def test_001se_select(dash_duo):
         Output("out-true", "children"),
         Output("out-false", "children"),
         Output("out-2000", "children"),
+        Output("out-debounce-clearable", "children"),
         Input("debounce-true", "value"),
         Input("debounce-false", "value"),
         Input("debounce-2000", "value"),
+        Input("debounce-clearable", "value"),
     )
-    def update(d_true, d_false, d_2000):
-        return d_true, d_false, d_2000
+    def update(d_true, d_false, d_2000, d_clearable):
+        return d_true, d_false, d_2000, d_clearable
 
     dash_duo.start_server(app)
     # debounce=True
@@ -94,6 +104,15 @@ def test_001se_select(dash_duo):
 
     # but do expect that it is eventually called
     dash_duo.wait_for_text_to_equal("#out-2000", "h")
+
+    # debounce=True with clearable
+    dash_duo.wait_for_text_to_equal("#out-debounce-clearable", "g")
+
+    clear_button = dash_duo.find_element(".mantine-InputClearButton-root")
+    clear_button.click()
+
+    # The value should be updated immediately.
+    dash_duo.wait_for_text_to_equal("#out-debounce-clearable", "")
 
     assert dash_duo.get_logs() == []
 

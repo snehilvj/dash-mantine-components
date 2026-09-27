@@ -1,6 +1,7 @@
 # Change Log
 
-# UNRELEASDED v3 
+
+# v3 UNRELEASDED
 
 ### Updated
 
@@ -10,6 +11,17 @@
   - Updated breaking changes in the Mantine v9 migration guide
   - Updated webpack to handle `jsx-runtime` for React 19, as described in Dash PR #3880. Added a runtime error message when React 19 is not used
   - Updated GitHub workflows to use React 19
+
+
+# UNRELEASED
+
+### Added
+
+- Added `debouncedChecked` prop to `Tree` component #742 by @AnnMarieW
+
+### Fixed
+- Fixed  `preset` type in datepicker components #740 by @AnnMarieW
+- Fixed `Select` with `debounce` and `clearable` so clearing the value updates correctly. #744 by @AnnMarieW
 
 
 # 2.8.0

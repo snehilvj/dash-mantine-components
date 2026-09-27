@@ -292,7 +292,7 @@ export interface TimePickerProps
 }
 
 type DatePickerPreset = {
-    value: string | [string, string];
+    value: string | string[];
     label: string;
 };
 

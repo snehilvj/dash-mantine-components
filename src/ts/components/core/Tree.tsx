@@ -8,7 +8,7 @@ import {
     getTreeExpandedState,
     useTree,
 } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
+import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
@@ -23,6 +23,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     checkboxes?: boolean;
     /** Determines checked nodes as a list of values (note that only leaves can be checked), `[]` by default */
     checked?: string[];
+    /** Determines the debounce time in milliseconds for the `checked` property, `0` by default */
+    checkedDebounce?: number;
     /** Determines whether tree node should be checked on space key press, `false` by default */
     checkOnSpace?: boolean;
     /** Determines whether selection should be cleared when user clicks outside of the tree, `false` by default */
@@ -114,6 +116,7 @@ const Leaf = (props: RenderTreeNodePayload & LeafProps) => {
 const Tree = ({
     checkboxes,
     checked,
+    checkedDebounce = 0,
     data,
     expanded = [],
     loading_state,
@@ -131,13 +134,18 @@ const Tree = ({
         initialSelectedState: selected,
     });
 
+    const [debouncedChecked] = useDebouncedValue(
+        tree.checkedState,
+        checkedDebounce
+    );
+
     useDidUpdate(() => {
         tree.setCheckedState(checked);
     }, [checked]);
 
     useDidUpdate(() => {
-        setProps({ checked: tree.checkedState });
-    }, [tree.checkedState]);
+        setProps({ checked: debouncedChecked });
+    }, [debouncedChecked]);
 
     useDidUpdate(() => {
         setProps({ selected: tree.selectedState });

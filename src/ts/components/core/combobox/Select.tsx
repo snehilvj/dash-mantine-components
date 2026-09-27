@@ -7,7 +7,7 @@ import { __ClearButtonProps } from 'props/button';
 import { __BaseInputProps } from 'props/input';
 import { ScrollAreaProps } from 'props/scrollarea';
 import { StylesApiProps } from 'props/styles';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { filterSelected } from '../../../utils/combobox';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
@@ -71,12 +71,20 @@ const Select = ({
     const [selected, setSelected] = useState(value);
     const [options, setOptions] = useState(data);
     const [searchVal, setSearchVal] = useState(searchValue);
+    const inputRef = useRef(null);
+    const isInputFocused = () => document.activeElement === inputRef.current;
 
     const debounceValue = typeof debounce === 'number' ? debounce : 0;
     const [debounced] = useDebouncedValue(selected, debounceValue);
 
-    useDidUpdate(() => {
+     useDidUpdate(() => {
         if (typeof debounce === 'number' || debounce === false) {
+            setProps({ value: debounced });
+        }
+
+        // Update the value prop when the clear button is clicked
+        // while the input is not focused.
+        if (!isInputFocused() && debounce === true) {
             setProps({ value: debounced });
         }
     }, [debounced]);
@@ -121,6 +129,7 @@ const Select = ({
 
     return (
         <MantineSelect
+            ref={inputRef}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('Select', others)}
             onKeyDown={handleKeyDown}
