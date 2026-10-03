@@ -15,8 +15,16 @@ interface Props extends BoxProps, DashBaseProps {
     animateOpacity?: boolean;
     /** Content */
     children?: React.ReactNode;
-    /** Keep element in DOM when collapsed, useful for nested collapses */
+    /** If set, the element is kept in the DOM when collapsed. When `true`, React 19 `Activity` is used to preserve state while collapsed. When `False`, the element is unmounted after the exit animation. default True */
     keepMounted?: boolean;
+    /** Controls how the element is hidden when `keepMounted` is set:
+     * `'activity'` – hidden with React 19 `Activity` component,
+     * `'display-none'` – hidden with `display: none` styles
+     * default 'activity'
+     */
+     keepMountedMode?: 'activity' | 'display-none';
+     /** Collapse orientation default 'vertical' */
+     orientation?: 'vertical' | 'horizontal';
 }
 
 /** Collapse */
