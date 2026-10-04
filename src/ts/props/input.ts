@@ -93,3 +93,9 @@ export interface __BaseInputProps
     /** Readonly */
     readOnly?: boolean;
 }
+
+
+export type ClearSectionMode =
+  | 'both' // render rightSection + clear button – default
+  | 'rightSection' // render only user-supplied rightSection
+  | 'clear'; // render only clear button
