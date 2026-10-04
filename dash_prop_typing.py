@@ -95,6 +95,9 @@ def list_of_strings_prop(*_):
 def dict_prop(*_):
     return "typing.Dict[str, typing.Any]"
 
+def list_of_dicts_prop(*_):
+    return "typing.Sequence[typing.Dict[str, typing.Any]]"
+
 
 
 default_types = {
@@ -177,6 +180,7 @@ custom_props = {
     "RangeSlider": {
         "domain": number_range_prop,
         "value": number_range_prop,
+        "marks": list_of_dicts_prop,
         **default_types,
     },
     "RingProgress": {
@@ -204,6 +208,7 @@ custom_props = {
     },
     "Slider": {
         "domain": number_range_prop,
+        "marks": list_of_dicts_prop,
         **default_types,
     },
     "Stepper": {
