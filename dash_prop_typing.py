@@ -56,10 +56,20 @@ def size_prop(type_info, component_name, prop_name):
 
 def combobox_data_prop(*_):
     """
-    Handles Select / MultiSelect / Autocomplete / TagsInput / SegmentedControl data props.
+    Handles  Autocomplete / TagsInput  data props.
     """
     return "typing.Sequence[typing.Union[str, typing.Dict[str, typing.Any]]]"
 
+def combobox_data_primitive_prop(*_):
+    """
+    Handles Select / MultiSelect /  SegmentedControl data props.
+    """
+    return (
+        "typing.Sequence[typing.Union["
+        "str, int, bool, "
+        "typing.Dict[str, typing.Any]"
+        "]]"
+    )
 
 def number_range_prop(*_):
     """Handles tuple-like numeric ranges such as [number, number]."""
@@ -137,7 +147,7 @@ custom_props = {
         **default_types,
     },
     "MultiSelect": {
-        "data": combobox_data_prop,
+        "data": combobox_data_primitive_prop,
         **default_types,
     },
     "Modal": {
@@ -158,11 +168,11 @@ custom_props = {
         **default_types,
     },
     "SegmentedControl": {
-        "data": combobox_data_prop,
+        "data": combobox_data_primitive_prop,
         **default_types,
     },
     "Select": {
-        "data": combobox_data_prop,
+        "data": combobox_data_primitive_prop,
         **default_types,
     },
     "SemiCircleProgrss": {
