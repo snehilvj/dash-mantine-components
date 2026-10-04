@@ -1,18 +1,51 @@
-import { MantineColor, Highlight as MantineHighlight } from '@mantine/core';
+import { Highlight as MantineHighlight, MantineColor } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 import { TextProps } from 'props/text';
 import React from 'react';
 import { getLoadingState } from '../../utils/dash3';
 
-interface Props extends DashBaseProps, TextProps {
-    /** Substring or an array of substrings to highlight in `children` */
-    highlight: string | string[];
-    /** Key of `theme.colors` or any valid CSS color, passed to `Mark` component `color` prop, `yellow` by default */
-    color?: MantineColor;
-    /** Styles applied to `mark` elements.  Note CSS properties are camelCase,  for example `highlightStyles={"backgroundColor": "blue"}` */
+interface Props extends DashBaseProps, Omit<TextProps, 'color'> {
+    /**
+     * Substring(s) to highlight in `children`.
+     * Can be a string for a single term, a list of strings for multiple terms
+     * with the same color, or a list of dictionaries for multiple terms with
+     * custom colors.
+     */
+    highlight: any;
+
+    /**
+     * Default background color for all highlighted text.
+     * Key of `theme.colors` or any valid CSS color, passed to `Mark` component.
+     * Can be overridden per term when using HighlightTerm objects.
+     * default 'yellow'
+     */
+    color?: MantineColor | string;
+
+    /** Styles applied to `mark` elements */
     highlightStyles?: {};
-    /** Content */
-    children?: string;
+
+    /** String in which to highlight substrings */
+    children: string;
+
+    /**
+     * Only match whole words (adds word boundaries to regex).
+     * When enabled, 'the' will not match 'there'.
+     * default False
+     */
+    wholeWord?: boolean;
+
+    /**
+     * Perform case-insensitive matching.
+     * default True
+     */
+    caseInsensitive?: boolean;
+
+    /**
+     * Perform accent-insensitive matching.
+     * When enabled, cafe will match cafe, café, cafè, etc.
+     * default True
+     */
+    accentInsensitive?: boolean;
 }
 
 /** Highlight */

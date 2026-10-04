@@ -71,6 +71,17 @@ def combobox_data_primitive_prop(*_):
         "]]"
     )
 
+
+def highlight_prop(*_):
+    return (
+        "typing.Union["
+        "str, "
+        "typing.Sequence[str], "
+        "typing.Sequence[typing.Dict[str, typing.Any]]"
+        "]"
+    )
+
+
 def number_range_prop(*_):
     """Handles tuple-like numeric ranges such as [number, number]."""
     return "typing.Sequence[NumberType]"
@@ -79,6 +90,11 @@ def number_range_prop(*_):
 def list_of_strings_prop(*_):
     """Handles arrays like [MantineColor, MantineColor]."""
     return "typing.Sequence[str]"
+
+
+def dict_prop(*_):
+    return "typing.Dict[str, typing.Any]"
+
 
 
 default_types = {
@@ -206,4 +222,9 @@ custom_props = {
         "data": combobox_data_prop,
         **default_types,
     },
+    "Highlight": {
+        "highlight": highlight_prop,
+        "highlightStyles": dict_prop,
+        **default_types,
+    }
 }
