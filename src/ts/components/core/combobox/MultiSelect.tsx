@@ -56,6 +56,10 @@ interface Props
     clearSearchOnChange?: boolean;
     /** If set, the dropdown opens when the input receives focus default `True` */
     openOnFocus?: boolean;
+    /** If set, selected values can be reordered by dragging pills. Disabled when `disabled` or `readOnly` is set. @default false */
+    withPillsReorder?: boolean;
+    /** A function to render content of the pill.  See https://www.dash-mantine-components.com/functions-as-props */
+    renderPill?: any;
 }
 
 /** MultiSelect */
@@ -72,10 +76,8 @@ const MultiSelect = ({
     value = [],
     ...others
 }: Props) => {
-    if (typeof value === 'string') {
-        throw new Error(
-        'MultiSelect: `value` must be a list'
-        );
+    if (value != null && !Array.isArray(value)) {
+        throw new Error('MultiSelect: `value` must be a list');
     }
     const [selected, setSelected] = useState(value ?? []);
     const [options, setOptions] = useState(data ?? []);
@@ -139,7 +141,7 @@ const MultiSelect = ({
                 data-dash-is-loading={
                     getLoadingState(loading_state) || undefined
                 }
-                {...parseFuncProps('Select', others)}
+                {...parseFuncProps('MultiSelect', others)}
                 onKeyDown={handleKeyDown}
                 onBlur={handleBlur}
                 data={options}

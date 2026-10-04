@@ -48,6 +48,10 @@ interface Props
     acceptValueOnBlur?: boolean;
     /** If set, the dropdown opens when the input receives focus default `True` */
     openOnFocus?: boolean;
+    /** If set, selected values can be reordered by dragging pills. Disabled when `disabled` or `readOnly` is set. @default false */
+    withPillsReorder?: boolean;
+    /** A function to render content of the pill.  See https://www.dash-mantine-components.com/functions-as-props */
+    renderPill?: any;
 }
 
 /** TagsInput captures a list of values from user with free input and suggestions */
@@ -62,10 +66,8 @@ const TagsInput = ({
     value,
     ...others
 }: Props) => {
-    if (typeof value === 'string') {
-        throw new Error(
-        'TagsInput: `value` must be a list'
-        );
+    if (value != null && !Array.isArray(value)) {
+        throw new Error('TagsInput: `value` must be a list');
     }
     const [selected, setSelected] = useState(value ?? []);
     const [options, setOptions] = useState(data ?? []);
@@ -96,7 +98,7 @@ const TagsInput = ({
     return (
         <MantineTagsInput
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...parseFuncProps('Select', others)}
+            {...parseFuncProps('TagsInput', others)}
             data={options}
             onChange={setSelected}
             value={selected}
