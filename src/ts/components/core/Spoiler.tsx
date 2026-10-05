@@ -7,23 +7,27 @@ import React, { useState } from 'react';
 import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
-    /** Maximum height of the visible content, when this point is reached spoiler appears, `100` by default */
+    /** Maximum height of visible content in px. When content exceeds this height, the toggle control appears default 100 */
     maxHeight?: number;
-    /** Label for close spoiler action */
-    hideLabel: React.ReactNode;
-    /** Label for open spoiler action */
+    /** Content displayed in the toggle button when content is collapsed (to expand) */
     showLabel: React.ReactNode;
-    /** Initial spoiler state, true to wrap content in spoiler, false to show content without spoiler, opened state is updated on mount */
-    initialState?: boolean;
-    /** Spoiler reveal transition duration in ms, set 0 or null to turn off animation, `200` by default */
-    transitionDuration?: number;
-    /** Content */
-    children?: React.ReactNode;
+    /** Content displayed in the toggle button when content is expanded (to collapse) */
+    hideLabel: React.ReactNode;
+    /** Initial expanded state in uncontrolled mode. If `true`, content starts expanded. If `false`, content starts collapsed default false */
+    defaultExpanded?: boolean;
     /** Controlled expanded state value */
     expanded?: boolean;
+    /** Spoiler reveal transition duration in ms. Set to 0 to disable animation default 200 */
+    transitionDuration?: number;
+    /** Accessible label for the toggle button when collapsed. If not set, `showLabel` is used */
+    showAriaLabel?: string;
+    /** Accessible label for the toggle button when expanded. If not set, `hideLabel` is used */
+    hideAriaLabel?: string;
+    /** Content */
+    children?: React.ReactNode;
 }
 
-/** Spoiler */
+/** Hide long sections of content under a spoiler */
 const Spoiler = ({
     setProps,
     loading_state,
