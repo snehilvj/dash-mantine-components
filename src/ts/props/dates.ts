@@ -51,6 +51,8 @@ export interface CalendarBaseProps {
     columnsToScroll?: number;
     /** aria-label attributes for controls on different levels */
     ariaLabels?: CalendarAriaLabels;
+    /** Determines whether the calendar should take the full width of its container default false */
+    fullWidth?: boolean;
 }
 
 interface YearsListSettings extends ControlsGroupSettings {
