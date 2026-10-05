@@ -156,7 +156,9 @@ custom_props = {
         **default_types,
     },
     "Grid": {
-        "gutter": str_num_dict_prop,
+        "gap": str_num_dict_prop,
+        "rowGap": str_num_dict_prop,
+        "columnGap": str_num_dict_prop,
         **default_types,
     },
     "GridCol": {
