@@ -26,6 +26,10 @@ interface Props extends DashBaseProps, BoxProps, StylesApiProps {
     center?: boolean;
     /** Controls `list-style-type`, by default inferred from `type` */
     listStyleType?: React.CSSProperties['listStyleType'];
+    /** Starting value for ordered list numbering (only works with type="ordered") */
+    start?: number;
+    /** Reverses the order of list items (only works with type="ordered") */
+    reversed?: boolean;
 }
 
 /** List */
