@@ -22,4 +22,6 @@ export interface ScrollAreaProps extends BoxProps, StylesApiProps {
     offsetScrollbars?: boolean | 'x' | 'y' | 'present';
     /** Defines `overscroll-behavior` of the viewport. https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
     overscrollBehavior?: React.CSSProperties['overscrollBehavior'];
+    /** Initial scroll position set on mount. Type: dictionary with optional `x` and `y` number properties. */
+    startScrollPosition?: { x?: number; y?: number };
 }
