@@ -34,6 +34,10 @@ export interface ColorPickerProps
     hueLabel?: string;
     /** Alpha slider `aria-label` prop */
     alphaLabel?: string;
+    /** Hidden input `name` attribute, if not set, the input will not be rendered */
+    name?: string;
+    /** Props passed down to the hidden input component */
+    hiddenInputProps?: Record<string, any>;
 }
 
 export interface ColorInputProps

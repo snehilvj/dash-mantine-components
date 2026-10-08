@@ -21,6 +21,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     padding?: MantineSpacing;
     /** Card content */
     children?: React.ReactNode;
+    /** Card orientation @default 'vertical' */
+    orientation?: 'horizontal' | 'vertical';
 }
 
 /** Card */

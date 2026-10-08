@@ -20,6 +20,12 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     verticalSpacing?: StyleProp<MantineSpacing>;
     /** Determines typeof of queries that are used for responsive styles, 'media' by default */
     type?: 'media' | 'container';
+    /** Minimum column width when using auto-fit/auto-fill. When set, cols prop is ignored */
+    minColWidth?: string | number;
+    /** Grid repeat type when minColWidth is set @default 'auto-fill' */
+    autoFlow?: 'auto-fit' | 'auto-fill';
+    /** Sets the size of implicitly created grid rows */
+    autoRows?: string;
 }
 
 /** SimpleGrid */

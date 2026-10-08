@@ -51,6 +51,10 @@ interface Props
     icon?: React.ReactNode;
     /** Indeterminate icon */
     indeterminateIcon?: React.ReactNode;
+    /** If set, applies error styles to the checkbox when `error` prop is set @default true */
+    withErrorStyles?: boolean;
+    /** If set,  prevents the checkbox value from being changed by user interaction. */
+    readOnly?: boolean
 }
 
 /** Checkbox */

@@ -13,8 +13,8 @@ import { getLoadingState } from '../../utils/dash3';
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Indicator position relative to the target element, `'top-end'` by default */
     position?: IndicatorPosition;
-    /** Indicator offset relative to the target element, usually used for elements with border-radius, equals to `size` by default */
-    offset?: number;
+    /** Distance in pixels to offset the indicator from its default position, useful for elements with border-radius. Can be a number for uniform offset or a dict with `x` and `y` properties for separate horizontal and vertical offsets default 0 */
+    offset?: number | { x: number; y: number };
     /** Determines whether the indicator container should be an inline element, `false` by default */
     inline?: boolean;
     /** Indicator width and height, `10` by default */
@@ -37,6 +37,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     autoContrast?: boolean;
     /** Content */
     children?: React.ReactNode;
+    /** Maximum value to display. If label is a number greater than this value, it will be displayed as `{maxValue}+` */
+    maxValue?: number;
+    /** Determines whether indicator with label `0` should be displayed default true */
+    showZero?: boolean;
 }
 
 /** Indicator */

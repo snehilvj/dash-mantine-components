@@ -21,8 +21,8 @@ const funcPropsMap = {
     Slider: ['label', 'scale'],
     RangeSlider: ['label', 'scale'],
     Select: ['renderOption', 'filter'],
-    MultiSelect: ['renderOption', 'filter'],
-    TagsInput: ['renderOption', 'filter'],
+    MultiSelect: ['renderOption', 'filter', 'renderPill'],
+    TagsInput: ['renderOption', 'filter', 'renderPill'],
     Autocomplete: ['renderOption', 'filter'],
     MiniCalendar: ['getDayProps'],
     DatePicker: [

@@ -17,6 +17,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
     /** Gutter between columns, key of `theme.spacing` or any valid CSS value, `'md'` by default */
     gap?: StyleProp<MantineSpacing>;
+    /** Row gap, overrides `gap` for vertical spacing */
+    rowGap?: StyleProp<MantineSpacing>;
+    /** Column gap, overrides `gap` for horizontal spacing */
+    columnGap?: StyleProp<MantineSpacing>;
     /** Determines whether columns in the last row should expand to fill all available space, `false` by default */
     grow?: boolean;
     /** Sets `justify-content`, `flex-start` by default */

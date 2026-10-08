@@ -35,6 +35,8 @@ interface Props
     highlightSelectedOnly?: boolean;
     /** Key of `theme.colors` or any CSS color value, `'yellow'` by default */
     color?: MantineColor;
+    /** When true, clicking the same rating value clears the rating to 0, default is false */
+    allowClear?: boolean;
 }
 
 /** Rating */

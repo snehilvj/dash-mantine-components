@@ -49,6 +49,8 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     autoContrast?: boolean;
     /* Content */
     children?: React.ReactNode;
+    /** If set, all step content is kept mounted. React 19 `Activity` is used to preserve state while content is hidden. default False */
+    keepMounted?: boolean;
 }
 
 /** Stepper */

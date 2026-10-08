@@ -8,6 +8,10 @@ import { getLoadingState } from '../../../utils/dash3';
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Content */
     children?: React.ReactNode;
+    /** If set, overrides the Accordion-level `keepMounted` value. When undefined (default), uses Accordion's `keepMounted` setting. */
+    keepMounted?: boolean;
+    /** If set, overrides the Accordion-level `keepMountedMode` value. When undefined (default), uses Accordion's `keepMountedMode` setting. */
+    keepMountedMode?: 'activity' | 'display-none';
 }
 
 /** AccordionPanel */

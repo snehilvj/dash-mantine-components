@@ -70,6 +70,10 @@ export interface __InputProps {
     name?: string;
     /** Props passed down to the `Input` component */
     inputProps?: Record<string, any>;
+    /** Displays loading indicator in the left or right section default False */
+    loading?: boolean;
+    /** Position of the loading indicator default 'right' */
+    loadingPosition?: 'left' | 'right';
 }
 
 export interface InputProps extends BoxProps, __InputProps, StylesApiProps {
@@ -89,3 +93,9 @@ export interface __BaseInputProps
     /** Readonly */
     readOnly?: boolean;
 }
+
+
+export type ClearSectionMode =
+  | 'both' // render rightSection + clear button – default
+  | 'rightSection' // render only user-supplied rightSection
+  | 'clear'; // render only clear button
