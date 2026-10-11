@@ -42,6 +42,9 @@ interface Props extends MantineProviderProps {
      */
     getStyleNonce?: any;
 
+    /** Function to resolve root element to set `data-mantine-color-scheme` attribute, must return undefined on server, `() => document.documentElement` by default */
+    getRootElement?: any;
+
     /**
      * Whether to use the Mantine v8 CSS variables resolver for compatibility
      * with Mantine v8.
