@@ -27,6 +27,7 @@ See the [Dash Mantine Components Migration Guile]() for details on migrating Das
   - Updated to Mantine
   - Updated webpack to handle `jsx-runtime` for React 19, as described in Dash PR #3880. Added a runtime error message when React 19 is not used PR738
   - Updated GitHub workflows to use React 19 PR738
+  - Updated DEFAULT_THEME for Mantine 9  PR746
 
 ### Added
 
@@ -57,9 +58,9 @@ See the [Dash Mantine Components Migration Guile]() for details on migrating Das
  - `Spoiler`: Renamed `initialState` to `defaultExpanded` and added `showAriaLabel` and `hideAriaLabel`.
  - `ColorPicker`: Added `name` and `hiddenInputProps`.
  - `MantineProvider`: Added `useV8CssVariablesResolver` and enabled function values for `cssVariablesResolver` and `getRootElement`.
- - `SegmentedControl` updated to support generic and primitive value types.
- - `Select` and `MultiSelect` updated to support primitive values.
- - `MultiSelect` updated to support `ComboboxGenericData`.
+ - `SegmentedControl` Added support for  generic and primitive value types.
+ - `Select` and `MultiSelect` added suport for support primitive values.
+ - `MultiSelect` Added support for `ComboboxGenericData`.
 
 
 
