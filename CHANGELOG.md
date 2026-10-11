@@ -3,14 +3,64 @@
 
 # v3 UNRELEASDED
 
+### Updates for Mantine v9
+ - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738) by @AnnMarieW  Initial update
+ - [#746](https://github.com/snehilvj/dash-mantine-components/pull/746) by @AnnMarieW  Adding props
+
+
+### Breaking Changes
+
+See the [Mantine v9 migration guide](https://mantine.dev/guides/7x-to-8x/) for additional details on upstream changes.
+See the [Dash Mantine Components Migration Guile]() for details on migrating Dash apps.
+
+- DMC v3 requires Dash >= 4.5 and React 19.2.4 PR738
+
+- `TypographyStylesProvider` component Renamed  `Typography`. PR738
+- `Grid`: Renamed `gutter` prop to `gap`. PR738
+- `Popover` and `Tooltip`: Removed `positionDependencies`.  PR738
+- `Spoiler` Renamed `initialState` prop to `defaultExpanded`.  PR746
+
+
 ### Updated
 
--Initial update for Mantine v9 [#738](https://github.com/snehilvj/dash-mantine-components/pull/738) by @AnnMarieW
-  - DMC v3 requires Dash >= 4.5 and React 19.2.4
-  - Updated to Mantine 9.6.3 and Recharts 3.1.2
-  - Updated breaking changes in the Mantine v9 migration guide
-  - Updated webpack to handle `jsx-runtime` for React 19, as described in Dash PR #3880. Added a runtime error message when React 19 is not used
-  - Updated GitHub workflows to use React 19
+  - Updated to Mantine 9.6.3 and Recharts 3.1.2 PR738
+  - Updated to Mantine
+  - Updated webpack to handle `jsx-runtime` for React 19, as described in Dash PR #3880. Added a runtime error message when React 19 is not used PR738
+  - Updated GitHub workflows to use React 19 PR738
+
+### Added
+
+  - `Collapse`: Updated the internal prop from in to expanded. The DMC API continues to use opened. PR738
+  - `Select` and `MultiSelect`: Added support for primitive values. PR738
+  - Added `Pill` component PR746
+  -  `Collapse`: Added `orientation="horizontal"` and `keepMounted`.
+  - `Card`: Added `orientation="horizontal"`.
+  - `Checkbox.Group`: Added `maxSelectedValues`.
+  - Input components: Added `loading` and `loadingPosition`.
+  - `MultiSelect` and `TagsInput`: Added `renderPill` and `withPillsReorder`.
+  - Clearable inputs: Added `clearSectionMode`.
+  - `Highlight`: Added per-term colors, `wholeWord`, `caseInsensitive`, and `accentInsensitive`.
+ - `Pagination`: Added `startValue` and support for input size values.
+ -  `Slider` and `RangeSlider`: Added vertical orientation and support for hidden marks.
+ - `SimpleGrid`: Added `minColWidth`, `autoFlow`, and `autoRows`.
+ - `DatePicker`: Added `fullWidth` to the calendar.
+ - `ScrollArea`: Added `startScrollPosition`.
+ - `Stepper`, `Tree`, `Accordion`, `NavLink`, and `Tabs.Panel`: Added `keepMounted`.
+ - `Indicator`: Added `maxValue`, `showZero`, and support for `offset={{x, y}}`.
+ - `NumberInput`: Added `selectAllOnFocus`.
+ - `RingProgress`: Added `sectionGap` and `startAngle` transitionDuration`.
+ - `List`: Added `start` and `reversed`.
+ - `JsonInput`: Added `indentSpaces`.
+ - `Rating`: Added `allowClear`.
+ - `Grid`: Added `rowGap`, `columnGap`, and `GridCol.align`.
+ - `Checkbox`: Added `readOnly` and `withErrorStyles`.
+ - `Spoiler`: Renamed `initialState` to `defaultExpanded` and added `showAriaLabel` and `hideAriaLabel`.
+ - `ColorPicker`: Added `name` and `hiddenInputProps`.
+ - `MantineProvider`: Added `useV8CssVariablesResolver` and enabled function values for `cssVariablesResolver` and `getRootElement`.
+ - `SegmentedControl` updated to support generic and primitive value types.
+ - `Select` and `MultiSelect` updated to support primitive values.
+ - `MultiSelect` updated to support `ComboboxGenericData`.
+
 
 
 # UNRELEASED
