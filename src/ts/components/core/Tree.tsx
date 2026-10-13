@@ -55,6 +55,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     renderNode?: any;
     /** If set, subtree content is kept mounted when collapsed. React 19 `Activity` is used to preserve state. default false */
     keepMounted?: boolean;
+    /** If set, connecting lines are rendered showing parent-child relationships default false */
+    withLines?: boolean;
 }
 
 interface LeafProps {
