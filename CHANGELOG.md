@@ -61,6 +61,7 @@ See the [Dash Mantine Components Migration Guile]() for details on migrating Das
  - `SegmentedControl` Added support for  generic and primitive value types.
  - `Select` and `MultiSelect` added suport for support primitive values.
  - `MultiSelect` Added support for `ComboboxGenericData`.
+ - `Tree` Added support for `withLines`
 
 
 
