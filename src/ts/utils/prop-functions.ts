@@ -114,7 +114,7 @@ const funcPropsMap = {
         'legendProps',
         'radarProps',
         'polarGridProps',
-        'polarAngleAxixProps',
+        'polarAngleAxisProps',
         'polarRadiusAxisProps',
         'dotProps',
         'activeDotProps'
