@@ -3,15 +3,14 @@
 
 # v3 UNRELEASDED
 
-### Updates for Mantine v9
- - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738) by @AnnMarieW  Initial update
- - [#746](https://github.com/snehilvj/dash-mantine-components/pull/746) by @AnnMarieW  Adding props
+**See live examples and complete changelog in [Dash Mantine Components v3 Release](https://www.dash-mantine-components.com/release-3-0-0)**
+
 
 
 ### Breaking Changes
 
 See the [Mantine v9 migration guide](https://mantine.dev/guides/7x-to-8x/) for additional details on upstream changes.
-See the [Dash Mantine Components Migration Guile]() for details on migrating Dash apps.
+See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-components.com/migration) for details on migrating Dash apps.
 
 - DMC v3 requires Dash >= 4.5 and React 19.2.4 PR738
 
@@ -19,22 +18,24 @@ See the [Dash Mantine Components Migration Guile]() for details on migrating Das
 - `Grid`: Renamed `gutter` prop to `gap`. PR738
 - `Popover` and `Tooltip`: Removed `positionDependencies`.  PR738
 - `Spoiler` Renamed `initialState` prop to `defaultExpanded`.  PR746
+- Default theme updates for light variant color, border radius and font weights.  See Migration guide for details.
 
 
 ### Updated
 
   - Updated to Mantine 9.6.3 and Recharts 3.1.2 PR738
-  - Updated to Mantine
+  - Updated `clickData` and `hoverData` for Recharts v3
+  - Updated to Mantine 9.7.2 in PR746
   - Updated webpack to handle `jsx-runtime` for React 19, as described in Dash PR #3880. Added a runtime error message when React 19 is not used PR738
   - Updated GitHub workflows to use React 19 PR738
   - Updated DEFAULT_THEME for Mantine 9  PR746
-
+ 
 ### Added
 
   - `Collapse`: Updated the internal prop from in to expanded. The DMC API continues to use opened. PR738
   - `Select` and `MultiSelect`: Added support for primitive values. PR738
   - Added `Pill` component PR746
-  -  `Collapse`: Added `orientation="horizontal"` and `keepMounted`.
+  - `Collapse`: Added `orientation="horizontal"` and `keepMounted`.
   - `Card`: Added `orientation="horizontal"`.
   - `Checkbox.Group`: Added `maxSelectedValues`.
   - Input components: Added `loading` and `loadingPosition`.
@@ -63,6 +64,10 @@ See the [Dash Mantine Components Migration Guile]() for details on migrating Das
  - `MultiSelect` Added support for `ComboboxGenericData`.
  - `Tree` Added support for `withLines`
 
+
+### PRs for v3.0.0 Updates by @AnnMarieW
+ - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738)  Initial update including breaking changes.
+ - [#746](https://github.com/snehilvj/dash-mantine-components/pull/746)  Adding props and new features (mostly from Mantine 9.0.0)
 
 
 # UNRELEASED
