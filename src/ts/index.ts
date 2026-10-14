@@ -46,6 +46,7 @@ import NumberFormatter from './components/core/NumberFormatter';
 import Overlay from './components/core/Overlay';
 import Pagination from './components/core/Pagination';
 import Paper from './components/core/Paper';
+import Pill from './components/core/Pill';
 import Rating from './components/core/Rating';
 import RingProgress from './components/core/RingProgress';
 import ScrollArea from './components/core/scrollarea/ScrollArea';
@@ -304,6 +305,7 @@ export {
     Paper,
     PasswordInput,
     PieChart,
+    Pill,
     PinInput,
     Popover,
     PopoverDropdown,

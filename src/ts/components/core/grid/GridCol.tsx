@@ -15,6 +15,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     order?: StyleProp<number>;
     /** Column offset on the left side – number of columns that should be left empty before this column */
     offset?: StyleProp<number>;
+    /** Vertical alignment of the column, controls `align-self` CSS property */
+    align?: StyleProp<React.CSSProperties['alignSelf']>;
 }
 
 /** GridCol */

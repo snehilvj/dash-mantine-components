@@ -22,6 +22,12 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     sections: any;
     /** Color of the root section, key of theme.colors or CSS color value */
     rootColor?: MantineColor;
+    /** Transition duration in milliseconds for section value and color changes default 0 */
+    transitionDuration?: number;
+    /** Gap between sections in degrees. Reduces the visual size of each section default 0 */
+    sectionGap?: number;
+    /** Starting angle in degrees. 0 = right, 90 = bottom, 180 = left, 270 = top default 270 */
+    startAngle?: number;
 }
 
 /** RingProgress */

@@ -13,7 +13,7 @@ import {
     YearLevelSettings,
 } from 'props/dates';
 import { __ClearButtonProps } from 'props/button';
-import { __BaseInputProps } from 'props/input';
+import { __BaseInputProps, ClearSectionMode } from 'props/input';
 import { PopoverProps } from 'props/popover';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
@@ -57,6 +57,8 @@ interface Props
     disabledDates?: any;
     /** Determines whether today should be highlighted with a border, false by default */
     highlightToday?: boolean;
+    /** Determines how the clear button and rightSection are rendered default 'both' */
+    clearSectionMode?: ClearSectionMode;
 }
 
 /** DateInput */

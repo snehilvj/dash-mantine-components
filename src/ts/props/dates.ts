@@ -6,7 +6,7 @@ import {
     DayOfWeek,
 } from '@mantine/dates';
 import { BoxProps } from './box';
-import { __BaseInputProps } from './input';
+import { __BaseInputProps, ClearSectionMode } from './input';
 import { __ClearButtonProps } from './button';
 import { ModalProps } from './modal';
 import { PopoverProps } from './popover';
@@ -51,6 +51,8 @@ export interface CalendarBaseProps {
     columnsToScroll?: number;
     /** aria-label attributes for controls on different levels */
     ariaLabels?: CalendarAriaLabels;
+    /** Determines whether the calendar should take the full width of its container default false */
+    fullWidth?: boolean;
 }
 
 interface YearsListSettings extends ControlsGroupSettings {
@@ -148,6 +150,8 @@ export interface DateInputSharedProps extends Omit<__BaseInputProps, 'size'> {
     labelSeparator?: string;
     /** Input placeholder */
     placeholder?: string;
+    /** Determines how the clear button and rightSection are rendered default 'both' */
+    clearSectionMode?: ClearSectionMode;
 }
 
 type OmittedSettings =
@@ -224,6 +228,8 @@ export interface TimePickerProps
     defaultValue?: string;
     /** Determines whether the clear button should be displayed, `false` by default */
     clearable?: boolean;
+    /** Determines how the clear button and rightSection are rendered default 'both' */
+    clearSectionMode?: ClearSectionMode;
     /** `name` prop passed down to the hidden input */
     name?: string;
     /** `form` prop passed down to the hidden input */

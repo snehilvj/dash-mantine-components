@@ -22,6 +22,10 @@ interface Props
     size?: MantineSize | (string & {});
     /** If set, value cannot be changed */
     readOnly?: boolean;
+    /** Maximum number of checkboxes that can be selected. When the limit is reached, unselected checkboxes will be disabled */
+     maxSelectedValues?: number;
+    /** Sets `disabled` attribute, prevents interactions */
+    disabled?: boolean;
 }
 
 /** CheckboxGroup */

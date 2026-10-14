@@ -207,6 +207,7 @@ def test_002oc_optional_components(dash_duo):
         icon_selector = f'#test-{i}-holder svg.iconify'
         old_html = dash_duo.find_element(icon_selector).get_attribute('innerHTML')
         dash_duo.find_element(f'#test-{i}').click()
+        time.sleep(1)
         until(lambda: dash_duo.find_element(icon_selector).get_attribute('innerHTML') != old_html, timeout=3)
 
 

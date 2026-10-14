@@ -53,6 +53,10 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
      * A function to render the tree node label. Replaces the default component rendering  See https://www.dash-mantine-components.com/functions-as-props
      */
     renderNode?: any;
+    /** If set, subtree content is kept mounted when collapsed. React 19 `Activity` is used to preserve state. default false */
+    keepMounted?: boolean;
+    /** If set, connecting lines are rendered showing parent-child relationships default false */
+    withLines?: boolean;
 }
 
 interface LeafProps {

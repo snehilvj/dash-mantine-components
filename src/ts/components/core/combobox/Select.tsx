@@ -4,7 +4,7 @@ import { BoxProps } from 'props/box';
 import { ComboboxLikeProps } from 'props/combobox';
 import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
 import { __ClearButtonProps } from 'props/button';
-import { __BaseInputProps } from 'props/input';
+import { __BaseInputProps, ClearSectionMode } from 'props/input';
 import { ScrollAreaProps } from 'props/scrollarea';
 import { StylesApiProps } from 'props/styles';
 import React, { useState, useRef } from 'react';
@@ -50,6 +50,8 @@ interface Props
     clearSearchOnFocus?: boolean;
     /** If set, the dropdown opens when the input receives focus default `True` */
     openOnFocus?: boolean;
+    /** Determines how the clear button and rightSection are rendered default 'both' */
+    clearSectionMode?: ClearSectionMode;
 }
 
 /** Select */

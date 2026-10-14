@@ -66,6 +66,8 @@ interface Props
     autoComplete?: string;
     /** Sets disabled attribute on the input element */
     disabled?: boolean;
+    /** If set, all text is selected when the input receives focus default false */
+    selectAllOnFocus?: boolean;
 }
 
 /** The NumberInput component allows users to input numeric values  */

@@ -36,10 +36,16 @@ interface Props
     value?: [number, number];
     /** Hidden input name, use with uncontrolled component */
     name?: string;
-    /** Marks displayed on the track */
+    /**
+     * Marks displayed on the track. Type: list of dictionaries. Each dictionary
+     * must contain a `value` (number) specifying the position of the mark and can
+     * optionally contain a `label` (str or component) and `hidden` (boolean) to hide
+     * the mark.
+     */
     marks?: {
         value: number;
         label?: React.ReactNode;
+        hidden?: boolean;
     }[];
     /** Function to generate label (See https://www.dash-mantine-components.com/functions-as-props) or any react node to render instead, set to null to disable label */
     label?: React.ReactNode;
@@ -75,6 +81,8 @@ interface Props
     domain?: [number, number];
     /** Determines whether the other thumb should be pushed by the current thumb dragging when minRange/maxRange is reached, true by default */
     pushOnOverlap?: boolean;
+    /** Slider orientation default 'horizontal' */
+    orientation?: 'horizontal' | 'vertical';
 }
 
 /** RangeSlider */

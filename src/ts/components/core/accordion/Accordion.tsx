@@ -42,6 +42,10 @@ interface Props
     children: React.ReactNode;
     /** Size of the default chevron icon. Ignored when `chevron` prop is set. default `16` */
     chevronIconSize?: number | string;
+    /** If set to `false`, panels are unmounted when collapsed. By default, panels stay mounted when collapsed. default true */
+    keepMounted?: boolean;
+    /** Controls how inactive panels content is hidden when `keepMounted` is `true`, `'activity'` – hidden with `Activity` component, `'display-none'` – hidden with `display: none` styles default 'activity' */
+    keepMountedMode?: 'activity' | 'display-none';
 }
 
 /** Accordion */

@@ -62,6 +62,8 @@ interface Props
     n_clicks?: number;
     /** Whether to refresh the page */
     refresh?: boolean;
+    /** If set to `false`, child `NavLinks` are unmounted when collapsed */
+    keepMounted?: boolean;
 }
 
 function memoizeOneArg(fn) {

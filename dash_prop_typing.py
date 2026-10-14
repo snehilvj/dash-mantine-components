@@ -56,9 +56,30 @@ def size_prop(type_info, component_name, prop_name):
 
 def combobox_data_prop(*_):
     """
-    Handles Select / MultiSelect / Autocomplete / TagsInput / SegmentedControl data props.
+    Handles  Autocomplete / TagsInput  data props.
     """
     return "typing.Sequence[typing.Union[str, typing.Dict[str, typing.Any]]]"
+
+def combobox_data_primitive_prop(*_):
+    """
+    Handles Select / MultiSelect /  SegmentedControl data props.
+    """
+    return (
+        "typing.Sequence[typing.Union["
+        "str, int, bool, "
+        "typing.Dict[str, typing.Any]"
+        "]]"
+    )
+
+
+def highlight_prop(*_):
+    return (
+        "typing.Union["
+        "str, "
+        "typing.Sequence[str], "
+        "typing.Sequence[typing.Dict[str, typing.Any]]"
+        "]"
+    )
 
 
 def number_range_prop(*_):
@@ -69,6 +90,14 @@ def number_range_prop(*_):
 def list_of_strings_prop(*_):
     """Handles arrays like [MantineColor, MantineColor]."""
     return "typing.Sequence[str]"
+
+
+def dict_prop(*_):
+    return "typing.Dict[str, typing.Any]"
+
+def list_of_dicts_prop(*_):
+    return "typing.Sequence[typing.Dict[str, typing.Any]]"
+
 
 
 default_types = {
@@ -127,7 +156,9 @@ custom_props = {
         **default_types,
     },
     "Grid": {
-        "gutter": str_num_dict_prop,
+        "gap": str_num_dict_prop,
+        "rowGap": str_num_dict_prop,
+        "columnGap": str_num_dict_prop,
         **default_types,
     },
     "GridCol": {
@@ -137,7 +168,7 @@ custom_props = {
         **default_types,
     },
     "MultiSelect": {
-        "data": combobox_data_prop,
+        "data": combobox_data_primitive_prop,
         **default_types,
     },
     "Modal": {
@@ -151,6 +182,7 @@ custom_props = {
     "RangeSlider": {
         "domain": number_range_prop,
         "value": number_range_prop,
+        "marks": list_of_dicts_prop,
         **default_types,
     },
     "RingProgress": {
@@ -158,11 +190,11 @@ custom_props = {
         **default_types,
     },
     "SegmentedControl": {
-        "data": combobox_data_prop,
+        "data": combobox_data_primitive_prop,
         **default_types,
     },
     "Select": {
-        "data": combobox_data_prop,
+        "data": combobox_data_primitive_prop,
         **default_types,
     },
     "SemiCircleProgrss": {
@@ -178,6 +210,7 @@ custom_props = {
     },
     "Slider": {
         "domain": number_range_prop,
+        "marks": list_of_dicts_prop,
         **default_types,
     },
     "Stepper": {
@@ -196,4 +229,9 @@ custom_props = {
         "data": combobox_data_prop,
         **default_types,
     },
+    "Highlight": {
+        "highlight": highlight_prop,
+        "highlightStyles": dict_prop,
+        **default_types,
+    }
 }
