@@ -295,6 +295,8 @@ export interface TimePickerProps
     timeRangePresets?: GetTimeRange;
     /** If set, the time controls list are reversed, default `false` */
     reverseTimeControlsList?: boolean;
+    /** TimePicker type, `'time'` for regular time input, `'duration'` for duration input that allows values greater than 24 hours @default 'time' */
+    type?: 'time' | 'duration';
 }
 
 type DatePickerPreset = {
