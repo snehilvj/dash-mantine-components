@@ -342,12 +342,19 @@ export interface MonthPickerBaseProps
     maxLevel?: 'year' | 'decade';
     /** Current level displayed to the user (decade, year), used for controlled component */
     level?: 'year' | 'decade';
+    /** Predefined values to pick from */
+    presets?: DatePickerPreset[];
 }
 
 export interface YearPickerBaseProps
     extends PickerBaseProps,
         DecadeLevelBaseSettings,
-        CalendarBaseProps {}
+        CalendarBaseProps {
+    /** Determines whether level select controls should be rendered as native `<select>` elements @default false */
+    withNativeLevelSelect?: boolean;
+    /** Predefined values to pick from */
+    presets?: DatePickerPreset[];
+}
 
 export interface TimeGridProps extends BoxProps, StylesApiProps {
     /** Time data in 24h format to be displayed in the grid, for example `['10:00', '18:30', '22:00']`. Time values must be unique. */
