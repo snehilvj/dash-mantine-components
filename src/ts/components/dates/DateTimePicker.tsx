@@ -52,6 +52,8 @@ interface Props
     presets?: DateTimePickerPreset[];
     /** Initial displayed date */
     defaultDate?: string;
+    /** Picker type: range or default default 'default' */
+    type?: "range" | "default";
 }
 
 /** DateTimePicker */
