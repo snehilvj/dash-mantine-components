@@ -152,6 +152,8 @@ export interface DateInputSharedProps extends Omit<__BaseInputProps, 'size'> {
     placeholder?: string;
     /** Determines how the clear button and rightSection are rendered default 'both' */
     clearSectionMode?: ClearSectionMode;
+    /** A function to format selected dates values into a string. By default, date is formatted based on the input type. */
+    valueFormatter?: any;
 }
 
 type OmittedSettings =
@@ -295,6 +297,8 @@ export interface TimePickerProps
     timeRangePresets?: GetTimeRange;
     /** If set, the time controls list are reversed, default `false` */
     reverseTimeControlsList?: boolean;
+    /** TimePicker type, `'time'` for regular time input, `'duration'` for duration input that allows values greater than 24 hours @default 'time' */
+    type?: 'time' | 'duration';
 }
 
 type DatePickerPreset = {
@@ -340,12 +344,19 @@ export interface MonthPickerBaseProps
     maxLevel?: 'year' | 'decade';
     /** Current level displayed to the user (decade, year), used for controlled component */
     level?: 'year' | 'decade';
+    /** Predefined values to pick from */
+    presets?: DatePickerPreset[];
 }
 
 export interface YearPickerBaseProps
     extends PickerBaseProps,
         DecadeLevelBaseSettings,
-        CalendarBaseProps {}
+        CalendarBaseProps {
+    /** Determines whether level select controls should be rendered as native `<select>` elements @default false */
+    withNativeLevelSelect?: boolean;
+    /** Predefined values to pick from */
+    presets?: DatePickerPreset[];
+}
 
 export interface TimeGridProps extends BoxProps, StylesApiProps {
     /** Time data in 24h format to be displayed in the grid, for example `['10:00', '18:30', '22:00']`. Time values must be unique. */

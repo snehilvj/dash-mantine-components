@@ -36,21 +36,26 @@ const funcPropsMap = {
         'getMonthControlProps',
         'getDayProps',
         'renderDay',
+        'valueFormat',
     ],
     DatePickerInput: [
         'getYearControlProps',
         'getMonthControlProps',
         'getDayProps',
         'renderDay',
+        'valueFormatter',
+
     ],
     DateInput: [
         'getYearControlProps',
         'getMonthControlProps',
         'getDayProps',
         'renderDay',
+        'valueFormat',
+        'dateParser',
     ],
-    MonthPickerInput: ['getYearControlProps', 'getMonthControlProps'],
-    YearPickerInput: ['getYearControlProps'],
+    MonthPickerInput: ['getYearControlProps', 'getMonthControlProps', 'valueFormatter',],
+    YearPickerInput: ['getYearControlProps', 'valueFormatter',],
     AreaChart: [
         'xAxisProps',
         'yAxisProps',

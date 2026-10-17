@@ -1,7 +1,6 @@
 import {
     Notifications,
     notifications,
-    useNotifications,
     notificationsStore,
 } from '@mantine/notifications';
 import { BoxProps } from 'props/box';
@@ -11,11 +10,9 @@ import React, { useEffect, useState } from 'react';
 import {
     getLoadingState,
     newRenderDashComponents,
-    getContextPath,
     stringifyId,
 } from '../../../utils/dash3';
 import { MantineColor, MantineRadius } from '@mantine/core';
-import { omit, equals } from 'ramda';
 
 // Define appNotificationHolder as a mutable object
 const appNotificationHolder: Record<string, any> = {};
@@ -52,7 +49,6 @@ export const appNotifications = new Proxy(appNotificationHolder, {
     },
 });
 
-// Define the Notification interface based on your requirements
 interface Notification extends BoxProps, StylesApiProps {
     /** Controls notification line or icon color, key of `theme.colors` or any valid CSS color, `theme.primaryColor` by default */
     color?: MantineColor;
@@ -75,13 +71,15 @@ interface Notification extends BoxProps, StylesApiProps {
     /** Notification message, required for all notifications */
     message: any;
     /** Determines whether notification should be closed automatically,
-     *  number is auto close timeout in ms, overrides `autoClose` from `Notifications`
+     *  number is auto close timeout in ms, overrides `autoClose` from `NotificationContainer`
      * */
     autoClose?: boolean | number;
     /** action */
-    action: Action;
+    action?: Action;
     /** Position on the screen to display the notification.  */
     position?: Position;
+    /** Determines whether a progress line that fills up until the notification auto closes is displayed at the bottom of every notification, can be overwritten for individual notifications in `notifications.show` and `notifications.update` functions default false */
+    withAutoCloseProgress?: boolean;
 }
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
@@ -111,6 +109,16 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     clean?: boolean;
     /** Notifications API: removes all notifications from the queue*/
     cleanQueue?: boolean;
+    /** Determines whether notifications can be dismissed by dragging left or right default true */
+    allowDragDismiss?: boolean;
+    /** Determines whether notifications can be dismissed with horizontal scroll gesture while hovered default true */
+    allowScrollDismiss?: boolean;
+    /** Determines which notifications should pause auto close on hover, `'all'` – pauses auto close for all notifications when any notification is hovered, `'notification'` – pauses auto close only for the hovered notification default 'all' */
+    pauseResetOnHover?: 'all' | 'notification';
+    /** Controls how notifications are positioned in the stack, `'default'` – standard vertical list, `'stacked'` – only first notification is fully visible, rest are stacked behind default 'default' */
+    layout?: 'default' | 'stacked';
+    /** Determines whether notifications display an auto-close progress bar */
+    withAutoCloseProgress?: boolean;
 }
 
 /** NotificationContainer */
@@ -124,8 +132,6 @@ const NotificationContainer = (props: Props) => {
         cleanQueue,
         ...others
     } = props;
-
-    const componentPath = getContextPath();
 
     useEffect(() => {
         // Note - the type checking can be removed when it's handled properly in Dash
