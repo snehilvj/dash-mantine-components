@@ -25,6 +25,7 @@ const funcPropsMap = {
     TagsInput: ['renderOption', 'filter', 'renderPill'],
     Autocomplete: ['renderOption', 'filter'],
     MiniCalendar: ['getDayProps'],
+    Pagination: ['formatLabel'],
     DatePicker: [
         'getYearControlProps',
         'getMonthControlProps',
