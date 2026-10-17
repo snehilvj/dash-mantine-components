@@ -152,6 +152,8 @@ export interface DateInputSharedProps extends Omit<__BaseInputProps, 'size'> {
     placeholder?: string;
     /** Determines how the clear button and rightSection are rendered default 'both' */
     clearSectionMode?: ClearSectionMode;
+    /** A function to format selected dates values into a string. By default, date is formatted based on the input type. */
+    valueFormatter?: any;
 }
 
 type OmittedSettings =
