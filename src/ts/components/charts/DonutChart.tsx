@@ -49,6 +49,14 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
     /** Props passed down to recharts `PieChart` component */
     pieChartProps?: object;
+    /** Type of labels to display, `'value'` by default */
+    labelsType?: 'value' | 'percent' | 'name';
+    /** Determines whether the chart should be keyboard-navigable with the recharts accessibility layer, `true` by default */
+    accessibilityLayer?: boolean;
+    /** Determines whether the legend should be displayed default false */
+    withLegend?: boolean;
+    /** Props passed down to recharts `Legend` component */
+    legendProps?: object;
     /** Click data */
     clickData?: Record<string, any>;
     /** Hover data */
