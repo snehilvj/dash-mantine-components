@@ -20,6 +20,8 @@ export interface TextProps extends BoxProps, StylesApiProps {
     gradient?: MantineGradient;
     /** Shorthand for `component="span"`, `false` by default, default root element is `p` */
     span?: boolean;
+    /** Controls `text-wrap` CSS property */
+    textWrap?: 'wrap' | 'nowrap' | 'balance' | 'pretty' | 'stable';
 }
 
 export interface TextareaProps
