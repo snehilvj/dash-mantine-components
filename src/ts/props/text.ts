@@ -36,4 +36,8 @@ export interface TextareaProps
     minRows?: number;
     /** Controls `resize` CSS property, `'none'` by default */
     resize?: React.CSSProperties['resize'];
+    /** Content rendered at the bottom of the input, inside the border */
+    bottomSection?: React.ReactNode;
+    /** Props passed down to the `bottomSection` element */
+    bottomSectionProps?: object;
 }
