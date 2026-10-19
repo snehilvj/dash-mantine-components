@@ -51,7 +51,7 @@ const Timeline = (props: Props) => {
                 const childProps = getChildProps(child);
                 const renderedProps = newRenderDashComponents(
                     omit(['children'], childProps),
-                    ['title', 'bullet'],
+                    ['title', 'bullet', `opposite`],
                     !isEmpty(componentPath)
                         ? [...child?.props?.componentPath]
                         : []
