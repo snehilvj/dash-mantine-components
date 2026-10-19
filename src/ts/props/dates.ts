@@ -299,6 +299,8 @@ export interface TimePickerProps
     reverseTimeControlsList?: boolean;
     /** TimePicker type, `'time'` for regular time input, `'duration'` for duration input that allows values greater than 24 hours @default 'time' */
     type?: 'time' | 'duration';
+    /** If set, the dropdown is closed when a value is selected from the presets list default false */
+    closeDropdownOnPresetSelect?: boolean;
 }
 
 type DatePickerPreset = {

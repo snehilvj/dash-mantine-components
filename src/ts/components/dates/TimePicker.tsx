@@ -1,10 +1,7 @@
 import { TimePicker as MantineTimePicker, getTimeRange } from '@mantine/dates';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
-import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
 import { TimePickerProps } from 'props/dates';
-import { __BaseInputProps } from 'props/input';
-import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { setPersistence, getLoadingState } from '../../utils/dash3';
 
