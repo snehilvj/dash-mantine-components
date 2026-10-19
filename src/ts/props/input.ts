@@ -9,6 +9,8 @@ export interface __InputWrapperProps {
     description?: React.ReactNode;
     /** Contents of `Input.Error` component. If not set, error is not rendered. */
     error?: React.ReactNode;
+    /** Determines whether the input should have success styles */
+    success?: React.ReactNode;
     /** Adds required attribute to the input and a red asterisk on the right side of label, `false` by default */
     required?: boolean;
     /** Determines whether the required asterisk should be displayed. Overrides `required` prop. Does not add required attribute to the input. `false` by default */
@@ -19,6 +21,8 @@ export interface __InputWrapperProps {
     descriptionProps?: Record<string, any>;
     /** Props passed down to the `Input.Error` component */
     errorProps?: Record<string, any>;
+    /** Props passed down to the `Input.Success` component */
+    successProps?: Record<string, any>;
     /** Controls order of the elements, `['label', 'description', 'input', 'error']` by default */
     inputWrapperOrder?: ('label' | 'input' | 'description' | 'error')[];
 }
@@ -64,6 +68,8 @@ export interface __InputProps {
     pointer?: boolean;
     /** Determines whether the input should have red border and red text color when the `error` prop is set, `true` by default */
     withErrorStyles?: boolean;
+    /** Determines whether the input should have green border when the `success` prop is set @default true */
+    withSuccessStyles?: boolean;
     /** Placeholder */
     placeholder?: string;
     /** Name prop */
@@ -75,15 +81,17 @@ export interface __InputProps {
     /** Position of the loading indicator default 'right' */
     loadingPosition?: 'left' | 'right';
 }
-
-export interface InputProps extends BoxProps, __InputProps, StylesApiProps {
-    /** Determines whether the input should have error styles and `aria-invalid` attribute */
-    error?: React.ReactNode;
-    /** Determines whether the input can have multiple lines, for example when `component="textarea"`, `false` by default */
-    multiline?: boolean;
-    /** Determines whether `aria-` and other accessibility attributes should be added to the input, `true` by default */
-    withAria?: boolean;
-}
+//
+// export interface InputProps extends BoxProps, __InputProps, StylesApiProps {
+//     /** Determines whether the input should have error styles and `aria-invalid` attribute */
+//     error?: React.ReactNode;
+//     /** Determines whether the input should have success styles */
+//     success?: React.ReactNode;
+//     /** Determines whether the input can have multiple lines, for example when `component="textarea"`, `false` by default */
+//     multiline?: boolean;
+//     /** Determines whether `aria-` and other accessibility attributes should be added to the input, `true` by default */
+//     withAria?: boolean;
+// }
 
 export interface __BaseInputProps
     extends __InputWrapperProps,
