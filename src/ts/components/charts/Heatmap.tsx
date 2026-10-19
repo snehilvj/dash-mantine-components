@@ -83,6 +83,9 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
   /** Legend labels, array of 2 elements: [min label, max label] default ['Less', 'More'] */
   legendLabels?: [string, string];
+
+  /** Month labels position relative to the heatmap default 'top' */
+  monthLabelsPosition?: 'top' | 'bottom';
 }
 
 
