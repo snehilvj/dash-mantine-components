@@ -35,6 +35,12 @@ interface CalendarHeaderSettings {
     size?: MantineSize;
     /** Controls order, `['previous', 'level', 'next']`` by default */
     headerControlsOrder?: ('next' | 'previous' | 'level')[];
+    /** Determines whether the header should take the full width of its container default false */
+    fullWidth?: boolean;
+    /** Determines whether level select controls should be rendered as native `<select>` elements default false */
+    withNativeLevelSelect?: boolean;
+    /** Year range for native level select, tuple of `[startYear, endYear]`. Defaults to `[currentYear - 100, currentYear + 50]` or values derived from `minDate`/`maxDate` if set. */
+    yearsSelectRange?: [number, number];
 }
 
 interface ControlsGroupSettings {
@@ -348,6 +354,8 @@ export interface MonthPickerBaseProps
     level?: 'year' | 'decade';
     /** Predefined values to pick from */
     presets?: DatePickerPreset[];
+    /** Determines whether level select controls should be rendered as native `<select>` elements default false */
+    withNativeLevelSelect?: boolean;
 }
 
 export interface YearPickerBaseProps
