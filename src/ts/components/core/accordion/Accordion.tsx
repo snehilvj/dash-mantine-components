@@ -46,6 +46,8 @@ interface Props
     keepMounted?: boolean;
     /** Controls how inactive panels content is hidden when `keepMounted` is `true`, `'activity'` – hidden with `Activity` component, `'display-none'` – hidden with `display: none` styles default 'activity' */
     keepMountedMode?: 'activity' | 'display-none';
+    /** If set, the open item cannot be collapsed by clicking it again, so one item always stays open. Only applies when `multiple` is `false`. default false */
+    disableCollapse?: boolean;
 }
 
 /** Accordion */
