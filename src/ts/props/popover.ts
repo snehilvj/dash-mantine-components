@@ -54,6 +54,12 @@ export interface __PopoverProps {
     overlayProps?: object;
     /** Determines whether the overlay should be displayed when the dropdown is opened, `false` by default */
     withOverlay?: boolean;
+    /** If set, the dropdown is hidden when the element is hidden with styles or not visible on the screen default true */
+    hideDetached?: boolean;
+    /** If `true`, the dropdown picks its side on open (flip runs once, preferring the `position` prop) and then never changes side — scrolling, resizing, and content size changes will not flip the dropdown. The side is recalculated fresh on the next open. Does not affect the `shift` middleware. Set to `false` to keep flip active and allow the dropdown to re-flip on every change. default true */
+    preventPositionChangeWhenVisible?: boolean;
+    /** If set, outside click listeners are registered in the capture phase default false */
+    clickOutsideCapture?: boolean;
 }
 
 export interface PopoverProps extends __PopoverProps, StylesApiProps {
@@ -71,6 +77,4 @@ export interface PopoverProps extends __PopoverProps, StylesApiProps {
     closeOnEscape?: boolean;
     /** Determines whether dropdown and target elements should have accessible roles, `true` by default */
     withRoles?: boolean;
-    /** If set, the dropdown is hidden when the element is hidden with styles or not visible on the screen, `true` by default */
-    hideDetached?: boolean;
 }
