@@ -6,18 +6,18 @@ export interface GridChartBaseProps {
     data: ChartData;
     /** Key of the `data` object for x-axis values */
     dataKey: string;
-    /** Reference lines that should be displayed on the chart */
-    referenceLines?: object[];
+    /** Reference lines that should be displayed on the chart.  */
+    referenceLines?: Record<string, any>[];
     /** Determines whether x-axis should be hidden, `true` by default */
     withXAxis?: boolean;
     /** Determines whether y-axis should be hidden, `true` by default */
     withYAxis?: boolean;
     /** Props passed down to the `XAxis` recharts component */
-    xAxisProps?: object;
+    xAxisProps?: Record<string, any>;
     /** Props passed down to the `YAxis` recharts component */
-    yAxisProps?: object;
+    yAxisProps?: Record<string, any>;
     /** Props passed down to the `CartesianGrid` component */
-    gridProps?: object;
+    gridProps?: Record<string, any>;
     /** Specifies which axis should have tick line, `'y'` by default */
     tickLine?: 'x' | 'y' | 'xy' | 'none';
     /** Dash array for the grid lines and cursor, `'5 5'` by default */
@@ -29,9 +29,9 @@ export interface GridChartBaseProps {
     /** Tooltip position animation duration in ms, `0` by default */
     tooltipAnimationDuration?: number;
     /** Props passed down to the `Legend` component */
-    legendProps?: object;
+    legendProps?: Record<string, any>;
     /** Props passed down to the `Tooltip` component */
-    tooltipProps?: object;
+    tooltipProps?: Record<string, any>;
     /** Determines whether chart legend should be displayed, `false` by default */
     withLegend?: boolean;
     /** Determines whether chart tooltip should be displayed, `true` by default */
@@ -54,4 +54,14 @@ export interface GridChartBaseProps {
     rightYAxisLabel?: any;
     /** A function to format values on Y axis and inside the tooltip. See https://www.dash-mantine-components.com/functions-as-props */
     valueFormatter?: any;
+    /** Determines whether the chart should be keyboard-navigable with the recharts accessibility layer, `true` by default */
+    accessibilityLayer?: boolean;
+    /** Determines whether a brush (range selector) should be displayed under the chart, `false` by default */
+    withBrush?: boolean;
+    /** Props passed down to the `Brush` component */
+    brushProps?: Record<string, any>;
+    /** Reference areas that should be displayed on the chart.  */
+    referenceAreas?: Record<string, any>[];
+    /** Reference dots that should be displayed on the chart */
+    referenceDots?: Record<string, any>[];
 }

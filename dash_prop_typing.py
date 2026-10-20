@@ -121,6 +121,8 @@ custom_props = {
     },
     "AreaChart": {
         "splitColors": list_of_strings_prop,
+        "series": list_of_dicts_prop,
+        "data": list_of_dicts_prop,
         **default_types,
     },
     "Autocomplete": {
