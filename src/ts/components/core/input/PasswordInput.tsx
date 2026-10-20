@@ -18,6 +18,8 @@ interface Props
     visibilityToggleButtonProps?: Record<string, any>;
     /** Determines whether input content should be visible */
     visible?: boolean;
+    /** If set, the visibility toggle button is focusable with keyboard default `false` */
+    visibilityToggleFocusable?: boolean;
     /** Input value for controlled component */
     value?: string;
     /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
