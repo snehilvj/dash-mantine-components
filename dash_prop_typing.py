@@ -136,6 +136,8 @@ custom_props = {
     "BarChart": {
         "barLabelColor": str_prop,
         "cursorFill": str_prop,
+        "series": list_of_dicts_prop,
+        "data": list_of_dicts_prop,
         **default_types,
     },
     "BubbleChart": {
@@ -153,6 +155,11 @@ custom_props = {
         "autoScroll": bool_dict_prop,
         **default_types,
     },
+    "CompositeChart": {
+        "series": list_of_dicts_prop,
+        "data": list_of_dicts_prop,
+        **default_types,
+    },
     "CopyButton": {
         "copiedColor": str_prop,
         **default_types,
@@ -167,6 +174,11 @@ custom_props = {
         "span": str_num_dict_prop,
         "order": str_num_dict_prop,
         "offset": str_num_dict_prop,
+        **default_types,
+    },
+   "LineChart": {
+        "series": list_of_dicts_prop,
+        "data": list_of_dicts_prop,
         **default_types,
     },
     "MultiSelect": {

@@ -64,6 +64,7 @@ const funcPropsMap = {
         'rightYAxisProps',
         'tooltipProps',
         'valueFormatter',
+        'brushProps',
     ],
     BarChart: [
         'xAxisProps',
@@ -73,6 +74,7 @@ const funcPropsMap = {
         'tooltipProps',
         'valueLabelProps',  
         'getBarColor',
+        'brushProps',
     ],
     BubbleChart: [
         'xAxisProps',
@@ -88,6 +90,7 @@ const funcPropsMap = {
         'rightYAxisProps',
         'tooltipProps',
         'valueFormatter',
+        'brushProps',
     ],
     FunnelChart: [
         "tooltipProps",
@@ -101,6 +104,7 @@ const funcPropsMap = {
         'rightYAxisProps',
         'tooltipProps',
         'valueFormatter',
+        'brushProps',
     ],
     ScatterChart: [
         'xAxisProps',

@@ -60,6 +60,8 @@ export interface GridChartBaseProps {
     withBrush?: boolean;
     /** Props passed down to the `Brush` component */
     brushProps?: Record<string, any>;
+    /** The startIndex and endIndex  of the selected brush range when dragging ends. Read only */
+    brushDragEnd?: Record<string, number>;
     /** Reference areas that should be displayed on the chart.  */
     referenceAreas?: Record<string, any>[];
     /** Reference dots that should be displayed on the chart */

@@ -22,6 +22,8 @@ const CompositeChart = ({
     series,
     data,
     dataKey,
+    brushDragEnd,
+    brushProps,
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -122,6 +124,12 @@ const CompositeChart = ({
         return returnProps;
     };
 
+    const handleBrushEnd = (range) => {
+        setProps({ brushDragEnd: range });
+        // calls user-provided onDragEnd
+        brushProps?.onDragEnd?.(range);
+    };
+
     return (
         <MantineCompositeChart
             data-dash-is-loading={
@@ -140,6 +148,10 @@ const CompositeChart = ({
                 onClick: handleDotClick,
                 onMouseOver: handleDotHover,
                 onMouseOut: handleHoverEnd,
+            }}
+            brushProps={{
+                ...brushProps,
+                onDragEnd: handleBrushEnd,
             }}
         />
     );
