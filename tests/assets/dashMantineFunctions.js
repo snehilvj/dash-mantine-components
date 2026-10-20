@@ -69,3 +69,13 @@ dmcfuncs.myLeaf = function (payload) {
 dmcfuncs.insertContent = ({editor}, options) => {
     editor?.commands.insertContent(options)
 }
+
+
+// Custom tick for RadarChart polarAngleAxisProps (#747)
+dmcfuncs.radarTick = function ({ x, y, payload, textAnchor }) {
+    return React.createElement(
+        'text',
+        { x, y, textAnchor, className: 'custom-radar-tick', fill: 'red' },
+        `${payload.value}!`
+    );
+};
