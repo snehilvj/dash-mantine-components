@@ -56,6 +56,8 @@ import SimpleGrid from './components/core/SimpleGrid';
 import Skeleton from './components/core/Skeleton';
 import Space from './components/core/Space';
 import Spoiler from './components/core/Spoiler';
+import Splitter from './components/core/Splitter';
+import SplitterPane from './components/core/SplitterPane';
 import Stack from './components/core/Stack';
 import Switch from './components/core/Switch';
 import Text from './components/core/Text';
@@ -334,6 +336,8 @@ export {
     Space,
     Sparkline,
     Spoiler,
+    Splitter,
+    SplitterPane,
     Stack,
     Stepper,
     StepperCompleted,
