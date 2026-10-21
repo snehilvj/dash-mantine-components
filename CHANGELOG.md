@@ -5,69 +5,84 @@
 
 **See live examples and complete changelog in [Dash Mantine Components v3 Release](https://www.dash-mantine-components.com/release-3-0-0)**
 
-
-
 ### Breaking Changes
 
 See the [Mantine v9 migration guide](https://mantine.dev/guides/7x-to-8x/) for additional details on upstream changes.
+
 See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-components.com/migration) for details on migrating Dash apps.
 
-- DMC v3 requires Dash >= 4.5 and React 19.2.4 PR738
-
-- `TypographyStylesProvider` component Renamed  `Typography`. PR738
-- `Grid`: Renamed `gutter` prop to `gap`. PR738
-- `Popover` and `Tooltip`: Removed `positionDependencies`.  PR738
-- `Spoiler` Renamed `initialState` prop to `defaultExpanded`.  PR746
-- Default theme updates for light variant color, border radius and font weights.  See Migration guide for details.
-
+- DMC v3 requires Dash >= 4.5 and React 19.2.4. PR738
+- `TypographyStylesProvider` renamed to `Typography`. PR738
+- `Grid`: Renamed `gutter` to `gap`. PR738
+- `Popover` and `Tooltip`: Removed `positionDependencies`. PR738
+- `Spoiler`: Renamed `initialState` to `defaultExpanded`. PR746
+- Default theme updates for light variant colors, border radius, and font weights. See the migration guide for details.
 
 ### Updated
 
-  - Updated to Mantine 9.6.3 and Recharts 3.1.2 PR738
-  - Updated `clickData` and `hoverData` for Recharts v3
-  - Updated to Mantine 9.7.2 in PR746
-  - Updated webpack to handle `jsx-runtime` for React 19, as described in Dash PR #3880. Added a runtime error message when React 19 is not used PR738
-  - Updated GitHub workflows to use React 19 PR738
-  - Updated DEFAULT_THEME for Mantine 9  PR746
- 
+- Updated to Mantine 9.7.2 and Recharts 3.1.2. PR738, PR746
+- Updated `clickData` and `hoverData` for Recharts v3.
+- Updated webpack to handle `jsx-runtime` for React 19, following Dash PR #3880. Added a runtime error message when React 19 is not used. PR738
+- Updated GitHub workflows to use React 19. PR738
+- Updated `DEFAULT_THEME` for Mantine 9. PR746
+- `ScatterChart`: Removed invalid props.
+
 ### Added
 
-  - `Collapse`: Updated the internal prop from in to expanded. The DMC API continues to use opened. PR738
-  - `Select` and `MultiSelect`: Added support for primitive values. PR738
-  - Added `Pill` component PR746
-  - `Collapse`: Added `orientation="horizontal"` and `keepMounted`.
-  - `Card`: Added `orientation="horizontal"`.
-  - `Checkbox.Group`: Added `maxSelectedValues`.
-  - Input components: Added `loading` and `loadingPosition`.
-  - `MultiSelect` and `TagsInput`: Added `renderPill` and `withPillsReorder`.
-  - Clearable inputs: Added `clearSectionMode`.
-  - `Highlight`: Added per-term colors, `wholeWord`, `caseInsensitive`, and `accentInsensitive`.
- - `Pagination`: Added `startValue` and support for input size values.
- -  `Slider` and `RangeSlider`: Added vertical orientation and support for hidden marks.
- - `SimpleGrid`: Added `minColWidth`, `autoFlow`, and `autoRows`.
- - `DatePicker`: Added `fullWidth` to the calendar.
- - `ScrollArea`: Added `startScrollPosition`.
- - `Stepper`, `Tree`, `Accordion`, `NavLink`, and `Tabs.Panel`: Added `keepMounted`.
- - `Indicator`: Added `maxValue`, `showZero`, and support for `offset={{x, y}}`.
- - `NumberInput`: Added `selectAllOnFocus`.
- - `RingProgress`: Added `sectionGap` and `startAngle` transitionDuration`.
- - `List`: Added `start` and `reversed`.
- - `JsonInput`: Added `indentSpaces`.
- - `Rating`: Added `allowClear`.
- - `Grid`: Added `rowGap`, `columnGap`, and `GridCol.align`.
- - `Checkbox`: Added `readOnly` and `withErrorStyles`.
- - `Spoiler`: Renamed `initialState` to `defaultExpanded` and added `showAriaLabel` and `hideAriaLabel`.
- - `ColorPicker`: Added `name` and `hiddenInputProps`.
- - `MantineProvider`: Added `useV8CssVariablesResolver` and enabled function values for `cssVariablesResolver` and `getRootElement`.
- - `SegmentedControl` Added support for  generic and primitive value types.
- - `Select` and `MultiSelect` added suport for support primitive values.
- - `MultiSelect` Added support for `ComboboxGenericData`.
- - `Tree` Added support for `withLines`
+- Added `Pill` component. PR746
+- `Collapse`: Updated the internal prop from `in` to `expanded`. The DMC API continues to use `opened`. Added `orientation="horizontal"` and `keepMounted`. PR738
+- `Card`: Added `orientation="horizontal"`.
+- `Checkbox.Group`: Added `maxSelectedValues`.
+- Input components: Added `loading` and `loadingPosition`.
+- `MultiSelect` and `TagsInput`: Added `renderPill` and `withPillsReorder`.
+- Clearable inputs: Added `clearSectionMode`.
+- `Highlight`: Added per-term colors, `wholeWord`, `caseInsensitive`, and `accentInsensitive`.
+- `Pagination`: Added `startValue`, support for input size values, responsive layout, and function support for `formatLabel`.
+- `Slider` and `RangeSlider`: Added vertical orientation and support for hidden marks. `Slider` also adds `thumbLabel`, `thumbProps`, and `startPointValue`. `RangeSlider` adds `thumbLabel`, `thumbValueText`, and `hiddenInputProps`.
+- `SimpleGrid`: Added `minColWidth`, `autoFlow`, and `autoRows`.
+- `DatePicker`: Added `fullWidth` to the calendar.
+- Date pickers: Added function support for `valueFormat` and `valueFormatter`, plus `withNativeLevelSupport` and `yearsSelectRange`.
+- `DateTimePicker`: Added `type="range"`.
+- `MonthPickerInput` and `YearPickerInput`: Added `presets`.
+- `TimePicker`: Added `type="duration"` and closes the dropdown when a preset is selected.
+- `ScrollArea`: Added `startScrollPosition` and `verticalScrollbarPosition`.
+- `Stepper`, `Tree`, `Accordion`, `NavLink`, and `Tabs.Panel`: Added `keepMounted`.
+- `Accordion`: Added `disableCollapse`.
+- `Indicator`: Added `maxValue`, `showZero`, and support for `offset={{x, y}}`.
+- `NumberInput`: Added `selectAllOnFocus`.
+- `RingProgress`: Added `sectionGap`, `startAngle`, and `transitionDuration`.
+- `List`: Added `start` and `reversed`.
+- `JsonInput`: Added `indentSpaces`.
+- `Rating`: Added `allowClear`.
+- `Grid`: Added `rowGap`, `columnGap`, and `GridCol.align`.
+- `Checkbox`: Added `readOnly` and `withErrorStyles`.
+- `Spoiler`: Added `showAriaLabel` and `hideAriaLabel`.
+- `ColorPicker`: Added `name` and `hiddenInputProps`.
+- `MantineProvider`: Added `useV8CssVariablesResolver` and enabled function values for `cssVariablesResolver` and `getRootElement`.
+- `SegmentedControl`: Added support for generic and primitive value types.
+- `Select` and `MultiSelect`: Added support for primitive values.
+- `MultiSelect`: Added support for `ComboboxGenericData`.
+- `Tree`: Added support for `withLines`.
+- `Text` and `Blockquote`: Added `textWrap`.
+- `Textarea`: Added `bottomSection` and `bottomSectionProps`.
+- `CodeHighlight`: Added `withLineNumbers`, `radius`, `withBorder`, and `withFirstLineIndentation`.
+- `Combobox`: Added `floatingHeight`.
+- `Notifications`: Added `autoClose`, `withAutoCloseProgress`, `allowDragDismiss`, `allowScrollDismiss`, `pauseOnHover`, and `layout`.
+- `Tooltip`: Added `interactive`.
+- `Popover`: Added `hideDetached`, `preventPositionChangeWhenVisible`, and `clickOutsideCapture`.
+- `Timeline`: Added `opposite` and `alternate`.
+- `DonutChart` and `PieChart`: Added `withLegend`, `legendProps`, and `labelsType="name"`.
+- `Funnel`: Added `withLegend` and `legendProps`.
+- `Heatmap`: Added `withLegend`, `legendLabels`, and `monthLabelsPosition`.
+- Inputs: Added success state support.
+- Chart components: Added `accessibilityLayer`, `withBrush`, `brushProps`, `referenceAreas`, and `referenceDots` to shared chart props.
+- `AreaChart`, `BarChart`, `CompositeChart`, and `LineChart`: Added `brushDragEnd`.
 
 
 ### PRs for v3.0.0 Updates by @AnnMarieW
  - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738)  Initial update including breaking changes.
  - [#746](https://github.com/snehilvj/dash-mantine-components/pull/746)  Adding props and new features (mostly from Mantine 9.0.0)
+ - [#748](https://github.com/snehilvj/dash-mantine-components/pull/748)  Adding props and new features (mostly from Mantine 9.1 through 9.7)
 
 
 # UNRELEASED
