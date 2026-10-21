@@ -75,6 +75,12 @@ interface Props
     domain?: [number, number];
     /** Slider orientation default 'horizontal' */
     orientation?: 'horizontal' | 'vertical';
+    /** Value at which the filled bar starts. When set, the bar extends from this point toward the current value. Ignored when `inverted` is set. */
+    startPointValue?: number;
+    /** Props passed down to the hidden input */
+    hiddenInputProps?: object;
+   /** Props passed down to thumb element */
+    thumbProps?: object;
 }
 
 /** Slider */

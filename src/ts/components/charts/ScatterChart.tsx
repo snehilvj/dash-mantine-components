@@ -15,7 +15,7 @@ const LazyScatterChart = React.lazy(
 
 export interface Props
     extends BoxProps,
-        Omit<GridChartBaseProps, 'dataKey' | 'data' | 'unit'>,
+        Omit<GridChartBaseProps, 'dataKey' | 'data' | 'unit' | 'withBrush' | 'brushProps'>,
         StylesApiProps,
         DashBaseProps {
     /** Keys that should be used to retrieve data from the data array on x and y axis */

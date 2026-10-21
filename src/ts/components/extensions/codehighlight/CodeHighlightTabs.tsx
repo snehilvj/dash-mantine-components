@@ -1,3 +1,4 @@
+import { MantineRadius } from '@mantine/core';
 import { CodeHighlightTabsCode } from '@mantine/code-highlight';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
@@ -35,6 +36,15 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     withExpandButton?: boolean;
     /** Determines whether copy button should be displayed, `true` by default */
     withCopyButton?: boolean;
+    /** Key of `theme.radius` or any valid CSS value to set border-radius default 0 */
+    radius?:  MantineRadius;
+    /** Adds border to the root element default false */
+    withBorder?: boolean;
+    /** Determines whether line numbers should be displayed default false */
+    withLineNumbers?: boolean;
+    /** If set, indentation of the first line of the code is preserved. By default, it is removed
+    *  along with the rest of the leading and trailing whitespace. default false */
+    withFirstLineIndentation?: boolean;
 }
 
 /** CodeHighlightTabs */

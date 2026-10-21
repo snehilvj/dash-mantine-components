@@ -83,6 +83,12 @@ interface Props
     pushOnOverlap?: boolean;
     /** Slider orientation default 'horizontal' */
     orientation?: 'horizontal' | 'vertical';
+    /** `aria-label` for both thumbs (overridden by thumbFromLabel/thumbToLabel if provided) */
+    thumbLabel?: string;
+    /** `aria-valuetext` for both thumbs. When a function is provided, it receives the scaled value. */
+    thumbValueText?: any;
+    /** Props passed down to the hidden input */
+    hiddenInputProps?: object;
 }
 
 /** RangeSlider */

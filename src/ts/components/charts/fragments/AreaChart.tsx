@@ -20,6 +20,8 @@ const AreaChart = ({
     areaProps,
     data,
     dataKey,
+    brushDragEnd,
+    brushProps,
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -84,6 +86,12 @@ const AreaChart = ({
         return returnProps;
     };
 
+    const handleBrushEnd = (range) => {
+        setProps({ brushDragEnd: range });
+        // calls user-provided onDragEnd
+        brushProps?.onDragEnd?.(range);
+    };
+
     return (
         <MantineAreaChart
             data-dash-is-loading={
@@ -100,8 +108,15 @@ const AreaChart = ({
                 onMouseOut: handleHoverEnd,
             }}
             areaProps={areaPropsFunction}
+            brushProps={{
+                ...brushProps,
+                onDragEnd: handleBrushEnd,
+            }}
         />
     );
 };
 
 export default AreaChart;
+
+
+

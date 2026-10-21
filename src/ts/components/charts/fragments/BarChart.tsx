@@ -22,6 +22,8 @@ const BarChart = ({
     series,
     data,
     dataKey,
+    brushDragEnd,
+    brushProps,
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -78,6 +80,12 @@ const BarChart = ({
         return returnProps;
     };
 
+    const handleBrushEnd = (range) => {
+        setProps({ brushDragEnd: range });
+        // calls user-provided onDragEnd
+        brushProps?.onDragEnd?.(range);
+    };
+
     return (
         <MantineBarChart
             data-dash-is-loading={
@@ -91,6 +99,10 @@ const BarChart = ({
             valueFormatter={
                 resolveProp(valueFormatter) || defaultValueFormatter
             }
+            brushProps={{
+                ...brushProps,
+                onDragEnd: handleBrushEnd,
+            }}
         />
     );
 };

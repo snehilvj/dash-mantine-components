@@ -40,4 +40,6 @@ export interface ComboboxLikeProps {
      * A Function based on which items are filtered and sorted. See https://www.dash-mantine-components.com/functions-as-props
      */
     filter?: any;
+    /** If set to `'viewport'`, the dropdown grows to fill the available vertical space in the viewport. Disables the `flip` middleware. */
+    floatingHeight?: string;
 }

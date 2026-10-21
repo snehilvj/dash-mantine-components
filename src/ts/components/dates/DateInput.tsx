@@ -59,6 +59,8 @@ interface Props
     highlightToday?: boolean;
     /** Determines how the clear button and rightSection are rendered default 'both' */
     clearSectionMode?: ClearSectionMode;
+    /** A function to parse user input and convert it to date string value */
+    dateParser?: any;
 }
 
 /** DateInput */

@@ -56,6 +56,12 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
   /** Props passed down to recharts `FunnelChart` component */
   funnelChartProps?: object;
 
+  /** Determines whether the legend should be displayed default false */
+  withLegend?: boolean;
+
+  /** Props passed down to recharts `Legend` component */
+  legendProps?: object;
+
   /** Click data */
   clickData?: Record<string, any>;
 
