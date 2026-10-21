@@ -81,17 +81,6 @@ export interface __InputProps {
     /** Position of the loading indicator default 'right' */
     loadingPosition?: 'left' | 'right';
 }
-//
-// export interface InputProps extends BoxProps, __InputProps, StylesApiProps {
-//     /** Determines whether the input should have error styles and `aria-invalid` attribute */
-//     error?: React.ReactNode;
-//     /** Determines whether the input should have success styles */
-//     success?: React.ReactNode;
-//     /** Determines whether the input can have multiple lines, for example when `component="textarea"`, `false` by default */
-//     multiline?: boolean;
-//     /** Determines whether `aria-` and other accessibility attributes should be added to the input, `true` by default */
-//     withAria?: boolean;
-// }
 
 export interface __BaseInputProps
     extends __InputWrapperProps,

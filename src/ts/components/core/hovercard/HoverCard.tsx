@@ -26,7 +26,7 @@ interface Props extends Omit<PopoverProps, 'opened'>, DashBaseProps {
      * Accessible relation between the target and the dropdown. `dialog` sets `aria-haspopup`,
      * `aria-expanded` and `aria-controls` on the target, `tooltip` sets `aria-describedby` instead
      * and should be used if the dropdown contains only descriptive content.
-     * @efault 'dialog'
+     * default 'dialog'
      */
     role?: 'dialog' | 'tooltip';
     /** Determines whether the dropdown should be closed when the user presses outside of the target and the dropdown @default true */
