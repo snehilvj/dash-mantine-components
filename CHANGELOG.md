@@ -36,6 +36,8 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - Input components: Added `loading` and `loadingPosition`.
 - `MultiSelect` and `TagsInput`: Added `renderPill` and `withPillsReorder`.
 - Clearable inputs: Added `clearSectionMode`.
+- `PasswordInput`: Added `visibilityToggleFocusable`.
+- `ColorInput`: Added `fullWidth`
 - `Highlight`: Added per-term colors, `wholeWord`, `caseInsensitive`, and `accentInsensitive`.
 - `Pagination`: Added `startValue`, support for input size values, responsive layout, and function support for `formatLabel`.
 - `Slider` and `RangeSlider`: Added vertical orientation and support for hidden marks. `Slider` also adds `thumbLabel`, `thumbProps`, and `startPointValue`. `RangeSlider` adds `thumbLabel`, `thumbValueText`, and `hiddenInputProps`.
@@ -47,6 +49,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - `TimePicker`: Added `type="duration"` and closes the dropdown when a preset is selected.
 - `ScrollArea`: Added `startScrollPosition` and `verticalScrollbarPosition`.
 - `Stepper`, `Tree`, `Accordion`, `NavLink`, and `Tabs.Panel`: Added `keepMounted`.
+- `Stepper`: Added `labelPosition`
 - `Accordion`: Added `disableCollapse`.
 - `Indicator`: Added `maxValue`, `showZero`, and support for `offset={{x, y}}`.
 - `NumberInput`: Added `selectAllOnFocus`.
@@ -70,6 +73,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - `Notifications`: Added `autoClose`, `withAutoCloseProgress`, `allowDragDismiss`, `allowScrollDismiss`, `pauseOnHover`, and `layout`.
 - `Tooltip`: Added `interactive`.
 - `Popover`: Added `hideDetached`, `preventPositionChangeWhenVisible`, and `clickOutsideCapture`.
+- `Hovercard`: `events`, `interactive`, `role` and `returnFocus` 
 - `Timeline`: Added `opposite` and `alternate`.
 - `DonutChart` and `PieChart`: Added `withLegend`, `legendProps`, and `labelsType="name"`.
 - `Funnel`: Added `withLegend` and `legendProps`.
@@ -77,7 +81,6 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - Inputs: Added success state support.
 - Chart components: Added `accessibilityLayer`, `withBrush`, `brushProps`, `referenceAreas`, and `referenceDots` to shared chart props.
 - `AreaChart`, `BarChart`, `CompositeChart`, and `LineChart`: Added `brushDragEnd`.
-
 
 ### PRs for v3.0.0 Updates by @AnnMarieW
  - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738)  Initial update including breaking changes.
