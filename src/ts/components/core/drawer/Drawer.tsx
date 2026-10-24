@@ -2,7 +2,7 @@ import { Drawer as MantineDrawer, MantineRadius } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 import { ModalBaseOverlayProps, ModalBaseProps } from 'props/modal';
 import { StylesApiProps } from 'props/styles';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 
 type DrawerPosition = 'bottom' | 'left' | 'right' | 'top';
@@ -39,21 +39,14 @@ const Drawer = ({
     children,
     ...others
 }: Props) => {
-    const [open, setOpen] = useState(opened);
-
-    useEffect(() => {
-        setOpen(opened);
-    }, [opened]);
-
     const onClose = () => {
-        setOpen(false);
         setProps({ opened: false });
     };
 
     return (
         <MantineDrawer
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            opened={open}
+            opened={opened}
             onClose={onClose}
             {...others}
         >

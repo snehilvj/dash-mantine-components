@@ -3,11 +3,10 @@ import {
     Rating as MantineRating,
     MantineSize,
 } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { setPersistence } from '../../utils/dash3';
 
 interface Props
@@ -41,17 +40,13 @@ interface Props
 
 /** Rating */
 const Rating = ({ setProps, loading_state, value = 0, ...others }: Props) => {
-    const [val, setVal] = useState(value);
-
-    useDidUpdate(() => {
-        setProps({ value: val });
-    }, [val]);
-
-    useDidUpdate(() => {
-        setVal(value);
-    }, [value]);
-
-    return <MantineRating value={val} onChange={setVal} {...others} />;
+    return (
+        <MantineRating
+            value={value}
+            onChange={(value) => setProps({ value })}
+            {...others}
+        />
+    );
 };
 
 setPersistence(Rating);

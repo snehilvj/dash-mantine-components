@@ -2,7 +2,7 @@ import { Modal as MantineModal } from '@mantine/core';
 import { DashBaseProps } from 'props/dash';
 import { ModalProps } from 'props/modal';
 import { StylesApiProps } from 'props/styles';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { getLoadingState } from '../../../utils/dash3';
 
 interface Props
@@ -18,21 +18,15 @@ const Modal = ({
     opened = false,
     ...others
 }: Props) => {
-    const [open, setOpen] = useState(opened);
-
-    useEffect(() => {
-        setOpen(opened);
-    }, [opened]);
 
     const onClose = () => {
-        setOpen(false);
-        setProps({ opened: false });
+        setProps({opened: false});
     };
 
     return (
         <MantineModal
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            opened={open}
+            opened={opened}
             onClose={onClose}
             {...others}
         >
