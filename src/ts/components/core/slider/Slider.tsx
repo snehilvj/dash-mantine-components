@@ -4,12 +4,11 @@ import {
     MantineSize,
     Slider as MantineSlider,
 } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import { TransitionProps } from 'props/transition';
-import React, { useState } from 'react';
+import React  from 'react';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
 
@@ -94,25 +93,18 @@ const Slider = ({
     persistence_type,
     ...others
 }: Props) => {
-    const [val, setVal] = useState(value);
-
-    useDidUpdate(() => {
-        setVal(value);
-    }, [value]);
-
-    useDidUpdate(() => {
-        if (updatemode === 'drag') {
-            setProps({ value: val });
-        }
-    }, [val]);
 
     return (
         <MantineSlider
             key={`${others.min}-${others.max}`}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('Slider', others)}
-            value={val}
-            onChange={setVal}
+            value={value}
+            onChange={(value) => {
+                if (updatemode === 'drag') {
+                    setProps({ value });
+                }
+            }}
             onChangeEnd={(value) => {
                 if (updatemode === 'mouseup') {
                     setProps({ value });
