@@ -1,13 +1,19 @@
 import { TimeGrid as MantineTimeGrid, getTimeRange } from '@mantine/dates';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { TimeGridProps } from 'props/dates';
 import { StylesApiProps } from 'props/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { setPersistence } from '../../utils/dash3';
 
-interface Props extends DashBaseProps, PersistenceProps, TimeGridProps {
+
+interface Props
+    extends
+        DashBaseProps,
+        PersistenceProps,
+        TimeGridProps,
+        BoxProps,
+        StylesApiProps {
     /** Value for controlled component */
     value?: string;
 }
@@ -23,20 +29,11 @@ const TimeGrid = ({
     persistence_type,
     ...others
 }: Props) => {
-    const [time, setTime] = useState(value);
-
-    useDidUpdate(() => {
-        setProps({ value: time });
-    }, [time]);
-
-    useDidUpdate(() => {
-        setTime(value);
-    }, [value]);
 
     return (
         <MantineTimeGrid
-            onChange={setTime}
-            value={time}
+            onChange={(value) => setProps({ value })}
+            value={value}
             data={timeRangeData ? getTimeRange(timeRangeData) : data}
             {...others}
         />

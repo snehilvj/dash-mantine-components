@@ -26,6 +26,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - Updated GitHub workflows to use React 19. PR738
 - Updated `DEFAULT_THEME` for Mantine 9. PR746
 - `ScatterChart`: Removed invalid props.
+- Simplified state handling in several controlled components. [PR752 ](https://github.com/snehilvj/dash-mantine-components/pull/752) by AnnMarieW
 
 ### Added
 
@@ -82,7 +83,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - Chart components: Added `accessibilityLayer`, `withBrush`, `brushProps`, `referenceAreas`, and `referenceDots` to shared chart props.
 - `AreaChart`, `BarChart`, `CompositeChart`, and `LineChart`: Added `brushDragEnd`.
 
-### PRs for v3.0.0 Updates by @AnnMarieW
+### PRs for Mantine 9 Updates by @AnnMarieW
  - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738)  Initial update including breaking changes.
  - [#746](https://github.com/snehilvj/dash-mantine-components/pull/746)  Adding props and new features (mostly from Mantine 9.0.0)
  - [#748](https://github.com/snehilvj/dash-mantine-components/pull/748)  Adding props and new features (mostly from Mantine 9.1 through 9.7)

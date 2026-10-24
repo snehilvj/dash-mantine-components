@@ -1,9 +1,8 @@
 import { PinInput as MantinePinInput, MantineSize, MantineRadius } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
@@ -68,21 +67,10 @@ interface Props
 const PinInput = (props: Props) => {
     const { setProps, loading_state, value, ...others } = props;
 
-    const [val, setVal] = useState(value);
-
-    useDidUpdate(() => {
-        setVal(value);
-    }, [value]);
-
-    const handleChange = (v: string) => {
-        setVal(v);
-        setProps({ value: v });
-    };
-
     return (
         <MantinePinInput
-            onChange={handleChange}
-            value={val}
+            value={value}
+            onChange={(value) => setProps({ value })}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...others}
         />
