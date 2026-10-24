@@ -2,7 +2,9 @@ import json
 
 from dash import Dash, Input, Output, State, _dash_renderer
 import dash_mantine_components as dmc
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 _dash_renderer._set_react_version("19.2.4")
@@ -111,4 +113,46 @@ def test_002sp_splitter_controlled_size(dash_duo):
     dash_duo.find_element("#size-button").click()
     dash_duo.wait_for_text_to_equal("#state", "[50, 50]")
 
+    assert dash_duo.get_logs() == []
+
+
+def test_003sp_splitter_reports_sizes_on_release(dash_duo):
+    app = Dash(__name__)
+    app.layout = dmc.MantineProvider(
+        [
+            dmc.Splitter(
+                id="splitter",
+                sizes=[40, 60],
+                h=200,
+                children=[
+                    dmc.SplitterPane("Sidebar", defaultSize=30, min=20),
+                    dmc.SplitterPane("Content", defaultSize=70, min=30),
+                ],
+            ),
+            dmc.Text(id="state"),
+        ]
+    )
+
+    @app.callback(Output("state", "children"), Input("splitter", "sizes"))
+    def report_state(sizes):
+        return json.dumps(sizes)
+
+    dash_duo.start_server(app)
+    dash_duo.wait_for_text_to_equal("#state", "[40, 60]")
+    handle = dash_duo.find_element('#splitter [role="separator"]')
+    initial_width = handle.rect["x"]
+    ActionChains(dash_duo.driver).click_and_hold(handle).move_by_offset(80, 0).perform()
+    WebDriverWait(dash_duo.driver, 3).until(
+        lambda _: handle.rect["x"] > initial_width + 40
+    )
+    assert dash_duo.find_element("#state").text == "[40, 60]"
+
+    ActionChains(dash_duo.driver).release().perform()
+    WebDriverWait(dash_duo.driver, 3).until(
+        lambda _: json.loads(dash_duo.find_element("#state").text)[0] > 40
+    )
+
+    ActionChains(dash_duo.driver).double_click(handle).perform()
+    dash_duo.wait_for_text_to_equal("#state", "[30, 70]")
+    assert handle.get_attribute("aria-valuenow") == "30"
     assert dash_duo.get_logs() == []

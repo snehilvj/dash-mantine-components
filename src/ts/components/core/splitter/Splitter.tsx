@@ -7,8 +7,12 @@ import {
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React, { useEffect, useRef } from 'react';
-import { getChildLayout, getLoadingState } from '../../../utils/dash3';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+    setPersistence,
+    getChildLayout,
+    getLoadingState,
+} from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /**
@@ -19,9 +23,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
      */
     children?: React.ReactNode;
     /**
-     * Controlled pane sizes. Updates continuously during resizing, not just on
-     * release. Hence, server-side callbacks should preferably not use this as a
-     * trigger.
+     * Controlled pane sizes. Updated on release after dragging and immediately
+     * for keyboard resizing, collapse/expand, and double-click reset.
      */
     sizes?: SplitterPaneSize[];
     /** Indices of collapsed panes. Set this prop to collapse or expand collapsible panes, restoring their previous sizes. Updated when panes are collapsed or expanded. */
@@ -56,6 +59,24 @@ const Splitter = ({
     ...others
 }: Props) => {
     const splitterRef = useRef<UseSplitterReturnValue>(null);
+    const isDragging = useRef(false);
+    const [localSizes, setLocalSizes] = useState(sizes);
+
+    useEffect(() => {
+        setLocalSizes(sizes);
+    }, [sizes]);
+
+    const reportSizes = (nextSizes: SplitterPaneSize[]) => {
+        setProps({
+            sizes: nextSizes,
+            collapsed: nextSizes.reduce<number[]>((indices, size, index) => {
+                if (parseFloat(String(size)) === 0) {
+                    indices.push(index);
+                }
+                return indices;
+            }, []),
+        });
+    };
 
     useEffect(() => {
         const splitter = splitterRef.current;
@@ -79,21 +100,20 @@ const Splitter = ({
         <MantineSplitter
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             splitterRef={splitterRef}
-            sizes={sizes}
-            onSizeChange={(nextSizes) =>
-                setProps({
-                    sizes: nextSizes,
-                    collapsed: nextSizes.reduce<number[]>(
-                        (indices, size, index) => {
-                            if (parseFloat(String(size)) === 0) {
-                                indices.push(index);
-                            }
-                            return indices;
-                        },
-                        []
-                    ),
-                })
-            }
+            sizes={localSizes}
+            onResizeStart={() => {
+                isDragging.current = true;
+            }}
+            onSizeChange={(nextSizes) => {
+                setLocalSizes(nextSizes);
+                if (!isDragging.current) {
+                    reportSizes(nextSizes);
+                }
+            }}
+            onResizeEnd={(_, nextSizes) => {
+                isDragging.current = false;
+                reportSizes(nextSizes);
+            }}
             {...others}
         >
             {React.Children.map(children, (child, index) => {
@@ -116,5 +136,6 @@ const Splitter = ({
 };
 
 Splitter.dashChildrenUpdate = true;
+setPersistence(Splitter, ['sizes']);
 
 export default Splitter;
