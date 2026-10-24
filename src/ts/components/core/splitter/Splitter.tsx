@@ -8,7 +8,7 @@ import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import React, { useEffect, useRef } from 'react';
-import { getChildLayout, getLoadingState } from '../../utils/dash3';
+import { getChildLayout, getLoadingState } from '../../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /**
