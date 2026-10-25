@@ -46,9 +46,9 @@ def _controlled_component(component, controls):
         ],
     )
 
-def _style_text_panes(component):
+def _style_text_panes(component, color="white"):
     if isinstance(component, dmc.SplitterPane) and isinstance(component.children, str):
-        component.c = "white"
+        component.c = color
         component.fw = 500
         component.style = {
             "display": "flex",
@@ -57,7 +57,7 @@ def _style_text_panes(component):
         }
     elif isinstance(component, (dmc.Splitter, dmc.SplitterPane)):
         for child in component.children:
-            _style_text_panes(child)
+            _style_text_panes(child, color=color)
 
 if __name__ == "__main__":
     _dash_renderer._set_react_version("19.2.4")
