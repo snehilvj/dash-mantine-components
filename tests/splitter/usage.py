@@ -46,9 +46,10 @@ def _controlled_component(component, controls):
         ],
     )
 
-def _style_text_panes(component, color="white"):
+def _style_text_panes(component, color: str | None ="white"):
     if isinstance(component, dmc.SplitterPane) and isinstance(component.children, str):
-        component.c = color
+        if color:
+            component.c = color # type: ignore
         component.fw = 500
         component.style = {
             "display": "flex",

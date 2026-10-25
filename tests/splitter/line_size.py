@@ -50,6 +50,11 @@ controls =[
         id="handle-icon-select",
         data=icons,
         value=initial_handle_icon_name
+    ),
+    dmc.Switch(
+        label="Show handle",
+        id="show-handle-switch",
+        checked=True
     )
 ]
         
@@ -57,18 +62,21 @@ controls =[
     Output("splitter", "lineSize"),
     Output("splitter", "handleColor"),
     Output("splitter", "handleIcon"),
+    Output("splitter", "withHandle"),
     Input("line-size-slider", "value"),
     Input("handle-color-input", "value"),
     Input("handle-icon-select", "value"),
+    Input("show-handle-switch", "checked"),
     prevent_initial_call=True
+    
 )
-def handle_props_change(line_size, handle_color, handle_icon):
-    return line_size, handle_color, DashIconify(icon=handle_icon)
+def handle_props_change(line_size, handle_color, handle_icon, show_handle):
+    return line_size, handle_color, DashIconify(icon=handle_icon), show_handle
 
 if __name__ == "__main__":
     _dash_renderer._set_react_version("19.2.4")
     # TODO decide if "hidden" styling as in upstream Mantine should be replicated
-    _style_text_panes(component, color="black")
+    _style_text_panes(component, color=None)
     app = Dash(suppress_callback_exceptions=True)
     app.layout = dmc.MantineProvider(
         children=dmc.Container(
