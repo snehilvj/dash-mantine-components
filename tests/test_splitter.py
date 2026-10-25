@@ -156,3 +156,50 @@ def test_003sp_splitter_reports_sizes_on_release(dash_duo):
     dash_duo.wait_for_text_to_equal("#state", "[30, 70]")
     assert handle.get_attribute("aria-valuenow") == "30"
     assert dash_duo.get_logs() == []
+
+
+def test_004sp_splitter_updates_handle_icon(dash_duo):
+    app = Dash(__name__)
+    app.layout = dmc.MantineProvider(
+        [
+            dmc.Splitter(
+                id="splitter",
+                h=200,
+                handleIcon=dmc.Text("Initial icon", id="handle-icon"),
+                children=[
+                    dmc.SplitterPane("Sidebar", id="sidebar", defaultSize=40, min=20),
+                    dmc.SplitterPane("Content", defaultSize=60),
+                ],
+            ),
+            dmc.Button("Update handle", id="update-handle"),
+            dmc.Button("Update pane", id="update-pane"),
+        ]
+    )
+
+    @app.callback(
+        Output("splitter", "handleIcon"),
+        Input("update-handle", "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def update_handle(n_clicks):
+        return dmc.Text("Updated icon", id="handle-icon")
+
+    @app.callback(
+        Output("sidebar", "min"),
+        Input("update-pane", "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def update_pane(n_clicks):
+        return 30
+
+    dash_duo.start_server(app)
+    dash_duo.wait_for_text_to_equal('#splitter [role="separator"]', "Initial icon")
+    dash_duo.find_element("#update-pane").click()
+    WebDriverWait(dash_duo.driver, 3).until(
+        lambda _: dash_duo.find_element('#splitter [role="separator"]').get_attribute(
+            "aria-valuemin"
+        ) == "30"
+    )
+    dash_duo.find_element("#update-handle").click()
+    dash_duo.wait_for_text_to_equal('#splitter [role="separator"]', "Updated icon")
+    assert dash_duo.get_logs() == []

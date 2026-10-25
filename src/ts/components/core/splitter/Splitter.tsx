@@ -7,6 +7,7 @@ import {
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
+import { path } from 'ramda';
 import React, { useEffect, useRef, useState } from 'react';
 import {
     setPersistence,
@@ -58,6 +59,13 @@ const Splitter = ({
     loading_state,
     ...others
 }: Props) => {
+    const ctx = (window as any).dash_component_api.useDashContext();
+    // Subscribe only to trigger re-renders when pane props change; getChildLayout
+    // reads their values below. Avoid dashChildrenUpdate, which left handleIcon stale.
+    ctx.useSelector((state: any) =>
+        path([...ctx.componentPath, 'props', 'children'], state.layout)
+    );
+
     const splitterRef = useRef<UseSplitterReturnValue>(null);
     const isDragging = useRef(false);
     const [localSizes, setLocalSizes] = useState(sizes);
@@ -135,7 +143,6 @@ const Splitter = ({
     );
 };
 
-Splitter.dashChildrenUpdate = true;
 setPersistence(Splitter, ['sizes']);
 
 export default Splitter;
