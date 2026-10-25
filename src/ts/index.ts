@@ -38,6 +38,7 @@ import Kbd from './components/core/Kbd';
 import Loader from './components/core/Loader';
 import LoadingOverlay from './components/core/LoadingOverlay';
 import Mark from './components/core/Mark';
+import Marquee from './components/core/Marquee';
 import Modal from './components/core/modal/Modal';
 import ModalStack from './components/core/modal/ModalStack';
 import ManagedModal from './components/core/modal/ManagedModal';
@@ -277,6 +278,7 @@ export {
     MiniCalendar,
     MantineProvider,
     Mark,
+    Marquee,
     Menu,
     MenuDivider,
     MenuDropdown,

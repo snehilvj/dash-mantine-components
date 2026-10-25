@@ -31,6 +31,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 ### Added
 
 - Added `Pill` component. PR746
+- Added `Marquee` component. [PR 753](https://github.com/snehilvj/dash-mantine-components/pull/753) by @budescode 
 - `Collapse`: Updated the internal prop from `in` to `expanded`. The DMC API continues to use `opened`. Added `orientation="horizontal"` and `keepMounted`. PR738
 - `Card`: Added `orientation="horizontal"`.
 - `Checkbox.Group`: Added `maxSelectedValues`.
