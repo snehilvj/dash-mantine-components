@@ -83,6 +83,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - Inputs: Added success state support.
 - Chart components: Added `accessibilityLayer`, `withBrush`, `brushProps`, `referenceAreas`, and `referenceDots` to shared chart props.
 - `AreaChart`, `BarChart`, `CompositeChart`, and `LineChart`: Added `brushDragEnd`.
+- `Splitter`: A new component that provides a resizable split-pane layout. PR750
 
 ### PRs for Mantine 9 Updates by @AnnMarieW
  - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738)  Initial update including breaking changes.
