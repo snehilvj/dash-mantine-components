@@ -56,6 +56,9 @@ const Splitter = ({
     collapsed,
     setProps,
     loading_state,
+    persistence,
+    persisted_props,
+    persistence_type,
     ...others
 }: Props) => {
     const ctx = (window as any).dash_component_api.useDashContext();
