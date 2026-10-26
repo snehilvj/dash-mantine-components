@@ -15,7 +15,7 @@ import {
     getLoadingState,
 } from '../../../utils/dash3';
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+interface Props extends BoxProps, StylesApiProps, DashBaseProps, PersistenceProps {
     /**
      * SplitterPane components must be direct children of Splitter. Put containers,
      * content, or nested splitters inside a pane. SplitterPane is not a standalone
