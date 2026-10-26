@@ -20,6 +20,8 @@ const LineChart = ({
     lineChartProps,
     activeDotProps,
     lineProps,
+    brushDragEnd,
+    brushProps,
     ...others
 }: Props) => {
     const [highlightedArea, setHighlightedArea] = useState(null);
@@ -73,6 +75,12 @@ const LineChart = ({
         return returnProps;
     };
 
+    const handleBrushEnd = (range) => {
+        setProps({ brushDragEnd: range });
+        // calls user-provided onDragEnd
+        brushProps?.onDragEnd?.(range);
+    };
+
     return (
         <MantineLineChart
             data-dash-is-loading={
@@ -90,6 +98,10 @@ const LineChart = ({
                 onMouseOut: handleHoverEnd,
             }}
             lineProps={linePropsFunction}
+            brushProps={{
+                ...brushProps,
+                onDragEnd: handleBrushEnd,
+            }}
         />
     );
 };

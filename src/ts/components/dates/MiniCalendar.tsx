@@ -6,7 +6,7 @@ import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import React, { useState } from 'react';
 import { setPersistence } from '../../utils/dash3';
-import { resolveProp, parseFuncProps } from '../../utils/prop-functions';
+import { parseFuncProps } from '../../utils/prop-functions';
 
 interface Props
     extends DashBaseProps,
@@ -67,7 +67,6 @@ const MiniCalendar = ({
         <MantineMiniCalendar
             onChange={setDate}
             value={date}
-            //  {...others}
             {...parseFuncProps('MiniCalendar', others)}
         />
     );

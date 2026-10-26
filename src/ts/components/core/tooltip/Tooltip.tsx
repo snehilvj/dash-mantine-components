@@ -48,6 +48,10 @@ interface Props extends TooltipBaseProps, DashBaseProps {
     floatingStrategy?: FloatingStrategy;
     /** Target box wrapper props */
     boxWrapperProps?: BoxProps;
+    /** If set, the tooltip is hidden when the target element is removed from the DOM, hidden with `display: none` or scrolled out of the visible area. Has no effect on `Tooltip.Floating` default true */
+    hideDetached?: boolean;
+    /** If set, the tooltip stays open while the pointer is over it default false */
+    interactive?: boolean;
 }
 
 /** Tooltip */

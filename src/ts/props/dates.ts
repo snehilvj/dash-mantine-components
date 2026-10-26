@@ -35,6 +35,12 @@ interface CalendarHeaderSettings {
     size?: MantineSize;
     /** Controls order, `['previous', 'level', 'next']`` by default */
     headerControlsOrder?: ('next' | 'previous' | 'level')[];
+    /** Determines whether the header should take the full width of its container default false */
+    fullWidth?: boolean;
+    /** Determines whether level select controls should be rendered as native `<select>` elements default false */
+    withNativeLevelSelect?: boolean;
+    /** Year range for native level select, tuple of `[startYear, endYear]`. Defaults to `[currentYear - 100, currentYear + 50]` or values derived from `minDate`/`maxDate` if set. */
+    yearsSelectRange?: [number, number];
 }
 
 interface ControlsGroupSettings {
@@ -152,6 +158,8 @@ export interface DateInputSharedProps extends Omit<__BaseInputProps, 'size'> {
     placeholder?: string;
     /** Determines how the clear button and rightSection are rendered default 'both' */
     clearSectionMode?: ClearSectionMode;
+    /** A function to format selected dates values into a string. By default, date is formatted based on the input type. */
+    valueFormatter?: any;
 }
 
 type OmittedSettings =
@@ -295,6 +303,10 @@ export interface TimePickerProps
     timeRangePresets?: GetTimeRange;
     /** If set, the time controls list are reversed, default `false` */
     reverseTimeControlsList?: boolean;
+    /** TimePicker type, `'time'` for regular time input, `'duration'` for duration input that allows values greater than 24 hours @default 'time' */
+    type?: 'time' | 'duration';
+    /** If set, the dropdown is closed when a value is selected from the presets list default false */
+    closeDropdownOnPresetSelect?: boolean;
 }
 
 type DatePickerPreset = {
@@ -340,12 +352,21 @@ export interface MonthPickerBaseProps
     maxLevel?: 'year' | 'decade';
     /** Current level displayed to the user (decade, year), used for controlled component */
     level?: 'year' | 'decade';
+    /** Predefined values to pick from */
+    presets?: DatePickerPreset[];
+    /** Determines whether level select controls should be rendered as native `<select>` elements default false */
+    withNativeLevelSelect?: boolean;
 }
 
 export interface YearPickerBaseProps
     extends PickerBaseProps,
         DecadeLevelBaseSettings,
-        CalendarBaseProps {}
+        CalendarBaseProps {
+    /** Determines whether level select controls should be rendered as native `<select>` elements @default false */
+    withNativeLevelSelect?: boolean;
+    /** Predefined values to pick from */
+    presets?: DatePickerPreset[];
+}
 
 export interface TimeGridProps extends BoxProps, StylesApiProps {
     /** Time data in 24h format to be displayed in the grid, for example `['10:00', '18:30', '22:00']`. Time values must be unique. */

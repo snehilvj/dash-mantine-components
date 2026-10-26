@@ -48,7 +48,13 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Controls labels position relative to the segment, `'outside'` by default */
     labelsPosition?: 'inside' | 'outside';
     /** Type of labels to display, `'value'` by default */
-    labelsType?: 'value' | 'percent';
+    labelsType?: 'value' | 'percent' | 'name';
+    /** Determines whether the chart should be keyboard-navigable with the recharts accessibility layer, `true` by default */
+    accessibilityLayer?: boolean;
+    /** Determines whether the legend should be displayed default false */
+    withLegend?: boolean;
+    /** Props passed down to recharts `Legend` component */
+    legendProps?: object;
     /** Click data */
     clickData?: Record<string, any>;
     /** Hover data */

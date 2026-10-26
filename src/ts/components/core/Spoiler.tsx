@@ -1,9 +1,8 @@
 import { Spoiler as MantineSpoiler } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { getLoadingState } from '../../utils/dash3';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
@@ -35,21 +34,15 @@ const Spoiler = ({
     children,
     ...others
 }: Props) => {
-    const [opened, setOpened] = useState(expanded);
-
-    useDidUpdate(() => {
-        setProps({ expanded: opened });
-    }, [opened]);
-
-    useDidUpdate(() => {
-        setOpened(expanded);
-    }, [expanded]);
+    const onExpandedChange = (expanded: boolean) => {
+        setProps({ expanded });
+    };
 
     return (
         <MantineSpoiler
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            expanded={opened}
-            onExpandedChange={setOpened}
+            expanded={expanded}
+            onExpandedChange={onExpandedChange}
             {...others}
         >
             {children}

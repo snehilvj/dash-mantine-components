@@ -30,8 +30,8 @@ interface Props
         CalendarBaseProps,
         CalendarSettings,
         StylesApiProps {
-    /** Dayjs format to display input value, "DD/MM/YYYY HH:mm" by default  */
-    valueFormat?: string;
+    /** Dayjs format to display input value, "DD/MM/YYYY HH:mm" by default or function  */
+    valueFormat?: string | object;
     /** Controlled component value */
     value?: string;
     /** Props passed the TimePicker component */
@@ -52,6 +52,8 @@ interface Props
     presets?: DateTimePickerPreset[];
     /** Initial displayed date */
     defaultDate?: string;
+    /** Picker type: range or default default 'default' */
+    type?: "range" | "default";
 }
 
 /** DateTimePicker */

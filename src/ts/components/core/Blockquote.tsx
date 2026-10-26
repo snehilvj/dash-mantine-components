@@ -23,6 +23,8 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     cite?: React.ReactNode;
     /** Content */
     children?: React.ReactNode;
+    /** Controls `text-wrap` CSS property */
+    textWrap?: 'wrap' | 'nowrap' | 'balance' | 'pretty' | 'stable';
 }
 
 /** Blockquote */

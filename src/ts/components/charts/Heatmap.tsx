@@ -77,6 +77,15 @@ export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 
   /** Hovered heatmap cell data containing date and value */
   hoverData?: Record<string, number>;
+
+  /** If set, legend with color levels is displayed below the heatmap default False */
+  withLegend?: boolean;
+
+  /** Legend labels, array of 2 elements: [min label, max label] default ['Less', 'More'] */
+  legendLabels?: [string, string];
+
+  /** Month labels position relative to the heatmap default 'top' */
+  monthLabelsPosition?: 'top' | 'bottom';
 }
 
 

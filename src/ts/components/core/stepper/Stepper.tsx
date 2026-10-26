@@ -5,12 +5,11 @@ import {
     MantineSpacing,
     Stepper as MantineStepper,
 } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import { omit, isEmpty } from 'ramda';
-import React, { useState } from 'react';
+import React from 'react';
 import {
     getChildLayout,
     getLoadingState,
@@ -51,6 +50,8 @@ interface Props extends BoxProps, DashBaseProps, StylesApiProps {
     children?: React.ReactNode;
     /** If set, all step content is kept mounted. React 19 `Activity` is used to preserve state while content is hidden. default False */
     keepMounted?: boolean;
+    /** Controls position of the step label and description relative to the step icon. Takes precedence over `iconPosition`. Ignored if `orientation="vertical"` is set. default 'right' */
+    labelPosition?: 'right' | 'bottom';
 }
 
 /** Stepper */
@@ -61,17 +62,12 @@ const Stepper = ({
     children,
     ...others
 }: Props) => {
-    const [act, setAct] = useState(active);
-
-    useDidUpdate(() => {
-        setAct(active);
-    }, [active]);
 
     return (
         <MantineStepper
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            active={act}
-            onStepClick={(a) => setProps({ active: a })}
+            active={active}
+            onStepClick={(active) => setProps({ active })}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {

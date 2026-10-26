@@ -24,4 +24,9 @@ export interface ScrollAreaProps extends BoxProps, StylesApiProps {
     overscrollBehavior?: React.CSSProperties['overscrollBehavior'];
     /** Initial scroll position set on mount. Type: dictionary with optional `x` and `y` number properties. */
     startScrollPosition?: { x?: number; y?: number };
+    /**
+     * Pins the vertical scrollbar to a physical side (`left` or `right`) regardless of direction.
+     * By default, the scrollbar follows the inline-end edge (right in LTR, left in RTL).
+     */
+    verticalScrollbarPosition?: 'left' | 'right';
 }
