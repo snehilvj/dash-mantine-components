@@ -18,9 +18,8 @@ import {
 interface Props extends BoxProps, StylesApiProps, DashBaseProps, PersistenceProps {
     /**
      * SplitterPane components must be direct children of Splitter. Put containers,
-     * content, or nested splitters inside a pane. SplitterPane is not a standalone
-     * layout component: its parent creates the underlying Mantine pane and applies
-     * its sizing and styling props.
+     * content, or nested splitters inside a pane. SplitterPane defines the pane's size 
+     *  and behavior within Splitter.
      */
     children?: React.ReactNode;
     /**
