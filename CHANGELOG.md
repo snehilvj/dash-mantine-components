@@ -63,6 +63,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
  - `Select` and `MultiSelect` added suport for support primitive values.
  - `MultiSelect` Added support for `ComboboxGenericData`.
  - `Tree` Added support for `withLines`
+ - `Splitter`: A new component that provides a resizable split-pane layout. PR750
 
 
 ### PRs for v3.0.0 Updates by @AnnMarieW
