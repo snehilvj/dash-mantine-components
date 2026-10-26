@@ -5,7 +5,7 @@ import {
     UseSplitterReturnValue,
 } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
-import { DashBaseProps } from 'props/dash';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import { path } from 'ramda';
 import React, { useEffect, useRef, useState } from 'react';
