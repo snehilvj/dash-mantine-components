@@ -136,7 +136,7 @@ const Splitter = ({
                 } = childProps;
 
                 return (
-                    <MantineSplitter.Pane key={index} {...paneProps}>
+                    <MantineSplitter.Pane key={paneProps.id ?? index} {...paneProps}>
                         {child}
                     </MantineSplitter.Pane>
                 );
