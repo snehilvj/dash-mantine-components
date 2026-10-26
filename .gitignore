@@ -301,6 +301,6 @@ dash_mantine_components/*
 !dash_mantine_components/theme.py
 !dash_mantine_components/styles.py
 !dash_mantine_components/scripts.py
-usage.py
+./usage.py
 
 chrome/*
