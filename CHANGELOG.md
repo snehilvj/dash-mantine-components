@@ -18,20 +18,13 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - `Spoiler`: Renamed `initialState` to `defaultExpanded`. PR746
 - Default theme updates for light variant colors, border radius, and font weights. See the migration guide for details.
 
-### Updated
-
-- Updated to Mantine 9.7.2 and Recharts 3.1.2. PR738, PR746
-- Updated `clickData` and `hoverData` for Recharts v3.
-- Updated webpack to handle `jsx-runtime` for React 19, following Dash PR #3880. Added a runtime error message when React 19 is not used. PR738
-- Updated GitHub workflows to use React 19. PR738
-- Updated `DEFAULT_THEME` for Mantine 9. PR746
-- `ScatterChart`: Removed invalid props.
-- Simplified state handling in several controlled components. [PR752 ](https://github.com/snehilvj/dash-mantine-components/pull/752) by AnnMarieW
-
-### Added
+### New Components
 
 - Added `Pill` component. PR746
 - Added `Marquee` component. [PR 753](https://github.com/snehilvj/dash-mantine-components/pull/753) by @budescode 
+- Added `Splitter`: Provides a resizable split-pane layout. [PR750](https://github.com/snehilvj/dash-mantine-components/pull/753) by @datenzauberai
+
+### Added
 - `Collapse`: Updated the internal prop from `in` to `expanded`. The DMC API continues to use `opened`. Added `orientation="horizontal"` and `keepMounted`. PR738
 - `Card`: Added `orientation="horizontal"`.
 - `Checkbox.Group`: Added `maxSelectedValues`.
@@ -83,16 +76,22 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 - Inputs: Added success state support.
 - Chart components: Added `accessibilityLayer`, `withBrush`, `brushProps`, `referenceAreas`, and `referenceDots` to shared chart props.
 - `AreaChart`, `BarChart`, `CompositeChart`, and `LineChart`: Added `brushDragEnd`.
-- `Splitter`: A new component that provides a resizable split-pane layout. PR750
+
+
+### Updated
+
+- Updated to Mantine 9.7.2 and Recharts 3.1.2. PR738, PR746
+- Updated `clickData` and `hoverData` for Recharts v3.
+- Updated webpack to handle `jsx-runtime` for React 19, following Dash PR #3880. Added a runtime error message when React 19 is not used. PR738
+- Updated GitHub workflows to use React 19. PR738
+- Updated `DEFAULT_THEME` for Mantine 9. PR746
+- `ScatterChart`: Removed invalid props.
+- Simplified state handling in several controlled components. [PR752 ](https://github.com/snehilvj/dash-mantine-components/pull/752) by AnnMarieW
 
 ### PRs for Mantine 9 Updates by @AnnMarieW
  - [#738](https://github.com/snehilvj/dash-mantine-components/pull/738)  Initial update including breaking changes.
  - [#746](https://github.com/snehilvj/dash-mantine-components/pull/746)  Adding props and new features (mostly from Mantine 9.0.0)
  - [#748](https://github.com/snehilvj/dash-mantine-components/pull/748)  Adding props and new features (mostly from Mantine 9.1 through 9.7)
-
-
-
-
 
 # 2.8.1
 
