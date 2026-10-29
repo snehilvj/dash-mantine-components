@@ -55,6 +55,7 @@
         "@mantine/hooks": "9.7.1",
         "@mantine/notifications": "9.7.1",
         "@mantine/nprogress": "9.7.1",
+        "@mantine/schedule": "9.7.1",
         "@mantine/spotlight": "9.7.1",
         "@mantine/tiptap": "9.7.1",
         "@plotly/dash-component-plugins": "^1.2.0",
