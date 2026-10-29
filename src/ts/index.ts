@@ -186,6 +186,7 @@ import MantineProvider from './components/styles/MantineProvider';
 import ChipGroup from './components/core/chip/ChipGroup';
 import RichTextEditor from './components/extensions/richtexteditor/RichTextEditor';
 import { getEditor } from './utils/editorRegistry';
+import Schedule from './components/extensions/schedule/Schedule';
 import Typography from './components/styles/Typography';
 import DirectionProvider from './components/styles/DirectionProvider';
 import TableOfContents from "./components/core/TableOfContents"
@@ -288,6 +289,7 @@ export {
     MenuItem,
     MenuLabel,
     MenuTarget,
+    Schedule,
     SubMenu,
     SubMenuDropdown,
     SubMenuItem,
