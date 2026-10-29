@@ -95,6 +95,9 @@ module.exports = function (env, argv) {
 
         resolve: {
             extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+            alias: {
+                rrule: path.resolve(__dirname, "node_modules/rrule/dist/es5/rrule.js"),
+            },
         },
 
         module: {
