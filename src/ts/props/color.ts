@@ -18,14 +18,14 @@ export interface __ColorPickerProps {
     swatchesPerRow?: number;
     /** Controls size of hue, alpha and saturation sliders, `'md'` by default */
     size?: MantineSize | (string & {});
+    /** Determines whether the component should take 100% width of its container, `false` by default */
+    fullWidth?: boolean;
 }
 
 export interface ColorPickerProps
     extends BoxProps,
         __ColorPickerProps,
         StylesApiProps {
-    /** Determines whether the component should take 100% width of its container, `false` by default */
-    fullWidth?: boolean;
     /** Determines whether interactive elements (sliders thumbs and swatches) should be focusable, `true` by default */
     focusable?: boolean;
     /** Saturation slider `aria-label` prop */
@@ -34,6 +34,10 @@ export interface ColorPickerProps
     hueLabel?: string;
     /** Alpha slider `aria-label` prop */
     alphaLabel?: string;
+    /** Hidden input `name` attribute, if not set, the input will not be rendered */
+    name?: string;
+    /** Props passed down to the hidden input component */
+    hiddenInputProps?: Record<string, any>;
 }
 
 export interface ColorInputProps

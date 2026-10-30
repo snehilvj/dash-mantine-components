@@ -4,12 +4,11 @@ import {
     RangeSlider as MantineRangeSlider,
     MantineSize,
 } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import { TransitionProps } from 'props/transition';
-import React, { useState } from 'react';
+import React from 'react';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
 
@@ -36,10 +35,16 @@ interface Props
     value?: [number, number];
     /** Hidden input name, use with uncontrolled component */
     name?: string;
-    /** Marks displayed on the track */
+    /**
+     * Marks displayed on the track. Type: list of dictionaries. Each dictionary
+     * must contain a `value` (number) specifying the position of the mark and can
+     * optionally contain a `label` (str or component) and `hidden` (boolean) to hide
+     * the mark.
+     */
     marks?: {
         value: number;
         label?: React.ReactNode;
+        hidden?: boolean;
     }[];
     /** Function to generate label (See https://www.dash-mantine-components.com/functions-as-props) or any react node to render instead, set to null to disable label */
     label?: React.ReactNode;
@@ -75,6 +80,14 @@ interface Props
     domain?: [number, number];
     /** Determines whether the other thumb should be pushed by the current thumb dragging when minRange/maxRange is reached, true by default */
     pushOnOverlap?: boolean;
+    /** Slider orientation default 'horizontal' */
+    orientation?: 'horizontal' | 'vertical';
+    /** `aria-label` for both thumbs (overridden by thumbFromLabel/thumbToLabel if provided) */
+    thumbLabel?: string;
+    /** `aria-valuetext` for both thumbs. When a function is provided, it receives the scaled value. */
+    thumbValueText?: any;
+    /** Props passed down to the hidden input */
+    hiddenInputProps?: object;
 }
 
 /** RangeSlider */
@@ -88,25 +101,18 @@ const RangeSlider = ({
     persistence_type,
     ...others
 }: Props) => {
-    const [val, setVal] = useState(value);
-
-    useDidUpdate(() => {
-        setVal(value);
-    }, [value]);
-
-    useDidUpdate(() => {
-        if (updatemode === 'drag') {
-            setProps({ value: val });
-        }
-    }, [val]);
 
     return (
         <MantineRangeSlider
             key={`${others.min}-${others.max}`}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             {...parseFuncProps('RangeSlider', others)}
-            value={val}
-            onChange={setVal}
+            value={value}
+            onChange={(value) => {
+                if (updatemode === 'drag') {
+                    setProps({ value });
+                }
+            }}
             onChangeEnd={(value) => {
                 if (updatemode === 'mouseup') {
                     setProps({ value });

@@ -38,6 +38,7 @@ import Kbd from './components/core/Kbd';
 import Loader from './components/core/Loader';
 import LoadingOverlay from './components/core/LoadingOverlay';
 import Mark from './components/core/Mark';
+import Marquee from './components/core/Marquee';
 import Modal from './components/core/modal/Modal';
 import ModalStack from './components/core/modal/ModalStack';
 import ManagedModal from './components/core/modal/ManagedModal';
@@ -46,6 +47,7 @@ import NumberFormatter from './components/core/NumberFormatter';
 import Overlay from './components/core/Overlay';
 import Pagination from './components/core/Pagination';
 import Paper from './components/core/Paper';
+import Pill from './components/core/Pill';
 import Rating from './components/core/Rating';
 import RingProgress from './components/core/RingProgress';
 import ScrollArea from './components/core/scrollarea/ScrollArea';
@@ -55,6 +57,8 @@ import SimpleGrid from './components/core/SimpleGrid';
 import Skeleton from './components/core/Skeleton';
 import Space from './components/core/Space';
 import Spoiler from './components/core/Spoiler';
+import Splitter from './components/core/splitter/Splitter';
+import SplitterPane from './components/core/splitter/SplitterPane';
 import Stack from './components/core/Stack';
 import Switch from './components/core/Switch';
 import Text from './components/core/Text';
@@ -181,9 +185,10 @@ import MantineProvider from './components/styles/MantineProvider';
 import ChipGroup from './components/core/chip/ChipGroup';
 import RichTextEditor from './components/extensions/richtexteditor/RichTextEditor';
 import { getEditor } from './utils/editorRegistry';
-import TypographyStylesProvider from './components/styles/TypographyStylesProvider';
+import Typography from './components/styles/Typography';
 import DirectionProvider from './components/styles/DirectionProvider';
 import TableOfContents from "./components/core/TableOfContents"
+
 
 export {
     Accordion,
@@ -275,6 +280,7 @@ export {
     MiniCalendar,
     MantineProvider,
     Mark,
+    Marquee,
     Menu,
     MenuDivider,
     MenuDropdown,
@@ -303,6 +309,7 @@ export {
     Paper,
     PasswordInput,
     PieChart,
+    Pill,
     PinInput,
     Popover,
     PopoverDropdown,
@@ -331,6 +338,8 @@ export {
     Space,
     Sparkline,
     Spoiler,
+    Splitter,
+    SplitterPane,
     Stack,
     Stepper,
     StepperCompleted,
@@ -366,9 +375,9 @@ export {
     UnstyledButton,
     VisuallyHidden,
     YearPickerInput,
-    RichTextEditor,
-    getEditor,
-    TypographyStylesProvider,
-    appNotifications,
-    DirectionProvider,
+     RichTextEditor,
+     getEditor,
+     Typography,
+     appNotifications,
+     DirectionProvider,
 };

@@ -7,7 +7,7 @@ import dash_mantine_components as dmc
 
 from dash_iconify import DashIconify  # noqa: needs to be imported to enable window.dash_iconify
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def test_001au_autocomplete_renderOption(dash_duo):

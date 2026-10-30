@@ -1,7 +1,7 @@
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 from dash import Dash, Input, Output, _dash_renderer, clientside_callback
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def test_001sw_switch(dash_duo):

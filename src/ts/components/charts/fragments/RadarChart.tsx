@@ -1,7 +1,6 @@
 import { RadarChart as MantineRadarChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
 import React from 'react';
-import { getClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
 import { Props } from '../RadarChart';
 import {parseFuncProps} from "../../../utils/prop-functions";
@@ -12,8 +11,12 @@ const RadarChart = (props: Props) => {
         props;
 
     const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            setProps({ clickData: getClickData(ev) });
+    if (ev?.activeLabel != null) {
+            const point = data.find(
+                (item) => item[dataKey] === ev.activeLabel
+            );
+
+            setProps({ clickData: point ?? null });
         }
     };
 

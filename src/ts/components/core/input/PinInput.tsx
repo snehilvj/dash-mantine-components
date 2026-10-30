@@ -1,9 +1,8 @@
 import { PinInput as MantinePinInput, MantineSize, MantineRadius } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { setPersistence, getLoadingState } from '../../../utils/dash3';
 
 interface Props
@@ -35,6 +34,8 @@ interface Props
     disabled?: boolean;
     /** If set, adds error styles and `aria-invalid` attribute to all inputs */
     error?: boolean;
+    /** Applies success styles to all inputs */
+    success?: boolean;
     /** Determines which values can be entered, `'alphanumeric'` by default. */
     type?: 'alphanumeric' | 'number';
     /** Changes input type to `"password"`, `false` by default */
@@ -58,24 +59,19 @@ interface Props
         | undefined;
     /** `aria-label` for the inputs */
     ariaLabel?: string;
+    /** Props passed down to the hidden input */
+    hiddenInputProps?: object;
 }
 
 /** Capture pin code or one time password from the user */
 const PinInput = (props: Props) => {
     const { setProps, loading_state, value, ...others } = props;
 
-    const [val, setVal] = useState(value);
-
-    useDidUpdate(() => {
-        setVal(value);
-    }, [value]);
-
     return (
         <MantinePinInput
-            onChange={setVal}
-            value={val}
+            value={value}
+            onChange={(value) => setProps({ value })}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            onComplete={(v) => setProps({ value: v })}
             {...others}
         />
     );

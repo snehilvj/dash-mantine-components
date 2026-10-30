@@ -1,7 +1,7 @@
 from dash import Dash, html, Output, Input, State, _dash_renderer, clientside_callback, ALL
 import dash_mantine_components as dmc
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 def test_001st_stepper(dash_duo):

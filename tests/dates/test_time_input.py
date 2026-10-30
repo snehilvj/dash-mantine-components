@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from dash import Dash, html, callback, Output, Input, _dash_renderer
 import dash_mantine_components as dmc
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 
 debounce = dmc.Stack(

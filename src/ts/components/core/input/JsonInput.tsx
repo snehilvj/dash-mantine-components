@@ -18,6 +18,8 @@ interface Props
     validationError?: React.ReactNode;
     /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
     autoComplete?: string;
+    /** Number of spaces to use as white space for formatting. Passed as the third argument to `serialize` function. @default 2 */
+    indentSpaces?: number;
 }
 
 /** JsonInput */

@@ -1,10 +1,10 @@
-import { Select as MantineSelect } from '@mantine/core';
+import { Primitive, Select as MantineSelect } from '@mantine/core';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { ComboboxLikeProps } from 'props/combobox';
 import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
 import { __ClearButtonProps } from 'props/button';
-import { __BaseInputProps } from 'props/input';
+import { __BaseInputProps, ClearSectionMode } from 'props/input';
 import { ScrollAreaProps } from 'props/scrollarea';
 import { StylesApiProps } from 'props/styles';
 import React, { useState, useRef } from 'react';
@@ -21,7 +21,7 @@ interface Props
         DebounceProps,
         PersistenceProps {
     /** Controlled component value */
-    value?: string | null;
+    value?: Primitive | null;
     /** Determines whether the select should be searchable, `false` by default */
     searchable?: boolean;
     /** Determines whether check icon should be displayed near the selected option label, `true` by default */
@@ -50,6 +50,8 @@ interface Props
     clearSearchOnFocus?: boolean;
     /** If set, the dropdown opens when the input receives focus default `True` */
     openOnFocus?: boolean;
+    /** Determines how the clear button and rightSection are rendered default 'both' */
+    clearSectionMode?: ClearSectionMode;
 }
 
 /** Select */

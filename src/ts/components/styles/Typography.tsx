@@ -1,4 +1,4 @@
-import { TypographyStylesProvider as MantineTypographyStylesProvider } from '@mantine/core';
+import { Typography as MantineTypography } from '@mantine/core';
 import React from 'react';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
@@ -9,15 +9,15 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     children?: React.ReactNode;
 }
 
-/* TypographyStylesProvider */
-const TypographyStylesProvider = (props: Props) => {
+/* Typography Styles */
+const Typography = (props: Props) => {
     const { children, ...others } = props;
 
     return (
-        <MantineTypographyStylesProvider {...others}>
+        <MantineTypography {...others}>
             {children}
-        </MantineTypographyStylesProvider>
+        </MantineTypography>
     );
 };
 
-export default TypographyStylesProvider;
+export default Typography;

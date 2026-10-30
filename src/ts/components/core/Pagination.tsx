@@ -8,7 +8,8 @@ import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import React from 'react';
-import { setPersistence, getLoadingState } from '../../utils/dash3';
+import { setPersistence } from '../../utils/dash3';
+import {parseFuncProps} from "../../utils/prop-functions";
 
 interface Props
     extends BoxProps,
@@ -43,6 +44,12 @@ interface Props
     hideWithOnePage?: boolean;
     /** Determines whether pages controls should be displayed, `true` by default */
     withPages?: boolean;
+    /** Starting page number, defaults to 1 */
+    startValue?: number;
+    /** Determines how the pagination is displayed, `'responsive'` uses CSS container queries to switch between pages and a compact label default 'default' */
+    layout?: 'default' | 'responsive';
+    /** Function to format the label text displayed in responsive mode */
+    formatLabel?: any;
 }
 
 /** Use the Pagination component to display active page and navigate between multiple pages */
@@ -60,8 +67,15 @@ const Pagination = (props: Props) => {
         setProps({ value });
     };
 
-    return <MantinePagination {...others} onChange={onChange} />;
+    return (
+      <MantinePagination
+          {...others}
+          {...parseFuncProps('Pagination', others)}
+          onChange={onChange}
+      />
+    );
 };
+
 
 setPersistence(Pagination);
 

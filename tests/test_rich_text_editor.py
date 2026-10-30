@@ -1,11 +1,12 @@
 import json
+import time
 
 from dash import Dash, Input, Output, _dash_renderer, html, ctx
 
 import dash_mantine_components as dmc
 from dash_iconify import DashIconify
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 rte_id = "rich-text-editor"
 log_json_id = "output-json"
@@ -198,6 +199,7 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     btn_focus_start_id = "btn-focus-start"
     btn_focus_end_id = "btn-focus-end"
     btn_toggle_readonly_id = "btn-toggle-readonly"
+    txt_focus_indicator_id = "txt-focus-id"
 
     extra_components = [
         dmc.Button("Focus", id=btn_focus_id),
@@ -206,6 +208,7 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
         dmc.Button("Focus End", id=btn_focus_end_id),
         dmc.Button("Toggle Read Only", id=btn_toggle_readonly_id),
         dmc.Button("Clientside update", id="btn-clientside", n_clicks=0),
+        dmc.Text("n/a", id=txt_focus_indicator_id),
     ]
 
     app = _create_app(extra_components=extra_components, html=_html(initial_content))
@@ -227,6 +230,7 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     
     @app.callback(
         Output(rte_id, "focus"),
+        Output(txt_focus_indicator_id, "children"),
         Input(btn_focus_id, "n_clicks"),
         Input(btn_blur_id, "n_clicks"),
         Input(btn_focus_start_id, "n_clicks"),
@@ -235,13 +239,13 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
     )
     def set_focus(focus_clicks, blur_clicks, start_clicks, end_clicks):
         if ctx.triggered_id == btn_focus_id:
-            return True
+            return True, "Focused"
         elif ctx.triggered_id == btn_blur_id:
-            return False
+            return False, "Blurred"
         elif ctx.triggered_id == btn_focus_start_id:
-            return "start"
+            return "start", "Focused at start"
         elif ctx.triggered_id == btn_focus_end_id:
-            return "end"
+            return "end", "Focused at end"
 
     @app.callback(
         Output(rte_id, "editable"),
@@ -261,19 +265,23 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
 
     # Focus start -> type at beginning
     dash_duo.find_element(f"#{btn_focus_start_id}").click()
+    dash_duo.wait_for_text_to_equal("#" + txt_focus_indicator_id, "Focused at start")
     editor.send_keys("START ")
     updated = "START " + initial_content
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     # Focus end -> type at end
     dash_duo.find_element(f"#{btn_focus_end_id}").click()
+    dash_duo.wait_for_text_to_equal("#" + txt_focus_indicator_id, "Focused at end")
     editor.send_keys(" END")
     updated = updated + " END"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
 
     # Blur then focus default -> type in middle (default focus behavior)
     dash_duo.find_element(f"#{btn_blur_id}").click()
+    dash_duo.wait_for_text_to_equal("#" + txt_focus_indicator_id, "Blurred")
     dash_duo.find_element(f"#{btn_focus_id}").click()
+    dash_duo.wait_for_text_to_equal("#" + txt_focus_indicator_id, "Focused")
     editor.send_keys(" MIDDLE")
     updated = updated + " MIDDLE"
     dash_duo.wait_for_text_to_equal(".tiptap", updated)
@@ -289,12 +297,12 @@ def test_004_rich_text_editor_focus_and_readonly(dash_duo):
 
     # Toggle read-only on
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
-    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='false']")
+    time.sleep(.5)
     assert editor.get_attribute("contenteditable") == "false"
 
     # Toggle read-only off
     dash_duo.find_element(f"#{btn_toggle_readonly_id}").click()
-    dash_duo.wait_for_element_by_css_selector(".tiptap[contenteditable='true']")
+    time.sleep(.5)
     assert editor.get_attribute("contenteditable") == "true"
 
     # Final sanity edit

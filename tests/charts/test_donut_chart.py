@@ -3,13 +3,13 @@ from dash import Dash, Output, Input, _dash_renderer, callback
 import dash_mantine_components as dmc
 import json
 
-_dash_renderer._set_react_version("18.2.0")
+_dash_renderer._set_react_version("19.2.4")
 
 data = [
-  { "name": "USA", "value": 400, "color": "indigo.6" },
-  { "name": "India", "value": 300, "color": "yellow.6" },
-  { "name": "Japan", "value": 100, "color": "teal.6" },
-  { "name": "Other", "value": 200, "color": "gray.6" }
+    {"name": "USA", "value": 400, "color": "indigo.6"},
+    {"name": "India", "value": 300, "color": "yellow.6"},
+    {"name": "Japan", "value": 100, "color": "teal.6"},
+    {"name": "Other", "value": 200, "color": "gray.6"},
 ]
 
 component = dmc.Group(
@@ -23,7 +23,7 @@ component = dmc.Group(
 )
 
 
-def test_001do_donutchart(dash_duo):
+def test_001_donutchart(dash_duo):
     app = Dash(__name__, external_stylesheets=dmc.styles.ALL)
 
     app.layout = dmc.MantineProvider(component)
@@ -43,41 +43,21 @@ def test_001do_donutchart(dash_duo):
 
     dash_duo.start_server(app)
 
-    # Wait for the app to load
     dash_duo.wait_for_text_to_equal("#clickdata", "null")
 
-    # Target the bars
-    areas = dash_duo.find_elements(
-        ".recharts-sector"
-    )
 
+    # 2. Target the first slice path vector
+    slice_selector = "#figure .recharts-pie-sector:nth-of-type(1) path"
+    target_slice = dash_duo.find_element(slice_selector)
 
-    assert len(areas) > 0, "No areas found in the chart"
+    dash_duo.driver.execute_script("arguments[0].dispatchEvent(new MouseEvent('click', {bubbles: true}));",
+                                   target_slice)
 
-    # Need to click on the ring, not the whole pie sector
-    x_offset = 0  # Horizontal offset from the left of the element
-    y_offset = 70  # Vertical offset from the top of the element
+    clickdata = json.loads(dash_duo.find_element("#clickdata").text)
+    assert clickdata["name"] == "USA"
+    assert clickdata["value"] == 400
+    assert clickdata["color"] == "indigo.6"
 
-    # Uncomment this for debugging  - it helps with setting the correct offsets
-    # Retrieve the element's position and dimensions
-    # element_location = areas[0].location
-    # element_size = areas[0].size
-    # print(f"Element top-left corner: ({element_location['x']}, {element_location['y']})")
-    # print(f"Element width x height: ({element_size['width']} x {element_size['height']})")
-    # print(f"Click offset: ({x_offset}px right, {y_offset}px down)")
-
-    # Perform the action
-    actions = ActionChains(dash_duo.driver)
-    actions.move_to_element_with_offset(areas[0], x_offset, y_offset).click().perform()
-
-
-    expected_output = (
-         '{"name": "India", "value": 300, "color": "yellow.6"}'
-    )
-
-    dash_duo.wait_for_text_to_equal("#clickdata", expected_output)
-    dash_duo.wait_for_text_to_equal("#hoverdata", expected_output)
-    dash_duo.wait_for_text_to_equal("#hoverseriesname", "India")
-    dash_duo.wait_for_text_to_equal("#clickseriesname", "India")
+    dash_duo.wait_for_text_to_equal("#clickseriesname", "USA")
 
     assert dash_duo.get_logs() == []

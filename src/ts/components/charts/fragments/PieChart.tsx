@@ -1,7 +1,6 @@
 import { PieChart as MantinePieChart } from '@mantine/charts';
 import '@mantine/charts/styles.css';
 import React, { useState } from 'react';
-import { getPieClickData, isEventValid } from '../../../utils/charts';
 import { getLoadingState } from '../../../utils/dash3';
 import { Props } from '../PieChart';
 
@@ -10,35 +9,29 @@ const PieChart = (props: Props) => {
     const {
         setProps,
         loading_state,
-        clickData,
-        hoverData,
-        clickSeriesName,
-        hoverSeriesName,
         pieProps,
         ...others
     } = props;
 
-    const onClick = (ev) => {
-        if (isEventValid(ev)) {
-            const clickdata = getPieClickData(ev);
+    const onClick = (data) => {
+        if (data?.payload) {
             setProps({
-                clickData: clickdata,
-                clickSeriesName: clickdata['name'],
+                clickData: data.payload,
+                clickSeriesName: data.name,
             });
         }
     };
 
-    const onMouseOver = (ev) => {
-        if (isEventValid(ev)) {
-            const hoverdata = getPieClickData(ev);
+    const onMouseEnter = (data) => {
+        if (data?.payload) {
             setProps({
-                hoverData: hoverdata,
-                hoverSeriesName: hoverdata['name'],
+                hoverData: data.payload,
+                hoverSeriesName: data.name,
             });
         }
     };
 
-    const newProps = { ...pieProps, onClick, onMouseOver };
+    const newProps = { ...pieProps, onClick, onMouseEnter };
 
     return (
         <MantinePieChart

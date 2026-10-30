@@ -1,4 +1,4 @@
-import { NumberInput as MantineNumberInput } from '@mantine/core';
+import { NumberInputNumericType, NumberInput as MantineNumberInput } from '@mantine/core';
 import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps, DebounceProps } from 'props/dash';
@@ -19,7 +19,7 @@ interface Props
         DebounceProps,
         PersistenceProps {
     /** Controlled component value */
-    value?: number | string;
+    value?: NumberInputNumericType | string;
     /** Determines whether leading zeros are allowed. If not set, leading zeros are removed when the input is blurred. `false` by default */
     allowLeadingZeros?: boolean;
     /** Determines whether negative values are allowed, `true` by default */
@@ -66,6 +66,8 @@ interface Props
     autoComplete?: string;
     /** Sets disabled attribute on the input element */
     disabled?: boolean;
+    /** If set, all text is selected when the input receives focus default false */
+    selectAllOnFocus?: boolean;
 }
 
 /** The NumberInput component allows users to input numeric values  */

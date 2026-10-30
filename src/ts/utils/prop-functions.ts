@@ -17,14 +17,15 @@ import { path } from 'ramda';
  */
 
 const funcPropsMap = {
-    MantineProvider: ['getStyleNonce'],
+    MantineProvider: ['getStyleNonce', 'getRootElement', 'cssVariablesResolver'],
     Slider: ['label', 'scale'],
     RangeSlider: ['label', 'scale'],
     Select: ['renderOption', 'filter'],
-    MultiSelect: ['renderOption', 'filter'],
-    TagsInput: ['renderOption', 'filter'],
+    MultiSelect: ['renderOption', 'filter', 'renderPill'],
+    TagsInput: ['renderOption', 'filter', 'renderPill'],
     Autocomplete: ['renderOption', 'filter'],
     MiniCalendar: ['getDayProps'],
+    Pagination: ['formatLabel'],
     DatePicker: [
         'getYearControlProps',
         'getMonthControlProps',
@@ -36,21 +37,25 @@ const funcPropsMap = {
         'getMonthControlProps',
         'getDayProps',
         'renderDay',
+        'valueFormat',
     ],
     DatePickerInput: [
         'getYearControlProps',
         'getMonthControlProps',
         'getDayProps',
         'renderDay',
+        'valueFormatter',
     ],
     DateInput: [
         'getYearControlProps',
         'getMonthControlProps',
         'getDayProps',
         'renderDay',
+        'valueFormat',
+        'dateParser',
     ],
-    MonthPickerInput: ['getYearControlProps', 'getMonthControlProps'],
-    YearPickerInput: ['getYearControlProps'],
+    MonthPickerInput: ['getYearControlProps', 'getMonthControlProps', 'valueFormatter'],
+    YearPickerInput: ['getYearControlProps', 'valueFormatter'],
     AreaChart: [
         'xAxisProps',
         'yAxisProps',
@@ -58,6 +63,7 @@ const funcPropsMap = {
         'rightYAxisProps',
         'tooltipProps',
         'valueFormatter',
+        'brushProps',
     ],
     BarChart: [
         'xAxisProps',
@@ -67,6 +73,7 @@ const funcPropsMap = {
         'tooltipProps',
         'valueLabelProps',  
         'getBarColor',
+        'brushProps',
     ],
     BubbleChart: [
         'xAxisProps',
@@ -82,6 +89,7 @@ const funcPropsMap = {
         'rightYAxisProps',
         'tooltipProps',
         'valueFormatter',
+        'brushProps',
     ],
     FunnelChart: [
         "tooltipProps",
@@ -95,6 +103,7 @@ const funcPropsMap = {
         'rightYAxisProps',
         'tooltipProps',
         'valueFormatter',
+        'brushProps',
     ],
     ScatterChart: [
         'xAxisProps',
