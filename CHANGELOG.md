@@ -80,7 +80,7 @@ See the [Dash Mantine Components Migration Guide](https://www.dash-mantine-compo
 
 ### Updated
 
-- Updated to Mantine 9.7.2 and Recharts 3.1.2. PR738, PR746
+- Updated to Mantine 9.7.4 and Recharts 3.1.2. PR756
 - Updated `clickData` and `hoverData` for Recharts v3.
 - Updated webpack to handle `jsx-runtime` for React 19, following Dash PR #3880. Added a runtime error message when React 19 is not used. PR738
 - Updated GitHub workflows to use React 19. PR738
