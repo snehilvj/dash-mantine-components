@@ -4,7 +4,7 @@
 
 ### New Components
 
-- Added `RollingNumber` component.
+- Added `RollingNumber` component. [PR 758](https://github.com/snehilvj/dash-mantine-components/pull/758) by @budescode
 
 # 3.0.0
 
