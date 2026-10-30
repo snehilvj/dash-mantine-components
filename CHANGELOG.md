@@ -1,7 +1,6 @@
 # Change Log
 
-
-# v3 UNRELEASDED
+# 3.0.0
 
 **See live examples and complete changelog in [Dash Mantine Components v3 Release](https://www.dash-mantine-components.com/release-3-0-0)**
 
