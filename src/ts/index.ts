@@ -50,6 +50,7 @@ import Paper from './components/core/Paper';
 import Pill from './components/core/Pill';
 import Rating from './components/core/Rating';
 import RingProgress from './components/core/RingProgress';
+import RollingNumber from './components/core/RollingNumber';
 import ScrollArea from './components/core/scrollarea/ScrollArea';
 import ScrollAreaAutosize from './components/core/scrollarea/ScrollAreaAutosize';
 import SegmentedControl from './components/core/SegmentedControl';
@@ -326,6 +327,7 @@ export {
     RangeSlider,
     Rating,
     RingProgress,
+    RollingNumber,
     SemiCircleProgress,
     ScatterChart,
     ScrollArea,
