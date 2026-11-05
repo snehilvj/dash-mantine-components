@@ -79,3 +79,13 @@ dmcfuncs.radarTick = function ({ x, y, payload, textAnchor }) {
         `${payload.value}!`
     );
 };
+
+
+// Custom labels for the Lightbox component
+dmcfuncs.lightboxSlideLabel = function (index, total) {
+    return `Slide ${index} of ${total}`;
+}
+
+dmcfuncs.lightboxThumbnailLabel = function (index, total) {
+    return `Go to slide ${index} of ${total}`;
+}

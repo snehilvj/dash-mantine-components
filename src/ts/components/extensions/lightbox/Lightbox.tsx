@@ -7,19 +7,6 @@ const LazyLightbox = React.lazy(
     () => import(/* webpackChunkName: "Lightbox" */ './fragments/Lightbox')
 );
 
-/** Labels used in the component for accessibility and localization. `slideLabel` and
- * `thumbnailLabel` are strings containing `{index}` and `{total}` which are replaced
- * with the 1-based slide index and the total number of slides. */
-export type LightboxLabels = Omit<
-    MantineLightboxLabels,
-    'slideLabel' | 'thumbnailLabel'
-> & {
-    /** Accessible label of a slide. String containing `{index}` and `{total}`. */
-    slideLabel: string;
-    /** Accessible label of a thumbnail. String containing `{index}` and `{total}`. */
-    thumbnailLabel: string;
-};
-
 /** Slide data. Image slides are used by default, set `type` to `'video'` for video
  * slides or `'custom'` to render the children of the Lightbox component as slide content. */
 export type LightboxSlide =
@@ -91,8 +78,6 @@ export interface Props extends DashBaseProps {
     withZoom?: boolean;
     /** Maximum zoom scale, `3` by default */
     zoomMaxScale?: number;
-    /** Enables animated slide transitions for programmatic navigation, `false` by default */
-    withSlideTransition?: boolean;
     /** Shows bottom thumbnail strip, `false` by default */
     withThumbnails?: boolean;
     /** Adds fullscreen toggle to toolbar, `false` by default */
@@ -121,9 +106,12 @@ export interface Props extends DashBaseProps {
     transitionProps?: object;
     /** Additional Embla carousel options. `loop` and `startIndex` are controlled by the `loop` and `currentIndex` props and cannot be set here */
     emblaOptions?: object;
-    /** Labels used in the component for accessibility and localization. If not set, default labels are used. */
-    labels?: Partial<LightboxLabels>;
-    /** Content to render in slides of type `'custom'` */
+    /** Labels used in the component for accessibility and localization. `slideLabel` and `thumbnailLabel` accept a function.
+     * See https://www.dash-mantine-components.com/functions-as-props */
+    labels?: Partial<MantineLightboxLabels>;
+    /** Content to render in slides of type `'custom'`. If the number of children matches
+     * the number of custom slides, each child is rendered in its corresponding custom
+     * slide; otherwise all children are rendered in every custom slide. */
     children?: React.ReactNode;
     /** CSS styles applied to the root element */
     style?: React.CSSProperties;
