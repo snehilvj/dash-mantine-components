@@ -5,7 +5,7 @@
 ### New Components
 
 - Added `RollingNumber` component. [PR 758](https://github.com/snehilvj/dash-mantine-components/pull/758) by @budescode
-- Added `Toggle` component.
+- Added `Toggle` component. [PR 762](https://github.com/snehilvj/dash-mantine-components/pull/762) by @budescode
 
 # 3.0.0
 
