@@ -5,7 +5,7 @@
 ### New Components
 
 - Added `RollingNumber` component. [PR 758](https://github.com/snehilvj/dash-mantine-components/pull/758) by @budescode
-- Added `MaskInput` component.
+- Added `MaskInput` component. [PR 763](https://github.com/snehilvj/dash-mantine-components/pull/763) by @budescode
 
 # 3.0.0
 
