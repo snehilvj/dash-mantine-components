@@ -79,3 +79,7 @@ dmcfuncs.radarTick = function ({ x, y, payload, textAnchor }) {
         `${payload.value}!`
     );
 };
+
+
+// MaskInput transform: uppercase every typed character
+dmcfuncs.toUpper = (char) => char.toUpperCase();
