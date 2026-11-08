@@ -87,6 +87,7 @@ import ButtonGroup from './components/core/button/ButtonGroup';
 import CopyButton from './components/core/button/CopyButton';
 import CustomCopyButton from './components/core/button/CustomCopyButton';
 import UnstyledButton from './components/core/button/UnstyledButton';
+import Toggle from './components/core/button/Toggle';
 import Card from './components/core/card/Card';
 import CardSection from './components/core/card/CardSection';
 import Checkbox from './components/core/checkbox/Checkbox';
@@ -372,6 +373,7 @@ export {
     Timeline,
     TimelineItem,
     Title,
+    Toggle,
     Tree,
     Tooltip,
     UnstyledButton,
