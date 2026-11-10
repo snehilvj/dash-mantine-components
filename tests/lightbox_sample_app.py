@@ -1,13 +1,12 @@
 """Sample app for the Lightbox component.
 
-Demonstrates image slides, video slides and custom slides, following the
-Mantine custom slides example: https://mantine.dev/x/lightbox/#custom-slides
+Demonstrates image slides and video slides.
 
 Run with:  python tests/lightbox_sample_app.py
 """
 
 import dash_mantine_components as dmc
-from dash import Dash, html, _dash_renderer
+from dash import Dash, _dash_renderer
 
 _dash_renderer._set_react_version("19.2.4")
 
@@ -19,14 +18,12 @@ slides = [
         "alt": "Image 1",
     },
     {
-        "type": "custom",
-        "thumbSrc": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-2.png",
-        "caption": "Custom slide with Dash children",
+        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-2.png",
+        "alt": "Image 2",
     },
     {
-        "type": "custom",
-        "thumbSrc": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-4.png",
-        "caption": "Embedded YouTube video",
+        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-4.png",
+        "alt": "Image 3",
     },
     {
         "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-3.png",
@@ -52,26 +49,6 @@ app.layout = dmc.MantineProvider(
                 slides=slides,
                 withThumbnails=True,
                 withZoom=True,
-                # Each child is rendered in its corresponding custom slide
-                # (one-to-one, in order).
-                children=[
-                    dmc.Center(
-                        dmc.Text("This is a custom slide", c="white", size="xl", fw=700),
-                        h="100%",
-                    ),
-                    html.Iframe(
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ",
-                        title="YouTube video",
-                        allow="fullscreen",
-                        style={
-                            "width": "80vw",
-                            "height": "45vw",
-                            "maxHeight": "70vh",
-                            "border": "none",
-                            "borderRadius": 8,
-                        },
-                    ),
-                ],
                 opened=True,
             ),
         ],

@@ -7,8 +7,7 @@ const LazyLightbox = React.lazy(
     () => import(/* webpackChunkName: "Lightbox" */ './fragments/Lightbox')
 );
 
-/** Slide data. Image slides are used by default, set `type` to `'video'` for video
- * slides or `'custom'` to render the children of the Lightbox component as slide content. */
+/** Slide data. Image slides are used by default, set `type` to `'video'` for video slides. */
 export type LightboxSlide =
     | {
           /** Slide type, `'image'` by default */
@@ -56,15 +55,6 @@ export type LightboxSlide =
               /** Whether the track should be enabled by default */
               default?: boolean;
           }[];
-      }
-    | {
-          /** Slide type, must be `'custom'`. The children of the Lightbox component
-           * are rendered as the content of every custom slide. */
-          type: 'custom';
-          /** Custom thumbnail URL */
-          thumbSrc?: string;
-          /** Caption displayed below the slide */
-          caption?: string;
       };
 
 export interface Props extends DashBaseProps {
@@ -109,10 +99,6 @@ export interface Props extends DashBaseProps {
     /** Labels used in the component for accessibility and localization. `slideLabel` and `thumbnailLabel` accept a function.
      * See https://www.dash-mantine-components.com/functions-as-props */
     labels?: Partial<MantineLightboxLabels>;
-    /** Content to render in slides of type `'custom'`. If the number of children matches
-     * the number of custom slides, each child is rendered in its corresponding custom
-     * slide; otherwise all children are rendered in every custom slide. */
-    children?: React.ReactNode;
     /** CSS styles applied to the root element */
     style?: React.CSSProperties;
     /** CSS classes applied to the root element */

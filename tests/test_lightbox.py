@@ -65,53 +65,7 @@ def test_001li_lightbox(dash_duo):
     assert dash_duo.get_logs() == []
 
 
-def test_002li_lightbox_custom_slide(dash_duo):
-    app = Dash(__name__)
-
-    component = html.Div(
-        [
-            dmc.Button("Open Lightbox", id="lightbox-demo-button"),
-            dmc.Lightbox(
-                id="lightbox-custom",
-                slides=[
-                    {"src": images[0], "alt": "Image 1"},
-                    {"type": "custom", "thumbSrc": images[1]},
-                ],
-                withThumbnails=True,
-                children=dmc.Center(
-                    dmc.Text("Custom slide content", c="white", id="custom-slide-text"),
-                    h="100%",
-                ),
-            ),
-        ]
-    )
-
-    app.layout = dmc.MantineProvider(component)
-
-    @app.callback(
-        Output("lightbox-custom", "opened"),
-        Input("lightbox-demo-button", "n_clicks"),
-        prevent_initial_call=True,
-    )
-    def open_lightbox(_):
-        return True
-
-    dash_duo.start_server(app)
-
-    # Open the lightbox
-    dash_duo.find_element("#lightbox-demo-button").click()
-
-    # Navigate to the second (custom) slide
-    dash_duo.find_element("body").send_keys(Keys.ARROW_RIGHT)
-
-    # The custom slide renders the Dash children
-    custom_slide = dash_duo.find_element("#custom-slide-text")
-    assert custom_slide.text == "Custom slide content"
-
-    assert dash_duo.get_logs() == []
-
-
-def test_003li_lightbox_labels_functions_as_props(dash_duo):
+def test_002li_lightbox_labels_functions_as_props(dash_duo):
     app = Dash(__name__)
 
     component = html.Div(
@@ -158,69 +112,5 @@ def test_003li_lightbox_labels_functions_as_props(dash_duo):
         "return document.querySelectorAll('.mantine-Lightbox-thumbnail')[1].getAttribute('aria-label')"
     )
     assert thumbnail_label == "Go to slide 2 of 3"
-
-    assert dash_duo.get_logs() == []
-
-
-def test_004li_lightbox_custom_slides_children(dash_duo):
-    app = Dash(__name__)
-
-    component = html.Div(
-        [
-            dmc.Button("Open Lightbox", id="lightbox-demo-button"),
-            dmc.Lightbox(
-                id="lightbox-custom-slides",
-                slides=[
-                    {"src": images[0], "alt": "Image 1"},
-                    {
-                        "type": "custom",
-                        "thumbSrc": images[1],
-                        "caption": "First custom slide",
-                    },
-                    {
-                        "type": "custom",
-                        "thumbSrc": images[2],
-                        "caption": "Second custom slide",
-                    },
-                ],
-                withThumbnails=True,
-                # One child per custom slide: each child is rendered in its
-                # corresponding custom slide, in order
-                children=[
-                    dmc.Center(
-                        dmc.Text("First custom", c="white", id="custom-one"),
-                        h="100%",
-                    ),
-                    dmc.Center(
-                        dmc.Text("Second custom", c="white", id="custom-two"),
-                        h="100%",
-                    ),
-                ],
-            ),
-        ]
-    )
-
-    app.layout = dmc.MantineProvider(component)
-
-    @app.callback(
-        Output("lightbox-custom-slides", "opened"),
-        Input("lightbox-demo-button", "n_clicks"),
-        prevent_initial_call=True,
-    )
-    def open_lightbox(_):
-        return True
-
-    dash_duo.start_server(app)
-
-    # Open the lightbox
-    dash_duo.find_element("#lightbox-demo-button").click()
-
-    # Navigate to the second (custom) slide: renders the first child
-    dash_duo.find_element("body").send_keys(Keys.ARROW_RIGHT)
-    dash_duo.wait_for_text_to_equal("#custom-one", "First custom")
-
-    # Navigate to the third slide: renders the second child
-    dash_duo.find_element("body").send_keys(Keys.ARROW_RIGHT)
-    dash_duo.wait_for_text_to_equal("#custom-two", "Second custom")
 
     assert dash_duo.get_logs() == []
