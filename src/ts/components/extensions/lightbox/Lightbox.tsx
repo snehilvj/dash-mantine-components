@@ -1,5 +1,7 @@
 import { LightboxLabels as MantineLightboxLabels } from '@mantine/lightbox';
+import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
+import { StylesApiProps } from 'props/styles';
 import React, { Suspense } from 'react';
 
 // eslint-disable-next-line no-inline-comments
