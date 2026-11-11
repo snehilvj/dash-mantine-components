@@ -4,7 +4,7 @@
 
 ### New Components
 
-- Added `Lightbox` component. Full-screen media lightbox with carousel navigation.
+- Added `Lightbox` component. [PR 760](https://github.com/snehilvj/dash-mantine-components/pull/760) by @rudibroekhuizen
 - Added `RollingNumber` component. [PR 758](https://github.com/snehilvj/dash-mantine-components/pull/758) by @budescode
 
 # 3.0.0
