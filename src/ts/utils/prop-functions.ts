@@ -118,6 +118,7 @@ const funcPropsMap = {
         'tooltipProps',
         'getRectProps',
     ],
+    Lightbox: ['labels'],
     RadarChart: [
         'tooltipProps',
         'legendProps',
