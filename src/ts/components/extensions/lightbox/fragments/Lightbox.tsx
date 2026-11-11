@@ -16,6 +16,7 @@ const Lightbox = ({
     loading_state,
     ...others
 }: Props) => {
+    const funcProps = parseFuncProps('Lightbox', { slides, ...others });
     return (
         <MantineLightbox
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
@@ -24,7 +25,7 @@ const Lightbox = ({
             slides={slides as LightboxSlideData[]}
             currentIndex={currentIndex}
             onIndexChange={(index) => setProps({ currentIndex: index })}
-            {...parseFuncProps('Lightbox', others)}
+            {...funcProps}
         />
     );
 };
