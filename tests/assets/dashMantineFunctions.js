@@ -81,11 +81,13 @@ dmcfuncs.radarTick = function ({ x, y, payload, textAnchor }) {
 };
 
 
-// Custom labels for the Lightbox component
+// Custom labels for the Lightbox component. The values are intentionally
+// different from the default labels (English) so the test verifies that the
+// custom functions are actually resolved and used.
 dmcfuncs.lightboxSlideLabel = function (index, total) {
-    return `Slide ${index} of ${total}`;
+    return `Bild ${index} von ${total}`;
 }
 
-dmcfuncs.lightboxThumbnailLabel = function (index, total) {
-    return `Go to slide ${index} of ${total}`;
+dmcfuncs.lightboxThumbnailLabel = function (index) {
+    return `Zu Bild ${index} wechseln`;
 }

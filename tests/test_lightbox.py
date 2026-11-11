@@ -103,14 +103,17 @@ def test_002li_lightbox_labels_functions_as_props(dash_duo):
 
     # The slideLabel and thumbnailLabel functions are resolved and called
     # with the 1-based slide index and the total number of slides
+    # The resolved custom functions produce labels that are distinct from the
+    # defaults ("Slide 2 of 3" / "Go to slide 2"), proving that functions-as-props
+    # are resolved and called with the 1-based slide index
     slide_label = dash_duo.driver.execute_script(
         "return document.querySelectorAll('.mantine-Lightbox-slide')[1].getAttribute('aria-label')"
     )
-    assert slide_label == "Slide 2 of 3"
+    assert slide_label == "Bild 2 von 3"
 
     thumbnail_label = dash_duo.driver.execute_script(
         "return document.querySelectorAll('.mantine-Lightbox-thumbnail')[1].getAttribute('aria-label')"
     )
-    assert thumbnail_label == "Go to slide 2 of 3"
+    assert thumbnail_label == "Zu Bild 2 wechseln"
 
     assert dash_duo.get_logs() == []
