@@ -59,7 +59,7 @@ export type LightboxSlide =
           }[];
       };
 
-export interface Props extends DashBaseProps {
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Determines whether the lightbox is opened */
     opened?: boolean;
     /** Array of slide data objects */
