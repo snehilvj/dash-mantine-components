@@ -68,6 +68,8 @@ export interface Props extends DashBaseProps {
     withZoom?: boolean;
     /** Maximum zoom scale, `3` by default */
     zoomMaxScale?: number;
+    /** Enables animated slide transitions for programmatic navigation, `false` by default */
+    withSlideTransition?: boolean;
     /** Shows bottom thumbnail strip, `false` by default */
     withThumbnails?: boolean;
     /** Adds fullscreen toggle to toolbar, `false` by default */
