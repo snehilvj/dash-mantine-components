@@ -4,7 +4,9 @@
 
 ### New Components
 
+- Added `Lightbox` component. [PR 760](https://github.com/snehilvj/dash-mantine-components/pull/760) by @rudibroekhuizen
 - Added `RollingNumber` component. [PR 758](https://github.com/snehilvj/dash-mantine-components/pull/758) by @budescode
+- Added `Toggle` component. [PR 762](https://github.com/snehilvj/dash-mantine-components/pull/762) by @budescode
 
 # 3.0.0
 

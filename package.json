@@ -53,6 +53,7 @@
         "@mantine/core": "9.7.4",
         "@mantine/dates": "9.7.4",
         "@mantine/hooks": "9.7.4",
+        "@mantine/lightbox": "9.7.4",
         "@mantine/notifications": "9.7.4",
         "@mantine/nprogress": "9.7.4",
         "@mantine/schedule": "9.7.4",
