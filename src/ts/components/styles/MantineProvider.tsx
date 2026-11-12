@@ -20,6 +20,7 @@ import '@mantine/dates/styles.css';
 import '@mantine/carousel/styles.css';
 import '@mantine/nprogress/styles.css';
 import '@mantine/notifications/styles.css';
+import '@mantine/schedule/styles.css';
 import '@mantine/lightbox/styles.css';
 
 const ensureReact19 = () => {
