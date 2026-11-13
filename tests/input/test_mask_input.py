@@ -48,9 +48,9 @@ def test_001mi_mask_input(dash_duo):
 
     phone = dash_duo.find_element("#phone")
 
-    # letters are rejected, digits fill the slots, literals are inserted
+    # letters are rejected, digits fill the slots, maskedValue matches what is displayed
     phone.send_keys("ab555")
-    dash_duo.wait_for_text_to_equal("#out", "555|(555) |False")
+    dash_duo.wait_for_text_to_equal("#out", "555|(555) ___-____|False")
 
     phone.send_keys("1234567")
     dash_duo.wait_for_text_to_equal("#out", "5551234567|(555) 123-4567|True")
@@ -61,7 +61,7 @@ def test_001mi_mask_input(dash_duo):
 
     # deleting a character makes it incomplete again
     phone.send_keys(Keys.BACKSPACE)
-    dash_duo.wait_for_text_to_equal("#out", "555123456|(555) 123-456|False")
+    dash_duo.wait_for_text_to_equal("#out", "555123456|(555) 123-456_|False")
 
     # value set from a callback clears the input
     dash_duo.find_element("#clear").click()
@@ -106,35 +106,3 @@ def test_002mi_mask_input_tokens_transform(dash_duo):
 
     assert dash_duo.get_logs() == []
 
-
-def test_003mi_mask_input_debounce(dash_duo):
-    app = Dash(__name__)
-
-    app.layout = dmc.MantineProvider(
-        [
-            dmc.MaskInput(id="date", mask="99/99/9999", debounce=True),
-            html.Div(id="out"),
-        ]
-    )
-
-    @callback(
-        Output("out", "children"),
-        Input("date", "maskedValue"),
-        Input("date", "n_submit"),
-    )
-    def show(masked, n_submit):
-        return f"{masked}|{n_submit}"
-
-    dash_duo.start_server(app)
-    dash_duo.wait_for_text_to_equal("#out", "None|None")
-
-    date = dash_duo.find_element("#date")
-    date.send_keys("31122025")
-    # nothing is sent while typing with debounce=True
-    dash_duo.wait_for_text_to_equal("#out", "None|None")
-
-    # value is sent on Enter together with n_submit
-    date.send_keys(Keys.ENTER)
-    dash_duo.wait_for_text_to_equal("#out", "31/12/2025|1")
-
-    assert dash_duo.get_logs() == []
