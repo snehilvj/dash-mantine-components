@@ -8,6 +8,7 @@
 - Added `RollingNumber` component. [PR 758](https://github.com/snehilvj/dash-mantine-components/pull/758) by @budescode
 - Added `Toggle` component. [PR 762](https://github.com/snehilvj/dash-mantine-components/pull/762) by @budescode
 - Added `Schedule` component. [PR 755](https://github.com/snehilvj/dash-mantine-components/pull/755) by @SchutteAndrew
+- Added `MaskInput` component. [PR 763](https://github.com/snehilvj/dash-mantine-components/pull/763) by @budescode
 
 
 # 3.0.0

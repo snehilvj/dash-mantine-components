@@ -91,3 +91,6 @@ dmcfuncs.lightboxSlideLabel = function (index, total) {
 dmcfuncs.lightboxThumbnailLabel = function (index) {
     return `Zu Bild ${index} wechseln`;
 }
+
+// MaskInput transform: uppercase every typed character
+dmcfuncs.toUpper = (char) => char.toUpperCase();

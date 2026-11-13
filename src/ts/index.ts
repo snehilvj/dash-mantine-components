@@ -109,6 +109,7 @@ import HoverCardTarget from './components/core/hovercard/HoverCardTarget';
 import BackgroundImage from './components/core/image/BackgroundImage';
 import Image from './components/core/image/Image';
 import JsonInput from './components/core/input/JsonInput';
+import MaskInput from './components/core/input/MaskInput';
 import NumberInput from './components/core/input/NumberInput';
 import PasswordInput from './components/core/input/PasswordInput';
 import PinInput from './components/core/input/PinInput';
@@ -285,6 +286,7 @@ export {
     MantineProvider,
     Mark,
     Marquee,
+    MaskInput,
     Menu,
     MenuDivider,
     MenuDropdown,
