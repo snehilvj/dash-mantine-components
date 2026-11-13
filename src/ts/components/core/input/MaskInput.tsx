@@ -1,10 +1,10 @@
 import { MaskInput as MantineMaskInput } from '@mantine/core';
-import { useDebouncedValue, useDidUpdate } from '@mantine/hooks';
+import { useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
-import { DashBaseProps, DebounceProps, PersistenceProps } from 'props/dash';
+import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { __BaseInputProps } from 'props/input';
 import { StylesApiProps } from 'props/styles';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getLoadingState, setPersistence } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
 
@@ -13,13 +13,12 @@ interface Props
         StylesApiProps,
         __BaseInputProps,
         DashBaseProps,
-        DebounceProps,
         PersistenceProps {
     /** Mask pattern. Built-in tokens: `9` digit, `a` letter, `A` uppercase letter, `*` letter or digit, `#` digit or sign. Other characters are literals, `\\` escapes a token character, and `?` marks the remaining slots as optional. Example: `'(999) 999-9999'` */
     mask: string;
-    /** Raw (unmasked) value, e.g. `'5551234567'` for mask `'(999) 999-9999'`. Can be set from a callback, a formatted value is also accepted. */
+    /** Raw (unmasked) value, e.g. `'5551234567'` for mask `'(999) 999-9999'`. Can be set from a callback. */
     value?: string;
-    /** (read-only) Value as displayed with the mask applied, e.g. `'(555) 123-4567'` */
+    /** (read-only) Value as displayed in the input, e.g. `'(555) 123-4567'` */
     maskedValue?: string;
     /** (read-only) `True` when all required mask slots are filled */
     complete?: boolean;
@@ -45,53 +44,19 @@ interface Props
 
 const DEFAULT_TOKENS = ['9', 'a', 'A', '*', '#'];
 
-type Slot = { token: boolean; char: string; optional: boolean };
-
-// Mirrors the string-mask parsing of Mantine's use-mask hook
-const parseMask = (mask: string, tokenKeys: string[]): Slot[] => {
-    const slots: Slot[] = [];
-    let optional = false;
+// Number of token slots before the first `?`, i.e. the slots that must be filled
+const countRequired = (mask: string, tokenKeys: string[]): number => {
+    let count = 0;
     for (let i = 0; i < mask.length; i++) {
-        const char = mask[i];
-        if (char === '\\' && i + 1 < mask.length) {
+        if (mask[i] === '\\') {
             i++;
-            slots.push({ token: false, char: mask[i], optional });
-            continue;
-        }
-        if (char === '?') {
-            optional = true;
-            continue;
-        }
-        slots.push({ token: tokenKeys.includes(char), char, optional });
-    }
-    return slots;
-};
-
-// Formats a raw value the same way Mantine's applyMaskToRaw does:
-// literals are inserted, output stops at the first unfilled token
-const formatRaw = (raw: string, slots: Slot[]): string => {
-    if (!raw) return '';
-    let result = '';
-    let rawIndex = 0;
-    for (const slot of slots) {
-        if (!slot.token) {
-            result += slot.char;
-        } else if (rawIndex < raw.length) {
-            result += raw[rawIndex++];
-        } else {
+        } else if (mask[i] === '?') {
             break;
+        } else if (tokenKeys.includes(mask[i])) {
+            count++;
         }
     }
-    return result;
-};
-
-// Extracts the raw value from a displayed (masked) value
-const extractRaw = (masked: string, slots: Slot[]): string => {
-    let raw = '';
-    for (let i = 0; i < masked.length && i < slots.length; i++) {
-        if (slots[i].token) raw += masked[i];
-    }
-    return raw;
+    return count;
 };
 
 /** MaskInput - Input with a fixed format pattern such as a phone number, date or card number */
@@ -104,93 +69,54 @@ const MaskInput = ({
     value = '',
     maskedValue,
     complete,
-    n_submit = 0,
-    n_blur = 0,
-    debounce = false,
     autoComplete = 'off',
     mask,
     tokens,
     inputProps,
     ...others
 }: Props) => {
-    const regexTokens = useMemo(
-        () =>
-            tokens
-                ? Object.fromEntries(
-                      Object.entries(tokens).map(([k, v]) => [k, new RegExp(v)])
-                  )
-                : undefined,
-        [tokens]
-    );
+    const regexTokens = tokens
+        ? Object.fromEntries(
+              Object.entries(tokens).map(([k, v]) => [k, new RegExp(v)])
+          )
+        : undefined;
+    const required = countRequired(mask ?? '', [
+        ...DEFAULT_TOKENS,
+        ...Object.keys(tokens ?? {}),
+    ]);
 
-    const slots = useMemo(
-        () => parseMask(mask ?? '', [...DEFAULT_TOKENS, ...Object.keys(tokens ?? {})]),
-        [mask, tokens]
-    );
-    const required = slots.filter((s) => s.token && !s.optional).length;
-
-    const toState = (raw: string) => ({
-        value: raw,
-        maskedValue: formatRaw(raw, slots),
-        complete: required > 0 && raw.length >= required,
-    });
-
-    const [current, setCurrent] = useState<ReturnType<typeof toState> | null>(null);
-    const debounceValue = typeof debounce === 'number' ? debounce : 0;
-    const [debounced] = useDebouncedValue(current, debounceValue);
-
+    const inputRef = useRef<HTMLInputElement>(null);
     const lastValue = useRef(value ?? '');
     const [remountKey, setRemountKey] = useState(0);
-    const inputRef = useRef<HTMLInputElement>(null);
-
-    const send = (state: ReturnType<typeof toState> | null) => {
-        if (!state) return;
-        lastValue.current = state.value;
-        setProps(state);
-    };
-
-    useDidUpdate(() => {
-        if (typeof debounce === 'number' || debounce === false) {
-            send(debounced);
-        }
-    }, [debounced]);
 
     // value set from a callback: Mantine's MaskInput is uncontrolled, so remount it with the new value
     useDidUpdate(() => {
         if ((value ?? '') !== lastValue.current) {
             lastValue.current = value ?? '';
-            setCurrent(null);
             setRemountKey((k) => k + 1);
         }
     }, [value]);
 
-    // on mount with a value, and after every remount, normalise the value to raw
-    // and report maskedValue / complete
+    // onChangeRaw / onComplete don't fire for a value set by Dash, so report
+    // maskedValue and complete after mount and after every remount
     useEffect(() => {
         if (!inputRef.current || (remountKey === 0 && !value)) return;
-        const state = toState(extractRaw(inputRef.current.value, slots));
-        if (
-            state.value !== value ||
-            state.maskedValue !== maskedValue ||
-            state.complete !== complete
-        ) {
-            send(state);
+        const state = {
+            maskedValue: inputRef.current.value,
+            complete: required > 0 && (value ?? '').length >= required,
+        };
+        if (state.maskedValue !== maskedValue || state.complete !== complete) {
+            setProps(state);
         }
     }, [remountKey]);
 
-    const handleKeyDown = (ev: React.KeyboardEvent<HTMLInputElement>) => {
-        if (ev.key === 'Enter') {
-            setProps({
-                n_submit: n_submit + 1,
-                ...(debounce === true && current),
-            });
-        }
-    };
-
-    const handleBlur = () => {
+    const handleChangeRaw = (raw: string, masked: string) => {
+        lastValue.current = raw;
         setProps({
-            n_blur: n_blur + 1,
-            ...(debounce === true && current),
+            value: raw,
+            maskedValue: masked,
+            // onComplete only fires when the mask becomes complete, not when it stops being complete
+            ...(raw.length < required && { complete: false }),
         });
     };
 
@@ -203,9 +129,8 @@ const MaskInput = ({
             mask={mask}
             tokens={regexTokens}
             defaultValue={value ?? ''}
-            onChangeRaw={(raw: string) => setCurrent(toState(raw))}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
+            onChangeRaw={handleChangeRaw}
+            onComplete={() => setProps({ complete: true })}
             autoComplete={autoComplete}
             {...parseFuncProps('MaskInput', others)}
         />
