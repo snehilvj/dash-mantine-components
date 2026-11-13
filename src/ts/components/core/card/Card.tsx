@@ -9,6 +9,7 @@ import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
 import React from 'react';
 import { getLoadingState } from '../../../utils/dash3';
+import CardContext from './CardContext';
 
 interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** Key of `theme.shadows` or any valid CSS value to set `box-shadow`, `none` by default */
@@ -21,21 +22,30 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     padding?: MantineSpacing;
     /** Card content */
     children?: React.ReactNode;
-    /** Card orientation @default 'vertical' */
+    /** Card orientation default 'vertical' */
     orientation?: 'horizontal' | 'vertical';
 }
 
 /** Card */
 const Card = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
+    const {
+        children,
+        setProps,
+        loading_state,
+        orientation = 'vertical',
+        ...others
+    } = props;
 
     return (
-        <MantineCard
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
-        >
-            {children}
-        </MantineCard>
+         <CardContext.Provider value={orientation}>
+            <MantineCard
+                data-dash-is-loading={getLoadingState(loading_state) || undefined}
+                orientation={orientation}
+                {...others}
+            >
+                {children}
+            </MantineCard>
+         </CardContext.Provider>
     );
 };
 
