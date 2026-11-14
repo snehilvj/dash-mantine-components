@@ -17,11 +17,8 @@ import '@mantine/core/styles.css';
 // If these components are changed to load asynchronously (like charts),
 // their styles can be imported within the component itself.
 import '@mantine/dates/styles.css';
-import '@mantine/carousel/styles.css';
 import '@mantine/nprogress/styles.css';
 import '@mantine/notifications/styles.css';
-import '@mantine/schedule/styles.css';
-import '@mantine/lightbox/styles.css';
 
 const ensureReact19 = () => {
     const major = Number(React.version.split('.')[0]);

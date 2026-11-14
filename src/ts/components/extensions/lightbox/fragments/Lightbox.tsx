@@ -2,6 +2,7 @@ import {
     Lightbox as MantineLightbox,
     LightboxSlideData,
 } from '@mantine/lightbox';
+import '@mantine/lightbox/styles.css';
 import React from 'react';
 import { getLoadingState } from '../../../../utils/dash3';
 import { parseFuncProps } from '../../../../utils/prop-functions';
