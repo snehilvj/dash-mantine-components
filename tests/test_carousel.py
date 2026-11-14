@@ -29,7 +29,7 @@ def test_001ca_carousel(dash_duo):
         prevent_initial_call=True
     )
     def play(n):
-        return {"delay": 500, "stopOnMouseEnter": True, "stopOnLastSnap": True}
+        return {"delay": 500, "stopOnLastSnap": True}
 
     dash_duo.start_server(app)
     dash_duo.wait_for_text_to_equal('#start', 'Start')
