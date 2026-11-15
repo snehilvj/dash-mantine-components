@@ -31,12 +31,13 @@ interface Props
     closeButtonProps?: object;
 }
 
-/** Drawer */
+/** Drawer - Display overlay area at any side of the screen */
 const Drawer = ({
     setProps,
     loading_state,
     opened = false,
     children,
+    keepMountedMode = 'display-none',
     ...others
 }: Props) => {
     const onClose = () => {
@@ -48,6 +49,7 @@ const Drawer = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             opened={opened}
             onClose={onClose}
+            keepMountedMode={keepMountedMode}
             {...others}
         >
             {children}

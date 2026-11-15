@@ -44,7 +44,7 @@ interface Props
     chevronIconSize?: number | string;
     /** If set to `false`, panels are unmounted when collapsed. By default, panels stay mounted when collapsed. default true */
     keepMounted?: boolean;
-    /** Controls how inactive panels content is hidden when `keepMounted` is `true`, `'activity'` – hidden with `Activity` component, `'display-none'` – hidden with `display: none` styles default 'activity' */
+    /** Controls how inactive panels content is hidden when `keepMounted` is `true`, `'activity'` – hidden with React 19 `Activity` component, `'display-none'` – hidden with `display: none`.  default 'display-none' */
     keepMountedMode?: 'activity' | 'display-none';
     /** If set, the open item cannot be collapsed by clicking it again, so one item always stays open. Only applies when `multiple` is `false`. default false */
     disableCollapse?: boolean;
@@ -59,6 +59,7 @@ const Accordion = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        keepMountedMode = 'display-none',
         ...others
     } = props;
 
@@ -69,6 +70,7 @@ const Accordion = (props: Props) => {
     return (
         <MantineAccordion
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            keepMountedMode={keepMountedMode}
             onChange={onChange}
             {...others}
         >

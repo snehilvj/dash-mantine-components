@@ -19,8 +19,8 @@ interface Props extends BoxProps, DashBaseProps {
     keepMounted?: boolean;
     /** Controls how the element is hidden when `keepMounted` is set:
      * `'activity'` – hidden with React 19 `Activity` component,
-     * `'display-none'` – hidden with `display: none` styles
-     * default 'activity'
+     * `'display-none'` – hidden with `display: none`
+     * default 'display-none'
      */
      keepMountedMode?: 'activity' | 'display-none';
      /** Collapse orientation default 'vertical' */
@@ -32,11 +32,13 @@ const Collapse = ({
     setProps,
     loading_state,
     opened = false,
+    keepMountedMode = 'display-none',
     ...others
 }: Props) => {
     return (
         <MantineCollapse
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            keepMountedMode={keepMountedMode}
             expanded={opened}
             {...others}
         />

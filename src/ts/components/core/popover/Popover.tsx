@@ -10,6 +10,7 @@ interface Props extends PopoverProps, DashBaseProps {}
 const Popover = ({
     children,
     opened = false,
+    keepMountedMode = 'display-none',
     setProps,
     loading_state,
     ...others
@@ -18,6 +19,7 @@ const Popover = ({
         <MantinePopover
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             opened={opened}
+            keepMountedMode={keepMountedMode}
             onChange={(_opened) => !_opened && setProps({ opened: false })}
             {...others}
         >

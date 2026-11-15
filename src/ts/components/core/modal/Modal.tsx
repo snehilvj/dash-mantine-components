@@ -10,12 +10,13 @@ interface Props
         Omit<StylesApiProps, 'attributes'>,
         DashBaseProps {}
 
-/** Modal */
+/** Modal - An accessible overlay dialog */
 const Modal = ({
     children,
     setProps,
     loading_state,
     opened = false,
+    keepMountedMode = 'display-none',
     ...others
 }: Props) => {
 
@@ -28,6 +29,7 @@ const Modal = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             opened={opened}
             onClose={onClose}
+            keepMountedMode={keepMountedMode}
             {...others}
         >
             {children}
