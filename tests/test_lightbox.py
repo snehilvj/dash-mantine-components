@@ -117,3 +117,62 @@ def test_002li_lightbox_labels_functions_as_props(dash_duo):
     assert thumbnail_label == "Zu Bild 2 wechseln"
 
     assert dash_duo.get_logs() == []
+
+
+def test_003li_lightbox_custom_slide_functions_as_props(dash_duo):
+    app = Dash(__name__)
+
+    custom_slides = [
+        slides[0],
+        {
+            "type": "custom",
+            "render": {"function": "renderCustomSlide"},
+            "renderThumb": {"function": "renderCustomThumb"},
+            "caption": "Custom slide",
+        },
+        slides[2],
+    ]
+
+    component = html.Div(
+        [
+            dmc.Button("Open Lightbox", id="lightbox-demo-button"),
+            dmc.Lightbox(
+                id="lightbox-custom",
+                slides=custom_slides,
+                withThumbnails=True,
+            ),
+        ]
+    )
+
+    app.layout = dmc.MantineProvider(component)
+
+    @app.callback(
+        Output("lightbox-custom", "opened"),
+        Input("lightbox-demo-button", "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def open_lightbox(_):
+        return True
+
+    dash_duo.start_server(app)
+
+    # Open the lightbox
+    dash_duo.find_element("#lightbox-demo-button").click()
+    dash_duo.wait_for_element(".mantine-Lightbox-slide")
+
+    # Navigate to the custom slide
+    dash_duo.find_element("body").send_keys(Keys.ARROW_RIGHT)
+
+    # Verify the custom slide render function
+    dash_duo.wait_for_text_to_equal(
+        ".mantine-Lightbox-slide .mantine-Text-root",
+        "This slide is active",
+    )
+
+    # Verify the custom thumbnail render function
+    thumbnail = dash_duo.find_element(
+        ".mantine-Lightbox-thumbnail:nth-child(2)"
+    )
+    assert "Custom" in thumbnail.text
+
+    assert dash_duo.get_logs() == []

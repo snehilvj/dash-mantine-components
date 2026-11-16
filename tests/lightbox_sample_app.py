@@ -12,31 +12,41 @@ _dash_renderer._set_react_version("19.2.4")
 
 app = Dash(__name__)
 
+import dash_mantine_components as dmc
+
 slides = [
     {
-        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-1.png",
-        "alt": "Image 1",
+        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-1.png"
     },
     {
-        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-2.png",
-        "alt": "Image 2",
+        "type": "custom",
+        "render": {"function": "renderCustomSlide"},
+        "renderThumb": {"function": "renderCustomThumb"},
+        "caption": "Custom slide with render function",
     },
     {
-        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-4.png",
-        "alt": "Image 3",
+        "type": "custom",
+        "render": {"function": "renderYouTube"},
+        "renderThumb": {"function": "renderYouTubeThumb"},
+        "caption": "Embedded YouTube video",
     },
     {
-        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-3.png",
-        "alt": "Image 2",
-    },
-    {
-        "type": "video",
-        "src": "https://www.w3schools.com/html/mov_bbb.mp4",
-        "poster": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-5.png",
-        "caption": "Video slide",
-        "autoPlay": True,
+        "src": "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-3.png"
     },
 ]
+
+dmc.Lightbox(
+    id="lightbox",
+    opened=False,
+    slides=slides,
+    currentIndex=0,
+    withThumbnails=True,
+)
+
+dmc.Button(
+    "Open lightbox with custom slides",
+    id="open-lightbox",
+)
 
 app.layout = dmc.MantineProvider(
     dmc.Container(

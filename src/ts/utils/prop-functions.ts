@@ -118,7 +118,7 @@ const funcPropsMap = {
         'tooltipProps',
         'getRectProps',
     ],
-    Lightbox: ['labels'],
+    Lightbox: ['labels', 'slides'],
     RadarChart: [
         'tooltipProps',
         'legendProps',
@@ -192,14 +192,20 @@ function resolveFunctionName(
 }
 
 /**
- * Resolves a prop or props object recursively.
+ * Resolves a prop or props object recursively, including arrays.
  */
 export function resolveProp(prop: any, context: Record<string, any> = {}): any {
-    // If it's a function reference object
+    // Resolve function reference objects
     if (isPlainObject(prop) && 'function' in prop) {
         return resolveFunctionName(prop, context);
     }
-    // If it's a plain object, recurse into its properties
+
+    // Resolve arrays, including objects nested inside arrays
+    if (Array.isArray(prop)) {
+        return prop.map((item) => resolveProp(item, context));
+    }
+
+    // Resolve plain objects recursively
     if (isPlainObject(prop)) {
         return Object.fromEntries(
             Object.entries(prop).map(([key, value]) => [
@@ -208,6 +214,6 @@ export function resolveProp(prop: any, context: Record<string, any> = {}): any {
             ])
         );
     }
-    // Otherwise, return as-is (primitive, array, etc.)
+
     return prop;
 }
