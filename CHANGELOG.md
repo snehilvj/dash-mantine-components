@@ -9,6 +9,10 @@
 - Added `Toggle` component. [PR 762](https://github.com/snehilvj/dash-mantine-components/pull/762) by @budescode
 - Added `Schedule` component. [PR 755](https://github.com/snehilvj/dash-mantine-components/pull/755) by @SchutteAndrew
 
+### Changed
+
+- Improved bundle loading performance by making Carousel asynchronous and moving Schedule and Lightbox stylesheets into their respective async chunks. [PR 769](https://github.com/snehilvj/dash-mantine-components/pull/769) by @AnnMarieW
+
 
 # 3.0.0
 

@@ -1,14 +1,14 @@
-import { Carousel as MantineCarousel } from '@mantine/carousel';
 import { MantineSpacing, StyleProp } from '@mantine/core';
 import { BoxProps } from 'props/box';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
-import React, { useEffect } from 'react';
-import Autoplay from 'embla-carousel-autoplay';
-import AutoScroll from 'embla-carousel-auto-scroll';
-import { getLoadingState } from '../../../utils/dash3';
+import React, { Suspense } from 'react';
 
-interface Props extends BoxProps, StylesApiProps, DashBaseProps {
+
+// eslint-disable-next-line no-inline-comments
+const LazyCarousel = React.lazy(() => import(/* webpackChunkName: "Carousel" */ './fragments/Carousel'));
+
+export interface Props extends BoxProps, StylesApiProps, DashBaseProps {
     /** <Carousel.Slide /> components */
     children?: React.ReactNode;
     /** The index of the current slide. Read only.  Use initialSlide to set the current slide */
@@ -50,45 +50,12 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps {
 }
 
 /** Carousel */
-const Carousel = ({
-    children,
-    active = 0,
-    initialSlide = 0,
-    setProps,
-    loading_state,
-    autoplay,
-    autoScroll,
-    ...others
-}: Props) => {
-    const autoplayPlugin =
-        autoplay === true
-            ? Autoplay()
-            : autoplay && typeof autoplay === 'object'
-              ? Autoplay(autoplay)
-              : null;
-
-    const autoScrollPlugin =
-        autoScroll === true
-            ? AutoScroll()
-            : autoScroll && typeof autoScroll === 'object'
-              ? AutoScroll(autoScroll)
-              : null;
-
-    useEffect(() => {
-        setProps({ active: initialSlide });
-    }, [initialSlide]);
-
+const Carousel = (props: Props) => {
     return (
-        <MantineCarousel
-            data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            {...others}
-            plugins={[autoplayPlugin, autoScrollPlugin].filter(Boolean)}
-            onSlideChange={(a) => setProps({ active: a ?? initialSlide })}
-            initialSlide={initialSlide}
-        >
-            {children}
-        </MantineCarousel>
+      <Suspense fallback={null}>
+        <LazyCarousel {...props} />
+      </Suspense>
     );
-};
+}
 
 export default Carousel;

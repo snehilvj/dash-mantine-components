@@ -5,6 +5,7 @@ import {
     ScheduleLabelsOverride,
     ScheduleLayout
 } from '@mantine/schedule';
+import '@mantine/schedule/styles.css';
 import type { DayOfWeek } from '@mantine/dates';
 import { DashBaseProps } from 'props/dash';
 import { StylesApiProps } from 'props/styles';
