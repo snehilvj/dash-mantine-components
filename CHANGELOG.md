@@ -9,6 +9,11 @@
 - Added `Toggle` component. [PR 762](https://github.com/snehilvj/dash-mantine-components/pull/762) by @budescode
 - Added `Schedule` component. [PR 755](https://github.com/snehilvj/dash-mantine-components/pull/755) by @SchutteAndrew
 
+### Changed
+
+- Changed the default `keepMountedMode` to "display-none" for components that support it. Set` keepMountedMode="activity"
+to opt in to React 19's Activity behavior. [PR 770](https://github.com/snehilvj/dash-mantine-components/pull/770) by @AnnMarieW
+
 ### Fixed
 
 - Fix `CardSection` styling for horizontal and vertical `Card` layouts. [PR 766](https://github.com/snehilvj/dash-mantine-components/pull/766) by @AnnMarieW

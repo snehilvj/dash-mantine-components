@@ -38,7 +38,7 @@ interface Props
     inverted?: boolean;
     /** If set to `false`, `Tabs.Panel` content will be unmounted when the associated tab is not active, `true` by default */
     keepMounted?: boolean;
-    /** Controls how inactive tabs content is hidden when `keepMounted` is `true`, `'activity'` – hidden with `Activity` component, `'display-none'` – hidden with `display: none` styles @default 'activity' */
+    /** Controls how inactive tabs content is hidden when `keepMounted` is `true`, `'activity'` – hidden with React 19 `Activity` component, `'display-none'` – hidden with `display: none`. default 'display-none' */
     keepMountedMode?: 'activity' | 'display-none';
     /** Determines whether active item text color should depend on `background-color` of the indicator. If luminosity of the `color` prop is less than `theme.luminosityThreshold`, then `theme.white` will be used for text color, otherwise `theme.black`. Overrides `theme.autoContrast`. Only applicable when `variant="pills"` */
     autoContrast?: boolean;
@@ -53,6 +53,7 @@ const Tabs = (props: Props) => {
         persistence,
         persisted_props,
         persistence_type,
+        keepMountedMode = 'display-none',
         ...others
     } = props;
 
@@ -63,6 +64,7 @@ const Tabs = (props: Props) => {
     return (
         <MantineTabs
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            keepMountedMode={keepMountedMode}
             onChange={onChange}
             {...others}
         >
