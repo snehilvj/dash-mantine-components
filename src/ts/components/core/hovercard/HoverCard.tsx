@@ -43,13 +43,20 @@ interface Props extends Omit<PopoverProps, 'opened'>, DashBaseProps {
     returnFocus?: boolean;
 }
 
-/** HoverCard */
+/** HoverCard - Display popover section when target element is hovered */
 const HoverCard = (props: Props) => {
-    const { children, setProps, loading_state, ...others } = props;
+    const {
+        children,
+        setProps,
+        loading_state,
+        keepMountedMode = 'display-none',
+        ...others
+    } = props;
 
     return (
         <MantineHoverCard
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
+            keepMountedMode={keepMountedMode}
             {...others}
         >
             {React.Children.map(children, (child: any, index) => {
