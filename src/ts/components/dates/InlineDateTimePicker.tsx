@@ -56,7 +56,11 @@ interface Props
     type?: "range" | "default";
 }
 
-/** InlineDateTimePicker */
+/**
+ * @name InlineDateTimePicker
+ * @description Renders a calendar with time picker inline (not in a popup), supporting single or range selection.
+ * @see {@link https://www.dash-mantine-components.com/components/inlinedatetimepicker Dash Mantine Components Docs}
+ */
 const InlineDateTimePicker = ({
     setProps,
     loading_state,
