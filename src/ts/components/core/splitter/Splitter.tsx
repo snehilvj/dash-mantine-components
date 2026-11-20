@@ -23,8 +23,9 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps, PersistenceProp
      */
     children?: React.ReactNode;
     /**
-     * Controlled pane sizes. Updated on release after dragging and immediately
+     * Pane sizes. Updated on release after dragging and immediately
      * for keyboard resizing, collapse/expand, and double-click reset.
+     * Each value keeps the unit it was declared in (number/`%` flexible, `px`/`rem` fixed).
      */
     sizes?: SplitterPaneSize[];
     /** Indices of collapsed panes. Set this prop to collapse or expand collapsible panes, restoring their previous sizes. Updated when panes are collapsed or expanded. */
@@ -35,15 +36,15 @@ interface Props extends BoxProps, StylesApiProps, DashBaseProps, PersistenceProp
     redistribute?: 'nearest' | 'equal';
     /** Restore adjacent panes to their default ratio when a handle is double-clicked. */
     resetOnDoubleClick?: boolean;
-    /** Keyboard arrow step. Numbers and percentages are relative; px and rem are fixed. */
+    /** Keyboard arrow step. Numbers and percentages are relative; px and rem are fixed. default 1 */
     step?: SplitterStep;
-    /** Keyboard step when Shift is held. */
+    /** Keyboard step when Shift is held. A number or a CSS value with units, such as "50%", "200px", or "10rem". Default 10 */
     shiftStep?: SplitterStep;
     /** Key of theme.colors or any valid CSS color for the separator line. */
-    handleColor?: MantineColor;
+    handleColor?: string;
     /** Custom icon displayed in the handle thumb. */
     handleIcon?: React.ReactNode;
-    /** Separator line thickness. */
+    /** CSS value for separator line thickness between panes Default value: 2. */
     lineSize?: number | string;
     /** Determines whether the handle thumb is displayed, true by default. */
     withHandle?: boolean;

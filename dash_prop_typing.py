@@ -22,6 +22,9 @@ def str_num_prop(*_):
 def str_prop(*_):
     return "typing.Optional[str]"
 
+def list_of_str_num_prop(*_):
+    return "typing.Sequence[typing.Union[str, NumberType]]"
+
 
 def size_prop(type_info, component_name, prop_name):
     str_or_num = [
@@ -225,6 +228,19 @@ custom_props = {
     "Slider": {
         "domain": number_range_prop,
         "marks": list_of_dicts_prop,
+        **default_types,
+    },
+    "Splitter": {
+        "sizes": list_of_str_num_prop,
+        "step": str_num_prop,
+        "shiftStep": str_num_prop,
+        **default_types,
+    },
+    "SplitterPane": {
+        "min": str_num_prop,
+        "max": str_num_prop,
+        "defaultSize": str_num_prop,
+        "collapseThreshold": str_num_prop,
         **default_types,
     },
     "Stepper": {
