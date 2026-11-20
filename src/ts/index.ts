@@ -164,6 +164,7 @@ import DateInput from './components/dates/DateInput';
 import DatePicker from './components/dates/DatePicker';
 import DatePickerInput from './components/dates/DatePickerInput';
 import DateTimePicker from './components/dates/DateTimePicker';
+import InlineDateTimePicker from './components/dates/InlineDateTimePicker';
 import DatesProvider from './components/dates/DatesProvider';
 import MiniCalendar from './components/dates/MiniCalendar';
 import MonthPickerInput from './components/dates/MonthPickerInput';
@@ -271,6 +272,7 @@ export {
     HoverCard,
     HoverCardDropdown,
     HoverCardTarget,
+    InlineDateTimePicker,
     Image,
     Indicator,
     InputWrapper,
