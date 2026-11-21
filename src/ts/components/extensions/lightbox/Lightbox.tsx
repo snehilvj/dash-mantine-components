@@ -20,6 +20,8 @@ export type LightboxSlide =
           alt?: string;
           /** Custom thumbnail URL, `src` is used if not set */
           thumbSrc?: string;
+          /** Render function for custom thumbnail content, takes priority over `thumbSrc` */
+          renderThumb?: any;
           /** Caption displayed below the slide */
           caption?: string;
           /** Image `srcset` attribute for responsive images */
@@ -38,6 +40,8 @@ export type LightboxSlide =
           label?: string;
           /** Custom thumbnail URL, `poster` is used if not set */
           thumbSrc?: string;
+          /** Render function for custom thumbnail content, takes priority over `thumbSrc` */
+          renderThumb?: any;
           /** Caption displayed below the slide */
           caption?: string;
           /** Whether the video should auto-play when the slide becomes active */
@@ -57,6 +61,19 @@ export type LightboxSlide =
               /** Whether the track should be enabled by default */
               default?: boolean;
           }[];
+      }
+    | {
+          /** Slide type, must be `'custom'`. The children of the Lightbox component
+           * are rendered as the content of every custom slide. */
+          type: 'custom';
+          /** Render function for custom slide content, receives `{ active }` prop */
+          render: any;
+          /** Custom thumbnail URL */
+          thumbSrc?: string;
+          /** Render function for custom thumbnail content, takes priority over `thumbSrc` */
+          renderThumb?: any;
+          /** Caption displayed below the slide */
+          caption?: string;
       };
 
 export interface Props extends BoxProps, StylesApiProps, DashBaseProps {

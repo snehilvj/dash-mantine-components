@@ -12,6 +12,12 @@ import { TransitionProps } from './transition';
 export interface ModalBaseProps extends BoxProps {
     /** If set modal/drawer will not be unmounted from the DOM when it is hidden, `display: none` styles will be added instead, `false` by default */
     keepMounted?: boolean;
+    /** Controls how the element is hidden when `keepMounted` is set:
+     * `'activity'` – hidden with React 19 `Activity` component,
+     * `'display-none'` – hidden with `display: none`
+     * default 'display-none'
+     */
+    keepMountedMode?: 'activity' | 'display-none';
     /** Determines whether modal/drawer is opened */
     opened: boolean;
     /** Determines whether scroll should be locked when `opened={true}`, `true` by default */

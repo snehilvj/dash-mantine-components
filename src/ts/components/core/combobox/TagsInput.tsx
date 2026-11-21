@@ -66,6 +66,7 @@ const TagsInput = ({
     data,
     searchValue,
     value,
+    comboboxProps,
     ...others
 }: Props) => {
     if (value != null && !Array.isArray(value)) {
@@ -106,6 +107,10 @@ const TagsInput = ({
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
+            comboboxProps={{
+                keepMountedMode: 'display-none',
+                ...comboboxProps,
+            }}
         />
     );
 };
