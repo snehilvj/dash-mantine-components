@@ -106,3 +106,41 @@ def test_002mi_mask_input_tokens_transform(dash_duo):
 
     assert dash_duo.get_logs() == []
 
+
+def test_003mi_mask_input_submit_blur(dash_duo):
+    app = Dash(__name__)
+
+    app.layout = dmc.MantineProvider(
+        [
+            dmc.MaskInput(id="phone", mask="(999) 999-9999", label="Phone"),
+            html.Div(id="out"),
+        ]
+    )
+
+    @callback(
+        Output("out", "children"),
+        Input("phone", "n_submit"),
+        Input("phone", "n_blur"),
+    )
+    def show(n_submit, n_blur):
+        return f"{n_submit}|{n_blur}"
+
+    dash_duo.start_server(app)
+    dash_duo.wait_for_element("#phone")
+
+    # event counters are unset until the first event fires
+    dash_duo.wait_for_text_to_equal("#out", "None|None")
+
+    phone = dash_duo.find_element("#phone")
+    phone.send_keys("5551234567")
+
+    # Enter increments n_submit
+    phone.send_keys(Keys.ENTER)
+    dash_duo.wait_for_text_to_equal("#out", "1|None")
+
+    # losing focus increments n_blur
+    phone.send_keys(Keys.TAB)
+    dash_duo.wait_for_text_to_equal("#out", "1|1")
+
+    assert dash_duo.get_logs() == []
+

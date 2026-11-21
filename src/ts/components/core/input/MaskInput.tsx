@@ -38,6 +38,10 @@ interface Props
     transform?: any;
     /** Input placeholder */
     placeholder?: string;
+    /** Number of times the input has lost focus */
+    n_blur?: number;
+    /** Number of times Enter has been pressed while the input is focused */
+    n_submit?: number;
     /** (string; default "off") Enables the browser to attempt autocompletion based on user history.  For more information, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete  */
     autoComplete?: string;
 }
@@ -52,6 +56,8 @@ const MaskInput = ({
     value = '',
     maskedValue,
     complete,
+    n_submit = 0,
+    n_blur = 0,
     autoComplete = 'off',
     mask,
     tokens,
@@ -109,6 +115,16 @@ const MaskInput = ({
         });
     };
 
+    const handleKeyDown = (ev) => {
+        if (ev.key === 'Enter') {
+            setProps({ n_submit: n_submit + 1 });
+        }
+    };
+
+    const handleBlur = () => {
+        setProps({ n_blur: n_blur + 1 });
+    };
+
     return (
         <MantineMaskInput
             key={remountKey}
@@ -121,6 +137,8 @@ const MaskInput = ({
             separate={separate}
             defaultValue={value ?? ''}
             onChangeRaw={handleChangeRaw}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             autoComplete={autoComplete}
             {...parseFuncProps('MaskInput', others)}
         />
