@@ -53,6 +53,7 @@ import RingProgress from './components/core/RingProgress';
 import RollingNumber from './components/core/RollingNumber';
 import ScrollArea from './components/core/scrollarea/ScrollArea';
 import ScrollAreaAutosize from './components/core/scrollarea/ScrollAreaAutosize';
+import Scroller from './components/core/scroller/Scroller';
 import SegmentedControl from './components/core/SegmentedControl';
 import SimpleGrid from './components/core/SimpleGrid';
 import Skeleton from './components/core/Skeleton';
@@ -337,6 +338,7 @@ export {
     ScatterChart,
     ScrollArea,
     ScrollAreaAutosize,
+    Scroller,
     SegmentedControl,
     Select,
     SimpleGrid,
