@@ -1,5 +1,5 @@
 import { MaskInput as MantineMaskInput } from '@mantine/core';
-import { useDidUpdate } from '@mantine/hooks';
+import { isMaskComplete, useDidUpdate } from '@mantine/hooks';
 import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { __BaseInputProps } from 'props/input';
@@ -42,23 +42,6 @@ interface Props
     autoComplete?: string;
 }
 
-const DEFAULT_TOKENS = ['9', 'a', 'A', '*', '#'];
-
-// Number of token slots before the first `?`, i.e. the slots that must be filled
-const countRequired = (mask: string, tokenKeys: string[]): number => {
-    let count = 0;
-    for (let i = 0; i < mask.length; i++) {
-        if (mask[i] === '\\') {
-            i++;
-        } else if (mask[i] === '?') {
-            break;
-        } else if (tokenKeys.includes(mask[i])) {
-            count++;
-        }
-    }
-    return count;
-};
-
 /** MaskInput - Input with a fixed format pattern such as a phone number, date or card number */
 const MaskInput = ({
     setProps,
@@ -72,6 +55,8 @@ const MaskInput = ({
     autoComplete = 'off',
     mask,
     tokens,
+    slotChar,
+    separate,
     inputProps,
     ...others
 }: Props) => {
@@ -80,10 +65,14 @@ const MaskInput = ({
               Object.entries(tokens).map(([k, v]) => [k, new RegExp(v)])
           )
         : undefined;
-    const required = countRequired(mask ?? '', [
-        ...DEFAULT_TOKENS,
-        ...Object.keys(tokens ?? {}),
-    ]);
+
+    // options for isMaskComplete, mirroring what is passed to the input
+    const maskOptions = {
+        mask: mask ?? '',
+        tokens: regexTokens,
+        slotChar,
+        separate,
+    };
 
     const inputRef = useRef<HTMLInputElement>(null);
     const lastValue = useRef(value ?? '');
@@ -97,13 +86,14 @@ const MaskInput = ({
         }
     }, [value]);
 
-    // onChangeRaw / onComplete don't fire for a value set by Dash, so report
+    // onChangeRaw doesn't fire for a value set by Dash, so report
     // maskedValue and complete after mount and after every remount
     useEffect(() => {
         if (!inputRef.current || (remountKey === 0 && !value)) return;
+        const masked = inputRef.current.value;
         const state = {
-            maskedValue: inputRef.current.value,
-            complete: required > 0 && (value ?? '').length >= required,
+            maskedValue: masked,
+            complete: isMaskComplete(masked, maskOptions),
         };
         if (state.maskedValue !== maskedValue || state.complete !== complete) {
             setProps(state);
@@ -115,8 +105,7 @@ const MaskInput = ({
         setProps({
             value: raw,
             maskedValue: masked,
-            // onComplete only fires when the mask becomes complete, not when it stops being complete
-            ...(raw.length < required && { complete: false }),
+            complete: isMaskComplete(masked, maskOptions),
         });
     };
 
@@ -128,9 +117,10 @@ const MaskInput = ({
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
             mask={mask}
             tokens={regexTokens}
+            slotChar={slotChar}
+            separate={separate}
             defaultValue={value ?? ''}
             onChangeRaw={handleChangeRaw}
-            onComplete={() => setProps({ complete: true })}
             autoComplete={autoComplete}
             {...parseFuncProps('MaskInput', others)}
         />
