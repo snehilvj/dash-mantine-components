@@ -18,6 +18,12 @@ export interface __PopoverProps {
     offset?: number | FloatingAxesOffsets;
     /** If set dropdown will not be unmounted from the DOM when it is hidden, `display: none` styles will be added instead */
     keepMounted?: boolean;
+     /** Controls how the element is hidden when `keepMounted` is set:
+     * `'activity'` – hidden with React 19 `Activity` component,
+     * `'display-none'` – hidden with `display: none`
+     * default 'display-none'
+     */
+    keepMountedMode?: 'activity' | 'display-none';
     /** Props passed down to the `Transition` component that used to animate dropdown presence, use to configure duration and animation type, `{ duration: 150, transition: 'fade' }` by default */
     transitionProps?: TransitionProps;
     /** Dropdown width, or `'target'` to make dropdown width the same as target element, `'max-content'` by default */

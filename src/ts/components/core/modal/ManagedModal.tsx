@@ -3,7 +3,6 @@ import { DashBaseProps } from 'props/dash';
 import { ModalProps } from 'props/modal';
 import { StylesApiProps } from 'props/styles';
 import React, { useEffect, useState } from 'react';
-import { getLoadingState } from '../../../utils/dash3';
 
 interface Props
     extends Omit<DashBaseProps, 'id'>,

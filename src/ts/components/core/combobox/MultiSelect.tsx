@@ -64,7 +64,7 @@ interface Props
     clearSectionMode?: ClearSectionMode;
 }
 
-/** MultiSelect */
+/** MultiSelect - Custom searchable multi select */
 const MultiSelect = ({
     setProps,
     persistence,
@@ -76,6 +76,7 @@ const MultiSelect = ({
     n_blur = 0,
     data = [],
     value = [],
+    comboboxProps,
     ...others
 }: Props) => {
     if (value != null && !Array.isArray(value)) {
@@ -150,6 +151,10 @@ const MultiSelect = ({
                 onChange={setSelected}
                 value={selected}
                 onSearchChange={handleSearchChange}
+                comboboxProps={{
+                    keepMountedMode: 'display-none',
+                    ...comboboxProps,
+                }}
             />
         </div>
     );
