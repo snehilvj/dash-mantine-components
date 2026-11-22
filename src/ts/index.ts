@@ -22,6 +22,10 @@ import Code from './components/core/Code';
 import Collapse from './components/core/Collapse';
 import ColorSchemeToggle from './components/core/ColorSchemeToggle';
 import Container from './components/core/Container';
+import DataList from './components/core/data-list/DataList';
+import DataListItem from './components/core/data-list/DataListItem';
+import DataListItemLabel from './components/core/data-list/DataListItemLabel';
+import DataListItemValue from './components/core/data-list/DataListItemValue';
 import Divider from './components/core/Divider';
 import Drawer from './components/core/drawer/Drawer';
 import DrawerStack from './components/core/drawer/DrawerStack';
@@ -249,6 +253,10 @@ export {
     ColorPicker,
     CompositeChart,
     Container,
+    DataList,
+    DataListItem,
+    DataListItemLabel,
+    DataListItemValue,
     DateInput,
     DatePicker,
     DatePickerInput,

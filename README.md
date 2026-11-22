@@ -65,6 +65,46 @@ if __name__ == "__main__":
     app.run_server(debug=True)
 ```
 
+## DataList
+
+Use `DataList` to display label-value pairs with semantic `dl`, `dt`, and `dd`
+elements. Compose each `DataListItem` from a `DataListItemLabel` and a
+`DataListItemValue`; both accept text or Dash components:
+
+```python
+dmc.DataList(
+    [
+        dmc.DataListItem([
+            dmc.DataListItemLabel("Name"),
+            dmc.DataListItemValue("John Doe"),
+        ]),
+        dmc.DataListItem([
+            dmc.DataListItemLabel("Email"),
+            dmc.DataListItemValue(
+                dmc.Anchor("john@example.com", href="mailto:john@example.com")
+            ),
+        ]),
+        dmc.DataListItem([
+            dmc.DataListItemLabel("Role"),
+            dmc.DataListItemValue(dmc.Badge("Software Engineer")),
+        ]),
+    ],
+    size="sm",
+    orientation="horizontal",
+    withDivider=True,
+    gap="sm",
+    labelWidth=120,
+)
+```
+
+Place the list inside a `MantineProvider`. Set `orientation="vertical"` to stack
+labels above values. `size` accepts `"xs"` through `"xl"` (default `"sm"`).
+`gap` accepts theme spacing keys, numbers, or CSS lengths (default `"sm"`), and
+`labelWidth` accepts a number in pixels or a CSS length (default `120`).
+Dividers are off by default. All four components support standard style props,
+`className`, `classNames`, `styles`, and `unstyled`. The Styles API selectors are
+`root`, `item`, `itemLabel`, and `itemValue`.
+
 ## 📚 Documentation 
 
 For detailed information on how to use this project, check out the [Documentation](https://dash-mantine-components.com). You'll find guides, API references, and examples to help you get started!
