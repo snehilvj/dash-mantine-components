@@ -8,7 +8,7 @@
 - Added `RollingNumber` component. [PR 758](https://github.com/snehilvj/dash-mantine-components/pull/758) by @budescode
 - Added `Toggle` component. [PR 762](https://github.com/snehilvj/dash-mantine-components/pull/762) by @budescode
 - Added `Schedule` component. [PR 755](https://github.com/snehilvj/dash-mantine-components/pull/755) by @SchutteAndrew
-- Added `TreeSelect` component. [PR](https://github.com/snehilvj/dash-mantine-components/pull/<number>) by @odorikakeru
+- Added `TreeSelect` component. [PR 775](https://github.com/snehilvj/dash-mantine-components/pull/775) by @odorikakeru
 
 ### Changed
 
