@@ -54,7 +54,7 @@ interface Props
     clearSectionMode?: ClearSectionMode;
 }
 
-/** Select */
+/** Select - Custom searchable select */
 const Select = ({
     setProps,
     persistence,
@@ -68,6 +68,7 @@ const Select = ({
     searchValue,
     value,
     clearSearchOnFocus = false,
+    comboboxProps,
     ...others
 }: Props) => {
     const [selected, setSelected] = useState(value);
@@ -146,6 +147,10 @@ const Select = ({
             value={selected}
             searchValue={searchVal}
             onSearchChange={setSearchVal}
+            comboboxProps={{
+                keepMountedMode: 'display-none',
+                ...comboboxProps,
+            }}
         />
     );
 };

@@ -53,7 +53,9 @@ async_resources = [
     "InlineCodeHighlight",
     "RichTextEditor",
     "Heatmap",
-    "FunnelChart"
+    "FunnelChart",
+    "Schedule",
+    "Lightbox"
 ]
 async_chunks = [f"async-{async_resource}" for async_resource in async_resources]
 

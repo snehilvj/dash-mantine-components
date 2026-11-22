@@ -50,6 +50,7 @@ import Paper from './components/core/Paper';
 import Pill from './components/core/Pill';
 import Rating from './components/core/Rating';
 import RingProgress from './components/core/RingProgress';
+import RollingNumber from './components/core/RollingNumber';
 import ScrollArea from './components/core/scrollarea/ScrollArea';
 import ScrollAreaAutosize from './components/core/scrollarea/ScrollAreaAutosize';
 import SegmentedControl from './components/core/SegmentedControl';
@@ -86,6 +87,7 @@ import ButtonGroup from './components/core/button/ButtonGroup';
 import CopyButton from './components/core/button/CopyButton';
 import CustomCopyButton from './components/core/button/CustomCopyButton';
 import UnstyledButton from './components/core/button/UnstyledButton';
+import Toggle from './components/core/button/Toggle';
 import Card from './components/core/card/Card';
 import CardSection from './components/core/card/CardSection';
 import Checkbox from './components/core/checkbox/Checkbox';
@@ -175,6 +177,7 @@ import CarouselSlide from './components/extensions/carousel/CarouselSlide';
 import CodeHighlight from './components/extensions/codehighlight/CodeHighlight';
 import CodeHighlightTabs from './components/extensions/codehighlight/CodeHighlightTabs';
 import InlineCodeHighlight from './components/extensions/codehighlight/InlineCodeHighlight';
+import Lightbox from './components/extensions/lightbox/Lightbox';
 import Notification from './components/extensions/notifications/Notification';
 import NotificationProvider from './components/extensions/notifications/NotificationProvider';
 import NotificationContainer, {
@@ -186,6 +189,7 @@ import MantineProvider from './components/styles/MantineProvider';
 import ChipGroup from './components/core/chip/ChipGroup';
 import RichTextEditor from './components/extensions/richtexteditor/RichTextEditor';
 import { getEditor } from './utils/editorRegistry';
+import Schedule from './components/extensions/schedule/Schedule';
 import Typography from './components/styles/Typography';
 import DirectionProvider from './components/styles/DirectionProvider';
 import TableOfContents from "./components/core/TableOfContents"
@@ -288,6 +292,7 @@ export {
     MenuItem,
     MenuLabel,
     MenuTarget,
+    Schedule,
     SubMenu,
     SubMenuDropdown,
     SubMenuItem,
@@ -303,6 +308,7 @@ export {
     Notification,
     NotificationProvider,
     NotificationContainer,
+    Lightbox,
     NumberFormatter,
     NumberInput,
     Overlay,
@@ -327,6 +333,7 @@ export {
     RangeSlider,
     Rating,
     RingProgress,
+    RollingNumber,
     SemiCircleProgress,
     ScatterChart,
     ScrollArea,
@@ -371,6 +378,7 @@ export {
     Timeline,
     TimelineItem,
     Title,
+    Toggle,
     Tree,
     TreeSelect,
     Tooltip,

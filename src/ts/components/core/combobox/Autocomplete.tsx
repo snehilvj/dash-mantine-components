@@ -40,7 +40,7 @@ interface Props
     clearSectionMode?: ClearSectionMode;
 }
 
-/** Autocomplete */
+/** Autocomplete user input with any list of options */
 const Autocomplete = ({
     setProps,
     loading_state,
@@ -52,6 +52,7 @@ const Autocomplete = ({
     n_blur = 0,
     data = [],
     value = '',
+    comboboxProps,
     ...others
 }: Props) => {
     const [autocomplete, setAutocomplete] = useState(value);
@@ -115,6 +116,10 @@ const Autocomplete = ({
             onBlur={handleBlur}
             onChange={setAutocomplete}
             value={autocomplete}
+            comboboxProps={{
+                keepMountedMode: 'display-none',
+                ...comboboxProps,
+            }}
         />
     );
 };
