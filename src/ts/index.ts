@@ -28,6 +28,8 @@ import DrawerStack from './components/core/drawer/DrawerStack';
 import ManagedDrawer from './components/core/drawer/ManagedDrawer';
 import Fieldset from './components/core/Fieldset';
 import Flex from './components/core/Flex';
+import FloatingWindow from './components/core/floating-window/FloatingWindow';
+import FloatingWindowResizeHandle from './components/core/floating-window/FloatingWindowResizeHandle';
 import FunnelChart from './components/charts/FunnelChart';
 import Group from './components/core/Group';
 import Heatmap from './components/charts/Heatmap';
@@ -261,6 +263,8 @@ export {
     ManagedDrawer,
     Fieldset,
     Flex,
+    FloatingWindow,
+    FloatingWindowResizeHandle,
     FloatingTooltip,
     FunnelChart,
     Grid,

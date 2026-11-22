@@ -65,6 +65,54 @@ if __name__ == "__main__":
     app.run_server(debug=True)
 ```
 
+## FloatingWindow
+
+`FloatingWindow` renders a draggable, fixed-position panel. Place it inside a
+`MantineProvider`:
+
+```python
+dmc.FloatingWindow(
+    [
+        dmc.Text("Drag this header", className="window-header", fw=700),
+        dmc.Text("Floating dashboard content"),
+        dmc.FloatingWindowResizeHandle(
+            "Resize", pos="absolute", bottom=0, right=0, p=4,
+            style={"cursor": "nwse-resize"},
+        ),
+    ],
+    id="floating-window",
+    initialPosition={"top": 80, "left": 80},
+    dragHandleSelector=".window-header",
+    constrainToViewport=True,
+    constrainOffset=16,
+    dimensions={
+        "initialWidth": 320, "initialHeight": 200,
+        "minWidth": 200, "minHeight": 120,
+        "maxWidth": 600, "maxHeight": 400,
+    },
+    p="md",
+    shadow="md",
+    withBorder=True,
+)
+```
+
+- Set `enabled=False` to disable dragging, or `axis="x"` / `"y"` to lock movement.
+- Use `excludeDragHandleSelector` to exclude buttons or inputs from dragging.
+- Set `position` from a callback to move the window, for example
+  `{"bottom": 20, "right": 20}`. `initialPosition` sets its starting position.
+- Read `currentPosition` (`{"x": ..., "y": ...}`) after dragging or a programmatic
+  move. Read `currentSize` (`{"width": ..., "height": ...}`) after pointer resizing or
+  each keyboard resize. These are output props, not position/size controls.
+- `dragging` and `resizing` report pointer interaction start/end. Position and size
+  are reported on release to avoid a server callback on every pointer movement.
+- The resize handle requires `dimensions` with width and/or height settings.
+  Arrow keys resize by 10 pixels; Home/End select minimum/maximum dimensions.
+  Resize also respects viewport constraints. The handle is unstyled: provide
+  its content, position, and appearance.
+- `withinPortal=False` renders inline instead of in a portal. `portalProps`
+  accepts a CSS selector `target` and `reuseTargetNode`. The default `zIndex` is
+  400. Standard Box, Paper, and Styles API props are supported.
+
 ## 📚 Documentation 
 
 For detailed information on how to use this project, check out the [Documentation](https://dash-mantine-components.com). You'll find guides, API references, and examples to help you get started!
