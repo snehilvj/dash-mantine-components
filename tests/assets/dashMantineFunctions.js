@@ -95,6 +95,14 @@ dmcfuncs.lightboxThumbnailLabel = function (index) {
 // MaskInput transform: uppercase every typed character
 dmcfuncs.toUpper = (char) => char.toUpperCase();
 
+// MaskInput modify: switch to the 15-digit Amex format when the number starts with 34 or 37
+dmcfuncs.cardMask = (value) => {
+    if (/^3[47]/.test(value)) {
+        return { mask: '9999 999999 99999' };
+    }
+    return undefined;
+};
+
 dmcfuncs.renderCustomSlide = function ({ active }) {
     return React.createElement(
         dmc.Center,

@@ -107,7 +107,52 @@ def test_002mi_mask_input_tokens_transform(dash_duo):
     assert dash_duo.get_logs() == []
 
 
-def test_003mi_mask_input_submit_blur(dash_duo):
+def test_003mi_mask_input_modify(dash_duo):
+    app = Dash(__name__, assets_folder="../assets")
+
+    app.layout = dmc.MantineProvider(
+        [
+            # Amex: modify swaps to the 15-digit 4-6-5 mask once the prefix matches
+            dmc.MaskInput(
+                id="amex",
+                mask="9999 9999 9999 9999",
+                modify={"function": "cardMask"},
+            ),
+            # Non-Amex: modify returns undefined, the default 16-digit mask stays
+            dmc.MaskInput(
+                id="visa",
+                mask="9999 9999 9999 9999",
+                modify={"function": "cardMask"},
+            ),
+            html.Div(id="out"),
+        ]
+    )
+
+    @callback(
+        Output("out", "children"),
+        Input("amex", "maskedValue"),
+        Input("amex", "complete"),
+        Input("visa", "maskedValue"),
+        Input("visa", "complete"),
+    )
+    def show(amex_masked, amex_complete, visa_masked, visa_complete):
+        return f"{amex_masked}|{amex_complete}||{visa_masked}|{visa_complete}"
+
+    dash_duo.start_server(app)
+    dash_duo.wait_for_element("#amex")
+
+    dash_duo.find_element("#amex").send_keys("371234567890123")
+    dash_duo.find_element("#visa").send_keys("4111111111111111")
+
+    dash_duo.wait_for_text_to_equal(
+        "#out",
+        "3712 345678 90123|True||4111 1111 1111 1111|True",
+    )
+
+    assert dash_duo.get_logs() == []
+
+
+def test_004mi_mask_input_submit_blur(dash_duo):
     app = Dash(__name__)
 
     app.layout = dmc.MantineProvider(

@@ -36,6 +36,8 @@ interface Props
     separate?: boolean;
     /** A function to transform each character before validation and insertion, e.g. to uppercase. See https://www.dash-mantine-components.com/functions-as-props */
     transform?: any;
+    /** A function called before masking on each keystroke, can return overrides for mask options. See https://www.dash-mantine-components.com/functions-as-props */
+    modify?: any;
     /** Input placeholder */
     placeholder?: string;
     /** Number of times the input has lost focus */
