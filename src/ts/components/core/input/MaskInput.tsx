@@ -74,12 +74,28 @@ const MaskInput = ({
           )
         : undefined;
 
-    // options for isMaskComplete, mirroring what is passed to the input
-    const maskOptions = {
-        mask: mask ?? '',
-        tokens: regexTokens,
-        slotChar,
-        separate,
+    const resolvedFuncs = parseFuncProps('MaskInput', others);
+    const resolvedModify = resolvedFuncs.modify;
+
+    // isMaskComplete(masked, { modify }) internally calls modify("") with an empty
+    // raw value, so a dynamic mask that depends on the prefix would never see it.
+    // Wrap resolvedModify so it sees the current raw value.
+    const checkComplete = (masked: string, raw: string): boolean => {
+        const opts = resolvedModify
+            ? {
+                  mask: mask ?? '',
+                  tokens: regexTokens,
+                  slotChar,
+                  separate,
+                  modify: () => resolvedModify(raw),
+              }
+            : {
+                  mask: mask ?? '',
+                  tokens: regexTokens,
+                  slotChar,
+                  separate,
+              };
+        return isMaskComplete(masked, opts);
     };
 
     const inputRef = useRef<HTMLInputElement>(null);
@@ -101,7 +117,7 @@ const MaskInput = ({
         const masked = inputRef.current.value;
         const state = {
             maskedValue: masked,
-            complete: isMaskComplete(masked, maskOptions),
+            complete: checkComplete(masked, value ?? ''),
         };
         if (state.maskedValue !== maskedValue || state.complete !== complete) {
             setProps(state);
@@ -113,7 +129,7 @@ const MaskInput = ({
         setProps({
             value: raw,
             maskedValue: masked,
-            complete: isMaskComplete(masked, maskOptions),
+            complete: checkComplete(masked, raw),
         });
     };
 
@@ -142,7 +158,7 @@ const MaskInput = ({
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             autoComplete={autoComplete}
-            {...parseFuncProps('MaskInput', others)}
+            {...resolvedFuncs}
         />
     );
 };
