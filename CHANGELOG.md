@@ -17,6 +17,7 @@ to opt in to React 19's Activity behavior. [PR 770](https://github.com/snehilvj/
 ### Fixed
 
 - Fix `CardSection` styling for horizontal and vertical `Card` layouts. [PR 766](https://github.com/snehilvj/dash-mantine-components/pull/766) by @AnnMarieW
+- Edge case: When React v19 is not set *and* components are not wrapped in a `MantineProvider`, an actionable error message is now properly displayed [PR 780](https://github.com/snehilvj/dash-mantine-components/pull/780) by @odorikakeru
 
 
 # 3.0.0
