@@ -1,10 +1,11 @@
 import os
-from pathlib import Path
 import subprocess
 import sys
+from pathlib import Path
 
 import pytest
 from dash import Dash, Input, Output, _dash_renderer
+
 import dash_mantine_components as dmc
 
 REACT_ERROR = (

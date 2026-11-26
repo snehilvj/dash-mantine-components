@@ -17,7 +17,7 @@ to opt in to React 19's Activity behavior. [PR 770](https://github.com/snehilvj/
 ### Fixed
 
 - Fix `CardSection` styling for horizontal and vertical `Card` layouts. [PR 766](https://github.com/snehilvj/dash-mantine-components/pull/766) by @AnnMarieW
-- Show an actionable Dash frontend error when DMC v3 is loaded with React older than `19.2.4`. The browser-loaded React version is checked once during bundle initialization, with no render-time compatibility guard on the supported path.
+- Edge case: When React v19 is not set *and* components are not wrapped in a `MantineProvider`, an actionable error message is now properly displayed [PR 780](https://github.com/snehilvj/dash-mantine-components/pull/780) by @odorikakeru
 
 
 # 3.0.0

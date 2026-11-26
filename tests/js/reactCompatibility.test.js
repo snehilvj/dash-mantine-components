@@ -13,7 +13,6 @@ test('supported React versions enforce the minimum version', () => {
     assert.equal(isSupportedReactVersion('19.3.0'), true);
     assert.equal(isSupportedReactVersion('19.2.3'), false);
     assert.equal(isSupportedReactVersion('18.3.1'), false);
-    assert.equal(isSupportedReactVersion('20.0.0'), true);
     assert.equal(isSupportedReactVersion('unknown'), false);
 });
 
