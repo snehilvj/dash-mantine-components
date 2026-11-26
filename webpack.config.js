@@ -57,7 +57,7 @@ const jsxRuntimeExternal = `var (window.ReactJSXRuntime || (window.ReactJSXRunti
 module.exports = function (env, argv) {
     const mode = (argv && argv.mode) || "production";
 
-    const entry = [path.join(__dirname, "src/ts/index.ts")];
+    const entry = [path.join(__dirname, "src/ts/index.js")];
 
     const output = {
         path: path.join(__dirname, dashLibraryName),
