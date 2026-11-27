@@ -184,6 +184,9 @@ custom_props = {
         "data": list_of_dicts_prop,
         **default_types,
     },
+    "MantineProvider": {
+        "theme": dict_prop,
+    },
     "MultiSelect": {
         "data": combobox_data_primitive_prop,
         **default_types,
