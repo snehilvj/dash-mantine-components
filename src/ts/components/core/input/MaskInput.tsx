@@ -14,8 +14,8 @@ interface Props
         __BaseInputProps,
         DashBaseProps,
         PersistenceProps {
-    /** Mask pattern. Built-in tokens: `9` digit, `a` letter, `A` uppercase letter, `*` letter or digit, `#` digit or sign. Other characters are literals, `\\` escapes a token character, and `?` marks the remaining slots as optional. Example: `'(999) 999-9999'` */
-    mask: string;
+    /** Mask pattern. A string of built-in tokens or a function that returns a string or an array of strings and RegExp objects. See https://www.dash-mantine-components.com/functions-as-props */
+    mask: string  | Record<string, any>;
     /** Raw (unmasked) value, e.g. `'5551234567'` for mask `'(999) 999-9999'`. Can be set from a callback. */
     value?: string;
     /** (read-only) Value as displayed in the input, e.g. `'(555) 123-4567'` */
