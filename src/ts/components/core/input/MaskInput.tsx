@@ -4,7 +4,7 @@ import { BoxProps } from 'props/box';
 import { DashBaseProps, PersistenceProps } from 'props/dash';
 import { __BaseInputProps } from 'props/input';
 import { StylesApiProps } from 'props/styles';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { getLoadingState, setPersistence } from '../../../utils/dash3';
 import { parseFuncProps } from '../../../utils/prop-functions';
 
@@ -14,8 +14,8 @@ interface Props
         __BaseInputProps,
         DashBaseProps,
         PersistenceProps {
-    /** Mask pattern. Built-in tokens: `9` digit, `a` letter, `A` uppercase letter, `*` letter or digit, `#` digit or sign. Other characters are literals, `\\` escapes a token character, and `?` marks the remaining slots as optional. Example: `'(999) 999-9999'` */
-    mask: string;
+    /** Mask pattern. A string of built-in tokens or a function that returns a string or an array of strings and RegExp objects. See https://www.dash-mantine-components.com/functions-as-props */
+    mask: string  | Record<string, any>;
     /** Raw (unmasked) value, e.g. `'5551234567'` for mask `'(999) 999-9999'`. Can be set from a callback. */
     value?: string;
     /** (read-only) Value as displayed in the input, e.g. `'(555) 123-4567'` */
@@ -74,8 +74,18 @@ const MaskInput = ({
           )
         : undefined;
 
-    const resolvedFuncs = parseFuncProps('MaskInput', others);
+    const resolvedFuncs = parseFuncProps('MaskInput',  { ...others, mask });
+
+    const resolvedMask = resolvedFuncs.mask;
+
+    // Mantine expects a mask value, not a function. This allows regex masks to be defined in JS.
+    const finalMask =
+        typeof resolvedMask === 'function'
+            ? resolvedMask()
+            : resolvedMask;
+
     const resolvedModify = resolvedFuncs.modify;
+
 
     // isMaskComplete(masked, { modify }) internally calls modify("") with an empty
     // raw value, so a dynamic mask that depends on the prefix would never see it.
@@ -83,14 +93,14 @@ const MaskInput = ({
     const checkComplete = (masked: string, raw: string): boolean => {
         const opts = resolvedModify
             ? {
-                  mask: mask ?? '',
+                  mask: finalMask ?? '',
                   tokens: regexTokens,
                   slotChar,
                   separate,
                   modify: () => resolvedModify(raw),
               }
             : {
-                  mask: mask ?? '',
+                  mask: finalMask ?? '',
                   tokens: regexTokens,
                   slotChar,
                   separate,
@@ -148,8 +158,9 @@ const MaskInput = ({
             key={remountKey}
             ref={inputRef}
             {...inputProps}
+            {...resolvedFuncs}
             data-dash-is-loading={getLoadingState(loading_state) || undefined}
-            mask={mask}
+            mask={finalMask}
             tokens={regexTokens}
             slotChar={slotChar}
             separate={separate}
@@ -158,7 +169,6 @@ const MaskInput = ({
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             autoComplete={autoComplete}
-            {...resolvedFuncs}
         />
     );
 };

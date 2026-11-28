@@ -19,7 +19,7 @@ import { path } from 'ramda';
 const funcPropsMap = {
     MantineProvider: ['getStyleNonce', 'getRootElement', 'cssVariablesResolver'],
     Slider: ['label', 'scale'],
-    MaskInput: ['transform', 'modify'],
+    MaskInput: ['transform', 'modify', 'mask'],
     RangeSlider: ['label', 'scale'],
     Select: ['renderOption', 'filter'],
     MultiSelect: ['renderOption', 'filter', 'renderPill'],

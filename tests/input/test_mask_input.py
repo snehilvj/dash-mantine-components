@@ -189,3 +189,47 @@ def test_004mi_mask_input_submit_blur(dash_duo):
 
     assert dash_duo.get_logs() == []
 
+
+def test_005mi_mask_input_regex_array(dash_duo):
+    app = Dash(__name__, assets_folder="../assets")
+
+    app.layout = dmc.MantineProvider(
+        [
+            dmc.MaskInput(
+                id="time",
+                label="Time (HH:MM)",
+                placeholder="__:__",
+                mask={"function": "timeMask"},
+            ),
+            html.Div(id="out"),
+        ]
+    )
+
+    @callback(
+        Output("out", "children"),
+        Input("time", "value"),
+        Input("time", "maskedValue"),
+        Input("time", "complete"),
+    )
+    def show(value, masked, complete):
+        return f"{value}|{masked}|{complete}"
+
+    dash_duo.start_server(app)
+    dash_duo.wait_for_element("#time")
+
+    time_input = dash_duo.find_element("#time")
+
+    # Invalid characters are rejected and the colon is inserted automatically.
+    time_input.send_keys("ab1234")
+    dash_duo.wait_for_text_to_equal("#out", "1234|12:34|True")
+
+    # A valid time remains complete.
+    time_input.send_keys("99")
+    dash_duo.wait_for_text_to_equal("#out", "1234|12:34|True")
+
+    # Deleting a digit makes the mask incomplete.
+    time_input.send_keys(Keys.BACKSPACE)
+    dash_duo.wait_for_text_to_equal("#out", "123|12:3_|False")
+
+    assert dash_duo.get_logs() == []
+
