@@ -10,6 +10,9 @@
 - Added `Schedule` component. [PR 755](https://github.com/snehilvj/dash-mantine-components/pull/755) by @SchutteAndrew
 - Added `MaskInput` component. [PR 763](https://github.com/snehilvj/dash-mantine-components/pull/763) by @budescode
 
+### Added
+- Added support for regex array masks in `MaskInput`, allowing custom input formats such as time (HH:MM) using functions-as-props. [PR 783](https://github.com/snehilvj/dash-mantine-components/pull/783) by @AnnMarieW
+
 ### Changed
 
 - Changed the default `keepMountedMode` to "display-none" for components that support it. Set` keepMountedMode="activity"
