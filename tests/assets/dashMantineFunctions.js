@@ -162,3 +162,11 @@ dmcfuncs.renderYouTubeThumb = function () {
         )
     );
 };
+
+dmcfuncs.timeMask = () => [
+    /[0-2]/,
+    /\d/,
+    ":",
+    /[0-5]/,
+    /\d/,
+];
