@@ -6,7 +6,7 @@ import { __BaseInputProps } from 'props/input';
 import { StylesApiProps } from 'props/styles';
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { getLoadingState, setPersistence } from '../../../utils/dash3';
-import { parseFuncProps, resolveProp } from '../../../utils/prop-functions';
+import { parseFuncProps } from '../../../utils/prop-functions';
 
 interface Props
     extends BoxProps,
